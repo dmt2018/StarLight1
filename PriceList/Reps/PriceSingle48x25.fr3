@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TfrxReport Version="4.6.5" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="2047" PreviewOptions.Zoom="1" PrintOptions.Printer="Default" PrintOptions.PrintOnSheet="0" ReportOptions.CreateDate="38617.6418110648" ReportOptions.Description.Text="" ReportOptions.LastChange="41330.3471743866" ScriptLanguage="PascalScript" ScriptText.Text="begin&#13;&#10;&#13;&#10;end." PropData="044C656674021903546F7003F80008446174617365747301010C3C00000020446174615365743D2266727853656C50726E74507265766965772220446174615365744E616D653D2266727853656C50726E7450726576696577220000095661726961626C657301010C10000000204E616D653D2220557365724361742200010C11000000204E616D653D225072696E744D61726B220000055374796C650100">
+  <TfrxDataPage Name="Data" Height="1000" Left="0" Top="0" Width="1000"/>
+  <TfrxReportPage Name="Page1" PaperWidth="210" PaperHeight="297" PaperSize="9" LeftMargin="7.5" RightMargin="7.5" TopMargin="21" BottomMargin="18.5" ColumnWidth="0" ColumnPositions.Text="" HGuides.Text="" VGuides.Text="">
+    <TfrxMasterData Name="MasterData9" Height="96" Left="0" Top="18.89765" Width="737.00835" Columns="4" ColumnWidth="183.307086614173" ColumnGap="0" DataSet="frxSelPrntPreview" DataSetName="frxSelPrntPreview" RowCount="0">
+      <TfrxMemoView Name="Memo2" Left="0" Top="13.33858268" Width="179.77953" Height="37.79527071" ShowHint="False" DisplayFormat.DecimalSeparator="," Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="[frxSelPrntPreview.&#34;F_NAME_RU&#34;]"/>
+      <TfrxMemoView Name="Memo3" Left="0" Top="73.7007874" Width="181.41744" Height="18.89763535" ShowHint="False" Font.Charset="204" Font.Color="0" Font.Height="-8" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" Text="Оптовая цена&#13;&#10;www.starlight.ru"/>
+      <TfrxMemoView Name="Memo7" Left="0.49598" Top="52.91338339" Width="180.06308" Height="20.78740402" ShowHint="False" Font.Charset="204" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="1" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="[frxSelPrntPreview.&#34;PRICE&#34;] р."/>
+      <TfrxMemoView Name="MemoTitle" Left="0" Top="1.88976377952756" Width="181.41744" Height="11.33858268" ShowHint="False" Font.Charset="204" Font.Color="0" Font.Height="-8" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" Text="www.starlight.ru"/>
+    </TfrxMasterData>
+  </TfrxReportPage>
+</TfrxReport>
