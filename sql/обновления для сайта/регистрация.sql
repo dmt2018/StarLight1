@@ -1,0 +1,36 @@
+ALTER TABLE CLIENTS 
+ add (
+  MARK2 number (1) DEFAULT 0
+ )
+/
+update CLIENTS set MARK2=MARK
+/
+ALTER TABLE CLIENTS 
+ MODIFY (
+ MARK NULL
+ )
+/
+update CLIENTS set MARK=null
+/
+
+
+ALTER TABLE CLIENTS 
+ MODIFY (
+  MARK VARCHAR2 (10) DEFAULT '0,0,0,0,0'
+ )
+/
+COMMENT ON COLUMN CLIENTS.MARK IS 'Признаки для сайта'
+/
+
+update CLIENTS set MARK=rpad(mark2,9,',0,0,0,0')
+/
+
+ALTER TABLE CLIENTS 
+ MODIFY (
+ MARK NOT NULL
+ )
+/
+
+ALTER TABLE CLIENTS drop(MARK2)
+/
+

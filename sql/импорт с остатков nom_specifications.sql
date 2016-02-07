@@ -1,0 +1,16348 @@
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(3759,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8369,49,'2,2 —Ã',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8369,51,'25 —Ã',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6192,49,'29',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6192,51,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6209,49,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6209,51,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8085,53,'500',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8139,63,'17’50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8140,63,'17’40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6306,49,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5760,62,'0,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5760,53,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29150,51,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12201,63,'130',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12201,58,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8723,51,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8723,49,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8749,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8749,49,'29',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25816,51,'31',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26041,50,'4.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26041,52,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29388,70,'ÃËÍÒ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29388,12,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29388,13,'35',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1619,50,'13/6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26200,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26201,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26201,49,'9,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26205,51,'20.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1119,52,'46',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1119,50,'46',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1119,51,'112',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25803,62,'9ı55',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6250,49,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6250,51,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9655,49,'33,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29186,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29186,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29202,12,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29202,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29206,12,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29206,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26528,52,'118',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26528,50,'38',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1502,52,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1502,60,'0,8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1502,61,'2',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1928,49,'1,4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1928,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4751,49,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4751,51,'36',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1708,49,'38',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26059,49,'38ı67ı6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26086,52,'5,08',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26086,62,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(917,49,'32,00',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(917,51,'20,00',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4585,49,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4585,51,'18',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1908,49,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1908,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26522,51,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26522,52,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26522,50,'11',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11086,49,'27,50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11086,51,'31',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11236,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11236,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11240,58,'120',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11240,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8678,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8678,49,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10515,49,'29',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10515,51,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10515,52,'43',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13262,58,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13262,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5721,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5721,58,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8119,63,'38',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8121,63,'38 ÃÃ ÃÃ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8192,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8199,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8199,62,'0.3',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10933,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10602,50,'80',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10602,58,'1000',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11026,49,'27,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11026,51,'27,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8521,66,'150 ÃÀ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10080,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10080,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4689,49,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4689,51,'9',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12316,49,'34',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12316,51,'46',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12354,51,'22',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17178,51,'105',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16701,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9413,52,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9655,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12838,49,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12838,51,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1686,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26060,51,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26060,52,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26060,50,'5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26061,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26089,51,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26089,49,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(910,49,'28,00',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(910,51,'17,50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(920,49,'33,00',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(920,51,'18,50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(938,49,'18,50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(938,51,'40,00',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(951,49,'24,00',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(951,51,'40,50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29173,13,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29185,12,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29185,13,'90',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29195,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29195,13,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29259,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29259,13,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26792,52,'118',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26792,50,'118',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1501,60,'0,7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1501,52,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1501,61,'2',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1505,60,'1,2',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1505,52,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1505,61,'2',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7380,49,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5346,62,'0,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8711,51,'34',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8711,49,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8735,50,'27,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8735,51,'11,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11202,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25806,49,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25812,58,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25812,63,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29173,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2112,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6243,49,'19.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6243,51,'47.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6257,49,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6257,51,'35.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4015,66,'400',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8375,51,'4,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6302,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6301,49,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6295,53,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5756,62,'0,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5756,53,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5757,62,'0,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5757,53,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5785,52,'180',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4673,51,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2217,52,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2217,50,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2217,51,'5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11592,52,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25855,51,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25855,49,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29292,51,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26826,49,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26143,49,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(920,52,'10,00',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(920,50,'10,00',4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(920,51,'10,00',5);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11363,49,'33',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11407,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9379,52,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9414,52,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10535,49,'28',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10535,51,'55',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10543,51,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10550,51,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10550,49,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10553,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11711,49,'29.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11711,51,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12833,49,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12833,51,'38',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11257,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11257,58,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10508,49,'17’53',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9521,66,'400',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13268,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13268,63,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8120,63,'38 ÃÃ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10941,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11020,49,'18,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11020,51,'40,0',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11135,49,'19.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11135,51,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11297,51,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11297,50,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13255,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13255,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10249,62,'0,5 ÃÃ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10249,53,'100 √–¿ÃÃ',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11202,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7380,51,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11062,51,'38',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25673,49,'22,00',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25807,49,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4042,53,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6223,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6223,51,'7.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6231,49,'41',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6231,51,'5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6247,49,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6247,51,'31',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(3755,52,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(3755,50,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(3755,51,'4',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(3769,49,'10,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(3769,51,'30,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6190,49,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6190,51,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6194,49,'31,50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6194,51,'29',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7288,52,'57',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7288,50,'39',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7288,51,'7.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11224,58,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11224,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11232,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11232,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2234,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4691,49,'41',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4691,51,'9,50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4226,53,'500',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11580,52,'145',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11590,52,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12218,63,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12218,58,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29143,51,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29144,49,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8694,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8694,50,'16.50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8694,52,'48',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11205,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11205,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29194,12,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29194,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29210,12,'7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29210,13,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29217,12,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29217,13,'125',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29251,12,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29251,13,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26529,52,'78',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26529,50,'78',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26818,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26818,52,'43',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26818,50,'15',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26054,50,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26054,52,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26054,51,'5.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26063,58,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26063,50,'54',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26084,62,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26084,63,'65',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26088,66,'400',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29144,51,'33',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29145,49,'28',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29145,51,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11081,49,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11081,51,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11082,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11082,51,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11068,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11068,51,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9558,49,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10430,66,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10432,66,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29287,70,'œË‡ÏË‰‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29287,12,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29287,13,'140',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26827,49,'5-6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26207,51,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29143,49,'43',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29391,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29391,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9381,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10271,49,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10271,51,'16',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10536,49,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10536,51,'42',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10537,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10537,52,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10561,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10578,51,'33',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10578,49,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12835,49,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11085,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11085,51,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11108,49,'36',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11108,51,'22',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11113,51,'17.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11113,49,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7332,52,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7332,50,'9',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7332,51,'5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11119,51,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11119,49,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11210,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11210,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8409,49,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6182,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6182,51,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6188,49,'22',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6188,51,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5794,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5813,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5813,58,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4223,53,'500',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4225,53,'500',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1753,49,'1,9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1753,51,'12,3',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29135,51,'40',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2695,53,'500',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11207,58,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11207,63,'150',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(3323,53,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29141,49,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29141,51,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4031,62,'3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4031,61,'1',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4043,53,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4054,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6246,49,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6246,51,'38',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26062,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(955,49,'23,00',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(955,51,'38,00',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2719,61,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(3923,49,'2,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29135,52,'43',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29135,50,'43',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1904,49,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1904,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29297,58,'500',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7333,63,'39',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7335,63,'65',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25949,51,'33',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(889,49,'40,00',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(889,51,'120,00',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1617,50,'24/6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26215,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2505,51,'11',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2505,49,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11376,49,'22,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11376,51,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9415,58,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9418,58,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29297,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10539,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10541,51,'34',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10548,51,'73',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13668,53,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12132,52,'68',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12965,49,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13001,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13019,49,'28',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12881,52,'86',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29203,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29203,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29246,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29246,13,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26811,51,'25/12/10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26811,49,'29/22/14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4426,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4426,58,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1929,49,'1,4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1929,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4763,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4763,51,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7683,58,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7683,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11872,49,'7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11209,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11209,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29350,70,'ÿÚ‡Ï· —ÔË‡Î¸',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13740,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13740,63,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13497,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13497,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26493,51,'90',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26493,52,'37',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26493,50,'37',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18736,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18759,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18759,51,'90',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18050,52,'7.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(3956,52,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2205,52,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2205,50,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2205,51,'5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8394,49,'7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8394,51,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8687,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8687,49,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9769,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13269,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13269,63,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29309,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5169,53,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5754,62,'0,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5754,53,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5732,50,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5732,58,'9',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11192,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11192,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11193,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4005,66,'400',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4013,66,'400',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4672,49,'28',5);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8137,63,'17’40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29299,51,'37',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11228,58,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11228,63,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11229,58,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5759,62,'0,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5759,53,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4672,51,'17,5',4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4672,49,'28',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4222,53,'500',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1738,58,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1752,63,'17’50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1752,61,'1',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1767,52,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1767,50,'11',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1767,51,'8',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29136,52,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29136,50,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1464,50,'1.9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1464,58,'91.44',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25670,51,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25670,49,'29',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5344,62,'0,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5347,62,'0,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8693,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8693,50,'16.50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8693,52,'38',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8710,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8710,49,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8739,50,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8739,51,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29140,51,'26',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25678,51,'17.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25678,49,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6240,49,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6240,51,'40.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11074,49,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11074,51,'41',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11078,49,'22',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11078,51,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11384,49,'64',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1735,58,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26049,49,'38',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26049,51,'3',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(919,49,'40,00',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(919,51,'25,00',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29262,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29262,13,'90',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26527,52,'118',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26527,50,'38',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26791,52,'118',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26791,50,'78',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1504,60,'1,0',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1504,52,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1504,61,'2',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29136,51,'20',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1930,49,'1,4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4732,49,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4732,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7658,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7680,58,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7680,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7682,58,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7682,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11118,49,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11118,51,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12143,51,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8428,49,'40’10 —Ã',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12611,51,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18757,49,'33',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18757,51,'110',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18762,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18762,51,'90',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29149,51,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4466,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4466,51,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4089,49,'33-36’27-23,5’17,5-8,5-12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1370,52,'41',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1370,50,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1370,51,'103',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29140,52,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29165,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29165,13,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11229,63,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11234,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11234,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11260,50,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11260,58,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11261,50,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11261,58,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9763,52,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9763,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13263,58,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13263,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11284,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11284,58,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8128,63,'52 ÃÃ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8178,58,'10 Ã',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8202,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8202,62,'0.3',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10940,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10497,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4206,61,'1,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8324,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8324,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5333,49,'6-8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8713,51,'36',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8713,49,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8747,51,'36',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8747,49,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11208,58,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11208,63,'150',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11064,51,'34',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11064,49,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11065,51,'38',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11065,49,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11066,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11066,51,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11069,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11069,51,'33',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9455,52,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29146,51,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29142,49,'28',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25809,49,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25813,52,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4028,58,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4061,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2130,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6221,49,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6221,51,'11.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6248,49,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6248,51,'36',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9653,49,'27,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4016,66,'400',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29298,49,'28.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4906,52,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4906,50,'16',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4906,51,'23.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6304,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6305,49,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6471,51,'40/50/60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25813,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29142,51,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26206,51,'25.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29394,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29394,13,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29396,12,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29396,13,'170',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26046,52,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26046,50,'11',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26046,51,'9',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26057,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(3908,49,'2,5’4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11084,49,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11084,51,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11101,49,'31,50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11101,51,'29',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7153,52,'75',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10505,49,'20’34,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10507,49,'15’45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10516,51,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10516,52,'28',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10516,49,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5168,53,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5171,53,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11214,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11214,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8200,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8200,62,'0.3',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29302,51,'33,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10918,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11028,49,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11028,51,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11560,52,'500',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10117,49,'14’7’7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11588,52,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11591,52,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13744,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13744,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12807,49,'16',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12807,51,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11045,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11045,51,'31',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11050,51,'36',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11050,49,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11051,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11051,49,'29',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13254,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13254,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11167,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11167,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7353,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11604,51,'76',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11626,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10160,49,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10160,51,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10427,66,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10429,66,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10433,66,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12399,49,'30,50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12399,51,'80,00',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10082,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10082,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10093,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10093,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10095,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10095,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29147,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25808,49,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2985,52,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2985,50,'3,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4049,63,'2',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4049,58,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6242,49,'18.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6242,51,'34',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29197,12,'7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29197,13,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29252,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29252,13,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29260,12,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29260,13,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26805,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2520,49,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2520,51,'36,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1506,60,'1,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1506,52,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1506,61,'2',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1937,49,'1,4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1937,51,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4011,66,'400',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7289,52,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7289,50,'42',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7289,50,'7.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9760,49,'40X17/60,5X21/80X27H30/35/40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9586,52,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9586,50,'16',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9586,51,'55',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11225,58,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11225,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11233,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11233,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11237,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11237,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11259,50,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11259,58,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5758,62,'0,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5758,53,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5761,52,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2679,53,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5319,62,'4-5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5322,62,'4-5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8522,66,'150 ÃÀ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29279,12,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29279,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26139,49,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1622,52,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2495,49,'26,00',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2495,51,'19,00',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29390,12,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29390,13,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2506,51,'11,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2506,49,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6245,49,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6245,51,'34',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11375,49,'18,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11375,51,'29',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9375,52,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9404,52,'73',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10885,58,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10527,49,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10545,51,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10549,51,'73',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10556,51,'95',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11712,49,'36',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11712,51,'32,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26048,49,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26055,52,'34',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26055,50,'22',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26055,51,'6.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26064,58,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26064,50,'54',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26833,51,'85',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4586,49,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4586,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11083,49,'27,50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11083,51,'31',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11100,49,'29,50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11100,51,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25672,51,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25672,49,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5842,58,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6488,51,'15/13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6488,49,'20/26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9764,52,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9764,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13271,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13271,63,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13272,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13272,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29308,51,'39',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29308,49,'47',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29300,51,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29300,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11213,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11213,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11215,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11215,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8161,62,'0,5 ÃÃ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8161,53,'100 √–¿ÃÃ',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10917,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10921,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1500,61,'2',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25671,51,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25671,49,'22',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7296,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7296,49,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8084,53,'500',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6303,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9805,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9805,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9829,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11238,58,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11238,63,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11262,50,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11262,58,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10161,49,'31,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10161,51,'29',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5755,62,'0,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5755,53,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5816,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5816,58,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29151,49,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29151,51,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2026,58,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2026,63,'75',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(3895,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(3895,58,'75',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1751,63,'17’30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1774,52,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1774,50,'11',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1774,51,'8',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4242,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4242,58,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25679,50,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25679,51,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4039,53,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4040,53,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6219,49,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6219,51,'11.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6220,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6220,51,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29175,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29175,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26526,52,'78',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26526,50,'118',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26803,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2521,49,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2521,51,'36,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1500,60,'0,6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1500,52,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1503,60,'0,9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1503,52,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1503,61,'2',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29137,50,'43',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29137,51,'40',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29138,52,'28',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29138,50,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29138,51,'26',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29139,52,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1925,49,'1,4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1925,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1927,49,'1,4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1927,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2142,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26056,51,'58',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26056,52,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26056,60,'5,5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26058,58,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26083,62,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26083,63,'65',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26081,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26087,62,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26087,52,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(912,49,'42,00',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(912,51,'21,00',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(3907,49,'4,5’5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(3924,49,'3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1909,49,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1909,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11091,49,'24.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11091,51,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11110,49,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11110,51,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11111,49,'36',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9522,66,'400',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9765,52,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9765,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13260,58,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13260,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13261,58,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13261,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13264,58,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13264,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13267,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13267,63,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13270,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13270,63,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5166,53,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11219,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11219,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8122,63,'52',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8123,63,'52 ÃÃ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10916,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10945,58,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10605,58,'1000',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10605,50,'110',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12533,49,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14034,51,'57',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13901,49,'22.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13901,51,'11.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12618,51,'19.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12618,49,'35.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12956,51,'54',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14072,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14072,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12571,50,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12571,58,'9',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12914,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12914,50,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13083,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11054,51,'36',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11054,49,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29306,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13257,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13257,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11149,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11149,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11151,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11151,63,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29312,51,'39',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29312,49,'39',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7348,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12438,51,'22.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12438,50,'18',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12438,60,'25',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12641,51,'110',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12641,49,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17228,52,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29150,49,'43',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(3957,51,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5840,58,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5855,62,'0,56',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10090,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10090,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10097,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10097,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10099,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10099,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10100,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10100,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29313,51,'52',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29313,49,'53/43',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10437,51,'62',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10437,50,'44',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11917,51,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11917,49,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11917,50,'14',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11185,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11185,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11186,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11186,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11188,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11188,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12301,58,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12019,50,'40 —Ã',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12019,58,'9 Ã',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12613,49,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12613,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10843,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10843,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9535,49,'34,5’34,5’1,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26711,52,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26711,50,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26726,51,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26726,49,'36',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26735,49,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26736,49,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26736,51,'3',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27388,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27388,49,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25839,51,'14,7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25839,49,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13981,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13981,49,'9',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13962,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13962,58,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16609,52,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17466,49,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17466,51,'11',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18633,49,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18669,49,NULL,1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18669,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18669,51,'40',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18669,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18670,49,NULL,1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18670,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18670,51,'40',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18670,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26920,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26920,49,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18015,49,'23.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18015,51,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18022,49,'25.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18022,51,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21039,51,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21068,49,'70/10/30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27274,51,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27274,49,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27279,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27279,49,'18',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(19506,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12518,51,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12518,60,'7',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11062,49,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9457,52,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9717,49,'6-9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9719,49,'6-9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12398,49,'29,50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12398,51,'60,00',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12400,49,'32,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12400,51,'120',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12407,49,'25,00',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12407,51,'31,00',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10084,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10084,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10086,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10086,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10098,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10098,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4690,49,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4690,51,'9',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17177,51,'105',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17198,51,'110',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17205,51,'78',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16690,63,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11099,49,'24.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11099,51,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12142,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8430,49,'40’10 —Ã —Ã',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11638,49,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11639,51,'80',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11645,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13411,58,'120',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13411,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13997,51,'102',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14274,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14274,49,'6.8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13529,52,'62',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1946,49,'1,4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1946,51,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4673,49,'42',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5844,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5986,52,'31',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5986,50,'16',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9328,52,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9328,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9533,49,'34,5’34,5’1,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26728,51,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26733,52,'44',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13985,51,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13985,49,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13953,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13953,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13961,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13961,58,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13972,49,'34,5’34,5’1,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8414,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8414,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16686,63,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16686,58,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16689,58,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16690,58,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16689,63,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17131,51,'3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17131,50,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17131,52,'20',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5986,51,'18',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26923,51,'14.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26923,52,'41.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26923,50,'18.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18014,49,'23.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18014,51,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18020,49,'25.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18020,51,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21063,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27298,51,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27298,49,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25541,51,'32x19x35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25543,51,'53ı85',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25558,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27155,52,'2,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27162,58,'500',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26738,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26774,51,'90',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12010,49,'10,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12010,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10119,49,'10’7’7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12496,61,'3,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27045,51,'63',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27057,52,'90',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18529,49,NULL,1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18529,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18529,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18529,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18532,49,NULL,1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18532,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18532,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18532,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26294,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12787,66,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17251,52,'75',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17252,52,'75',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18291,49,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14164,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14164,49,'21.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14118,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16956,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11964,51,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13490,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13490,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13491,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13491,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25673,51,'17,00',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5839,58,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11621,52,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11621,50,'18',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10251,62,'0,5 ÃÃ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10251,53,'100 √–¿ÃÃ',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29310,49,'44',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29310,51,'37',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11150,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11150,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17209,51,'78',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17210,49,'7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17212,52,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12203,58,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10070,49,'12’4,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10076,49,'8’7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10104,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10104,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10105,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10105,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10106,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10106,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12203,63,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16899,51,'75',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12303,58,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12303,63,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12614,49,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12614,51,'34',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5304,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12318,49,'37',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12318,51,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17184,51,'110',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17196,51,'92',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16695,58,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16695,63,'55',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16696,58,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16696,63,'55',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16700,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16700,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16725,49,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16733,49,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16739,52,'145 —Ã',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13294,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13294,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13299,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13299,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13301,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13301,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10506,49,'23’39',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10522,51,'44',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10522,50,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13265,58,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13265,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5148,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5148,58,'120',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8162,62,'0,5 ÃÃ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8162,53,'100 √–¿ÃÃ',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10934,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10939,58,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11029,49,'27,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11029,51,'27,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12515,49,'2,2',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12515,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12525,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12525,49,'2,2',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11559,51,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11559,49,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11482,51,'22',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11482,49,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12564,52,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12564,51,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12564,60,'4',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26981,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26981,49,'2.03',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27058,51,'85',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10861,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26730,49,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25933,51,'110',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13958,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13958,58,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13968,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13968,58,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8419,49,'7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8419,51,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16684,63,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16684,58,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16687,63,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16687,58,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17158,52,'85',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17324,51,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17324,49,'29',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16606,52,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17453,52,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17453,49,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17460,49,'15.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17460,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17465,49,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17465,51,'8.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18626,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11193,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11217,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11217,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11218,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11218,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11220,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8176,58,'10 Ã',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10914,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10950,58,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11021,49,'20,00',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11021,51,'46,00',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29303,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29303,49,'10.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11038,49,'22,00',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12511,49,'32,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12511,51,'120',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12529,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12529,49,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12081,52,'92',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13746,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13746,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11038,51,'35,50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13253,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13253,63,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29309,49,'48x38',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10257,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10257,62,'0.3',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11152,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11152,63,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11166,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11166,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11220,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12227,63,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12227,58,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12229,63,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12229,58,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12230,63,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12230,58,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11439,53,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12436,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11072,49,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11072,51,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10397,52,'31',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10397,51,'70',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10397,50,'31',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10067,49,'12’4,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10103,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10103,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10108,49,'10’10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5062,49,'29',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5062,51,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5135,52,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5135,50,'12,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5135,51,'10,5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12317,49,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12317,51,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12329,49,'7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12329,51,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17166,51,'60',4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17204,51,'77',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16707,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16707,58,'300',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5843,58,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5845,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4054,53,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7154,52,'90',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2445,49,'4,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2445,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18667,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18667,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18667,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18667,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18671,49,NULL,1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18671,50,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18671,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18671,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26938,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26938,49,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17994,51,'80',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17994,49,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17997,49,'60,00',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17997,51,'80,00',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18011,49,'23.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18011,51,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18012,49,'23.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18012,51,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(19960,52,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21038,49,'40/30/23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(19507,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25538,51,'12x10x27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27125,49,'54ı44ı12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27157,49,'19’20’4,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26614,51,'6,3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26614,49,'7,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26614,50,'10,5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10127,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10127,49,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11472,51,'51',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11480,49,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11480,51,'33',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11669,51,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26984,51,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26984,49,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27032,51,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10497,49,'16',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10604,58,'1000',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10604,50,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11030,49,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11030,51,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11032,51,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11032,49,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11035,49,'22,00',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11035,51,'35,50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12412,49,'32,00',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12412,51,'45,50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12523,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12523,49,'2,2',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12524,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12524,49,'2,2',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12216,63,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12216,58,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13745,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13745,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29329,70,'œÎÓ¯Í‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29329,12,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29329,13,'35',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12258,63,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12258,58,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11040,49,'22,00',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11040,51,'35,50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11046,51,'36',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11046,49,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11049,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11049,51,'31',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11161,63,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11161,58,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11164,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11164,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2189,61,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11222,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11222,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12228,63,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11059,51,'38',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11059,49,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11067,49,'22',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11067,51,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11073,49,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11073,51,'32,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9456,52,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9718,49,'6-9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1930,51,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10426,66,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10431,66,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10058,49,'30’2,2',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25947,51,'80',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26040,62,'12’250',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26040,61,'2',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26045,49,'7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29140,50,'28',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1791,53,'500',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26202,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26202,49,'13,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26203,51,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26203,49,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1274,53,'500',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9347,49,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9394,49,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9410,52,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9417,58,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10538,51,'7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10571,51,'12,50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10572,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12837,49,'22',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12837,51,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12840,49,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12840,51,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13655,49,'7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13655,51,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13665,53,'250',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13902,49,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12852,51,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12852,49,'19,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14078,49,'14’7’7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14094,49,'54X35X10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29299,49,'33',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4683,49,'22',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4683,51,'35,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12337,51,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12338,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17077,52,'40,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17167,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17175,51,'105',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12582,66,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5270,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5270,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16692,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16692,63,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16699,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16699,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16705,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16705,58,'120',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16706,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16706,58,'120',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16738,49,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10083,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10083,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10096,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10102,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10102,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6471,49,'20/25/30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17075,52,'40,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17170,51,'69',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11419,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11419,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16693,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16693,63,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16703,52,'55',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16703,50,'22',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16703,51,'9.3',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16721,51,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16721,50,'18',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16718,51,'22X11X13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16737,49,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13325,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9653,51,'24,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11408,49,'33',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11408,51,'33',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9376,52,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9403,52,'73',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9411,52,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9412,52,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9424,52,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10558,51,'7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10559,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10282,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12834,49,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12834,51,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12841,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12841,51,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13677,51,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13677,52,'31',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13677,50,'31',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13900,49,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13900,51,'9.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12621,51,'19,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12621,49,'33,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12622,51,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12622,49,'42',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12963,49,'38',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29220,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29220,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29241,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29241,13,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29244,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29244,13,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29255,12,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29255,13,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4592,49,'28',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4592,51,'33',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4765,49,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7681,58,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7681,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4765,51,'11',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29298,51,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13094,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13120,52,'120',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14014,53,'250',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13489,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13489,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17280,52,'28',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26919,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26919,50,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26921,51,'16.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26921,52,'46',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26921,50,'13',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18007,49,'18.2',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18007,51,'24.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18013,49,'23.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18013,51,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18018,49,'25.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18018,51,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18019,49,'25.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18019,51,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21046,49,'36',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21046,51,'7.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25537,51,'18ı13ı33',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25561,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25561,63,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27158,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27163,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18469,49,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18469,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18470,49,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18470,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18472,49,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18472,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18474,49,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18474,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18486,49,'1,4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18486,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18503,49,'1,4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18503,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13325,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11487,49,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10439,51,'80',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10439,50,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27062,51,'94',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18534,49,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18534,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18534,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18534,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25255,51,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11019,51,'37,0',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11019,49,'17.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10603,58,'1000',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10603,50,'90',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11546,49,'19,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11546,51,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12517,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12517,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12527,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11295,49,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11295,51,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10234,63,'17’30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11154,58,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11154,63,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11163,63,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11163,58,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7533,50,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13465,49,'54X46X12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11061,51,'34',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11061,49,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11063,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11063,49,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29307,51,'42',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9458,52,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10060,49,'30’2,2',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10064,49,'30’2,2',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10081,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10081,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10088,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10088,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5060,49,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5060,51,'18.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6484,52,'16',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6484,49,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17112,51,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17112,50,'18',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17112,52,'6,5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17172,51,'69',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17182,51,'110',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12583,66,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11528,49,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11528,51,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11753,52,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10293,51,'4,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29307,49,'41x32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12842,49,'27,50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12842,51,'31',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13661,49,'7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13661,51,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13669,50,'32X32X28',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13899,49,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13899,51,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13538,51,'80',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14056,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14056,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14063,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14063,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14065,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14065,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14096,49,'54X35X10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12569,50,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12569,58,'9',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27395,51,'23.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27395,50,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27395,60,'12',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29383,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(20983,51,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(20985,51,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12146,51,'31',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11637,49,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13742,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13742,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14010,53,'250',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14012,53,'250',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14019,49,'28',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14019,51,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13774,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13277,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13277,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13289,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13289,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18754,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18754,51,'90',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18763,49,'33',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18763,51,'110',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27081,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27081,50,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18087,49,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2446,49,'5,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2446,51,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26922,51,'14.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26922,52,'41.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26922,50,'18.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26937,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26937,49,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27287,51,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27287,49,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27292,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27292,49,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25535,51,'17ı12ı23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25563,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27137,51,'52',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27137,49,'22',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14034,49,'33',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16591,49,'9 —Ã —Ã —Ã',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12034,63,'39',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12273,63,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12273,58,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11047,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11047,49,'29',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12798,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12798,49,'22,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10248,62,'0,5 ÃÃ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10248,53,'100 √–¿ÃÃ',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29311,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29311,49,'42',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11147,58,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11156,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11147,63,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11156,63,'06',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11162,63,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11162,58,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11169,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11169,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7559,61,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7561,49,'93',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7561,51,'125',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6828,58,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6828,63,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9585,52,'22',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9585,50,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9585,51,'45',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7385,49,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7385,51,'44',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11058,51,'34',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11058,49,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11060,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11060,49,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9716,49,'6-9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10396,52,'55',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10396,50,'41',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10396,51,'41',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29327,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12073,52,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12137,52,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25814,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25814,63,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25822,51,'39',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25822,49,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26039,53,'2 √',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26044,49,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29139,50,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29139,51,'33',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29293,51,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29137,52,'43',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1785,53,'500',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26138,49,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26156,51,'25',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26204,51,'14.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26204,49,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26209,49,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1276,53,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29395,12,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29395,13,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29399,12,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29399,13,'75',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2500,49,'40,00',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(2500,51,'20,50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9416,58,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10276,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10887,58,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10913,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10533,49,'38',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10533,51,'41',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10540,51,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10547,51,'58',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11714,51,'33’12’10,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11750,52,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11766,52,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29152,49,'43',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29152,51,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13666,53,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11111,51,'22',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11211,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11211,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8405,49,'8’12’12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13413,58,'120',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13413,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14020,49,'28',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14020,51,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18222,49,'35.7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26492,51,'65',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26492,52,'37',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26492,50,'37',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26501,51,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26501,49,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18758,49,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18758,51,'70',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26962,49,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26986,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26990,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4686,49,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(4686,51,'40,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29327,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17074,52,'66',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17180,51,'105',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17181,51,'110',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12518,50,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12526,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12526,49,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12640,53,'500',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11489,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27025,51,'39',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27025,49,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24382,63,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25256,49,'40X20X45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26297,51,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25319,49,'45X17X7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25319,49,'52X22X9',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18876,51,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16701,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16731,49,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16749,52,'155',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13302,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13302,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13339,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13339,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14041,49,'2,2',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14041,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14048,49,'1,4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14048,51,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14049,49,'1,4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14049,51,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14145,49,'26.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14145,51,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17393,51,'62',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17434,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13712,49,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13712,51,'24.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13941,52,'97',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28813,51,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27544,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27588,49,'48ı63ı15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28226,52,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28226,49,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28311,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28311,53,'150',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28322,51,'10-15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28322,53,'160',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26452,52,'47,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26465,51,'81',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26630,51,'117',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26839,51,'33',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27837,51,'46',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27842,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27846,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27849,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27854,58,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27854,63,'48',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27864,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27864,63,'48',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27876,58,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18633,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18633,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18633,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25966,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25966,58,'500',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25967,51,'80',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25967,58,'300',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25974,49,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25975,51,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26001,52,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26002,52,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26323,51,'19,00',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26323,49,'26,00',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26915,51,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26915,49,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26915,50,'51',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26748,51,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25637,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25637,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25638,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25734,49,'47',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25734,60,'5,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25736,51,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25736,52,'48',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27334,51,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27334,52,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27334,50,'27',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27335,51,'23.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27335,52,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27335,50,'12',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27338,51,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27338,52,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27338,50,'27',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27444,49,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27449,52,'28',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27449,50,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27449,51,'15',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27450,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27450,52,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27450,50,'15',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25621,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25621,63,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25682,50,'38',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25682,51,'70',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23902,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23902,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26875,51,'16.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26875,52,'46',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26875,50,'13',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13182,50,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13182,52,'61',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13182,51,'38,5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26339,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26339,49,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16627,63,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16627,58,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16889,52,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16889,63,'2',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11907,51,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11183,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11183,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11191,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11191,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11412,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11412,52,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12362,51,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12610,49,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12610,51,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16251,51,'22',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16251,52,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16251,50,'25',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16666,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16666,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13914,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13914,49,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16781,51,'85 —Ã',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16785,52,'67 —Ã',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17027,51,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17027,49,'48',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16698,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16698,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16702,50,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16702,52,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16704,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16704,58,'120',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16708,58,'120',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16708,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16724,49,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16729,49,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16730,49,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16751,52,'135',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16752,52,'135 —Ã',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13345,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13345,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14133,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14133,49,'22',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17381,51,'82',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17430,49,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17430,51,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17526,52,'11.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17561,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11469,51,'33',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13883,49,'52’52’69',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16964,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17092,51,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17092,49,'28,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17098,49,'32,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17098,51,'120',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17128,51,'5,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17128,50,'7,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17128,52,'14',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27565,52,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27572,49,'60ı60ı3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12123,49,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12620,51,'17,50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12620,49,'28,00',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14055,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14061,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14061,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14062,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14062,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14079,49,'10’7’7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13087,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13088,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27391,51,'58',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27391,49,'31',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21008,51,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13348,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13348,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13370,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13370,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14246,52,'75',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14255,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17314,49,'22,50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17314,51,'21,50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26477,49,'38',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26477,51,'3',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26485,58,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26485,50,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17154,52,'85',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25971,49,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25978,51,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26003,49,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26317,51,'120',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26317,49,'32,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26916,51,'90',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26916,49,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26916,50,'51',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26685,51,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26685,49,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26741,52,'75',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(19891,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18626,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18626,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18626,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7698,53,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26925,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26925,49,'2.03',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17996,49,'36,00',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17996,51,'100,00',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21049,49,'16',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21049,51,'11',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21057,49,'20/39',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(19505,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25536,51,'9ı9ı10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27123,49,'54ı44ı12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27160,49,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26772,51,'90',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26772,49,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18506,49,'1,4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18506,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14220,49,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17508,49,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17508,52,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17511,52,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17513,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27755,51,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17230,51,'28',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13646,49,'7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13646,51,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18263,49,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16912,49,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16933,52,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18695,49,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18695,51,'11/42',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27085,51,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27085,49,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18553,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18553,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18574,49,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18574,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18574,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18574,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24437,49,'38.5/8/7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24446,51,'35.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24446,49,'37',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24460,49,'24X12X11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24461,49,'24X12X27.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18947,52,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18948,52,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5304,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16249,53,'60 √–¿ÃÃ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16252,51,'22 —Ã',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16252,52,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16252,50,'25 —Ã',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16273,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16653,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16653,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16652,58,'20',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16719,49,'22’11’13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13907,49,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13907,51,'53',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16652,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16667,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16667,63,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16802,51,'42',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18742,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18738,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28396,51,'20,32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28438,52,'16',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28770,69,'12,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28771,69,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29412,12,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29412,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29416,70,'œË‡ÏË‰‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29416,12,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27810,62,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27810,58,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27811,62,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27811,58,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27814,62,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27814,58,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27826,52,'58',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27826,63,'103',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28080,51,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28080,52,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27932,49,'17.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27932,51,'32.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27937,51,'22',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28151,58,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28151,50,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27878,58,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27878,63,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27880,58,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27880,63,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13344,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13344,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13978,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14144,49,'22',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14144,51,'33',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14151,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14151,49,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18768,51,'14X18X22',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18771,51,'14X18X22',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27032,49,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27053,52,'75',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27054,52,'90',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18552,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18552,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18552,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18552,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25251,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25254,49,'22',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26281,52,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26281,50,'18',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26282,52,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26282,50,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26286,51,'80',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26286,58,'120',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26296,51,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18873,49,'50X30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18892,51,'16',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18026,49,'28.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18026,51,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18030,49,'28.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18030,51,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18035,49,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18035,51,'23,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18040,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18040,52,'36.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9537,49,'34,5’34,5’1,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6276,49,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6276,51,'22',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25953,51,'91',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13986,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13966,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13966,58,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8416,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8416,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8417,49,'7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8417,51,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16679,63,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16679,58,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16681,63,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16681,58,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17134,51,'3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17134,50,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17134,52,'20',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17157,52,'85',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17322,51,'9,50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17322,50,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16608,52,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17467,49,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17467,51,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25977,51,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(19907,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25642,51,'33',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25665,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25934,51,'110',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25727,49,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25727,51,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16770,52,'76',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14047,49,'1,4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14047,51,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18770,51,'14X18X22',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18770,49,'37X47X57',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17388,51,'16',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17426,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17426,51,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17428,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13864,49,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13865,49,'28',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13880,49,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13880,51,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16959,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16961,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16962,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17090,51,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17090,49,'28,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17121,51,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17121,50,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17121,52,'26',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28719,52,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28719,50,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28719,51,'18',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27540,51,'96',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28317,51,'55',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28320,49,'8-10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26446,52,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26463,52,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26464,52,'110',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27793,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27793,49,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27831,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23866,63,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26355,51,'84',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26355,49,'36',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27448,49,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27451,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27451,52,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27451,50,'15',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25630,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25630,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25713,49,'16',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27170,63,'39',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27179,62,'65’6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25919,52,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25922,52,'127',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10096,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10101,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10101,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10436,51,'62',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10436,50,'44',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12202,63,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12202,58,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11179,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11179,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11189,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11189,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12846,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12846,49,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11416,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11416,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12370,49,'7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12370,51,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12381,51,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12381,49,'28,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29349,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29349,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12611,49,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16664,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5841,58,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1920,49,'1,4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(1920,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29378,12,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29378,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18016,49,'23.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18016,51,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18017,49,'25.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18017,51,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21048,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21048,51,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21051,49,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21051,51,'11',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25562,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25562,63,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12083,52,'92',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10122,49,'10’7’7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11666,51,'110',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27046,51,'63',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27052,52,'75',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18530,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18530,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18530,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18530,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18535,49,NULL,1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18535,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18535,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18535,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25207,49,'9/4.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25252,49,'28',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26284,52,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26284,50,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25320,49,'23X12X18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25320,49,'19X7X15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25321,49,'25X25X10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18846,49,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18864,51,'7.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18023,49,'25.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18023,51,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18031,49,'28.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18031,51,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18032,49,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7687,66,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10859,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26732,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17562,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25684,51,'29',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25684,50,'11',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25685,51,'29',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25685,52,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25685,50,'11',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13955,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13955,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13960,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13960,58,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13969,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13969,58,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8413,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8413,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8415,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8415,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16685,63,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16685,58,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17132,51,'3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17132,50,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17132,52,'20',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17142,51,'3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17142,50,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17142,52,'15',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17155,52,'85',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17462,49,'8.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17462,51,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18624,49,NULL,1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18624,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18624,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18624,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29381,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25982,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26004,49,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13328,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13328,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13338,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13338,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26307,51,'15+19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18681,49,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18681,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18681,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18681,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18029,49,'28.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18029,51,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18038,49,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10844,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10844,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9531,49,'34,5’34,5’1,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9534,49,'34,5’34,5’1,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26727,51,'125',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26727,49,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26734,52,'66',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13967,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13967,58,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8422,49,'7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8422,51,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17153,51,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17153,50,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17153,52,'17',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17156,52,'85',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13705,49,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17325,51,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17325,49,'29',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17455,52,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17455,49,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17456,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17456,51,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25970,49,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25972,49,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25983,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25998,51,'10.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26318,51,'80,00',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26318,49,'30,50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26324,51,'19,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26324,49,'33,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13976,51,'12,50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14046,49,'2,2',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14046,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14132,51,'29',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14132,49,'28.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18339,49,'28/20/35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17398,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17437,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17437,51,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17441,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17103,49,'29,50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17103,51,'60,00',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27563,52,'78',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27564,52,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27571,49,'24ı80ı90',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27584,49,'120ı60ı4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27589,49,'80ı120',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27593,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28312,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28312,53,'200',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26447,52,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26457,52,'68',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26459,52,'96',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23792,49,'12.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12443,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12443,50,'9',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12443,60,'38',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18286,49,'9.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14162,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14162,49,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14117,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16910,49,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16931,52,'78',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16942,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18510,49,'1,4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18510,51,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18511,49,'1,4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18511,51,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18696,49,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18696,51,'14/53',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18705,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27606,49,'58',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27606,51,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11560,50,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11560,51,'2',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11908,51,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12845,51,'42',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12845,49,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11411,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11411,52,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12378,49,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12378,51,'120',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12894,51,'46',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12894,49,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16655,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16655,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16662,58,'20',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16674,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16674,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16673,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16673,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16625,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16662,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7720,51,'57',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26771,51,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26771,49,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18460,52,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18482,49,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18482,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14225,49,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12527,49,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11486,49,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10440,51,'110',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10440,50,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26985,51,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26985,49,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27055,52,'90',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27056,52,'90',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27061,52,'47',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18533,49,NULL,1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18533,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18533,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18533,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21079,49,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21079,51,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26279,52,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26279,50,'18',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26280,52,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26280,50,'18',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26308,51,'18+25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18844,49,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18037,49,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18037,51,'23,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(9536,49,'34,5’34,5’1,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6277,49,'16.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6277,51,'32.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6279,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6279,51,'33',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26731,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27385,51,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27385,52,'31,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27385,50,'13,5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27387,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27387,49,'33',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13944,52,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13964,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13964,58,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17133,51,'3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17133,50,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17133,52,'20',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17135,51,'3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17135,50,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17135,52,'20',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17137,51,'3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17137,50,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17137,52,'15',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17140,51,'3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17140,50,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17140,52,'15',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17143,52,'75',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16709,58,'120',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16709,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13296,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13296,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13297,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13297,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13336,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13336,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17391,51,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17432,49,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17435,49,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13878,49,'38',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13878,51,'38',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13881,49,'55',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13881,51,'39',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16960,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16986,51,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17129,51,'5,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17129,50,'7,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28810,51,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27537,51,'88',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27566,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27574,49,'35ı70ı3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27577,49,'23ı23ı4,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28306,51,'38.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28308,51,'48',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28309,51,'47',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28318,53,'700',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10362,51,'38,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10362,49,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11902,52,'53',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11902,50,'33',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11902,51,'2',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11906,51,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11172,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11172,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11180,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11180,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11187,58,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11187,63,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12612,49,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12612,51,'34',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12892,51,'52',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12892,49,'34',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16250,49,'38’38’33',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16647,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16647,63,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16668,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17197,51,'105',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12584,66,'750',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11465,52,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5265,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5265,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16728,49,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7838,53,'500',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25927,52,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25927,50,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13945,52,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13950,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13950,58,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13965,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13965,58,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8425,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8425,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8420,49,'7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8420,51,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16680,63,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16680,58,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17165,52,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18621,49,NULL,1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18621,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18621,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18621,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18638,49,NULL,1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7279,49,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26918,51,'65',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26918,49,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26918,50,'51',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26926,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26926,49,'2.03',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18000,49,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18000,51,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18021,49,'25.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18021,51,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21047,49,'44',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21047,51,'10.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21061,49,'25/19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27283,51,'28',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21077,49,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27283,49,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27291,51,'29',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27291,49,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27297,51,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27297,49,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27159,62,'82',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12015,49,'8,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12015,51,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10114,49,'14’7’7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11471,51,'51',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11473,49,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11483,51,'31',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11488,49,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27037,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27037,49,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25330,49,'9/4.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25206,49,'4/3.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24424,49,'37',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24424,51,'35.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24425,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24425,51,'39',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21077,51,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18896,51,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18025,49,'28.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18025,51,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18027,49,'28.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18027,51,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18041,52,'46',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18041,51,'16.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18042,49,'23.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18042,51,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12246,63,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12246,58,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11628,49,'33',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13621,49,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14116,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6895,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6895,63,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16957,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27084,51,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27084,49,'14.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13307,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13307,63,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13326,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13326,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14154,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14154,49,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17389,51,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17427,49,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17559,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17560,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13706,49,'11.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13706,51,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13857,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13857,51,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13879,49,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13879,51,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17093,51,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17093,49,'28,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17095,51,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17095,49,'28,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28812,51,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27532,51,'132',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27533,51,'132',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27167,58,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27167,50,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27171,63,'38 ÃÃ ÃÃ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18466,49,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18466,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18493,49,'1,4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18493,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18501,49,'1,4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18501,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14219,49,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14233,49,'29',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14233,51,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18514,49,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18514,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18514,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18514,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18516,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18516,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18516,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18516,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18517,49,NULL,1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18517,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18517,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18517,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27788,51,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27788,49,'22',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26887,51,'16',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26887,52,'52',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26887,50,'19.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26890,51,'16',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26890,52,'52',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26890,50,'19.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28228,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28228,52,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28228,50,'75',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28532,51,'33',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28537,51,'80',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26705,51,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26705,49,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27150,51,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27259,51,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27259,49,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25795,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25795,63,'0.2',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25797,53,'500',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25797,63,'0.2',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13939,52,'65',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14106,49,'40X40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14294,52,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16940,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13173,50,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13173,52,'61',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13173,51,'38,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26333,51,'16',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26333,49,'18',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26336,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26336,49,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27602,49,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24436,49,'38.5/8/7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24444,51,'35.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24444,49,'37',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24445,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24445,51,'39',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24458,49,'19X19X33.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26036,53,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13193,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16274,51,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16656,58,'20',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16659,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16659,63,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16663,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16663,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16676,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16676,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16688,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16688,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16656,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16786,52,'65',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18744,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28399,52,'52,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28578,51,'28',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28578,49,'31',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28774,69,'10,6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28780,69,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25774,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25774,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25776,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25776,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25777,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25777,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25780,58,'9 Ã',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25780,50,'40 —Ã',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27918,49,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27918,51,'32.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27936,51,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27948,51,'11,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27950,51,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27962,50,'17,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27962,52,'39',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27962,51,'23',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27965,50,'16',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27965,49,'33',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27965,51,'31',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27879,58,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25641,51,'33',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25715,49,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25719,49,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25724,49,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25724,51,'4',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25733,52,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25733,50,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18391,49,'38.5/8/7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26942,51,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26942,49,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23864,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27443,49,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27452,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27452,52,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27452,50,'15',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26774,49,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18452,52,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18459,51,'120',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18491,49,'1,4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18491,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17512,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17517,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27783,51,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27783,49,'12ı8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27785,51,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26879,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26879,49,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26891,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26891,52,'37',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26891,50,'19',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23864,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27883,52,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27883,50,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27883,51,'75',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28521,49,'39',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28524,49,'7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28534,51,'87',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28539,51,'28',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28558,51,'34',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26625,51,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26625,52,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26625,50,'11',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26660,49,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26903,51,'60,00',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26903,49,'29,50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23838,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25909,52,'195',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25916,52,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27630,51,'34',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27673,51,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27673,49,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18870,51,'7.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18024,49,'28.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18024,51,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18033,49,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18033,51,'23,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18034,49,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18034,51,'23,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25584,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25584,63,'4',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25587,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25587,63,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25595,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25595,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25597,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25597,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25599,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25599,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25605,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25605,63,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25607,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25607,63,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25613,58,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25613,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26872,51,'16.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26872,52,'46',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26872,50,'13',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26873,51,'16.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26873,52,'46',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26873,50,'13',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23775,51,'66',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27256,51,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27256,49,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27310,51,'905',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27416,49,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25738,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25745,49,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25753,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25759,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24391,49,'2-4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28683,51,'2.8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28683,49,'6.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28723,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24427,51,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24427,49,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24429,51,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24429,49,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24455,49,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24455,51,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24463,51,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18960,50,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26569,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26569,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27214,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27214,49,'51x40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18771,49,'37X47X57',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17433,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17436,49,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17436,51,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13896,51,'15.5/19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13896,49,'56/69',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16963,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16965,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16984,51,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17097,51,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17097,49,'28,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17116,53,'550',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28821,52,'42ı32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28821,51,'12ı16',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27550,52,'165',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27578,49,'23ı23ı4,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27592,49,'7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28310,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28316,51,'55',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26443,52,'69',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26462,51,'94',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23791,52,'180',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26837,51,'26x8x24.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12835,51,'32,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13667,53,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13903,49,'75’39',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12855,51,'120',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12951,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14076,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14076,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12574,50,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12574,58,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27392,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27392,49,'13,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13353,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13353,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13361,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13361,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14254,49,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26474,51,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26474,52,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26474,50,'11',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26491,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26491,52,'37',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13196,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13196,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26320,51,'32,00',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26320,49,'20,00',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26913,51,'36',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26913,49,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25718,49,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25718,51,'5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25735,52,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25735,51,'9',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25735,50,'5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27455,49,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27468,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27468,49,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25620,58,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25620,63,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25706,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25711,49,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25712,49,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23904,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23904,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27165,49,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27169,58,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27169,50,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27172,63,'38 ÃÃ ÃÃ ÃÃ ÃÃ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27175,62,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27175,63,'65',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27177,63,'40’4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27182,58,'205',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27200,66,'400',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26017,51,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27686,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27686,49,'29',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27695,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27695,49,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13498,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13498,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26491,50,'37',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26499,51,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26499,52,'46',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26499,50,'16',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13279,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13279,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13286,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13286,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18761,49,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18761,51,'70',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26987,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27080,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27080,50,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18100,49,'7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13595,51,'42',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13595,49,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13599,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13599,49,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14194,51,'90',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(19939,53,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(19940,53,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21100,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25923,52,'127',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27374,61,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27383,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27383,50,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26125,51,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26125,49,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27704,51,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27704,52,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27704,50,'20',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30291,49,'5.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30296,52,'22x19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30300,52,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30300,50,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30300,51,'16',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29885,51,'16.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29885,52,'16.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28875,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28875,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28892,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28892,13,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28901,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28901,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18489,49,'1,4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18489,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18502,49,'1,4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18502,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18504,49,'1,4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18504,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14226,49,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17507,49,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17507,52,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27775,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27775,52,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27775,50,'20',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26881,51,'80',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26881,49,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26886,51,'18.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26886,52,'41.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26886,50,'14.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26897,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26897,49,'25.7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27887,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27888,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27901,49,'13,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27901,51,'14,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28513,51,'83',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26641,51,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26641,49,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26641,52,'37',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26643,51,'115',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26704,52,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26704,50,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26704,51,'11',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26785,49,'34',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26786,49,'46/37',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26905,51,'36',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26905,49,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25792,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27633,52,'63',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27633,51,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27668,51,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27668,49,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13619,49,'28',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13649,49,'7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13649,51,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17006,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17006,51,'18,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16901,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16930,52,'78',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13124,51,'51',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13124,49,'46',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13127,51,'46',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13127,49,'51',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13142,49,'31',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13142,51,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5292,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5292,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18731,51,'85',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18732,51,'85',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18559,49,NULL,1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18559,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18559,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18559,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18562,49,NULL,1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18562,50,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18562,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18562,52,'270',4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18578,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18578,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18578,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18578,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24426,51,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24434,49,'30/11/8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11171,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11171,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11190,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11190,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12369,49,'7,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12369,51,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29350,12,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29350,13,'180',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16661,58,'20',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16672,58,'20',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16675,63,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16675,58,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18201,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18769,51,'14X18X22',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18769,49,'37X47X57',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18781,51,'46',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18781,49,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17425,49,'26.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17425,51,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17099,49,'30,50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17099,51,'80,00',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27573,49,'60ı60ı3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27576,49,'37ı37ı3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27590,49,'80ı120',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27594,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27597,51,'160',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28314,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26440,52,'69',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26448,52,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26449,52,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26460,52,'96',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26468,52,'72',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12885,51,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12888,52,'110',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14234,51,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27397,51,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27397,50,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27400,51,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27400,50,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13350,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13350,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13351,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13351,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13363,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13363,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14253,49,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16641,58,'25',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17309,49,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17309,51,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13194,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13194,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29356,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29356,13,'65',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13240,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13240,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13246,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13246,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16999,51,'305',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26321,51,'40,50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26321,49,'24,00',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26322,51,'26,00',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26322,49,'30,00',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26326,51,'41',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26326,49,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(19894,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25728,52,'85',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25728,50,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25728,60,'5.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26944,51,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26944,49,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26946,51,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26946,49,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29381,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27339,51,'23.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27339,52,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27339,50,'12',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26353,51,'58',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26353,49,'36',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27437,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27446,49,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27447,49,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27470,51,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25625,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25625,63,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25633,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25633,63,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25704,51,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25704,49,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27168,58,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27168,50,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27173,62,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27173,63,'65',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27178,63,'40’4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27180,62,'65’6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27185,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27185,63,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27192,66,'400',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27195,66,'400',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27197,66,'400',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27198,66,'400',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27203,66,'750',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27372,61,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27688,51,'55',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27688,49,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27722,51,'16.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26769,49,'16',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26769,51,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18448,52,'16,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18471,49,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18471,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18490,49,'1,4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18490,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18494,49,'1,4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18494,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18496,49,'1,4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16750,52,'155',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18737,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28429,51,'180',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28748,69,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28747,69,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27791,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27795,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27795,49,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27800,51,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27800,52,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27801,51,'31',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27801,52,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27807,51,'28,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27807,49,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27848,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27853,58,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27853,63,'48',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27857,58,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27857,63,'34',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27858,58,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27858,63,'34',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27868,58,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27868,63,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27875,58,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27875,63,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24348,49,'29',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24348,51,'31.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26193,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23868,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23868,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23870,63,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23870,58,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25956,51,'53,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26078,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27487,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27487,49,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27488,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27488,49,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27496,51,'3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27497,51,'2.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27509,66,'400',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27511,62,'22',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27511,52,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27520,51,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7798,52,'89',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28344,51,'65',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28348,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28348,52,'9-11',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28364,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28371,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28374,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28376,53,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28376,51,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28379,53,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28379,51,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28385,53,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28385,51,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28389,53,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28389,51,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28464,51,'12,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28722,51,'29',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28739,51,'19+25,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28828,51,'7.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28828,49,'5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28833,49,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26914,51,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26914,49,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26914,50,'51',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26917,51,'90',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26917,49,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26917,50,'51',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26674,51,'43,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26674,49,'64,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25662,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25725,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23865,63,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27441,49,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27442,49,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27463,51,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27463,52,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27463,50,'24',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25626,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25626,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25710,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27191,66,'400',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27194,66,'400',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27199,66,'400',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27202,66,'400',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27384,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27384,50,'11',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27384,52,'25',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26015,51,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26031,49,'48',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27731,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27731,49,'9',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5222,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5222,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30293,52,'44',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30294,52,'44',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30299,52,'11.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30299,50,'9',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30060,51,'29',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30060,52,'65',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30060,50,'42',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26450,52,'75',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26456,52,'68',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26471,51,'47',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27789,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27789,49,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27804,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27836,51,'134',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27865,58,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27865,63,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27867,58,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27867,63,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24347,49,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24347,51,'22',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23872,63,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23872,58,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23881,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23881,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23883,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23883,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26075,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27498,51,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27500,52,'53',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27500,50,'11',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27500,51,'8.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24477,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27521,51,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23844,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28341,51,'160-200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28346,51,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28360,53,'160',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28360,51,'10-15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28362,53,'160',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28362,51,'10-15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28367,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28368,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28380,53,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28380,51,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28390,53,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28390,51,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28465,51,'14/18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28825,51,'13ı18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28827,51,'9.5x19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29491,51,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29493,51,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29494,49,'4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29505,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29505,52,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29505,50,'14',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17317,49,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17317,51,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17452,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17452,51,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17458,49,'55',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17458,51,'92',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17463,49,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17463,51,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25973,49,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29383,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26746,52,'47',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21141,49,'25/18/2',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(19892,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(19893,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25650,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25722,49,'21.5x22x3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18390,49,'30/11/8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27333,51,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27333,52,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27333,50,'23',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27427,51,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27427,49,'23.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27445,49,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27454,49,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27456,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27456,52,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27456,50,'14',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27467,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27467,49,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25616,63,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25622,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25622,63,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25623,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25623,63,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25634,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25631,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25631,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25634,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23863,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23863,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27164,49,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27187,58,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14165,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14165,49,'25.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16908,49,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16946,51,'11,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26341,51,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26341,50,'14.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18717,51,'52',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18727,51,'42',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24433,49,'30/11/8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24435,49,'38.5/8/7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24465,51,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25238,49,'22X20X4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18958,50,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27542,51,'31',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27543,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27575,49,'30ı100ı3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27580,49,'57ı67ı5,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27583,49,'80ı80ı4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28307,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28315,51,'55',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26455,52,'74',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26461,51,'94',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26467,49,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26472,51,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26472,52,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18638,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18638,51,'28',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18638,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26911,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26911,49,'29',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25716,49,'7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26962,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27340,51,'32.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27340,52,'34.3',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27340,50,'13.4',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26352,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26352,49,'14,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27462,51,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27462,52,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27462,50,'24',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27466,51,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27466,52,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27466,50,'24',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27469,51,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27469,49,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25618,58,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25618,63,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25624,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25624,63,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25632,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25632,63,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25714,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23903,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23903,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27190,66,'400',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27193,66,'400',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27201,66,'400',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25921,52,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25937,51,'240',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26852,51,'16',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26852,49,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27380,61,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26018,51,'28',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26019,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26020,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26025,49,'11,4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27708,51,'90',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27708,49,'33',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26773,51,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26773,49,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18449,52,'6.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18463,49,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18463,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18479,49,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18479,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18484,49,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18484,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18492,49,'1,4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18492,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17515,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17516,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27758,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27758,49,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27786,51,'9x19x29',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27786,49,'8.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27787,51,'16',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27787,49,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26847,51,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26847,52,'59',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26847,50,'2',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26878,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26878,49,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26894,51,'51',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26894,52,'39',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26894,50,'25',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25232,49,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25232,51,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27882,52,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27882,50,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27882,51,'75',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27885,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28264,53,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28510,51,'42',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28515,52,'80',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28526,52,'66',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28528,52,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28536,51,'80',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26653,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26653,52,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26703,49,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23843,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23843,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25789,58,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25789,50,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18706,52,'90',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18718,51,'52',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18733,51,'46',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18555,49,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27876,63,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24346,49,'19.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24346,51,'29',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26191,49,'7.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26198,51,'29',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26198,49,'7.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25736,50,'5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25524,49,'41',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23892,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23892,63,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25960,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26077,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8193,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28028,51,'23.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28028,52,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28028,50,'12',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28034,51,'63',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28034,49,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28036,51,'21.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28036,52,'51',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28036,50,'21',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28337,53,'250',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28337,62,'1,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28337,58,'3,5-4',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28338,53,'250',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28338,62,'1,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28338,58,'3,5-4',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28345,51,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28354,53,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28354,51,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28355,53,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28355,51,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28358,53,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28358,51,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28359,53,'160',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28359,51,'10-15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28372,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28383,53,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28383,51,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28386,53,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28386,51,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28462,51,'12,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28674,51,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28674,52,'11',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29419,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29419,13,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29420,70,'ÃËÍÒ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29420,12,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29420,13,'25',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29424,70,'ÃËÍÒ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29424,12,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29424,13,'30',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29429,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29429,13,'170',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29436,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29436,49,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29495,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29496,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29509,51,'18.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29509,49,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24353,49,'4.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25955,51,'53,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27176,62,'40’4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25920,52,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26853,51,'16',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26853,49,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27375,61,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29377,13,'110',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26022,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27728,62,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27729,62,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29371,12,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29371,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29376,70,'ÃËÍÒ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29883,52,'16.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30081,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30081,49,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28880,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28880,13,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28895,12,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28895,13,'55',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30350,70,'¿ÏÔÂÎ¸Ì˚È',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30350,12,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30350,13,'60',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30366,12,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30366,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30367,70,'ÿÚ‡Ï· œÎÓÒÍ‡ˇ –Â¯ÂÚÍ‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30367,12,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30367,13,'180',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30372,70,'¿ÏÔÂÎ¸Ì˚È',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30372,12,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30372,13,'30',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30129,51,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30129,52,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30129,50,'12',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11106,49,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11106,51,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29306,49,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18220,49,'35.7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17107,49,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17107,51,'35,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18753,49,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26254,58,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26254,50,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26404,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26404,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27736,52,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28097,51,'7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28121,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28129,51,'65',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28137,51,'80',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28138,52,'180',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28138,50,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28232,49,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28232,52,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28177,51,'4.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28177,52,'46',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28177,50,'31',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28185,58,'3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28187,58,'3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28190,52,'76',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28190,50,'46',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28193,53,'500',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28193,62,'0,2',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28205,51,'42,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28205,49,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28612,49,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28620,51,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29438,49,'30.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29438,51,'30.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25272,49,'35,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25272,51,'46,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25281,49,'33',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25281,51,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30603,52,'119',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30605,52,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30606,52,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30614,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30331,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27581,49,'57ı67ı5,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27595,52,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27598,51,'160',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28313,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28313,53,'200',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28319,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28321,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26442,52,'69',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26628,51,'52',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26629,51,'13x11x46',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27866,58,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27866,63,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27871,58,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27871,63,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27873,58,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27873,63,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25944,52,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11443,53,'450',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25558,58,'50',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29360,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29360,13,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23871,63,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23871,58,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23888,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23888,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23891,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23891,63,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25963,51,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26076,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27494,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27501,51,'8.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27501,52,'76',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27501,50,'11',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27524,51,'48',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28033,51,'53',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28033,49,'9,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28035,51,'21.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28035,49,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28055,51,'10.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28055,52,'6.6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28356,53,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28356,51,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28381,53,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28381,51,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28384,53,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28384,51,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28387,53,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28387,51,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28456,51,'7.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28472,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28478,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28720,51,'12x14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28734,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29515,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29515,49,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27464,51,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27464,52,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27464,50,'24',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25627,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25627,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25702,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25702,49,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25703,51,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25703,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25705,52,'58',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25705,50,'58',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21133,49,'32/24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21136,49,'25/24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21146,49,'30,5/21,5/5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21165,49,'20/20/15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18967,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18967,51,'18.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18968,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18968,51,'18.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18184,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27060,51,'66',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18553,49,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18553,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24408,49,'48X15X34',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24413,49,'32’32’28',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26331,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25317,49,'19X19X12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25317,49,'16X16X10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18868,49,'7.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25565,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25565,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25571,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25571,63,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25578,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25578,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25591,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25591,63,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25593,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25593,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25608,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25608,63,'5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23778,51,'62',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23784,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23788,52,'65',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23789,52,'65',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25741,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25743,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25744,49,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25747,49,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25761,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24393,49,'2-4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24311,49,'15.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24311,51,'18',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24313,49,'14.8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24313,51,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26359,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26359,51,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26361,51,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26361,49,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26363,51,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26372,51,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26551,49,'10x9x5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26559,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26559,52,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26566,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26566,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26571,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26571,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27245,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27245,49,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26131,49,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26131,51,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26253,58,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26253,50,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26384,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26384,49,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28088,52,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28088,50,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28090,49,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28090,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28100,51,'49',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28105,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28127,49,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28131,52,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28139,52,'180',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28139,50,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28238,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28162,51,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28162,52,'29',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28162,50,'25',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28184,58,'3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28202,51,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28202,49,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28064,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28064,49,'11',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28065,52,'14.9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28065,51,'10.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28427,52,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27834,51,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27835,52,'67',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27841,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27845,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27859,58,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27859,63,'34',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27862,58,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27862,63,'34',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27863,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27863,63,'48',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27870,58,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27870,63,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26171,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26171,49,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23885,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23885,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16626,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16626,63,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16672,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16661,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16780,51,'85',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28143,51,'35,00',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28143,49,'40,00',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28144,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27844,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26172,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26172,49,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23873,63,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23873,58,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23887,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23887,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23894,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23894,63,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26537,51,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26537,50,'13.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27483,51,'15.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27483,49,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27502,49,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25374,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28049,51,'33',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28347,51,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28349,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28349,52,'9-11',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28350,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28350,52,'9-11',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28351,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28351,52,'9-11',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28363,53,'160',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28363,51,'10-15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28373,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28375,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28443,49,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28458,51,'13.5/15.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28669,49,'37',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28669,51,'34.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28675,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28675,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28832,49,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29498,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29500,49,'4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24366,49,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24366,51,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24374,58,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24374,50,'53',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24472,49,'38',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24472,51,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24648,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26565,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26565,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26567,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26567,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26568,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26568,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27208,51,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27208,49,'30x20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27227,51,'12.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27227,49,'15.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27248,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27248,52,'43',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27248,50,'15',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26390,51,'4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26390,49,'7,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27747,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27747,49,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28085,51,'68',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28085,49,'18',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28093,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28093,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28128,49,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28130,52,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28237,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28245,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28245,51,'65',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28163,51,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28163,52,'29',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28163,50,'25',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28175,51,'5.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28175,52,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28175,50,'50',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28182,62,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28203,51,'19.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28203,49,'18',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28070,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28593,49,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28144,49,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28440,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28753,69,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28764,69,'12,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28781,69,'12,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28782,69,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27823,63,'103',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27823,52,'38',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27824,52,'58',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27824,63,'103',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27917,49,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27917,51,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27919,49,'14.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27919,51,'43',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27960,50,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27960,52,'41,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18496,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18497,49,'1,4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18497,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18498,49,'1,4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18498,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18500,49,'1,4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18500,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14213,49,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14213,51,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14234,49,'29',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17510,52,'33',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27769,51,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27769,49,'8,8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27782,51,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27782,49,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26877,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26877,49,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26893,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26893,52,'37',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26893,50,'19',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26896,51,'51',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26896,52,'39',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26896,50,'25',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27967,52,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27967,51,'15,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28519,49,'75',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28520,49,'75',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28527,52,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28541,51,'46',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28553,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28555,51,'109',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26706,51,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26706,50,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12228,58,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12666,51,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12666,49,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17244,49,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17244,52,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17255,52,'75',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18251,52,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16643,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16643,63,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16898,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16937,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26338,51,'7.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26338,49,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26344,51,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26344,52,'34',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27615,51,'38',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27617,51,'16',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18556,49,NULL,1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18556,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18556,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18556,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27851,58,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27851,63,'48',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27852,58,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27852,63,'48',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27855,58,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27855,63,'48',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27856,58,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27856,63,'34',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27860,58,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27860,63,'34',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26174,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26174,49,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26176,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26176,49,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26188,51,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26188,49,'5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5218,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5218,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23867,58,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23867,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23869,63,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23869,58,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23878,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23878,63,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23886,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23886,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23889,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23889,63,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26368,51,'13',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26368,49,'30',4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26540,51,'12,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26540,49,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27470,49,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27481,51,'13.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27481,49,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27510,62,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27510,52,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27515,51,'31',4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27515,52,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27515,50,'30',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7151,52,'42',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27526,52,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23846,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23846,63,'04',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23848,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23848,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28027,49,'11,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28050,51,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28050,49,'9',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28060,51,'8.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28340,51,'160-200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30080,51,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30080,49,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30099,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30101,51,'34.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30101,49,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30102,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30102,49,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30115,51,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30115,52,'45,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30115,50,'25',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24432,49,'30/11/8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24470,49,'38',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24470,51,'65',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24647,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18954,50,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18954,58,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18955,50,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26364,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26364,49,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26577,63,'15/100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27213,49,'38x31',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27213,51,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27246,51,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27246,49,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26129,51,'33',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26129,50,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26132,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26132,49,'37',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27750,51,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27750,49,'29',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28103,51,'28',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28108,51,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28108,52,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28108,50,'15',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28140,51,'160',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28231,49,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28231,52,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28236,53,'25-35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28153,58,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28153,62,'2',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28160,66,'400',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28179,52,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28179,50,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28179,51,'4.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28063,52,'7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28697,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28697,52,'42',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28697,50,'29',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12964,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14074,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14074,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29345,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29345,13,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13086,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13355,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13355,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13360,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13360,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13550,51,'75',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14245,52,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17280,50,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17280,51,'5,5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17291,49,'33-29-27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17307,49,'27,50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17307,51,'31',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17315,49,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17315,51,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26484,52,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13245,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13245,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16806,51,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16823,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17008,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17008,49,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18116,52,'17,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18786,52,'46X52',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17509,52,'33',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27780,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27780,52,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27780,50,'7',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18615,49,NULL,1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18615,50,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18615,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18615,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18617,49,NULL,1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18617,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18617,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18617,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26898,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26898,49,'25.7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27099,61,'2',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27103,49,'65ı13,5ı3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27884,52,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27884,50,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27884,51,'36',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27889,51,'43',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28512,52,'80',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28517,52,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28517,50,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28533,51,'33',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28540,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28543,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26645,51,'95',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26645,49,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26900,49,'21x21x21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27187,63,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27188,66,'400',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27371,61,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26029,49,'48',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26032,49,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26034,52,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26124,51,'17,00',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26124,49,'22,00',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26126,51,'19,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26126,49,'33,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26127,51,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26127,49,'42',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27693,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27693,49,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27705,51,'43',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27705,49,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27726,49,'37,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27726,51,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27733,49,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27733,52,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30302,51,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30302,49,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29884,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29884,52,'13.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30063,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30063,52,'59',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30063,50,'36',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30064,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30064,52,'59',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30064,50,'36',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30078,51,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30078,49,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30082,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30082,49,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30109,51,'7,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30109,49,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29445,51,'22',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29445,49,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29446,51,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29446,49,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30338,70,'ÃËÍÒ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30338,12,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30338,13,'30',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13743,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13743,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17498,52,'78',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27764,51,'5,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27764,52,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27764,50,'24',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18616,49,NULL,1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18616,50,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18616,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18616,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26892,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26892,52,'37',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26892,50,'19',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26895,51,'39',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26895,52,'51',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26895,50,'25',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27886,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29528,12,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28518,52,'49',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29528,13,'90',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28557,51,'34',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26902,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26902,49,'29',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23844,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27637,51,'43',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27638,51,'57',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27653,51,'44x28x24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18611,49,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18611,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18611,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18611,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29597,70,'œË‡ÏË‰‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29597,12,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29597,13,'200',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26552,49,'11ı9ı3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26562,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26562,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26578,63,'15/75',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27206,51,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27206,49,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27253,51,'37',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27253,49,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26250,58,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26250,50,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28086,51,'53',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28086,49,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28110,63,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28119,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28119,49,'22',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28230,49,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28230,52,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28243,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28243,51,'65',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28248,53,'45-60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28152,58,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28152,62,'2',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25699,64,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12033,53,'2',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28590,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28590,49,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24657,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18555,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18555,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18555,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24459,49,'19X19X40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25245,49,'44',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26037,53,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18959,50,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26557,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26557,49,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26564,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26564,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27226,51,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27226,49,'13.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27244,51,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27244,49,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27737,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27737,49,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29516,49,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28091,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28091,49,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28099,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28112,52,'170',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28136,49,'15,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28235,53,'45-60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28239,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28242,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28242,51,'65',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28246,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28246,51,'65',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28159,66,'400',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28164,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28164,49,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28174,49,'42',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28174,60,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28180,51,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28180,52,'58',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28180,50,'46',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28061,52,'14,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12998,51,'37',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10063,49,'30’2,2',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10077,49,'8’7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10094,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10094,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10438,51,'80',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(10438,50,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11181,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11181,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11184,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(11184,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12848,51,'19,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12848,49,'33',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12368,49,'7,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12368,51,'8,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12371,49,'7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12371,51,'11',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29352,12,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29352,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12891,51,'61',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12891,49,'48',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12893,51,'64',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(12893,49,'42',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5303,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5303,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26472,50,'11',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23771,51,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27805,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27806,51,'22',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27806,52,'52',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27832,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27833,51,'180-160',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27839,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27840,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27843,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27847,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27850,58,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27850,63,'48',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27861,58,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27861,63,'34',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27869,58,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27869,63,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27872,58,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27872,63,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27874,58,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27874,63,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24349,49,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24349,51,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26257,51,'80,00',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26257,49,'30,50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27018,51,'18x16',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27018,50,'15x12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27018,52,'30x25',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5221,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23880,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23880,63,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23882,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23882,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23895,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23895,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27479,49,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27479,51,'10.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27489,51,'16',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27489,49,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27490,51,'16',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18753,51,'70',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26988,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18080,51,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18086,53,'400',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(19909,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(19912,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(19945,53,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21111,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26362,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26362,51,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26545,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26545,49,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26558,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26558,52,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26563,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26563,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26570,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26570,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26392,51,'33',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26392,49,'16',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27748,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27748,49,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29518,51,'20.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29518,52,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29518,50,'15.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28126,49,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28240,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28241,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28241,51,'65',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28247,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28247,51,'65',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28171,51,'3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28171,49,'38',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28176,51,'8.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28176,52,'99',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28176,50,'11',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28181,62,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28183,62,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25698,64,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25216,51,'36/28/21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18065,52,'42',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27408,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(20918,53,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(20929,53,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(20986,51,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13356,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13356,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13556,52,'92',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16635,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16635,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26475,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26475,51,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26486,63,'2',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26486,58,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13193,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17045,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18809,52,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18810,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30150,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30150,49,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29464,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29464,49,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29467,51,'26.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29467,49,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29468,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29468,49,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29073,12,'29',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29073,13,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29082,12,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29082,13,'120',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29084,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29084,13,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29086,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27635,51,'31',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27642,51,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27646,51,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27646,49,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29619,51,'20.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29619,49,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28253,53,'25-35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28260,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28268,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28268,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28269,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28269,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28276,49,'4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28284,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28297,51,'8-12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28856,49,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28856,51,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29057,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29057,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29525,70,'’2',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29525,12,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29525,13,'50',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28404,51,'26,8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28404,49,'17,8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28415,51,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28613,51,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28630,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30243,51,'75',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30256,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30267,58,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30268,52,'58',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25705,60,'8',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25707,51,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25707,52,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25707,50,'11',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23830,51,'55',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23838,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26876,51,'16.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26876,52,'46',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26876,50,'13',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27174,62,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27174,63,'65',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27181,63,'65',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27186,58,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27186,63,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27189,66,'400',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27196,66,'400',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25935,51,'75',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27368,61,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27369,61,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27373,61,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26016,51,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27691,51,'29',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27691,49,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27720,51,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27720,49,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27736,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6882,63,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(6882,58,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29374,70,'ÃËÍÒ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29374,12,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29374,13,'35',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30295,52,'15x19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30070,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30070,49,'22',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30100,49,'6.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30111,51,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30111,52,'44',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30111,50,'31',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29440,51,'36',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29440,49,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18755,49,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18755,51,'70',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18091,49,'41X41X10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13593,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13593,49,'11',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14202,51,'55',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14202,49,'28,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(19924,53,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(19926,53,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(19933,53,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(19946,53,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14055,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21085,51,'83',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21086,49,'55',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21086,51,'98',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21135,49,'32/24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18909,49,'30/30/7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18963,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18963,51,'18.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26165,49,'4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29613,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29613,52,'16',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29613,50,'10',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29615,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29615,49,'28.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29618,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29618,49,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29626,51,'23.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29626,49,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29632,51,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29632,49,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28254,53,'25-35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28255,53,'25-35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28272,49,'4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28281,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28285,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28286,49,'7-10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28290,49,'7-10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28291,49,'7-10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28299,53,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28412,51,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28412,50,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28624,51,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28626,49,'17/18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28636,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28637,51,'33',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30248,51,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30248,49,'4',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30262,58,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30277,49,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29642,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29642,50,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29642,52,'15',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30442,70,'’3 ¿ÎÚËÒËÏ‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30442,12,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30442,13,'190',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18739,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28760,69,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28772,69,'22,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28773,69,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28783,69,'80',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25781,58,'9 Ã',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25781,50,'40 —Ã',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25961,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25964,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(8195,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27478,51,'10.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27491,51,'80',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27495,51,'55',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27495,51,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27495,50,'32',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27504,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27505,49,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27507,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27507,50,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27518,51,'90',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27516,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27522,52,'125',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27525,52,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28030,51,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28030,52,'24.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28030,50,'10',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28031,51,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28031,52,'29',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28031,50,'15',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28336,58,'3,5-4',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28352,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28352,52,'9-11',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28357,53,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28357,51,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28377,53,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28377,51,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28378,53,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28378,51,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28392,53,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28392,51,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28467,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28670,51,'34.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28670,49,'37',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28829,51,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29416,13,'90',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27755,49,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27779,51,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27779,52,'52',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26842,51,'33',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26843,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26843,49,'16',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26889,51,'16',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26889,52,'52',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26889,50,'19.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27102,50,'50ı44ı10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28542,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26372,49,'29',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26639,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26639,51,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26644,49,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26644,51,'95',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26789,52,'38',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26789,50,'29',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26904,51,'80,00',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26904,49,'30,50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25798,53,'500',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25798,63,'0.2',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25918,52,'55',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27631,51,'41',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27651,49,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27651,51,'16',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27672,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27672,49,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27682,52,'90',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27682,50,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27682,51,'24',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18603,49,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18603,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18603,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18603,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18607,49,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18607,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18607,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18607,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18609,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18609,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18609,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18609,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26155,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26155,49,'2,2',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26164,49,'4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26166,49,'4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29612,70,'ƒ˝ÍÓ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29612,12,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29612,13,'30',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28259,51,'55',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28263,51,'8-12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28279,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28282,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25296,49,'16X10X20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25300,49,'33/9/13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25303,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25303,52,'120',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29574,12,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29574,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29585,70,'¿ÏÔÂÎ¸Ì˚È',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29585,12,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29585,13,'45',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29659,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29659,49,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29669,51,'10,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27960,51,'22',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27963,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27963,49,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27964,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27964,51,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27964,50,'13',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27968,51,'26,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27968,51,'10,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27877,58,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27877,63,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28016,51,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28016,49,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28016,50,'13',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28025,51,'31,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28025,49,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30237,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30237,49,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29662,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29662,49,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28917,12,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28917,13,'170',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28918,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28918,13,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28924,12,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28924,13,'200',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28997,12,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28997,13,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29007,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29007,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29816,70,'ÃÓ‡‰‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29816,12,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29816,13,'30',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30214,49,'38ı40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30214,60,'4,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30219,49,'16',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31259,70,'¬‡ËÂ„‡Ú‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31259,12,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27393,51,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27393,49,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18066,52,'42',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27407,49,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(20927,53,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(20980,51,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13346,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13346,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13358,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13358,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13549,51,'75',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17294,49,'6-9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17310,49,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17310,51,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17313,49,'22,50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17313,51,'21,50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13247,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13247,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16807,52,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16808,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16822,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17044,51,'2',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17044,50,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17044,52,'30',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18782,51,'61',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18782,49,'48',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18783,49,'38X38X100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18790,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30140,51,'9,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30140,49,'29',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30149,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30149,49,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30153,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30153,49,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30154,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30154,49,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30156,51,'28',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30156,49,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18090,49,'28',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18090,51,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13610,52,'98',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13610,50,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14200,51,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21110,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21132,49,'32/24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21149,49,'8/55',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21150,49,'8/55',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18906,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18937,51,'63',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30530,70,'ÃËÍÒ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30530,12,'8,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30530,13,'15',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29846,51,'33',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29846,49,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29729,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29729,50,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29735,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29735,49,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26114,51,'225',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26122,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26163,49,'4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29601,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29601,13,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29625,51,'22',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29625,50,'19.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29625,52,'19.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28353,53,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28353,51,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28369,49,'8-10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28370,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28382,53,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28382,51,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28388,53,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28388,51,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28391,53,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28391,51,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28393,53,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28393,51,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28441,51,'28/44',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24438,49,'15.5X15.5X6.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24447,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24447,51,'39',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24448,51,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24448,49,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25237,49,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25239,49,'14X10X5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26035,66,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18953,50,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18953,58,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18957,50,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25684,52,'15',4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26360,51,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26360,49,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27233,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27233,49,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27250,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27250,52,'43',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27250,50,'15',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26387,52,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26418,51,'31',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26418,49,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27738,51,'71',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27749,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27749,49,'24,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29517,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29517,49,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28092,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28092,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28101,51,'37',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28104,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28106,51,'49',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28111,63,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28233,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28234,51,'65',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28234,53,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28244,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28244,51,'65',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28156,63,'52',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28157,58,'28',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28157,50,'2,6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28161,53,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28173,52,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28173,50,'24.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28173,51,'5.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28186,58,'3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28188,58,'3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28189,58,'3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28060,52,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16664,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16665,58,'20',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16641,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16665,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7724,52,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18743,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18745,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28142,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28142,49,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28434,52,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28765,69,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28766,69,'8,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28775,69,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28776,69,'11,2',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28789,69,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27817,62,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27817,58,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28026,51,'39',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28026,49,'10,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28027,51,'44,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25290,49,'26.5X26.5X10.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29893,51,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29893,49,'24.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29661,49,'29.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29661,51,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28916,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28916,13,'70',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29448,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29448,49,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28855,51,'18x12x23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29487,51,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28991,12,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28991,13,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29487,52,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29487,50,'13',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29891,51,'98',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29997,51,'75',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29997,49,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30222,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30222,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30225,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23839,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23839,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23840,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23840,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25917,52,'52',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27662,51,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26115,51,'225',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29616,51,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29616,49,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29621,51,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29621,49,'34',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13281,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13281,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13284,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13284,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18749,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18750,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13705,51,'22.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18117,52,'17,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14178,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14178,49,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21084,51,'83',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21113,49,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21131,49,'32/24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21134,49,'32/24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21148,49,'8/55',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27093,50,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27093,52,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27093,51,'20',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18183,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18413,52,'270',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30525,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30525,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29831,51,'42',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29831,52,'23.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29831,50,'21',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29833,51,'42',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29833,52,'23.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29833,50,'21',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29835,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29835,52,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29835,50,'23.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29845,51,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29845,49,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29855,51,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29855,49,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29712,49,'26ı25ı23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29712,51,'54ı48ı42',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29732,51,'38',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29732,52,'34',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29747,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29747,13,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29755,12,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29755,13,'110',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28252,53,'45-60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28258,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28262,49,'7-10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28274,49,'4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28292,49,'7-10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28298,53,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28224,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28225,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28403,51,'28.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28403,49,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28416,51,'29',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28416,50,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28422,52,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28625,51,'34',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28628,51,'29',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28633,51,'34',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30247,51,'21ı25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30247,52,'16ı21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30247,50,'16ı21',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30260,58,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30270,52,'4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30270,50,'3',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29016,12,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29016,13,'140',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29037,12,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29037,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29522,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29522,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29646,51,'22',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29646,49,'22',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29647,51,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29647,49,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30423,70,'÷ËÎÎËÌ‰',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30423,12,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30423,13,'220',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30443,12,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31494,12,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31494,13,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18038,51,'23,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25572,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25572,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25576,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25576,63,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25582,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25582,63,'4',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25609,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25609,63,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26867,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24657,52,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25212,49,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25212,51,'11',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30601,52,'41',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30619,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30619,49,'22x16',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30632,52,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30778,13,'55',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30804,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16668,63,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28430,51,'180',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28749,69,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28769,69,'10,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29414,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29414,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25785,58,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25785,50,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27812,62,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27812,58,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27822,62,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27822,58,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27969,52,'80',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27922,49,'11.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27922,51,'30.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27953,51,'11,8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28149,51,'3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28149,49,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25301,49,'33/9/13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25302,51,'80',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25302,52,'120',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29576,12,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29576,13,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29882,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29882,52,'13.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29996,51,'75',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29996,49,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30002,49,'43',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30216,66,'400',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21007,51,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13359,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13359,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13366,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13366,63,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14256,49,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14257,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14257,49,'29.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17304,49,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17304,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17129,52,'14',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13230,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13230,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17040,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17040,50,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17040,52,'32',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17043,51,'55',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17043,50,'38',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17043,52,'38',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17053,51,'2',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17053,50,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17053,52,'30',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30141,51,'13,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30141,49,'29',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30152,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30152,49,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30160,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30160,49,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29456,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29456,49,'22',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13603,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13603,49,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14176,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14176,49,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14179,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14179,49,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14184,51,'29',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14184,49,'29',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(19920,53,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(19922,53,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(19928,53,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(19941,53,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(19942,53,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(19943,53,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14053,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14053,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21089,49,'44',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21089,51,'72',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21108,51,'65',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21140,49,'25/24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18903,49,'13/20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18962,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18962,51,'18.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18964,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18964,51,'18.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18965,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18965,51,'18.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27109,51,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27109,49,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18127,49,'4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18127,51,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18172,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18172,50,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18439,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30526,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30526,13,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27490,49,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27503,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28038,51,'29',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28038,49,'22',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28040,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28040,49,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28052,51,'14.7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28052,52,'7.8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28054,51,'10.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28054,52,'6.6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28056,51,'10.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28056,52,'6.6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28361,53,'160',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28361,51,'10-15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28365,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28366,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28394,53,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28394,51,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28444,49,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28463,51,'16',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28468,51,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28400,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28400,49,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28585,49,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28586,49,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28761,69,'37,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29413,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29413,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25782,58,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25782,50,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25786,58,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25786,50,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27827,52,'38',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27827,63,'103',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28082,51,'80',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28082,52,'16',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27920,49,'9.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27920,51,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28020,51,'12,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28020,49,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30234,51,'16.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30234,49,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29572,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29572,13,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29578,12,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29578,13,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29657,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29657,49,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29658,51,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29658,49,'19.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28926,12,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28926,13,'55',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28948,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28948,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29484,51,'39.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29484,49,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29489,51,'26ı21.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14060,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14060,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27401,61,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27403,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27403,49,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27412,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(20952,49,'2.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13354,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13354,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13365,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13365,63,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26241,49,'22/20/40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26241,49,'36/29/53',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13195,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13195,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13236,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13236,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16810,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16833,52,'147',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17038,51,'55',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17038,50,'38',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17038,52,'38',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30139,51,'30,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30139,49,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30145,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30145,49,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30146,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30146,49,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30147,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30147,49,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30151,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30151,49,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30157,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30157,49,'18',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30164,51,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30164,49,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30167,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30167,49,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18077,52,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13596,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13596,49,'23,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13609,51,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13609,50,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14208,49,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(14208,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(19947,53,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21142,49,'25/18/2',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30268,50,'58',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29052,12,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29052,13,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30418,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30418,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18362,49,'48',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18362,51,'21.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25570,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25570,63,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25589,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25589,63,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25590,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25590,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25606,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25606,63,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27150,52,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27150,50,'11',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23756,51,'68',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23794,51,'29',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23794,51,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27308,51,'28',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27309,51,'34,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27349,61,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27363,61,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29376,12,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29376,13,'85',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29377,70,'œË‡ÏË‰‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29377,12,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25756,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24385,58,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24385,50,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24344,51,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24344,49,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28714,51,'28',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29788,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29788,13,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29794,70,'¬‡ËÂ„‡Ú‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29794,12,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29794,13,'60',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30989,12,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30989,13,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27879,63,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25299,49,'33/9/13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29575,70,' Â‡ÏËÍ‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29575,12,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29575,13,'65',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29577,12,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29577,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29672,51,'12.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29672,52,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29672,50,'13.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29883,51,'16.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28666,51,'56',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28666,52,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28666,50,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28921,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28938,12,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28938,13,'250',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28921,13,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29520,51,'20.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29520,52,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29520,50,'15',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29880,51,'5.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29888,49,'19ı19ı3.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30212,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30213,53,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30223,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30223,52,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31261,12,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31261,13,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31292,12,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31292,13,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30689,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30689,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30896,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30896,19,'‰Îˇ  Î‡ÒÒËÍ Ë  Û‡‰Ó 50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31107,51,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31107,49,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31200,51,'24,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31200,52,'5,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31591,49,'15.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31208,51,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31591,51,'13.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31601,51,'13.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31601,49,'29',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18933,52,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18119,49,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30524,12,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30524,13,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29837,51,'17.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29837,52,'22',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29837,50,'20.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29839,51,'19.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29839,52,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29839,50,'21',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29862,51,'54',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29862,49,'14.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29716,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29738,51,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29738,49,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29742,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29742,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25784,58,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25784,50,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27975,49,'40ı23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28148,52,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25287,49,'24X12X23.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25289,49,'22.5X22.5X10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30236,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30236,49,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29660,51,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29660,49,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29666,51,'22',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28665,51,'56',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28665,52,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28665,50,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28927,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28927,13,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29002,12,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29002,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29892,51,'58',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29892,49,'58',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13231,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13231,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13237,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13237,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13243,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13243,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13244,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13244,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16828,52,'91',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17007,51,'22,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17007,49,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18785,49,'48X48X60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18789,51,'36',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30143,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30143,49,'14.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30163,51,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30163,49,'19.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31544,70,'“Ûˇ ÃËÍÒ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31544,12,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31544,13,'70',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31545,12,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31545,13,'160',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31391,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31391,13,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31664,52,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31664,50,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31664,51,'34',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31668,50,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31668,52,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31668,51,'20',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31693,51,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31693,49,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31694,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31694,49,'37',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30000,49,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30218,49,'25ı23ı6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30227,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30227,52,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30227,50,'24',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31257,12,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31257,13,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31288,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31288,13,'65',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30691,12,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30691,13,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31606,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31606,49,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30951,70,'“ÂÈÎ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30951,12,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30951,13,'90',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31568,13,'130',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31842,51,'115',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31845,52,'85',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24478,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29548,70,'’3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29548,12,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29548,13,'120',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27895,51,'30.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27895,49,'14.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27902,51,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27902,49,'15,3',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28146,51,'60,00',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28146,49,'29,50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28323,52,'7-20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28326,51,'80',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28326,53,'150',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28331,53,'250',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28331,62,'1,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28331,58,'3,5-4',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28335,53,'250',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28335,62,'1,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28335,58,'3,5-4',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23812,49,'23/20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30913,70,'ƒ˝ÍÓ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30913,12,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30913,13,'30',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30998,70,'ÿÚ‡Ï· “‚ËÒÚ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30998,12,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30998,13,'180',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31004,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31004,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29669,52,'25,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29669,50,'12,5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29877,51,'7.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29877,52,'4',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28910,13,'150',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29819,70,'¿‡ÌÊËÓ‚Í‡  Û„Î‡ˇ ’3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29819,12,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29819,13,'40',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29998,51,'75',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29998,49,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30217,66,'400',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31258,70,'—‡ÎÎ‡Ì‰',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31258,12,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31258,13,'150',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31262,12,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31262,13,'130',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31267,70,'›ıËÌÓÍ‡ÍÚÛÒ √ÛÁÓÌË',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31267,12,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31267,13,'10',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30706,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30706,13,'55',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13239,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13239,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13241,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13241,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(16732,49,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29320,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29320,13,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17009,51,'33',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17009,49,'22',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17010,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17010,49,'26,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(13442,49,'28’15’23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17041,51,'42',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17041,50,'48',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(17041,52,'48',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18076,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30142,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30142,49,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30144,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30144,49,'14.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30148,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30148,49,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30158,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30158,49,'22.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30170,51,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29476,51,'47',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29476,49,'58',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30467,51,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30467,52,'14,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30467,50,'14,5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30468,51,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30468,52,'22',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30468,50,'12',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29825,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29825,49,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28652,51,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28655,51,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28664,52,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29652,51,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29652,49,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29682,51,'4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29682,52,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28850,49,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28850,51,'33',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28859,49,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28859,51,'37',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28419,52,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28302,64,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28610,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28610,49,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28611,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28631,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28632,51,'33',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30253,51,'80',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30264,58,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30265,58,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30272,52,'4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30272,50,'3',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29014,12,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29014,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29028,12,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29028,13,'95',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31488,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31488,13,'55',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31501,70,'‘‡ÌÚÓÏ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31501,12,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31501,13,'80',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31328,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31328,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31337,12,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31337,13,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31349,12,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31349,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31627,70,'—ÔË‡Î¸',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31627,12,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31627,13,'130',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28677,51,'34',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28677,49,'9.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28682,51,'2.8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28682,49,'6.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30490,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29628,51,'19.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29628,49,'17.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28249,53,'45-60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28251,53,'45-60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28270,49,'4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28275,49,'4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28277,49,'4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28296,51,'8-12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28743,50,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28743,52,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28743,51,'56',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28431,52,'14,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30239,51,'15.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30239,52,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30239,50,'27.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30249,51,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30249,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30258,51,'92',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30258,52,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30258,50,'11,5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30281,51,'4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30281,49,'4.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30563,12,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30563,13,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29040,12,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29040,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29054,12,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29054,13,'180',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29645,51,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29645,49,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30439,70,'—‡ÎËÍÓÏÓË‰ÂÒ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30439,12,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30439,13,'25',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25598,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25598,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25601,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25601,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26802,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27152,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26868,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26868,52,'36.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26868,50,'13',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23772,51,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23776,51,'66',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27307,51,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27307,52,'59',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27307,50,'2',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27348,61,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25750,49,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25752,49,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25755,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25763,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24390,49,'3-5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24301,49,'36X15X20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24304,49,'12.5X 7.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24304,51,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24314,49,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24314,51,'16.3',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24339,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28676,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28676,49,'5.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28715,51,'43',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29766,70,'ÃËÍÒ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29766,12,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29766,13,'30',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29796,70,'¿ÏÔÂÎ¸Ì˚È',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29796,12,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29796,13,'45',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29800,70,'ÿÚ‡Ï· “‚ËÒÚ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29800,12,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29800,13,'120',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29802,70,'ÃËÍÒ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29802,12,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29802,13,'90',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30463,51,'10,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30463,52,'25,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30463,50,'12,5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30492,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30492,13,'90',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31028,12,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31028,13,'170',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30578,70,'¿ÏÔÂÎ¸Ì˚È',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30578,12,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30578,13,'25',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31902,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31905,49,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32093,70,'›Ëı ‘‡Ï',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32093,12,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32093,13,'110',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32097,70,'¬‡ËÂ„‡Ú‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32097,12,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32097,13,'60',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31747,70,'¿„ÛÚ‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31747,12,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31747,13,'65',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31753,70,'ÃËÌËÏ‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31753,12,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31753,13,'75',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31756,70,'œÂÌ‰ÛÎ‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31756,12,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30225,49,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30229,51,'23,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27406,49,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25800,53,'500',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25800,62,'0,2',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27648,49,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29623,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29623,49,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29629,51,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29629,52,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29629,50,'14',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28250,53,'45-60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28265,53,'25-35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28287,49,'7-10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28289,49,'7-10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28294,51,'8-12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28221,51,'55/60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28222,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28494,52,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28614,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28623,51,'25/26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28629,51,'46',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28638,51,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28638,52,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30238,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30238,52,'18',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30238,50,'18',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30245,51,'78',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30245,52,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30245,50,'30',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30250,51,'30.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30250,49,'5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30263,58,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30266,58,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18032,51,'23,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18036,49,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18036,51,'23,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25573,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25573,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25585,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25585,63,'4',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25588,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25588,63,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25603,58,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25603,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25610,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25610,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27315,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27315,52,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26870,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26870,52,'36.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26870,50,'13',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26871,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26871,52,'36.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26871,50,'13',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23773,51,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27346,61,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27358,61,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25748,49,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25757,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25758,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25760,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24302,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24302,49,'9X7.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24330,49,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24330,51,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24518,49,'48X31',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24518,51,'9',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24340,51,'80',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28680,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28680,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28685,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29789,12,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29789,13,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29798,70,'Õ‡ ÏÓıÓ‚ÓÈ ÓÔÓÂ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29798,12,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29798,13,'150',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29801,70,'ÃËÍÒ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29801,12,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29801,13,'40',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30888,12,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30888,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30974,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30974,70,'ÿÓÛ-·ÓÍÒ',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30974,13,'25',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30988,12,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30988,13,'110',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18784,49,'38X38X47.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30165,51,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30165,49,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29452,51,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29452,49,'22',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29454,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29454,49,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29472,51,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29472,49,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29473,49,'30ı100ı3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29080,12,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29080,13,'140',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29824,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29824,49,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28646,51,'7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28649,52,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26867,52,'36.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26867,50,'13',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23774,51,'66',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23782,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27418,52,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25739,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25746,49,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25769,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25769,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24515,49,'14X19.5X23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24335,51,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29785,12,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29785,13,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29799,70,'÷ËÎÎËÌ‰',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29799,12,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29799,13,'170',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30997,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30498,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31023,70,'ÿÚ‡Ï·',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31023,12,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31023,13,'80',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32267,70,'¬‡ËÂ„‡Ú‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32267,12,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32267,13,'50',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31597,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31597,51,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29410,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29410,13,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27816,62,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27816,58,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27828,52,'38',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27828,63,'103',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27973,49,'47x35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27973,51,'14x42',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27935,51,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27942,52,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27942,51,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27881,52,'58',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27881,63,'103',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28024,49,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28024,51,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25297,49,'16X10X25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29570,13,'70',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29670,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29670,52,'31,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29670,50,'16',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28864,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28956,12,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28956,13,'200',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28857,51,'15x15x20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31269,12,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31269,13,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31290,12,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31290,13,'170',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30837,70,' Â‡ÏËÍ‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30837,12,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30837,13,'45',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30897,52,'75',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30897,50,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30897,51,'43',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31206,52,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31592,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31592,52,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31592,50,'15.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31593,51,'15.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31593,49,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29417,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29417,13,'55',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29422,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29422,13,'90',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29497,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24354,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24475,51,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24497,49,'4.5-8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24502,49,'127',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24652,52,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29570,12,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27325,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27325,49,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28014,52,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28014,50,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28014,51,'75',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28225,53,'200',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28224,53,'200',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23809,49,'23/20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23816,49,'39',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23816,51,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27985,51,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27990,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27993,51,'55',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28012,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30921,12,'29',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30921,13,'120',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30922,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30922,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30997,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31007,12,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31007,13,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31012,12,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31012,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31402,13,'170',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29834,51,'17.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29834,52,'22',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29834,50,'20.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29836,51,'42',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29836,52,'23.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29836,50,'21',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29849,51,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29849,49,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29723,51,'48',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29723,49,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29725,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29725,52,'37',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29726,51,'49',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25563,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25566,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25566,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25574,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25574,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25581,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25581,63,'4',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25583,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25583,63,'4',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25594,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25594,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25596,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25596,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25616,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27151,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27151,52,'33',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27151,50,'23',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23780,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23785,51,'42',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27360,61,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27364,61,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25740,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25749,49,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25754,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24392,49,'2-4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24305,49,'26X18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24305,51,'64',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24316,49,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24316,51,'8.3',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28678,51,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28678,49,'2.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28684,51,'1.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28684,49,'14.3',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28710,49,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28710,51,'33',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29777,12,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29777,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29793,70,'œÎ‡ÒÚËÍ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29793,12,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29793,13,'60',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29614,51,'20.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29614,52,'16',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29614,50,'10.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29617,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29617,49,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29627,51,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29627,52,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29627,50,'14',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28266,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28266,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28267,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28267,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28273,49,'4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28280,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28293,49,'7-10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28295,51,'8-12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28300,53,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29062,12,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28219,51,'55/60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28220,51,'55/60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28420,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28301,64,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30254,51,'80',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30255,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30261,58,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30271,52,'4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30271,50,'3',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30558,70,'¡‡Ì˜',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30558,12,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30558,13,'170',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30561,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30561,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30567,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30567,13,'55',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30200,51,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30200,49,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29633,51,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29633,49,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30419,70,'Õ‡ Â¯ÂÚÍÂ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30419,12,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30419,13,'110',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29928,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29928,13,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31510,70,'¡Î˝Í À˝Ò',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31510,12,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31510,13,'35',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30969,70,'¿Ì‰ÓÏËÒıÛÒ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30969,12,'11',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30969,13,'15',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30975,70,'“ÂÛ„ÓÎ¸ÌËÍ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21151,49,'8/55',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21152,49,'8/55',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21153,49,'8/55',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18931,49,'35/15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18932,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18121,49,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18414,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18432,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30516,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30516,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29850,51,'33',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29850,49,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29853,51,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29853,49,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29860,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29860,52,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29860,50,'15',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29861,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29861,52,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29861,50,'20',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29714,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29720,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29720,49,'9,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29722,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29722,49,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29727,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29734,51,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25915,52,'55',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27629,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27652,49,'25-32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27652,51,'13-15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18604,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18604,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18604,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18604,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26121,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26156,49,'2,2',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29624,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29624,49,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28256,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28256,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28271,49,'4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28278,49,'4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28283,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28288,49,'7-10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28218,51,'55/60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28223,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28621,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28634,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28635,51,'46',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30242,51,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30242,49,'35/45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30246,51,'117',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30246,52,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30246,50,'35',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30269,52,'4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30269,50,'3',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30559,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30559,13,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30560,70,'¡‡Ì˜',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30560,12,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30560,13,'180',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29013,12,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29013,13,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29489,49,'20ı16',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29490,52,'4.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29019,12,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29019,13,'130',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25564,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25564,63,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25575,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25575,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25586,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25586,63,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25615,58,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25615,63,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26869,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26869,52,'36.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26869,50,'13',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23786,51,'42',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27347,61,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25742,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25762,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25767,49,'19ı20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25767,60,'4,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25770,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25770,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24306,49,'15.5X13.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24306,51,'15.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28571,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29764,70,'Õ‡ ÏÓıÓ‚ÓÈ ÓÔÓÂ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29764,12,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29764,13,'120',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29797,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29797,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30458,51,'22',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30458,52,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30458,50,'11.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31024,12,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31024,13,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31139,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31323,50,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31323,52,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29760,70,' Â‡ÏËÍ‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29760,12,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29760,13,'70',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30059,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30059,13,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32356,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32100,70,'”‡ÈÚ —‚‡Ì',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31477,12,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31477,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31484,70,'¿ÎÂÍËÌ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31484,12,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31484,13,'45',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31490,70,'Ã‡ÈÎÎ‡Ì‰',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31490,12,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31490,13,'35',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31497,12,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31497,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31506,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31506,13,'65',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31212,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31212,52,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31630,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31630,13,'75',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31645,12,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31645,13,'120',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30760,12,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30760,13,'20',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30772,70,'¡‡Ì˜',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30772,12,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30772,13,'35',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32251,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32251,13,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32253,12,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32253,13,'70',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32260,12,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32260,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31137,50,'13',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31895,51,'7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31895,49,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31901,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32085,70,'”ËÌÚÂ„ÓÎ‰',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32085,12,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32085,13,'120',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32010,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32010,49,'2.03',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32021,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32021,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31515,70,' Ì‡ÔËÎÎ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31515,12,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31515,13,'45',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31522,70,'√ÓÎÛ·‡ˇ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32401,49,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32401,51,'64',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32313,49,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32313,51,'47',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32187,52,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32187,50,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32187,51,'19',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32318,70,'¿ÏÔÂÎ¸Ì‡ˇ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32318,12,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32318,13,'50',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32390,12,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32390,13,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32397,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32218,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32218,13,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30952,12,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30952,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31137,51,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31137,52,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31725,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31725,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31726,12,'7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31726,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31851,51,'62',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31855,52,'63',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31857,52,'63',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31860,52,'83',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31861,52,'91',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31873,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31873,49,'29',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31883,51,'17.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31883,49,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31988,12,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31988,13,'150',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31059,51,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31066,51,'80',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31066,50,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31079,51,'16',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31079,49,'12.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30760,70,'¬‡ËÂ„‡Ú‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30230,52,'98',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30230,50,'21.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30233,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30233,49,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31235,12,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31235,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24508,49,'15.3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27904,51,'22',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27904,49,'15.3',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28015,49,'43',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28015,51,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31407,12,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31407,13,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31931,70,'’4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31931,12,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31931,13,'190',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30487,52,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30487,50,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30487,51,'56',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31129,51,'98',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30644,52,'53',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31702,52,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31708,51,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31708,49,'18',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31709,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31709,52,'31',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31709,50,'17',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32275,70,'ÿÚ‡Ï·',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32275,12,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32275,13,'150',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32301,50,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32301,52,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32301,51,'44',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32345,70,'¡ÓÌÒ‡È',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32345,12,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32345,13,'40',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32347,12,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32347,13,'70',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32349,12,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32349,13,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32351,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32351,13,'70',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29443,52,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28888,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28888,13,'70',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29443,51,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29443,50,'23',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30003,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30003,13,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30032,12,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30032,13,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30036,70,' Â‡ÏËÍ‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30036,12,'11',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30036,13,'15',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30207,51,'75',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30207,52,'29',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30207,50,'27',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30474,51,'16',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30474,49,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29721,51,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29721,49,'10.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29724,51,'54',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29724,49,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30049,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30049,13,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30874,12,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30874,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32103,70,'ÿÌÂÂ‚ËÚıÂÌ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32103,12,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32103,13,'55',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32105,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32105,13,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32106,70,'ÀËÚÚÎ Ã‡„ÌÛÏ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32106,12,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32106,13,'35',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32118,70,'‘Âˇ ÿÚ‡Ï·',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32118,12,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32118,13,'240',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32128,70,'ÿÚ‡Ï·',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32128,12,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32128,13,'120',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32135,70,'ÕË„‡ Õ‡Ì‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32135,12,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32135,13,'70',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31792,70,'÷ËÎÎËÌ‰',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31792,12,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31792,13,'150',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31795,12,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31795,13,'140',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31804,12,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31804,13,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31502,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31502,13,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31341,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31341,13,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31611,51,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31611,49,'13.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31648,70,'’3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31648,12,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31648,13,'135',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31650,70,'¡‡Ì˜',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31650,12,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31650,13,'130',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31654,12,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31654,13,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30766,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30766,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32249,70,'÷ËÎËÌ‰',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32249,12,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32249,13,'200',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28712,49,'43',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28712,51,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28713,49,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30490,13,'105',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31022,12,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31022,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31252,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31252,13,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32270,12,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32270,13,'75',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31322,52,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31322,50,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31322,51,'56',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31896,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31896,49,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31898,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32088,70,'√Î‡ÛÍ‡ √ÎÓ·ÓÁ‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32088,12,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32088,13,'40',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32089,70,'ÀÂÓÌ‡‰Ó ‰‡ ¬ËÌ˜Ë',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32089,12,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32089,13,'40',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32092,70,'œÂÒË ¬‡ÈÒÏ‡Ì',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32092,12,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32092,13,'70',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32099,70,'√Î‡ÛÍ‡ √ÎÓ·ÓÁ‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32099,12,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32099,13,'25',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31741,12,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31741,13,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31742,70,'—‡„ÂÌÚË',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31742,12,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31742,13,'45',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31746,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31746,13,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31990,12,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31990,13,'120',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32023,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32023,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32025,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32025,49,'2.3',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32032,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32032,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28607,51,'34',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25229,49,'2.2',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25229,52,'9.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25276,49,'38',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25276,51,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30602,52,'41',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30311,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30311,13,'70',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30625,52,'42',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29976,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29976,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31832,70,'—Ó·ÛÒ Ë  ÓıÂ‡Ì‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31832,12,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31832,13,'80',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31834,70,'√Î‡ÛÍ‡ ’ÓÚÓ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31421,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31421,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31443,12,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31443,13,'230',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31457,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31457,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31461,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31461,13,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31984,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31984,13,'55',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31149,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31149,13,'85',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30839,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30839,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30895,52,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30895,50,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30895,51,'47',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30904,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30904,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30928,70,'œË‡ÏË‰‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30928,12,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30928,13,'220',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30933,12,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30933,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30964,70,'¡‡Ì˜',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30964,12,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30964,13,'80',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31586,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31586,13,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31721,12,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31721,13,'210',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31834,12,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31834,13,'60',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31836,12,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31836,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31856,52,'63',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31875,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31875,49,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31884,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31884,49,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31886,51,'31',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31886,49,'33',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31046,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31072,52,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31072,50,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31756,13,'150',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31996,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31996,49,'2.03',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31998,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31998,49,'2.03',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32003,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32003,49,'2.03',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32015,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32015,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32016,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32016,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32034,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32034,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32037,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32037,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31520,12,'37',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31520,13,'150',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32190,52,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32190,50,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32190,51,'19',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32191,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32191,51,'70',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32204,50,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32204,52,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32204,51,'26',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32385,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32385,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32392,70,' Î‡ÂÚÚ ’10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32392,12,'1',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32392,13,'10',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32216,12,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32216,13,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31259,13,'100',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31278,70,'œÎ‡ÒÚËÍ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31278,12,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31278,13,'130',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30681,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30681,13,'75',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30687,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30687,13,'55',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30707,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30707,13,'55',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31105,50,'16',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31838,12,'54',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31838,13,'300',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31843,52,'85',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31872,51,'36',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31872,49,'36',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31880,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31880,49,'34',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31882,51,'31',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31882,49,'33',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31887,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31887,49,'17.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31890,51,'31',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31890,49,'33',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31892,51,'15.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31892,49,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31043,51,'47',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31050,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31062,49,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31063,49,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31075,51,'10,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31075,52,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31075,50,'24',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31078,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31078,49,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31078,50,'15',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31561,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31561,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31223,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31223,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31234,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31234,13,'65',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24480,51,'47',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24651,52,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29550,70,'’2',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29550,12,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29550,13,'80',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27318,51,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27318,52,'34',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27324,51,'33',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27324,49,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23810,49,'23/20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23818,49,'22.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23818,51,'43',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27992,51,'44',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31309,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31309,13,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31414,12,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31414,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31922,70,'¡‡Ì˜',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31922,12,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31922,13,'140',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31929,12,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31929,13,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31939,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31939,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31113,51,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31113,49,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30645,52,'53',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29474,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29475,51,'66',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29475,49,'46',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28803,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28803,13,'65',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29656,51,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29656,49,'19.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29691,51,'90',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29699,51,'75',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29706,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29706,49,'11',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31524,70,'√Î‡ÛÍ‡ √ÎÓ·ÓÁ‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31524,12,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31524,13,'45',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31525,70,'À‡ÍÚËÙÎÓ‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31525,12,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31525,13,'45',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31527,70,'œÂÌ‰ÛÎ‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31527,12,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31527,13,'160',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31528,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31528,13,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31535,12,'28',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31535,13,'70',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31543,70,'–ÓÚ„ÂÒËˇ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31543,12,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31543,13,'35',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31355,12,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31355,13,'150',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31396,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(19927,53,'150',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(19935,53,'200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21091,49,'38',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21091,51,'64',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21137,49,'25/24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21138,49,'25/24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21139,49,'25/24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(21143,49,'25/18/2',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27111,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18118,52,'17,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18651,49,NULL,1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18651,50,NULL,2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18651,51,NULL,3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18651,52,NULL,4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29832,51,'17.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29832,52,'22',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29832,50,'20.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29711,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29715,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29717,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29718,51,'20.3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29718,49,'20.3',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29728,51,'42ı15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30083,70,'—Â‰ˆÂ 290110',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30083,12,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30083,13,'18',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32358,12,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32358,13,'75',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32133,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32133,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31796,70,'ÿÚ‡Ï·',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31796,12,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31796,13,'60',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31616,12,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31616,13,'220',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28457,51,'15/17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28466,51,'61',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28823,51,'17.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28826,51,'13x11.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28830,51,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28831,51,'76+64',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28836,51,'31x48',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28836,52,'31',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29426,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29426,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29499,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29503,51,'15.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29503,52,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29503,50,'20',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24351,49,'28',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24351,51,'9',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24509,51,'7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24653,63,'12/72',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29565,70,'¿ÏÔÂÎ¸Ì‡ˇ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29565,12,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29565,13,'30',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29569,12,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29569,13,'200',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28222,53,'200',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28334,53,'250',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28334,62,'1,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28334,58,'3,5-4',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28007,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30918,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30918,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31403,70,'’4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31403,12,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31403,13,'170',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31913,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31913,13,'70',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31914,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31914,13,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31925,12,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31936,70,'ÃÓÊÊÂ‚ÂÎ¸ÌËÍ ÃËÌÚ ƒÊÛÎËÔ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31936,12,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31936,13,'45',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18786,50,'31X37',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18811,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(18812,51,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26708,58,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(26708,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30159,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30159,49,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30162,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30162,49,'16.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30168,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30168,49,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29453,51,'29',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29453,49,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29462,51,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29462,49,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29064,13,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29077,12,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29077,13,'130',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28643,51,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28661,51,'51',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29696,51,'90',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29696,49,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29710,51,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31356,12,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31356,13,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31359,12,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31359,13,'200',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31371,12,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31371,13,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31379,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31379,13,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31388,12,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31388,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31659,12,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31659,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31661,12,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31661,13,'120',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31683,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31683,49,'22',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31689,51,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31689,52,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31689,50,'10',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31697,51,'4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31697,52,'39',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31697,50,'35',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31710,51,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31710,52,'38',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31710,50,'20',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32338,12,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32338,13,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30344,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30344,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30361,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30361,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30382,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30135,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30135,52,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30135,50,'10',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30046,70,' Â‡ÏËÍ‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30046,12,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30046,13,'25',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30382,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30398,12,'29',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30398,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30203,51,'47',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30203,52,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30203,50,'29',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30206,51,'78',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30206,49,'38',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30209,51,'26x29x31',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30209,49,'28x31x34.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30476,51,'66',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30498,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30091,70,'“ÓÙ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30091,12,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30091,13,'70',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32111,70,'—ÂÌÒÂÈ¯Ì',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32111,12,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32111,13,'100',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32139,12,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32139,13,'250',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31780,70,'ÿÚ‡Ï·',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31780,12,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31780,13,'80',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31785,70,'œË‡ÏË‰‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31785,12,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31785,13,'180',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32150,70,'À‡ËÍÒ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32150,12,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32150,13,'65',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32155,70,'ÿÚ‡Ï· œˇÏÓÈ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32155,12,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32155,13,'200',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32158,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32158,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32173,70,' Î‡ÂÚÚÂ ’10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32173,12,'1',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32173,13,'10',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32362,70,'¿‡ÌÊËÓ‚Í‡  Û„Î‡ˇ ’5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30975,12,'16',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30975,13,'25',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30976,70,'ÿÚ‡Ï· Ë œË‡ÏË‰‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30976,12,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30976,13,'60',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30987,12,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30987,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32264,12,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32264,13,'150',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31897,51,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31897,49,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31904,49,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31760,70,' ‡ÛÒÂÎ¸',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31760,12,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31760,13,'100',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31766,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31766,13,'70',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31989,12,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31989,13,'150',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32004,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32004,49,'2.03',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32005,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32005,49,'2.03',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32006,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32006,49,'2.03',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32012,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32012,49,'2.03',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32024,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32024,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32028,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32028,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32036,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32036,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31511,70,'¿Ì„ÎËÈÒÍ‡ˇ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31511,12,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31511,13,'35',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31512,70,'¿ÛÂ‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31512,12,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31512,13,'35',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31513,12,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31513,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31516,70,'√Î‡ÛÍ‡ √ÎÓ·ÓÁ‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31516,12,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31516,13,'25',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32367,12,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32367,13,'125',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32402,51,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32196,50,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32196,52,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32196,51,'75',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32198,50,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32198,52,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32198,51,'56',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31825,12,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31825,13,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32319,12,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32319,13,'190',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30804,13,'55',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31830,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31150,12,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31150,13,'130',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31151,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31151,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31161,12,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31161,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31178,12,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31178,13,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31184,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31184,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31185,70,' Â‡ÏËÍ‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31185,12,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31185,13,'110',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31088,51,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31088,49,'18',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31103,51,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31103,49,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32055,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32055,49,'8.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32057,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32057,49,'7.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32067,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32067,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32069,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32069,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32280,61,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32280,50,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32283,49,'21x22.5x13.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32284,49,'10.5ı9.5ı10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32290,49,'50x42x12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32291,49,'50x42x12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32292,51,'3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32292,52,'65',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32292,50,'14',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32309,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32309,50,'18',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31294,70,'’Ë˘Ì˚Â ‡ÒÚÂÌËˇ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31294,12,'9',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31294,13,'10',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30696,12,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30696,13,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31323,51,'75',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32081,12,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32081,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29005,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29005,13,'120',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29889,52,'38',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29889,50,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29889,51,'24',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29995,49,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29995,51,'75',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29999,49,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29999,51,'36',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30220,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30220,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30221,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30221,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30224,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30224,52,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31277,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31277,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31283,12,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31283,13,'70',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31296,70,'¡‡Ì˜',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30680,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30680,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31134,50,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31134,52,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31134,51,'56',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31204,52,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31205,52,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31577,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31577,13,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31587,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31587,13,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31722,12,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31722,13,'210',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31724,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31724,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31731,12,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31731,13,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31732,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31732,13,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29502,51,'33',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29502,49,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29516,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24352,49,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24352,49,'39',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24352,51,'35',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29533,70,'ÃËÍÒ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29533,12,'5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29533,13,'10',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29549,70,'÷ËÎÎËÌ‰',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29549,12,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29549,13,'180',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29563,12,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29563,13,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27903,49,'13.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27903,51,'19.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28223,53,'200',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28324,52,'7-20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28332,53,'250',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28332,62,'1,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28332,58,'3,5-4',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27980,51,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27997,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27998,51,'48',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28013,51,'36',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30912,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30912,13,'65',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31002,70,'¬‡ËÂ„‡ÚÛÏ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31002,12,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31002,13,'25',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31010,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31010,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31413,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31413,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31296,12,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31296,13,'70',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31911,12,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31911,70,'¿ÏÔÂÎ¸Ì‡ˇ',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31911,13,'40',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31921,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31921,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30449,51,'12',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30850,12,'33',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30850,13,'130',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28902,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29471,51,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29471,49,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30469,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29076,12,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29076,13,'170',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29099,12,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29099,13,'150',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28640,51,'6,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29686,51,'112',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29698,51,'75',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31533,70,'√‡Ì‰ËÙÎÓÛÏ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31533,12,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31533,13,'55',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31353,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31353,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31360,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(7074,64,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28328,51,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28330,51,'160-200',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28333,53,'250',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28333,62,'1,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28333,58,'3,5-4',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23811,49,'23/20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28010,51,'47',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30915,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30915,13,'70',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31302,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31302,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31915,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31915,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31934,12,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31934,13,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31122,51,'10.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31122,52,'25.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31122,50,'12.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30643,52,'53',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29086,13,'75',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28639,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28639,52,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28644,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28648,51,'9,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28650,51,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29654,51,'41',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29654,49,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29681,51,'4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29681,52,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29681,50,'3.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29689,51,'90',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31522,12,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31522,13,'65',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31532,70,'√ÓÎ‰ ‘Î˝ÈÏ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31532,12,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31532,13,'35',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31539,12,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31539,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31367,12,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31367,13,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31372,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31372,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31392,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31392,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31666,49,'28',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31666,51,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31680,51,'22',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31680,49,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31684,51,'31',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31684,49,'31',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31685,51,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31685,52,'33,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31685,50,'25.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31712,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31712,52,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31712,50,'13',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32308,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32308,51,'56',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32332,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32332,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32340,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32340,13,'55',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32344,70,'¬‡ËÂ„‡Ú‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32344,12,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32344,13,'90',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32346,12,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32346,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32356,12,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30022,12,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30022,13,'180',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30033,12,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30033,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30401,12,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30401,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30182,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30182,49,'18',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30196,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30196,49,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30199,51,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30208,51,'26x29x31',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30208,49,'28x31x34.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32100,12,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32100,13,'35',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32110,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32110,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32114,70,'‘Âˇ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32114,12,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32114,13,'210',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32117,70,'ÃÓÍÛÏ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32117,12,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32117,13,'180',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32124,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32124,13,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31816,70,'Õ‡ Â¯ÓÚÍÂ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31816,12,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31816,13,'180',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32147,70,'¡‡Ì˜',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32147,12,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32147,13,'110',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32151,12,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32151,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28713,51,'47',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29938,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29938,13,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29765,70,'¡‡Ì˜',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29765,12,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29765,13,'140',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30982,49,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30982,51,'47',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30993,70,'¿ÏÔÂÎ¸Ì˚È',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30993,12,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30993,13,'45',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31038,70,'’4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31038,12,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31038,13,'180',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31039,70,'¿ÏÔÂÎ¸Ì˚È',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31039,12,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31039,13,'60',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31140,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31899,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31900,51,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31903,49,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32078,13,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31739,70,'–ÓˇÎËÚË',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31739,12,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31739,13,'150',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31749,70,'ÀËÏÓÌÂÈ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31749,12,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31749,13,'70',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31754,70,'–ÓˇÎ –˝‰',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31754,12,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31754,13,'200',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31765,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31765,13,'70',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31777,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31777,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31994,70,'Ã‡ÈÎ‡Ì‰',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31994,12,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31994,13,'45',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32009,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32009,49,'2.03',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32011,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32011,49,'2.03',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32027,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32027,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32038,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32038,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31518,70,'Õ‡Ì‡ œÛÔÛÂ‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31518,12,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31518,13,'60',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32201,50,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32201,52,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32201,51,'26',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30331,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30808,70,'’3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30808,12,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30808,13,'65',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29965,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29965,13,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31426,70,' Â‡ÏËÍ‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31426,12,'52',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31426,13,'120',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31433,12,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31433,13,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31465,12,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31465,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31468,12,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31985,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31985,13,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31162,12,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31162,13,'65',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31169,12,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31169,13,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31172,70,'“ÓÙ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31172,12,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31172,13,'70',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31086,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31086,49,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31099,51,'11.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31099,49,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32234,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32234,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31850,51,'62',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31868,51,'37',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31868,49,'18',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31876,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31876,49,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31878,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31878,49,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31881,51,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31881,49,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31987,70,'¡Î˛ √‡ÒÒ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31987,12,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31987,13,'30',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31468,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30829,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30829,13,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30834,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30834,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31057,51,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31073,52,'33',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31073,50,'33',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30720,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29993,70,'ÿÚ‡Ï· ÔˇÏÓÈ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29993,12,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29993,13,'180',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31555,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31555,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29437,51,'190',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29437,49,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29547,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29547,13,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27320,52,'72',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27320,51,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28147,51,'80,00',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28147,49,'30,50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28310,53,'200',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28336,53,'250',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28336,62,'1,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30924,12,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30924,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31305,70,'ÃÛÎ¸ÚË-·ÓÎ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31305,12,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31305,13,'180',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31307,70,'’3 ÿ‡‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31307,12,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31307,13,'150',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31409,12,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31409,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31930,12,'10,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31930,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31932,70,'œÎ‡ÒÚËÍ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31932,12,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31932,13,'140',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30853,70,'¿ÏÔÂÎ¸Ì˚È',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30853,12,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30853,13,'65',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31120,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31120,52,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31120,50,'12',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31128,51,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31128,49,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31128,50,'7',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30652,49,'75',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30825,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30825,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29682,50,'5.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29700,51,'75',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31538,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31538,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31352,12,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31352,13,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31386,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31386,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31393,12,'29',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31393,13,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31397,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31397,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31658,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31665,52,'100',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31665,50,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31665,51,'34',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31678,51,'36',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31678,49,'38',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31687,52,'51',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31687,50,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32276,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32276,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32304,50,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32304,52,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32304,51,'44',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32307,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32307,51,'56',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32330,12,'38',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32330,13,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30292,49,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30077,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30077,49,'22',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28907,12,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28907,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28910,12,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30375,12,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30375,13,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30133,51,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30133,52,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30133,50,'14',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30013,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30013,70,'“ÓÙ',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30013,13,'40',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30444,51,'37',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30444,49,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30448,58,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30170,49,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30173,51,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30173,49,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30180,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30180,49,'18',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30184,51,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30184,49,'22',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30194,49,'9.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30194,51,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30197,51,'65',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30197,49,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30205,51,'55',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30205,49,'33',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30470,51,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30466,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30466,52,'11.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30466,50,'11.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29107,12,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29107,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29826,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29826,49,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28653,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29678,51,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29678,52,'13.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29678,50,'11',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31531,12,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31531,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31536,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31536,13,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31351,12,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31351,13,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31358,12,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31358,13,'260',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31387,12,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31387,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31663,49,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31663,51,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31673,51,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31673,49,'14.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31686,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31698,52,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31700,52,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31704,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31704,50,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31706,51,'37',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31711,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31711,49,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31713,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31713,52,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32306,50,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32306,52,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32306,51,'56',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32331,12,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32331,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32337,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32337,13,'85',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32348,12,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32348,13,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30131,51,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30131,52,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30131,50,'14',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30021,12,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30021,70,'¡‡Ì˜',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30021,13,'150',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30413,70,'œË‡ÏË‰‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30413,12,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30413,13,'125',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30414,12,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30414,13,'140',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30445,51,'12,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30445,52,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30445,50,'18',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30175,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30175,49,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30178,51,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30178,49,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30193,51,'44,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30471,51,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30471,52,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30471,50,'9',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30475,51,'136',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30500,70,'œÎÓ¯Í‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30500,12,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30500,13,'15',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29757,70,'ÃËÍÒ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29757,12,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29757,13,'40',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30872,12,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30872,13,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32357,70,'¡Î˝Í  Ó‡Î',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32357,12,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32357,13,'80',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32104,70,'¡ÓÌËÍ‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32104,12,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32104,13,'55',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32116,12,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32116,13,'260',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32120,70,'ÿÚ‡Ï·',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32120,12,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32120,13,'180',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32129,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32129,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31787,12,'36',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31787,13,'250',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31799,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31799,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31808,70,'¡‡Ì˜',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31808,12,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31808,13,'130',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32143,70,'ÿÚ‡Ï·',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32143,12,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32143,13,'110',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32176,70,'¡ÛÎÂ‚‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32176,12,'16',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32176,13,'45',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31617,12,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31617,13,'75',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31925,13,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31117,51,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31117,49,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31396,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31398,12,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31398,13,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31667,52,'75',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31667,50,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31667,51,'43',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31677,51,'70',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31677,49,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31682,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31699,52,'63',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32303,50,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32303,52,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32303,51,'44',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32335,12,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32335,13,'75',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32341,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32341,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27727,62,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29373,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29373,13,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30301,51,'31',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30301,49,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30110,51,'45x36x27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30110,49,'50x40x30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29439,49,'30.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30134,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30134,52,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30134,50,'10',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30016,12,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30016,13,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30383,12,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30383,13,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30384,12,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30384,13,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30390,12,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30390,13,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30405,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30405,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30446,51,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30446,52,'26.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30446,50,'19',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30450,51,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30450,52,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30450,50,'18',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29015,12,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29015,13,'150',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29021,12,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29021,13,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29026,12,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29026,13,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29900,12,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29900,13,'200',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29901,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29901,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29905,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29905,13,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31481,70,'ÀÂÏÓÌÂÈ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31481,12,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31481,13,'60',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31500,70,'›Ëı ‘‡Ï',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31500,12,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31500,13,'65',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31504,70,'ÃÓÔÒ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31504,12,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31504,13,'65',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31505,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31505,13,'55',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31191,70,' Â‡ÏËÍ‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31191,12,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31191,13,'60',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31338,70,'¬‡ËÂ„‡Ú‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31338,12,'11',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31338,13,'25',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31622,12,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31622,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31628,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31628,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31651,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31651,13,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31655,12,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31655,13,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32248,12,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32248,13,'120',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31025,12,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31025,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30579,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30579,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32261,70,' ‚‡‰‡Ú',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32261,12,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32261,13,'60',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31217,52,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31217,51,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31217,50,'19',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31894,49,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31894,51,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31906,49,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31906,51,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32082,12,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32082,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31743,70,'ƒÂÂÌ ›ÎÂ„‡ÌÚËÒÒËÏ‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32362,12,'22',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31508,12,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31508,13,'150',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31188,13,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32259,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32259,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32086,70,'ÕÂ‚ËÎ¸ /  ÓÔÏ‡Ì',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32086,12,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32086,13,'120',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32090,70,'Ã‡Ë  Û¸Â',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32090,12,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32090,13,'40',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32091,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32091,13,'70',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31750,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31750,13,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31759,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31759,13,'75',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31767,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31767,13,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31773,12,'37',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31773,13,'190',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31775,70,'ÿÚ‡Ï· “‚ËÒÚ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31775,12,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31775,13,'160',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31776,12,'38',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31776,13,'200',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31999,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31999,49,'2.03',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32017,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32017,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32030,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32030,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32362,13,'35',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32372,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32372,13,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32199,50,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32199,52,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32199,51,'75',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32200,50,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32200,52,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32200,51,'26',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32203,50,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32203,52,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32203,51,'26',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32205,50,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32205,52,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32205,51,'26',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32320,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32320,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32387,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32387,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32394,70,' ‡ÒÍ‡‰',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32394,12,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32394,13,'100',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32400,50,'60 —Ã',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32223,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32223,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32228,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32228,13,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28864,12,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30443,13,'65',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30628,52,'42',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29977,70,'’3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29977,12,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29977,13,'150',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31424,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31424,13,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31425,70,'’3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31425,12,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31425,13,'100',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31955,70,'’6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31955,12,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31955,13,'210',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31964,70,' Â‡ÏËÍ‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31964,12,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31964,13,'60',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31979,12,'34',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31979,13,'180',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31147,70,' ÎÂÌ Í‡ÒÌ˚È',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31147,12,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31147,13,'50',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31167,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31167,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31188,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31081,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31081,52,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31081,50,'15',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31084,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31084,49,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31097,51,'4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31100,51,'16',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31100,49,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31104,51,'15,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31104,49,'13,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32244,70,'¿ÏÔÂÎ¸Ì‡ˇ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32244,12,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32244,13,'45',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31604,51,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31604,49,'19.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30961,12,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30961,13,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30697,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30697,13,'55',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30702,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30702,13,'55',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31203,52,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31605,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31605,52,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31135,51,'22.4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31135,49,'52.2',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31572,12,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31572,13,'280',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31576,12,'29',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31576,13,'70',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31579,12,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31579,13,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31730,70,'¿‰ÏË˝È¯Ì',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31730,12,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31730,13,'45',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31733,12,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31733,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31734,70,'‘‡ÌÚÓÏ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31734,12,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31734,13,'45',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31846,51,'47',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31854,49,'15ı18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31859,52,'83',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31865,52,'42',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31865,50,'17,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31866,49,'43x59',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31871,51,'33.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31871,49,'34',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31889,51,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31889,49,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31893,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31893,49,'11.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31989,70,'—Ô‡„ÂÚÚË',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31042,52,'78',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31049,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31071,51,'80',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31071,60,'4',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31071,50,'80',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31076,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31076,49,'22',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31076,50,'13',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29510,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29510,49,'18.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24373,49,'5/55',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24494,51,'90',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(24495,49,'8-12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29544,70,'¿‡ÌÊËÓ‚Í‡ - √Ë‰Ó',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29544,12,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29544,13,'60',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29546,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29546,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27321,52,'21,5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27321,50,'21,5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(27321,51,'17,5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28261,61,'1',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28327,51,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28327,52,'9-11',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23817,49,'29',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(23817,51,'36',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30911,12,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30911,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30917,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30917,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31303,12,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31303,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31306,12,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31306,13,'110',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31406,70,'œÎÓ¯Í‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31406,12,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31406,13,'30',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31412,12,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31412,13,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31920,12,'29',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31920,13,'55',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31941,12,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31941,13,'220',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31121,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31121,52,'31',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31121,50,'16',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29062,13,'160',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28656,51,'12.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28658,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28659,51,'43',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28660,51,'37',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29648,51,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29648,49,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29680,51,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29680,52,'5.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29680,50,'4',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31530,70,'ÀËÚÎ ◊ÂÏÔËÓÌ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31530,12,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31530,13,'55',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31537,12,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31537,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31540,70,'œ‡ÛÎÒ —Í‡ÎÂÚ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31540,12,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31540,13,'140',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31364,12,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31360,13,'70',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31662,52,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31662,50,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31662,51,'47',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31674,51,'32.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31674,49,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31676,51,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31676,49,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31679,51,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31679,49,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31701,52,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32343,12,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32343,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32353,12,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32353,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32355,70,'›ÍÁÓÚËÍ‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32355,12,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32355,13,'55',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(5221,63,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30073,51,'29',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30073,49,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30098,51,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29442,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29442,49,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28890,12,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28890,13,'90',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28891,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28891,13,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28902,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30356,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30356,13,'75',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30370,12,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30370,13,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30380,12,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30380,13,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30381,12,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30381,13,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30006,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30006,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30026,70,'¡‡Ì˜',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30026,12,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30026,13,'130',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30029,70,'¬‡ËÂ„‡Ú‡ ÿÚ‡Ï·  ÓÍÂ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30029,12,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30029,13,'110',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30452,52,'31',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30452,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30452,50,'12',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30176,51,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30176,49,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30179,51,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30179,49,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30201,52,'55',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30201,50,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30201,51,'83',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30449,52,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30449,50,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30469,52,'11.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30469,50,'11.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30484,51,'68',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30507,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30507,13,'70',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29734,49,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29762,12,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29762,13,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30055,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30055,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30086,70,'—Â‰ˆÂ ‰‚ÓÈÌÓÂ 290210',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30086,12,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30086,13,'18',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30871,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30871,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32121,12,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32121,13,'200',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32131,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32131,13,'55',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32136,70,'œÓÛÎÒÂÌ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32136,12,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32136,13,'35',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32137,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32137,13,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31803,70,'¿Î¸·ÂÚ‡ √ÎÓ·Â',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31803,12,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31803,13,'35',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31811,12,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31811,13,'75',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32161,12,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32161,13,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32180,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32180,13,'70',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29036,12,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29036,13,'90',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29637,51,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29637,49,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29927,70,'¿‡ÌÊËÓ‚Í‡ Ò ÍÓÍÓÒÓÏ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29927,12,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29927,13,'80',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31476,12,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31476,13,'250',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31479,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31479,13,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32182,12,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32182,13,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32185,70,'ƒ‡ˆÂÌ‡ ’3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32185,12,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32185,13,'95',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30610,52,'62',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30612,51,'84',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30598,51,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30626,52,'42',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31833,70,'√Î‡ÛÍ‡ ’ÓÚÓ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31833,12,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31833,13,'100',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31466,12,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31466,13,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31467,12,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31467,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31975,12,'43',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31975,13,'200',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31982,12,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31982,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32165,12,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32165,13,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31173,12,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31173,13,'130',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31085,51,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31085,49,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31091,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31091,52,'13.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31091,50,'13.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31101,51,'11.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31101,49,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32236,12,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32236,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32397,61,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32053,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32053,49,'7.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32068,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32068,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32070,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32070,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32075,12,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32075,13,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32277,50,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32277,61,'5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32287,49,'50x35x12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32288,49,'50x35x12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32293,51,'3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32293,52,'65',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32293,50,'14',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32314,49,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32315,49,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32314,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32316,49,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32316,51,'58',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30720,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30728,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30728,13,'65',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31548,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31548,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31562,12,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31562,13,'180',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31568,70,' Â‡ÏËÍ‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31568,12,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31227,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31227,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32044,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32044,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32046,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32046,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32051,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32051,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32058,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32058,49,'7.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32061,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32061,49,'7.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32062,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32062,49,'7.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32066,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32066,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32078,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30470,52,'14.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30470,50,'14.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30485,51,'68',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29829,49,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29829,51,'16',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29838,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29838,52,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29838,50,'23.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29856,51,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29856,49,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29858,51,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29858,49,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29739,51,'29',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29739,49,'19.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30087,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30087,70,'—ÔÂ¯Ë‡Î',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30087,13,'70',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32107,12,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32107,13,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32115,12,'22',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32115,13,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32127,12,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32127,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31812,70,'œË‡ÏË‰‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31812,12,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31812,13,'70',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32141,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32141,13,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32153,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32153,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32170,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32170,13,'70',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32184,12,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32184,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31646,70,'¡‡Ì˜',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31646,12,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31646,13,'100',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31658,12,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30773,12,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30773,13,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32033,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32033,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32035,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32035,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31517,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31517,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32374,70,'ÀËÚÚÎ ◊ÂÏÔËÓÌ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32374,12,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32374,13,'80',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32188,52,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32188,50,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32188,51,'19',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32197,50,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32197,52,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32197,51,'75',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32202,50,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32202,52,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32202,51,'26',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32323,12,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32323,13,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32326,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32326,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32383,12,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32383,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32388,12,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32388,70,'¿ÏÔÂÎ¸Ì˚È',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32388,13,'40',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32225,70,'÷ËÎËÌ‰',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32225,12,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32225,13,'120',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32230,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32230,13,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31082,51,'44',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31082,49,'14.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31092,51,'23.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31092,52,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31092,50,'16',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31102,52,'15.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31102,51,'15.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31102,50,'15.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32245,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32245,13,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32043,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32043,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32045,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32045,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32052,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32052,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32056,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32056,49,'8.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32065,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32065,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32074,12,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32074,13,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32286,49,'50x35x12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32299,53,'250',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32299,62,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31715,51,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31715,49,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32311,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32311,52,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32311,50,'9.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32312,49,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31478,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31478,13,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31480,70,'√ÓÎ‰ÂÌ œËÌˆÂÒÒ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31480,12,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31480,13,'35',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31482,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31482,13,'55',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31487,70,'¬‡ÌËÎÎ‡ ‘‡ÈÁ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31487,12,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31487,13,'80',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31489,12,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31489,13,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31189,70,'¡‡Ì˜',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31189,12,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31189,13,'130',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31195,70,'”‡ÈÚ —Ú‡ÈÔ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31195,12,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31195,13,'35',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31324,12,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31324,13,'70',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31325,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31325,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31334,70,'“Ûˇ ÃËÍÒ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31334,12,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31334,13,'45',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31348,12,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31348,13,'70',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31610,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31610,49,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31621,70,'÷ËÎÎËÌ‰',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31621,12,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31621,13,'130',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31625,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31625,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31641,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31641,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30764,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30764,13,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30774,12,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30774,13,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32217,70,'¿‡ÌÊËÓ‚Í‡  Û„Î‡ˇ ’4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32217,12,'16',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32217,13,'30',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32222,12,'22',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32222,13,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32224,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32224,70,'ÿÚ‡Ï·',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32224,13,'110',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32226,12,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32226,13,'130',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32231,12,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32231,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25277,52,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25277,51,'57',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30604,52,'78',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30608,52,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30617,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30617,49,'22x16',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30618,51,'15.2',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30618,49,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30621,51,'22.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30621,49,'25.6x18',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30328,12,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30328,13,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30631,52,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30780,12,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30780,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29958,70,'ÃËÌË',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29958,12,'6',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29958,13,'20',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29982,12,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29982,13,'140',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31442,12,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31442,13,'70',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31464,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31464,13,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31968,12,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31968,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31087,51,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31087,49,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31105,51,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31105,52,'16',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32242,70,'’3',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32242,12,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32242,13,'60',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32041,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32041,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32047,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32047,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32054,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32054,49,'7.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32060,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32060,49,'7.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32278,61,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32278,50,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32279,61,'5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32279,50,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32281,51,'10.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32281,50,'10.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32294,49,'17.4/16/7.4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31743,12,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31743,13,'65',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31778,12,'54',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31778,13,'300',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31997,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31997,49,'2.03',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32000,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32000,49,'2.03',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32002,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32002,49,'2.03',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32007,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32007,49,'2.03',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32008,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32008,49,'2.03',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32018,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32018,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32020,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32020,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32022,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32022,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32029,51,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32029,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32039,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32039,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31514,70,'ÃÂ„‡ ÃËÌ‰Ë',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31514,12,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31514,13,'70',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32366,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32366,13,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32369,70,'¿ÛÒÚ‡ÎËÒ ÿÚ‡Ï·',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32369,12,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32369,13,'190',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32370,70,'¡‡Ì˜',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32370,12,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32370,13,'150',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32206,50,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32206,52,'14',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32206,51,'26',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32207,50,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32207,52,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32207,51,'56',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32377,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32377,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28071,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28227,51,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28598,51,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28598,52,'22',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28598,50,'16',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28599,51,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28599,52,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28599,50,'17',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28600,51,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28600,52,'21',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28600,50,'17',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28692,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28692,52,'34',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29439,51,'30.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28863,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28863,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25223,49,'2',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25224,49,'1.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30325,12,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30325,13,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30327,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30327,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29962,12,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29962,70,'¿ÏÔÂÎ¸Ì˚È',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29962,13,'60',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31430,12,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31430,13,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31435,12,'8',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31435,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31460,12,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31460,13,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31952,12,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31952,13,'150',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31956,70,'’6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31956,12,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31956,13,'210',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31965,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31965,13,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31983,70,'ÃÓÔÒ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31983,12,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31983,13,'25',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30229,52,'37',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30229,50,'11,5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31260,70,'ÃÛÎ¸ÚË-·ÓÎ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31260,12,'29',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31260,13,'100',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31282,70,'œË‡ÏË‰‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31282,12,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31282,13,'60',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31291,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31291,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30704,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30704,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30907,70,'ÃËÍÒ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30907,12,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30907,13,'30',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31600,51,'38',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31600,50,'16.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31607,51,'12.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31607,50,'12.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31574,12,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31574,13,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31716,49,'18',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31717,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31717,52,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31717,50,'18',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31835,70,'’5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31835,12,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31835,13,'80',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31844,52,'85',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31847,51,'47',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31864,51,'67',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31055,49,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31077,51,'22',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31077,49,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31077,50,'15',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30846,12,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30846,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31547,12,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31547,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31566,70,'¡‡Ì˜',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31566,12,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31566,13,'190',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31123,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31123,52,'31',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31123,50,'16',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30646,52,'53',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30648,52,'76',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32247,12,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32247,13,'190',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32048,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32048,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31400,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31400,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31402,70,'’4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31402,12,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32282,51,'10.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32282,50,'10.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32285,49,'50x35x12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31716,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31364,13,'120',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31373,12,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31373,13,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31389,12,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31389,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31695,51,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31695,50,'25.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31695,52,'25.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31696,52,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31696,50,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31696,51,'3.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31707,49,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31707,51,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32300,50,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32300,52,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32300,51,'75',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32302,50,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32302,52,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32302,51,'44',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32336,12,'22',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32336,13,'90',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32339,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32339,13,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32342,12,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32342,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30132,51,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30132,52,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30132,50,'12',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30009,70,'¡‡Ì˜',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30009,12,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30009,13,'70',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30037,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30037,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30041,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30041,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30454,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30454,52,'26',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30454,50,'23.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30454,49,'23.5',4);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30455,51,'28.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30455,52,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30455,50,'21',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30189,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30189,49,'28',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30195,51,'24.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30195,49,'11',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30276,51,'19',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30276,52,'80',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30276,50,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30480,52,'68',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30483,51,'68',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30506,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30506,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29726,52,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29730,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29730,50,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29731,51,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29731,52,'29',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29733,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29733,52,'34',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29736,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29736,49,'10',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29737,49,'34',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29737,51,'1',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32108,70,'ÃË‰‰ÂÙË‡Ì‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32108,12,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32108,13,'50',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32119,70,'–Û‰ÓÎ¸Ù',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32119,12,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32119,13,'250',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32134,70,'¬‡Ì œÂÎÚÒ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32134,12,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32134,13,'65',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31791,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31791,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31800,70,'œÓÎË‡ÌÚÓ‚‡ˇ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31800,12,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31800,13,'40',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31810,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31810,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32148,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32148,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32160,70,'¿ÏÔÂÎ¸Ì˚È',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32160,12,'18',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32160,13,'30',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31209,51,'65',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31213,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31213,52,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31335,12,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31335,13,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31346,12,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31346,13,'120',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31618,12,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31618,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31619,12,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31619,13,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30778,70,'’4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30778,12,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32321,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32321,13,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32324,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32324,13,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32399,61,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31496,12,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31496,13,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31509,12,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31509,13,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31340,12,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31340,13,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31620,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31620,13,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31623,70,'œ‡Òı‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31623,12,'11',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31623,13,'15',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31636,12,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31636,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30761,70,'3 ÒÓÚ‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30761,12,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30761,13,'50',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30762,70,' ‡Î‡ÏÓÌ‰ËÌ ÿÚ‡Ï·',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30762,12,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30762,13,'50',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32083,12,'29',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32083,13,'110',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32095,70,'ÃÓÔÒ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32095,12,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32095,13,'50',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31738,70,'ÀÂ‰Ë ËÌ –˝‰',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31738,12,'19',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31738,13,'70',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31744,70,'ÀËÎÂÈÌËÍ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31744,12,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31744,13,'25',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31762,12,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31762,13,'90',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31995,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31995,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32001,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32001,49,'2.03',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32013,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32013,49,'2.03',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32014,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32014,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32019,51,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32019,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32026,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32026,49,'2.3',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32031,51,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32031,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32373,12,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32373,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32195,50,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32195,52,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32195,51,'56',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32322,12,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32322,13,'100',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32325,12,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32325,13,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32380,12,'10',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32380,13,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32395,70,'¿ÏÔÂÎ¸Ì‡ˇ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32395,12,'18',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32395,13,'40',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32398,50,'60',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32398,61,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32212,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32212,13,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32221,70,'¡‡Ì˜',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32221,12,'45',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32221,13,'220',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28597,51,'9',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28597,50,'16',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28597,52,'22',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(28604,51,'4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25269,63,'4’40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(25285,49,'26.5X26.5X10.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30600,49,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30607,52,'35',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30609,52,'62',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30616,51,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30636,52,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30320,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30320,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30627,52,'42',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29952,12,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29952,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29967,12,'15',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29967,70,' ÌÓÎ',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29967,13,'70',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31831,12,'11',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31831,13,'35',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31974,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31974,13,'70',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31976,70,'œË‡ÏË‰‡',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31976,12,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31976,13,'150',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31179,12,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31852,51,'62',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31863,52,'91',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31867,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31867,49,'15.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31869,51,'20.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31870,49,'17.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31870,51,'7.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32296,49,'17.4/16/7.4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32297,49,'17.4/16/7.4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31713,50,'15',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30954,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30954,13,'15',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31136,51,'21ı36',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31136,52,'31ı57',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31136,50,'12ı15',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31720,12,'42',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31720,13,'250',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31736,70,'¡¸˛ÚË ÓÙ ÃÓÒÍÓÛ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31736,12,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31736,13,'110',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31737,12,'32',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31737,13,'55',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31848,51,'47',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31849,49,'40',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31853,51,'62',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31862,52,'91',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31874,51,'26',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31874,49,'9',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31879,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31879,49,'30',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31040,52,'45',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31047,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31048,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31056,51,'72',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31058,51,'90',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31074,51,'10.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31074,52,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30719,12,'7',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30719,13,'12',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31119,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31119,52,'31.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31119,50,'16',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31124,51,'23.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31124,52,'32',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31124,50,'16',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31127,51,'30',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31127,52,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31127,50,'19',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32042,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32042,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32049,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32049,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32295,49,'17.4/16/7.4',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32298,62,'6',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32298,53,'250',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31714,51,'19',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31714,49,'17',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30752,12,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30752,13,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29988,70,'ƒÂÍÓ',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29988,12,'13',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(29988,13,'40',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30232,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30232,52,'55',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30232,50,'17',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32399,50,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32213,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32213,13,'60',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32219,12,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32219,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32310,52,'25',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32310,50,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32310,51,'12',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31559,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31559,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31560,12,'12',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31560,13,'20',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31228,12,'22',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31228,13,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31233,12,'14',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31233,13,'40',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31830,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31877,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31877,49,'25',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31885,51,'27',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31885,49,'27',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31051,51,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31080,51,'16',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31080,49,'12.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30850,70,' ‡Î‡ÏÓÌ‰ËÌ ÿÚ‡Ï·',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31219,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31219,13,'50',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30640,49,'20',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(30642,52,'23',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31179,13,'95',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31083,51,'24',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31083,49,'24',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31089,51,'20.5',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31089,52,'20.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31089,50,'20.5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31093,51,'16',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31093,52,'23',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(31093,50,'12,5',3);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32235,12,'17',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32235,13,'80',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32040,51,'50',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32040,49,'8',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32050,51,'18',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32050,49,'7',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32059,51,'13',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32059,49,'7.5',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32073,12,'21',1);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32073,13,'120',2);
+INSERT INTO nom_specifications (N_ID,HS_ID,HS_VAL,ORD) 
+VALUES(32289,49,'50x42x12',1);

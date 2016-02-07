@@ -1,0 +1,7 @@
+ALTER TABLE ORDERS_LIST 
+ ADD (
+  pack_ NUMBER (1, 0) DEFAULT 0
+ )
+/
+COMMENT ON COLUMN ORDERS_LIST.pack_ IS '1-пакуется отдельно'
+/

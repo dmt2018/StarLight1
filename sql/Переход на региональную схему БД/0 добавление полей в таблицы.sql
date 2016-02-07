@@ -1,0 +1,309 @@
+ALTER TABLE ADMIN_EMPLOYEES_ROLE_GROUPS 
+ ADD (
+  ID_OFFICE NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE ADMIN_PROGRAMS_ROLE_GROUPS 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE ADMIN_ROLE_GROUPS 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE BOOKS_ADVERTISMENTS 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE BOOKS_CLIENT_TYPES 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE BOOKS_DEPARTMENTS 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE BOOKS_JOB_TITLES 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE BOOKS_REGIONS 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE BUH_DOC 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE BUH_DOC_CARGO 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE BUH_DOC_DATA 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE CASH 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE CASH_DELETED 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE CASH_TMP 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE CLAIMS 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE CLAIMS_LIST 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE CLIENT_DEBT 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE CLIENTS 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE CLIENTS_GROUPS 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE CLIENTS_SALES 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE COLOURS 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE CURRENCY 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE DEBETORS 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE EMPLOYEES_DEPARTMENTS 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE EMPLOYEES_JOB_TITLES 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE FLOWER_NAME_TRANSLATIONS 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE FLOWER_NAMES 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE FLOWER_SUBTYPES 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE FLOWER_TYPES 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE H_COLOURS 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE INVOICE_DATA 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE INVOICE_DATA_AS_IS 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE INVOICE_PRICE_PACK 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE INVOICE_REGISTER 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE NOM_SPECIFICATIONS 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+
+
+
+ALTER TABLE NOMENCLATURE 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE OPERATIONS 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE ORDERS 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE ORDERS_CLIENTS 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE ORDERS_LIST 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE PREPARE_PRICE_LIST 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE PREPARE_PRICE_LIST_INDEX 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE PRICE_LIST 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE PRICE_LIST_ALL 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE STORE_DOC 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE STORE_DOC_DATA 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE STORE_GTD 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE STORE_MAIN 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE SUPPLIERS 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE NOMENCLATURE_MAT_VIEW 
+ ADD (
+  ID_OFFICE  NUMBER default 1,
+  DATE_CHANGE DATE default sysdate
+ )
+/
+ALTER TABLE CURRENCY 
+ ADD (
+  ID NUMBER
+ )
+/
+

@@ -1,0 +1,10 @@
+ALTER TABLE COUNTRIES 
+ ADD (
+  mnemo VARCHAR2 (10)
+ )
+/
+ALTER TABLE SYNC_COUNTRIES 
+ ADD (
+  mnemo VARCHAR2 (10)
+ )
+/
