@@ -1,0 +1,42 @@
+<XmlTransformation Version="1.0"><Transform Direction="ToCds" DataEncoding="windows-1251"><SelectEach dest="DATAPACKET\ROWDATA\ROW" from="\ValCurs"><Select dest="@Date" from="@Date"/></SelectEach></Transform><XmlSchema RootName="ValCurs"><![CDATA[<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ValCurs" type="ValCursType"/>
+  <xs:complexType name="ValCursType">
+    <xs:sequence>
+      <xs:element name="Valute" type="ValuteType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="Date" type="xs:string"/>
+    <xs:attribute name="name" type="xs:string"/>
+  </xs:complexType>
+  <xs:element name="Valute" type="ValuteType"/>
+  <xs:complexType name="ValuteType">
+    <xs:sequence>
+      <xs:element name="NumCode" type="NumCodeType"/>
+      <xs:element name="CharCode" type="CharCodeType"/>
+      <xs:element name="Nominal" type="NominalType"/>
+      <xs:element name="Name" type="NameType"/>
+      <xs:element name="Value" type="ValueType"/>
+    </xs:sequence>
+    <xs:attribute name="ID" type="xs:string"/>
+  </xs:complexType>
+  <xs:element name="NumCode" type="NumCodeType"/>
+  <xs:simpleType name="NumCodeType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="CharCode" type="CharCodeType"/>
+  <xs:simpleType name="CharCodeType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="Nominal" type="NominalType"/>
+  <xs:simpleType name="NominalType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="Name" type="NameType"/>
+  <xs:simpleType name="NameType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="Value" type="ValueType"/>
+  <xs:simpleType name="ValueType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+</xs:schema>]]></XmlSchema><CdsSkeleton/><XslTransform/><Skeleton><![CDATA[<?xml version="1.0"?><DATAPACKET Version="2.0"><METADATA><FIELDS><FIELD attrname="Date" fieldtype="string" WIDTH="10"/></FIELDS><PARAMS/></METADATA><ROWDATA/><METADATA><FIELDS><FIELD attrname="Date" fieldtype="string" WIDTH="10"/></FIELDS><PARAMS/></METADATA><ROWDATA/></DATAPACKET>
+]]></Skeleton></XmlTransformation>
