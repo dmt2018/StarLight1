@@ -1,0 +1,1 @@
+customs.exe -l eva -p ave10 -d klepov:1521:STARNEW -e -a -t -k -otd 61

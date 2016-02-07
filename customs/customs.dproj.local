@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010.10.27 22:27:08.109.pas,C:\Users\olmer\Documents\RAD Studio\Projects\Unit1.pas=C:\_WORK\delphi\StarLight\_Цветы 2010\customs\Ucustoms.pas</Transaction>
+    <Transaction>2010.10.27 22:27:08.109.dfm,C:\Users\olmer\Documents\RAD Studio\Projects\Unit1.dfm=C:\_WORK\delphi\StarLight\_Цветы 2010\customs\Ucustoms.dfm</Transaction>
+    <Transaction>2010.10.27 22:27:11.866.dproj,C:\Users\olmer\Documents\RAD Studio\Projects\Project1.dproj=C:\_WORK\delphi\StarLight\_Цветы 2010\customs\customs.dproj</Transaction>
+    <Transaction>2010.10.27 23:16:06.163.pas,C:\_WORK\delphi\StarLight\_Цветы 2010\customs\Unit1.pas=C:\_WORK\delphi\StarLight\_Цветы 2010\customs\UВЬ.pas</Transaction>
+    <Transaction>2010.10.27 23:16:06.163.dfm,C:\_WORK\delphi\StarLight\_Цветы 2010\customs\Unit1.dfm=C:\_WORK\delphi\StarLight\_Цветы 2010\customs\UВЬ.dfm</Transaction>
+    <Transaction>2010.10.27 23:16:18.501.pas,C:\_WORK\delphi\StarLight\_Цветы 2010\customs\UВЬ.pas=C:\_WORK\delphi\StarLight\_Цветы 2010\customs\UDM.pas</Transaction>
+    <Transaction>2010.10.27 23:16:18.501.dfm,C:\_WORK\delphi\StarLight\_Цветы 2010\customs\UВЬ.dfm=C:\_WORK\delphi\StarLight\_Цветы 2010\customs\UDM.dfm</Transaction>
+    <Transaction>2010/11/03 12:59:12.742.pas,E:\Delphi\_Цветы 2010\customs\Unit1.pas=E:\Delphi\_Цветы 2010\customs\USettings.pas</Transaction>
+    <Transaction>2010/11/03 12:59:12.742.dfm,E:\Delphi\_Цветы 2010\customs\Unit1.dfm=E:\Delphi\_Цветы 2010\customs\USettings.dfm</Transaction>
+    <Transaction>2014.12.03 01:10:57.940.pas,C:\_work\delphi\StarLight\_Цветы регионы\customs\Unit1.pas=C:\_work\delphi\StarLight\_Цветы регионы\customs\UFitoEquipment.pas</Transaction>
+    <Transaction>2014.12.03 01:10:57.940.dfm,C:\_work\delphi\StarLight\_Цветы регионы\customs\Unit1.dfm=C:\_work\delphi\StarLight\_Цветы регионы\customs\UFitoEquipment.dfm</Transaction>
+  </Transactions>
+</BorlandProject>
