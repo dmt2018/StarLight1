@@ -1,0 +1,110 @@
+<XmlTransformation Version="1.0"><Transform Direction="ToCds" DataEncoding="ISO-8859-1"><SelectEach dest="DATAPACKET\ROWDATA\ROW" from="\Invoice\InvoiceRow"><Select dest="@Key" from="\Key"/><Select dest="@Credit" from="\Credit"/><Select dest="@OrderNumber" from="\OrderNumber"/><Select dest="@OrderMarkname" from="\OrderMarkname"/><Select dest="@OrderReference" from="\OrderReference"/><Select dest="@OrderrowReference" from="\OrderrowReference"/><Select dest="@PackingMarks" from="\PackingMarks"/><Select dest="@PackingCode" from="\PackingCode"/><Select dest="@SKU" from="\SKU"/><Select dest="@Description" from="\Description"/><Select dest="@Units" from="\Units"/><Select dest="@AmountPerUnit" from="\AmountPerUnit"/><Select dest="@TotalAmount" from="\TotalAmount"/><Select dest="@TotalCommissionAmount" from="\TotalCommissionAmount"/></SelectEach></Transform><XmlSchema RootName="Invoice"><![CDATA[<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Invoice" type="InvoiceType"/>
+  <xs:complexType name="InvoiceType">
+    <xs:sequence>
+      <xs:element name="Version" type="VersionType"/>
+      <xs:element name="Key" type="KeyType"/>
+      <xs:element name="Number" type="NumberType"/>
+      <xs:element name="Date" type="DateType"/>
+      <xs:element name="CustomerCode" type="CustomerCodeType"/>
+      <xs:element name="Currency" type="CurrencyType"/>
+      <xs:element name="InvoiceRow" type="InvoiceRowType" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InvoiceRow" type="InvoiceRowType"/>
+  <xs:complexType name="InvoiceRowType">
+    <xs:sequence>
+      <xs:element name="Key" type="KeyType"/>
+      <xs:element name="Credit" type="CreditType"/>
+      <xs:element name="OrderNumber" type="OrderNumberType"/>
+      <xs:element name="OrderMarkname" type="OrderMarknameType"/>
+      <xs:element name="OrderReference" type="OrderReferenceType"/>
+      <xs:element name="OrderrowReference" type="OrderrowReferenceType"/>
+      <xs:element name="PackingMarks" type="PackingMarksType"/>
+      <xs:element name="PackingCode" type="PackingCodeType"/>
+      <xs:element name="SKU" type="SKUType"/>
+      <xs:element name="Description" type="DescriptionType"/>
+      <xs:element name="Units" type="UnitsType"/>
+      <xs:element name="AmountPerUnit" type="AmountPerUnitType"/>
+      <xs:element name="TotalAmount" type="TotalAmountType"/>
+      <xs:element name="TotalCommissionAmount" type="TotalCommissionAmountType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Version" type="VersionType"/>
+  <xs:simpleType name="VersionType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="Key" type="KeyType"/>
+  <xs:simpleType name="KeyType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="Number" type="NumberType"/>
+  <xs:simpleType name="NumberType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="Date" type="DateType"/>
+  <xs:simpleType name="DateType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="CustomerCode" type="CustomerCodeType"/>
+  <xs:simpleType name="CustomerCodeType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="Currency" type="CurrencyType"/>
+  <xs:simpleType name="CurrencyType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="Credit" type="CreditType"/>
+  <xs:simpleType name="CreditType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="OrderNumber" type="OrderNumberType"/>
+  <xs:simpleType name="OrderNumberType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="OrderMarkname" type="OrderMarknameType"/>
+  <xs:simpleType name="OrderMarknameType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="OrderReference" type="OrderReferenceType"/>
+  <xs:simpleType name="OrderReferenceType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="OrderrowReference" type="OrderrowReferenceType"/>
+  <xs:simpleType name="OrderrowReferenceType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="PackingMarks" type="PackingMarksType"/>
+  <xs:simpleType name="PackingMarksType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="PackingCode" type="PackingCodeType"/>
+  <xs:simpleType name="PackingCodeType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="SKU" type="SKUType"/>
+  <xs:simpleType name="SKUType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="Description" type="DescriptionType"/>
+  <xs:simpleType name="DescriptionType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="Units" type="UnitsType"/>
+  <xs:simpleType name="UnitsType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="AmountPerUnit" type="AmountPerUnitType"/>
+  <xs:simpleType name="AmountPerUnitType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="TotalAmount" type="TotalAmountType"/>
+  <xs:simpleType name="TotalAmountType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="TotalCommissionAmount" type="TotalCommissionAmountType"/>
+  <xs:simpleType name="TotalCommissionAmountType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+</xs:schema>]]></XmlSchema><CdsSkeleton/><XslTransform/><Skeleton><![CDATA[<?xml version="1.0"?><DATAPACKET Version="2.0"><METADATA><FIELDS><FIELD attrname="Key" fieldtype="string" WIDTH="31"/><FIELD attrname="Credit" fieldtype="string" WIDTH="31"/><FIELD attrname="OrderNumber" fieldtype="string" WIDTH="31"/><FIELD attrname="OrderMarkname" fieldtype="string" WIDTH="31"/><FIELD attrname="OrderReference" fieldtype="string" WIDTH="31"/><FIELD attrname="OrderrowReference" fieldtype="string" WIDTH="31"/><FIELD attrname="PackingMarks" fieldtype="string" WIDTH="31"/><FIELD attrname="PackingCode" fieldtype="string" WIDTH="31"/><FIELD attrname="SKU" fieldtype="string" WIDTH="31"/><FIELD attrname="Description" fieldtype="string" WIDTH="36"/><FIELD attrname="Units" fieldtype="string" WIDTH="31"/><FIELD attrname="AmountPerUnit" fieldtype="string" WIDTH="31"/><FIELD attrname="TotalAmount" fieldtype="string" WIDTH="31"/><FIELD attrname="TotalCommissionAmount" fieldtype="string" WIDTH="31"/></FIELDS><PARAMS/></METADATA><ROWDATA/><METADATA><FIELDS><FIELD attrname="Key" fieldtype="string" WIDTH="31"/><FIELD attrname="Credit" fieldtype="string" WIDTH="31"/><FIELD attrname="OrderNumber" fieldtype="string" WIDTH="31"/><FIELD attrname="OrderMarkname" fieldtype="string" WIDTH="31"/><FIELD attrname="OrderReference" fieldtype="string" WIDTH="31"/><FIELD attrname="OrderrowReference" fieldtype="string" WIDTH="31"/><FIELD attrname="PackingMarks" fieldtype="string" WIDTH="31"/><FIELD attrname="PackingCode" fieldtype="string" WIDTH="31"/><FIELD attrname="SKU" fieldtype="string" WIDTH="31"/><FIELD attrname="Description" fieldtype="string" WIDTH="36"/><FIELD attrname="Units" fieldtype="string" WIDTH="31"/><FIELD attrname="AmountPerUnit" fieldtype="string" WIDTH="31"/><FIELD attrname="TotalAmount" fieldtype="string" WIDTH="31"/><FIELD attrname="TotalCommissionAmount" fieldtype="string" WIDTH="31"/></FIELDS><PARAMS/></METADATA><ROWDATA/></DATAPACKET>
+]]></Skeleton></XmlTransformation>

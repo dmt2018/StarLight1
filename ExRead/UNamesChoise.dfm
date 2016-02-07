@@ -1,0 +1,468 @@
+object frmNamesChoise: TfrmNamesChoise
+  Left = 0
+  Top = 0
+  Caption = #1042#1099#1073#1086#1088' '#1087#1077#1088#1077#1074#1086#1076#1072' '#1085#1072#1079#1074#1072#1085#1080#1103
+  ClientHeight = 303
+  ClientWidth = 551
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 13
+  object pnl_bottom: TPanel
+    Left = 0
+    Top = 262
+    Width = 551
+    Height = 41
+    Align = alBottom
+    BorderWidth = 5
+    TabOrder = 1
+    DesignSize = (
+      551
+      41)
+    object btnClose: TcxButton
+      Left = 425
+      Top = 5
+      Width = 120
+      Height = 30
+      Cursor = crHandPoint
+      Anchors = [akTop, akRight]
+      Cancel = True
+      Caption = ' '#1054#1090#1084#1077#1085#1072
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Pitch = fpFixed
+      Font.Style = []
+      ModalResult = 2
+      ParentFont = False
+      TabOrder = 0
+      Glyph.Data = {
+        F6060000424DF606000000000000360000002800000018000000180000000100
+        180000000000C0060000120B0000120B00000000000000000000FF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFF2
+        F6FFB8CCFF82A7FF5E8DFF4D81FF4D81FF5889FF79A0FFAAC3FFEAF0FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFBFCFFAFC6FF5A8AFF5082FF598BFF6294FF6699FF6699FF6296FF5B8EFF50
+        82FF5385FF9AB7FFF4F7FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFF2F6FF7BA3FF5085FF6092FF628CFF5F83FF5E7FF95D7DF35D7D
+        F35E7FF75E82FF6189FF6595FF5085FF6996FFE7EEFFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFF7FAFF729CFF5386FF638BFF5F80F85E7FF45E7FF4
+        5E7FF45E7FF45E7FF45E7FF45E7FF45E7FF45E7FF56288FF5487FF6191FFE7EE
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF89ADFF5486FF648AFF6288FF63
+        89FF6289FF6286FF6081F96081F96081F96081F96287FF6389FF6389FF6286FF
+        6286FF5786FF719CFFF7FAFFFF00FFFF00FFFF00FFFF00FFCEDDFF588AFF6385
+        FF6487FFB5C7FFFFFFFFFFFFFF678DFF6588FF6283F96283F96589FF678DFFFF
+        FFFFFFFFFFB5C6FF6486FF6283FB5786FFAFC7FFFF00FFFF00FFFF00FFFF00FF
+        78A3FF5D81FF6383F76486FEFFFFFFFFFFFFFFFFFFFFFFFF688FFF678DFF678D
+        FF678EFFFFFFFFFFFFFFFFFFFFFFFFFF6587FF6383F76183FE6192FFF3F7FFFF
+        00FFFF00FFDDE8FF5B86FF6585F86585F86686FBFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFF6C95FF6C93FFF2F5FFFFFFFFFFFFFFFFFFFFFFFFFF6586F96585F86585
+        F85A81FFBED3FFFF00FFFF00FFB6CEFF597CF66787F96788FB6788FC6788FCFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6788FC
+        6788FB6787F96787F95D7EF296B7FFFF00FFFF00FF9AB7FF5E7FEF698AFB698A
+        FC698AFD698AFD698AFDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFF698AFD698AFD698AFD698AFB6989F96484F47C9EFFFF00FFFF00FF90ACFF
+        6282F36C8BFE6C8CFE6C8CFE6C8CFE6C8CFE6C8CFEFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFF6C8CFE6C8CFE6C8CFE6C8CFE6C8CFE6C8BFD6787F77292FFFF
+        00FFFF00FF93ADFF6484F56D8EFF6D8EFF6D8EFF6D8EFF6D8EFF6E8FFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6E91FF6E91FF6D8EFF6D8EFF6D8EFF6D8E
+        FF698AFB7493FBFF00FFFF00FFA6BBFF6385F76F91FF6F90FF7091FF7398FF77
+        9AFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF759BFF7397FF
+        6F90FF6F91FF7091FF688AFB88A2FBFF00FFFF00FFC9D7FF6384F77293FF7192
+        FF7598FF88A8FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFF779CFF7497FF7292FF7293FF6486F8ADC0FFFF00FFFF00FFF4F7FF
+        698AFC7395FF7395FF7598FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7394FF7394
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF769AFF7396FF7496FF6588FCDDE6FFFF
+        00FFFF00FFFF00FFA2B7FF688AFF7698FF7596FFFFFFFFFFFFFFFFFFFFFFFFFF
+        7595FF7595FF7595FF7595FFFFFFFFFFFFFFFFFFFFFFFFFF7799FF7799FF6D8F
+        FF86A2FFFF00FFFF00FFFF00FFFF00FFEFF3FF7193FF7194FF789AFFBBCCFFFF
+        FFFFFFFFFF7697FF7697FF7697FF7697FF7697FF7697FFFFFFFFFFFFFFBDCDFF
+        789BFF769AFF6A8EFFDCE4FFFF00FFFF00FFFF00FFFF00FFFF00FFD2DDFF6C91
+        FF769AFF7A9CFF789AFF7899FF7899FF7899FF7899FF7899FF7899FF7899FF78
+        99FF799BFF7A9DFF7CA0FF6C91FFB7C9FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFC0D1FF7095FF7498FF7CA0FF7B9DFF7A9CFF7A9BFF7A9BFF7A9B
+        FF7A9CFF7A9DFF7C9EFF7DA0FF7A9EFF6F94FFA7BDFFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFD7E1FF7C9EFF7195FF7DA1FF7FA2FF
+        7EA0FF7EA0FF7EA0FF7FA1FF7FA2FF7FA4FF7296FF7499FFC1D1FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFF6F9FFB3
+        C8FF7BA0FF7399FF7299FF7399FF759BFF7399FF7399FF769CFFA8C0FFEFF3FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFCFDFFDAE5FFC7D7FFB1C8FFACC4FFC7D7FFD5E1FFF5
+        F8FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF}
+      LookAndFeel.Kind = lfOffice11
+    end
+    object btnOk: TcxButton
+      Left = 303
+      Top = 5
+      Width = 120
+      Height = 30
+      Cursor = crHandPoint
+      Anchors = [akTop, akRight]
+      Caption = ' '#1042#1099#1073#1088#1072#1090#1100
+      Default = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = []
+      ModalResult = 1
+      ParentFont = False
+      TabOrder = 1
+      Colors.Default = clBtnFace
+      Colors.Normal = clBtnFace
+      Colors.Hot = clSkyBlue
+      Colors.Pressed = clSkyBlue
+      Glyph.Data = {
+        F6060000424DF606000000000000360000002800000018000000180000000100
+        180000000000C0060000120B0000120B00000000000000000000FF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFF2
+        FBF2B9EBB885DC8262D25E52CD4D52CD4D5CD0587CD979ACE7AAEBF9EAFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFBFEFBB0E8AF5CD15A52CE5058D4565FDB5C62DE6062DE6060DC5D5AD65752
+        CE5055CF539BE39AF4FCF4FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFF2FBF27CDA7C52CF525ED95E61D66160D0605FCC5F5FCA5F5FCA
+        5F5FCB5F60CF6060D46061DC6152CF526AD56AE7F8E7FF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFF7FDF770D87351CF5560D6635ECC625ECB625ECB62
+        5ECB625ECB625ECB625ECB625ECB625ECB625ECC6260D36352D05760D363E7F8
+        E7FF00FFFF00FFFF00FFFF00FFFF00FFFF00FF86DF8B51CF575FD1655ECC645E
+        CC645ECC6460DD6761E26861E16760DA665ECE645ECC645ECC645ECC645ECC64
+        5FCF6552CF596DD872F7FDF8FF00FFFF00FFFF00FFFF00FFCBF1CE51D05B5FCF
+        675ECC675ECC675ECD6760DD6A62E66CFFFFFFFFFFFF65E56F60DA695ECF675E
+        CE675ECD675ECC675ECC675ECE6751CF5AABE9B0FF00FFFF00FFFF00FFFF00FF
+        6FDA7B56CA625ECD695ECD695ECF6A60DD6E60E46FFFFFFFFFFFFFFFFFFFFFFF
+        FF64E5735FDB6D5ECF6A5ECF6A5ECE695ECD695ECD695ACC6758D365F2FCF3FF
+        00FFFF00FFDAF6DD50CC605ECE6C5ECE6C5ECF6C60DE7160E472FFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFF60E5735FDD715ECF6D5ECF6D5ECF6C5ECE6C5ECE
+        6C50C960B9EDBFFF00FFFF00FFAFEBB950C3625ECF705ECF705FDD7460E275FF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF60E6775FDD745ED071
+        5ED0715ECF705ECF7054C5668CE19AFF00FFFF00FF8FE19E52C5685DD1735DD1
+        735ED975FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFF60E77A5EDF785DD1735DD1735DD07358CB6E6ED682FF00FFFF00FF83DB96
+        54C96E5DD1765DD2775DD277FFFFFFFFFFFFFFFFFFFFFFFF5DD2775DD277FFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFF60E87E5EDF7B5DD2775DD17659CD7363CF7BFF
+        00FFFF00FF86DB9B53CA715CD37A5CD37A5CD37A5CD37AFFFFFFFFFFFF61D47F
+        5CD37A5CD37A5CD37AFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF5EE7815EDF7E5CD3
+        7A59CF7665CE7FFF00FFFF00FF99E2AD50C8715CD57D5CD47D5CD37D5CD37D5C
+        D37D5CD37D5CD37D5CD37D5CD37D5CD37D5CD37DFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFF5EDE815CD57D55CE767AD693FF00FFFF00FFC0EECE4DC9735CD7815BD6
+        815BD6815BD5815BD5815BD5815BD5815BD5815BD5815BD5815BD5815BD581FF
+        FFFFFFFFFFFFFFFFFFFFFF5BD8815CD7814ECA74A1E3B5FF00FFFF00FFF2FCF5
+        51CC795BD8835CD8845BD6835BD6835BD6835BD6835BD6835BD6835BD6835BD6
+        835BD6835BD6835BD683FFFFFFFFFFFF5BD7845CD8845CD9854DCB76D7F4E1FF
+        00FFFF00FFFF00FF92E0AD4DCD7A5CDA885CD8875BD7865BD6865BD6865BD686
+        5BD6865BD6865BD6865BD6865BD6865BD6865BD7865BD8875CD9875CDA8852D1
+        7E71D794FF00FFFF00FFFF00FFFF00FFECFAF155D28354D5835BDA8A5BD98A5B
+        D8895BD8895BD7895BD7895BD7895BD7895BD7895BD7895BD8895BD88A5BDA8A
+        5BDC8B59DA894DD07DD5F4E1FF00FFFF00FFFF00FFFF00FFFF00FFC8F1D84DD1
+        8157DA8A5BDC8E5BDA8D5BD98D5BD88C5BD88C5BD88C5BD88C5BD88C5BD88C5B
+        D98D5BDA8D5BDD8E5BDF8F4DD281A7E9C1FF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFB1EDC94FD58653D8895BDF915BDC8F5BDB8F5BDA8F5BDA8F5BDA
+        8F5BDB8F5BDB8F5BDD905BDF9157DD8E4DD48491E5B4FF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFCCF4DD59DA904CD68659E0925BE194
+        5BE0945BDF935BE0945BE0945BE2945BE3944DD78850D88AB1EECBFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFF4FDF89E
+        EABF57DB904CD8894CD7884DD88A4FDA8C4CD7884CD88950DA8C8FE7B6EAFAF1
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFBFEFCCFF5E0B7F1D19AEBBE94EABBB7F1D1C8F4DCF2
+        FCF7FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF}
+      LookAndFeel.Kind = lfFlat
+      LookAndFeel.NativeStyle = True
+      Spacing = 6
+    end
+  end
+  object pnl_top: TPanel
+    Left = 0
+    Top = 0
+    Width = 551
+    Height = 262
+    Align = alClient
+    BorderWidth = 5
+    TabOrder = 0
+    object lbl_code: TLabel
+      Left = 24
+      Top = 27
+      Width = 25
+      Height = 14
+      Caption = #1050#1086#1076':'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lbl_name: TLabel
+      Left = 24
+      Top = 46
+      Width = 56
+      Height = 14
+      Caption = #1053#1072#1079#1074#1072#1085#1080#1077':'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lbl_remarks: TLabel
+      Left = 24
+      Top = 66
+      Width = 56
+      Height = 14
+      Caption = 'REMARKS:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lb_error: TLabel
+      Left = 24
+      Top = 105
+      Width = 56
+      Height = 14
+      Caption = #1053#1072#1079#1074#1072#1085#1080#1077':'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clMaroon
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lbl_code_v: TLabel
+      Left = 88
+      Top = 27
+      Width = 25
+      Height = 14
+      Caption = #1050#1086#1076':'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lbl_name_v: TLabel
+      Left = 88
+      Top = 46
+      Width = 56
+      Height = 14
+      Caption = #1053#1072#1079#1074#1072#1085#1080#1077':'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lbl_remarks_v: TLabel
+      Left = 88
+      Top = 66
+      Width = 56
+      Height = 14
+      Caption = 'REMARKS:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object cxLabel2: TcxLabel
+      Left = 8
+      Top = 4
+      Caption = #1042#1089#1090#1088#1077#1095#1077#1085#1085#1086#1077' '#1085#1072#1079#1074#1072#1085#1080#1077' '#1087#1086#1089#1090#1072#1097#1080#1082#1072
+      ParentFont = False
+      Properties.LabelStyle = cxlsLowered
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -13
+      Style.Font.Name = 'Tahoma'
+      Style.Font.Style = [fsBold]
+      Style.IsFontAssigned = True
+    end
+    object cxLabel1: TcxLabel
+      Left = 8
+      Top = 83
+      Caption = #1053#1072#1081#1076#1077#1085#1085#1099#1077' '#1087#1077#1088#1077#1074#1086#1076#1099
+      ParentFont = False
+      Properties.LabelStyle = cxlsLowered
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -13
+      Style.Font.Name = 'Tahoma'
+      Style.Font.Style = [fsBold]
+      Style.IsFontAssigned = True
+    end
+    object gr_fname: TcxGrid
+      Left = 6
+      Top = 125
+      Width = 539
+      Height = 131
+      Align = alBottom
+      TabOrder = 0
+      LookAndFeel.Kind = lfOffice11
+      object gr_fname_View: TcxGridDBTableView
+        OnDblClick = gr_fname_ViewDblClick
+        OnKeyDown = gr_fname_ViewKeyDown
+        NavigatorButtons.ConfirmDelete = False
+        FilterBox.Position = fpTop
+        DataController.DataSource = FlowerNames_DS
+        DataController.Filter.Options = [fcoCaseInsensitive, fcoShowOperatorDescription, fcoSoftCompare]
+        DataController.Filter.AutoDataSetFilter = True
+        DataController.Options = [dcoAnsiSort, dcoCaseInsensitive, dcoAssignGroupingValues, dcoAssignMasterDetailKeys, dcoSaveExpanding]
+        DataController.Summary.DefaultGroupSummaryItems = <
+          item
+            Kind = skCount
+            Position = spFooter
+          end
+          item
+            Kind = skCount
+          end>
+        DataController.Summary.FooterSummaryItems = <
+          item
+            Kind = skCount
+          end
+          item
+            Kind = skSum
+          end
+          item
+            Format = '0'
+            Kind = skCount
+          end
+          item
+            Format = '0'
+            Kind = skCount
+            Column = gr_fname_ViewF_NAME_RU
+          end>
+        DataController.Summary.SummaryGroups = <>
+        FilterRow.InfoText = #1055#1086#1083#1077' '#1076#1083#1103' '#1091#1089#1090#1072#1085#1086#1074#1082#1080' '#1092#1080#1083#1100#1090#1088#1086#1074
+        OptionsBehavior.CellHints = True
+        OptionsCustomize.ColumnMoving = False
+        OptionsData.CancelOnExit = False
+        OptionsData.Deleting = False
+        OptionsData.DeletingConfirmation = False
+        OptionsData.Editing = False
+        OptionsData.Inserting = False
+        OptionsView.CellEndEllipsis = True
+        OptionsView.NoDataToDisplayInfoText = #1053#1077#1090' '#1076#1072#1085#1085#1099#1093' '#1076#1083#1103' '#1087#1088#1086#1089#1084#1086#1090#1088#1072
+        OptionsView.FooterMultiSummaries = True
+        OptionsView.GroupByBox = False
+        OptionsView.GroupFooters = gfVisibleWhenExpanded
+        OptionsView.HeaderEndEllipsis = True
+        object gr_fname_ViewFN_ID: TcxGridDBColumn
+          DataBinding.FieldName = 'FN_ID'
+          Visible = False
+          Options.FilteringPopup = False
+          Options.FilteringPopupMultiSelect = False
+        end
+        object gr_fname_ViewF_NAME_RU: TcxGridDBColumn
+          Caption = #1053#1072#1079#1074#1072#1085#1080#1077
+          DataBinding.FieldName = 'F_NAME_RU'
+          PropertiesClassName = 'TcxTextEditProperties'
+          MinWidth = 150
+          Options.Grouping = False
+          Options.Moving = False
+          Width = 150
+        end
+        object gr_fname_ViewF_NAME: TcxGridDBColumn
+          Caption = #1053#1072#1079#1074#1072#1085#1080#1077' '#1087#1086#1089#1090#1072#1074#1097#1080#1082#1072
+          DataBinding.FieldName = 'F_NAME'
+          Width = 180
+        end
+        object gr_fname_ViewNAME_CODE: TcxGridDBColumn
+          Caption = #1050#1086#1076' '#1085#1072#1079#1074#1072#1085#1080#1103
+          DataBinding.FieldName = 'NAME_CODE'
+          Width = 90
+        end
+        object gr_fname_ViewREMARKS: TcxGridDBColumn
+          DataBinding.FieldName = 'REMARKS'
+          Width = 90
+        end
+        object gr_fname_ViewID_DEPARTMENTS: TcxGridDBColumn
+          DataBinding.FieldName = 'ID_DEPARTMENTS'
+          Visible = False
+        end
+      end
+      object gr_fname_Level: TcxGridLevel
+        GridView = gr_fname_View
+      end
+    end
+  end
+  object FlowerNames: TOraQuery
+    SQLUpdate.Strings = (
+      'select 1 from dual')
+    SQLRefresh.Strings = (
+      'select a.FN_ID, a.F_NAME_RU, a.ID_DEPARTMENTS'
+      '       , b.f_name, b.NAME_CODE, b.REMARKS '
+      'FROM FLOWER_NAMES a, FLOWER_NAME_TRANSLATIONS b '
+      
+        'where a.ID_DEPARTMENTS = :ID_DEPARTMENTS and a.fn_id = b.fn_id a' +
+        'nd a.FN_ID = :FN_ID'
+      'order by F_NAME_RU')
+    SQL.Strings = (
+      'select a.FN_ID, a.F_NAME_RU, a.ID_DEPARTMENTS'
+      '       , b.f_name, b.NAME_CODE, b.REMARKS '
+      'FROM FLOWER_NAMES a, FLOWER_NAME_TRANSLATIONS b '
+      'where a.ID_DEPARTMENTS = :ID_DEPARTMENTS and a.fn_id = b.fn_id '
+      '  and a.id_office = const_office'
+      'order by F_NAME_RU')
+    FetchAll = True
+    FilterOptions = [foCaseInsensitive]
+    Left = 448
+    Top = 8
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'ID_DEPARTMENTS'
+      end>
+    object FlowerNamesFN_ID: TFloatField
+      FieldName = 'FN_ID'
+      Required = True
+    end
+    object FlowerNamesF_NAME_RU: TStringField
+      FieldName = 'F_NAME_RU'
+      Required = True
+      Size = 256
+    end
+    object FlowerNamesID_DEPARTMENTS: TFloatField
+      FieldName = 'ID_DEPARTMENTS'
+      Required = True
+    end
+    object FlowerNamesF_NAME: TStringField
+      FieldName = 'F_NAME'
+      Required = True
+      Size = 256
+    end
+    object FlowerNamesNAME_CODE: TStringField
+      FieldName = 'NAME_CODE'
+    end
+    object FlowerNamesREMARKS: TStringField
+      FieldName = 'REMARKS'
+      Size = 30
+    end
+  end
+  object FlowerNames_DS: TDataSource
+    DataSet = FlowerNames
+    Left = 448
+    Top = 40
+  end
+end

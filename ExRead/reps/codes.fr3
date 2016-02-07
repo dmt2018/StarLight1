@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TfrxReport Version="4.6.5" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="2047" PreviewOptions.Zoom="1" PrintOptions.Printer="Default" PrintOptions.PrintOnSheet="0" ReportOptions.CreateDate="37936,5626925926" ReportOptions.Description.Text="" ReportOptions.LastChange="40669,0225190278" ScriptLanguage="PascalScript" ScriptText.Text="begin&#13;&#10;&#13;&#10;end." PropData="044C65667403010103546F7003680108446174617365747301010C3C00000020446174615365743D2266727853656C50726E74507265766965772220446174615365744E616D653D2266727853656C50726E7450726576696577220000095661726961626C657301010C10000000204E616D653D2220437573744375742200010C11000000204E616D653D225072696E744D61726B220000055374796C650100">
+  <TfrxDataPage Name="Data" Height="1000" Left="0" Top="0" Width="1000"/>
+  <TfrxReportPage Name="Page1" PaperWidth="210" PaperHeight="297" PaperSize="256" LeftMargin="7,5" RightMargin="7,5" TopMargin="21" BottomMargin="18,5" Columns="1" ColumnWidth="198" ColumnPositions.Text="0" HGuides.Text="" VGuides.Text="">
+    <TfrxMasterData Name="MasterData9" Height="96" Left="0" Top="18,89765" Width="737,00835" Columns="4" ColumnWidth="183,307086614173" ColumnGap="0" DataSet="frxSelPrntPreview" DataSetName="frxSelPrntPreview" RowCount="0">
+      <TfrxMemoView Name="Memo6" Left="3,77953" Top="0,22047" Width="176" Height="41,11812" ShowHint="False" DisplayFormat.DecimalSeparator="," Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="[frxSelPrntPreview.&#34;F_NAME_RU&#34;] [frxSelPrntPreview.&#34;COLOUR&#34;] [frxSelPrntPreview.&#34;RUS_MARKS&#34;]"/>
+      <TfrxBarCodeView Name="Bar1" Left="44,55906" Top="43,33859" Width="95" Height="36,22047" ShowHint="False" BarType="bcCodeEAN13" CalcCheckSum="True" Expression="&#60;frxSelPrntPreview.&#34;PRINT_CODE&#34;&#62;" Rotation="0" Text="12345678" WideBarRatio="2" Zoom="1"/>
+      <TfrxMemoView Name="Memo1" Left="76,7953" Top="80,55906" Width="61,54329" Height="10,22047" ShowHint="False" Font.Charset="204" Font.Color="0" Font.Height="-8" Font.Name="Arial" Font.Style="0" HAlign="haRight" ParentFont="False" Text="www.starlight.ru"/>
+      <TfrxMemoView Name="Memo2" Left="144,11812" Top="79,37007874" Width="36,44094" Height="14" ShowHint="False" Font.Charset="204" Font.Color="0" Font.Height="-12" Font.Name="Arial" Font.Style="0" ParentFont="False" Text="[frxSelPrntPreview.&#34;TRUCK&#34;] :: [frxSelPrntPreview.&#34;TROLLEY_CALC&#34;]"/>
+      <TfrxMemoView Name="Memo4" Left="0" Top="79,37013" Width="70,45671" Height="14" ShowHint="False" Font.Charset="204" Font.Color="0" Font.Height="-12" Font.Name="Arial" Font.Style="0" ParentFont="False" Text="[frxSelPrntPreview.&#34;SRC_TROLLEY&#34;]"/>
+    </TfrxMasterData>
+    <TfrxPageFooter Name="PageFooter1" Height="9,4488189" Left="0" Top="173,85838" Width="737,00835">
+      <TfrxMemoView Name="Memo3" Left="613,66141" Top="0" Width="122,01577" Height="9,4488189" ShowHint="False" Font.Charset="204" Font.Color="0" Font.Height="-9" Font.Name="Arial" Font.Style="0" HAlign="haRight" ParentFont="False" VAlign="vaCenter" Text="[PAGE#] из [TotalPages#]"/>
+    </TfrxPageFooter>
+  </TfrxReportPage>
+</TfrxReport>

@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{5bad8d32-362f-45a1-af23-6de536857c6e}</ProjectGuid>
+    <MainSource>ExcelReader.dpr</MainSource>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+    <DCC_DependencyCheckOutputName>ExcelReader.exe</DCC_DependencyCheckOutputName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_DebugInformation>False</DCC_DebugInformation>
+    <DCC_LocalDebugSymbols>False</DCC_LocalDebugSymbols>
+    <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+    <DCC_Define>RELEASE</DCC_Define>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_Define>DEBUG</DCC_Define>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Delphi.Personality</Borland.Personality>
+    <Borland.ProjectType>VCLApplication</Borland.ProjectType>
+    <BorlandProject>
+<BorlandProject><Delphi.Personality><Parameters><Parameters Name="RunParams">-l eva -p 123 -d klepov:1521:STARNEW -e -a -t -k -otd 62</Parameters><Parameters Name="UseLauncher">False</Parameters><Parameters Name="LoadAllSymbols">True</Parameters><Parameters Name="LoadUnspecifiedSymbols">False</Parameters></Parameters><VersionInfo><VersionInfo Name="IncludeVerInfo">True</VersionInfo><VersionInfo Name="AutoIncBuild">False</VersionInfo><VersionInfo Name="MajorVer">2</VersionInfo><VersionInfo Name="MinorVer">1</VersionInfo><VersionInfo Name="Release">1</VersionInfo><VersionInfo Name="Build">225</VersionInfo><VersionInfo Name="Debug">False</VersionInfo><VersionInfo Name="PreRelease">False</VersionInfo><VersionInfo Name="Special">False</VersionInfo><VersionInfo Name="Private">False</VersionInfo><VersionInfo Name="DLL">False</VersionInfo><VersionInfo Name="Locale">1049</VersionInfo><VersionInfo Name="CodePage">1251</VersionInfo></VersionInfo><VersionInfoKeys><VersionInfoKeys Name="CompanyName"></VersionInfoKeys><VersionInfoKeys Name="FileDescription"></VersionInfoKeys><VersionInfoKeys Name="FileVersion">2.1.1.225</VersionInfoKeys><VersionInfoKeys Name="InternalName"></VersionInfoKeys><VersionInfoKeys Name="LegalCopyright"></VersionInfoKeys><VersionInfoKeys Name="LegalTrademarks"></VersionInfoKeys><VersionInfoKeys Name="OriginalFilename"></VersionInfoKeys><VersionInfoKeys Name="ProductName"></VersionInfoKeys><VersionInfoKeys Name="ProductVersion">2.0.0.0</VersionInfoKeys><VersionInfoKeys Name="Comments"></VersionInfoKeys></VersionInfoKeys><Source><Source Name="MainSource">ExcelReader.dpr</Source></Source><Excluded_Packages>
+      
+      
+      
+      
+      
+      
+      <Excluded_Packages Name="$(BDS)\bin\dcloffice2k100.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+      <Excluded_Packages Name="$(BDS)\bin\dclofficexp100.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+    </Excluded_Packages></Delphi.Personality><ModelSupport>True</ModelSupport></BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Import Project="$(MSBuildBinPath)\Borland.Delphi.Targets" />
+  <ItemGroup>
+    <DelphiCompile Include="ExcelReader.dpr">
+      <MainSource>MainSource</MainSource>
+    </DelphiCompile>
+    <DCCReference Include="client_choos.pas">
+      <Form>clientchoosForm</Form>
+    </DCCReference>
+    <DCCReference Include="DataModule.pas">
+      <Form>DM</Form>
+      <DesignClass>TDataModule</DesignClass>
+    </DCCReference>
+    <DCCReference Include="GetSepecDefValU.pas">
+      <Form>GetSepecDefValF</Form>
+    </DCCReference>
+    <DCCReference Include="GetSpecValU.pas">
+      <Form>GetSpecValF</Form>
+    </DCCReference>
+    <DCCReference Include="Globals.pas" />
+    <DCCReference Include="invchooser.pas">
+      <Form>invchooserForm</Form>
+    </DCCReference>
+    <DCCReference Include="InvoEditU.pas">
+      <Form>InvoEditF</Form>
+    </DCCReference>
+    <DCCReference Include="IppChoose.pas">
+      <Form>IppChooseF</Form>
+    </DCCReference>
+    <DCCReference Include="MainReader.pas">
+      <Form>ReadInvoice</Form>
+    </DCCReference>
+    <DCCReference Include="MainUnit.pas">
+      <Form>MenuForm</Form>
+    </DCCReference>
+    <DCCReference Include="NewDict.pas">
+      <Form>NewD</Form>
+    </DCCReference>
+    <DCCReference Include="NewInvU.pas">
+      <Form>NewInvF</Form>
+    </DCCReference>
+    <DCCReference Include="NewNomenclature.pas">
+      <Form>NewNomForm</Form>
+    </DCCReference>
+    <DCCReference Include="NewSomethingU.pas">
+      <Form>NewSomethingF</Form>
+    </DCCReference>
+    <DCCReference Include="PersonalSettingsU.pas">
+      <Form>PersonalSettingsF</Form>
+    </DCCReference>
+    <DCCReference Include="print_f.pas">
+      <Form>printf</Form>
+    </DCCReference>
+    <DCCReference Include="RecogniserU.pas">
+      <Form>InvoiceRecognise</Form>
+    </DCCReference>
+    <DCCReference Include="RecognitionOptionsU.pas">
+      <Form>RecognitionOptionsF</Form>
+    </DCCReference>
+    <DCCReference Include="RegExpr.pas" />
+    <DCCReference Include="SetInvoAllU.pas">
+      <Form>SetInvoAll</Form>
+    </DCCReference>
+    <DCCReference Include="SheetChooser.pas">
+      <Form>ChooseSheet</Form>
+    </DCCReference>
+    <DCCReference Include="UChoiseType.pas">
+      <Form>frm_choise_type</Form>
+    </DCCReference>
+    <DCCReference Include="UEditForm.pas">
+      <Form>frm_editform</Form>
+    </DCCReference>
+    <DCCReference Include="UFullInfo.pas">
+      <Form>frm_full_info</Form>
+    </DCCReference>
+    <DCCReference Include="UHelp.pas">
+      <Form>frm_help</Form>
+    </DCCReference>
+    <DCCReference Include="UMapping.pas">
+      <Form>frmMapping</Form>
+    </DCCReference>
+    <DCCReference Include="UNamesChoise.pas">
+      <Form>frmNamesChoise</Form>
+    </DCCReference>
+    <DCCReference Include="UNomenclatureList.pas">
+      <Form>frmNomenclature</Form>
+    </DCCReference>
+    <DCCReference Include="UNomsInfo.pas">
+      <Form>frmNomsForName</Form>
+    </DCCReference>
+    <DCCReference Include="UOrders.pas">
+      <Form>frmOrder</Form>
+    </DCCReference>
+    <DCCReference Include="UReader.pas">
+      <Form>frmReader</Form>
+    </DCCReference>
+    <None Include="ModelSupport_ExcelReader\default.txaPackage" />
+    <None Include="ModelSupport_ExcelReader\default.txvpck" />
+  </ItemGroup>
+</Project>
