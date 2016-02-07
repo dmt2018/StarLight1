@@ -1,0 +1,544 @@
+object edit_list: Tedit_list
+  Left = 660
+  Top = 256
+  Caption = #1044#1086#1073#1072#1074#1083#1077#1085#1080#1077' '#1090#1086#1074#1072#1088#1072' '#1074' '#1085#1072#1082#1083#1072#1076#1085#1091#1102
+  ClientHeight = 514
+  ClientWidth = 789
+  Color = clBtnFace
+  Constraints.MinHeight = 550
+  Constraints.MinWidth = 700
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Arial'
+  Font.Pitch = fpFixed
+  Font.Style = []
+  Icon.Data = {
+    0000010002001010000001000800680500002600000010100000010020006804
+    00008E0500002800000010000000200000000100080000000000000100000000
+    000000000000000100000001000000000000CB870D00CD890E00C0801D00D491
+    1100D6941700D7971B00D7971C00C4842000C4872800C4882800C68A2C00C78C
+    2E00D99A2100DB9E2600CA943D00DCA12C00DEA53200E0A83700E1AB3C00E3AF
+    4100E5B24600E6B54B00E8B85000E9BB5400EABD5900ECC05D00EDC36200EEC5
+    6600F0C86A00F1CA6E00F2CD7100F3CF7500F4D17800F5D37C00F6D57F00F7D7
+    8300F8D98500F3D78E00FCE39B00FBE39D00F1DEAB00FCE5A000FCE6A400FFEA
+    A600FDE9A900FCEAAD00FFECAC00FDEBB200FFEDB000FEEDB500FEEFB900FFF1
+    BC00FEF1C000FEF2C500FFF4C700FFF5CA00FFF6CE00FFF7D100FEF8D400FFFB
+    DC00000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    000000000000000000000000000000000808080808080808080808080900000F
+    083B02020202020202020202010A033B083B070505040504050405040503083B
+    083B11100E0D0705040404040403083B083B1514131210100E0D07050503083B
+    083B191818161515131210100E03083B083B1D1C1C191918171615151308083B
+    083B2120201D1D1C1C1919181703083B083B2524212421201D201C1C1C03083B
+    0A3B36363332322E2E2A2A28280A083B3B0A080308030803080808030C00083B
+    3A383636333332322E2E2C260F00083B3B3B3A3637290C080308030C0000033B
+    3C3C3C3C3C0F0000000000000000000A080308030C0000000000000000000000
+    0000000000000000000000000000C00100008000000000000000000000000000
+    0000000000000000000000000000000000000000000000010000000100000003
+    000000FF000081FF0000FFFF0000280000001000000020000000010020000000
+    0000400400000000000000000000000000000000000000000000BCB5AA01C485
+    22FFC48420FFC48420FFC48420FFC48420FFC48420FFC48420FFC48420FFC484
+    20FFC48420FFC48420FFC48420FFC48728FFD9D1C60C67605508CA943DFFC484
+    20FFFEF8D4FFCD890EFFCD890EFFCD890EFFCD890EFFCD890EFFCD890EFFCD89
+    0EFFCD890EFFCD890EFFCD890EFFCB870DFFC48828FFC0801DFFFEF8D4FFC484
+    20FFFEF8D4FFD7971CFFD69417FFD59213FFD49111FFD49111FFD49111FFD491
+    11FFD49111FFD49111FFD49111FFD49111FFC48420FFC48420FFFEF8D4FFC484
+    20FFFEF8D4FFDEA532FFDDA12DFFDB9E27FFD99B21FFD7971CFFD69417FFD492
+    13FFD49111FFD49111FFD49111FFD49111FFC48420FFC48420FFFEF8D4FFC484
+    20FFFEF8D4FFE5B247FFE3AF42FFE2AB3CFFE0A837FFDEA532FFDDA12CFFDB9E
+    27FFD99A21FFD7971BFFD69417FFD49213FFC48420FFC48420FFFEF8D4FFC484
+    20FFFEF8D4FFEABD59FFE9BB55FFE8B850FFE6B54BFFE5B246FFE3AF41FFE1AB
+    3CFFE0A837FFDEA532FFDCA12CFFDB9E26FFC48420FFC48420FFFEF8D4FFC484
+    20FFFEF8D4FFF0C86AFFEFC566FFEDC362FFECC05EFFEABD59FFE9BB54FFE8B8
+    50FFE6B54BFFE5B246FFE3AF41FFE1AB3CFFC48420FFC48420FFFEF8D4FFC484
+    20FFFEF8D4FFF4D179FFF3CF75FFF2CD72FFF1CA6EFFF0C86AFFEEC566FFEDC3
+    62FFECC05DFFEABD59FFE9BB54FFE8B850FFC48420FFC48420FFFEF8D4FFC484
+    20FFFEF8D4FFF8D985FFF7D783FFF6D57FFFF5D37CFFF4D178FFF3CF75FFF2CD
+    71FFF1CA6EFFF0C86AFFEEC566FFEDC362FFC48420FFC48420FFFEF8D4FFC68A
+    2CFFFEF8D4FFFEF2C5FFFDF1C0FFFDEFBBFFFDEDB6FFFDEBB2FFFCEAADFFFCE8
+    A9FFFCE6A4FFFCE5A0FFFBE39DFFFCE39BFFC48829FFC48420FFFEF8D4FFFFF7
+    CFFFC78C2EFFC48420FFC48420FFC48420FFC48420FFC48420FFC48420FFC484
+    20FFC48420FFC48420FFC48420FFC78C2EFF8D765537C48420FFFEF8D4FFFFF7
+    CFFFFFF5CAFFFFF3C5FFFFF2C0FFFFF1BCFFFFEFB8FFFFEEB4FFFFEDB0FFFFEC
+    ACFFFFEAA9FFFFEAA6FFF3D78EFFCA943DFF00000000C48420FFFEF8D4FFFFF9
+    D6FFFFF7D1FFFFF6CCFFFFF4C7FFFFF4C7FFF1DEABFFC78C2EFFC48420FFC484
+    20FFC48420FFC48420FFC78C2EFF120B000F00000000C0801DFFFEF8D4FFFFFB
+    DCFFFFFBDCFFFFFBDCFFFFFBDCFFFFFBDCFFCA943DFF00000000000000000000
+    00000000000000000000000000000000000000000000D9D1C608C78C2EFFC484
+    20FFC48420FFC48420FFC48420FFC78C2EFF0000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000080000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000100000001000000FF000001FF0000FFFF0000}
+  OldCreateOrder = False
+  Position = poMainFormCenter
+  Scaled = False
+  OnClose = FormClose
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 15
+  object Panel2: TPanel
+    Left = 0
+    Top = 474
+    Width = 789
+    Height = 40
+    Align = alBottom
+    Color = clBtnShadow
+    Ctl3D = False
+    ParentCtl3D = False
+    TabOrder = 3
+    DesignSize = (
+      789
+      40)
+    object BitBtnSave: TcxButton
+      Left = 639
+      Top = 6
+      Width = 145
+      Height = 30
+      Cursor = crHandPoint
+      Anchors = [akTop, akRight]
+      Caption = ' OK (Ctrl+Enter) '
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = [fsBold]
+      ModalResult = 1
+      ParentFont = False
+      TabOrder = 0
+      Colors.Default = clBtnFace
+      Colors.Normal = clBtnFace
+      Colors.Hot = clBtnShadow
+      Colors.Pressed = clBtnShadow
+      Glyph.Data = {
+        76060000424D7606000000000000360400002800000018000000180000000100
+        08000000000040020000340B0000340B000000010000000000007B1111007B16
+        16007B1C1C00841C1C00842323008F2323007B2A2A00842A2A008F2A2A00982A
+        2A008F312A00842A3100843131008F31310098313100A131310084383800A138
+        3800AB383800B6383800AB404000B6404000C0404000844848008F484800B648
+        4800C048480084505000A1505000AB505000B6505000C050500098585000A158
+        5000845858008F585800A1585800AB585800B6585800C0585800A16A58008F60
+        600098606000AB606000B6606000C06060008F6A6A00A16A6A00AB6A6A00B66A
+        6A00A1736A008F73730098737300A1737300B6737300C0737300AB7B7B00CA7B
+        7B0084848400AB848400B6848400C0848400C08F8400988F8F00C08F8F00CA8F
+        8F00B6989800C0989800CA989800A1A1A100ABA1A100D4A1A100ABABA100A1AB
+        AB00ABABAB00CAABAB00D4ABAB00B6B6B600C0B6B600D4B6B600E0B6B600B6C0
+        C000C0C0C000CAC0C000D4C0C000CACACA00D4D4CA00D4D4D400E0D4D400E0E0
+        D400EAE0D400E0E0E000EAE0E000F4E0E000EAEAE000F4EAE000EAEAEA00F4EA
+        EA00F4F4EA00F4F4F400FFF4F400FFFFF400FF00FF00FFFFFF00000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000666666666666
+        6666666666666666666666666666666666666666661E191A111B454545454545
+        454545240102040C66666666281E1A1A141B332F43546265635E5B2401020415
+        0C666666281E1A1A14222904213C5C636462602B010204150C666666281E1A1A
+        14232E02072456606364632B010204150C666666281E1A1A14233402020C4D59
+        6064672C010204150C666666281E1A1A112A350101023F525961673101020415
+        0C666666281E1A1A112A421818173A4555606731010204140C666666281E1A1A
+        1424413C3B3834343C44502608090E190C666666281E1A1A1A1A1A1A1A1A1A1A
+        1919191A1A1A1A1A0C666666281E14191E2727272727272727272727272D1F1A
+        0C666666280E0A1C36434B4B4B4B4B4B4B4B4B4B4B4F371A0C66666628093D62
+        616161616161616161616161615C37150C666666280940676363636363636363
+        63636363645C37140C66666628094067616161616161616161616161635C3714
+        0C666666280940675B4E5252525252525252524D585C37140C66666628094067
+        615C5C5C5C5C5C5C5C5C5C5C615C37140C666666280940675C53535353535353
+        535353525B5C37140C666666280940675E5858585858585858585858605C3714
+        0C666666280940675E5858585858585858585858605C37140C66666628094067
+        5B52535353535353535353525B5C37140C666666280940676464646464646464
+        64646464645C37150C66666666093D514D4D4D4D4D4D4D4D4D4D4D4D4D4D3611
+        6666666666666666666666666666666666666666666666666666}
+      LookAndFeel.Kind = lfFlat
+      LookAndFeel.NativeStyle = True
+      Spacing = 6
+    end
+  end
+  object Panel3: TPanel
+    Left = 0
+    Top = 57
+    Width = 789
+    Height = 417
+    Align = alClient
+    Color = clWindow
+    TabOrder = 0
+    object grid_newnom: TcxGrid
+      Left = 1
+      Top = 1
+      Width = 787
+      Height = 415
+      Align = alClient
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+      LookAndFeel.Kind = lfOffice11
+      object grid_newnom_v: TcxGridDBTableView
+        NavigatorButtons.ConfirmDelete = False
+        FilterBox.Position = fpTop
+        OnCustomDrawCell = grid_newnom_vCustomDrawCell
+        DataController.DataSource = EDIT_LIST_DS
+        DataController.Filter.Options = [fcoCaseInsensitive, fcoShowOperatorDescription, fcoSoftCompare]
+        DataController.Options = [dcoAnsiSort, dcoCaseInsensitive, dcoAssignGroupingValues, dcoAssignMasterDetailKeys, dcoSaveExpanding]
+        DataController.Summary.DefaultGroupSummaryItems = <
+          item
+            Kind = skCount
+            Position = spFooter
+          end
+          item
+            Kind = skCount
+          end>
+        DataController.Summary.FooterSummaryItems = <
+          item
+            Kind = skCount
+          end
+          item
+            Kind = skSum
+          end
+          item
+            Format = '0'
+            Kind = skCount
+          end
+          item
+            Kind = skSum
+          end
+          item
+            Format = '0.00'
+            Kind = skSum
+          end
+          item
+            Format = '0'
+            Kind = skSum
+          end
+          item
+            Format = '0'
+            Kind = skSum
+          end
+          item
+            Format = '0'
+            Kind = skCount
+          end
+          item
+            Format = '0'
+            Kind = skSum
+          end
+          item
+            Format = '0.00'
+            Kind = skSum
+          end
+          item
+            Format = '0'
+            Kind = skSum
+          end
+          item
+            Format = '0'
+            Kind = skCount
+          end
+          item
+            Format = '0.00'
+            Kind = skSum
+          end
+          item
+            Format = '0'
+            Kind = skCount
+            Column = rp_CODE
+          end
+          item
+            Format = '0.00'
+            Kind = skSum
+          end
+          item
+            Format = '0.00'
+            Kind = skSum
+          end>
+        DataController.Summary.SummaryGroups = <>
+        FilterRow.InfoText = #1055#1086#1083#1077' '#1076#1083#1103' '#1091#1089#1090#1072#1085#1086#1074#1082#1080' '#1092#1080#1083#1100#1090#1088#1086#1074
+        FilterRow.Visible = True
+        OptionsBehavior.CellHints = True
+        OptionsCustomize.ColumnMoving = False
+        OptionsData.CancelOnExit = False
+        OptionsData.Deleting = False
+        OptionsData.DeletingConfirmation = False
+        OptionsData.Inserting = False
+        OptionsSelection.MultiSelect = True
+        OptionsView.CellEndEllipsis = True
+        OptionsView.NoDataToDisplayInfoText = #1053#1077#1090' '#1076#1072#1085#1085#1099#1093' '#1076#1083#1103' '#1087#1088#1086#1089#1084#1086#1090#1088#1072
+        OptionsView.Footer = True
+        OptionsView.FooterMultiSummaries = True
+        OptionsView.GroupByBox = False
+        OptionsView.GroupFooters = gfVisibleWhenExpanded
+        OptionsView.HeaderAutoHeight = True
+        OptionsView.HeaderEndEllipsis = True
+        object _rp_N_ID: TcxGridDBColumn
+          DataBinding.FieldName = 'N_ID'
+          Visible = False
+          Options.Editing = False
+        end
+        object rp_CODE: TcxGridDBColumn
+          Caption = #1050#1086#1076
+          DataBinding.FieldName = 'CODE'
+          FooterAlignmentHorz = taCenter
+          MinWidth = 100
+          Options.Editing = False
+          Options.HorzSizing = False
+          Options.Moving = False
+          Width = 100
+        end
+        object rp_FULL_NAME: TcxGridDBColumn
+          Caption = #1053#1072#1079#1074#1072#1085#1080#1077
+          DataBinding.FieldName = 'FULL_NAME'
+          Options.Editing = False
+          Options.Moving = False
+          Width = 150
+        end
+        object rp_QUANTITY_NEW: TcxGridDBColumn
+          Caption = #1050#1086#1083'-'#1074#1086
+          DataBinding.FieldName = 'QUANTITY_NEW'
+          PropertiesClassName = 'TcxSpinEditProperties'
+          Properties.Alignment.Horz = taCenter
+          Properties.ImmediatePost = True
+          Properties.SpinButtons.Visible = False
+          Properties.UseCtrlIncrement = True
+          GroupSummaryAlignment = taCenter
+          HeaderAlignmentHorz = taCenter
+          MinWidth = 70
+          Options.ShowEditButtons = isebAlways
+          Options.HorzSizing = False
+          Options.Moving = False
+          Width = 70
+        end
+        object rp_PRICE: TcxGridDBColumn
+          Caption = #1062#1077#1085#1072
+          DataBinding.FieldName = 'PRICE'
+          PropertiesClassName = 'TcxCurrencyEditProperties'
+          Properties.Alignment.Horz = taCenter
+          Properties.DisplayFormat = ',0.00'#39#39';-,0.00'#39#39
+          HeaderAlignmentHorz = taCenter
+          MinWidth = 70
+          Options.HorzSizing = False
+          Options.Moving = False
+          Width = 70
+        end
+        object rp_PRICE_QUANTITY: TcxGridDBColumn
+          Caption = #1053#1072' '#1089#1091#1084#1084#1091
+          DataBinding.FieldName = 'PRICE_QUANTITY'
+          PropertiesClassName = 'TcxCurrencyEditProperties'
+          Properties.Alignment.Horz = taCenter
+          Properties.DisplayFormat = ',0.00'#39#39';-,0.00'#39#39
+          Properties.ReadOnly = True
+          FooterAlignmentHorz = taRightJustify
+          HeaderAlignmentHorz = taCenter
+          MinWidth = 80
+          Options.Editing = False
+          Options.HorzSizing = False
+          Options.Moving = False
+          Width = 80
+        end
+        object rp_f_type: TcxGridDBColumn
+          Caption = #1043#1088#1091#1087#1087#1072
+          DataBinding.FieldName = 'F_TYPE'
+          Options.Editing = False
+          Options.Moving = False
+          Width = 100
+        end
+        object rp_F_SUB_TYPE: TcxGridDBColumn
+          Caption = #1055#1086#1076#1075#1088#1091#1087#1087#1072
+          DataBinding.FieldName = 'F_SUB_TYPE'
+          Options.Editing = False
+          Options.Moving = False
+          Width = 120
+        end
+        object rp_COUNTRY: TcxGridDBColumn
+          Caption = #1057#1090#1088#1072#1085#1072
+          DataBinding.FieldName = 'COUNTRY'
+          Visible = False
+          FooterAlignmentHorz = taCenter
+          GroupSummaryAlignment = taCenter
+          MinWidth = 80
+          Options.Editing = False
+          Options.Moving = False
+          Width = 100
+        end
+        object rp_H_CODE: TcxGridDBColumn
+          Caption = #1040#1088#1090#1080#1082#1091#1083
+          DataBinding.FieldName = 'H_CODE'
+          Visible = False
+          MinWidth = 100
+          Options.Editing = False
+          Options.HorzSizing = False
+          Options.Moving = False
+          Width = 100
+        end
+      end
+      object grid_newnom_l: TcxGridLevel
+        GridView = grid_newnom_v
+      end
+    end
+  end
+  object Panel4: TPanel
+    Left = 0
+    Top = 30
+    Width = 789
+    Height = 27
+    Align = alTop
+    Ctl3D = False
+    ParentColor = True
+    ParentCtl3D = False
+    TabOrder = 2
+    object Label1: TLabel
+      Left = 56
+      Top = 6
+      Width = 296
+      Height = 14
+      Caption = '- '#1059#1078#1077' '#1076#1086#1073#1072#1074#1083#1077#1085#1099' '#1074' '#1076#1086#1082#1091#1084#1077#1085#1090';   Ctrl-F - '#1076#1080#1072#1083#1086#1075' '#1087#1086#1080#1089#1082#1072
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object pRed: TPanel
+      Left = 16
+      Top = 4
+      Width = 33
+      Height = 17
+      BevelOuter = bvNone
+      Color = 8421631
+      TabOrder = 0
+    end
+  end
+  object Panel7: TPanel
+    Left = 0
+    Top = 0
+    Width = 789
+    Height = 30
+    Align = alTop
+    Caption = #1044#1054#1041#1040#1042#1051#1045#1053#1048#1045' '#1058#1054#1042#1040#1056#1054#1042' '#1042' '#1044#1054#1050#1059#1052#1045#1053#1058
+    Color = clSkyBlue
+    Ctl3D = False
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Pitch = fpFixed
+    Font.Style = [fsBold]
+    ParentCtl3D = False
+    ParentFont = False
+    TabOrder = 1
+  end
+  object ActionList1: TActionList
+    Left = 96
+    Top = 161
+    object aEnter: TAction
+      Caption = 'aCtrlEnter'
+      ShortCut = 16397
+      OnExecute = aEnterExecute
+    end
+    object Enter: TAction
+      Caption = 'aEnter'
+      OnExecute = EnterExecute
+    end
+  end
+  object EDIT_LIST: TOraQuery
+    SQLUpdate.Strings = (
+      'begin'
+      
+        '  buh_pkg.data_temp_add(:N_ID, :QUANTITY_NEW, :IDD, :ID_DOC_DATA' +
+        ');'
+      'end;')
+    SQLRefresh.Strings = (
+      'where'
+      'ID_DOC_DATA=:ID_DOC_DATA')
+    Session = DM.OraSession
+    SQL.Strings = (
+      'select '
+      'a.N_ID,'
+      'a.CODE,'
+      'a.PRICE,'
+      'a.F_TYPE,'
+      'a.F_SUB_TYPE,'
+      'b.QUANTITY as QUANTITY_NEW,'
+      'b.ID_DOC_DATA,'
+      ':ID_DOC as IDD,'
+      'a.full_name,'
+      '(a.PRICE*b.QUANTITY) as PRICE_QUANTITY'
+      'from '
+      'nomenclature_view_prices a,'
+      'buh_doc_data b'
+      'where'
+      'b.N_ID(+) = a.N_ID'
+      'and b.ID_DOC(+) = :ID_DOC'
+      'and ID_DEPARTMENTS = :ID_DEPARTMENTS')
+    MasterSource = docsviewForm.DOC_DS
+    FetchAll = True
+    AutoCommit = False
+    RefreshOptions = [roAfterInsert, roAfterUpdate]
+    Options.CacheLobs = False
+    Options.FieldsOrigin = True
+    Options.ReturnParams = True
+    FilterOptions = [foCaseInsensitive]
+    Left = 56
+    Top = 160
+    ParamData = <
+      item
+        DataType = ftFloat
+        Name = 'ID_DOC'
+        ParamType = ptInput
+        Value = 73.000000000000000000
+      end
+      item
+        DataType = ftUnknown
+        Name = 'ID_DEPARTMENTS'
+      end>
+  end
+  object EDIT_LIST_DS: TOraDataSource
+    DataSet = EDIT_LIST
+    Left = 56
+    Top = 192
+  end
+end

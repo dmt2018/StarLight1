@@ -1,0 +1,4 @@
+SELECT * from BUH_DOC_DATA
+where
+ID_DOC = 104964
+

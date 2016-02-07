@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010.01.30 23:55:05.266.pas,C:\_WORK\Delphi\_Цветы 2007\Store_buh\Unit1.pas=C:\_WORK\Delphi\_Цветы 2007\Store_buh\UStat.pas</Transaction>
+    <Transaction>2010.01.30 23:55:05.266.dfm,C:\_WORK\Delphi\_Цветы 2007\Store_buh\Unit1.dfm=C:\_WORK\Delphi\_Цветы 2007\Store_buh\UStat.dfm</Transaction>
+    <Transaction>2010.03.15 23:47:22.538.pas,C:\_WORK\Delphi\_Цветы 2007\Store_buh\Unit1.pas=C:\_WORK\Delphi\_Цветы 2007\Store_buh\UCash.pas</Transaction>
+    <Transaction>2010.03.15 23:47:22.538.dfm,C:\_WORK\Delphi\_Цветы 2007\Store_buh\Unit1.dfm=C:\_WORK\Delphi\_Цветы 2007\Store_buh\UCash.dfm</Transaction>
+    <Transaction>2010.04.17 14:06:01.675.pas,C:\_WORK\Delphi\_Цветы 2007\Store_buh\Unit1.pas=C:\_WORK\Delphi\_Цветы 2007\Store_buh\UChoiseReserv.pas</Transaction>
+    <Transaction>2010.04.17 14:06:01.675.dfm,C:\_WORK\Delphi\_Цветы 2007\Store_buh\Unit1.dfm=C:\_WORK\Delphi\_Цветы 2007\Store_buh\UChoiseReserv.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

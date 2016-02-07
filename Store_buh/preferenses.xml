@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<Preferenses>
+	<User name="all">
+		<company>1</company>
+		<banc>4</banc>
+		<nds>55</nds>
+	</User>
+	<User name="creator">
+		<company>1</company>
+		<banc>3</banc>
+		<gtd>лала</gtd>
+		<nds>55</nds>
+	</User>
+</Preferenses>
