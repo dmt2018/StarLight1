@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{ed323584-8914-457b-be05-04cec7a35b73}</ProjectGuid>
+    <MainSource>store.dpr</MainSource>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+    <DCC_DependencyCheckOutputName>store.exe</DCC_DependencyCheckOutputName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_DebugInformation>False</DCC_DebugInformation>
+    <DCC_LocalDebugSymbols>False</DCC_LocalDebugSymbols>
+    <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+    <DCC_Define>RELEASE</DCC_Define>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_Define>DEBUG</DCC_Define>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Delphi.Personality</Borland.Personality>
+    <Borland.ProjectType>VCLApplication</Borland.ProjectType>
+    <BorlandProject>
+<BorlandProject><Delphi.Personality><Parameters><Parameters Name="RunParams">-l eva -p 123 -d klepov:1521:STARNEW -e -a -t -k -otd 121</Parameters><Parameters Name="UseLauncher">False</Parameters><Parameters Name="LoadAllSymbols">True</Parameters><Parameters Name="LoadUnspecifiedSymbols">False</Parameters></Parameters><VersionInfo><VersionInfo Name="IncludeVerInfo">True</VersionInfo><VersionInfo Name="AutoIncBuild">False</VersionInfo><VersionInfo Name="MajorVer">1</VersionInfo><VersionInfo Name="MinorVer">0</VersionInfo><VersionInfo Name="Release">0</VersionInfo><VersionInfo Name="Build">99</VersionInfo><VersionInfo Name="Debug">False</VersionInfo><VersionInfo Name="PreRelease">False</VersionInfo><VersionInfo Name="Special">False</VersionInfo><VersionInfo Name="Private">False</VersionInfo><VersionInfo Name="DLL">False</VersionInfo><VersionInfo Name="Locale">1049</VersionInfo><VersionInfo Name="CodePage">1251</VersionInfo></VersionInfo><VersionInfoKeys><VersionInfoKeys Name="CompanyName"></VersionInfoKeys><VersionInfoKeys Name="FileDescription"></VersionInfoKeys><VersionInfoKeys Name="FileVersion">1.0.0.99</VersionInfoKeys><VersionInfoKeys Name="InternalName"></VersionInfoKeys><VersionInfoKeys Name="LegalCopyright"></VersionInfoKeys><VersionInfoKeys Name="LegalTrademarks"></VersionInfoKeys><VersionInfoKeys Name="OriginalFilename"></VersionInfoKeys><VersionInfoKeys Name="ProductName"></VersionInfoKeys><VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys><VersionInfoKeys Name="Comments"></VersionInfoKeys></VersionInfoKeys><Source><Source Name="MainSource">store.dpr</Source></Source><Excluded_Packages>
+      
+      
+      
+      
+      <Excluded_Packages Name="$(BDS)\bin\dcloffice2k100.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+      <Excluded_Packages Name="$(BDS)\bin\dclofficexp100.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+    </Excluded_Packages></Delphi.Personality></BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Import Project="$(MSBuildBinPath)\Borland.Delphi.Targets" />
+  <ItemGroup>
+    <DelphiCompile Include="store.dpr">
+      <MainSource>MainSource</MainSource>
+    </DelphiCompile>
+    <DCCReference Include="..\libs\UFilials.pas">
+      <Form>frmFilials</Form>
+    </DCCReference>
+    <DCCReference Include="all_invent.pas">
+      <Form>all_invent_Form</Form>
+    </DCCReference>
+    <DCCReference Include="all_nacl.pas">
+      <Form>all_nacl_Form</Form>
+    </DCCReference>
+    <DCCReference Include="all_prih.pas">
+      <Form>all_prih_Form</Form>
+    </DCCReference>
+    <DCCReference Include="all_reprice.pas">
+      <Form>all_reprice_Form</Form>
+    </DCCReference>
+    <DCCReference Include="all_spis.pas">
+      <Form>all_spis_Form</Form>
+    </DCCReference>
+    <DCCReference Include="all_utsen.pas">
+      <Form>all_utsen_Form</Form>
+    </DCCReference>
+    <DCCReference Include="buttons_for.pas">
+      <Form>frm_buttons</Form>
+    </DCCReference>
+    <DCCReference Include="change_prices.pas">
+      <Form>ChangePricesForm</Form>
+    </DCCReference>
+    <DCCReference Include="client_choos.pas">
+      <Form>clientchoosForm</Form>
+    </DCCReference>
+    <DCCReference Include="dataM.pas">
+      <Form>DM</Form>
+      <DesignClass>TDataModule</DesignClass>
+    </DCCReference>
+    <DCCReference Include="dialog_number.pas">
+      <Form>dialog_number_Form</Form>
+    </DCCReference>
+    <DCCReference Include="global.pas" />
+    <DCCReference Include="global_date.pas">
+      <Form>GlobalDateForm</Form>
+    </DCCReference>
+    <DCCReference Include="invchooser.pas">
+      <Form>invchooserForm</Form>
+    </DCCReference>
+    <DCCReference Include="inventory.pas">
+      <Form>inventoryForm</Form>
+    </DCCReference>
+    <DCCReference Include="nacl_new.pas">
+      <Form>naclnewForm</Form>
+    </DCCReference>
+    <DCCReference Include="obnul.pas">
+      <Form>obnul_Form</Form>
+    </DCCReference>
+    <DCCReference Include="oper_select.pas">
+      <Form>OperSelectForm</Form>
+    </DCCReference>
+    <DCCReference Include="prihod.pas">
+      <Form>prihodForm</Form>
+    </DCCReference>
+    <DCCReference Include="report_tovarn_full.pas">
+      <Form>ReportTovarnFullForm</Form>
+    </DCCReference>
+    <DCCReference Include="report_tovarn_nacls.pas">
+      <Form>ReportTovarnNaclsForm</Form>
+    </DCCReference>
+    <DCCReference Include="reprice.pas">
+      <Form>repriceForm</Form>
+    </DCCReference>
+    <DCCReference Include="spisanie.pas">
+      <Form>spisanieForm</Form>
+    </DCCReference>
+    <DCCReference Include="store_view.pas">
+      <Form>storeViewForm</Form>
+    </DCCReference>
+    <DCCReference Include="UChoiseType.pas">
+      <Form>frm_choise_type</Form>
+    </DCCReference>
+    <DCCReference Include="UFullInfo.pas">
+      <Form>frm_full_info</Form>
+    </DCCReference>
+    <DCCReference Include="UHistory.pas">
+      <Form>frmHistory</Form>
+    </DCCReference>
+    <DCCReference Include="UOldPrice.pas">
+      <Form>frmOldPrice</Form>
+    </DCCReference>
+    <DCCReference Include="UReservInfo.pas">
+      <Form>frmReservInfo</Form>
+    </DCCReference>
+    <DCCReference Include="utsenka.pas">
+      <Form>utsenkaForm</Form>
+    </DCCReference>
+  </ItemGroup>
+</Project>
