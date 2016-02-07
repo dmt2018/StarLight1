@@ -1,0 +1,3 @@
+w:\buh\registry\clients.dbf
+w:\buh\registry\clients2.dbf
+W:\buh\registry\add\davai.exe

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TfrxReport Version="4.6.5" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="4095" PreviewOptions.Zoom="1" PrintOptions.Printer="Phaser 4400B" PrintOptions.PrintOnSheet="0" ReportOptions.CreateDate="37936,5626925926" ReportOptions.Description.Text="" ReportOptions.LastChange="40368,0515462731" ScriptLanguage="PascalScript" ScriptText.Text="begin&#13;&#10;&#13;&#10;end." PropData="044C656674021803546F7003200108446174617365747301010C2800000020446174615365743D22667278456D706C2220446174615365744E616D653D22667278456D706C220000095661726961626C65730100055374796C650100">
+  <TfrxDataPage Name="Data" Height="1000" Left="0" Top="0" Width="1000"/>
+  <TfrxReportPage Name="Page1" PaperWidth="210" PaperHeight="297" PaperSize="256" LeftMargin="0" RightMargin="0" TopMargin="3,9" BottomMargin="3,9" Columns="3" ColumnWidth="70" ColumnPositions.Text="0&#13;&#10;70&#13;&#10;140" HGuides.Text="" VGuides.Text="">
+    <TfrxMasterData Name="MasterData1" Height="116" Left="0" Top="18,89765" Width="264,5671" Columns="1" ColumnWidth="200" ColumnGap="20" DataSet="frxEmpl" DataSetName="frxEmpl" RowCount="0">
+      <TfrxBarCodeView Name="Bar1" Left="28" Top="40" Width="95" Height="52" ShowHint="False" BarType="bcCodeEAN13" Expression="[DM.Q_EMPL.&#34;CCODE&#34;]" Rotation="0" Text="12345678" WideBarRatio="2" Zoom="1"/>
+      <TfrxMemoView Name="Memo6" Left="128" Top="44" Width="124" Height="20" ShowHint="False" Font.Charset="1" Font.Color="32768" Font.Height="-19" Font.Name="Arial" Font.Style="1" HAlign="haRight" ParentFont="False" Text="[DM.Q_EMPL.&#34;NICK&#34;]"/>
+      <TfrxMemoView Name="Memo1" Left="24" Top="4" Width="228" Height="32" ShowHint="False" Font.Charset="1" Font.Color="33023" Font.Height="-13" Font.Name="Arial" Font.Style="1" HAlign="haCenter" ParentFont="False" Text="[DM.Q_EMPL.&#34;FIO&#34;]"/>
+    </TfrxMasterData>
+  </TfrxReportPage>
+</TfrxReport>

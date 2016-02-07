@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TfrxReport Version="4.6.5" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="4095" PreviewOptions.Zoom="1" PrintOptions.Printer="Fax" PrintOptions.PrintOnSheet="0" ReportOptions.CreateDate="37936,5626925926" ReportOptions.Description.Text="" ReportOptions.LastChange="40368,0294807755" ScriptLanguage="PascalScript" ScriptText.Text="procedure MasterData1OnBeforePrint(Sender: TfrxComponent);&#13;&#10;begin&#13;&#10;  with MasterData1, Engine do&#13;&#10;  begin&#13;&#10;{  if Memo12.FillColor = clTransparent then Memo12.FillColor := clSilver else Memo12.FillColor := clTransparent;&#13;&#10;  if Memo7.FillColor = clTransparent then Memo7.FillColor := clSilver else Memo7.FillColor := clTransparent; }&#13;&#10;  end&#13;&#10;end;&#13;&#10;&#13;&#10;begin&#13;&#10;&#13;&#10;end." PropData="044C656674021803546F7003200108446174617365747301010C2C00000020446174615365743D226672784465706172742220446174615365744E616D653D226672784465706172742200010C3000000020446174615365743D2266727844657073456D706C2220446174615365744E616D653D2266727844657073456D706C2200010C3200000020446174615365743D226672784A6F6273456D706C732220446174615365744E616D653D226672784A6F6273456D706C73220000095661726961626C65730100055374796C650100">
+  <TfrxDataPage Name="Data" Height="1000" Left="0" Top="0" Width="1000"/>
+  <TfrxReportPage Name="Page1" PaperWidth="210,1" PaperHeight="297,1" PaperSize="256" LeftMargin="10" RightMargin="10" TopMargin="10" BottomMargin="10" ColumnWidth="0" ColumnPositions.Text="" HGuides.Text="" VGuides.Text="">
+    <TfrxReportTitle Name="ReportTitle1" Height="36,66141" Left="0" Top="18,89765" Width="718,488653">
+      <TfrxMemoView Name="Memo1" Align="baWidth" Left="0" Top="0,44094" Width="718,488653" Height="28" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-24" Font.Name="Arial" Font.Style="1" Frame.Typ="8" HAlign="haCenter" ParentFont="False" Text="Список штата"/>
+    </TfrxReportTitle>
+    <TfrxMasterData Name="MasterData1" Height="26,45669291" Left="0" Top="117,16543" Width="718,488653" OnBeforePrint="MasterData1OnBeforePrint" Columns="1" ColumnWidth="200" ColumnGap="20" DataSet="frxDepart" DataSetName="frxDepart" RowCount="0">
+      <TfrxMemoView Name="Memo12" Align="baLeft" Left="0" Top="0" Width="88" Height="26,4566929133858" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="1" Frame.Typ="15" ParentFont="False" Text="Отдел"/>
+      <TfrxMemoView Name="Memo7" Align="baLeft" Left="88" Top="0" Width="630,01577" Height="26,4566929133858" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="1" Frame.Typ="15" ParentFont="False" Text="[DM.Q_DEPART.&#34;NAME&#34;]"/>
+    </TfrxMasterData>
+    <TfrxDetailData Name="DetailData1" Height="18,8976378" Left="0" Top="166,29932" Width="718,488653" Columns="1" ColumnWidth="200" ColumnGap="20" DataSet="frxDepsEmpl" DataSetName="frxDepsEmpl" RowCount="0">
+      <TfrxMemoView Name="Memo2" Align="baLeft" Left="0" Top="0" Width="650,74026" Height="18,8976378" ShowHint="False" Frame.Typ="15" Text="[DM.DEPS_EMPL.&#34;FIO&#34;]"/>
+      <TfrxMemoView Name="Memo6" Align="baLeft" Left="650,74026" Top="0" Width="40" Height="18,8976377952756" ShowHint="False" Frame.Typ="15" HAlign="haRight" Text="штат:"/>
+      <TfrxCheckBoxView Name="Check1" Align="baLeft" Left="690,74026" Top="0" Width="28" Height="18,8976378" ShowHint="False" CheckColor="0" CheckStyle="csCheck" Expression="[DM.DEPS_EMPL.&#34;STAFF&#34;]" Frame.Width="2"/>
+    </TfrxDetailData>
+    <TfrxSubdetailData Name="SubdetailData1" Height="20" Left="0" Top="207,87415" Width="718,488653" Columns="1" ColumnWidth="200" ColumnGap="20" DataSet="frxJobsEmpls" DataSetName="frxJobsEmpls" RowCount="0">
+      <TfrxMemoView Name="Memo3" Left="87,52752" Top="0" Width="630,51979" Height="20" ShowHint="False" Text="[DM.JOBS_EMPL.&#34;NAME&#34;]"/>
+    </TfrxSubdetailData>
+    <TfrxFooter Name="DetailFooter1" Height="24" Left="0" Top="249,44898" Width="718,488653">
+      <TfrxLineView Name="Line2" Left="0" Top="4,22047" Width="726,01577" Height="0" ShowHint="False" Frame.Typ="4" Frame.Width="2"/>
+    </TfrxFooter>
+  </TfrxReportPage>
+</TfrxReport>
