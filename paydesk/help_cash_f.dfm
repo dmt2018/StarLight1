@@ -1,0 +1,559 @@
+object help_cash: Thelp_cash
+  Left = 549
+  Top = 162
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = '  '#1055#1086#1084#1086#1097#1100
+  ClientHeight = 531
+  ClientWidth = 507
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = 'Arial'
+  Font.Pitch = fpFixed
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poMainFormCenter
+  Scaled = False
+  PixelsPerInch = 96
+  TextHeight = 16
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 507
+    Height = 33
+    Align = alTop
+    Caption = #1043#1086#1088#1103#1095#1080#1077' '#1082#1085#1086#1087#1082#1080
+    Color = clMoneyGreen
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Arial'
+    Font.Pitch = fpFixed
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 0
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 33
+    Width = 507
+    Height = 216
+    Align = alTop
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 8
+      Top = 8
+      Width = 15
+      Height = 16
+      Caption = 'F1'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label2: TLabel
+      Left = 8
+      Top = 32
+      Width = 15
+      Height = 16
+      Caption = 'F2'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label3: TLabel
+      Left = 8
+      Top = 72
+      Width = 15
+      Height = 16
+      Caption = 'F3'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label4: TLabel
+      Left = 8
+      Top = 96
+      Width = 15
+      Height = 16
+      Caption = 'F5'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label5: TLabel
+      Left = 8
+      Top = 120
+      Width = 15
+      Height = 16
+      Caption = 'F6'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label6: TLabel
+      Left = 8
+      Top = 144
+      Width = 15
+      Height = 16
+      Caption = 'F7'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label7: TLabel
+      Left = 8
+      Top = 192
+      Width = 33
+      Height = 16
+      Caption = 'Enter'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label8: TLabel
+      Left = 8
+      Top = 168
+      Width = 22
+      Height = 16
+      Caption = 'F12'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label9: TLabel
+      Left = 56
+      Top = 8
+      Width = 341
+      Height = 16
+      Caption = #1044#1086#1073#1072#1074#1083#1077#1085#1080#1077' '#1074#1088#1091#1095#1085#1091#1102' '#1085#1086#1074#1086#1081' '#1085#1072#1082#1083#1072#1076#1085#1086#1081' ('#1086#1089#1090#1072#1090#1086#1082', '#1076#1086#1083#1075' ...)'
+    end
+    object Label10: TLabel
+      Left = 56
+      Top = 32
+      Width = 250
+      Height = 16
+      Caption = #1056#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1085#1080#1077' '#1085#1072#1082#1083#1072#1076#1085#1086#1081' '#1095#1077#1088#1077#1079' '#1092#1086#1088#1084#1091' '
+    end
+    object Label11: TLabel
+      Left = 56
+      Top = 48
+      Width = 353
+      Height = 16
+      Caption = #1040#1085#1072#1083#1086#1075#1080#1095#1085#1086#1077' '#1088#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1085#1080#1077' '#1084#1086#1078#1085#1086' '#1087#1088#1086#1080#1079#1074#1077#1089#1090#1080' '#1074' '#1090#1072#1073#1083#1080#1094#1077
+    end
+    object Label12: TLabel
+      Left = 56
+      Top = 72
+      Width = 132
+      Height = 16
+      Caption = #1059#1076#1072#1083#1077#1085#1085#1080#1077' '#1085#1072#1082#1083#1072#1076#1085#1086#1081
+    end
+    object Label13: TLabel
+      Left = 56
+      Top = 96
+      Width = 135
+      Height = 16
+      Caption = #1055#1086#1076#1075#1088#1091#1079#1082#1072' '#1085#1072#1082#1083#1072#1076#1085#1099#1093' '
+    end
+    object Label14: TLabel
+      Left = 56
+      Top = 120
+      Width = 190
+      Height = 16
+      Caption = #1055#1077#1095#1072#1090#1100' '#1088#1072#1089#1093#1086#1076#1085#1080#1082#1072'\'#1087#1088#1080#1093#1086#1076#1085#1080#1082#1072
+    end
+    object Label15: TLabel
+      Left = 56
+      Top = 144
+      Width = 137
+      Height = 16
+      Caption = #1055#1077#1095#1072#1090#1100' '#1082#1072#1089#1089#1086#1074#1086#1081' '#1082#1085#1080#1075#1080
+    end
+    object Label16: TLabel
+      Left = 56
+      Top = 168
+      Width = 154
+      Height = 16
+      Caption = #1054#1073#1085#1086#1074#1083#1077#1085#1080#1077' '#1074#1089#1077#1093' '#1076#1072#1085#1085#1099#1093
+    end
+    object Label17: TLabel
+      Left = 56
+      Top = 192
+      Width = 374
+      Height = 16
+      Caption = #1042#1093#1086#1076' '#1080#1083#1080' '#1074#1099#1093#1086#1076' '#1080#1079' '#1088#1077#1078#1080#1084#1072' '#1088#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1085#1080#1103' '#1079#1072#1087#1080#1089#1080' '#1074' '#1090#1072#1073#1083#1080#1094#1099
+    end
+  end
+  object Panel3: TPanel
+    Left = 0
+    Top = 249
+    Width = 507
+    Height = 33
+    Align = alTop
+    Caption = #1055#1086#1076#1075#1088#1091#1079#1082#1072' '#1085#1072#1082#1083#1072#1076#1085#1086#1081' '#1080#1079' '#1076#1088#1091#1075#1086#1075#1086' '#1086#1090#1076#1077#1083#1072
+    Color = clMoneyGreen
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Arial'
+    Font.Pitch = fpFixed
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 2
+  end
+  object Panel4: TPanel
+    Left = 0
+    Top = 282
+    Width = 507
+    Height = 106
+    Align = alTop
+    TabOrder = 3
+    object Label18: TLabel
+      Left = 56
+      Top = 32
+      Width = 81
+      Height = 16
+      Caption = #8470' '#1085#1072#1082#1083#1072#1076#1085#1086#1081
+    end
+    object Label19: TLabel
+      Left = 8
+      Top = 8
+      Width = 7
+      Height = 16
+      Caption = '1'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label20: TLabel
+      Left = 288
+      Top = 32
+      Width = 133
+      Height = 16
+      Caption = #1074#1074#1086#1076#1080#1090#1077' '#8470' '#1085#1072#1082#1083#1072#1076#1085#1086#1081
+    end
+    object Label21: TLabel
+      Left = 8
+      Top = 32
+      Width = 7
+      Height = 16
+      Caption = '2'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label22: TLabel
+      Left = 56
+      Top = 56
+      Width = 67
+      Height = 16
+      Caption = #1053#1072#1078#1080#1084#1072#1077#1090#1077
+    end
+    object Label23: TLabel
+      Left = 8
+      Top = 56
+      Width = 7
+      Height = 16
+      Caption = '3'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label24: TLabel
+      Left = 56
+      Top = 81
+      Width = 131
+      Height = 16
+      Caption = #1055#1088#1086#1074#1086#1076#1080#1090#1077' '#1086#1087#1077#1088#1072#1094#1080#1102' '
+    end
+    object Label30: TLabel
+      Left = 8
+      Top = 80
+      Width = 7
+      Height = 16
+      Caption = '4'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label31: TLabel
+      Left = 56
+      Top = 8
+      Width = 38
+      Height = 16
+      Caption = 'Ctrl+F'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label32: TLabel
+      Left = 112
+      Top = 8
+      Width = 287
+      Height = 16
+      Caption = #1055#1077#1088#1077#1093#1086#1076' '#1085#1072' '#1074#1099#1073#1086#1088' '#1086#1090#1076#1077#1083#1072' '#1087#1086#1076#1075#1088#1091#1079#1082#1080' '#1085#1072#1082#1083#1072#1076#1085#1086#1081
+    end
+    object SpeedButton2: TSpeedButton
+      Left = 152
+      Top = 52
+      Width = 29
+      Height = 29
+      Cursor = crHandPoint
+      Hint = #1055#1086#1076#1075#1088#1091#1079#1080#1090#1100' '#1085#1072#1082#1083#1072#1076#1085#1091#1102'!'
+      Flat = True
+      Glyph.Data = {
+        F6060000424DF606000000000000360000002800000018000000180000000100
+        180000000000C0060000120B0000120B00000000000000000000FF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FF811E00FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF811E00811E00FF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        811E00811E00811E00FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FF811E00913F0C811E00811E00FF00FFFF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF811E0092410D92410D81
+        1E00FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FF811E0093410E9A4E16954111811E00FF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FF811E009E521FAA6834AC6B3A9C491F811E00FF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF811E00AB6839BB8658
+        C18F64BD875E99441E811E00FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FF811E00BA7F57CEA481D3AD8ED8B79AC69375811E00FF00FFFF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FF811E00B77754E0C5ACE5CFBBEAD9C9F0E3D8C1
+        896D811E00FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF811E00C18A6CF2E6
+        DCF7F0EAFBF8F6FCF8F6F3E2D7B26B48811E00FF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FF811E00CB9C83FCF7F3FAF0E7F7E9DAF4E1CFF2DAC2D9AB8A811E00FF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FF811E00D1A187F7E6D7F3DECAF2D8BFEFD0B2811E00
+        811E00FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FF811E00D8AD96F6E3D3F3DCC6F0D5BBEECEAFE3
+        BA968E2E0AFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF811E00EFD3B7EDCB
+        ABEAC4A0E7BD95E5B68ADCA474811E00FF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FF811E00E7BB91E5B487E2AC7BE0A572DD9F67DA985D811E00FF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FF811E00DEA36DDC9D64D9965AD78F50D48947
+        D1823E811E00FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF811E00D08447D3
+        8744D0803BCE7932CC742CCB7228811E00FF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FF811E00811E00811E00811E00811E00811E00811E00811E00FF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF}
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object Edit1: TEdit
+      Left = 152
+      Top = 30
+      Width = 97
+      Height = 22
+      Ctl3D = False
+      MaxLength = 10
+      ParentCtl3D = False
+      ReadOnly = True
+      TabOrder = 0
+    end
+  end
+  object Panel5: TPanel
+    Left = 0
+    Top = 388
+    Width = 507
+    Height = 33
+    Align = alTop
+    Caption = #1050#1086#1085#1077#1094' '#1082#1072#1089#1089#1086#1074#1086#1075#1086' '#1076#1085#1103
+    Color = clMoneyGreen
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Arial'
+    Font.Pitch = fpFixed
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 4
+  end
+  object Panel6: TPanel
+    Left = 0
+    Top = 421
+    Width = 507
+    Height = 110
+    Align = alClient
+    TabOrder = 5
+    ExplicitHeight = 119
+    object Label25: TLabel
+      Left = 8
+      Top = 16
+      Width = 7
+      Height = 16
+      Caption = '1'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label26: TLabel
+      Left = 8
+      Top = 38
+      Width = 7
+      Height = 16
+      Caption = '2'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label27: TLabel
+      Left = 53
+      Top = 16
+      Width = 413
+      Height = 16
+      Caption = #1042' '#1082#1086#1085#1094#1077' '#1082#1072#1089#1089#1086#1074#1086#1075#1086' '#1076#1085#1103' '#1086#1089#1091#1097#1077#1089#1090#1074#1080#1090#1077' '#1087#1077#1088#1077#1073#1088#1086#1089' '#1082#1072#1089#1089#1086#1074#1086#1075#1086' '#1076#1085#1103' '#1074' '#1089#1074#1086#1076
+    end
+    object Label28: TLabel
+      Left = 53
+      Top = 38
+      Width = 310
+      Height = 16
+      Caption = #1055#1086#1089#1083#1077' '#1087#1088#1086#1074#1077#1088#1082#1080' '#1082#1072#1089#1089#1086#1074#1086#1075#1086' '#1076#1085#1103' '#1074' '#1089#1074#1086#1076#1077', '#1085#1072#1078#1080#1084#1072#1077#1090#1077
+    end
+    object Label29: TLabel
+      Left = 54
+      Top = 57
+      Width = 147
+      Height = 16
+      Caption = #1091#1076#1072#1083#1077#1085#1080#1077' '#1082#1072#1089#1089#1086#1074#1086#1075#1086' '#1076#1085#1103
+    end
+    object btnClose: TcxButton
+      Left = 352
+      Top = 78
+      Width = 145
+      Height = 25
+      Cursor = crHandPoint
+      Cancel = True
+      Caption = #1047#1072#1082#1088#1099#1090#1100
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = [fsBold]
+      ModalResult = 2
+      ParentFont = False
+      TabOrder = 0
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000000000000000000000000000000000000000000000000
+        0000181862042929A59326269B3B000000000000000000000000000000000000
+        00000000000021218A3126269B94181863050000000000000000000000001818
+        64042A2AA9A94D4DD0FF3535B4F226269B3B0000000000000000000000000000
+        000022228C312F2FA9EC4242C5FF26269BAD1818630500000000191966042B2B
+        ACA94E4ED1FF6969E2FF6969E9FF3636B5F226269B3B00000000000000002323
+        8E322F2FABED4E4ED8FF4747D2FF4444C9FF26269BAD181863052B2BAE8E4949
+        CDFF6060D9FF6868DDFF7070E7FF6C6CEDFF3636B5F226269B3B232391323131
+        AEED5252DCFF4444CEFF4242CCFF4747D2FF4242C6FF26269B942828A0313434
+        B8EC5E5EDEFF6868DEFF7070E7FF7575EEFF6D6DEFFF3636B5F23333B1ED5A5A
+        E2FF4D4DD5FF4343CDFF4242CDFF4D4DD8FF2F2FA9ED23239233000000002828
+        A0313535B9EC6464E4FF7070E7FF7676EEFF7777F1FF6C6CEFFF6363E9FF5A5A
+        DEFF4C4CD4FF4444CEFF4D4DD8FF2F2FABED2424943300000000000000000000
+        00002828A0313535B9EC6868E9FF7575EEFF7777F0FF7272EEFF6767E7FF5A5A
+        DEFF4D4DD5FF4E4ED9FF3030ADED252596330000000000000000000000000000
+        0000000000002828A1313636BAEC6D6DEEFF7777F0FF7272EEFF6767E7FF5A5A
+        DEFF5454DEFF3131B0ED25259933000000000000000000000000000000000000
+        00000000000027279E313636BBEC6D6DEEFF7777F0FF7272EEFF6767E7FF5A5A
+        DEFF5454DEFF3232B3F226269B3B000000000000000000000000000000000000
+        00002828A0313636BDEC6868EAFF7575EEFF7777F0FF7272EEFF6767E7FF5A5A
+        DEFF4D4DD5FF4E4EDAFF3232B3F226269B3B0000000000000000000000002828
+        A2313636BEEC6464E5FF7070E7FF7676EEFF7777F1FF6B6BEEFF6363E9FF5A5A
+        DEFF4C4CD4FF4444CEFF4D4DD9FF3232B3F226269B3B000000002929A4313636
+        C0EC5E5EDFFF6868DEFF7070E7FF7575EEFF6C6CEFFF3636BCED3535BAEC5A5A
+        E3FF4D4DD5FF4343CDFF4242CCFF4D4DD9FF3232B3F226269B3B2E2EB9904B4B
+        D2FF6060D9FF6868DDFF7070E7FF6B6BEDFF3737BEED2929A7332828A1313434
+        B9EC5353DEFF4444CEFF4242CCFF4848D3FF4343CAFF2929A68D1E1E77042F2F
+        BAAA5151D7FF6969E2FF6868E9FF3838C0ED2A2AA93300000000000000002828
+        A0313333B8EC4E4EDAFF4848D3FF4545CEFF2A2AA9A21A1A6B02000000001E1E
+        77042F2FBAAA4F4FD7FF3838C1ED2B2BAC330000000000000000000000000000
+        00002828A0313333B8EC4343CCFF2B2BACA21B1B6D0200000000000000000000
+        00001E1E77042E2EB9922B2BAE33000000000000000000000000000000000000
+        0000000000002828A0312B2BAE891B1B6F020000000000000000}
+      LookAndFeel.Kind = lfOffice11
+    end
+  end
+end

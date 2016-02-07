@@ -1,0 +1,3 @@
+c:\_WORK\Delphi\_÷веты 2007\paydesk\db\kas.dbf
+c:\_WORK\Delphi\_÷веты 2007\paydesk\db\KAS.dbf
+c:\_WORK\Delphi\_÷веты 2007\paydesk\db\davai.exe

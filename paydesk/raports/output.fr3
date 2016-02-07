@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TfrxReport Version="4.12.11" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="4095" PreviewOptions.Zoom="1" PrintOptions.Printer="Default" PrintOptions.PrintOnSheet="0" ReportOptions.CreateDate="38331,0255378935" ReportOptions.Description.Text="" ReportOptions.LastChange="42020,0612359143" ScriptLanguage="PascalScript" ScriptText.Text="begin&#13;&#10;&#13;&#10;end." PropData="044C65667403380103546F7003180108446174617365747301010C3400000020446174615365743D22667278444244617461736574312220446174615365744E616D653D2266727844424461746173657431220000095661726961626C65730100055374796C650100">
+  <TfrxDataPage Name="Data" Height="1000" Left="0" Top="0" Width="1000"/>
+  <TfrxReportPage Name="Page1" PaperWidth="210" PaperHeight="297" PaperSize="256" LeftMargin="4" RightMargin="5" TopMargin="4" BottomMargin="5" ColumnWidth="0" ColumnPositions.Text="" Bin="65535" BinOtherPages="65535" HGuides.Text="" VGuides.Text="">
+    <TfrxReportTitle Name="ReportTitle1" Height="728" Left="0" Top="18,89765" Width="759,68553">
+      <TfrxMemoView Name="Memo1" Left="37" Top="20" Width="181,7953" Height="20" ShowHint="False" Text="ООО «СТАРЛАЙТ Казань»"/>
+      <TfrxMemoView Name="Memo7" Left="221" Top="60" Width="248" Height="20" ShowHint="False" Frame.Width="1,5" HAlign="haRight" VAlign="vaCenter" Text="РАСХОДНЫЙ КАССОВЫЙ ОРДЕР №"/>
+      <TfrxMemoView Name="Memo14" Left="453" Top="192" Width="104" Height="48" ShowHint="False" Frame.Typ="15" HAlign="haCenter" Text="Сумма"/>
+      <TfrxMemoView Name="Memo15" Left="557" Top="192" Width="136" Height="48" ShowHint="False" Frame.Typ="15" HAlign="haCenter" Text="Шифр целевого&#13;&#10; назначения"/>
+      <TfrxMemoView Name="Memo16" Left="61" Top="192" Width="96" Height="48" ShowHint="False" Frame.Typ="15" HAlign="haCenter" Text=""/>
+      <TfrxMemoView Name="Memo17" Left="313" Top="192" Width="140" Height="48" ShowHint="False" Frame.Typ="15" HAlign="haCenter" Text="Шифр аналити-&#13;&#10;ческого учета"/>
+      <TfrxMemoView Name="Memo18" Left="157" Top="192" Width="156" Height="48" ShowHint="False" Frame.Typ="15" HAlign="haCenter" Text="Корреспондирующий&#13;&#10;счет, субсчет"/>
+      <TfrxMemoView Name="Memo20" Left="61" Top="240" Width="96" Height="36" ShowHint="False" Frame.Typ="15" HAlign="haCenter" VAlign="vaCenter" Text=""/>
+      <TfrxMemoView Name="Memo22" Left="157" Top="240" Width="156" Height="36" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="1" Frame.Typ="15" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="[frxDBDataset1.&#34;T_SHORT&#34;]"/>
+      <TfrxMemoView Name="Memo23" Left="313" Top="240" Width="140" Height="36" ShowHint="False" Frame.Typ="15" HAlign="haCenter" VAlign="vaCenter" Text=""/>
+      <TfrxMemoView Name="Memo24" Left="453" Top="240" Width="104" Height="36" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="1" Frame.Typ="15" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="[frxDBDataset1.&#34;OUT_RUB&#34;]"/>
+      <TfrxMemoView Name="Memo25" Left="557" Top="240" Width="136" Height="36" ShowHint="False" Frame.Typ="15" HAlign="haCenter" VAlign="vaCenter" Text=""/>
+      <TfrxMemoView Name="Memo26" Left="45" Top="316" Width="96" Height="20" ShowHint="False" Text="Приянто от"/>
+      <TfrxMemoView Name="Memo27" Left="153" Top="316" Width="360" Height="20" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="1" ParentFont="False" Text="[frxDBDataset1.&#34;FIO&#34;]"/>
+      <TfrxMemoView Name="Memo28" Left="45" Top="344" Width="96" Height="20" ShowHint="False" Text="Основание"/>
+      <TfrxMemoView Name="Memo29" Left="153" Top="344" Width="360" Height="20" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="1" ParentFont="False" Text="[frxDBDataset1.&#34;INFO&#34;]"/>
+      <TfrxMemoView Name="Memo30" Left="45" Top="372" Width="96" Height="20" ShowHint="False" Text="Прописью"/>
+      <TfrxMemoView Name="Memo31" Left="45" Top="404" Width="604" Height="20" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="1" ParentFont="False" Text="[Uppercase(Copy(Propis(&#60;frxDBDataset1.&#34;OUT_RUB&#34;&#62;),1,1))][Copy(Propis(&#60;frxDBDataset1.&#34;OUT_RUB&#34;&#62;),2,Length(Propis(&#60;frxDBDataset1.&#34;OUT_RUB&#34;&#62;)))] [Ruble(&#60;frxDBDataset1.&#34;OUT_RUB&#34;&#62;,'рубль;рубля;рублей')] [ROUND(FRAC(&#60;frxDBDataset1.&#34;OUT_RUB&#34;&#62;)*100)] [Kopeika(ROUND(FRAC(&#60;frxDBDataset1.&#34;OUT_RUB&#34;&#62;)*100),'копейка;копейку;копеек')] ,   включая НДС"/>
+      <TfrxMemoView Name="Memo34" Left="82,85807" Top="436,22047" Width="104" Height="20" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="1" ParentFont="False" VAlign="vaCenter" Text="[frxDBDataset1.&#34;OUT_RUB&#34;]"/>
+      <TfrxMemoView Name="Memo35" Left="81" Top="476" Width="584" Height="20" ShowHint="False" Text="Приложение _______________________________________________________________________"/>
+      <TfrxMemoView Name="Memo36" Left="81" Top="540" Width="584" Height="20" ShowHint="False" Text="Главный бухгалтер _________________________________________________________________"/>
+      <TfrxMemoView Name="Memo37" Left="81" Top="572" Width="584" Height="20" ShowHint="False" Text="Получил (прописью) ________________________________________________________________"/>
+      <TfrxMemoView Name="Memo48" Left="81" Top="652" Width="584" Height="20" ShowHint="False" Text="По _______________________________________________________________________________"/>
+      <TfrxMemoView Name="Memo49" Left="81" Top="688" Width="584" Height="20" ShowHint="False" Text="Выдал кассир _____________________________________________________________________"/>
+      <TfrxMemoView Name="Memo10" Left="477,66141" Top="60" Width="127,37013" Height="20" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="1" ParentFont="False" VAlign="vaCenter" Text="[frxDBDataset1.&#34;CASH_SEQ&#34;]"/>
+      <TfrxMemoView Name="Memo5" Left="81" Top="508" Width="584" Height="20" ShowHint="False" Text="Руководитель _____________________________________________________________________"/>
+      <TfrxMemoView Name="Memo6" Left="257" Top="604" Width="408" Height="20" ShowHint="False" Text="Подпись _________________________________________________"/>
+      <TfrxMemoView Name="Memo8" Left="113" Top="603" Width="124" Height="20" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="1" ParentFont="False" VAlign="vaCenter" Text="[frxDBDataset1.&#34;DDATE_IN&#34;]"/>
+      <TfrxMemoView Name="Memo4" Left="441" Top="120" Width="96" Height="20" ShowHint="False" Text="[YearOf(&#60;frxDBDataset1.&#34;DDATE_IN_&#34;&#62;)] г."/>
+      <TfrxMemoView Name="Memo3" Left="253,22851" Top="90,70872" Width="180" Height="56" ShowHint="False" Frame.Typ="15" HAlign="haCenter" Text="Число     Месяц&#13;&#10;&#13;&#10;[DayOf(&#60;frxDBDataset1.&#34;DDATE_IN_&#34;&#62;)]         [MonthOf(&#60;frxDBDataset1.&#34;DDATE_IN_&#34;&#62;)]"/>
+    </TfrxReportTitle>
+  </TfrxReportPage>
+</TfrxReport>
