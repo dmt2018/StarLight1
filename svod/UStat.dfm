@@ -1,0 +1,295 @@
+object frm_stat: Tfrm_stat
+  Left = 684
+  Top = 413
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = '  '#1040#1085#1072#1083#1080#1079' '#1085#1086#1084#1077#1088#1086#1074' '#1085#1072#1082#1083#1072#1076#1085#1099#1093
+  ClientHeight = 246
+  ClientWidth = 363
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = 'Arial'
+  Font.Pitch = fpFixed
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 16
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 363
+    Height = 213
+    Align = alClient
+    BevelInner = bvRaised
+    BevelOuter = bvLowered
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 16
+      Top = 16
+      Width = 59
+      Height = 16
+      Caption = #1054#1087#1077#1088#1072#1094#1080#1103
+    end
+    object Label2: TLabel
+      Left = 16
+      Top = 40
+      Width = 85
+      Height = 16
+      Caption = #1053#1072#1095#1072#1083#1100#1085#1099#1081' '#8470
+    end
+    object Label3: TLabel
+      Left = 16
+      Top = 64
+      Width = 77
+      Height = 16
+      Caption = #1050#1086#1085#1077#1095#1085#1099#1081' '#8470
+    end
+    object Label4: TLabel
+      Left = 16
+      Top = 190
+      Width = 85
+      Height = 16
+      Caption = #1050#1086#1085#1077#1095#1085#1099#1081' '#8470
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clMaroon
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = [fsBold]
+      ParentFont = False
+      Visible = False
+    end
+    object cxImageComboBox1: TcxImageComboBox
+      Left = 120
+      Top = 12
+      EditValue = '1'
+      Properties.ImmediatePost = True
+      Properties.Items = <
+        item
+          Description = #1054#1090#1076#1077#1083' '#1089#1088#1077#1079#1082#1080
+          ImageIndex = 0
+          Value = 1
+        end
+        item
+          Description = #1043#1086#1088#1096#1077#1095#1085#1099#1081' '#1086#1090#1076#1077#1083
+          Value = 2
+        end
+        item
+          Description = #1054#1090#1076#1077#1083' '#1072#1082#1089#1077#1089#1089#1091#1072#1088#1086#1074
+          Value = 3
+        end
+        item
+          Description = #1044#1080#1079#1072#1081#1085#1077#1088#1099
+          Value = 4
+        end
+        item
+          Description = #1059#1087#1072#1082#1086#1074#1086#1095#1085#1099#1077' '#1084#1072#1090#1077#1088#1080#1072#1083#1099
+          Value = 5
+        end>
+      Style.BorderStyle = ebsOffice11
+      Style.LookAndFeel.Kind = lfOffice11
+      Style.LookAndFeel.NativeStyle = True
+      StyleDisabled.LookAndFeel.Kind = lfOffice11
+      StyleDisabled.LookAndFeel.NativeStyle = True
+      StyleFocused.LookAndFeel.Kind = lfOffice11
+      StyleFocused.LookAndFeel.NativeStyle = True
+      StyleHot.LookAndFeel.Kind = lfOffice11
+      StyleHot.LookAndFeel.NativeStyle = True
+      TabOrder = 0
+      Width = 145
+    end
+    object cxSpinEdit1: TcxSpinEdit
+      Left = 120
+      Top = 36
+      Properties.AssignedValues.MinValue = True
+      Properties.ImmediatePost = True
+      Properties.SpinButtons.Visible = False
+      Properties.ValueType = vtInt
+      Style.BorderStyle = ebsOffice11
+      Style.LookAndFeel.Kind = lfOffice11
+      StyleDisabled.LookAndFeel.Kind = lfOffice11
+      StyleFocused.LookAndFeel.Kind = lfOffice11
+      StyleHot.LookAndFeel.Kind = lfOffice11
+      TabOrder = 1
+      Width = 145
+    end
+    object cxSpinEdit2: TcxSpinEdit
+      Left = 120
+      Top = 60
+      Properties.AssignedValues.MinValue = True
+      Properties.ImmediatePost = True
+      Properties.SpinButtons.Visible = False
+      Properties.ValueType = vtInt
+      Style.BorderStyle = ebsOffice11
+      Style.LookAndFeel.Kind = lfOffice11
+      StyleDisabled.LookAndFeel.Kind = lfOffice11
+      StyleFocused.LookAndFeel.Kind = lfOffice11
+      StyleHot.LookAndFeel.Kind = lfOffice11
+      TabOrder = 2
+      Width = 145
+    end
+    object cxButton1: TcxButton
+      Left = 272
+      Top = 12
+      Width = 81
+      Height = 70
+      Cursor = crHandPoint
+      Caption = #1047#1072#1087#1091#1089#1082
+      TabOrder = 3
+      OnClick = cxButton1Click
+      Glyph.Data = {
+        76060000424D7606000000000000360400002800000018000000180000000100
+        08000000000040020000E30E0000E30E00000001000000000000211000002121
+        21003131310010003900393939004242420052526B0018217300636373007373
+        73007B737B001808840039428400848484004A5A8C006B738C008C8C8C004A73
+        9400847B94009C9C9C004A52A500A5A5A5004A4AAD009494AD005252B5003963
+        B5002973B5007B73B5007B7BB50094B5BD000031C600296BC6005A6BC6001073
+        C6007384C6008CC6C600C6C6C6001029CE003142CE00104ACE001852CE006B73
+        CE009C94CE005AADCE002163D6005A6BD6000073D6006373D600849CD6001042
+        DE006B73DE00317BDE007B94DE00DEDEDE002942E7003952E7004A5AE7000863
+        E7001863E700426BE700399CE7005A9CE70029A5E7002963EF00299CEF00A5AD
+        EF00A5BDEF0042C6EF00EFEFEF00297BF70021A5F70029ADF700FF00FF004A84
+        FF00108CFF00189CFF0021B5FF0021BDFF0039C6FF004ACEFF0063DEFF0063E7
+        FF0073EFFF008CEFFF00A5F7FF00B5FFFF00CEFFFF00EFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00484848484848
+        4848484848484848484848484848484848484848484848484848484848484848
+        4848484848484848484848484848484848484848484848484848484809104848
+        484848484848484848484848484848484848480D133510484848484848484848
+        4848484848484848484801042458444848484848484848484848484848484848
+        4801020515354848484848484848484848484848484848480102050810484848
+        484848484848484848484848484848010205080D484848484848484848484848
+        484848484848010205080D484848484848484848484848485248484848010205
+        080D4848484848484848484848484848322D1748010205080D48484848484848
+        48484848522E484816360C000205080D484848484848484848484848524F141B
+        33310B0307080D48484848484848484848484848482A254955402827260A4848
+        4848484848484848484848484822284655524E52190648484848484848484848
+        484848292C2E5555545653474A3B180E48484848484848484848485237394C51
+        55575555523F3820484848484848484848485242412F3A4D5255504B3D345230
+        48484848484848484848484848121E1A43553E1F1C4848484848484848484848
+        48484848484821482B5211480F48484848484848484848484848484848484848
+        3C45484848484848484848484848484848484848484848484F52484848484848
+        48484848484848484848484848484848231D4848484848484848484848484848
+        4848484848484848484848484848484848484848484848484848}
+      Layout = blGlyphTop
+      LookAndFeel.Kind = lfOffice11
+    end
+    object cxMemo1: TcxMemo
+      Left = 16
+      Top = 88
+      Lines.Strings = (
+        'cxMemo1')
+      Properties.ReadOnly = True
+      Properties.ScrollBars = ssVertical
+      Style.BorderStyle = ebsOffice11
+      Style.LookAndFeel.Kind = lfOffice11
+      StyleDisabled.LookAndFeel.Kind = lfOffice11
+      StyleFocused.LookAndFeel.Kind = lfOffice11
+      StyleHot.LookAndFeel.Kind = lfOffice11
+      TabOrder = 4
+      Height = 97
+      Width = 337
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 213
+    Width = 363
+    Height = 33
+    Align = alBottom
+    BevelInner = bvRaised
+    BevelOuter = bvLowered
+    TabOrder = 1
+    DesignSize = (
+      363
+      33)
+    object BitBtn13: TBitBtn
+      Left = 214
+      Top = 4
+      Width = 145
+      Height = 25
+      Cursor = crHandPoint
+      Anchors = [akTop, akRight]
+      Cancel = True
+      Caption = #1047#1072#1082#1088#1099#1090#1100
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = []
+      ModalResult = 2
+      ParentFont = False
+      TabOrder = 0
+      Glyph.Data = {
+        DE010000424DDE01000000000000760000002800000024000000120000000100
+        0400000000006801000000000000000000001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        333333333333333333333333000033338833333333333333333F333333333333
+        0000333911833333983333333388F333333F3333000033391118333911833333
+        38F38F333F88F33300003339111183911118333338F338F3F8338F3300003333
+        911118111118333338F3338F833338F3000033333911111111833333338F3338
+        3333F8330000333333911111183333333338F333333F83330000333333311111
+        8333333333338F3333383333000033333339111183333333333338F333833333
+        00003333339111118333333333333833338F3333000033333911181118333333
+        33338333338F333300003333911183911183333333383338F338F33300003333
+        9118333911183333338F33838F338F33000033333913333391113333338FF833
+        38F338F300003333333333333919333333388333338FFF830000333333333333
+        3333333333333333333888330000333333333333333333333333333333333333
+        0000}
+      NumGlyphs = 2
+    end
+    object cxProgressBar1: TcxProgressBar
+      Left = 16
+      Top = 4
+      ParentFont = False
+      Position = 50.000000000000000000
+      Properties.BarStyle = cxbsGradient
+      Properties.PeakValue = 50.000000000000000000
+      Properties.SolidTextColor = True
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clMaroon
+      Style.Font.Height = -13
+      Style.Font.Name = 'Arial'
+      Style.Font.Pitch = fpFixed
+      Style.Font.Style = []
+      Style.LookAndFeel.Kind = lfOffice11
+      Style.LookAndFeel.NativeStyle = True
+      Style.Shadow = False
+      Style.IsFontAssigned = True
+      StyleDisabled.LookAndFeel.Kind = lfOffice11
+      StyleDisabled.LookAndFeel.NativeStyle = True
+      StyleFocused.LookAndFeel.Kind = lfOffice11
+      StyleFocused.LookAndFeel.NativeStyle = True
+      StyleHot.LookAndFeel.Kind = lfOffice11
+      StyleHot.LookAndFeel.NativeStyle = True
+      TabOrder = 1
+      Visible = False
+      Width = 185
+    end
+  end
+end
