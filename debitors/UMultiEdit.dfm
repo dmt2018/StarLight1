@@ -1,0 +1,290 @@
+object frmMultiEdit: TfrmMultiEdit
+  Left = 0
+  Top = 0
+  Caption = #1055#1088#1086#1089#1090#1072#1074#1080#1090#1100' '#1079#1085#1072#1095#1077#1085#1080#1103' '#1074#1089#1077#1084' '#1074#1099#1076#1077#1083#1077#1085#1085#1099#1084' '#1076#1077#1073#1080#1090#1086#1088#1072#1084
+  ClientHeight = 193
+  ClientWidth = 533
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 16
+  object Panel2: TPanel
+    Left = 0
+    Top = 152
+    Width = 533
+    Height = 41
+    Align = alBottom
+    TabOrder = 0
+    ExplicitTop = 370
+    ExplicitWidth = 609
+    DesignSize = (
+      533
+      41)
+    object btnClose: TcxButton
+      Left = 401
+      Top = 7
+      Width = 122
+      Height = 25
+      Cursor = crHandPoint
+      Anchors = [akTop, akRight]
+      Cancel = True
+      Caption = #1047#1072#1082#1088#1099#1090#1100
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = [fsBold]
+      ModalResult = 2
+      ParentFont = False
+      TabOrder = 0
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000000000000000000000000000000000000000000000000
+        0000181862042929A59326269B3B000000000000000000000000000000000000
+        00000000000021218A3126269B94181863050000000000000000000000001818
+        64042A2AA9A94D4DD0FF3535B4F226269B3B0000000000000000000000000000
+        000022228C312F2FA9EC4242C5FF26269BAD1818630500000000191966042B2B
+        ACA94E4ED1FF6969E2FF6969E9FF3636B5F226269B3B00000000000000002323
+        8E322F2FABED4E4ED8FF4747D2FF4444C9FF26269BAD181863052B2BAE8E4949
+        CDFF6060D9FF6868DDFF7070E7FF6C6CEDFF3636B5F226269B3B232391323131
+        AEED5252DCFF4444CEFF4242CCFF4747D2FF4242C6FF26269B942828A0313434
+        B8EC5E5EDEFF6868DEFF7070E7FF7575EEFF6D6DEFFF3636B5F23333B1ED5A5A
+        E2FF4D4DD5FF4343CDFF4242CDFF4D4DD8FF2F2FA9ED23239233000000002828
+        A0313535B9EC6464E4FF7070E7FF7676EEFF7777F1FF6C6CEFFF6363E9FF5A5A
+        DEFF4C4CD4FF4444CEFF4D4DD8FF2F2FABED2424943300000000000000000000
+        00002828A0313535B9EC6868E9FF7575EEFF7777F0FF7272EEFF6767E7FF5A5A
+        DEFF4D4DD5FF4E4ED9FF3030ADED252596330000000000000000000000000000
+        0000000000002828A1313636BAEC6D6DEEFF7777F0FF7272EEFF6767E7FF5A5A
+        DEFF5454DEFF3131B0ED25259933000000000000000000000000000000000000
+        00000000000027279E313636BBEC6D6DEEFF7777F0FF7272EEFF6767E7FF5A5A
+        DEFF5454DEFF3232B3F226269B3B000000000000000000000000000000000000
+        00002828A0313636BDEC6868EAFF7575EEFF7777F0FF7272EEFF6767E7FF5A5A
+        DEFF4D4DD5FF4E4EDAFF3232B3F226269B3B0000000000000000000000002828
+        A2313636BEEC6464E5FF7070E7FF7676EEFF7777F1FF6B6BEEFF6363E9FF5A5A
+        DEFF4C4CD4FF4444CEFF4D4DD9FF3232B3F226269B3B000000002929A4313636
+        C0EC5E5EDFFF6868DEFF7070E7FF7575EEFF6C6CEFFF3636BCED3535BAEC5A5A
+        E3FF4D4DD5FF4343CDFF4242CCFF4D4DD9FF3232B3F226269B3B2E2EB9904B4B
+        D2FF6060D9FF6868DDFF7070E7FF6B6BEDFF3737BEED2929A7332828A1313434
+        B9EC5353DEFF4444CEFF4242CCFF4848D3FF4343CAFF2929A68D1E1E77042F2F
+        BAAA5151D7FF6969E2FF6868E9FF3838C0ED2A2AA93300000000000000002828
+        A0313333B8EC4E4EDAFF4848D3FF4545CEFF2A2AA9A21A1A6B02000000001E1E
+        77042F2FBAAA4F4FD7FF3838C1ED2B2BAC330000000000000000000000000000
+        00002828A0313333B8EC4343CCFF2B2BACA21B1B6D0200000000000000000000
+        00001E1E77042E2EB9922B2BAE33000000000000000000000000000000000000
+        0000000000002828A0312B2BAE891B1B6F020000000000000000}
+      LookAndFeel.Kind = lfOffice11
+    end
+    object btnSave: TcxButton
+      Left = 208
+      Top = 7
+      Width = 187
+      Height = 25
+      Cursor = crHandPoint
+      Action = aSave
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 1
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000000000000000000000000000000000000994F42BDA35D
+        53DF9E5648DFA36156DFA26056DFA05E56DF9E5C56DF9C5B57DF9A5957DF9958
+        57DF985757DF965657DF955557DF8C4648DF965153DF894043B9A86256E4FEA7
+        A7FFC08B7EFFF5EAE5FFF5E9E5FFF5E9E5FFF5E9E5FFF5E9E5FFF5E9E5FFF5E9
+        E5FFF5E9E5FFF5E9E5FFF6EBE7FFB37172FFFEA5A5FF965153DFA96356E4FEA1
+        A1FFC18C7EFFE5D9D5FFC8BBB7FFC8BBB7FFC8BBB7FFC8BBB7FFC8BBB7FFC8BB
+        B7FFC8BBB7FFC8BBB7FFE9DDD9FFB47071FFFE9F9FFF975253DFAA6556E4FEA5
+        A5FFC38E7FFFF4E9E5FFEFE3DFFFEFE3DFFFEFE3DFFFEFE3DFFFEFE3DFFFEFE3
+        DFFFEFE3DFFFEFE3DFFFF5EBE8FFB57171FFFEA1A1FF985354DFAB6656E4FEA9
+        A9FFC48F7FFFE6DCD8FFC4B9B5FFC4B9B5FFC4B9B5FFC4B9B5FFC4B9B5FFC4B9
+        B5FFC4B9B5FFC4B9B5FFE9E0DDFFB67372FFFEA5A5FF985454DFAC6756E4FEAD
+        ADFFC59180FFF8F0EDFFF5EDEAFFF5EDEAFFF5EDEAFFF5EDEAFFF5EDEAFFF5ED
+        EAFFF5EDEAFFF5EDEAFFF8F1EEFFB77573FFFEA9A9FF995554DFAD6856E4FEB1
+        B1FFC79280FFE6DFDCFFC0B7B3FFC0B7B3FFC0B7B3FFC0B7B3FFC0B7B3FFC0B7
+        B3FFC0B7B3FFC0B7B3FFEAE3E0FFB87774FFFEADADFF9A5654DFAE6956E4FEB6
+        B6FFC79380FFFAF4F2FFFAF4F2FFFAF4F2FFFAF4F2FFFAF4F2FFFAF4F2FFFAF4
+        F2FFFAF4F2FFFAF4F2FFFAF5F3FFBA7974FFFEB1B1FF9B5754DFAF6B57E4FEBA
+        BAFFBC7D66FFD7B4A6FFD6B3A6FFD6B3A6FFD5B2A6FFD4B1A6FFD3B0A6FFD2B0
+        A6FFD1AFA7FFD0AEA7FFCFADA7FFB46F68FFFEB5B5FF9C5855DFB06C57E4FEBE
+        BEFFF1AAA5FFE39A90FFE0978CFFE0968CFFDF958CFFDF958BFFDF948BFFDE93
+        8BFFDE938BFFDD928AFFE0958EFFF2A6A5FFFEBABAFF9D5955DFB16D57E4FEC2
+        C2FFFFBCBCFFD57D6DFFEB7D74FFD0A399FFD1A79DFFD0A69CFFCAA198FFCAA1
+        97FFCF988EFFEC7C73FFD57E70FFFFB7B7FFFEBEBEFF9E5A54DFB26E57E4FEC6
+        C6FFFFC0C0FFDE8174FFFD7C78FFDBC1BBFFDBC8C0FFDAC6BFFFB78069FFAD64
+        47FFD7ADA6FFFF7B77FFDE8477FFFFBBBBFFFEC2C2FFA05C54DFB36E57E4FEC9
+        C9FFFFC3C3FFDE8578FFFD847FFFE1CBC7FFE4D6D0FFE2D4CFFFB8836EFFAC66
+        4BFFDAB3ADFFFF837EFFDE877AFFFFBFBFFFFEC5C5FFA15D54DFB36F57E4FECC
+        CCFFFFC7C7FFDE897BFFFD8C86FFE8D7D3FFEEE5E1FFECE3DFFFBA8A77FFAD6E
+        55FFDDBAB5FFFF8C86FFDE8B7EFFFFC2C2FFFECACAFFA15D53DFB47057E4FED2
+        D2FFFECECEFFDE8E80FFFD968FFFE9D8D4FFEFE5E2FFEDE4E1FFD0B7AEFFCCAD
+        A1FFE0BFBAFFFF958FFFDE9083FFFDCDCDFFC38A83FF964B4082A95E41BDB26D
+        53DFB16C53DFB46950DFBD725BDFB5715ADFB4705ADFB4705ADFB46F5ADFB36E
+        59DFB46E59DFBA705BDFAE644FDFA45E50DE994E406D00000000}
+      LookAndFeel.Kind = lfOffice11
+    end
+  end
+  object pnlMain: TPanel
+    Left = 0
+    Top = 0
+    Width = 533
+    Height = 152
+    Align = alClient
+    TabOrder = 1
+    ExplicitTop = 1
+    ExplicitWidth = 564
+    ExplicitHeight = 333
+    object Label9: TLabel
+      Left = 16
+      Top = 19
+      Width = 129
+      Height = 16
+      Caption = #1041#1077#1079#1085#1072#1083#1080#1095#1085#1099#1081' '#1088#1072#1089#1089#1095#1077#1090
+    end
+    object Label11: TLabel
+      Left = 16
+      Top = 38
+      Width = 88
+      Height = 16
+      Caption = #1057#1090#1072#1088#1099#1081' '#1082#1083#1080#1077#1085#1090
+    end
+    object Label1: TLabel
+      Left = 16
+      Top = 57
+      Width = 101
+      Height = 16
+      Caption = #1056#1091#1073#1083#1077#1074#1099#1081' '#1082#1083#1080#1077#1085#1090
+    end
+    object Label14: TLabel
+      Left = 16
+      Top = 89
+      Width = 126
+      Height = 16
+      Caption = #1050#1088#1077#1076#1080#1090' ('#1082#1086#1083'-'#1074#1086' '#1076#1085#1077#1081')'
+    end
+    object Label15: TLabel
+      Left = 16
+      Top = 119
+      Width = 72
+      Height = 16
+      Caption = #1055#1088#1080#1084#1077#1095#1072#1085#1080#1077
+    end
+    object chb_debt: TcxCheckBox
+      Left = 208
+      Top = 55
+      Caption = #1076#1072
+      Properties.DisplayChecked = #1044#1072
+      Properties.DisplayUnchecked = #1053#1077#1090
+      Properties.ImmediatePost = True
+      Properties.ValueChecked = 1
+      Properties.ValueUnchecked = 0
+      Style.BorderStyle = ebsOffice11
+      Style.LookAndFeel.Kind = lfOffice11
+      Style.LookAndFeel.NativeStyle = True
+      StyleDisabled.LookAndFeel.Kind = lfOffice11
+      StyleDisabled.LookAndFeel.NativeStyle = True
+      StyleFocused.LookAndFeel.Kind = lfOffice11
+      StyleFocused.LookAndFeel.NativeStyle = True
+      StyleHot.LookAndFeel.Kind = lfOffice11
+      StyleHot.LookAndFeel.NativeStyle = True
+      TabOrder = 2
+      Width = 121
+    end
+    object chb_old: TcxCheckBox
+      Left = 208
+      Top = 36
+      Caption = #1076#1072
+      Properties.DisplayChecked = #1044#1072
+      Properties.DisplayUnchecked = #1053#1077#1090
+      Properties.ImmediatePost = True
+      Properties.ValueChecked = 1
+      Properties.ValueUnchecked = 0
+      Style.BorderStyle = ebsOffice11
+      Style.LookAndFeel.Kind = lfOffice11
+      Style.LookAndFeel.NativeStyle = True
+      StyleDisabled.LookAndFeel.Kind = lfOffice11
+      StyleDisabled.LookAndFeel.NativeStyle = True
+      StyleFocused.LookAndFeel.Kind = lfOffice11
+      StyleFocused.LookAndFeel.NativeStyle = True
+      StyleHot.LookAndFeel.Kind = lfOffice11
+      StyleHot.LookAndFeel.NativeStyle = True
+      TabOrder = 1
+      Width = 121
+    end
+    object chb_beznal: TcxCheckBox
+      Left = 208
+      Top = 17
+      Caption = #1076#1072
+      Properties.DisplayChecked = #1044#1072
+      Properties.DisplayUnchecked = #1053#1077#1090
+      Properties.ImmediatePost = True
+      Properties.ValueChecked = 1
+      Properties.ValueUnchecked = 0
+      Style.BorderStyle = ebsOffice11
+      Style.LookAndFeel.Kind = lfOffice11
+      Style.LookAndFeel.NativeStyle = True
+      StyleDisabled.LookAndFeel.Kind = lfOffice11
+      StyleDisabled.LookAndFeel.NativeStyle = True
+      StyleFocused.LookAndFeel.Kind = lfOffice11
+      StyleFocused.LookAndFeel.NativeStyle = True
+      StyleHot.LookAndFeel.Kind = lfOffice11
+      StyleHot.LookAndFeel.NativeStyle = True
+      TabOrder = 0
+      Width = 121
+    end
+    object edit_invoice: TcxCurrencyEdit
+      Left = 208
+      Top = 85
+      EditValue = 0
+      Properties.DecimalPlaces = 0
+      Properties.DisplayFormat = ',0'#39#39';-,0'#39#39
+      Properties.Nullable = False
+      Properties.NullString = '0'
+      Properties.ReadOnly = False
+      Style.BorderStyle = ebsOffice11
+      Style.LookAndFeel.Kind = lfOffice11
+      Style.LookAndFeel.NativeStyle = True
+      StyleDisabled.LookAndFeel.Kind = lfOffice11
+      StyleDisabled.LookAndFeel.NativeStyle = True
+      StyleFocused.LookAndFeel.Kind = lfOffice11
+      StyleFocused.LookAndFeel.NativeStyle = True
+      StyleHot.LookAndFeel.Kind = lfOffice11
+      StyleHot.LookAndFeel.NativeStyle = True
+      TabOrder = 3
+      Width = 33
+    end
+    object edit_info: TcxTextEdit
+      Left = 208
+      Top = 115
+      Properties.MaxLength = 1024
+      Style.LookAndFeel.Kind = lfOffice11
+      Style.LookAndFeel.NativeStyle = True
+      StyleDisabled.LookAndFeel.Kind = lfOffice11
+      StyleDisabled.LookAndFeel.NativeStyle = True
+      StyleFocused.LookAndFeel.Kind = lfOffice11
+      StyleFocused.LookAndFeel.NativeStyle = True
+      StyleHot.LookAndFeel.Kind = lfOffice11
+      StyleHot.LookAndFeel.NativeStyle = True
+      TabOrder = 4
+      Width = 313
+    end
+  end
+  object ActionList1: TActionList
+    Left = 400
+    Top = 4
+    object aSave: TAction
+      Caption = #1047#1072#1087#1080#1089#1072#1090#1100' (Ctrl+Enter)'
+      ShortCut = 16397
+      OnExecute = aSaveExecute
+    end
+  end
+end
