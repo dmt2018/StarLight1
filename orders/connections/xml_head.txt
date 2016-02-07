@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Provide by Axerrio BV -->
+<!DOCTYPE order [
+    <!ELEMENT order (version, customercode, customerkey?, 
+    arrivaldate, processingmoment?, processingdepartmentid?, markname?, reference?,
+    destination?, shipmentnumber?, deliverydestination?, purchaseremark?,
+    packingremark?, distributioncode?, series)>
+    <!ELEMENT series (serie+)>
+    <!ELEMENT serie (packingcode?, packed, units, markname?, orderrows)>
+    <!ELEMENT orderrows (orderrow+)>
+    <!ELEMENT orderrow (code, marks, quality, vbnarticle,
+    description, productunits, stockunitsperunit?, remark?,
+    manufacturercode?, origin?, pricelistref?, reference?, salesprice?,
+    tenabilitymoment?, productionmoment?, properties?, expected?, markups?, externalpricelistref?)>
+    <!ELEMENT pricelistref (pricelistkey, pricelistrowkey)>
+    <!ELEMENT externalpricelistref (externalpricelistid?, externalpricelistrowid)>
+    <!ELEMENT deliverydestination (code | deliverydestinationspecification)>
+    <!ELEMENT deliverydestinationspecification (companyname, contactname,
+    addressline1, addressline2, city, stateprovince, postalcode, phonenumber, countrycode)>
+    <!ELEMENT companyname (#PCDATA)>
+    <!ATTLIST companyname TEXT CDATA #IMPLIED>
+    <!ELEMENT contactname (#PCDATA)>
+    <!ATTLIST contactname TEXT CDATA #IMPLIED>
+    <!ELEMENT addressline1 (#PCDATA)>
+    <!ATTLIST addressline1 TEXT CDATA #IMPLIED>
+    <!ELEMENT addressline2 (#PCDATA)>
+    <!ATTLIST addressline2 TEXT CDATA #IMPLIED>
+    <!ELEMENT city (#PCDATA)>
+    <!ATTLIST city TEXT CDATA #IMPLIED>
+    <!ELEMENT stateprovince (#PCDATA)>
+    <!ATTLIST stateprovince TEXT CDATA #IMPLIED>
+    <!ELEMENT postalcode (#PCDATA)>
+    <!ATTLIST postalcode TEXT CDATA #IMPLIED>
+    <!ELEMENT phonenumber (#PCDATA)>
+    <!ATTLIST phonenumber TEXT CDATA #IMPLIED>
+    <!ELEMENT countrycode (#PCDATA)>
+    <!ATTLIST countrycode TEXT CDATA #IMPLIED>
+    <!ELEMENT vbnarticle (#PCDATA)>
+    <!ELEMENT customerkey (#PCDATA)>
+    <!ELEMENT reference (#PCDATA)>
+    <!ATTLIST reference TEXT CDATA #IMPLIED>
+    <!ELEMENT version (#PCDATA)>
+    <!ELEMENT customercode (#PCDATA)>
+    <!ATTLIST customercode TEXT CDATA #IMPLIED>
+    <!ELEMENT arrivaldate (#PCDATA)>
+    <!ELEMENT markname (#PCDATA)>
+    <!ATTLIST markname TEXT CDATA #IMPLIED>
+    <!ELEMENT destination (#PCDATA)>
+    <!ATTLIST destination TEXT CDATA #IMPLIED>
+    <!ELEMENT shipmentnumber (#PCDATA)>
+    <!ATTLIST shipmentnumber TEXT CDATA #IMPLIED>
+    <!ELEMENT packingcode (#PCDATA)>
+    <!ATTLIST packingcode TEXT CDATA #IMPLIED>
+    <!ELEMENT units (#PCDATA)>
+    <!ELEMENT productunits (#PCDATA)>
+    <!ELEMENT stockunitsperunit (#PCDATA)>
+    <!ELEMENT code (#PCDATA)>
+    <!ATTLIST code TEXT CDATA #IMPLIED>
+    <!ELEMENT marks (#PCDATA)>
+    <!ATTLIST marks TEXT CDATA #IMPLIED>
+    <!ELEMENT quality (#PCDATA)>
+    <!ATTLIST quality TEXT CDATA #IMPLIED>
+    <!ELEMENT description (#PCDATA)>
+    <!ATTLIST description TEXT CDATA #IMPLIED>
+    <!ELEMENT remark (#PCDATA)>
+    <!ATTLIST remark TEXT CDATA #IMPLIED>
+    <!ELEMENT packed (#PCDATA)>
+    <!ELEMENT manufacturercode (#PCDATA)>
+    <!ATTLIST manufacturercode TEXT CDATA #IMPLIED>
+    <!ELEMENT origin (#PCDATA)>
+    <!ATTLIST origin TEXT CDATA #IMPLIED>
+    <!ELEMENT pricelistkey (#PCDATA)>
+    <!ELEMENT pricelistrowkey (#PCDATA)>
+    <!ELEMENT salesprice (#PCDATA)>
+    <!ELEMENT processingmoment (#PCDATA)>
+    <!ELEMENT purchaseremark (#PCDATA)>
+    <!ATTLIST purchaseremark TEXT CDATA #IMPLIED>
+    <!ELEMENT packingremark (#PCDATA)>
+    <!ATTLIST packingremark TEXT CDATA #IMPLIED>
+    <!ELEMENT processingdepartmentid (#PCDATA)>
+    <!ELEMENT tenabilitymoment (#PCDATA)>
+    <!ELEMENT productionmoment (#PCDATA)>
+    <!ELEMENT typeid (#PCDATA)>
+    <!ELEMENT value (#PCDATA)>
+    <!ELEMENT expected (#PCDATA)>
+    <!ATTLIST value TEXT CDATA #IMPLIED>
+    <!ELEMENT property (typeid, value)>
+    <!ELEMENT properties (property+)>
+    <!ELEMENT distributioncode (#PCDATA)>
+    <!ATTLIST distributioncode TEXT CDATA #IMPLIED>
+    <!ELEMENT externalpricelistid (#PCDATA)>
+    <!ATTLIST externalpricelistid TEXT CDATA #IMPLIED>
+    <!ELEMENT externalpricelistrowid (#PCDATA)>
+    <!ATTLIST externalpricelistrowid TEXT CDATA #IMPLIED>
+    <!ELEMENT predefinedmarkupcode (#PCDATA)>
+    <!ATTLIST predefinedmarkupcode TEXT CDATA #IMPLIED>
+    <!ELEMENT markup (units, predefinedmarkupcode?)>
+    <!ELEMENT markups (markup+)>
+ ]>

@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{b687eb0b-1da6-4351-8905-50eec744f000}</ProjectGuid>
+    <MainSource>orders.dpr</MainSource>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+    <DCC_DependencyCheckOutputName>orders.exe</DCC_DependencyCheckOutputName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_DebugInformation>False</DCC_DebugInformation>
+    <DCC_LocalDebugSymbols>False</DCC_LocalDebugSymbols>
+    <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+    <DCC_Define>RELEASE</DCC_Define>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_Define>DEBUG</DCC_Define>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Delphi.Personality</Borland.Personality>
+    <Borland.ProjectType>VCLApplication</Borland.ProjectType>
+    <BorlandProject>
+<BorlandProject><Delphi.Personality><Parameters><Parameters Name="RunParams">-l eva -p 123 -d klepov:1521:STARNEW -e -a -t -k -otd 62</Parameters><Parameters Name="DebugSourceDirs">C:\Program Files\Borland\FastReports\FastReport 3\Source\</Parameters><Parameters Name="UseLauncher">False</Parameters><Parameters Name="LoadAllSymbols">True</Parameters><Parameters Name="LoadUnspecifiedSymbols">False</Parameters></Parameters><VersionInfo><VersionInfo Name="IncludeVerInfo">True</VersionInfo><VersionInfo Name="AutoIncBuild">True</VersionInfo><VersionInfo Name="MajorVer">2</VersionInfo><VersionInfo Name="MinorVer">0</VersionInfo><VersionInfo Name="Release">1</VersionInfo><VersionInfo Name="Build">146</VersionInfo><VersionInfo Name="Debug">False</VersionInfo><VersionInfo Name="PreRelease">False</VersionInfo><VersionInfo Name="Special">False</VersionInfo><VersionInfo Name="Private">False</VersionInfo><VersionInfo Name="DLL">False</VersionInfo><VersionInfo Name="Locale">1049</VersionInfo><VersionInfo Name="CodePage">1251</VersionInfo></VersionInfo><VersionInfoKeys><VersionInfoKeys Name="CompanyName"></VersionInfoKeys><VersionInfoKeys Name="FileDescription"></VersionInfoKeys><VersionInfoKeys Name="FileVersion">2.0.1.146</VersionInfoKeys><VersionInfoKeys Name="InternalName"></VersionInfoKeys><VersionInfoKeys Name="LegalCopyright"></VersionInfoKeys><VersionInfoKeys Name="LegalTrademarks"></VersionInfoKeys><VersionInfoKeys Name="OriginalFilename"></VersionInfoKeys><VersionInfoKeys Name="ProductName"></VersionInfoKeys><VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys><VersionInfoKeys Name="Comments"></VersionInfoKeys></VersionInfoKeys><Source><Source Name="MainSource">orders.dpr</Source></Source><Excluded_Packages>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <Excluded_Packages Name="$(BDS)\bin\dcloffice2k100.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+      <Excluded_Packages Name="$(BDS)\bin\dclofficexp100.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+    </Excluded_Packages></Delphi.Personality></BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Import Project="$(MSBuildBinPath)\Borland.Delphi.Targets" />
+  <ItemGroup>
+    <DelphiCompile Include="orders.dpr">
+      <MainSource>MainSource</MainSource>
+    </DelphiCompile>
+    <DCCReference Include="..\sales\UChoiseType.pas">
+      <Form>frm_choise_type</Form>
+    </DCCReference>
+    <DCCReference Include="buttons_for.pas">
+      <Form>frm_buttons</Form>
+    </DCCReference>
+    <DCCReference Include="client_choos.pas">
+      <Form>clientchoosForm</Form>
+    </DCCReference>
+    <DCCReference Include="formula_edit_f.pas">
+      <Form>formula_edit</Form>
+    </DCCReference>
+    <DCCReference Include="frm_DM.pas">
+      <Form>DM</Form>
+      <DesignClass>TDataModule</DesignClass>
+    </DCCReference>
+    <DCCReference Include="frm_first_dialog.pas">
+      <Form>first_dialog_frm</Form>
+    </DCCReference>
+    <DCCReference Include="frm_formula_main.pas">
+      <Form>formula_main</Form>
+    </DCCReference>
+    <DCCReference Include="frm_orders_clients.pas">
+      <Form>orders_clients</Form>
+    </DCCReference>
+    <DCCReference Include="frm_orders_list.pas">
+      <Form>orders_list</Form>
+    </DCCReference>
+    <DCCReference Include="frm_orders_main.pas">
+      <Form>orders_main</Form>
+    </DCCReference>
+    <DCCReference Include="frm_orders_new_client.pas">
+      <Form>orders_new_client</Form>
+    </DCCReference>
+    <DCCReference Include="Globals.pas" />
+    <DCCReference Include="NewDict.pas">
+      <Form>NewD</Form>
+    </DCCReference>
+    <DCCReference Include="NewInvNomU.pas">
+      <Form>NewInvNomF</Form>
+    </DCCReference>
+    <DCCReference Include="new_order_f.pas">
+      <Form>new_order</Form>
+    </DCCReference>
+    <DCCReference Include="raznos_f.pas">
+      <Form>raznos</Form>
+    </DCCReference>
+    <DCCReference Include="show_track_f.pas">
+      <Form>show_track</Form>
+    </DCCReference>
+    <DCCReference Include="UAddSomething.pas">
+      <Form>frm_add_something</Form>
+    </DCCReference>
+    <DCCReference Include="UClientList.pas">
+      <Form>frmClientList</Form>
+    </DCCReference>
+    <DCCReference Include="UCopyOrder.pas">
+      <Form>frmCopyOrder</Form>
+    </DCCReference>
+    <DCCReference Include="UExportDBF.pas">
+      <Form>frmLoadFromDBF</Form>
+    </DCCReference>
+    <DCCReference Include="UFindClient.pas">
+      <Form>frm_find_client</Form>
+    </DCCReference>
+    <DCCReference Include="UFullInfo.pas">
+      <Form>frm_full_info</Form>
+    </DCCReference>
+    <DCCReference Include="UInfo.pas">
+      <Form>frmDataInfo</Form>
+    </DCCReference>
+    <DCCReference Include="ULoadOldOrder.pas">
+      <Form>frmOldOrder</Form>
+    </DCCReference>
+    <DCCReference Include="UShowNom.pas">
+      <Form>frm_show_nom</Form>
+    </DCCReference>
+    <DCCReference Include="UShowOrder.pas">
+      <Form>frm_show_order</Form>
+    </DCCReference>
+    <DCCReference Include="Ustat.pas">
+      <Form>frm_stat</Form>
+    </DCCReference>
+    <DCCReference Include="UStat_raznos.pas">
+      <Form>frm_stat_raznos</Form>
+    </DCCReference>
+  </ItemGroup>
+</Project>
