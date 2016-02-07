@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2012.03.29 23:20:54.699.pas,C:\_WORK\delphi\StarLight\_Цветы регионы\admin\Unit1.pas=C:\_WORK\delphi\StarLight\_Цветы регионы\admin\UClientsByRole.pas</Transaction>
+    <Transaction>2012.03.29 23:20:54.712.dfm,C:\_WORK\delphi\StarLight\_Цветы регионы\admin\Unit1.dfm=C:\_WORK\delphi\StarLight\_Цветы регионы\admin\UClientsByRole.dfm</Transaction>
+    <Transaction>2016.01.12 22:50:19.539.pas,C:\_work\delphi\StarLight\_Цветы регионы\admin\Unit1.pas=C:\_work\delphi\StarLight\_Цветы регионы\admin\UDebPermission.pas</Transaction>
+    <Transaction>2016.01.12 22:50:19.539.dfm,C:\_work\delphi\StarLight\_Цветы регионы\admin\Unit1.dfm=C:\_work\delphi\StarLight\_Цветы регионы\admin\UDebPermission.dfm</Transaction>
+  </Transactions>
+</BorlandProject>
