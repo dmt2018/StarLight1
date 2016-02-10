@@ -730,7 +730,7 @@ begin
   if ( pc_debt_card.ActivePageIndex = 0 ) then cds := CDS_CLIENT_DEBT;
   if ( pc_debt_card.ActivePageIndex = 1 ) then cds := CDS_CLIENT_DEBT_ALL;
 
-  if (gr_debetors_v.DataController.DataSet.FieldByName('lock_for').AsInteger < 1) and (gr_debetors_v.DataController.DataSet.FieldByName('id_debetors').AsInteger < 1) then
+  if gr_debetors_v.DataController.DataSet.FieldByName('lock_for').AsInteger < 1 then
   begin
     MessageBox(Handle, 'Невыбран дебитор для добавления зяписи', 'Внимание!', MB_ICONWARNING);
     exit;

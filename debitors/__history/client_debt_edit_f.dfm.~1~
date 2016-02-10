@@ -316,7 +316,6 @@ object client_debt_edit: Tclient_debt_edit
       Top = 128
       EditValue = 0c
       Properties.DecimalPlaces = 2
-      Properties.DisplayFormat = ',0.00;-,0.00'
       Properties.Nullable = False
       Properties.UseThousandSeparator = True
       Style.BorderStyle = ebsOffice11
@@ -337,7 +336,6 @@ object client_debt_edit: Tclient_debt_edit
       Top = 154
       EditValue = 0c
       Properties.DecimalPlaces = 2
-      Properties.DisplayFormat = ',0.00;-,0.00'
       Properties.Nullable = False
       Properties.UseThousandSeparator = True
       Style.BorderStyle = ebsOffice11
