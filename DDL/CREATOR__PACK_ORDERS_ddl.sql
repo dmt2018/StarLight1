@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.PACK_ORDERS
--- Generated 11.02.2016 23:55:51 from CREATOR@STAR_NEW
+-- Generated 12.02.2016 2:02:33 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE pack_orders
@@ -963,244 +963,147 @@ BEGIN
 
       begin
         v_DIST_IND_ID := 0;
-/*
-        select max(ppli_id) into v_DIST_IND_ID
-        from prepare_price_list_index a, invoice_register b
-        where a.id_departments = id_dep_ and a.finished = 1 and a.inv_id = b.inv_id and b.sended_to_warehouse = 0 and b.minus_inv_id = 0 and b.s_id_default = v_distributor;
-*/
-/*
-        select max(d.DIST_IND_ID) into v_DIST_IND_ID
-        from distributions_invoices d, invoice_register p
-          where d.INV_ID = p.inv_id and p.sended_to_warehouse = 0 and p.id_departments = id_dep_ and p.s_id_default = v_distributor
-        ;
-*/
       exception when NO_DATA_FOUND then
         v_DIST_IND_ID := 0;
       end;
 
+      delete from tmp_exp_doc;
+      delete from tmp_exp_doc_2;
+
+      insert into tmp_exp_doc (
+        select distinct d.DIST_IND_ID
+          from distributions_invoices d, invoice_register p
+          where d.INV_ID = p.inv_id and p.sended_to_warehouse = 0 and p.id_departments = id_dep_
+            and p.s_id_default = decode(const_office, 1, v_distributor, p.s_id_default)
+      );
+
+      insert into tmp_exp_doc_2 (
+        select distinct d.DIST_IND_ID
+          from distributions_invoices d, invoice_register p, prepare_price_list_index i
+          where d.INV_ID = p.inv_id and p.sended_to_warehouse = 1 and p.id_departments = id_dep_
+            and p.s_id_default = decode(const_office, 1, v_distributor, p.s_id_default)
+            and (p.inv_id in (i.inv_id, i.inv_id2, i.inv_id3, i.inv_id4) or p.ipp_id = i.pack_id)
+            and i.ppl_date >= trunc( sysdate - v_distributor_days )
+      );
+
        -- Достаем РАСШИРЕННЫЙ набор данных по наменклатуре товара на складе
        open cursor_ for
-SELECT /*+ USE_MERGE(INV_DONE,DISTR_DONE) ORDERED */ A1.*,
-       NVL(b.nbutton, 99) AS nbutton,
-       NVL(distr.destribution_quantity, 0) AS client_distribution,
-       CASE WHEN NVL(inv.invoice_quantity, 0) < NVL(distr.destribution_quantity, 0) THEN 0
-            ELSE NVL(inv.invoice_quantity, 0) - NVL(distr.destribution_quantity, 0) END stock_distribution,
-       NVL(distr_done.destribution_quantity, 0) AS client_distribution_done,
-       CASE WHEN NVL(inv_done.invoice_quantity, 0) < NVL(distr_done.destribution_quantity, 0) THEN 0
-            ELSE NVL(inv_done.invoice_quantity, 0) - NVL(distr_done.destribution_quantity, 0) END stock_distribution_done
-  FROM (SELECT nom.compiled_name_otdel,
-               nom.h_name AS h_name_f,
-               nom.h_name AS h_name,
-               nom.f_name,
-               nom.F_SUB_TYPE,
-               nom.F_TYPE,
-               nom.N_ID,
-               nom.LEN,
-               nom.PACK,
-               nom.VBN,
-               nom.WEIGHT,
-               nom.FST_ID,
-               nom.FT_ID,
-               nom.C_ID,
-               nom.S_ID,
-               nom.S_NAME_RU,
-               nom.COLOUR,
-               nom.COL_ID,
-               nom.fn_id,
-               nom.COUNTRY,
-               nom.ID_DEPARTMENTS,
-               nom.sub_weight,
-               nom.rus_marks,
-               nom.h_code,
-               nom.remarks,
-               bbb.remarks AS remarks_tmp,
-               nom.HT_ID,
-               NVL(nom.hol_type, 'none') AS hol_type,
-               nom.bar_code,
-               nom.code,
-               ht.ord,
-               CASE WHEN m.store_quantity < 0 THEN 0
-                    ELSE NVL(m.store_quantity, 0) END store_all,
-               0 reserv,
-               ID_CL_ AS id_orders_clients,
-               aaa.fl_orders_all,
-               bbb.fl_orders,
-               bbb.id_orders_list,
-               nom.hol_sub_type,
-               bbb.zatirka,
-               bbb.truck,
-               store_spis,
-               store_ucen,
-               store_prod,
-               bbb.COUNT_DATA,
-               L1.price,
-               NVL(bbb.pack_, 0) AS pack_,
-               nom.nom_new,
-               nom.nom_start,
-               nom.nom_end,
-               nom.DIAMETER,
-               nom.WEIGHTDRY,
-               nom.CUST_COEF,
-               nom.NOPRINT,
-               nom.NOTUSE,
-               nom.PHOTO,
-               nom.TNVED,
-               nom.name_code,
-               nom.HOL_COLOR,
-               nom.id_office,
-               INSTR(nom.h_code, '!') AS spec,
-               NVL(PPL1.stock_amount, 0) AS prev_stock_amount,
-               bbb.correction
-          FROM NOMENCLATURE_MAT_VIEW nom,
-               orders_store m,
-               price_list L1,
-               orders_name o,
-               hol_types ht,
-               (SELECT MAX(CASE WHEN stock_amount > 0 THEN stock_amount
-                                ELSE 0 END) AS stock_amount,
-                       n_id
-                  FROM prepare_price_list PPL2
-                 WHERE PPL2.ppli_id = v_prev_price_list
-                 GROUP BY PPL2.n_id) PPL1,
-               (SELECT SUM(NVL(L2.correction, L2.QUANTITY)) fl_orders_all,
-                       n_id
-                  FROM orders_list L2,
-                       orders_clients CL1
-                 WHERE L2.active = 1
-                   AND L2.ID_ORDERS_CLIENTS = CL1.id_orders_clients
-                   AND CL1.active = 1
-                   AND CL1.id_orders = id_
-                   AND CL1.n_type < 2
-                 GROUP BY n_id) aaa,
-               (SELECT SUM(NVL(L3.correction, L3.QUANTITY)) fl_orders,
-                       SUM(NVL(L3.correction, L3.quantity)) correction,
-                       L3.n_id,
-                       L3.id_orders_list,
-                       L3.zatirka,
-                       L3.truck,
-                       L3.COUNT_DATA,
-                       L3.remarks,
-                       L3.pack_
-                  FROM orders_list L3,
-                       orders_clients CL2
-                 WHERE L3.active = 1
-                   AND L3.ID_ORDERS_CLIENTS = ID_CL_
-                   AND CL2.id_orders_clients = L3.ID_ORDERS_CLIENTS
-                   AND CL2.n_type < 2
-                 GROUP BY L3.n_id, L3.id_orders_list, L3.zatirka, L3.truck, L3.COUNT_DATA, L3.remarks, L3.pack_) bbb,
-               (SELECT dd.n_id,
-                       SUM(CASE WHEN D1.id_doc_type = 2 THEN dd.quantity
-                                ELSE 0 END) store_spis,
-                       SUM(CASE WHEN D1.id_doc_type = 3 THEN dd.quantity
-                                ELSE 0 END) store_ucen,
-                       SUM(CASE WHEN D1.id_doc_type = 4 THEN dd.quantity
-                                ELSE 0 END) store_prod
-                  FROM store_doc_data dd,
-                       store_doc D1
-                 WHERE dd.id_doc = D1.id_doc
-                   AND D1.id_doc_type IN (2, 3, 4)
-                   AND D1.doc_date > TRUNC(SYSDATE - v_distributor_days)
-                   AND D1.ID_DEPARTMENTS = id_dep_
-                   AND D1.id_office = const_office
-                 GROUP BY dd.n_id) store_stat
-         WHERE 1 = 1
-           AND nom.ID_DEPARTMENTS = id_dep_
-           AND (nom.s_id = v_distributor
-                AND const_office = 1
-                 OR const_office > 1)
-           AND nom.NOTUSE = 0
-           AND nom.N_ID = m.n_id (+)
-           AND m.id_orders (+) = id_
-           AND nom.n_id = aaa.n_id (+)
-           AND nom.n_id = bbb.n_id (+)
-           AND nom.n_id = store_stat.n_id (+)
-           AND nom.n_id = L1.n_id (+)
-           AND nom.n_id = o.n_id (+)
-           AND nom.hol_type = ht.hol_type (+)
-           AND nom.n_id = PPL1.n_id (+)) A1
-       LEFT OUTER JOIN (SELECT A2.fst_id,
-                               A2.nbutton,
-                               A2.f_char
-                          FROM buttons_set A2
-                         WHERE id_dep = id_dep_) b
-         ON b.fst_id = A1.fst_id
-       LEFT OUTER JOIN (SELECT A3.n_id,
-                               SUM(CASE WHEN OC1.id_clients IN(const_dir, const_main) THEN 0
-                                        ELSE A3.quantity END) destribution_quantity
-                          FROM distributions A3
-                               LEFT OUTER JOIN orders_list OL1
-                                 ON OL1.id_orders_list = A3.id_orders_list
-                               LEFT OUTER JOIN orders_clients OC1
-                                 ON OC1.id_orders_clients = OL1.id_orders_clients
-                                    AND OC1.n_type < 2
-                         WHERE A3.DIST_IND_ID IN (SELECT DISTINCT D2.DIST_IND_ID
-                                                    FROM distributions_invoices D2,
-                                                         invoice_register P1
-                                                   WHERE D2.INV_ID = P1.inv_id
-                                                     AND P1.sended_to_warehouse = 0
-                                                     AND P1.id_departments = id_dep_
-                                                     AND (P1.s_id_default = v_distributor
-                                                          AND const_office = 1
-                                                           OR const_office > 1))
-                         GROUP BY A3.n_id) distr
-         ON distr.n_id = A1.n_id
-       LEFT OUTER JOIN (SELECT A4.n_id,
-                               SUM(A4.units) AS invoice_quantity
-                          FROM invoice_data A4,
-                               invoice_register P2,
-                               distributions_invoices D3
-                         WHERE A4.INV_ID = P2.inv_id
-                           AND D3.INV_ID = P2.inv_id
-                           AND P2.sended_to_warehouse = 0
-                           AND P2.id_departments = id_dep_
-                           AND (P2.s_id_default = v_distributor
-                                AND const_office = 1
-                                 OR const_office > 1)
-                         GROUP BY A4.n_id) inv
-         ON inv.n_id = A1.n_id
-       LEFT OUTER JOIN (SELECT A5.n_id,
-                               SUM(CASE WHEN OC2.id_clients IN(const_dir, const_main) THEN 0
-                                        ELSE A5.quantity END) destribution_quantity
-                          FROM distributions A5
-                               LEFT OUTER JOIN orders_list OL2
-                                 ON OL2.id_orders_list = A5.id_orders_list
-                               LEFT OUTER JOIN orders_clients OC2
-                                 ON OC2.id_orders_clients = OL2.id_orders_clients
-                                    AND OC2.n_type < 2
-                         WHERE A5.DIST_IND_ID IN (SELECT DISTINCT D4.DIST_IND_ID
-                                                    FROM distributions_invoices D4,
-                                                         invoice_register P3,
-                                                         prepare_price_list_index I1
-                                                   WHERE D4.INV_ID = P3.inv_id
-                                                     AND P3.sended_to_warehouse = 1
-                                                     AND P3.id_departments = id_dep_
-                                                     AND (P3.s_id_default = v_distributor
-                                                          AND const_office = 1
-                                                           OR const_office > 1)
-                                                     AND (P3.inv_id IN (I1.inv_id, I1.inv_id2, I1.inv_id3, I1.inv_id4)
-             OR P3.ipp_id = I1.pack_id)
-            AND I1.ppl_date >= TRUNC (SYSDATE - v_distributor_days)) GROUP BY A5.n_id) distr_done
-         ON distr_done.n_id = A1.n_id
-       LEFT OUTER JOIN (SELECT A6.n_id,
-                               SUM(A6.units) AS invoice_quantity
-                          FROM invoice_data A6,
-                               invoice_register P4,
-                               distributions_invoices D5,
-                               prepare_price_list_index I2
-                         WHERE A6.INV_ID = P4.inv_id
-                           AND D5.INV_ID = P4.inv_id
-                           AND P4.sended_to_warehouse = 1
-                           AND P4.id_departments = id_dep_
-                           AND (P4.s_id_default = v_distributor
-                                AND const_office = 1
-                                 OR const_office > 1)
-                           AND (P4.inv_id IN (I2.inv_id, I2.inv_id2, I2.inv_id3, I2.inv_id4)
-             OR P4.ipp_id = I2.pack_id)
-            AND I2.ppl_date >= TRUNC (SYSDATE - v_distributor_days) GROUP BY A6.n_id) inv_done
-         ON inv_done.n_id = A1.n_id
- WHERE /*Filter*/ 1 = 1
-   AND (b.nbutton = button_
-         OR 0 = button_);
+                SELECT a.*, nvl(b.nbutton,99) as nbutton
+                  , nvl(distr.destribution_quantity,0) as client_distribution
+                  , case when nvl(inv.invoice_quantity,0) <  nvl(distr.destribution_quantity,0) then 0 else nvl(inv.invoice_quantity,0) - nvl(distr.destribution_quantity,0) end stock_distribution
+                  , nvl(distr_done.destribution_quantity,0) as client_distribution_done
+                  , case when nvl(inv_done.invoice_quantity,0) <  nvl(distr_done.destribution_quantity,0) then 0 else nvl(inv_done.invoice_quantity,0) - nvl(distr_done.destribution_quantity,0) end stock_distribution_done
+                FROM (
+                    SELECT nom.compiled_name_otdel, nom.h_name  as h_name_f, nom.h_name as h_name,
+                        nom.f_name, nom.F_SUB_TYPE, nom.F_TYPE, nom.N_ID, nom.LEN, nom.PACK, nom.VBN, nom.WEIGHT, nom.FST_ID, nom.FT_ID, nom.C_ID, nom.S_ID,
+                        nom.S_NAME_RU, nom.COLOUR, nom.COL_ID, nom.fn_id, nom.COUNTRY, nom.ID_DEPARTMENTS, nom.sub_weight,
+                        nom.rus_marks, nom.h_code, nom.remarks, bbb.remarks as remarks_tmp,
+                        nom.HT_ID, nvl(nom.hol_type,'none') as hol_type, nom.bar_code, nom.code, ht.ord,
+                        case when m.store_quantity < 0 then 0 else nvl(m.store_quantity,0) end store_all,
+                        0 reserv,
+                        ID_CL_ as id_orders_clients, aaa.fl_orders_all, bbb.fl_orders, bbb.id_orders_list,
+                        nom.hol_sub_type, bbb.zatirka, bbb.truck, store_spis, store_ucen, store_prod
+                        , bbb.COUNT_DATA, l.price, nvl(bbb.pack_,0) as pack_
+                        , nom.nom_new,nom.nom_start,nom.nom_end,nom.DIAMETER,nom.WEIGHTDRY,nom.CUST_COEF,nom.NOPRINT,nom.NOTUSE,nom.PHOTO,nom.TNVED,nom.name_code,nom.HOL_COLOR,nom.id_office
+                        , instr(nom.h_code,'!') as spec, nvl(ppl.stock_amount,0) as prev_stock_amount, bbb.correction
+                    FROM NOMENCLATURE_MAT_VIEW nom
+                      left outer join orders_store m on m.n_id = nom.N_ID and m.id_orders = id_
+                      left outer join price_list l on l.n_id = nom.n_id
+                      left outer join orders_name o on o.n_id = nom.n_id
+                      left outer join hol_types ht on ht.hol_type = nom.hol_type
+
+                      -- цены последнего инвойса
+                      left outer join (
+                        select max(case when stock_amount > 0 then stock_amount else 0 end) as stock_amount, n_id
+                        from prepare_price_list ppl
+                        where ppl.ppli_id = v_prev_price_list
+                        group by ppl.n_id
+                      ) ppl on ppl.n_id = nom.n_id
+
+                      -- все заказы
+                      left outer join (
+                        select sum(nvl(l.correction, l.QUANTITY)) fl_orders_all, n_id
+                        from orders_list l, orders_clients cl
+                        where l.active = 1 and l.ID_ORDERS_CLIENTS = cl.id_orders_clients and cl.active = 1 and cl.id_orders = id_ and cl.n_type < 2
+                        group by n_id
+                      ) aaa on aaa.n_id = nom.n_id
+
+                      -- заказнные товары клиентом
+                      left outer join (
+                        select sum(nvl(l.correction, l.QUANTITY)) fl_orders, sum(nvl(l.correction,l.quantity)) correction, l.n_id, l.id_orders_list, l.zatirka, l.truck, l.COUNT_DATA, l.remarks, l.pack_
+                        from orders_list l
+                          inner join orders_clients cl on cl.id_orders_clients = l.ID_ORDERS_CLIENTS and cl.n_type < 2
+                        where l.active = 1 and l.ID_ORDERS_CLIENTS = ID_CL_
+                        group by l.n_id, l.id_orders_list, l.zatirka, l.truck, l.COUNT_DATA, l.remarks, l.pack_
+                      ) bbb on bbb.n_id = nom.n_id
+
+                      left outer join (
+                            select dd.n_id,
+                                  sum(case when d.id_doc_type = 2 then dd.quantity else 0 end) store_spis,
+                                  sum(case when d.id_doc_type = 3 then dd.quantity else 0 end) store_ucen,
+                                  sum(case when d.id_doc_type = 4 then dd.quantity else 0 end) store_prod
+                            from store_doc_data dd, store_doc d
+                            where dd.id_doc = d.id_doc and d.id_doc_type in (2,3,4) and d.doc_date > trunc(sysdate-spec_) and d.ID_DEPARTMENTS = id_dep_ and d.id_office = const_office
+                            group by dd.n_id
+                      ) store_stat on store_stat.n_id = nom.n_id
+                    WHERE nom.ID_DEPARTMENTS= id_dep_
+                        and nom.s_id = decode(const_office, 1, v_distributor, nom.s_id)
+                        and nom.NOTUSE = 0
+                 ) a
+                left outer join (SELECT a.fst_id, a.nbutton, a.f_char FROM buttons_set a where id_dep = id_dep_) b on b.fst_id = a.fst_id
+
+                -- Выборка всех разнесенных позиций за минусам майна по всем разносам неподгруженных в склад инвойсах
+                left outer join
+                (
+                  SELECT a.n_id, sum(case when oc.id_clients in (const_dir,const_main) then 0 else a.quantity end) destribution_quantity
+                    FROM distributions a
+                      inner join tmp_exp_doc t on t.id_doc = a.DIST_IND_ID
+                      left outer join orders_list ol on ol.id_orders_list = a.id_orders_list
+                      left outer join orders_clients oc on oc.id_orders_clients = ol.id_orders_clients and oc.n_type < 2
+                    group by a.n_id
+                ) distr on distr.n_id = a.n_id
+
+                -- Выборка всех позиций разнесенных инвойсов которые не подгруженны на склад
+                left outer join
+                (
+                    SELECT a.n_id, sum(a.units) as invoice_quantity
+                      from invoice_data a, invoice_register p, distributions_invoices d
+                      where a.INV_ID = p.inv_id and d.INV_ID = p.inv_id and p.sended_to_warehouse = 0 and p.id_departments = id_dep_
+                        and p.s_id_default = decode(const_office, 1, v_distributor, p.s_id_default)
+                      group by a.n_id
+                ) inv on inv.n_id = a.n_id
+
+                -- Выборка всех разнесенных позиций за минусам майна по всем разносам подгруженных в склад инвойсах
+                left outer join
+                (
+                  SELECT a.n_id, sum(case when oc.id_clients in (const_dir,const_main) then 0 else a.quantity end) destribution_quantity
+                    FROM distributions a
+                      inner join tmp_exp_doc_2 t on t.id_doc = a.DIST_IND_ID
+                      left outer join orders_list ol on ol.id_orders_list = a.id_orders_list
+                      left outer join orders_clients oc on oc.id_orders_clients = ol.id_orders_clients and oc.n_type < 2
+                    group by a.n_id
+                ) distr_done on distr_done.n_id = a.n_id
+
+                -- Выборка всех позиций разнесенных инвойсов которые подгруженны на склад
+                left outer join
+                (
+                    SELECT a.n_id, sum(a.units) as invoice_quantity
+                      from invoice_data a, invoice_register p, distributions_invoices d, prepare_price_list_index i
+                      where a.INV_ID = p.inv_id and d.INV_ID = p.inv_id and p.sended_to_warehouse = 1 and p.id_departments = id_dep_
+                          and p.s_id_default = decode(const_office, 1, v_distributor, p.s_id_default)
+                          and (p.inv_id in (i.inv_id, i.inv_id2, i.inv_id3, i.inv_id4) or p.ipp_id = i.pack_id)
+                          and i.ppl_date >= trunc( sysdate - v_distributor_days )
+                      group by a.n_id
+                ) inv_done on inv_done.n_id = a.n_id
+
+                WHERE /*Filter*/ 1=1
+                  and (b.nbutton = button_ or button_ = 0)
+                  ;
+
+
+
+
+
 /*
                 SELECT a.*, nvl(b.nbutton,99) as nbutton
                   , nvl(distr.destribution_quantity,0) as client_distribution
@@ -1208,8 +1111,6 @@ SELECT /*+ USE_MERGE(INV_DONE,DISTR_DONE) ORDERED */ A1.*,
 
                   , nvl(distr_done.destribution_quantity,0) as client_distribution_done
                   , case when nvl(inv_done.invoice_quantity,0) <  nvl(distr_done.destribution_quantity,0) then 0 else nvl(inv_done.invoice_quantity,0) - nvl(distr_done.destribution_quantity,0) end stock_distribution_done
-                   --, nvl(stock_distribution,0) as stock_distribution, nvl(DISTRIBUTED_NUMBER,0)-nvl(stock_distribution,0) as client_distribution
-                   --, case when b.f_char is null then a.h_name_f else trim(substr(a.h_name_f, length(trim(b.f_char))+1, length(a.h_name_f) )) end h_name
                 FROM (
                     SELECT nom.compiled_name_otdel, nom.h_name  as h_name_f
                         , nom.h_name as h_name, -- пока Дина сказала прикрыть nvl(o.eng_name,nom.h_name) as h_name,
@@ -1221,7 +1122,6 @@ SELECT /*+ USE_MERGE(INV_DONE,DISTR_DONE) ORDERED */ A1.*,
                         nom.HT_ID, nvl(nom.hol_type,'none') as hol_type, nom.bar_code, nom.code, ht.ord,
 
                         case when m.store_quantity < 0 then 0 else nvl(m.store_quantity,0) end store_all,
-                        --case when m.reserv < 0 then 0 else m.reserv end reserv,
                         0 reserv,
                         ID_CL_ as id_orders_clients, aaa.fl_orders_all, bbb.fl_orders, bbb.id_orders_list,
                         nom.hol_sub_type, bbb.zatirka, bbb.truck, store_spis, store_ucen, store_prod
@@ -1233,11 +1133,6 @@ SELECT /*+ USE_MERGE(INV_DONE,DISTR_DONE) ORDERED */ A1.*,
                         , bbb.correction
                     FROM NOMENCLATURE_MAT_VIEW nom, orders_store m, price_list l, orders_name o, hol_types ht,
                         (select max(case when stock_amount > 0 then stock_amount else 0 end) as stock_amount, n_id from prepare_price_list ppl where ppl.ppli_id = v_prev_price_list group by ppl.n_id) ppl,
---                        (select sum(nvl(stock_amount,0) + nvl(INVOICE_AMOUNT,0)) as stock_amount, n_id from prepare_price_list ppl where ppl.ppli_id = v_prev_price_list group by ppl.n_id) ppl,
-
-                    -- заказнные товары клиентами всего в этом заказе (Если нужно будет им, то открыть)
---                        (select sum(l.QUANTITY) fl_orders_all, n_id from orders_list l where active = 1 and l.ID_ORDERS_CLIENTS in
---                                (select id_orders_clients from orders_clients where active = 1 and id_orders = id_ ) group by n_id ) aaa,
 
                         ( select sum(nvl(l.correction, l.QUANTITY)) fl_orders_all, n_id from orders_list l, orders_clients cl
                           where l.active = 1 and l.ID_ORDERS_CLIENTS = cl.id_orders_clients and cl.active = 1 and cl.id_orders = id_ and cl.n_type < 2
@@ -1248,7 +1143,6 @@ SELECT /*+ USE_MERGE(INV_DONE,DISTR_DONE) ORDERED */ A1.*,
                         (select sum(nvl(l.correction, l.QUANTITY)) fl_orders, sum(nvl(l.correction,l.quantity)) correction, l.n_id, l.id_orders_list, l.zatirka, l.truck, l.COUNT_DATA, l.remarks, l.pack_
                           from orders_list l
                             inner join orders_clients cl on cl.id_orders_clients = l.ID_ORDERS_CLIENTS and cl.n_type < 2
-                            --left outer join orders_remarks r on r.id_orders = cl.id_orders and r.n_id = l.n_id
                           where l.active = 1 and l.ID_ORDERS_CLIENTS = ID_CL_
                           group by l.n_id, l.id_orders_list, l.zatirka, l.truck, l.COUNT_DATA, l.remarks, l.pack_
                         ) bbb,
@@ -1262,17 +1156,12 @@ SELECT /*+ USE_MERGE(INV_DONE,DISTR_DONE) ORDERED */ A1.*,
                             where dd.id_doc = d.id_doc and d.id_doc_type in (2,3,4) and d.doc_date > trunc(sysdate-spec_) and d.ID_DEPARTMENTS = id_dep_ and d.id_office = const_office
                             group by dd.n_id
                         ) store_stat
-                    WHERE /*Filter/ 1=1
-                        AND nom.ID_DEPARTMENTS= id_dep_
-                        --and (nom.s_id = v_distributor or v_distributor is null)
+                    WHERE nom.ID_DEPARTMENTS= id_dep_
                         and ((nom.s_id = v_distributor and const_office = 1) or const_office > 1)
                         and nom.NOTUSE = 0
-                       -- and ( instr(nom.h_code,'!') = 0 or nom.fn_id in (10014030,10014031) )
                         AND nom.N_ID = m.n_id(+) and m.id_orders(+) = id_ --and m.id_office(+) = const_office and m.STORE_TYPE(+) <> 2
                         and nom.n_id = aaa.n_id(+)
                         and nom.n_id = bbb.n_id(+)
-                        --and nom.n_id = prih_p.n_id(+)
-                        --and nom.n_id = prih_f.n_id(+)
                         and nom.n_id = store_stat.n_id(+)
                         and nom.n_id = l.n_id(+)
                         and nom.n_id = o.n_id(+)
@@ -1282,7 +1171,7 @@ SELECT /*+ USE_MERGE(INV_DONE,DISTR_DONE) ORDERED */ A1.*,
                 left outer join (SELECT a.fst_id, a.nbutton, a.f_char FROM buttons_set a where id_dep = id_dep_) b on b.fst_id = a.fst_id
 
 
-/* Выборка всех разнесенных позиций за минусам майна по всем разносам неподгруженных в склад инвойсах /
+-- Выборка всех разнесенных позиций за минусам майна по всем разносам неподгруженных в склад инвойсах
                 left outer join
                 (
                   SELECT a.n_id, sum(case when oc.id_clients in (const_dir,const_main) then 0 else a.quantity end) destribution_quantity
@@ -1293,25 +1182,23 @@ SELECT /*+ USE_MERGE(INV_DONE,DISTR_DONE) ORDERED */ A1.*,
                       select distinct d.DIST_IND_ID
                         from distributions_invoices d, invoice_register p
                         where d.INV_ID = p.inv_id and p.sended_to_warehouse = 0 and p.id_departments = id_dep_
-                          --and p.s_id_default = v_distributor
                           and ((p.s_id_default = v_distributor and const_office = 1) or const_office > 1)
                    )
                     group by a.n_id
                 ) distr on distr.n_id = a.n_id
 
-/* Выборка всех позиций разнесенных инвойсов которые не подгруженны на склад /
+-- Выборка всех позиций разнесенных инвойсов которые не подгруженны на склад
                 left outer join
                 (
                     SELECT a.n_id, sum(a.units) as invoice_quantity
                       from invoice_data a, invoice_register p, distributions_invoices d
                       where a.INV_ID = p.inv_id and d.INV_ID = p.inv_id and p.sended_to_warehouse = 0 and p.id_departments = id_dep_
-                        --and p.s_id_default = v_distributor
                         and ((p.s_id_default = v_distributor and const_office = 1) or const_office > 1)
                       group by a.n_id
                 ) inv on inv.n_id = a.n_id
 
 
-/* Выборка всех разнесенных позиций за минусам майна по всем разносам подгруженных в склад инвойсах /
+-- Выборка всех разнесенных позиций за минусам майна по всем разносам подгруженных в склад инвойсах
                 left outer join
                 (
                   SELECT a.n_id, sum(case when oc.id_clients in (const_dir,const_main) then 0 else a.quantity end) destribution_quantity
@@ -1322,7 +1209,6 @@ SELECT /*+ USE_MERGE(INV_DONE,DISTR_DONE) ORDERED */ A1.*,
                       select distinct d.DIST_IND_ID
                         from distributions_invoices d, invoice_register p, prepare_price_list_index i
                         where d.INV_ID = p.inv_id and p.sended_to_warehouse = 1 and p.id_departments = id_dep_
-                          --and p.s_id_default = v_distributor
                           and ((p.s_id_default = v_distributor and const_office = 1) or const_office > 1)
                           and (p.inv_id in (i.inv_id, i.inv_id2, i.inv_id3, i.inv_id4) or p.ipp_id = i.pack_id)
                           and i.ppl_date >= trunc( sysdate - v_distributor_days )
@@ -1330,13 +1216,12 @@ SELECT /*+ USE_MERGE(INV_DONE,DISTR_DONE) ORDERED */ A1.*,
                     group by a.n_id
                 ) distr_done on distr_done.n_id = a.n_id
 
-/* Выборка всех позиций разнесенных инвойсов которые подгруженны на склад /
+-- Выборка всех позиций разнесенных инвойсов которые подгруженны на склад
                 left outer join
                 (
                     SELECT a.n_id, sum(a.units) as invoice_quantity
                       from invoice_data a, invoice_register p, distributions_invoices d, prepare_price_list_index i
                       where a.INV_ID = p.inv_id and d.INV_ID = p.inv_id and p.sended_to_warehouse = 1 and p.id_departments = id_dep_
-                          --and p.s_id_default = v_distributor
                           and ((p.s_id_default = v_distributor and const_office = 1) or const_office > 1)
                           and (p.inv_id in (i.inv_id, i.inv_id2, i.inv_id3, i.inv_id4) or p.ipp_id = i.pack_id)
                           and i.ppl_date >= trunc( sysdate - v_distributor_days )
@@ -1353,21 +1238,12 @@ SELECT /*+ USE_MERGE(INV_DONE,DISTR_DONE) ORDERED */ A1.*,
        -- Достаем простой набор данных по наменклатуре товара на складе
        open cursor_ for
             select a.*, 0 as stock_distribution, 0 as client_distribution, 0 as stock_distribution_done, 0 as client_distribution_done from (
-                SELECT nvl(b.nbutton,99) as nbutton, nom.compiled_name_otdel, nom.h_name as h_name_f
-                    , nom.h_name as h_name, -- пока Дина сказала прикрыть nvl(o.eng_name,nom.h_name) as h_name,
-                    --case when b.f_char is null then nom.h_name else trim(substr(nom.h_name, length(trim(b.f_char))+1, length(nom.h_name) )) end h_name,
+                SELECT nvl(b.nbutton,99) as nbutton, nom.compiled_name_otdel, nom.h_name as h_name_f, nom.h_name as h_name,
                     nom.f_name, nom.fn_id, nom.F_SUB_TYPE, nom.F_TYPE, nom.N_ID, nom.LEN, nom.PACK, nom.VBN, nom.WEIGHT,
                     nom.FST_ID, nom.FT_ID, nom.C_ID, nom.S_ID, nom.S_NAME_RU, nom.COLOUR, nom.COL_ID, nom.COUNTRY,
                     nom.ID_DEPARTMENTS, nom.hol_sub_type, nom.remarks, bbb.remarks as remarks_tmp,
                     nom.HT_ID, nom.rus_marks, ht.ord, nom.bar_code, nom.code, nom.h_code, nom.hol_type, nom.sub_weight,
-                    -- на складе
-/*
-                        case when m.quantity = 0 then 0 else
-                         case when (m.quantity - m.reserv) is null then 0 else (m.quantity - m.reserv) end
-                        end as store_all,
-*/
                     case when m.store_quantity < 0 then 0 else nvl(m.store_quantity,0) end store_all,
-                    --case when m.reserv < 0 then 0 else m.reserv end reserv,
                     0 as reserv,
                     ID_CL_ as id_orders_clients, aaa.fl_orders_all, bbb.fl_orders, bbb.id_orders_list, bbb.zatirka, bbb.truck
                     , 0 as store_spis, 0 as store_ucen, 0 as store_prod
@@ -1377,12 +1253,29 @@ SELECT /*+ USE_MERGE(INV_DONE,DISTR_DONE) ORDERED */ A1.*,
                     , instr(nom.h_code,'!') as spec
                     , 0 as prev_stock_amount
                     , bbb.correction
-                FROM NOMENCLATURE_MAT_VIEW nom, orders_store m, price_list l, orders_name o, hol_types ht,
-                    (SELECT a.fst_id, a.nbutton, a.f_char FROM buttons_set a where id_dep = id_dep_) b,
-                    -- заказнные товары клиентами всего в этом заказе (Если нужно будет им, то открыть)
---                    (select sum(l.QUANTITY) fl_orders_all, n_id from orders_list l where l.active = 1 and l.ID_ORDERS_CLIENTS in
---                        (select id_orders_clients from orders_clients where active = 1 and id_orders = id_ ) group by n_id ) aaa,
+                FROM NOMENCLATURE_MAT_VIEW nom
+                      left outer join orders_store m on m.n_id = nom.N_ID and m.id_orders = id_
+                      left outer join price_list l on l.n_id = nom.n_id
+                      left outer join orders_name o on o.n_id = nom.n_id
+                      left outer join hol_types ht on ht.hol_type = nom.hol_type
+                      left outer join ( SELECT a.fst_id, a.nbutton, a.f_char FROM buttons_set a where id_dep = id_dep_ ) b on b.fst_id = nom.fst_id and (b.nbutton = button_ or button_ = 0)
+                      left outer join (
+                        select sum(nvl(l.correction, l.QUANTITY)) fl_orders_all, l.n_id
+                          from orders_list l
+                            inner join orders_clients cl on cl.id_orders_clients = l.ID_ORDERS_CLIENTS and cl.active = 1 and cl.id_orders = id_ and cl.n_type < 2
+                          where l.active = 1
+                          group by l.n_id
+                      ) aaa on aaa.n_id = nom.n_id
+                      left outer join (
+                        select sum(nvl(l.correction, l.QUANTITY)) fl_orders, sum(nvl(l.correction,l.quantity)) correction, l.n_id, l.id_orders_list, l.zatirka, l.truck, l.COUNT_DATA, l.remarks, l.pack_
+                          from orders_list l
+                            inner join orders_clients cl on cl.id_orders_clients = l.ID_ORDERS_CLIENTS and cl.n_type < 2
+                          where l.ID_ORDERS_CLIENTS = ID_CL_
+                          group by l.n_id, l.id_orders_list, l.zatirka, l.truck, l.COUNT_DATA, l.remarks, l.pack_
+                      ) bbb on bbb.n_id = nom.n_id
 
+/*
+                    (SELECT a.fst_id, a.nbutton, a.f_char FROM buttons_set a where id_dep = id_dep_) b,
                     (
                       select sum(nvl(l.correction, l.QUANTITY)) fl_orders_all, l.n_id
                         from orders_list l
@@ -1400,19 +1293,12 @@ SELECT /*+ USE_MERGE(INV_DONE,DISTR_DONE) ORDERED */ A1.*,
                         where l.ID_ORDERS_CLIENTS = ID_CL_
                         group by l.n_id, l.id_orders_list, l.zatirka, l.truck, l.COUNT_DATA, l.remarks, l.pack_
                     ) bbb
+*/
                 WHERE /*Filter*/ 1=1
                     and nom.ID_DEPARTMENTS= id_dep_
-                    --and (nom.s_id = v_distributor or v_distributor is null)
-                    and ((nom.s_id = v_distributor and const_office = 1) or const_office > 1)
+--                    and ((nom.s_id = v_distributor and const_office = 1) or const_office > 1)
+                    and nom.s_id = decode(const_office, 1, v_distributor, nom.s_id)
                     and nom.NOTUSE = 0
-                   -- and ( instr(nom.h_code,'!') = 0 or nom.fn_id in (10014030,10014031) )
-                    and (nom.fst_id = b.fst_id(+) and (b.nbutton = button_ or button_=0))
-                    AND nom.N_ID = m.n_id(+) and m.id_orders(+) = id_ --and m.id_office(+) = const_office and m.STORE_TYPE(+) <> 2
-                    and nom.n_id = aaa.n_id(+)
-                    and nom.n_id = bbb.n_id(+)
-                    and nom.n_id = l.n_id(+)
-                    and nom.n_id = o.n_id(+)
-                    and nom.hol_type = ht.hol_type(+)
                 ) a
                 ;
          end if;
