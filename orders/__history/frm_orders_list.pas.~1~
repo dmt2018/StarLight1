@@ -408,7 +408,7 @@ begin
       filter_str := filter_str + '(store_all <> 0 or PREV_STOCK_AMOUNT <> 0 or STOCK_DISTRIBUTION <> 0 or CLIENT_DISTRIBUTION <> 0 or STOCK_DISTRIBUTION_DONE <> 0' +
       ' or CLIENT_DISTRIBUTION_DONE <> 0 or (FL_ORDERS is not null and fl_orders <> 0) or (FL_ORDERS_ALL is not null and fl_orders_all <> 0))'
     else
-      filter_str := filter_str + '(price > 0 or (FL_ORDERS is not null and fl_orders <> 0) or (FL_ORDERS_ALL is not null and fl_orders_all <> 0))';
+      filter_str := filter_str + '(store_all <> 0 or (FL_ORDERS is not null and fl_orders <> 0) or (FL_ORDERS_ALL is not null and fl_orders_all <> 0))';
   end;
 
   DM.Q_ORDERS_LIST.Filter := filter_str;
