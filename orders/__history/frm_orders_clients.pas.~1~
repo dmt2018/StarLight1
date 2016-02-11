@@ -181,7 +181,6 @@ type
     grClients_vHAVE_OLD_FLOWERS: TcxGridDBColumn;
     DBText5: TDBText;
     mnChangeClient: TMenuItem;
-    grClients_vPRIORITY: TcxGridDBColumn;
     procedure BitBtn10Click(Sender: TObject);
     procedure BitBtn12Click(Sender: TObject);
     procedure BitBtn13Click(Sender: TObject);

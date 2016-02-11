@@ -1264,8 +1264,8 @@ object DM: TDM
       '  commit;'
       'else'
       
-        '  update ORDERS_CLIENTS set alpha = :alpha, priority = :priority' +
-        ' where ID_ORDERS_CLIENTS = :ID_ORDERS_CLIENTS;'
+        '  update ORDERS_CLIENTS set alpha = :alpha where ID_ORDERS_CLIEN' +
+        'TS = :ID_ORDERS_CLIENTS;'
       'end if;'
       ''
       'end;')
@@ -1299,7 +1299,6 @@ object DM: TDM
       'c.block1,'
       'c.block2,'
       'oo.pack_,'
-      'oo.priority,'
       '('
       '  SELECT COUNT(a.ID_ORDERS_LIST) '
       '  FROM ORDERS_LIST a, nomenclature b'
@@ -1477,9 +1476,6 @@ object DM: TDM
     end
     object Q_ORDERS_ORDERSHAVE_OLD_FLOWERS: TFloatField
       FieldName = 'HAVE_OLD_FLOWERS'
-    end
-    object Q_ORDERS_ORDERSPRIORITY: TIntegerField
-      FieldName = 'PRIORITY'
     end
   end
   object Q_ORDERS_ORDERS_DS: TOraDataSource
@@ -2908,7 +2904,7 @@ object DM: TDM
     Left = 744
     Top = 192
     Bitmap = {
-      494C010127002C00A00120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010127002C009C0120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004001000001002000000000000080
       0200000000000000000000000000000000000000000000000000000000000000
       000000000000000000000101011A0B0B0B743B3D3DB4777777D5838383DA5152

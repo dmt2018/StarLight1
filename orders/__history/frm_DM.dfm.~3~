@@ -1264,8 +1264,8 @@ object DM: TDM
       '  commit;'
       'else'
       
-        '  update ORDERS_CLIENTS set alpha = :alpha, priority = :priority' +
-        ' where ID_ORDERS_CLIENTS = :ID_ORDERS_CLIENTS;'
+        '  update ORDERS_CLIENTS set alpha = :alpha where ID_ORDERS_CLIEN' +
+        'TS = :ID_ORDERS_CLIENTS;'
       'end if;'
       ''
       'end;')

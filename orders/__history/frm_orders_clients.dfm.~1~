@@ -650,20 +650,6 @@ object orders_clients: Torders_clients
           DataBinding.FieldName = 'BLOCK2'
           Visible = False
         end
-        object grClients_vPRIORITY: TcxGridDBColumn
-          Caption = #1055#1088#1080#1086#1088#1080#1090#1077#1090
-          DataBinding.FieldName = 'PRIORITY'
-          PropertiesClassName = 'TcxCurrencyEditProperties'
-          Properties.Alignment.Horz = taCenter
-          Properties.Alignment.Vert = taVCenter
-          Properties.DecimalPlaces = 0
-          Properties.DisplayFormat = ',0;-,0'
-          Properties.MaxValue = 99.000000000000000000
-          HeaderAlignmentHorz = taCenter
-          HeaderAlignmentVert = vaCenter
-          MinWidth = 74
-          Options.HorzSizing = False
-        end
       end
       object grClients_l: TcxGridLevel
         GridView = grClients_v
