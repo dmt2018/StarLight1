@@ -928,12 +928,6 @@ end;
 //
 procedure Tdebetors.aNewExecute(Sender: TObject);
 begin
-  if DM.id_office = 0 then
-  begin
-    MessageBox(Handle, 'Необходимо выбрать офис для ввода новой записи', 'Внимание!', MB_ICONWARNING);
-    exit;
-  end;
-
   deb_edit := Tdeb_edit.Create(Application);
   try
     deb_edit.gr_close_deb.Visible := DM.b_addit;
