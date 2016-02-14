@@ -1175,7 +1175,7 @@ object DM: TDM
       
         '  and exists (select 1 from nomenclature n where n.notuse = 0 an' +
         'd n.S_ID <> o.s_id and ol.n_id = n.n_id)'
-      ') else 0 end have_notvalid_flowers'
+      ') else 0 end have_notvalid_flowers2'
       ', to_number(nvl(s.outer_id, O.ID_ORDERS)) as order_seq'
       ', o.s_id, u.S_NAME_RU'
       'FROM ORDERS O'

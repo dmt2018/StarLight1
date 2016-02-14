@@ -1154,7 +1154,6 @@ object DM: TDM
         'rders_clients = oc.id_orders_clients and ol.active = 1 and ol.n_' +
         'id = p.n_id and oc.n_type < 2'
       ') as sum_price'
-      '/*'
       ', case when const_office = 1 then ('
       
         '  select count(1) as nn from orders_clients oc, orders_list ol, ' +
@@ -1164,17 +1163,6 @@ object DM: TDM
         'rders_clients = oc.id_orders_clients and ol.active = 1 and ol.n_' +
         'id = n.n_id and n.S_ID <> o.s_id and n.notuse = 0 and oc.n_type ' +
         '< 2'
-      ') else 0 end have_notvalid_flowers'
-      '*/'
-      ', case when const_office = 1 then ('
-      '  select count(1) as nn from orders_clients oc, orders_list ol'
-      
-        '  where oc.active = 1 and oc.id_orders = O.ID_ORDERS and ol.id_o' +
-        'rders_clients = oc.id_orders_clients and ol.active = 1 and oc.n_' +
-        'type < 2'
-      
-        '  and exists (select 1 from nomenclature n where n.notuse = 0 an' +
-        'd n.S_ID <> o.s_id and ol.n_id = n.n_id)'
       ') else 0 end have_notvalid_flowers'
       ', to_number(nvl(s.outer_id, O.ID_ORDERS)) as order_seq'
       ', o.s_id, u.S_NAME_RU'
@@ -2920,7 +2908,7 @@ object DM: TDM
     Left = 744
     Top = 192
     Bitmap = {
-      494C010127002C00A40120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010127002C00A00120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004001000001002000000000000080
       0200000000000000000000000000000000000000000000000000000000000000
       000000000000000000000101011A0B0B0B743B3D3DB4777777D5838383DA5152

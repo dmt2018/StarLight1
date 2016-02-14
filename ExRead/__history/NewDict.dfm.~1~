@@ -1922,7 +1922,7 @@ object NewD: TNewD
       Width = 160
       Height = 30
       Cursor = crHandPoint
-      Caption = ' '#1043#1086#1090#1086#1074#1086' (Ctrl+Enter)'
+      Caption = ' '#1043#1086#1090#1086#1074#1086' '
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -12

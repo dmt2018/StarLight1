@@ -179,7 +179,6 @@ type
     CDS_GOODSDISTRIBUTED_NUMBER: TFloatField;
     CDS_GOODSWHERE_FLOWER_IS: TStringField;
     CDS_GOODSNBUTTON: TFloatField;
-    CDS_ORDER_NIDPRIORITY: TIntegerField;
     procedure StarSessBeforeConnect(Sender: TObject);
     procedure SelDistrIndBeforeOpen(DataSet: TDataSet);
     procedure SelOrderClientsBeforeOpen(DataSet: TDataSet);

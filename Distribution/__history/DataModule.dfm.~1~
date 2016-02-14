@@ -921,9 +921,6 @@ object DM: TDM
     object CDS_ORDER_NIDD_N_ID: TFloatField
       FieldName = 'D_N_ID'
     end
-    object CDS_ORDER_NIDPRIORITY: TIntegerField
-      FieldName = 'PRIORITY'
-    end
   end
   object DS_ORDER_NID: TOraDataSource
     DataSet = CDS_ORDER_NID

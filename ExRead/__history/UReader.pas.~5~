@@ -1440,7 +1440,7 @@ begin
       DM.SelQ.SQL.Add('left outer join invoice_data_as_is_map m on m.invoice_data_as_is_id = a.invoice_data_as_is_id');
       DM.SelQ.SQL.Add('left outer join invoice_data i on i.invoice_data_as_is_id = a.invoice_data_as_is_id');
       DM.SelQ.SQL.Add('where a.inv_id = :p1');
-      DM.SelQ.ParamByName('p1').AsInteger := currentInvID; //invchooserForm.InvoicesINV_ID.AsInteger;
+      DM.SelQ.ParamByName('p1').AsInteger := invchooserForm.InvoicesINV_ID.AsInteger;
       try
         DM.SelQ.Open;
 
@@ -1821,7 +1821,6 @@ begin
       pg_execute.Visible := false;
     end;
     cdsTranslate.EnableControls;
-    aCalcStat.Execute;
     cursor := crDefault;
   end;
 end;
@@ -1874,7 +1873,6 @@ begin
       pg_execute.Visible := false;
     end;
     cdsTranslate.EnableControls;
-    aCalcStat.Execute;
     cursor := crDefault;
   end;
 end;

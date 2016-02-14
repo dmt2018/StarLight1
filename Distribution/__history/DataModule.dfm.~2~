@@ -8,6 +8,7 @@ object DM: TDM
     Password = '123456'
     Server = 'KLEPOV:1521:STARNEW'
     AutoCommit = False
+    Connected = True
     LoginPrompt = False
     BeforeConnect = StarSessBeforeConnect
     Left = 24

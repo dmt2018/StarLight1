@@ -338,7 +338,6 @@ type
     aUnloadOrder: TAction;
     mnUnloadOrder: TdxBarSubItem;
     dxBarButton9: TdxBarButton;
-    gr_goods_info_vPRIORITY: TcxGridDBColumn;
     procedure AExitExecute(Sender: TObject);
     procedure AGetdeptExecute(Sender: TObject);
     procedure AChooseOrderExecute(Sender: TObject);

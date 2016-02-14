@@ -768,18 +768,18 @@ object frmReader: TfrmReader
             Width = 75
           end
           object AMOUNT_IN_THE_PACK1: TcxGridDBColumn
-            Caption = #1042' '#1087#1072#1095#1082#1077
+            Caption = #1042' '#1087#1072#1095#1082#1077' ('#1080#1085#1074')'
             DataBinding.FieldName = 'AMOUNT_IN_THE_PACK'
             PropertiesClassName = 'TcxTextEditProperties'
             Properties.Alignment.Horz = taCenter
             FooterAlignmentHorz = taCenter
             HeaderAlignmentHorz = taCenter
-            MinWidth = 60
+            MinWidth = 80
             Options.FilteringPopup = False
             Options.FilteringPopupMultiSelect = False
             Options.HorzSizing = False
             Styles.Content = stEditable
-            Width = 60
+            Width = 80
           end
           object HOL_SUB_TYPE: TcxGridDBColumn
             Caption = #1058#1080#1087' '#1087#1086#1089#1090#1072#1074#1097#1080#1082#1072
@@ -1127,17 +1127,16 @@ object frmReader: TfrmReader
             Width = 80
           end
           object grid_translate_vNOM_PACK: TcxGridDBColumn
-            Caption = #1059#1087#1072#1082#1086#1074#1082#1072
+            Caption = #1059#1087#1072#1082'. '#1073#1072#1079#1072
             DataBinding.FieldName = 'NOM_PACK'
-            Visible = False
             Styles.Content = stEditable
-            Width = 60
+            Width = 70
           end
           object grid_translate_vNOM_PACK_HOL: TcxGridDBColumn
             Caption = #1059#1087#1072#1082'. '#1087#1086#1089#1090'.'
             DataBinding.FieldName = 'NOM_PACK_HOL'
             Styles.Content = stEditable
-            Width = 60
+            Width = 70
           end
           object grid_translate_vID_OFFICE_1: TcxGridDBColumn
             Tag = 999
@@ -2209,7 +2208,7 @@ object frmReader: TfrmReader
     Left = 832
     Top = 216
     Bitmap = {
-      494C010127002C003C0120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010127002C00440120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004001000001002000000000000080
       0200000000000000000000000000000000000000000000000000000000000000
       000000000000000000000101011A0B0B0B743B3D3DB4777777D5838383DA5152

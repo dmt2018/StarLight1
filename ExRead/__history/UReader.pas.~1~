@@ -1432,20 +1432,6 @@ begin
     cnt_desc := 0;
     cnt_inv := 0;
     cursor := crHourGlass;
-
-      DM.SelQ.Close;
-      DM.SelQ.SQL.Clear;
-      DM.SelQ.SQL.Add('SELECT count(i.invoice_data_as_is_id) as brown, count(m.invoice_data_as_is_id) as green, count(*) as total');
-      DM.SelQ.SQL.Add('FROM invoice_data_as_is a');
-      DM.SelQ.SQL.Add('left outer join invoice_data_as_is_map m on m.invoice_data_as_is_id = a.invoice_data_as_is_id');
-      DM.SelQ.SQL.Add('left outer join invoice_data i on i.invoice_data_as_is_id = a.invoice_data_as_is_id');
-      DM.SelQ.SQL.Add('where a.inv_id = :p1');
-      DM.SelQ.ParamByName('p1').AsInteger := currentInvID; //invchooserForm.InvoicesINV_ID.AsInteger;
-      try
-        DM.SelQ.Open;
-
-
-{
     cdsTranslate.DisableControls;
     try
       cdsTranslate.First;
@@ -1457,17 +1443,15 @@ begin
         cdsTranslate.Next;
       end;
       cdsTranslate.First;
-}
     finally
+      cdsTranslate.EnableControls;
       cursor := crDefault;
     end;
-
-    lbl_set.Caption  := DM.SelQ.FieldByName('green').AsString; // IntToStr(cnt);
-    lbl_art.Caption  := IntToStr(DM.SelQ.FieldByName('total').AsInteger - DM.SelQ.FieldByName('green').AsInteger); // IntToStr(cnt_desc);
-    lbl_name.Caption := DM.SelQ.FieldByName('brown').AsString; //IntToStr(cnt_inv);
+    lbl_set.Caption  := IntToStr(cnt);
+    lbl_art.Caption  := IntToStr(cnt_desc);
+    lbl_name.Caption := IntToStr(cnt_inv);
     if AS_IS_POS > 0 then
-      lbl_percent.Caption := '% распознания -  '+IntToStr(round((DM.SelQ.FieldByName('green').AsInteger/AS_IS_POS)*100));
-    DM.SelQ.Close;
+      lbl_percent.Caption := '% распознания -  '+IntToStr(round((cnt/AS_IS_POS)*100));
 end;
 
 
@@ -1821,7 +1805,6 @@ begin
       pg_execute.Visible := false;
     end;
     cdsTranslate.EnableControls;
-    aCalcStat.Execute;
     cursor := crDefault;
   end;
 end;
@@ -1874,7 +1857,6 @@ begin
       pg_execute.Visible := false;
     end;
     cdsTranslate.EnableControls;
-    aCalcStat.Execute;
     cursor := crDefault;
   end;
 end;
@@ -2055,13 +2037,10 @@ end;
 
 // Сохранение распознавания в разобранном инвойсе
 procedure TfrmReader.btnSaveClick(Sender: TObject);
-var cnt_inv, i, new_id: integer;
-    replace_country: boolean;
+var cnt_inv, i: integer;
 begin
   if cdsTranslate.IsEmpty then exit;
 
-//  replace_country := false;
-  replace_country := (MessageDlg( 'Провести замену стран по исходным данным инвойса в текущей номенклатуре?', mtConfirmation,[mbOk, mbNo],0) = mrOk);
 
   DM.SelQ.SQL.Clear;
   DM.SelQ.SQL.Add('begin INVOICE_DATA_PACKAGE.INSERT_DATA(:IN_INV_ID,:IN_INVOICE_DATA_AS_IS_ID,:IN_N_ID,:IN_UNITS,:IN_PRICE_PER_UNIT,:IN_TOTAL_SUM,:IN_AMOUNT_IN_THE_PACK,:IN_STORN,:IN_GTD,:IN_GTD_COUNTRY,:IN_NEW,:IN_SPEC,:IN_CLIENT,:IN_parent,:OUT_INVOICE_DATA_ID); end;');
@@ -2084,7 +2063,6 @@ begin
     begin
       if cdsTranslateINVOICE_DATA_ID.IsNull and (not cdsTranslateN_ID.IsNull) then
       begin
-        new_id := 0;
         DM.SelQ.ParamByName('IN_INVOICE_DATA_AS_IS_ID').Value     := cdsTranslateINVOICE_DATA_AS_IS_ID.AsInteger;
         DM.SelQ.ParamByName('IN_N_ID').AsInteger                  := cdsTranslateN_ID.AsInteger;
         DM.SelQ.ParamByName('IN_UNITS').AsInteger                 := cdsTranslateUNITS.AsInteger;
@@ -2096,7 +2074,6 @@ begin
         DM.SelQ.ParamByName('IN_CLIENT').AsString                 := cdsTranslateCLIENT.AsString;
         DM.SelQ.ParamByName('IN_parent').value                    := NULL;
         DM.SelQ.Execute;
-        new_id := DM.SelQ.ParamByName('OUT_INVOICE_DATA_ID').AsInteger;
 
         // Вызов процедуры по смене веса при его наличии
         if (cdsTranslateVOLUME.AsFloat <> 0) or (cdsTranslateVOLDRY.AsFloat <> 0) then
@@ -2129,15 +2106,6 @@ begin
 
         if ( (cdsTranslateVOLUME.AsFloat <> 0) or (cdsTranslateVOLDRY.AsFloat <> 0) ) or def_change_hol_name or def_change_country then DM.STAR_DB.Commit;
 
-        if replace_country and (new_id > 0) then
-        begin
-          DM.ForceQ.Close;
-          DM.ForceQ.SQL.Clear;
-          DM.ForceQ.SQL.Add('begin invoice_pkg.change_country_by_asis(:p1); end;');
-          DM.ForceQ.ParamByName('p1').AsInteger := new_id;
-          DM.ForceQ.Execute;
-        end;
-        
         cnt_inv := cnt_inv + 1;
       end;
       pg_execute.Position := i;

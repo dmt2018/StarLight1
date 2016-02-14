@@ -1432,20 +1432,6 @@ begin
     cnt_desc := 0;
     cnt_inv := 0;
     cursor := crHourGlass;
-
-      DM.SelQ.Close;
-      DM.SelQ.SQL.Clear;
-      DM.SelQ.SQL.Add('SELECT count(i.invoice_data_as_is_id) as brown, count(m.invoice_data_as_is_id) as green, count(*) as total');
-      DM.SelQ.SQL.Add('FROM invoice_data_as_is a');
-      DM.SelQ.SQL.Add('left outer join invoice_data_as_is_map m on m.invoice_data_as_is_id = a.invoice_data_as_is_id');
-      DM.SelQ.SQL.Add('left outer join invoice_data i on i.invoice_data_as_is_id = a.invoice_data_as_is_id');
-      DM.SelQ.SQL.Add('where a.inv_id = :p1');
-      DM.SelQ.ParamByName('p1').AsInteger := currentInvID; //invchooserForm.InvoicesINV_ID.AsInteger;
-      try
-        DM.SelQ.Open;
-
-
-{
     cdsTranslate.DisableControls;
     try
       cdsTranslate.First;
@@ -1457,17 +1443,15 @@ begin
         cdsTranslate.Next;
       end;
       cdsTranslate.First;
-}
     finally
+      cdsTranslate.EnableControls;
       cursor := crDefault;
     end;
-
-    lbl_set.Caption  := DM.SelQ.FieldByName('green').AsString; // IntToStr(cnt);
-    lbl_art.Caption  := IntToStr(DM.SelQ.FieldByName('total').AsInteger - DM.SelQ.FieldByName('green').AsInteger); // IntToStr(cnt_desc);
-    lbl_name.Caption := DM.SelQ.FieldByName('brown').AsString; //IntToStr(cnt_inv);
+    lbl_set.Caption  := IntToStr(cnt);
+    lbl_art.Caption  := IntToStr(cnt_desc);
+    lbl_name.Caption := IntToStr(cnt_inv);
     if AS_IS_POS > 0 then
-      lbl_percent.Caption := '% распознания -  '+IntToStr(round((DM.SelQ.FieldByName('green').AsInteger/AS_IS_POS)*100));
-    DM.SelQ.Close;
+      lbl_percent.Caption := '% распознания -  '+IntToStr(round((cnt/AS_IS_POS)*100));
 end;
 
 
@@ -1821,7 +1805,6 @@ begin
       pg_execute.Visible := false;
     end;
     cdsTranslate.EnableControls;
-    aCalcStat.Execute;
     cursor := crDefault;
   end;
 end;
@@ -1874,7 +1857,6 @@ begin
       pg_execute.Visible := false;
     end;
     cdsTranslate.EnableControls;
-    aCalcStat.Execute;
     cursor := crDefault;
   end;
 end;

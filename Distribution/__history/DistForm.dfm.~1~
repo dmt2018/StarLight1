@@ -136,7 +136,7 @@ object DistFormF: TDistFormF
     Caption = 'Panel5'
     TabOrder = 1
     ExplicitTop = 55
-    ExplicitHeight = 631
+    ExplicitHeight = 625
     object Panel2: TPanel
       Left = 0
       Top = 0
@@ -146,7 +146,7 @@ object DistFormF: TDistFormF
       BevelOuter = bvNone
       BorderWidth = 2
       TabOrder = 0
-      ExplicitHeight = 631
+      ExplicitHeight = 625
       object Label2: TLabel
         Left = 2
         Top = 2
@@ -182,6 +182,8 @@ object DistFormF: TDistFormF
         PopupMenu = ppStok
         TabOrder = 0
         LookAndFeel.Kind = lfOffice11
+        ExplicitLeft = 6
+        ExplicitTop = 15
         object gr_PrepDist_v: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
           OnCustomDrawCell = gr_PrepDist_vCustomDrawCell
@@ -399,7 +401,7 @@ object DistFormF: TDistFormF
         Height = 38
         Align = dalBottom
         BarManager = BarMan_invoice
-        ExplicitTop = 591
+        ExplicitTop = 585
       end
     end
     object Panel3: TPanel
@@ -411,7 +413,7 @@ object DistFormF: TDistFormF
       BevelOuter = bvNone
       BorderWidth = 2
       TabOrder = 1
-      ExplicitHeight = 631
+      ExplicitHeight = 625
       object pc_type_invoice: TcxPageControl
         Left = 2
         Top = 2
@@ -424,6 +426,7 @@ object DistFormF: TDistFormF
         LookAndFeel.Kind = lfOffice11
         ParentColor = False
         TabOrder = 0
+        ExplicitHeight = 551
         ClientRectBottom = 557
         ClientRectRight = 644
         ClientRectTop = 0
@@ -432,6 +435,7 @@ object DistFormF: TDistFormF
           Color = clBtnFace
           ImageIndex = 0
           ParentColor = False
+          ExplicitHeight = 551
           object Label4: TLabel
             Left = 0
             Top = 0
@@ -466,6 +470,7 @@ object DistFormF: TDistFormF
             ParentFont = False
             TabOrder = 0
             LookAndFeel.Kind = lfOffice11
+            ExplicitHeight = 383
             object gr_goods_v: TcxGridDBTableView
               PopupMenu = ppGoods
               OnKeyDown = gr_goods_vKeyDown
@@ -674,6 +679,7 @@ object DistFormF: TDistFormF
             HotZoneClassName = 'TcxMediaPlayer9Style'
             AlignSplitter = salBottom
             Control = Panel6
+            ExplicitTop = 402
           end
           object Panel6: TPanel
             Left = 0
@@ -684,6 +690,7 @@ object DistFormF: TDistFormF
             BevelOuter = bvNone
             Caption = 'Panel6'
             TabOrder = 2
+            ExplicitTop = 410
             object Label5: TLabel
               Left = 0
               Top = 0
@@ -971,17 +978,6 @@ object DistFormF: TDistFormF
                   DataBinding.FieldName = 'D_N_ID'
                   Visible = False
                 end
-                object gr_goods_info_vPRIORITY: TcxGridDBColumn
-                  Caption = #1087#1088'-'#1090
-                  DataBinding.FieldName = 'PRIORITY'
-                  PropertiesClassName = 'TcxTextEditProperties'
-                  Properties.Alignment.Horz = taCenter
-                  Properties.ReadOnly = True
-                  HeaderAlignmentHorz = taCenter
-                  MinWidth = 50
-                  Options.HorzSizing = False
-                  Width = 50
-                end
               end
               object gr_goods_info_l: TcxGridLevel
                 GridView = gr_goods_info_v
@@ -997,7 +993,7 @@ object DistFormF: TDistFormF
         Height = 44
         Align = dalBottom
         BarManager = BarMan_invoice
-        ExplicitTop = 585
+        ExplicitTop = 579
       end
     end
     object cxSplitter1: TcxSplitter
@@ -1009,6 +1005,7 @@ object DistFormF: TDistFormF
       HotZoneClassName = 'TcxMediaPlayer9Style'
       AlignSplitter = salRight
       Control = Panel3
+      ExplicitHeight = 599
     end
   end
   object Panel_fill: TPanel
@@ -1288,7 +1285,7 @@ object DistFormF: TDistFormF
     Left = 576
     Top = 488
     Bitmap = {
-      494C01010C00C800CC0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010C00C800C80010001000FFFFFFFFFF00FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000004000000001002000000000000040
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -1820,8 +1817,7 @@ object DistFormF: TDistFormF
       C007FE1FC0033220C007F80FC0036008C007F007C0030000C007E003C003F000
       C007E003C003F000C007E003C003F000C007F007C003F000C007F00FC003F000
       C007F00FC003F000C007F01FC003F000C007F81FC003F001C007E40FC007F003
-      C007FFFFC00FF007C007FFFFC01FF00F00000000000000000000000000000000
-      000000000000}
+      C007FFFFC00FF007C007FFFFC01FF00F}
   end
   object frxReport1: TfrxReport
     Version = '4.12.11'
