@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.PACK_ORDERS
--- Generated 12.02.2016 2:02:33 from CREATOR@STAR_NEW
+-- Generated 18.02.2016 22:37:39 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE pack_orders
@@ -2425,7 +2425,7 @@ begin
     insert into orders_clients (select idOC, vOutID, data.id_clients, 0,
        sum(a.capacity), sysdate, 0, null, null, 1, 0, null, max(a.id_user), const_office, sysdate, null, null, null, null, a.priority
        from orders_clients a where a.ID_ORDERS in (select * from tmp_exp_doc) and a.id_clients = data.id_clients and a.active=1 and a.n_type < 2
-       group by a.id_clients)
+       group by a.id_clients, a.priority)
     ;
 
     insert into orders_list (select orders_list_seq.nextval as id_orders_list, z.* from ( select a.n_id, sum(a.quantity) as quantity, idOC as id_orders_clients,
