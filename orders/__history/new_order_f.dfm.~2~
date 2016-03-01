@@ -4,8 +4,8 @@ object new_order: Tnew_order
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = '  '#1053#1086#1074#1099#1081' '#1079#1072#1082#1072#1079
-  ClientHeight = 441
-  ClientWidth = 557
+  ClientHeight = 317
+  ClientWidth = 368
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,7 +21,7 @@ object new_order: Tnew_order
   PixelsPerInch = 96
   TextHeight = 16
   object Label8: TLabel
-    Left = 13
+    Left = 20
     Top = 13
     Width = 185
     Height = 16
@@ -35,7 +35,7 @@ object new_order: Tnew_order
     ParentFont = False
   end
   object Label3: TLabel
-    Left = 13
+    Left = 20
     Top = 61
     Width = 95
     Height = 16
@@ -49,7 +49,7 @@ object new_order: Tnew_order
     ParentFont = False
   end
   object Label2: TLabel
-    Left = 14
+    Left = 21
     Top = 116
     Width = 103
     Height = 16
@@ -63,7 +63,7 @@ object new_order: Tnew_order
     ParentFont = False
   end
   object Label1: TLabel
-    Left = 13
+    Left = 20
     Top = 37
     Width = 144
     Height = 16
@@ -77,7 +77,7 @@ object new_order: Tnew_order
     ParentFont = False
   end
   object Label10: TLabel
-    Left = 13
+    Left = 20
     Top = 86
     Width = 71
     Height = 16
@@ -92,37 +92,23 @@ object new_order: Tnew_order
     ParentFont = False
   end
   object Label4: TLabel
-    Left = 13
-    Top = 201
-    Width = 197
+    Left = 21
+    Top = 226
+    Width = 278
     Height = 16
-    Caption = #1055#1088#1072#1081#1089' '#1076#1083#1103' '#1087#1088#1077#1076#1099#1076#1091#1097#1077#1075#1086' '#1089#1082#1083#1072#1076#1072
+    Caption = #1055#1088#1072#1081#1089' '#1076#1083#1103' '#1079#1085#1072#1095#1077#1085#1080#1081' '#1087#1088#1077#1076#1099#1076#1091#1097#1077#1075#1086' '#1089#1082#1083#1072#1076#1072
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -13
     Font.Name = 'Arial'
     Font.Pitch = fpFixed
-    Font.Style = []
-    ParentFont = False
-  end
-  object Label6: TLabel
-    Left = 14
-    Top = 231
-    Width = 306
-    Height = 16
-    Caption = #1056#1072#1089#1087#1088#1077#1076#1077#1083#1077#1085#1080#1103' '#1076#1083#1103' '#1088#1072#1089#1095#1077#1090#1072' '#1087#1088#1077#1076#1099#1076#1091#1097#1077#1075#1086' '#1079#1072#1082#1072#1079#1072':'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -13
-    Font.Name = 'Arial'
-    Font.Pitch = fpFixed
-    Font.Style = []
+    Font.Style = [fsBold]
     ParentFont = False
   end
   object Panel2: TPanel
     Left = 0
-    Top = 408
-    Width = 557
+    Top = 284
+    Width = 368
     Height = 33
     Align = alBottom
     BevelOuter = bvNone
@@ -132,11 +118,6 @@ object new_order: Tnew_order
     ParentBackground = False
     ParentCtl3D = False
     TabOrder = 5
-    ExplicitTop = 284
-    ExplicitWidth = 368
-    DesignSize = (
-      555
-      31)
     object BitBtn1: TBitBtn
       Left = 6
       Top = 3
@@ -162,12 +143,11 @@ object new_order: Tnew_order
       NumGlyphs = 2
     end
     object BitBtn2: TBitBtn
-      Left = 377
+      Left = 186
       Top = 3
       Width = 171
       Height = 25
       Cursor = crHandPoint
-      Anchors = [akTop, akRight]
       Cancel = True
       Caption = #1047#1072#1082#1088#1099#1090#1100
       TabOrder = 1
@@ -189,8 +169,8 @@ object new_order: Tnew_order
     end
   end
   object Memo1: TMemo
-    Left = 224
-    Top = 112
+    Left = 21
+    Top = 138
     Width = 324
     Height = 79
     Ctl3D = False
@@ -242,7 +222,7 @@ object new_order: Tnew_order
     Visible = True
   end
   object lookcombo_suplier: TcxLookupComboBox
-    Left = 224
+    Left = 105
     Top = 82
     Cursor = crHandPoint
     Hint = 'Ctrl+C   '#1054#1095#1080#1089#1090#1080#1090#1100
@@ -261,16 +241,12 @@ object new_order: Tnew_order
     Properties.ListSource = DS_SUPPLIER
     ShowHint = True
     Style.BorderStyle = ebsOffice11
-    Style.LookAndFeel.NativeStyle = True
-    StyleDisabled.LookAndFeel.NativeStyle = True
-    StyleFocused.LookAndFeel.NativeStyle = True
-    StyleHot.LookAndFeel.NativeStyle = True
     TabOrder = 3
-    Width = 324
+    Width = 240
   end
   object lcb_prices: TcxImageComboBox
-    Left = 224
-    Top = 197
+    Left = 20
+    Top = 248
     Cursor = crHandPoint
     ParentFont = False
     Properties.ImmediatePost = True
@@ -293,18 +269,7 @@ object new_order: Tnew_order
     StyleHot.LookAndFeel.Kind = lfOffice11
     StyleHot.LookAndFeel.NativeStyle = True
     TabOrder = 6
-    Width = 324
-  end
-  object chlbInvoices: TcxCheckListBox
-    Left = 14
-    Top = 252
-    Width = 534
-    Height = 150
-    Items = <
-      item
-        Text = 'fghfgh'
-      end>
-    TabOrder = 7
+    Width = 325
   end
   object ActionList1: TActionList
     Left = 328
@@ -331,8 +296,8 @@ object new_order: Tnew_order
       'begin'
       '  creator.NOMENCLATURE_PKG.SELECT_SUPPLIER(:CURSOR_);'
       'end;')
-    Left = 17
-    Top = 136
+    Left = 168
+    Top = 120
     ParamData = <
       item
         DataType = ftCursor
@@ -352,7 +317,7 @@ object new_order: Tnew_order
   end
   object DS_SUPPLIER: TOraDataSource
     DataSet = CDS_SUPPLIER
-    Left = 17
-    Top = 168
+    Left = 168
+    Top = 152
   end
 end

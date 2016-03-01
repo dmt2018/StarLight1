@@ -488,7 +488,6 @@ object frm_stat: Tfrm_stat
         ScrollBars = ssNone
         TabOrder = 0
         OnDrawCell = StringGrid1DrawCell
-        ExplicitTop = -2
       end
     end
   end

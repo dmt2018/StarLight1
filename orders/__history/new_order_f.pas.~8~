@@ -241,6 +241,7 @@ begin
 
     for i:=0 to chlbInvoices.Items.Count-1 do
     begin
+//      if chlbInvoices.Items.Items[i].Tag = 500 then
       if DM.Q_SQL.Locate('dist_ind_id', chlbInvoices.Items.Items[i].Tag, []) then
         chlbInvoices.Items.Items[i].Checked := true;
     end;

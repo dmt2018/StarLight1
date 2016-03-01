@@ -7,7 +7,7 @@ uses
   Dialogs, StdCtrls, Buttons, ExtCtrls, ComCtrls, ActnList, Mask, DBCtrlsEh,
   cxGraphics, DB, DBAccess, Ora, MemDS, cxControls, cxContainer, cxEdit,
   cxTextEdit, cxMaskEdit, cxDropDownEdit, cxLookupEdit, cxDBLookupEdit,
-  cxDBLookupComboBox, PI_Library, cxImageComboBox, cxCheckListBox;
+  cxDBLookupComboBox, PI_Library_reg, cxImageComboBox;
 
 type
   Tnew_order = class(TForm)
@@ -34,8 +34,6 @@ type
     DS_SUPPLIER: TOraDataSource;
     Label4: TLabel;
     lcb_prices: TcxImageComboBox;
-    chlbInvoices: TcxCheckListBox;
-    Label6: TLabel;
     procedure BitBtn2Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
@@ -45,7 +43,6 @@ type
     { Private declarations }
   public
     f_edit: integer;
-    function CollectInvoices: String;
     { Public declarations }
   end;
 
@@ -71,30 +68,25 @@ begin
 
   CDS_SUPPLIER.Close;
   CDS_SUPPLIER.Open;
+
+  DM.Q_SQL.Close;
+  DM.Q_SQL.SQL.Clear;
+  DM.Q_SQL.SQL.Add('select distinct a.ppli_id, a.ppl_comment || '' №'' ||a.ppli_id as ppl_comment, a.ppl_date from prepare_price_list_index a, invoice_register b, suppliers s');
+  DM.Q_SQL.SQL.Add(' where a.id_departments = '+IntToStr(DM.DeptID)+' and a.finished = 1');
+  DM.Q_SQL.SQL.Add(' and (b.inv_id in (a.inv_id, a.inv_id2, a.inv_id3, a.inv_id4) or b.ipp_id = a.pack_id)');
+  DM.Q_SQL.SQL.Add(' and b.sended_to_warehouse = 1 and b.minus_inv_id = 0 and b.s_id_default = s.s_id and a.ppl_date >= trunc(sysdate-100)');
+//  DM.Q_SQL.SQL.Add(' and a.ppli_id_old is not null');
+  DM.Q_SQL.SQL.Add('order by a.ppl_date desc');
+  DM.Q_SQL.Open;
+  FillImgComboCx(DM.Q_SQL, lcb_prices, 'Выберите...');
+  lcb_prices.EditValue := 0;
+  DM.Q_SQL.Close;
 end;
 
-
-function Tnew_order.CollectInvoices: String;
-var i: integer;
-    res: String;
-begin
-  res := '';
-  for i:=0 to chlbInvoices.Items.Count-1 do
-  begin
-    if chlbInvoices.Items.Items[i].Checked then
-    begin
-      //SetLength(res,j);
-      if res = '' then res := IntToStr(chlbInvoices.Items.Items[i].Tag)
-      else res := res + ',' + IntToStr(chlbInvoices.Items.Items[i].Tag);
-    end;
-  end;
-  Result := res;
-end;
 
 
 procedure Tnew_order.BitBtn1Click(Sender: TObject);
-var ind, flag, i: integer;
-    InvIDs, tmpStr: string;
+var ind, flag: integer;
 begin
   if (DateTimePicker3.Value = null) then
   begin
@@ -130,54 +122,6 @@ begin
       DM.Ora_SQL.Execute;
       ind := DM.Ora_SQL.ParamByName('id_').AsInteger;
 
-      if ind > 0 then
-      begin
-        InvIDs := CollectInvoices;
-
-        with DM.Ora_SQL do
-        Begin
-          Close;
-          SQL.Clear;
-          SQL.Add('begin PACK_ORDERS.delete_distributions(:vIdOrder); end;');
-          ParamByName('vIdOrder').AsInteger := ind;
-          Execute;
-        End;
-
-
-            while pos(',',InvIDs) > 0 do
-            begin
-              i := pos(',',InvIDs);
-              tmpStr := copy(InvIDs,0,i-1);
-              InvIDs := copy(InvIDs,i+1,length(InvIDs));
-
-              with DM.Ora_SQL do
-              Begin
-                Close;
-                SQL.Clear;
-                SQL.Add('begin PACK_ORDERS.save_distributions(:vIdOrder, :vIdDistribution); end;');
-                ParamByName('vIdOrder').AsInteger := ind;
-                ParamByName('vIdDistribution').AsInteger      := StrToInt(tmpStr);
-                Execute;
-              End;
-
-            end;
-
-            if Length(InvIDs) > 0 then
-            begin
-              with DM.Ora_SQL do
-              Begin
-                Close;
-                SQL.Clear;
-                SQL.Add('begin PACK_ORDERS.save_distributions(:vIdOrder, :vIdDistribution); end;');
-                ParamByName('vIdOrder').AsInteger := ind;
-                ParamByName('vIdDistribution').AsInteger      := StrToInt(InvIDs);
-                Execute;
-              End;
-            end;
-      end;
-
-
-
       DM.Main_session.Commit;
 
       DM.Q_ORDERS.Refresh;
@@ -201,52 +145,7 @@ end;
 
 
 procedure Tnew_order.FormShow(Sender: TObject);
-var i:integer;
 begin
-  DM.Q_SQL.Close;
-  DM.Q_SQL.SQL.Clear;
-  DM.Q_SQL.SQL.Add('select distinct a.ppli_id, a.ppl_comment || '' №'' ||a.ppli_id as ppl_comment, 0 img, a.ppl_date from prepare_price_list_index a, invoice_register b, suppliers s');
-  DM.Q_SQL.SQL.Add(' where a.id_departments = '+IntToStr(DM.DeptID)+' and a.finished = 1 and b.s_id_default = '+VarToStr(lookcombo_suplier.EditValue));
-  DM.Q_SQL.SQL.Add(' and (b.inv_id in (a.inv_id, a.inv_id2, a.inv_id3, a.inv_id4) or b.ipp_id = a.pack_id)');
-  DM.Q_SQL.SQL.Add(' and b.sended_to_warehouse = 1 and b.minus_inv_id = 0 and b.s_id_default = s.s_id and a.ppl_date >= trunc(sysdate-100)');
-  DM.Q_SQL.SQL.Add('order by a.ppl_date desc');
-  DM.Q_SQL.Open;
-  FillImgComboCx(DM.Q_SQL, lcb_prices, 'Выберите...');
-  lcb_prices.EditValue := lcb_prices.Tag;
-  DM.Q_SQL.Close;
-
-
-
-  DM.Q_SQL.Close;
-  DM.Q_SQL.SQL.Clear;
-  DM.Q_SQL.SQL.Add('begin pack_orders.get_distributions(:id_dep_, :id_, :cursor_); end;');
-  DM.Q_SQL.ParamByName('id_dep_').AsInteger := DM.DeptID;
-
-  if f_edit = 1 then
-    DM.Q_SQL.ParamByName('id_').AsInteger := 0
-  else
-    DM.Q_SQL.ParamByName('id_').AsInteger := DM.Q_ORDERS.FieldByName('ID_ORDERS').AsInteger;
-
-  DM.Q_SQL.ParamByName('cursor_').AsCursor;
-  DM.Q_SQL.Open;
-  FillCheckListCx(DM.Q_SQL, chlbInvoices, '');
-  DM.Q_SQL.Close;
-
-  if f_edit <> 1 then
-  begin
-    DM.Q_SQL.Close;
-    DM.Q_SQL.SQL.Clear;
-    DM.Q_SQL.SQL.Add('select dist_ind_id from order_distributions where id_order ='+DM.Q_ORDERS.FieldByName('ID_ORDERS').AsString);
-    DM.Q_SQL.Open;
-
-    for i:=0 to chlbInvoices.Items.Count-1 do
-    begin
-      if DM.Q_SQL.Locate('dist_ind_id', chlbInvoices.Items.Items[i].Tag, []) then
-        chlbInvoices.Items.Items[i].Checked := true;
-    end;
-    DM.Q_SQL.Close;
-  end;
-
   DateTimePicker1.SetFocus;
 end;
 

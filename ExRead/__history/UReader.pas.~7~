@@ -1433,16 +1433,31 @@ begin
     cnt_inv := 0;
     cursor := crHourGlass;
 
-    DM.SelQ.Close;
-    DM.SelQ.SQL.Clear;
-    DM.SelQ.SQL.Add('SELECT count(i.invoice_data_as_is_id) as brown, count(m.invoice_data_as_is_id) as green, count(*) as total');
-    DM.SelQ.SQL.Add('FROM invoice_data_as_is a');
-    DM.SelQ.SQL.Add('left outer join invoice_data_as_is_map m on m.invoice_data_as_is_id = a.invoice_data_as_is_id');
-    DM.SelQ.SQL.Add('left outer join invoice_data i on i.invoice_data_as_is_id = a.invoice_data_as_is_id');
-    DM.SelQ.SQL.Add('where a.inv_id = :p1');
-    DM.SelQ.ParamByName('p1').AsInteger := currentInvID; //invchooserForm.InvoicesINV_ID.AsInteger;
+      DM.SelQ.Close;
+      DM.SelQ.SQL.Clear;
+      DM.SelQ.SQL.Add('SELECT count(i.invoice_data_as_is_id) as brown, count(m.invoice_data_as_is_id) as green, count(*) as total');
+      DM.SelQ.SQL.Add('FROM invoice_data_as_is a');
+      DM.SelQ.SQL.Add('left outer join invoice_data_as_is_map m on m.invoice_data_as_is_id = a.invoice_data_as_is_id');
+      DM.SelQ.SQL.Add('left outer join invoice_data i on i.invoice_data_as_is_id = a.invoice_data_as_is_id');
+      DM.SelQ.SQL.Add('where a.inv_id = :p1');
+      DM.SelQ.ParamByName('p1').AsInteger := currentInvID; //invchooserForm.InvoicesINV_ID.AsInteger;
+      try
+        DM.SelQ.Open;
+
+
+{
+    cdsTranslate.DisableControls;
     try
-      DM.SelQ.Open;
+      cdsTranslate.First;
+      while not cdsTranslate.Eof do
+      begin
+        if not cdsTranslateN_ID.IsNull then cnt := cnt + 1;
+        if not cdsTranslateN_ID_DESC.IsNull and cdsTranslateN_ID.IsNull then cnt_desc := cnt_desc + 1;
+        if not cdsTranslateINVOICE_DATA_ID.IsNull then cnt_inv := cnt_inv + 1;
+        cdsTranslate.Next;
+      end;
+      cdsTranslate.First;
+}
     finally
       cursor := crDefault;
     end;
@@ -1452,7 +1467,6 @@ begin
     lbl_name.Caption := DM.SelQ.FieldByName('brown').AsString; //IntToStr(cnt_inv);
     if AS_IS_POS > 0 then
       lbl_percent.Caption := '% распознания -  '+IntToStr(round((DM.SelQ.FieldByName('green').AsInteger/AS_IS_POS)*100));
-      lbl_total.Caption   := 'Позиций в инвойсе - '+IntToStr(AS_IS_POS)+' / '+ lbl_set.Caption;
     DM.SelQ.Close;
 end;
 
@@ -1468,6 +1482,8 @@ begin
   idd :=  cdsTranslateINVOICE_DATA_AS_IS_ID.AsInteger;
   NewD := TNewD.Create(Application);
   try
+//    NewD.Panel1.Font.Size := gr_noms.Font.Size;
+//    NewD.isAutoLoad   := isAutoLoad;
     NewD.N_ID_    := -1; //aUpdate.Tag;
     NewD.OUT_ID   := 0;
     NewD.cds      := (grid_translate_v.DataController.DataSet as TOraQuery);
@@ -1477,16 +1493,20 @@ begin
 
     NewD.or_id    := idd;
     NewD.or_kod   := cdsTranslateSHORT_CODE.AsString;
-    NewD.or_group := cdsTranslateHOL_SUB_TYPE.AsString;
 //    NewD.or_code  := cdsTranslateSHORT_CODE.AsString;
 //    NewD.or_flow  := DictViewFLOW.AsInteger;
 //    NewD.or_title := DictViewTITLE.AsString;
 //    NewD.or_mark  := DictViewREMARKS.AsString;
+    NewD.or_group := cdsTranslateHOL_SUB_TYPE.AsString;
 //    NewD.or_gr    := DictViewGR.AsString;
 //    NewD.or_spec  := DictViewMARK.AsString;
-    NewD.or_color     := cdsTranslateHOL_COLOUR.AsString;
-    NewD.or_suplier   := def_suplier;
-    NewD.or_remarks   := cdsTranslateREMARKS.AsString;
+    NewD.or_color := cdsTranslateHOL_COLOUR.AsString;
+    NewD.or_suplier  := def_suplier;
+    NewD.or_remarks  := cdsTranslateREMARKS.AsString;
+
+
+
+
     NewD.or_nom_new   := (cdsTranslateNOM_NEW.AsInteger = 1);
     NewD.or_nom_start := (cdsTranslateNOM_START.AsInteger = 1);
     NewD.or_nom_end   := (cdsTranslateNOM_END.AsInteger = 1);
@@ -1494,6 +1514,7 @@ begin
     NewD.or_volume := cdsTranslateVOLUME.AsFloat;
     NewD.or_volume_dry := cdsTranslateVOLDRY.AsFloat;
 
+//    if (rgMain.ItemIndex = 1) and (trim(DictViewIN_COUNTRY.AsString) <> '') then
     if (trim(cdsTranslateCOUNTRY_.AsString) <> '') then
     begin
       DM.SelQ.Close;
@@ -1528,11 +1549,152 @@ begin
          NewD.or_len      := trim(cdsTranslateSPEC_LENGTH.AsString);
     end
     else
-      NewD.or_len      := '0';
+       NewD.or_len      := '0';
+
+
+
       NewD.cb_length.EditValue   := NewD.or_len;
       NewD.ed_postname.EditValue := NewD.or_eng_full_name;
       NewD.ed_remarks.EditValue  := NewD.or_mark;
       NewD.ed_barcode.EditValue  := NewD.or_code;
+
+
+
+{
+    if isAutoLoad then
+    begin
+      if trim(NewD.or_group) <> '' then
+      begin
+        DM.SelQ.Close;
+        DM.SelQ.SQL.Clear;
+        DM.SelQ.SQL.Add('SELECT a.fst_id, a.ft_id, a.F_SUB_TYPE, b.F_TYPE FROM flower_subtypes a, flower_types b where upper(a.hol_sub_type) like :p1 and a.ft_id=b.ft_id and b.id_departments=:p2');
+        DM.SelQ.ParamByName('p1').AsString  := UpperCase(trim('%'+NewD.or_group+'%'));
+        DM.SelQ.ParamByName('p2').AsInteger := CUR_DEPT_ID;
+        DM.SelQ.Open;
+        if (not DM.SelQ.IsEmpty) and (DM.SelQ.RecordCount = 1) then
+        begin
+          NewD.lookcombo_type.EditValue    := DM.SelQ.FieldByName('ft_id').Value;
+          NewD.lookcombo_subtype.EditValue := DM.SelQ.FieldByName('fst_id').Value;
+        end;
+      end;
+
+      if NewD.or_suplier > 0 then
+        NewD.lookcombo_suplier.EditValue := NewD.or_suplier;
+      if NewD.or_country > 0 then
+        NewD.lookcombo_country.EditValue := NewD.or_country;
+      if trim(NewD.or_gr) <> '' then
+        NewD.imcb_holtype.EditValue := StrToInt(trim(NewD.or_gr));
+
+      if trim(NewD.or_color) <> '' then
+      begin
+        DM.SelQ.Close;
+        DM.SelQ.SQL.Clear;
+        DM.SelQ.SQL.Add('SELECT col_id FROM h_colours where upper(hol_colour)=:p1');
+        DM.SelQ.ParamByName('p1').AsString := UpperCase(trim(NewD.or_color));
+        DM.SelQ.Open;
+        if not DM.SelQ.IsEmpty then
+          NewD.lookcombo_color.EditValue := DM.SelQ.FieldByName('col_id').Value
+        else
+        begin
+          DM.SelQ.Close;
+          DM.SelQ.SQL.Clear;
+          DM.SelQ.SQL.Add('SELECT col_id FROM colours where upper(colour)=:p1');
+          DM.SelQ.ParamByName('p1').AsString := UpperCase(trim(NewD.or_color));
+          DM.SelQ.Open;
+          if not DM.SelQ.IsEmpty then
+            NewD.lookcombo_color.EditValue := DM.SelQ.FieldByName('col_id').Value
+        end;
+      end;
+
+      NewD.ed_hcode.EditValue := NewD.or_kod + '.' + NewD.or_color + '.' + NewD.or_len;
+      if trim(NewD.or_spec) <> '' then NewD.ed_hcode.EditValue := NewD.ed_hcode.EditValue + '.' + NewD.or_spec;
+
+      NewD.cb_length.EditValue   := NewD.or_len;
+      NewD.ed_postname.EditValue := NewD.or_eng_full_name;
+      NewD.ed_remarks.EditValue  := NewD.or_mark;
+      NewD.ed_barcode.EditValue  := NewD.or_code;
+
+      if trim(NewD.or_kod) <> '' then
+      begin
+        DM.SelQ.Close;
+        DM.SelQ.SQL.Clear;
+        DM.SelQ.SQL.Add('SELECT fn_id FROM flower_name_translations where upper(name_code)=:p1 and id_departments=:p2 order by default_translation desc');
+        DM.SelQ.ParamByName('p1').AsString  := UpperCase(trim(NewD.or_kod));
+        DM.SelQ.ParamByName('p2').AsInteger := CUR_DEPT_ID;
+        DM.SelQ.Open;
+        if not DM.SelQ.IsEmpty then
+        begin
+          NewD.lookcombo_name.EditValue    := DM.SelQ.FieldByName('fn_id').Value;
+        end
+        else
+      end;
+
+
+      if trim(NewD.or_s20) <> '' then
+      begin
+        DM.SelQ.Close;
+        DM.SelQ.SQL.Clear;
+        DM.SelQ.SQL.Add('SELECT HS_ID, SPEC_CODE || '' '' || SPEC_NAME SPECIFICATION, NEED_TRANSLATION FROM HOL_SPECIFICATIONS WHERE SPEC_CODE=''S20'' ');
+        DM.SelQ.Open;
+        if not DM.SelQ.IsEmpty then
+        begin
+          NewD.imcb_spec.EditValue := DM.SelQ.Fields[0].AsInteger;
+          NewD.ed_translate.EditValue := trim(copy(NewD.or_s20,0,pos('CM',NewD.or_s20)-1));
+          NewD.SpeedButton3Click(nil);
+        end;
+      end;
+
+      if trim(NewD.or_s22) <> '' then
+      begin
+        DM.SelQ.Close;
+        DM.SelQ.SQL.Clear;
+        DM.SelQ.SQL.Add('SELECT HS_ID, SPEC_CODE || '' '' || SPEC_NAME SPECIFICATION, NEED_TRANSLATION FROM HOL_SPECIFICATIONS WHERE SPEC_CODE=''S22'' ');
+        DM.SelQ.Open;
+        if not DM.SelQ.IsEmpty then
+        begin
+          NewD.imcb_spec.EditValue := DM.SelQ.Fields[0].AsInteger;
+          NewD.ed_translate.EditValue := trim(copy(NewD.or_s22,0,pos('CM',NewD.or_s22)-1));
+          NewD.SpeedButton3Click(nil);
+        end;
+      end;
+
+      if trim(NewD.or_s25) <> '' then
+      begin
+        DM.SelQ.Close;
+        DM.SelQ.SQL.Clear;
+        DM.SelQ.SQL.Add('SELECT HS_ID, SPEC_CODE || '' '' || SPEC_NAME SPECIFICATION, NEED_TRANSLATION FROM HOL_SPECIFICATIONS WHERE SPEC_CODE=''S25'' ');
+        DM.SelQ.Open;
+        if not DM.SelQ.IsEmpty then
+        begin
+          NewD.imcb_spec.EditValue := DM.SelQ.Fields[0].AsInteger;
+          NewD.ed_translate.EditValue := trim(copy(NewD.or_s25,0,pos('CM',NewD.or_s25)-1));
+          NewD.SpeedButton3Click(nil);
+        end;
+      end;
+      NewD.OUT_ID := 0;
+
+
+      if (NewD.lookcombo_name.EditValue > 0)
+        and (NewD.lookcombo_type.EditValue > 0)
+        and (NewD.lookcombo_subtype.EditValue > 0)
+        and (NewD.lookcombo_country.EditValue > 0)
+        and (NewD.lookcombo_suplier.EditValue > 0)
+        and (NewD.lookcombo_color.EditValue > 0)
+        and (NewD.imcb_holtype.EditValue > 0)
+        and (NewD.lookcombo_type.EditValue > 0)
+        and (NewD.ed_barcode.EditValue <> '')
+        and (NewD.ed_postname.EditValue <> '')
+        and (NewD.ed_hcode.EditValue <> '')
+        and (NewD.or_remarks = '')
+      then
+      begin
+        NewD.BitBtn1Click(nil);
+      end else res := NewD.ShowModal;
+
+    end
+    else
+    begin
+}
       NewD.btnNomSearch.Visible := true;
       res := NewD.ShowModal;
       if ( res = mrOk) {and not isAutoLoad} then
@@ -1542,9 +1704,14 @@ begin
           DM.Nomenclature.Open
         else
           DM.Nomenclature.Refresh;
-        aCalcStat.Execute;
+//        cdsTranslate.RefreshRecord;
+//        CalcStat;
+//        DictView.Next;
       end;
+//    end;
 
+//      isAbort := ((res = mrAbort) and isAutoLoad);
+    
   finally
     NewD.Free;
     aUpdate.Tag := -1;

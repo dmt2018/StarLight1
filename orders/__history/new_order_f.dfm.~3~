@@ -4,7 +4,7 @@ object new_order: Tnew_order
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = '  '#1053#1086#1074#1099#1081' '#1079#1072#1082#1072#1079
-  ClientHeight = 441
+  ClientHeight = 428
   ClientWidth = 557
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -108,8 +108,8 @@ object new_order: Tnew_order
   object Label6: TLabel
     Left = 14
     Top = 231
-    Width = 306
-    Height = 16
+    Width = 204
+    Height = 42
     Caption = #1056#1072#1089#1087#1088#1077#1076#1077#1083#1077#1085#1080#1103' '#1076#1083#1103' '#1088#1072#1089#1095#1077#1090#1072' '#1087#1088#1077#1076#1099#1076#1091#1097#1077#1075#1086' '#1079#1072#1082#1072#1079#1072':'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -118,10 +118,11 @@ object new_order: Tnew_order
     Font.Pitch = fpFixed
     Font.Style = []
     ParentFont = False
+    WordWrap = True
   end
   object Panel2: TPanel
     Left = 0
-    Top = 408
+    Top = 395
     Width = 557
     Height = 33
     Align = alBottom
@@ -134,9 +135,6 @@ object new_order: Tnew_order
     TabOrder = 5
     ExplicitTop = 284
     ExplicitWidth = 368
-    DesignSize = (
-      555
-      31)
     object BitBtn1: TBitBtn
       Left = 6
       Top = 3
@@ -162,12 +160,11 @@ object new_order: Tnew_order
       NumGlyphs = 2
     end
     object BitBtn2: TBitBtn
-      Left = 377
+      Left = 186
       Top = 3
       Width = 171
       Height = 25
       Cursor = crHandPoint
-      Anchors = [akTop, akRight]
       Cancel = True
       Caption = #1047#1072#1082#1088#1099#1090#1100
       TabOrder = 1
@@ -261,10 +258,6 @@ object new_order: Tnew_order
     Properties.ListSource = DS_SUPPLIER
     ShowHint = True
     Style.BorderStyle = ebsOffice11
-    Style.LookAndFeel.NativeStyle = True
-    StyleDisabled.LookAndFeel.NativeStyle = True
-    StyleFocused.LookAndFeel.NativeStyle = True
-    StyleHot.LookAndFeel.NativeStyle = True
     TabOrder = 3
     Width = 324
   end
@@ -296,10 +289,10 @@ object new_order: Tnew_order
     Width = 324
   end
   object chlbInvoices: TcxCheckListBox
-    Left = 14
-    Top = 252
-    Width = 534
-    Height = 150
+    Left = 224
+    Top = 229
+    Width = 324
+    Height = 158
     Items = <
       item
         Text = 'fghfgh'

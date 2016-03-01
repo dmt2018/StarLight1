@@ -220,7 +220,6 @@ type
     N7: TMenuItem;
     mnSyncSelPriceList: TMenuItem;
     mnRollbackSync: TMenuItem;
-    chbUseSended: TDBCheckBox;
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn4Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
@@ -1183,10 +1182,9 @@ begin
       Begin
         Close;
         SQL.Clear;
-        SQL.Add('begin price_pkg.sync_ppli(:in_ppli_id, :use_sended); end;');
+        SQL.Add('begin price_pkg.sync_ppli(:in_ppli_id); end;');
         Prepare;
         ParamByName('IN_PPLI_ID').Value := DM.PPL_Index.fieldByName('PPLI_ID').Value;
-        ParamByName('use_sended').Value := BoolToInt(chbUseSended.Checked);
         Execute;
       End;
       DM.PPL.Refresh;

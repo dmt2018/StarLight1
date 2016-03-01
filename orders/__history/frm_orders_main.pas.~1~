@@ -250,7 +250,7 @@ begin
           new_order.DateTimePicker3.Value := DM.Q_ORDERSDATE_TRUCK_OUT.AsDateTime;
           new_order.lookcombo_suplier.EditValue := DM.Q_ORDERSS_ID.AsInteger;
           new_order.Memo1.Text := DM.Q_ORDERSINFO.AsString;
-          new_order.lcb_prices.Tag := DM.Q_ORDERSold_price.AsInteger;
+          new_order.lcb_prices.EditValue := DM.Q_ORDERSold_price.AsInteger;
           new_order.showmodal;
         finally
           new_order.Free;
