@@ -2550,7 +2550,7 @@ object PriceF: TPriceF
     end
     object aGetStatistic: TAction
       Caption = #1057#1090#1072#1090#1080#1089#1090#1080#1082#1072' '#1087#1086' '#1094#1077#1085#1072#1084
-      ShortCut = 16456
+      ShortCut = 16464
       OnExecute = aGetStatisticExecute
     end
   end
@@ -6260,7 +6260,7 @@ object PriceF: TPriceF
     object aSetPrice1: TMenuItem
       Action = aSetPrice
     end
-    object aSetPrice2: TMenuItem
+    object E1: TMenuItem
       Action = aSetPriceByOld
     end
     object N8: TMenuItem

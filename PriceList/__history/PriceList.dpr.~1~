@@ -21,8 +21,7 @@ uses
   UPriceArchive in 'UPriceArchive.pas' {frmPriceArchive},
   UChoiseType in 'UChoiseType.pas' {frm_choise_type},
   UClientList in 'UClientList.pas' {frmClientList},
-  UClientSale in 'UClientSale.pas' {frmClientSales},
-  UPriceStatistic in 'UPriceStatistic.pas' {frmPriceStatisitic};
+  UClientSale in 'UClientSale.pas' {frmClientSales};
 
 {$R *.res}
 

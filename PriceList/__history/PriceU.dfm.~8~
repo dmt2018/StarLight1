@@ -6260,7 +6260,7 @@ object PriceF: TPriceF
     object aSetPrice1: TMenuItem
       Action = aSetPrice
     end
-    object aSetPrice2: TMenuItem
+    object E1: TMenuItem
       Action = aSetPriceByOld
     end
     object N8: TMenuItem

@@ -221,11 +221,6 @@ type
     mnSyncSelPriceList: TMenuItem;
     mnRollbackSync: TMenuItem;
     chbUseSended: TDBCheckBox;
-    N8: TMenuItem;
-    aSetPrice2: TMenuItem;
-    aSetPriceByOld: TAction;
-    aGetStatistic: TAction;
-    N9: TMenuItem;
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn4Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
@@ -304,8 +299,6 @@ type
     procedure mnSyncCurPriceListClick(Sender: TObject);
     procedure mnSyncSelPriceListClick(Sender: TObject);
     procedure mnRollbackSyncClick(Sender: TObject);
-    procedure aSetPriceByOldExecute(Sender: TObject);
-    procedure aGetStatisticExecute(Sender: TObject);
   private
     path: string;
     is_sync: boolean;
@@ -327,8 +320,7 @@ var
 implementation
 
 uses DataModule, WhatToDoU, InvoChooseU, ChangeParamsU,
-  StockLoadOptsU, Globals, StartU, UStat, UOldPrice, UChoiseType, UClientList,
-  UPriceStatistic;
+  StockLoadOptsU, Globals, StartU, UStat, UOldPrice, UChoiseType, UClientList;
 
 {$R *.dfm}
 
@@ -706,7 +698,6 @@ begin
 
     mnSamePriceBy.Enabled := false;
     aSetPrice.Enabled := false;
-    aSetPriceByOld.Enabled := false;
     aSpecDeal.Enabled := false;
     aBestPrice.Enabled := false;
     aClearPriznak.Enabled := false;
@@ -1324,32 +1315,15 @@ end;
 //  Установка единой цены на торар по критерию ---------------------------------
 //
 
-// Установка общей цены для выбранных записей по предыдущей цене
-procedure TPriceF.aSetPriceByOldExecute(Sender: TObject);
-var price: real;
-begin
-  price := LAST_PRICE.EditValue;
-  if (pnlPrice.Visible = false) then
-  begin
-    pnlPrice.Left    := trunc(Panel1.Width / 2) - 90;
-    pnlPrice.Top     := trunc(Panel1.Height / 2) - 20;
-    pnlPrice.Visible := true;
-    te_price.EditValue := price;
-    te_price.SetFocus;
-  end;
-end;
-
 // Установка общей цены для выбранных записей
 procedure TPriceF.aSetPriceExecute(Sender: TObject);
-var price: real;
 begin
-  price := FINAL_PRICE.EditValue;
   if (pnlPrice.Visible = false) then
   begin
     pnlPrice.Left    := trunc(Panel1.Width / 2) - 90;
     pnlPrice.Top     := trunc(Panel1.Height / 2) - 20;
     pnlPrice.Visible := true;
-    te_price.EditValue := price;
+    te_price.EditValue := FINAL_PRICE.EditValue;
     te_price.SetFocus;
   end;
 end;
@@ -1656,32 +1630,15 @@ begin
     if frm_choise_type.ShowModal = mrOk then
     begin
        grid_pplView1.DataController.Filter.Clear;
+//       if var_ = 1 then
       grid_pplView1F_TYPE.DataBinding.AddToFilter(nil, foEqual, frm_choise_type.Q_FLOWER_TYPEF_TYPE.AsString);
+//       else
+//         grid.FieldColumns['F_SUB_TYPE'].STFilter.ExpressionStr := frm_choise_type.Q_FLOWER_TYPEF_TYPE.AsString;
        grid_pplView1.DataController.Filter.Active := True;
        grid_ppl.SetFocus;
     end;
   end;
 end;
-
-
-// Статистика по ценам
-procedure TPriceF.aGetStatisticExecute(Sender: TObject);
-begin
-  if (Panel_fill.Visible = false) then
-  begin
-    frmPriceStatisitic := TfrmPriceStatisitic.Create(Application);
-    frmPriceStatisitic.qPriceHistory.ParamByName('p_n_id').AsInteger := DM.PPLN_ID.AsInteger;
-    frmPriceStatisitic.qPriceHistory.Open;
-    frmPriceStatisitic.Panel2.Caption := VarToStr(grid_pplView1COMPILED_NAME_OTDEL.EditValue);
-    if frmPriceStatisitic.ShowModal = mrOk then
-    begin
-      frmPriceStatisitic.qPriceHistory.Close;
-      grid_ppl.SetFocus;
-    end;
-  end;
-
-end;
-
 
 
 // Подгрузим в цены предыдущие цены инвойса

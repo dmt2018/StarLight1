@@ -222,7 +222,7 @@ type
     mnRollbackSync: TMenuItem;
     chbUseSended: TDBCheckBox;
     N8: TMenuItem;
-    aSetPrice2: TMenuItem;
+    E1: TMenuItem;
     aSetPriceByOld: TAction;
     aGetStatistic: TAction;
     N9: TMenuItem;
@@ -706,7 +706,6 @@ begin
 
     mnSamePriceBy.Enabled := false;
     aSetPrice.Enabled := false;
-    aSetPriceByOld.Enabled := false;
     aSpecDeal.Enabled := false;
     aBestPrice.Enabled := false;
     aClearPriznak.Enabled := false;
@@ -1672,11 +1671,14 @@ begin
     frmPriceStatisitic := TfrmPriceStatisitic.Create(Application);
     frmPriceStatisitic.qPriceHistory.ParamByName('p_n_id').AsInteger := DM.PPLN_ID.AsInteger;
     frmPriceStatisitic.qPriceHistory.Open;
-    frmPriceStatisitic.Panel2.Caption := VarToStr(grid_pplView1COMPILED_NAME_OTDEL.EditValue);
     if frmPriceStatisitic.ShowModal = mrOk then
     begin
       frmPriceStatisitic.qPriceHistory.Close;
-      grid_ppl.SetFocus;
+
+//       grid_pplView1.DataController.Filter.Clear;
+//      grid_pplView1F_TYPE.DataBinding.AddToFilter(nil, foEqual, frm_choise_type.Q_FLOWER_TYPEF_TYPE.AsString);
+//       grid_pplView1.DataController.Filter.Active := True;
+       grid_ppl.SetFocus;
     end;
   end;
 

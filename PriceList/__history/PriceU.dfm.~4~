@@ -2548,11 +2548,6 @@ object PriceF: TPriceF
       Caption = #1059#1089#1090#1072#1085#1086#1074#1080#1090#1100' '#1077#1076#1080#1085#1091#1102' '#1094#1077#1085#1091' '#1087#1086' '#1074#1099#1076#1077#1083#1077#1085#1085#1099#1084' '#1082#1072#1082' '#1087#1088#1077#1076#1099#1076#1091#1097#1091#1102
       OnExecute = aSetPriceByOldExecute
     end
-    object aGetStatistic: TAction
-      Caption = #1057#1090#1072#1090#1080#1089#1090#1080#1082#1072' '#1087#1086' '#1094#1077#1085#1072#1084
-      ShortCut = 16456
-      OnExecute = aGetStatisticExecute
-    end
   end
   object SaveDialog1: TSaveDialog
     DefaultExt = 'xls'
@@ -6260,7 +6255,7 @@ object PriceF: TPriceF
     object aSetPrice1: TMenuItem
       Action = aSetPrice
     end
-    object aSetPrice2: TMenuItem
+    object E1: TMenuItem
       Action = aSetPriceByOld
     end
     object N8: TMenuItem
@@ -6275,9 +6270,6 @@ object PriceF: TPriceF
     end
     object N5: TMenuItem
       Action = aOrderStat
-    end
-    object N9: TMenuItem
-      Action = aGetStatistic
     end
     object N4: TMenuItem
       Caption = '-'

@@ -220,6 +220,11 @@ type
     N7: TMenuItem;
     mnSyncSelPriceList: TMenuItem;
     mnRollbackSync: TMenuItem;
+    chbUseSended: TDBCheckBox;
+    N8: TMenuItem;
+    E1: TMenuItem;
+    aSetPriceByOld: TAction;
+    aGetStatistic: TAction;
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn4Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
@@ -298,6 +303,8 @@ type
     procedure mnSyncCurPriceListClick(Sender: TObject);
     procedure mnSyncSelPriceListClick(Sender: TObject);
     procedure mnRollbackSyncClick(Sender: TObject);
+    procedure aSetPriceByOldExecute(Sender: TObject);
+    procedure aGetStatisticExecute(Sender: TObject);
   private
     path: string;
     is_sync: boolean;
@@ -1182,9 +1189,10 @@ begin
       Begin
         Close;
         SQL.Clear;
-        SQL.Add('begin price_pkg.sync_ppli(:in_ppli_id); end;');
+        SQL.Add('begin price_pkg.sync_ppli(:in_ppli_id, :use_sended); end;');
         Prepare;
         ParamByName('IN_PPLI_ID').Value := DM.PPL_Index.fieldByName('PPLI_ID').Value;
+        ParamByName('use_sended').Value := BoolToInt(chbUseSended.Checked);
         Execute;
       End;
       DM.PPL.Refresh;
@@ -1313,15 +1321,32 @@ end;
 //  Установка единой цены на торар по критерию ---------------------------------
 //
 
-// Установка общей цены для выбранных записей
-procedure TPriceF.aSetPriceExecute(Sender: TObject);
+// Установка общей цены для выбранных записей по предыдущей цене
+procedure TPriceF.aSetPriceByOldExecute(Sender: TObject);
+var price: real;
 begin
+  price := LAST_PRICE.EditValue;
   if (pnlPrice.Visible = false) then
   begin
     pnlPrice.Left    := trunc(Panel1.Width / 2) - 90;
     pnlPrice.Top     := trunc(Panel1.Height / 2) - 20;
     pnlPrice.Visible := true;
-    te_price.EditValue := FINAL_PRICE.EditValue;
+    te_price.EditValue := price;
+    te_price.SetFocus;
+  end;
+end;
+
+// Установка общей цены для выбранных записей
+procedure TPriceF.aSetPriceExecute(Sender: TObject);
+var price: real;
+begin
+  price := FINAL_PRICE.EditValue;
+  if (pnlPrice.Visible = false) then
+  begin
+    pnlPrice.Left    := trunc(Panel1.Width / 2) - 90;
+    pnlPrice.Top     := trunc(Panel1.Height / 2) - 20;
+    pnlPrice.Visible := true;
+    te_price.EditValue := price;
     te_price.SetFocus;
   end;
 end;
@@ -1628,15 +1653,39 @@ begin
     if frm_choise_type.ShowModal = mrOk then
     begin
        grid_pplView1.DataController.Filter.Clear;
-//       if var_ = 1 then
       grid_pplView1F_TYPE.DataBinding.AddToFilter(nil, foEqual, frm_choise_type.Q_FLOWER_TYPEF_TYPE.AsString);
-//       else
-//         grid.FieldColumns['F_SUB_TYPE'].STFilter.ExpressionStr := frm_choise_type.Q_FLOWER_TYPEF_TYPE.AsString;
        grid_pplView1.DataController.Filter.Active := True;
        grid_ppl.SetFocus;
     end;
   end;
 end;
+
+
+// Статистика по ценам
+procedure TPriceF.aGetStatisticExecute(Sender: TObject);
+begin
+  if (Panel_fill.Visible = false) then
+  begin
+    frm_choise_type := Tfrm_choise_type.Create(Application);
+    frm_choise_type.qPriceHistory.ParamByName('p_n_id').AsInteger := DM.PPLN_ID.AsInteger;
+    frm_choise_type.qPriceHistory.Open;
+    frm_choise_type.grid_ucView.DataController.DataSource := frm_choise_type.cdsPriceHistory;
+//    frm_choise_type.Q_FLOWER_TYPE.ParamByName('ID_DEP_').AsInteger := StrToInt(CUR_DEPT_ID);
+//    frm_choise_type.Q_FLOWER_TYPE.ParamByName('VAR_').AsInteger := 1; //var_;
+//    frm_choise_type.Q_FLOWER_TYPE.Open;
+    if frm_choise_type.ShowModal = mrOk then
+    begin
+      frm_choise_type.qPriceHistory.Close;
+
+//       grid_pplView1.DataController.Filter.Clear;
+//      grid_pplView1F_TYPE.DataBinding.AddToFilter(nil, foEqual, frm_choise_type.Q_FLOWER_TYPEF_TYPE.AsString);
+//       grid_pplView1.DataController.Filter.Active := True;
+       grid_ppl.SetFocus;
+    end;
+  end;
+
+end;
+
 
 
 // Подгрузим в цены предыдущие цены инвойса

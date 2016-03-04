@@ -222,7 +222,7 @@ type
     mnRollbackSync: TMenuItem;
     chbUseSended: TDBCheckBox;
     N8: TMenuItem;
-    aSetPrice2: TMenuItem;
+    E1: TMenuItem;
     aSetPriceByOld: TAction;
     aGetStatistic: TAction;
     N9: TMenuItem;
@@ -706,7 +706,6 @@ begin
 
     mnSamePriceBy.Enabled := false;
     aSetPrice.Enabled := false;
-    aSetPriceByOld.Enabled := false;
     aSpecDeal.Enabled := false;
     aBestPrice.Enabled := false;
     aClearPriznak.Enabled := false;
