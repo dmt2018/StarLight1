@@ -1385,12 +1385,18 @@ begin
         id_ := DM.OraProc.ParamByName('id_').AsInteger;
         if id_ > 0 then
         begin
+          DM.SelQ.Close;
+          DM.SelQ.SQL.Clear;
+          DM.SelQ.SQL.Add('update ORDERS_CLIENTS set INFO='''+ SP_COMMENTS +''' where ID_ORDERS_CLIENTS='+intToStr(id_));
+          DM.SelQ.Execute;
+          DM.SelQ.Close;
+        
           DM.OraProc.Params.Clear;
           DM.OraProc.StoredProcName := 'SALES_PKG.RESERV_DATA';
           DM.OraProc.Prepare;
           DM.OraProc.ParamByName('ID_ORDERS_CLIENTS_').AsInteger := id_;
           DM.OraProc.Execute;
- DM.sale_session.Commit;
+          DM.sale_session.Commit;
           MessageBox(Handle, 'Операция прошла успешно!', 'Результат', MB_ICONINFORMATION);
             try
                aGetReserv.Execute;

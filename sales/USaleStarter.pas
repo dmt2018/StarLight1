@@ -721,6 +721,14 @@ begin
           DM.OraProc.ParamByName('ID_ORDERS_CLIENTS_').AsInteger := id_;
           DM.OraProc.Execute;
 
+          DM.SelQ.Close;
+          DM.SelQ.SQL.Clear;
+          DM.SelQ.SQL.Add('update ORDERS_CLIENTS set INFO='''+ SP_COMMENTS +''' where ID_ORDERS_CLIENTS='+intToStr(id_));
+          DM.SelQ.Execute;
+          DM.SelQ.Close;
+
+          DM.sale_session.Commit;
+
  	  	    if MessageDlg('Вы хотите распечатать резерв?',mtConfirmation,[mbYes, mbNo],0) = mrYes then
   			  begin
             try

@@ -491,7 +491,6 @@ object storeViewForm: TstoreViewForm
       FilterRow.InfoText = #1055#1086#1083#1077' '#1076#1083#1103' '#1091#1089#1090#1072#1085#1086#1074#1082#1080' '#1092#1080#1083#1100#1090#1088#1086#1074
       FilterRow.Visible = True
       OptionsBehavior.CellHints = True
-      OptionsCustomize.ColumnMoving = False
       OptionsData.CancelOnExit = False
       OptionsData.Deleting = False
       OptionsData.DeletingConfirmation = False
@@ -740,10 +739,11 @@ object storeViewForm: TstoreViewForm
         Options.FilteringPopupMultiSelect = False
       end
       object grid_sview_vCOLOUR: TcxGridDBColumn
+        Caption = #1062#1074#1077#1090
         DataBinding.FieldName = 'COLOUR'
-        Visible = False
         Options.FilteringPopup = False
         Options.FilteringPopupMultiSelect = False
+        Width = 120
       end
       object grid_sview_vFT_ID: TcxGridDBColumn
         DataBinding.FieldName = 'FT_ID'

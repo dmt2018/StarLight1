@@ -27,6 +27,7 @@ type
     DBCheckBoxEh1: TDBCheckBoxEh;
     Label4: TLabel;
     cbOffices: TcxImageComboBox;
+    ButtonStat: TSpeedButton;
     procedure BitBtn13Click(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
@@ -35,6 +36,7 @@ type
     procedure DBCheckBoxEh1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure cbOfficesPropertiesChange(Sender: TObject);
+    procedure ButtonStatClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -55,7 +57,7 @@ var
 implementation
 
 uses Globals, frm_DM, frm_formula_main, frm_orders_main,
-  buttons_for;
+  buttons_for, prod_stat_f;
 
 {$R *.dfm}
 
@@ -232,6 +234,16 @@ begin
   DBCheckBoxEh1.Checked := S;
 end;
 
+// Открываем статистику
+procedure Tfirst_dialog_frm.ButtonStatClick(Sender: TObject);
+begin
+  frm_prod_stat := Tfrm_prod_stat.Create(Application);
+  try
+    frm_prod_stat.showmodal;
+  finally
+    frm_prod_stat.free;
+  end;
+end;
 
 procedure Tfirst_dialog_frm.cbOfficesPropertiesChange(Sender: TObject);
 begin

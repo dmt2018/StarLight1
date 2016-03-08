@@ -34,7 +34,8 @@ uses
   ULoadOldOrder in 'ULoadOldOrder.pas' {frmOldOrder},
   UExportDBF in 'UExportDBF.pas' {frmLoadFromDBF},
   NewDict in 'NewDict.pas' {NewD},
-  UClientList in 'UClientList.pas' {frmClientList};
+  UClientList in 'UClientList.pas' {frmClientList},
+  prod_stat_f in 'prod_stat_f.pas' {frm_prod_stat};
 
 {$R *.res}
 
