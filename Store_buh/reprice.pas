@@ -495,8 +495,10 @@ begin
       else
       begin
         DM.OraSession.RollbackToSavepoint('Begin_Doc_Edit');
-        exit;
+        //exit;
       end;
+      Treprice_edit_form(theForm).DOC.Close;
+      Treprice_edit_form(theForm).doc_data.Close;
       theForm.Free;
     end;
   end;

@@ -37,7 +37,6 @@ object first_dialog_frm: Tfirst_dialog_frm
     ParentCtl3D = False
     ParentFont = False
     TabOrder = 0
-    ExplicitWidth = 521
     object Label5: TLabel
       Left = 10
       Top = 43
@@ -130,7 +129,6 @@ object first_dialog_frm: Tfirst_dialog_frm
     Font.Style = []
     ParentFont = False
     TabOrder = 1
-    ExplicitWidth = 521
     object SpeedButton1: TSpeedButton
       Left = 3
       Top = 10
@@ -408,7 +406,6 @@ object first_dialog_frm: Tfirst_dialog_frm
     ParentBackground = False
     ParentFont = False
     TabOrder = 2
-    ExplicitWidth = 521
     DesignSize = (
       682
       33)
@@ -437,7 +434,6 @@ object first_dialog_frm: Tfirst_dialog_frm
         0333337F377777337F333301111111110333337F333333337F33330111111111
         0333337FFFFFFFFF7F3333000000000003333377777777777333}
       NumGlyphs = 2
-      ExplicitLeft = 347
     end
     object DBCheckBoxEh1: TDBCheckBoxEh
       Left = 10

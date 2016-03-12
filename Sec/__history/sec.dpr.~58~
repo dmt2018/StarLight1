@@ -1,0 +1,51 @@
+program sec;
+
+uses
+  Forms,
+  StarLibrary,
+  Globals in 'Globals.pas',
+  UClientOrder in 'UClientOrder.pas' {frmClientOrders};
+
+{$R *.res}
+
+begin
+
+  CheckStarParams(ed,del,pr,add,Username,Password,ora_db_path,INPUT_DEPT_ID);
+
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  //Application.Title := 'Ќќ¬јя ѕечать клиентских заказов';
+
+
+  //не нужнны функции
+  Application.CreateForm(TfrmClientOrders, frmClientOrders);
+  frmClientOrders.edit := ed;
+  frmClientOrders.delete := del;
+  frmClientOrders.print := pr;
+  frmClientOrders.addit := add;
+
+  frmClientOrders.Main_session.Username := username;
+  frmClientOrders.Main_session.Password := Password;
+  frmClientOrders.Main_session.Server := ora_db_path;
+  frmClientOrders.DeptID := INPUT_DEPT_ID;
+
+  frmClientOrders.Main_session.Connect;
+
+{
+// сначала хотел перенести main session на отдель форму:
+ // но лучше в событие Main_sessionAfterConnect - срабатывание после коннекта
+  Application.CreateForm(TForm1, Form1);
+
+  Form1.OraSession1.Username := username;
+  Form1.OraSession1.Password := Password;
+  Form1.OraSession1.Server := ora_db_path;
+  Form1.DeptID := DeptID;
+
+  Form1.OraSession1.Connect;
+}
+
+
+  Application.Run;
+
+
+end.

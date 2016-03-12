@@ -3,7 +3,7 @@ object frm_prod_stat: Tfrm_prod_stat
   Top = 177
   Caption = '  '#1057#1090#1072#1090#1080#1089#1090#1080#1082#1072
   ClientHeight = 565
-  ClientWidth = 909
+  ClientWidth = 918
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,7 +21,7 @@ object frm_prod_stat: Tfrm_prod_stat
   object top_panel: TPanel
     Left = 0
     Top = 0
-    Width = 909
+    Width = 918
     Height = 185
     Align = alTop
     Font.Charset = DEFAULT_CHARSET
@@ -34,6 +34,7 @@ object frm_prod_stat: Tfrm_prod_stat
     ParentFont = False
     TabOrder = 0
     TabStop = True
+    ExplicitWidth = 909
     object Label2: TLabel
       Left = 13
       Top = 45
@@ -388,28 +389,117 @@ object frm_prod_stat: Tfrm_prod_stat
       TabOrder = 0
       Width = 195
     end
+    object grStatClients: TDBGridEh
+      Left = 662
+      Top = 1
+      Width = 255
+      Height = 183
+      Align = alRight
+      Anchors = [akLeft, akTop, akRight, akBottom]
+      AutoFitColWidths = True
+      Ctl3D = False
+      DataGrouping.GroupLevels = <>
+      DataSource = DM.Q_CLIENTS_DS
+      Flat = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = []
+      FooterColor = clCream
+      FooterFont.Charset = DEFAULT_CHARSET
+      FooterFont.Color = clWindowText
+      FooterFont.Height = -13
+      FooterFont.Name = 'MS Sans Serif'
+      FooterFont.Pitch = fpFixed
+      FooterFont.Style = []
+      FooterRowCount = 1
+      Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+      OptionsEh = [dghFixed3D, dghHighlightFocus, dghClearSelection, dghAutoSortMarking, dghMultiSortMarking, dghRowHighlight, dghDialogFind, dghColumnResize, dghColumnMove]
+      ParentCtl3D = False
+      ParentFont = False
+      RowDetailPanel.Color = clBtnFace
+      STFilter.Local = True
+      STFilter.Visible = True
+      SumList.Active = True
+      TabOrder = 13
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -13
+      TitleFont.Name = 'Arial'
+      TitleFont.Pitch = fpFixed
+      TitleFont.Style = [fsBold]
+      Columns = <
+        item
+          Checkboxes = True
+          EditButtons = <>
+          FieldName = 'CHECKED'
+          Footers = <>
+          MaxWidth = 30
+          MinWidth = 30
+          Title.Alignment = taCenter
+          Title.Caption = '::'
+          Width = 30
+        end
+        item
+          AutoFitColWidth = False
+          EditButtons = <>
+          FieldName = 'NICK'
+          Footer.Alignment = taRightJustify
+          Footer.ValueType = fvtCount
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = #1050#1086#1076
+          Title.TitleButton = True
+          Width = 75
+        end
+        item
+          EditButtons = <>
+          FieldName = 'FIO'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = #1060#1048#1054' \ '#1085#1072#1079#1074#1072#1085#1080#1077
+          Title.TitleButton = True
+          Width = 194
+        end
+        item
+          AutoFitColWidth = False
+          EditButtons = <>
+          FieldName = 'REGIONS_NAME'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = #1056#1077#1075#1080#1086#1085
+          Title.TitleButton = True
+          Width = 188
+        end>
+      object RowDetailData: TRowDetailPanelControlEh
+      end
+    end
   end
   object params_panel: TPanel
     Left = 0
     Top = 185
-    Width = 909
+    Width = 918
     Height = 60
     Align = alTop
     TabOrder = 1
     TabStop = True
+    ExplicitWidth = 909
     object bdc_main: TdxBarDockControl
       Left = 1
       Top = 1
-      Width = 907
+      Width = 916
       Height = 60
       Align = dalTop
       BarManager = bm_main
+      ExplicitWidth = 907
     end
   end
   object pc_main: TcxPageControl
     Left = 0
     Top = 245
-    Width = 909
+    Width = 918
     Height = 320
     ActivePage = tch_graph
     Align = alClient
@@ -424,17 +514,19 @@ object frm_prod_stat: Tfrm_prod_stat
     ParentFont = False
     TabHeight = 25
     TabOrder = 6
+    ExplicitWidth = 909
     ClientRectBottom = 316
     ClientRectLeft = 4
-    ClientRectRight = 905
+    ClientRectRight = 914
     ClientRectTop = 31
     object tch_graph: TcxTabSheet
       Caption = ' '#1043#1088#1072#1092#1080#1082' '
       ImageIndex = 0
+      ExplicitWidth = 901
       object chart_client_stat: TChart
         Left = 0
         Top = 0
-        Width = 901
+        Width = 910
         Height = 285
         AllowPanning = pmNone
         BackWall.Brush.Color = clWhite
@@ -455,6 +547,7 @@ object frm_prod_stat: Tfrm_prod_stat
         BevelOuter = bvNone
         TabOrder = 0
         AutoSize = True
+        ExplicitWidth = 901
         object Series1: TFastLineSeries
           Active = False
           Marks.Callout.Brush.Color = clBlack
@@ -483,15 +576,17 @@ object frm_prod_stat: Tfrm_prod_stat
     object tsh_data: TcxTabSheet
       Caption = ' '#1058#1072#1073#1083#1080#1094#1072' '#1086#1073#1097#1072#1103' '
       ImageIndex = 1
+      ExplicitWidth = 901
       object gr_data: TcxGrid
         Left = 0
         Top = 0
-        Width = 901
+        Width = 910
         Height = 285
         Align = alClient
         TabOrder = 0
         LookAndFeel.Kind = lfOffice11
         LookAndFeel.NativeStyle = False
+        ExplicitWidth = 901
         object gr_data_v: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
           DataController.DataSource = DS_STAT
@@ -578,15 +673,17 @@ object frm_prod_stat: Tfrm_prod_stat
     object tch_noms: TcxTabSheet
       Caption = ' '#1058#1072#1073#1083#1080#1094#1072' '#1087#1086' '#1090#1086#1074#1072#1088#1091' '
       ImageIndex = 2
+      ExplicitWidth = 901
       object gr_noms: TcxGrid
         Left = 0
         Top = 0
-        Width = 901
+        Width = 910
         Height = 285
         Align = alClient
         TabOrder = 0
         LookAndFeel.Kind = lfOffice11
         LookAndFeel.NativeStyle = False
+        ExplicitWidth = 901
         object gr_noms_v: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
           DataController.DataSource = DS_STAT2
@@ -934,7 +1031,7 @@ object frm_prod_stat: Tfrm_prod_stat
     Left = 832
     Top = 144
     Bitmap = {
-      494C0101200024001C0020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010120002400200020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002001000001002000000000000040
       0200000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

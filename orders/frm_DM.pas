@@ -350,6 +350,7 @@ type
     q_raznosREMARKS_TMP: TStringField;
     Q_ORDERSOLD_PRICE: TIntegerField;
     Q_ORDERS_ORDERSPRIORITY: TIntegerField;
+    Q_CLIENTSCHECKED: TFloatField;
     procedure Main_sessionAfterConnect(Sender: TObject);
     procedure Q_ORDERS_LIST_OLDAfterPost(DataSet: TDataSet);
     procedure Q_ORDERS_LISTBeforePost(DataSet: TDataSet);

@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{6ed627e6-90e0-45fd-9b28-fcd84b760461}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+    <DCC_DependencyCheckOutputName>sec.exe</DCC_DependencyCheckOutputName>
+    <MainSource>sec.dpr</MainSource>
+    <DCC_UsePackage>vclx;vcl;dbrtl;Rave75VCL;bdertl;rtl;vclactnband;vcldb;vcldbx;dsnap;dsnapcon;teeUI;teedb;tee;adortl;vclib;ibxpress;dbxcds;dbexpress;DbxCommonDriver;IndyCore;IndySystem;IndyProtocols;VclSmp;vclie;websnap;webdsnap;xmlrtl;inet;inetdbbde;inetdbxpress;soaprtl;fs11;frx11;fsDB11;frxDB11;fsBDE11;frxBDE11;fsADO11;frxADO11;fsIBX11;frxIBX11;frxe11;fsTee11;frxTee11;EhLib110;EhLibDataDrivers110;odacvcl105;odac105;dacvcl105;dac105;IntrawebDB_90_100;Intraweb_90_100;dxGDIPlusD11;cxLibraryD11;dxsbD11;dxComnD11;cxEditorsD11;dxThemeD11;cxDataD11;cxExtEditorsD11;cxPageControlD11;cxBarEditItemD11;dxBarD11;dxBarDBNavD11;dxBarExtDBItemsD11;dxBarExtItemsD11;dxRibbonD11;cxGridD11;cxSchedulerD11;cxTreeListD11;cxVerticalGridD11;cxPivotGridD11;cxSpreadSheetD11;dxDockingD11;dxNavBarD11;dxLayoutControlD11;dxLayoutControlcxEditAdaptersD11;dxMasterViewD11;dxmdsD11;dxdbtrD11;dxtrmdD11;dxorgcD11;dxdborD11;dxFlowChartD11;dxPSCoreD11;dxPSLnksD11;vclshlctrls;dxPScxCommonD11;dxPScxGrid6LnkD11;dxPScxPCProdD11;dxPScxPivotGridLnkD11;dxPScxScheduler2LnkD11;dxPScxSSLnkD11;dxPScxTLLnkD11;dxPScxVGridLnkD11;dxPSTeeChartD11;dxPSdxOCLnkD11;dxPSdxDBTVLnkD11;dxPSdxFCLnkD11;dxPSdxLCLnkD11;dxPSdxMVLnkD11;dxPSdxDBOCLnkD11;dxPScxExtCommonD11;dxPsPrVwAdvD11;dxPSDBTeeChartD11</DCC_UsePackage>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_DebugInformation>False</DCC_DebugInformation>
+    <DCC_LocalDebugSymbols>False</DCC_LocalDebugSymbols>
+    <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+    <DCC_Define>RELEASE</DCC_Define>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_Define>DEBUG</DCC_Define>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Delphi.Personality</Borland.Personality>
+    <Borland.ProjectType />
+    <BorlandProject>
+<BorlandProject><Delphi.Personality><Parameters><Parameters Name="UseLauncher">False</Parameters><Parameters Name="LoadAllSymbols">True</Parameters><Parameters Name="LoadUnspecifiedSymbols">False</Parameters><Parameters Name="RunParams">-l eva -p 123 -d klepov:1521:STARNEW -e -t -k -a -otd 62</Parameters></Parameters><VersionInfo><VersionInfo Name="IncludeVerInfo">True</VersionInfo><VersionInfo Name="AutoIncBuild">False</VersionInfo><VersionInfo Name="MajorVer">1</VersionInfo><VersionInfo Name="MinorVer">0</VersionInfo><VersionInfo Name="Release">0</VersionInfo><VersionInfo Name="Build">8</VersionInfo><VersionInfo Name="Debug">False</VersionInfo><VersionInfo Name="PreRelease">False</VersionInfo><VersionInfo Name="Special">False</VersionInfo><VersionInfo Name="Private">False</VersionInfo><VersionInfo Name="DLL">False</VersionInfo><VersionInfo Name="Locale">1049</VersionInfo><VersionInfo Name="CodePage">1251</VersionInfo></VersionInfo><VersionInfoKeys><VersionInfoKeys Name="CompanyName"></VersionInfoKeys><VersionInfoKeys Name="FileDescription"></VersionInfoKeys><VersionInfoKeys Name="FileVersion">1.0.0.8</VersionInfoKeys><VersionInfoKeys Name="InternalName"></VersionInfoKeys><VersionInfoKeys Name="LegalCopyright"></VersionInfoKeys><VersionInfoKeys Name="LegalTrademarks"></VersionInfoKeys><VersionInfoKeys Name="OriginalFilename"></VersionInfoKeys><VersionInfoKeys Name="ProductName"></VersionInfoKeys><VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys><VersionInfoKeys Name="Comments"></VersionInfoKeys></VersionInfoKeys><Excluded_Packages>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <Excluded_Packages Name="$(BDS)\bin\dcloffice2k100.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+      <Excluded_Packages Name="$(BDS)\bin\dclofficexp100.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+    </Excluded_Packages><Source><Source Name="MainSource">sec.dpr</Source></Source></Delphi.Personality></BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Import Project="$(MSBuildBinPath)\Borland.Delphi.Targets" />
+  <ItemGroup>
+    <DelphiCompile Include="sec.dpr">
+      <MainSource>MainSource</MainSource>
+    </DelphiCompile>
+    <DCCReference Include="Globals.pas" />
+    <DCCReference Include="UClientOrder.pas">
+      <Form>frmClientOrders</Form>
+    </DCCReference>
+    <DCCReference Include="Unit1.pas">
+      <Form>Form1</Form>
+    </DCCReference>
+  </ItemGroup>
+</Project>

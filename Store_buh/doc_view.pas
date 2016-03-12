@@ -416,7 +416,6 @@ begin
           OraQuery.ParamByName('BEZNDSMINUS_').Value      := BoolToInt(TDocNewForm(theForm).chbMinusNDS.Checked);
           OraQuery.ParamByName('BEZNDS_').Value           := BoolToInt(TDocNewForm(theForm).chbWithoutNDS.Checked);
           OraQuery.ParamByName('id_').Value               := id_root;
-
           OraQuery.ExecSQL;
           DM.OraSession.Commit;
 
@@ -429,8 +428,10 @@ begin
       else
       begin
         DM.OraSession.RollbackToSavepoint('Begin_Doc_Edit');
-        exit;
+        //exit;
       end;
+      TDocNewForm(theForm).DOC.Close;
+      TDocNewForm(theForm).doc_data.Close;
       theForm.Free;
     end; // if (DOC.RecordCount = 0) then
   end; //if (DataM.Operator_edit <> 1) then

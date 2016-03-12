@@ -12,7 +12,8 @@ uses
   cxFilter, cxData, cxDataStorage, cxDBData, cxCurrencyEdit,
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGridLevel,
   cxGridCustomView, cxGrid, cxPC, ExtDlgs, cxGridExportLink, cxCheckBox,
-  cxBarEditItem, cxImageComboBox, PI_Library_reg;
+  cxBarEditItem, cxImageComboBox, PI_Library_reg, DBGridEhGrouping, GridsEh,
+  DBGridEh;
 
 type
   Tfrm_prod_stat = class(TForm)
@@ -110,6 +111,7 @@ type
     cxGridDBColumn3: TcxGridDBColumn;
     cxGridDBColumn4: TcxGridDBColumn;
     gr_noms_l: TcxGridLevel;
+    grStatClients: TDBGridEh;
     procedure DBComboBoxEh1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure aSearchExecute(Sender: TObject);
@@ -122,6 +124,7 @@ type
   private
     { Private declarations }
   public
+    function collect_clients: string;
     { Public declarations }
   end;
 
@@ -176,6 +179,11 @@ begin
     FillComboOlmer(DM.Q_SQL, Store_DepsCBEx, '');
     Store_DepsCBEx.OnChange := Store_DepsCBExChange;
     Store_DepsCBEx.Value := DM.DeptID;
+
+    grStatClients.ClearFilter;
+    grStatClients.ApplyFilter;
+    grStatClients.SetFocus;
+
 {
     CDS_TYPES.Close;
     CDS_SUBTYPES.Close;
@@ -229,6 +237,7 @@ end;
 
 // Вывод статистики
 procedure Tfrm_prod_stat.aSearchExecute(Sender: TObject);
+var cl_str: string;
 begin
   Doc_DateTimePicker1.PostEditValue;
   Doc_DateTimePicker2.PostEditValue;
@@ -250,7 +259,7 @@ begin
       exit;
   end;
 
-
+  cl_str := collect_clients;
   with CDS_STAT do
   begin
     Close;
@@ -271,7 +280,7 @@ begin
       ParamByName('id_fst_').Value := cb_subtype.EditValue;
 
     ParamByName('vid_').Value      := 1; //rg_stat_vid.ItemIndex + 1;
-    ParamByName('razbiv_').Value   := RadioGroup1.ItemIndex;
+    ParamByName('razbiv_').AsString   := cl_str;
     ParamByName('v_office').AsInteger := cbOffices.EditValue; // DM.DeptID;
     ParamByName('cursor_').AsCursor;
     Open;
@@ -298,7 +307,7 @@ begin
       ParamByName('id_fst_').Value := cb_subtype.EditValue;
 
     ParamByName('vid_').Value      := 2; //rg_stat_vid.ItemIndex + 1;
-    ParamByName('razbiv_').Value   := RadioGroup1.ItemIndex;
+    ParamByName('razbiv_').Value   := cl_str;
     ParamByName('v_office').AsInteger := cbOffices.EditValue; // DM.DeptID;
     ParamByName('cursor_').AsCursor;
     Open;
@@ -323,6 +332,29 @@ begin
   CDS_STAT.EnableControls;
 
 end;
+
+
+// Соберем клиентов в строчку для поиска
+function Tfrm_prod_stat.collect_clients: string;
+var str: string;
+begin
+  str := '';
+  DM.Q_CLIENTS.DisableControls;
+  try
+    DM.Q_CLIENTS.First;
+    while not DM.Q_CLIENTS.Eof do
+    begin
+      if DM.Q_CLIENTSCHECKED.AsInteger = 1 then str := str + DM.Q_CLIENTSID_CLIENTS.AsString + ',';      
+      DM.Q_CLIENTS.Next;
+    end;
+  finally
+    DM.Q_CLIENTS.EnableControls;
+  end;
+  if length(str) > 0 then str := copy(str,1,length(str)-1);
+  
+  result := str;
+end;
+
 
 // Сохраним таблицу в excel
 procedure Tfrm_prod_stat.btn_excelClick(Sender: TObject);

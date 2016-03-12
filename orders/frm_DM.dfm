@@ -130,9 +130,12 @@ object DM: TDM
     Top = 153
   end
   object Q_CLIENTS: TOraQuery
+    SQLUpdate.Strings = (
+      'select 1 from dual')
     Session = Main_session
     SQL.Strings = (
       'SELECT '
+      '0 as checked,'
       'ID_CLIENTS, '
       'NICK, '
       'FIO,'
@@ -176,6 +179,9 @@ object DM: TDM
     object Q_CLIENTSBLOCK2: TIntegerField
       FieldName = 'BLOCK2'
       Required = True
+    end
+    object Q_CLIENTSCHECKED: TFloatField
+      FieldName = 'CHECKED'
     end
   end
   object Q_CLIENTS_DS: TOraDataSource
@@ -2920,7 +2926,7 @@ object DM: TDM
     Left = 744
     Top = 192
     Bitmap = {
-      494C010127002C00AC0120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010127002C00B00120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004001000001002000000000000080
       0200000000000000000000000000000000000000000000000000000000000000
       000000000000000000000101011A0B0B0B743B3D3DB4777777D5838383DA5152

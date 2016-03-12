@@ -239,7 +239,9 @@ procedure Tfirst_dialog_frm.ButtonStatClick(Sender: TObject);
 begin
   frm_prod_stat := Tfrm_prod_stat.Create(Application);
   try
+    DM.Q_CLIENTS.Open;
     frm_prod_stat.showmodal;
+    DM.Q_CLIENTS.Close;
   finally
     frm_prod_stat.free;
   end;
