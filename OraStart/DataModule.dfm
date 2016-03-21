@@ -7,7 +7,7 @@ object DM: TDM
     Options.Direct = True
     Username = 'CREATOR'
     Password = '123456'
-    Server = 'COMP:1521:STARDB'
+    Server = 'roznica:1521:orcl'
     LoginPrompt = False
     Left = 80
     Top = 24

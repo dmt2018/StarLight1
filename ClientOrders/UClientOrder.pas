@@ -122,6 +122,16 @@ type
     cdsClientsID_CLIENTS_GROUPS: TIntegerField;
     cdsClientsGROUP_NAME: TStringField;
     oraSQL: TOraQuery;
+    Q_DISTR_LISTPRICE: TFloatField;
+    Q_DISTR_LISTON_DATE: TDateTimeField;
+    Q_DISTR_LISTINFO: TStringField;
+    Q_DISTR_LISTCODE: TFloatField;
+    Q_DISTR_LISTH_CODE: TStringField;
+    Q_DISTR_LISTCQUANTITYMPRICE: TFloatField;
+    Q_DISTR_LISTID_ORDERS_CLIENTS: TFloatField;
+    Q_DISTR_LISTID_ORDERS: TFloatField;
+    Q_DISTR_LISTFIO: TStringField;
+    Q_DISTR_LISTINS_FIO: TStringField;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure teSearchKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
@@ -150,6 +160,7 @@ implementation
 procedure TfrmClientOrders.imgPrintClick(Sender: TObject);
 var path : string;
 begin
+
   aSearch.Execute;
   if (cdsOrders.RecordCount = 0) or (cdsClients.RecordCount = 0) or not cdsClients.Filtered then exit;
 
@@ -166,7 +177,8 @@ begin
       Q_DISTR_LIST.ParamByName('p_order_client').AsInteger := cdsClientsID_ORDERS_CLIENTS.AsInteger;
       Q_DISTR_LIST.Open;
 }
-      frxReport1.LoadFromFile(path+'raports\order_client_list.fr3');
+      //frxReport1.LoadFromFile(path+'raports\order_client_list.fr3');
+      frxReport1.LoadFromFile(path+'raports\reserv.fr3');
       frxReport1.ShowReport;
       Screen.Cursor := crDefault;
 
@@ -254,6 +266,11 @@ procedure TfrmClientOrders.FormCreate(Sender: TObject);
 var  RegIni : TIniFile;
      path : String;
 begin
+{
+frmClientOrders.FormStyle:=fsStayOnTop;
+frmClientOrders.Width:=Screen.Width;
+frmClientOrders.Height :=Screen.Height;
+               }
   path := ExtractFilePath(Application.ExeName);
   cdsOrders.AfterScroll := nil;
 

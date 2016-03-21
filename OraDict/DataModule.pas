@@ -206,6 +206,7 @@ type
     frxBarCodeObject1: TfrxBarCodeObject;
     NomSpecORD: TFloatField;
     NomSpecSC_ID: TFloatField;
+    CountriesBUH_CODE: TStringField;
     procedure FlowerNamesAfterPost(DataSet: TDataSet);
     procedure DictViewBeforeOpen(DataSet: TDataSet);
     procedure FlowerNamesAfterOpen(DataSet: TDataSet);

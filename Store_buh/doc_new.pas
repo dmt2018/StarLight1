@@ -168,7 +168,6 @@ type
     DOC_DATASUMM_NDS: TFloatField;
     DOC_DATAFULL_NAME: TStringField;
     DOC_DATAPRICE_QUANTITY: TFloatField;
-    DOC_DATABUH_CODE: TFloatField;
     DOC_DATACOMPILED_NAME_OTDEL: TStringField;
     DOC_DATACOUNTRY_GTD: TStringField;
     DOC_DATANSI_NAME: TStringField;
@@ -196,6 +195,7 @@ type
     DOC_DATABEZNDSMINUS: TIntegerField;
     DOC_DATANDS: TIntegerField;
     DOC_DATABEZNDS: TIntegerField;
+    DOC_DATABUH_CODE: TStringField;
     procedure ClientChoosClick(Sender: TObject);
     procedure NDSEditKeyPress(Sender: TObject; var Key: Char);
     procedure FormShow(Sender: TObject);

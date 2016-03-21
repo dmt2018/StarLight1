@@ -238,6 +238,7 @@ type
     aAddUnit: TAction;
     gr_suplier_viewID_OFFICE: TcxGridDBColumn;
     gr_suplier_viewANALYZE_DAYS: TcxGridDBColumn;
+    gr_country_viewColumn1: TcxGridDBColumn;
     procedure btn_closeClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure BitBtn3Click(Sender: TObject);

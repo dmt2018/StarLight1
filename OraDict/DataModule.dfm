@@ -7,8 +7,9 @@ object DM: TDM
     Options.Direct = True
     Username = 'creator'
     Password = '123456'
-    Server = 'KLEPOV:1521:STARNEW'
+    Server = 'roznica:1521:orcl'
     AutoCommit = False
+    Connected = True
     Left = 24
     Top = 16
   end
@@ -310,7 +311,7 @@ object DM: TDM
     Session = SelectSession
     SQL.Strings = (
       'select rownum as nn, a.* from ('
-      'SELECT COUNTRY, COUNTRY_ENG, C_ID, mnemo '
+      'SELECT COUNTRY, COUNTRY_ENG, C_ID, mnemo, BUH_CODE '
       'FROM COUNTRIES '
       'WHERE NOT (C_ID = 0) '
       'ORDER BY COUNTRY'
@@ -337,6 +338,10 @@ object DM: TDM
     end
     object CountriesMNEMO: TStringField
       FieldName = 'MNEMO'
+      Size = 10
+    end
+    object CountriesBUH_CODE: TStringField
+      FieldName = 'BUH_CODE'
       Size = 10
     end
   end

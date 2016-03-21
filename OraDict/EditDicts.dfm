@@ -36,7 +36,7 @@ object DictsEdit: TDictsEdit
       Top = 0
       Width = 1150
       Height = 566
-      ActivePage = TabSheet7
+      ActivePage = TabSheet2
       Align = alClient
       Style = tsFlatButtons
       TabOrder = 0
@@ -1495,6 +1495,11 @@ object DictsEdit: TDictsEdit
                 Options.Editing = False
                 Options.HorzSizing = False
                 Width = 90
+              end
+              object gr_country_viewColumn1: TcxGridDBColumn
+                Caption = #1050#1086#1076
+                DataBinding.FieldName = 'BUH_CODE'
+                HeaderAlignmentHorz = taCenter
               end
             end
             object gr_country_level: TcxGridLevel
@@ -5275,7 +5280,7 @@ object DictsEdit: TDictsEdit
     Left = 476
     Top = 168
     Bitmap = {
-      494C010102000400B00010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010102000400B40010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -5462,7 +5467,7 @@ object DictsEdit: TDictsEdit
     Left = 477
     Top = 134
     Bitmap = {
-      494C010101000800B00010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010101000800B40010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
