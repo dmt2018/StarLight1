@@ -119,7 +119,7 @@ http://212.100.132.182:8080/?LOGIN=UEGATE&PASS=star_UEGATE&TYPE=2&CODE1=D BNM&AM
 
   if (ARequestInfo.Params.Values['LOGIN'] = '') or (ARequestInfo.Params.Values['PASS'] = '') then
   begin
-    AResponseInfo.ContentText := 'Ошибка. Ну казан логин или пароль';
+    AResponseInfo.ContentText := 'Ошибка. Не казан логин или пароль';
     exit;
   end;
 
@@ -210,11 +210,13 @@ http://212.100.132.182:8080/?LOGIN=UEGATE&PASS=star_UEGATE&TYPE=2&CODE1=D BNM&AM
       // Проверка на платеж по ИД кассового дня
         if TryStrToInt(p_code1,i) then
         OraSQL.SQL.Add('SELECT count(*) as nn FROM CASH_TMP WHERE ID_CASH_TMP = '+p_code1);
+
       // Проверка на предоплату по коду клиента
-        if (not TryStrToInt(p_code1,i)) and (p_code1<>'R CHL') then
+        if (not TryStrToInt(p_code1,i)) and (AnsiUpperCase(p_code1)<>'R CHL') then
         OraSQL.SQL.Add('SELECT count(*) as nn FROM clients WHERE nick = upper('''+p_code1+''') and id_office=1');
+
       OraSQL.Open;
-      if OraSQL.FieldByName('nn').AsInteger = 1 then
+      if OraSQL.FieldByName('nn').AsInteger = 1  then
       begin
         resp_text := 'Проверка прошла успешно';
         sendProverka(resp_text, '0');
@@ -242,10 +244,11 @@ http://212.100.132.182:8080/?LOGIN=UEGATE&PASS=star_UEGATE&TYPE=2&CODE1=D BNM&AM
 
       // Платеж по ИД кассового дня
        if TryStrToInt(p_code1,i) then begin
-        OraSQL.SQL.Add('SELECT SUMM as xx FROM CASH_TMP WHERE ID_CASH_TMP = '+p_code1);
-        OraSQL.Open;
-        if OraSQL.FieldByName('xx').AsInteger >= (RoundTo( p_amount,-2 ))  then//значит вношу запись в БД :
+        //OraSQL.SQL.Add('SELECT SUMM as xx FROM CASH_TMP WHERE ID_CASH_TMP = '+p_code1);
+        //OraSQL.Open;
+        //if OraSQL.FieldByName('xx').AsInteger <= (RoundTo( p_amount,-2 ))  then//значит вношу запись в БД :
         OraSQL.SQL.Add('UPDATE CASH_TMP SET in_rub='+ FloatToStr( RoundTo( p_amount,-2 ) ) +', info='''+floatToStr(p_payid)+''', corrector='''+p_login+''', ddate_done=sysdate, date_change=sysdate WHERE ID_CASH_TMP = '+p_code1);
+
         end;
 
       // Предоплата по коду клиента
