@@ -1591,9 +1591,6 @@ object DocNewForm: TDocNewForm
     object DOC_DATAPRICE_QUANTITY: TFloatField
       FieldName = 'PRICE_QUANTITY'
     end
-    object DOC_DATABUH_CODE: TFloatField
-      FieldName = 'BUH_CODE'
-    end
     object DOC_DATACOMPILED_NAME_OTDEL: TStringField
       FieldName = 'COMPILED_NAME_OTDEL'
       Size = 400
@@ -1633,6 +1630,10 @@ object DocNewForm: TDocNewForm
     end
     object DOC_DATABEZNDS: TIntegerField
       FieldName = 'BEZNDS'
+    end
+    object DOC_DATABUH_CODE: TStringField
+      FieldName = 'BUH_CODE'
+      Size = 10
     end
   end
   object DOC_DS: TOraDataSource

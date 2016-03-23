@@ -207,7 +207,6 @@ type
     SelPrepDistQQ1: TFloatField;
     SelPrepDistQQ2: TFloatField;
     frxOstatok: TfrxDBDataset;
-    Q_DISTR_LISTMPRICECQUANTITY: TFloatField;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure imgPrintClick(Sender: TObject);
     procedure aClearFilterExecute(Sender: TObject);
@@ -228,6 +227,7 @@ type
     procedure cdsOrdersAfterScroll(DataSet: TDataSet);
     procedure aFreeSaleExecute(Sender: TObject);
     procedure Main_sessionAfterConnect(Sender: TObject);
+    procedure frxXLSExport1BeginExport(Sender: TObject);
   private
     { Private declarations }
   public
@@ -235,7 +235,7 @@ type
     id_dep, days_minus, vPack, vSTOK: integer;
     path: string;
     print, delete, edit, addit: boolean;
-    DeptID: integer;
+    //DeptID: integer;
   end;
 
 var
@@ -456,6 +456,11 @@ begin
 
 end;
 
+
+procedure TfrmClientOrders.frxXLSExport1BeginExport(Sender: TObject);
+begin
+
+end;
 
 //
 //  Обрабатываем нажатие кнопок на поле ввода для поиска клиента

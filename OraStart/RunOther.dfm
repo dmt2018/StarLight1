@@ -4,7 +4,7 @@ object Runner: TRunner
   HelpContext = 2
   BorderStyle = bsSingle
   Caption = ' '#1057#1090#1072#1088#1083#1072#1081#1090' '#1050#1101#1096' & '#1050#1077#1088#1088#1080
-  ClientHeight = 503
+  ClientHeight = 506
   ClientWidth = 592
   Color = clBtnFace
   Constraints.MaxHeight = 535
@@ -31,7 +31,7 @@ object Runner: TRunner
     Left = 0
     Top = 69
     Width = 592
-    Height = 398
+    Height = 401
     Align = alClient
     BevelInner = bvRaised
     BevelOuter = bvLowered
@@ -167,9 +167,9 @@ object Runner: TRunner
     end
     object GroupBox2: TGroupBox
       Left = 12
-      Top = 232
+      Top = 221
       Width = 273
-      Height = 145
+      Height = 174
       Caption = ' '#1054#1073#1097#1080#1077' '
       Color = clWhite
       Font.Charset = DEFAULT_CHARSET
@@ -249,6 +249,15 @@ object Runner: TRunner
         ParentFont = False
         TabOrder = 3
         OnClick = BitBtn13Click
+      end
+      object Button2: TButton
+        Left = 16
+        Top = 141
+        Width = 241
+        Height = 25
+        Caption = 'secretary'
+        TabOrder = 4
+        OnClick = Button2Click
       end
     end
     object GroupBox3: TGroupBox
@@ -458,7 +467,7 @@ object Runner: TRunner
   end
   object Panel9: TPanel
     Left = 0
-    Top = 467
+    Top = 470
     Width = 592
     Height = 36
     Align = alBottom

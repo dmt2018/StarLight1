@@ -25,7 +25,8 @@ begin
   frmClientOrders.Main_session.Username := username;
   frmClientOrders.Main_session.Password := Password;
   frmClientOrders.Main_session.Server := ora_db_path;
-  frmClientOrders.DeptID := INPUT_DEPT_ID;
+  //frmClientOrders.DeptID := INPUT_DEPT_ID;
+  frmClientOrders.id_dep := INPUT_DEPT_ID;
   Application.Run;
 
 end.
