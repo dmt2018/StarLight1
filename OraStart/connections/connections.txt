@@ -1,2 +1,2 @@
-roznica:1521:orcl
+klepov:1521:STARNEW
 CREATOR
