@@ -1156,14 +1156,14 @@ object DM: TDM
   end
   object frxReport1: TfrxReport
     Version = '4.12.11'
-    DotMatrixReport = True
+    DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
     PreviewOptions.Zoom = 1.000000000000000000
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
-    ReportOptions.CreateDate = 39796.688377118100000000
-    ReportOptions.LastChange = 42452.107453321760000000
+    ReportOptions.CreateDate = 39618.923338611100000000
+    ReportOptions.LastChange = 42452.021435798610000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -1187,558 +1187,767 @@ object DM: TDM
       Height = 1000.000000000000000000
       Width = 1000.000000000000000000
     end
-    object Page1: TfrxDMPPage
-      PaperWidth = 210.819863845504600000
-      PaperHeight = 296.862308276425900000
+    object Page1: TfrxReportPage
+      PaperWidth = 210.000000000000000000
+      PaperHeight = 297.000000000000000000
       PaperSize = 9
-      LeftMargin = 7.619995078753180000
-      RightMargin = 2.539998359584390000
-      TopMargin = 4.497913761764030000
-      BottomMargin = 4.497913761764030000
-      FontStyle = []
+      LeftMargin = 10.000000000000000000
+      RightMargin = 5.000000000000000000
+      TopMargin = 7.000000000000000000
+      BottomMargin = 7.000000000000000000
+      PrintOnPreviousPage = True
       object ReportTitle1: TfrxReportTitle
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Height = -16
-        Font.Name = 'Courier New'
-        Font.Style = []
-        Height = 170.000000000000000000
-        ParentFont = False
-        Top = 17.000000000000000000
-        Width = 758.400000000000000000
-        object DMPMemo1: TfrxDMPMemoView
+        Height = 170.078850000000000000
+        Top = 18.897650000000000000
+        Width = 737.008350000000000000
+        object Memo1: TfrxMemoView
           Align = baWidth
-          Width = 758.400000000000000000
-          Height = 17.000000000000000000
+          Width = 737.008350000000000000
+          Height = 18.897650000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
           HAlign = haCenter
           Memo.UTF8 = (
             #1056#1116#1056#176#1056#1108#1056#187#1056#176#1056#1169#1056#1029#1056#176#1057#1039' '#1056#1111#1057#1026#1056#1109#1056#1169#1056#176#1056#182#1056#1105' '#1074#8222#8211' [fr_DOC_DS."DOC_NUMBER"]')
-          TruncOutboundText = False
-          VAlign = vaCenter
+          ParentFont = False
         end
-        object DMPMemo2: TfrxDMPMemoView
+        object Memo2: TfrxMemoView
           Align = baWidth
-          Top = 17.000000000000000000
-          Width = 758.400000000000000000
-          Height = 17.000000000000000000
+          Top = 18.897637800000000000
+          Width = 737.008350000000000000
+          Height = 18.897650000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
             '[fr_DOC_DS."DEPARTMENT_NAME"]')
-          TruncOutboundText = False
-          VAlign = vaCenter
+          ParentFont = False
         end
-        object DMPMemo3: TfrxDMPMemoView
-          Top = 51.000000000000000000
-          Width = 144.000000000000000000
-          Height = 17.000000000000000000
+        object Memo3: TfrxMemoView
+          Left = 3.779530000000000000
+          Top = 60.472480000000000000
+          Width = 113.385900000000000000
+          Height = 18.897650000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
           Memo.UTF8 = (
-            #1056#1113#1056#1109#1056#1169' '#1056#1108#1056#187#1056#1105#1056#181#1056#1029#1057#8218#1056#176':')
-          TruncOutboundText = False
-          VAlign = vaCenter
+            #1056#1113#1056#1109#1056#1169' '#1056#1108#1056#187#1056#1105#1056#181#1056#1029#1057#8218#1056#176)
+          ParentFont = False
         end
-        object DMPMemo4: TfrxDMPMemoView
-          Top = 68.000000000000000000
-          Width = 144.000000000000000000
-          Height = 17.000000000000000000
+        object Memo4: TfrxMemoView
+          Left = 3.779530000000000000
+          Top = 79.370130000000000000
+          Width = 113.385900000000000000
+          Height = 18.897650000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
           Memo.UTF8 = (
-            #1056#164#1056#152#1056#1115' / '#1056#1029#1056#176#1056#183#1056#1030#1056#176#1056#1029#1056#1105#1056#181':')
-          TruncOutboundText = False
-          VAlign = vaCenter
+            #1056#164#1056#152#1056#1115' / '#1056#1029#1056#176#1056#183#1056#1030#1056#176#1056#1029#1056#1105#1056#181)
+          ParentFont = False
         end
-        object DMPMemo5: TfrxDMPMemoView
-          Top = 85.000000000000000000
-          Width = 144.000000000000000000
-          Height = 17.000000000000000000
+        object Memo5: TfrxMemoView
+          Left = 3.779530000000000000
+          Top = 98.267780000000000000
+          Width = 113.385900000000000000
+          Height = 18.897650000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
           Memo.UTF8 = (
-            #1056#8221#1056#176#1057#8218#1056#176':')
-          TruncOutboundText = False
-          VAlign = vaCenter
+            #1056#8221#1056#176#1057#8218#1056#176)
+          ParentFont = False
         end
-        object DMPMemo6: TfrxDMPMemoView
-          Left = 153.600000000000000000
-          Top = 51.000000000000000000
-          Width = 595.200000000000000000
-          Height = 17.000000000000000000
+        object Memo6: TfrxMemoView
+          Left = 117.165430000000000000
+          Top = 60.472480000000000000
+          Width = 566.929500000000000000
+          Height = 18.897650000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
           Memo.UTF8 = (
             '[fr_DOC_DS."NICK"]')
-          TruncOutboundText = False
-          VAlign = vaCenter
+          ParentFont = False
         end
-        object DMPMemo7: TfrxDMPMemoView
-          Left = 153.600000000000000000
-          Top = 68.000000000000000000
-          Width = 595.200000000000000000
-          Height = 17.000000000000000000
+        object Memo7: TfrxMemoView
+          Left = 117.165430000000000000
+          Top = 79.370130000000000000
+          Width = 566.929500000000000000
+          Height = 18.897650000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
           Memo.UTF8 = (
             '[fr_DOC_DS."FIO"]')
-          TruncOutboundText = False
-          VAlign = vaCenter
+          ParentFont = False
         end
-        object DMPMemo8: TfrxDMPMemoView
-          Left = 153.600000000000000000
-          Top = 85.000000000000000000
-          Width = 595.200000000000000000
-          Height = 17.000000000000000000
+        object Memo8: TfrxMemoView
+          Left = 117.165430000000000000
+          Top = 98.267780000000000000
+          Width = 566.929500000000000000
+          Height = 18.897650000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
           Memo.UTF8 = (
             '[fr_DOC_DS."DOC_DATE"]')
-          TruncOutboundText = False
-          VAlign = vaCenter
+          ParentFont = False
         end
-        object DMPMemo10: TfrxDMPMemoView
-          Align = baLeft
-          Top = 136.000000000000000000
-          Width = 153.600000000000000000
-          Height = 17.000000000000000000
+        object Memo9: TfrxMemoView
+          Top = 151.181200000000000000
+          Width = 113.385900000000000000
+          Height = 18.897650000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftBottom]
+          Memo.UTF8 = (
+            #1056#1113#1056#1109#1056#1169)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo10: TfrxMemoView
+          Left = 113.385900000000000000
+          Top = 151.181200000000000000
+          Width = 120.944960000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
           Frame.Typ = [ftBottom]
           Memo.UTF8 = (
             #1056#1106#1057#1026#1057#8218#1056#1105#1056#1108#1057#1107#1056#187)
-          TruncOutboundText = False
+          ParentFont = False
           VAlign = vaCenter
         end
-        object DMPMemo11: TfrxDMPMemoView
-          Align = baLeft
-          Left = 153.600000000000000000
-          Top = 136.000000000000000000
-          Width = 364.800000000000000000
-          Height = 17.000000000000000000
+        object Memo11: TfrxMemoView
+          Left = 234.330860000000000000
+          Top = 151.181200000000000000
+          Width = 325.039580000000000000
+          Height = 18.897650000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
           Frame.Typ = [ftBottom]
           Memo.UTF8 = (
             #1056#1116#1056#176#1056#183#1056#1030#1056#176#1056#1029#1056#1105#1056#181)
-          TruncOutboundText = False
+          ParentFont = False
           VAlign = vaCenter
         end
-        object DMPMemo12: TfrxDMPMemoView
-          Align = baLeft
-          Left = 662.400000000000000000
-          Top = 136.000000000000000000
-          Width = 96.000000000000000000
-          Height = 17.000000000000000000
+        object Memo12: TfrxMemoView
+          Left = 559.370440000000000000
+          Top = 151.181200000000000000
+          Width = 52.913420000000000000
+          Height = 18.897650000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
-          Frame.Typ = [ftBottom]
-          HAlign = haCenter
-          Memo.UTF8 = (
-            #1056#1116#1056#176' '#1057#1027#1057#1107#1056#1112#1056#1112#1057#1107)
-          TruncOutboundText = False
-          VAlign = vaCenter
-        end
-        object DMPMemo13: TfrxDMPMemoView
-          Align = baLeft
-          Left = 585.600000000000000000
-          Top = 136.000000000000000000
-          Width = 76.800000000000000000
-          Height = 17.000000000000000000
-          ShowHint = False
-          DisplayFormat.DecimalSeparator = ','
-          Frame.Typ = [ftBottom]
-          HAlign = haCenter
-          Memo.UTF8 = (
-            #1056#166#1056#181#1056#1029#1056#176)
-          TruncOutboundText = False
-          VAlign = vaCenter
-        end
-        object DMPMemo14: TfrxDMPMemoView
-          Align = baLeft
-          Left = 518.400000000000000000
-          Top = 136.000000000000000000
-          Width = 67.200000000000000000
-          Height = 17.000000000000000000
-          ShowHint = False
-          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
           Frame.Typ = [ftBottom]
           HAlign = haCenter
           Memo.UTF8 = (
             #1056#1113#1056#1109#1056#187'-'#1056#1030#1056#1109)
-          TruncOutboundText = False
+          ParentFont = False
           VAlign = vaCenter
         end
-        object DMPMemo37: TfrxDMPMemoView
-          Top = 102.000000000000000000
-          Width = 144.000000000000000000
-          Height = 17.000000000000000000
+        object Memo13: TfrxMemoView
+          Left = 612.283860000000000000
+          Top = 151.181200000000000000
+          Width = 52.913385830000000000
+          Height = 18.897650000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
-          Memo.UTF8 = (
-            #1056#152#1056#1029#1057#8222#1056#1109#1057#1026#1056#1112#1056#176#1057#8224#1056#1105#1057#1039':')
-          TruncOutboundText = False
-          VAlign = vaCenter
-        end
-        object DMPMemo38: TfrxDMPMemoView
-          Left = 153.600000000000000000
-          Top = 102.000000000000000000
-          Width = 595.200000000000000000
-          Height = 17.000000000000000000
-          ShowHint = False
-          DisplayFormat.DecimalSeparator = ','
-          Memo.UTF8 = (
-            '[fr_DOC_DS."COMMENTS"]')
-          TruncOutboundText = False
-          VAlign = vaCenter
-        end
-        object DMPMemo39: TfrxDMPMemoView
-          Align = baWidth
-          Top = 34.000000000000000000
-          Width = 758.400000000000000000
-          Height = 17.000000000000000000
-          ShowHint = False
-          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftBottom]
           HAlign = haCenter
           Memo.UTF8 = (
-            
-              #1056#1116#1056#1109#1056#1112#1056#181#1057#1026' '#1056#1169#1056#187#1057#1039' '#1056#1109#1056#1111#1056#187#1056#176#1057#8218#1057#8249' '#1056#1030' '#1057#8218#1056#181#1057#1026#1056#1112#1056#1105#1056#1029#1056#176#1056#187#1056#181' [fr_DOC_DS.' +
-              '"ID_CASH_TMP"]')
-          TruncOutboundText = False
+            #1056#166#1056#181#1056#1029#1056#176)
+          ParentFont = False
           VAlign = vaCenter
+        end
+        object Memo14: TfrxMemoView
+          Left = 665.197280000000000000
+          Top = 151.181200000000000000
+          Width = 75.590600000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#1116#1056#176' '#1057#1027#1057#1107#1056#1112#1056#1112#1057#1107)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo34: TfrxMemoView
+          Left = 3.779530000000000000
+          Top = 117.165430000000000000
+          Width = 113.385900000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8 = (
+            #1056#152#1056#1029#1057#8222#1056#1109#1057#1026#1056#1112#1056#176#1057#8224#1056#1105#1057#1039)
+          ParentFont = False
+        end
+        object Memo35: TfrxMemoView
+          Left = 117.165430000000000000
+          Top = 117.165430000000000000
+          Width = 566.929500000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8 = (
+            '[fr_DOC_DS."COMMENTS"]')
+          ParentFont = False
+        end
+        object Memo36: TfrxMemoView
+          Align = baWidth
+          Top = 37.795275590000000000
+          Width = 737.008350000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[fr_DOC_DS."ID_CASH_TMP"]')
+          ParentFont = False
+          VAlign = vaBottom
         end
       end
       object MasterData1: TfrxMasterData
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
-        Font.Height = -15
-        Font.Name = 'Courier New'
+        Font.Height = -12
+        Font.Name = 'Arial'
         Font.Style = []
-        Height = 17.000000000000000000
+        Height = 22.677180000000000000
         ParentFont = False
-        Top = 221.000000000000000000
-        Width = 758.400000000000000000
+        Top = 249.448980000000000000
+        Width = 737.008350000000000000
         DataSet = fr_doc_data_ds
         DataSetName = 'fr_doc_data_ds'
         RowCount = 0
         Stretched = True
-        object DMPMemo16: TfrxDMPMemoView
-          Align = baLeft
-          Width = 153.600000000000000000
-          Height = 17.000000000000000000
+        object fr_doc_data_dsCODE: TfrxMemoView
+          Width = 113.385900000000000000
+          Height = 22.677180000000000000
           ShowHint = False
           StretchMode = smMaxHeight
-          DisplayFormat.DecimalSeparator = ','
+          DataField = 'CODE'
+          DataSet = fr_doc_data_ds
+          DataSetName = 'fr_doc_data_ds'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8 = (
+            '[fr_doc_data_ds."CODE"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object fr_doc_data_dsH_CODE: TfrxMemoView
+          Left = 113.385900000000000000
+          Width = 120.944960000000000000
+          Height = 22.677180000000000000
+          ShowHint = False
+          StretchMode = smMaxHeight
+          DataField = 'H_CODE'
+          DataSet = fr_doc_data_ds
+          DataSetName = 'fr_doc_data_ds'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
           Memo.UTF8 = (
             '[fr_doc_data_ds."H_CODE"]')
-          TruncOutboundText = False
+          ParentFont = False
           VAlign = vaCenter
         end
-        object DMPMemo17: TfrxDMPMemoView
-          Align = baLeft
-          Left = 153.600000000000000000
-          Width = 364.800000000000000000
-          Height = 17.000000000000000000
+        object fr_doc_data_dsFULL_NAME: TfrxMemoView
+          Left = 234.330860000000000000
+          Width = 325.039335910000000000
+          Height = 22.677180000000000000
           ShowHint = False
           StretchMode = smMaxHeight
+          DataField = 'COMPILED_NAME_OTDEL'
+          DataSet = fr_doc_data_ds
+          DataSetName = 'fr_doc_data_ds'
           DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
           Memo.UTF8 = (
             '[fr_doc_data_ds."COMPILED_NAME_OTDEL"]')
-          TruncOutboundText = False
+          ParentFont = False
           VAlign = vaCenter
         end
-        object DMPMemo18: TfrxDMPMemoView
-          Align = baLeft
-          Left = 662.400000000000000000
-          Width = 96.000000000000000000
-          Height = 17.000000000000000000
+        object fr_doc_data_dsQUANTITY: TfrxMemoView
+          Left = 559.370440000000000000
+          Width = 52.913420000000000000
+          Height = 22.677180000000000000
           ShowHint = False
           StretchMode = smMaxHeight
-          DisplayFormat.DecimalSeparator = ','
-          DisplayFormat.FormatStr = '%2.2f'
-          DisplayFormat.Kind = fkNumeric
-          HAlign = haRight
-          Memo.UTF8 = (
-            '[fr_doc_data_ds."QUANTITY_PRICE"]')
-          TruncOutboundText = False
-          VAlign = vaCenter
-        end
-        object DMPMemo19: TfrxDMPMemoView
-          Align = baLeft
-          Left = 585.600000000000000000
-          Width = 76.800000000000000000
-          Height = 17.000000000000000000
-          ShowHint = False
-          StretchMode = smMaxHeight
-          DisplayFormat.DecimalSeparator = ','
-          DisplayFormat.FormatStr = '%2.2f'
-          DisplayFormat.Kind = fkNumeric
-          HAlign = haRight
-          Memo.UTF8 = (
-            '[fr_doc_data_ds."PRICE"]')
-          TruncOutboundText = False
-          VAlign = vaCenter
-        end
-        object DMPMemo20: TfrxDMPMemoView
-          Align = baLeft
-          Left = 518.400000000000000000
-          Width = 67.200000000000000000
-          Height = 17.000000000000000000
-          ShowHint = False
-          StretchMode = smMaxHeight
-          DisplayFormat.DecimalSeparator = ','
+          DataField = 'QUANTITY'
+          DataSet = fr_doc_data_ds
+          DataSetName = 'fr_doc_data_ds'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
             '[fr_doc_data_ds."QUANTITY"]')
-          TruncOutboundText = False
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object fr_doc_data_dsPRICE: TfrxMemoView
+          Left = 612.283860000000000000
+          Width = 52.913420000000000000
+          Height = 22.677180000000000000
+          ShowHint = False
+          StretchMode = smMaxHeight
+          DataField = 'PRICE'
+          DataSet = fr_doc_data_ds
+          DataSetName = 'fr_doc_data_ds'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[fr_doc_data_ds."PRICE"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object fr_doc_data_dsPRICE_LIST: TfrxMemoView
+          Left = 665.197280000000000000
+          Width = 75.590600000000000000
+          Height = 22.677180000000000000
+          ShowHint = False
+          StretchMode = smMaxHeight
+          DataField = 'QUANTITY_PRICE'
+          DataSet = fr_doc_data_ds
+          DataSetName = 'fr_doc_data_ds'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[fr_doc_data_ds."QUANTITY_PRICE"]')
+          ParentFont = False
           VAlign = vaCenter
         end
       end
       object Footer1: TfrxFooter
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Height = -16
-        Font.Name = 'Courier New'
-        Font.Style = []
-        Height = 119.000000000000000000
-        ParentFont = False
-        Top = 255.000000000000000000
-        Width = 758.400000000000000000
-        object DMPMemo9: TfrxDMPMemoView
-          Top = 17.000000000000000000
-          Width = 153.600000000000000000
-          Height = 17.000000000000000000
+        Height = 245.669450000000000000
+        Top = 294.803340000000000000
+        Width = 737.008350000000000000
+        PrintChildIfInvisible = True
+        object Memo15: TfrxMemoView
+          Top = 22.677180000000000000
+          Width = 132.283550000000000000
+          Height = 15.118120000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
-          Frame.Typ = [ftTop]
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
           Memo.UTF8 = (
-            #1056#1119#1056#1109#1056#183#1056#1105#1057#8224#1056#1105#1056#8470'/'#1056#1108#1056#1109#1056#187'-'#1056#1030#1056#1109':')
-          TruncOutboundText = False
-          VAlign = vaCenter
+            #1056#1119#1056#1109#1056#183#1056#1105#1057#8224#1056#1105#1056#8470':')
+          ParentFont = False
         end
-        object DMPMemo15: TfrxDMPMemoView
-          Left = 374.400000000000000000
-          Top = 17.000000000000000000
-          Width = 96.000000000000000000
-          Height = 17.000000000000000000
+        object Memo16: TfrxMemoView
+          Top = 59.354360000000000000
+          Width = 132.283550000000000000
+          Height = 15.118120000000000000
           ShowHint = False
+          AutoWidth = True
           DisplayFormat.DecimalSeparator = ','
-          Frame.Typ = [ftTop]
-          HAlign = haRight
-          Memo.UTF8 = (
-            #1056#1115#1057#8218#1056#1111#1057#1107#1057#1027#1057#8218#1056#1105#1056#187': ')
-          TruncOutboundText = False
-          VAlign = vaCenter
-        end
-        object DMPMemo21: TfrxDMPMemoView
-          Left = 374.400000000000000000
-          Top = 51.000000000000000000
-          Width = 96.000000000000000000
-          Height = 17.000000000000000000
-          ShowHint = False
-          DisplayFormat.DecimalSeparator = ','
-          HAlign = haRight
-          Memo.UTF8 = (
-            #1056#1119#1056#1109#1056#187#1057#1107#1057#8225#1056#1105#1056#187': ')
-          TruncOutboundText = False
-          VAlign = vaCenter
-        end
-        object DMPMemo22: TfrxDMPMemoView
-          Left = 153.600000000000000000
-          Top = 17.000000000000000000
-          Width = 220.800000000000000000
-          Height = 17.000000000000000000
-          ShowHint = False
-          DisplayFormat.DecimalSeparator = ','
-          Frame.Typ = [ftTop]
-          Memo.UTF8 = (
-            
-              '[fr_DOC_DS."QUANTITY_ALL"] / [SUM(<fr_doc_data_ds."QUANTITY">,Ma' +
-              'sterData1)]')
-          TruncOutboundText = False
-          VAlign = vaCenter
-        end
-        object DMPMemo23: TfrxDMPMemoView
-          Left = 470.400000000000000000
-          Top = 17.000000000000000000
-          Width = 288.000000000000000000
-          Height = 17.000000000000000000
-          ShowHint = False
-          DisplayFormat.DecimalSeparator = ','
-          Frame.Typ = [ftTop]
-          Memo.UTF8 = (
-            '[fr_DOC_DS."OPERATOR_NAME"]')
-          TruncOutboundText = False
-          VAlign = vaCenter
-        end
-        object DMPMemo24: TfrxDMPMemoView
-          Left = 470.400000000000000000
-          Top = 51.000000000000000000
-          Width = 288.000000000000000000
-          Height = 34.000000000000000000
-          ShowHint = False
-          DisplayFormat.DecimalSeparator = ','
-          Memo.UTF8 = (
-            '[fr_DOC_DS."FIO"]')
-          TruncOutboundText = False
-        end
-        object DMPMemo25: TfrxDMPMemoView
-          Top = 51.000000000000000000
-          Width = 153.600000000000000000
-          Height = 17.000000000000000000
-          ShowHint = False
-          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
           Frame.Typ = [ftBottom]
           Memo.UTF8 = (
-            #1056#8217#1056#1038#1056#8226#1056#8220#1056#1115' '#1056#1113' '#1056#1115#1056#1119#1056#8250#1056#1106#1056#1118#1056#8226':')
-          TruncOutboundText = False
-          VAlign = vaCenter
+            #1056#8217#1056#1038#1056#8226#1056#8220#1056#1115' '#1056#1113' '#1056#1115#1056#1119#1056#8250#1056#1106#1056#1118#1056#8226': ')
+          ParentFont = False
         end
-        object DMPMemo26: TfrxDMPMemoView
-          Left = 153.600000000000000000
-          Top = 51.000000000000000000
-          Width = 220.800000000000000000
-          Height = 17.000000000000000000
+        object Memo17: TfrxMemoView
+          Left = 132.283550000000000000
+          Top = 59.354360000000000000
+          Width = 249.448980000000000000
+          Height = 15.118120000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
-          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
           Frame.Typ = [ftBottom]
           Memo.UTF8 = (
             '[fr_DOC_DS."PRICE_ALL"]')
-          TruncOutboundText = False
-          VAlign = vaCenter
+          ParentFont = False
         end
-        object DMPMemo27: TfrxDMPMemoView
-          Left = 163.200000000000000000
-          Top = 85.000000000000000000
-          Width = 595.200000000000000000
-          Height = 34.000000000000000000
+        object Memo18: TfrxMemoView
+          Top = 134.504020000000000000
+          Width = 737.008350000000000000
+          Height = 15.118120000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8 = (
+            #1056#1115#1057#8218#1056#1111#1057#1107#1057#1027#1057#8218#1056#1105#1056#187':  [fr_DOC_DS."OPERATOR_NAME"]')
+          ParentFont = False
+        end
+        object Memo19: TfrxMemoView
+          Top = 152.622140000000000000
+          Width = 737.008350000000000000
+          Height = 15.118120000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8 = (
+            #1056#1119#1056#1109#1056#187#1057#1107#1057#8225#1056#1105#1056#187':   [fr_DOC_DS."FIO"]')
+          ParentFont = False
+        end
+        object Memo21: TfrxMemoView
+          Align = baWidth
+          Width = 737.008350000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftTop]
+          HAlign = haRight
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo22: TfrxMemoView
+          Left = 151.181200000000000000
+          Top = 177.637910000000000000
+          Width = 362.834880000000000000
+          Height = 15.118120000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8 = (
+            
+              '* '#1056#166#1056#181#1056#1029#1057#8249' '#1056#1029#1056#176' '#1057#8218#1056#1109#1056#1030#1056#176#1057#1026' '#1056#1030' '#1056#1029#1056#176#1057#1027#1057#8218#1056#1109#1057#1039#1057#8240#1056#181#1056#8470' '#1056#1029#1056#176#1056#1108#1056#187#1056#176#1056#1169#1056#1029#1056 +
+              #1109#1056#8470' '#1057#1026#1056#176#1057#1027#1057#1027#1057#8225#1056#1105#1057#8218#1056#176#1056#1029#1057#8249' '#1056#1030' '#1057#1026#1057#1107#1056#177#1056#187#1057#1039#1057#8230' '#1056#1111#1056#1109' '#1056#1108#1057#1107#1057#1026#1057#1027#1057#1107)
+          ParentFont = False
+        end
+        object Memo23: TfrxMemoView
+          Left = 514.016080000000000000
+          Top = 177.637910000000000000
+          Width = 139.842610000000000000
+          Height = 15.118120000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Memo24: TfrxMemoView
+          Left = 151.181200000000000000
+          Top = 192.756030000000000000
+          Width = 207.874150000000000000
+          Height = 15.118120000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8 = (
+            #1056#1038#1057#1107#1056#1112#1056#1112#1056#176' '#1056#1029#1056#176#1056#1108#1056#187#1056#176#1056#1169#1056#1029#1056#1109#1056#8470' '#1056#1030' '#1056#8226#1056#1030#1057#1026#1056#1109' = ')
+          ParentFont = False
+        end
+        object Memo25: TfrxMemoView
+          Left = 359.055350000000000000
+          Top = 192.756030000000000000
+          Width = 377.953000000000000000
+          Height = 15.118120000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8 = (
+            
+              #1056#1116#1056#176#1056#1108#1056#187#1056#176#1056#1169#1056#1029#1056#176#1057#1039' '#1056#1111#1056#1109#1056#1169#1056#187#1056#181#1056#182#1056#1105#1057#8218' '#1056#1109#1056#1111#1056#187#1056#176#1057#8218#1056#181' '#1056#1030' '#1057#1026#1057#1107#1056#177#1056#187#1057#1039#1057#8230 +
+              ' '#1056#1111#1056#1109' '#1056#1108#1057#1107#1057#1026#1057#1027#1057#1107' '#1056#8226#1056#1030#1057#1026#1056#1109',')
+          ParentFont = False
+        end
+        object Memo26: TfrxMemoView
+          Left = 151.181200000000000000
+          Top = 207.874150000000000000
+          Width = 585.827150000000000000
+          Height = 15.118120000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8 = (
+            
+              #1057#1107#1057#1027#1057#8218#1056#176#1056#1029#1056#1109#1056#1030#1056#187#1056#181#1056#1029#1056#1029#1056#1109#1056#1112#1057#1107' '#1056#166#1056#8216' '#1056#160#1056#1109#1057#1027#1057#1027#1056#1105#1056#1105' '#1056#1029#1056#176' '#1056#1169#1056#176#1057#8218#1057#1107' '#1056#183#1056 +
+              #176#1057#8225#1056#1105#1057#1027#1056#187#1056#181#1056#1029#1056#1105#1057#1039' '#1056#1169#1056#181#1056#1029#1056#181#1056#182#1056#1029#1057#8249#1057#8230' '#1057#1027#1057#1026#1056#181#1056#1169#1057#1027#1057#8218#1056#1030' '#1056#1029#1056#176' '#1057#1026#1056#176#1057#1027#1057#8225#1056 +
+              #181#1057#8218#1056#1029#1057#8249#1056#8470' '#1057#1027#1057#8225#1056#181#1057#8218' ('#1056#1105#1056#187#1056#1105' '#1056#1108#1056#176#1057#1027#1057#1027#1057#1107') '#1056#1119#1056#1115#1056#1038#1056#1118#1056#1106#1056#8217#1056#169#1056#152#1056#1113#1056#1106',')
+          ParentFont = False
+        end
+        object Memo27: TfrxMemoView
+          Left = 151.181200000000000000
+          Top = 222.992270000000000000
+          Width = 98.267780000000000000
+          Height = 15.118120000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8 = (
+            #1056#1029#1056#1109' '#1056#1029#1056#181' '#1056#1029#1056#1105#1056#182#1056#181' '#1056#1108#1057#1107#1057#1026#1057#1027#1056#176' ')
+          ParentFont = False
+        end
+        object Memo28: TfrxMemoView
+          Left = 132.283550000000000000
+          Top = 78.252010000000000000
+          Width = 585.827150000000000000
+          Height = 34.015770000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
           Memo.UTF8 = (
             
               '[Uppercase(Copy(Propis(<fr_DOC_DS."PRICE_ALL">),1,1))][Copy(Prop' +
               'is(<fr_DOC_DS."PRICE_ALL">),2,Length(Propis(<fr_DOC_DS."PRICE_AL' +
               'L">)))] [Ruble(<fr_DOC_DS."PRICE_ALL">,'#39#1057#1026#1057#1107#1056#177#1056#187#1057#1034';'#1057#1026#1057#1107#1056#177#1056#187#1057#1039';'#1057#1026 +
               #1057#1107#1056#177#1056#187#1056#181#1056#8470#39')] [ROUND(FRAC(<fr_DOC_DS."PRICE_ALL">)*100)] [Kopeik' +
-              'a(ROUND(FRAC(<fr_DOC_DS."PRICE_ALL">)*100),'#39#1056#1109#1056#1111#1056#181#1056#8470#1056#1108#1056#176';'#1056#1108#1056#1109#1056#1111#1056 +
-              #181#1056#8470#1056#1108#1056#1105';'#1056#1108#1056#1109#1056#1111#1056#181#1056#181#1056#1108#39')]')
-          TruncOutboundText = False
+              'a(ROUND(FRAC(<fr_DOC_DS."PRICE_ALL">)*100),'#39#1056#1108#1056#1109#1056#1111#1056#181#1056#8470#1056#1108#1056#176';'#1056#1108#1056#1109#1056 +
+              #1111#1056#181#1056#8470#1056#1108#1056#1105';'#1056#1108#1056#1109#1056#1111#1056#181#1056#181#1056#1108#39')]')
+          ParentFont = False
         end
-        object DMPMemo36: TfrxDMPMemoView
-          Top = 34.000000000000000000
-          Width = 758.400000000000000000
-          Height = 17.000000000000000000
+        object Memo20: TfrxMemoView
+          Left = 389.291590000000000000
+          Top = 222.992270000000000000
+          Width = 230.551330000000000000
+          Height = 15.118120000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8 = (
+            
+              ', '#1056#177#1056#181#1056#183' '#1056#1030#1057#8249#1057#1027#1057#8218#1056#176#1056#1030#1056#187#1056#181#1056#1029#1056#1105#1057#1039' '#1056#1169#1056#1109#1056#1111#1056#1109#1056#187#1056#1029#1056#1105#1057#8218#1056#181#1056#187#1057#1034#1056#1029#1056#1109#1056#1110#1056#1109' '#1057 +
+              #1027#1057#8225#1056#181#1057#8218#1056#176'.')
+          ParentFont = False
+        end
+        object Memo29: TfrxMemoView
+          Left = 249.448980000000000000
+          Top = 222.992270000000000000
+          Width = 139.842610000000000000
+          Height = 15.118120000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Memo30: TfrxMemoView
+          Top = 39.685039370078700000
+          Width = 132.283550000000000000
+          Height = 15.118120000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8 = (
+            #1056#1115#1056#177#1057#8240#1056#181#1056#181' '#1056#1108#1056#1109#1056#187'-'#1056#1030#1056#1109':')
+          ParentFont = False
+        end
+        object Memo31: TfrxMemoView
+          Left = 132.283550000000000000
+          Top = 22.677180000000000000
+          Width = 381.732530000000000000
+          Height = 15.118120000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8 = (
+            '[fr_DOC_DS."QUANTITY_ALL"]')
+          ParentFont = False
+        end
+        object Memo32: TfrxMemoView
+          Left = 132.283550000000000000
+          Top = 39.685039370078700000
+          Width = 381.732530000000000000
+          Height = 15.118120000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8 = (
+            '[SUM(<fr_doc_data_ds."QUANTITY">,MasterData1)]')
+          ParentFont = False
+        end
+        object Memo33: TfrxMemoView
+          Left = 132.283550000000000000
+          Top = 120.944960000000000000
+          Width = 604.724800000000000000
+          Height = 15.118120000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
           HAlign = haRight
           Memo.UTF8 = (
             #1056#1119#1057#1026#1056#181#1057#8218#1056#181#1056#1029#1056#183#1056#1105#1056#8470' '#1056#1111#1056#1109' '#1056#1108#1056#176#1057#8225#1056#181#1057#1027#1057#8218#1056#1030#1057#1107' '#1056#1029#1056#181' '#1056#1105#1056#1112#1056#181#1057#1035)
-          TruncOutboundText = False
-        end
-      end
-      object ReportSummary1: TfrxReportSummary
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Height = -16
-        Font.Name = 'Courier New'
-        Font.Style = []
-        Height = 85.000000000000000000
-        ParentFont = False
-        Top = 408.000000000000000000
-        Width = 758.400000000000000000
-        object DMPMemo28: TfrxDMPMemoView
-          Width = 758.400000000000000000
-          Height = 17.000000000000000000
-          ShowHint = False
-          DisplayFormat.DecimalSeparator = ','
-          Memo.UTF8 = (
-            
-              '* '#1056#166#1056#181#1056#1029#1057#8249' '#1056#1029#1056#176' '#1057#8218#1056#1109#1056#1030#1056#176#1057#1026' '#1056#1030' '#1056#1029#1056#176#1057#1027#1057#8218#1056#1109#1057#1039#1057#8240#1056#181#1056#8470' '#1056#1029#1056#176#1056#1108#1056#187#1056#176#1056#1169#1056#1029#1056 +
-              #1109#1056#8470' '#1057#1026#1056#176#1057#1027#1057#1027#1057#8225#1056#1105#1057#8218#1056#176#1056#1029#1057#8249' '#1056#1030' '#1057#1026#1057#1107#1056#177#1056#187#1057#1039#1057#8230' '#1056#1111#1056#1109' '#1056#1108#1057#1107#1057#1026#1057#1027#1057#1107)
-          TruncOutboundText = False
-        end
-        object DMPMemo29: TfrxDMPMemoView
-          Left = 259.200000000000000000
-          Top = 17.000000000000000000
-          Width = 499.200000000000000000
-          Height = 17.000000000000000000
-          ShowHint = False
-          DisplayFormat.DecimalSeparator = ','
-          Memo.UTF8 = (
-            #1056#1038#1057#1107#1056#1112#1056#1112#1056#176' '#1056#1029#1056#176#1056#1108#1056#187#1056#176#1056#1169#1056#1029#1056#1109#1056#8470' '#1056#1030' '#1056#8226#1056#1030#1057#1026#1056#1109' = ')
-          TruncOutboundText = False
-        end
-        object DMPMemo30: TfrxDMPMemoView
-          Align = baLeft
-          Top = 17.000000000000000000
-          Width = 259.200000000000000000
-          Height = 17.000000000000000000
-          ShowHint = False
-          DisplayFormat.DecimalSeparator = ','
-          TruncOutboundText = False
-        end
-        object DMPMemo31: TfrxDMPMemoView
-          Top = 34.000000000000000000
-          Width = 758.400000000000000000
-          Height = 17.000000000000000000
-          ShowHint = False
-          DisplayFormat.DecimalSeparator = ','
-          Memo.UTF8 = (
-            
-              #1056#1116#1056#176#1056#1108#1056#187#1056#176#1056#1169#1056#1029#1056#176#1057#1039' '#1056#1111#1056#1109#1056#1169#1056#187#1056#181#1056#182#1056#1105#1057#8218' '#1056#1109#1056#1111#1056#187#1056#176#1057#8218#1056#181' '#1056#1030' '#1057#1026#1057#1107#1056#177#1056#187#1057#1039#1057#8230 +
-              ' '#1056#1111#1056#1109' '#1056#1108#1057#1107#1057#1026#1057#1027#1057#1107' '#1056#8226#1056#1030#1057#1026#1056#1109', '#1057#1107#1057#1027#1057#8218#1056#176#1056#1029#1056#1109#1056#1030#1056#187#1056#181#1056#1029#1056#1029#1056#1109#1056#1112#1057#1107' '#1056#166#1056#8216' '#1056#160#1056 +
-              #1109#1057#1027#1057#1027#1056#1105#1056#1105)
-          TruncOutboundText = False
-        end
-        object DMPMemo32: TfrxDMPMemoView
-          Top = 51.000000000000000000
-          Width = 758.400000000000000000
-          Height = 17.000000000000000000
-          ShowHint = False
-          DisplayFormat.DecimalSeparator = ','
-          Memo.UTF8 = (
-            
-              #1056#1029#1056#176' '#1056#1169#1056#176#1057#8218#1057#1107' '#1056#183#1056#176#1057#8225#1056#1105#1057#1027#1056#187#1056#181#1056#1029#1056#1105#1057#1039' '#1056#1169#1056#181#1056#1029#1056#181#1056#182#1056#1029#1057#8249#1057#8230' '#1057#1027#1057#1026#1056#181#1056#1169#1057#1027#1057#8218 +
-              #1056#1030' '#1056#1029#1056#176' '#1057#1026#1056#176#1057#1027#1057#8225#1056#181#1057#8218#1056#1029#1057#8249#1056#8470' '#1057#1027#1057#8225#1056#181#1057#8218' ('#1056#1105#1056#187#1056#1105' '#1056#1108#1056#176#1057#1027#1057#1027#1057#1107') '#1056#1119#1056#1115#1056#1038#1056#1118 +
-              #1056#1106#1056#8217#1056#169#1056#152#1056#1113#1056#1106',')
-          TruncOutboundText = False
-        end
-        object DMPMemo33: TfrxDMPMemoView
-          Top = 68.000000000000000000
-          Width = 163.200000000000000000
-          Height = 17.000000000000000000
-          ShowHint = False
-          DisplayFormat.DecimalSeparator = ','
-          Memo.UTF8 = (
-            #1056#1029#1056#1109' '#1056#1029#1056#181' '#1056#1029#1056#1105#1056#182#1056#181' '#1056#1108#1057#1107#1057#1026#1057#1027#1056#176' ')
-          TruncOutboundText = False
-        end
-        object DMPMemo34: TfrxDMPMemoView
-          Left = 393.600000000000000000
-          Top = 68.000000000000000000
-          Width = 364.800000000000000000
-          Height = 17.000000000000000000
-          ShowHint = False
-          DisplayFormat.DecimalSeparator = ','
-          Memo.UTF8 = (
-            
-              #1056#177#1056#181#1056#183' '#1056#1030#1057#8249#1057#1027#1057#8218#1056#176#1056#1030#1056#187#1056#181#1056#1029#1056#1105#1057#1039' '#1056#1169#1056#1109#1056#1111#1056#1109#1056#187#1056#1029#1056#1105#1057#8218#1056#181#1056#187#1057#1034#1056#1029#1056#1109#1056#1110#1056#1109' '#1057#1027#1057 +
-              #8225#1056#181#1057#8218#1056#176'.')
-          TruncOutboundText = False
-        end
-        object DMPMemo35: TfrxDMPMemoView
-          Left = 163.200000000000000000
-          Top = 68.000000000000000000
-          Width = 230.400000000000000000
-          Height = 17.000000000000000000
-          ShowHint = False
-          DisplayFormat.DecimalSeparator = ','
-          TruncOutboundText = False
+          ParentFont = False
         end
       end
     end

@@ -300,7 +300,7 @@ object frmStore: TfrmStore
     Top = 127
     Width = 986
     Height = 445
-    ActivePage = tch_main
+    ActivePage = tch_reserv
     Align = alClient
     LookAndFeel.Kind = lfOffice11
     LookAndFeel.NativeStyle = True
@@ -2837,9 +2837,6 @@ object frmStore: TfrmStore
     end
     object docORDER_DATE: TDateTimeField
       FieldName = 'ORDER_DATE'
-    end
-    object docID_CASH_TMP: TFloatField
-      FieldName = 'ID_CASH_TMP'
     end
   end
   object DOC_DS: TOraDataSource

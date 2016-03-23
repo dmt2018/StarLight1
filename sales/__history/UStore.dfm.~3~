@@ -300,7 +300,7 @@ object frmStore: TfrmStore
     Top = 127
     Width = 986
     Height = 445
-    ActivePage = tch_main
+    ActivePage = tch_nakls
     Align = alClient
     LookAndFeel.Kind = lfOffice11
     LookAndFeel.NativeStyle = True

@@ -1163,7 +1163,7 @@ object DM: TDM
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 39796.688377118100000000
-    ReportOptions.LastChange = 42452.107453321760000000
+    ReportOptions.LastChange = 42153.966249085600000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -1202,7 +1202,7 @@ object DM: TDM
         Font.Height = -16
         Font.Name = 'Courier New'
         Font.Style = []
-        Height = 170.000000000000000000
+        Height = 187.000000000000000000
         ParentFont = False
         Top = 17.000000000000000000
         Width = 758.400000000000000000
@@ -1232,7 +1232,7 @@ object DM: TDM
           VAlign = vaCenter
         end
         object DMPMemo3: TfrxDMPMemoView
-          Top = 51.000000000000000000
+          Top = 68.000000000000000000
           Width = 144.000000000000000000
           Height = 17.000000000000000000
           ShowHint = False
@@ -1243,7 +1243,7 @@ object DM: TDM
           VAlign = vaCenter
         end
         object DMPMemo4: TfrxDMPMemoView
-          Top = 68.000000000000000000
+          Top = 85.000000000000000000
           Width = 144.000000000000000000
           Height = 17.000000000000000000
           ShowHint = False
@@ -1254,7 +1254,7 @@ object DM: TDM
           VAlign = vaCenter
         end
         object DMPMemo5: TfrxDMPMemoView
-          Top = 85.000000000000000000
+          Top = 102.000000000000000000
           Width = 144.000000000000000000
           Height = 17.000000000000000000
           ShowHint = False
@@ -1266,7 +1266,7 @@ object DM: TDM
         end
         object DMPMemo6: TfrxDMPMemoView
           Left = 153.600000000000000000
-          Top = 51.000000000000000000
+          Top = 68.000000000000000000
           Width = 595.200000000000000000
           Height = 17.000000000000000000
           ShowHint = False
@@ -1278,7 +1278,7 @@ object DM: TDM
         end
         object DMPMemo7: TfrxDMPMemoView
           Left = 153.600000000000000000
-          Top = 68.000000000000000000
+          Top = 85.000000000000000000
           Width = 595.200000000000000000
           Height = 17.000000000000000000
           ShowHint = False
@@ -1290,7 +1290,7 @@ object DM: TDM
         end
         object DMPMemo8: TfrxDMPMemoView
           Left = 153.600000000000000000
-          Top = 85.000000000000000000
+          Top = 102.000000000000000000
           Width = 595.200000000000000000
           Height = 17.000000000000000000
           ShowHint = False
@@ -1302,7 +1302,7 @@ object DM: TDM
         end
         object DMPMemo10: TfrxDMPMemoView
           Align = baLeft
-          Top = 136.000000000000000000
+          Top = 153.000000000000000000
           Width = 153.600000000000000000
           Height = 17.000000000000000000
           ShowHint = False
@@ -1316,7 +1316,7 @@ object DM: TDM
         object DMPMemo11: TfrxDMPMemoView
           Align = baLeft
           Left = 153.600000000000000000
-          Top = 136.000000000000000000
+          Top = 153.000000000000000000
           Width = 364.800000000000000000
           Height = 17.000000000000000000
           ShowHint = False
@@ -1330,7 +1330,7 @@ object DM: TDM
         object DMPMemo12: TfrxDMPMemoView
           Align = baLeft
           Left = 662.400000000000000000
-          Top = 136.000000000000000000
+          Top = 153.000000000000000000
           Width = 96.000000000000000000
           Height = 17.000000000000000000
           ShowHint = False
@@ -1345,7 +1345,7 @@ object DM: TDM
         object DMPMemo13: TfrxDMPMemoView
           Align = baLeft
           Left = 585.600000000000000000
-          Top = 136.000000000000000000
+          Top = 153.000000000000000000
           Width = 76.800000000000000000
           Height = 17.000000000000000000
           ShowHint = False
@@ -1360,7 +1360,7 @@ object DM: TDM
         object DMPMemo14: TfrxDMPMemoView
           Align = baLeft
           Left = 518.400000000000000000
-          Top = 136.000000000000000000
+          Top = 153.000000000000000000
           Width = 67.200000000000000000
           Height = 17.000000000000000000
           ShowHint = False
@@ -1373,7 +1373,7 @@ object DM: TDM
           VAlign = vaCenter
         end
         object DMPMemo37: TfrxDMPMemoView
-          Top = 102.000000000000000000
+          Top = 119.000000000000000000
           Width = 144.000000000000000000
           Height = 17.000000000000000000
           ShowHint = False
@@ -1385,28 +1385,13 @@ object DM: TDM
         end
         object DMPMemo38: TfrxDMPMemoView
           Left = 153.600000000000000000
-          Top = 102.000000000000000000
+          Top = 119.000000000000000000
           Width = 595.200000000000000000
           Height = 17.000000000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
           Memo.UTF8 = (
             '[fr_DOC_DS."COMMENTS"]')
-          TruncOutboundText = False
-          VAlign = vaCenter
-        end
-        object DMPMemo39: TfrxDMPMemoView
-          Align = baWidth
-          Top = 34.000000000000000000
-          Width = 758.400000000000000000
-          Height = 17.000000000000000000
-          ShowHint = False
-          DisplayFormat.DecimalSeparator = ','
-          HAlign = haCenter
-          Memo.UTF8 = (
-            
-              #1056#1116#1056#1109#1056#1112#1056#181#1057#1026' '#1056#1169#1056#187#1057#1039' '#1056#1109#1056#1111#1056#187#1056#176#1057#8218#1057#8249' '#1056#1030' '#1057#8218#1056#181#1057#1026#1056#1112#1056#1105#1056#1029#1056#176#1056#187#1056#181' [fr_DOC_DS.' +
-              '"ID_CASH_TMP"]')
           TruncOutboundText = False
           VAlign = vaCenter
         end
@@ -1419,7 +1404,7 @@ object DM: TDM
         Font.Style = []
         Height = 17.000000000000000000
         ParentFont = False
-        Top = 221.000000000000000000
+        Top = 238.000000000000000000
         Width = 758.400000000000000000
         DataSet = fr_doc_data_ds
         DataSetName = 'fr_doc_data_ds'
@@ -1505,7 +1490,7 @@ object DM: TDM
         Font.Style = []
         Height = 119.000000000000000000
         ParentFont = False
-        Top = 255.000000000000000000
+        Top = 272.000000000000000000
         Width = 758.400000000000000000
         object DMPMemo9: TfrxDMPMemoView
           Top = 17.000000000000000000
@@ -1649,7 +1634,7 @@ object DM: TDM
         Font.Style = []
         Height = 85.000000000000000000
         ParentFont = False
-        Top = 408.000000000000000000
+        Top = 425.000000000000000000
         Width = 758.400000000000000000
         object DMPMemo28: TfrxDMPMemoView
           Width = 758.400000000000000000

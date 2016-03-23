@@ -331,7 +331,6 @@ type
     CDS_MSTORECUR_CLIENT: TFloatField;
     CDS_USTORECUR_CLIENT: TFloatField;
     CDS_NULLSTORECUR_CLIENT: TFloatField;
-    docID_CASH_TMP: TFloatField;
     function frxReport1UserFunction(const MethodName: string;
       var Params: Variant): Variant;
     procedure DataModuleCreate(Sender: TObject);

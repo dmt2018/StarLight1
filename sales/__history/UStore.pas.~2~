@@ -283,7 +283,6 @@ type
     grid_allnakl_vORDER_DATE: TcxGridDBColumn;
     Label6: TLabel;
     EditPercent: TcxSpinEdit;
-    docID_CASH_TMP: TFloatField;
     procedure aLoadExecute(Sender: TObject);
     procedure aGetNaklsExecute(Sender: TObject);
     procedure FormShow(Sender: TObject);
