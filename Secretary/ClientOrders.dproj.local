@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<BorlandProject>
-	<Transactions>
-    <Transaction>2013.12.29 02:41:36.829.pas,C:\Users\Александр\Documents\RAD Studio\Projects\Unit2.pas=C:\_work\delphi\StarLight\_Цветы регионы\ClientOrders\UClientOrder.pas</Transaction>
-    <Transaction>2013.12.29 02:41:36.829.dfm,C:\Users\Александр\Documents\RAD Studio\Projects\Unit2.dfm=C:\_work\delphi\StarLight\_Цветы регионы\ClientOrders\UClientOrder.dfm</Transaction>
-    <Transaction>2013.12.29 02:41:56.990.dproj,C:\Users\Александр\Documents\RAD Studio\Projects\Project3.dproj=C:\_work\delphi\StarLight\_Цветы регионы\ClientOrders\ClientOrders.dproj</Transaction>
-  </Transactions>
-</BorlandProject>
