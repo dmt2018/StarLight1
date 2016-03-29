@@ -4877,9 +4877,9 @@ object InvoiceRecognise: TInvoiceRecognise
       OnClick = btnCheckLoadClick
     end
     object chbArchive: TcxBarEditItem
-      Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1072#1088#1093#1080#1074
+      Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1072#1088#1093#1080#1074'                        '
       Category = 0
-      Hint = #1055#1086#1082#1072#1079#1072#1090#1100' '#1072#1088#1093#1080#1074
+      Hint = #1055#1086#1082#1072#1079#1072#1090#1100' '#1072#1088#1093#1080#1074'                        '
       Visible = ivAlways
       Width = 30
       PropertiesClassName = 'TcxCheckBoxProperties'
@@ -5306,9 +5306,9 @@ object InvoiceRecognise: TInvoiceRecognise
       Category = 0
     end
     object chbZak: TcxBarEditItem
-      Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1079#1072#1082#1072#1079#1099
+      Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1080#1089#1082#1083#1102#1095#1077#1085#1080#1103' '#1080#1079' '#1079#1072#1082#1072#1079#1072
       Category = 0
-      Hint = #1055#1086#1082#1072#1079#1072#1090#1100' '#1079#1072#1082#1072#1079#1099
+      Hint = #1055#1086#1082#1072#1079#1072#1090#1100' '#1080#1089#1082#1083#1102#1095#1077#1085#1080#1103' '#1080#1079' '#1079#1072#1082#1072#1079#1072
       Visible = ivAlways
       Width = 30
       PropertiesClassName = 'TcxCheckBoxProperties'
