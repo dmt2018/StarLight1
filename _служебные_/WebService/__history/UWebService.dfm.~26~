@@ -52,7 +52,7 @@ object frmMainWebService: TfrmMainWebService
     Options.Direct = True
     Username = 'CREATOR'
     Password = '123456'
-    Server = 'COMP:1521:STARDB'
+    Server = 'roznica:1521:orcl'
     LoginPrompt = False
     Left = 456
     Top = 56

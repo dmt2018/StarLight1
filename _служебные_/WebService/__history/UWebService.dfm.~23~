@@ -40,6 +40,22 @@ object frmMainWebService: TfrmMainWebService
     TabOrder = 1
     OnClick = btnStopClick
   end
+  object Button1: TButton
+    Left = 463
+    Top = 248
+    Width = 75
+    Height = 25
+    Caption = 'Button1'
+    TabOrder = 3
+  end
+  object Edit1: TEdit
+    Left = 336
+    Top = 256
+    Width = 121
+    Height = 21
+    TabOrder = 4
+    Text = 'Edit1'
+  end
   object StarServer: TIdHTTPServer
     Bindings = <>
     DefaultPort = 8080
@@ -52,7 +68,7 @@ object frmMainWebService: TfrmMainWebService
     Options.Direct = True
     Username = 'CREATOR'
     Password = '123456'
-    Server = 'COMP:1521:STARDB'
+    Server = 'roznica:1521:orcl'
     LoginPrompt = False
     Left = 456
     Top = 56

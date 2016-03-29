@@ -30,7 +30,7 @@ type
   public
     { Public declarations }
     creator, ora_db_path : string;
-    procedure sendProverka(resp_text: string; err_code: string);
+    procedure sendProverka(resp_text: string; inf:string; err_code: string);
     procedure sendError(resp_text: string; err_code: string);
     procedure sendIndex(resp_text: string; id_code: string);
   end;
@@ -38,13 +38,7 @@ type
 var
   frmMainWebService: TfrmMainWebService;
   f,f1: textfile;
-{
-  // AMOUNT,PAYID : integer;
-  // DATE:string;
-  AM,PA,PT: integer;
-  DA,cod1,cod2,cod3,rece,ti: string;
-  flag: integer;
-}
+
 implementation
 
 {$R *.dfm}
@@ -77,12 +71,7 @@ end;
 procedure TfrmMainWebService.FormCreate(Sender: TObject);
 VAR f : TextFile;
 begin
-{
-  flag := 0; // проверка пока не пройдена
-  AM   := 1;
-  PA   := 2;
-  DA   := 'YYYYMMDDHHMMSS';
-}
+
   btnStart.Enabled := not StarServer.Active;
   btnStop.Enabled := not btnStart.Enabled;
   try
@@ -101,34 +90,57 @@ end;
 
 procedure TfrmMainWebService.StarServerCommandGet(AContext: TIdContext;
   ARequestInfo: TIdHTTPRequestInfo; AResponseInfo: TIdHTTPResponseInfo);
-var p_login, p_pass, p_code, str_date, resp_text: string;
-    p_type, p_paytype, p_payid: integer;
-    p_amount: real;
+  label l1;
+var p_login, p_pass, p_code1, str_date, resp_text, inf: string;
+    p_type: integer;
+    p_payid:real;
+    p_amount: real;      raznica:real;  zpt:integer;
     p_date: TDateTime;
     FS: TFormatSettings;
+    i,flag:integer;      dengi:string;
 begin
-  resp_text := '';
+  resp_text := ''; inf:='';
   mmLog.Text := ARequestInfo.Params.Text;
 
-  // начальная проверка на оплату
-  // http://127.0.0.1:8080/?LOGIN=UEGATE&PASS=star_UEGATE&TYPE=1&PAYTYPE=1&CODE1=11152742&AMOUNT=16235&PAYID=123456789&DATE=20160208130000
+
+
+      //старое:
+   {  // начальная проверка на оплату
+http://212.100.132.182:8080/?LOGIN=UEGATE&PASS=star_UEGATE&TYPE=1&CODE1=11162156&AMOUNT=16235&PAYID=123456789&DATE=20160208130000
   // начальная проверка на предоплату
-  // http://127.0.0.1:8080?LOGIN=UEGATE&PASS=star_UEGATE&TYPE=1&PAYTYPE=2&CODE1=S EVA&AMOUNT=16235&PAYID=123456789&DATE=20160208130000
+ http://212.100.132.182:8080/?LOGIN=UEGATE&PASS=star_UEGATE&TYPE=1&CODE1=D BNM&AMOUNT=16235&PAYID=123456789&DATE=20160208130000
 
   // оплата по накладной
-  //http://127.0.0.1:8080/?LOGIN=UEGATE&PASS=star_UEGATE&TYPE=2&PAYTYPE=1&CODE1=11152742&AMOUNT=16235&PAYID=123456789&DATE=20160208130000
+  http://212.100.132.182:8080/?LOGIN=UEGATE&PASS=star_UEGATE&TYPE=2&CODE1=11162156&AMOUNT=16235&PAYID=123456789&DATE=20160208130000
+
+  //Внесение предоплаты
+http://212.100.132.182:8080/?LOGIN=UEGATE&PASS=star_UEGATE&TYPE=2&CODE1=D BNM&AMOUNT=16235&PAYID=123456789&DATE=20160208130000
+
+   }
+
+
+  {// начальная проверка на оплату
+  http://192.168.1.23:8080/?LOGIN=UEGATE&PASS=star_UEGATE&TYPE=1&CODE1=11162159&CODE2=500&AMOUNT=50000&PAYID=635932219909769260&DATE=20160322180000
+  // начальная проверка на предоплату
+  http://192.168.1.23:8080/?LOGIN=UEGATE&PASS=star_UEGATE&TYPE=1&CODE1=D BNM&CODE2=500&AMOUNT=50000&PAYID=635932219909769260&DATE=20160322180000
+
+  // оплата по накладной
+  http://192.168.1.23:8080/?LOGIN=UEGATE&PASS=star_UEGATE&TYPE=2&CODE1=11162159&CODE2=500&AMOUNT=50000&PAYID=635932219909769260&DATE=20160322180000
+  //Внесение предоплаты
+  http://192.168.1.23:8080/?LOGIN=UEGATE&PASS=star_UEGATE&TYPE=2&CODE1=D BNM&CODE2=500&AMOUNT=50000&PAYID=635932219909769260&DATE=20160322180000
+    }
 
   if (ARequestInfo.Params.Values['LOGIN'] = '') or (ARequestInfo.Params.Values['PASS'] = '') then
   begin
-    AResponseInfo.ContentText := 'Ошибка. Ну казан логин или пароль';
+    AResponseInfo.ContentText := 'Ошибка. Не казан логин или пароль';
     exit;
   end;
 
-  if (StrToInt(ARequestInfo.Params.Values['PAYTYPE']) = 0) or (StrToInt(ARequestInfo.Params.Values['PAYTYPE']) > 2) then
+ { if (StrToInt(ARequestInfo.Params.Values['PAYTYPE']) = 0) or (StrToInt(ARequestInfo.Params.Values['PAYTYPE']) > 2) then
   begin
     AResponseInfo.ContentText := 'Тип и назначения платежа не верны';
     exit;
-  end;
+  end;    }
 
   if (StrToInt(ARequestInfo.Params.Values['TYPE']) = 0) or (StrToInt(ARequestInfo.Params.Values['TYPE']) > 2) then
   begin
@@ -142,20 +154,41 @@ begin
     exit;
   end;
 
-  if (ARequestInfo.Params.Values['CODE1'] = '') then
+  // не введено обязат поле cod1
+  //*************************************************************************************************
+ { if (ARequestInfo.Params.Values['CODE1'] = '') and (ARequestInfo.Params.Values['CODE2'] = '') then
   begin
-    AResponseInfo.ContentText := 'Не указаны основные параметры';
+    AResponseInfo.ContentText := 'Не указаны основные параметры С1';
     exit;
   end;
+  if (ARequestInfo.Params.Values['CODE1'] = '') and (ARequestInfo.Params.Values['CODE2'] <> '') then
+  begin                                        
+    AResponseInfo.ContentText := 'Не указаны основные параметры C1';
+    exit;
+  end;    }
+  //***************************************************************************************************
+  if (ARequestInfo.Params.Values['CODE1'] = '') then
+  begin
+    AResponseInfo.ContentText := 'Не указаны основные параметры 1';
+    exit;
+  end;
+
+  {if (ARequestInfo.Params.Values['CODE2'] = '') then
+  begin
+    AResponseInfo.ContentText := 'Не указаны основные параметры 2';
+    exit;
+  end;      }
+
 
   DecimalSeparator := '.';
   p_login := ARequestInfo.Params.Values['LOGIN'];
   p_pass := ARequestInfo.Params.Values['PASS'];
   p_type := StrToInt(ARequestInfo.Params.Values['TYPE']);
-  p_code := ARequestInfo.Params.Values['CODE1'];
+  p_code1 := ARequestInfo.Params.Values['CODE1'];
+  //p_code2 := ARequestInfo.Params.Values['CODE2'];
   p_amount := StrToFloat(ARequestInfo.Params.Values['AMOUNT'])/100;
-  p_paytype := StrToInt(ARequestInfo.Params.Values['PAYTYPE']);
-  p_payid := StrToInt(ARequestInfo.Params.Values['PAYID']);
+  //p_paytype := StrToInt(ARequestInfo.Params.Values['PAYTYPE']);
+  p_payid := StrTofloat(ARequestInfo.Params.Values['PAYID']);
   //p_date := ARequestInfo.Params.Values['DATE']
   //ShortDateFormat := 'yyyymmdd';
   //ShortTimeFormat := 'hhmmss';
@@ -170,6 +203,7 @@ begin
   FS.ShortDateFormat := 'yyyy.mm.dd';
   FS.ShortTimeFormat := 'hh24:mi:ss';
   p_date := StrToDateTime(str_date, FS);
+  //inf:= ARequestInfo.Params.Values['ADDINFO'];
 
   //p_date := strtodatetime(ARequestInfo.Params.Values['DATE']);
 
@@ -193,19 +227,43 @@ begin
     OraSQL.SQL.Clear;
     if p_type = 1 then
     begin
-      // Проверка на платеж по ИД кассового дня
-      if p_paytype = 1 then
-        OraSQL.SQL.Add('SELECT count(*) as nn FROM CASH_TMP WHERE ID_CASH_TMP = '+p_code);
-      // Проверка на предоплату по коду клиента
-      if p_paytype = 2 then
-        OraSQL.SQL.Add('SELECT count(*) as nn FROM clients WHERE nick = upper('''+p_code+''') and id_office=1');
+        flag:=0;//не было проверки суммы
 
-      OraSQL.Open;
-      if OraSQL.FieldByName('nn').AsInteger = 1 then
+      // Проверка на платеж по ИД кассового дня
+        if TryStrToInt(p_code1,i) then begin
+        OraSQL.SQL.Add('SELECT count(*) as nn, SUMM as xx FROM CASH_TMP WHERE ID_CASH_TMP = '+p_code1+' GROUP BY SUMM');
+        OraSQL.Open;
+        //убираю запятую в введенной кнопками сумме и меняю на точку:
+       // if pos(',',p_code2)<>0 then begin zpt:=pos(',',p_code2); delete(p_code2,zpt,1); insert('.',p_code2,zpt); end;
+       // if (OraSQL.FieldByName('xx').asfloat <= (RoundTo( strtofloat(p_code2),-2 ))) then
+       flag:=1;  //ок
+       
+          dengi:= floattostr(OraSQL.FieldByName('xx').asfloat*100);
+          inf := dengi;
+        end;
+
+      // Проверка на предоплату по коду клиента  (R CHL не может вносить предоплату, а платит только по № накладной)
+        if (not TryStrToInt(p_code1,i)) {and (AnsiUpperCase(p_code1)<>'R CHL')} then begin
+         
+        OraSQL.SQL.Add('SELECT count(*) as nn FROM clients WHERE nick = upper('''+p_code1+''') and id_office=1');
+        OraSQL.Open;
+       // SELECT count(id_clients) as nn, SUMM as xx FROM CASH_TMP WHERE id_clients = (SELECT id_clients FROM clients WHERE nick = upper('r chl') and id_office=1)  GROUP BY summ;
+       //убираю запятую в введенной кнопками сумме и меняю на точку:
+       // if pos(',',p_code2)<>0 then begin zpt:=pos(',',p_code2); delete(p_code2,zpt,1); insert('.',p_code2,zpt);end;
+        if AnsiUpperCase(p_code1)<>'R CHL' then flag:=1; //ок
+
+         inf := '';
+        end;
+
+      //OraSQL.Open;
+      if (OraSQL.FieldByName('nn').AsInteger = 1) and (flag=1) then
+      //if (OraSQL.FieldByName('xx').AsInteger <= (RoundTo( strtofloat(p_code2),-2 ))) then
       begin
+        flag:=0; //сбросил проверку
         resp_text := 'Проверка прошла успешно';
-        sendProverka(resp_text, '0');
+        sendProverka(resp_text,inf, '0');
         mmLog.Lines.Add(resp_text);
+        mmLog.Lines.Add(inf);
         AResponseInfo.ContentType := 'Content-type: text/xml; charset=windows-1251';
         AResponseInfo.ResponseNo := 200;// все успешно
         //AResponseInfo.ContentText := resp_text;
@@ -213,28 +271,51 @@ begin
       end
       else
       begin
-        resp_text := 'Данные о платеже или клиенте не найдены';
-        sendProverka(resp_text, '100');
+        flag:=0; //сбросил проверку
+        resp_text := 'Данные о клиенте не найдены';
+        inf:='';
+        sendProverka(resp_text,inf,'100');
         mmLog.Lines.Add(resp_text);
+        mmLog.Lines.Add(inf);
         AResponseInfo.ContentType := 'Content-type: text/xml; charset=windows-1251';
         AResponseInfo.ResponseNo := 200;// все успешно
         //AResponseInfo.ContentText := resp_text;
         AResponseInfo.ContentStream := TFileStream.Create('htdocs/proverka.xml',fmShareDenyNone);
       end;
-    end
+    end    // <-   на этом шаге первый http-запрос "проверка" выполнен
     else
-    begin
+    begin  //нажатие "оплата":
+      //  l1:
+       //теперь вносятся живые деньги и формируется 2й http-запрос "оплата":
+
       // Платеж по ИД кассового дня
-      if p_paytype = 1 then
-        OraSQL.SQL.Add('UPDATE CASH_TMP SET in_rub='+ FloatToStr( RoundTo( p_amount,-2 ) ) +', info='''+IntToStr(p_payid)+''', corrector='''+p_login+''', ddate_done=sysdate, date_change=sysdate WHERE ID_CASH_TMP = '+p_code);
-      // Предоплата по коду клиента
-      if p_paytype = 2 then
-        OraSQL.SQL.Add(' begin cash_pkg.add_cash_record_simple('''+p_code+''','+ FloatToStr( RoundTo( p_amount,-2 ) ) +','''+p_login+'''); end; ');
+       if TryStrToInt(p_code1,i) then begin
+        OraSQL.SQL.Add('SELECT SUMM as bb FROM CASH_TMP WHERE ID_CASH_TMP = '+p_code1);
+        OraSQL.Open;
+        if OraSQL.FieldByName('bb').Asfloat <= (RoundTo( p_amount,-2 ))  then begin // было asinteger и работало
+           raznica:=   RoundTo( p_amount,-2 )-OraSQL.FieldByName('bb').AsInteger; // пока не знаю куда девать raznica
+           OraSQL.Close;  OraSQL.SQL.Clear;
+          // OraSQL.SQL.Add('UPDATE CASH_TMP SET in_rub='+ FloatToStr( RoundTo( p_amount,-2 ) ) +', info='''+floatToStr(p_payid)+''', corrector='''+p_login+''', ddate_done=sysdate, date_change=sysdate WHERE ID_CASH_TMP = '+p_code1);
+           OraSQL.SQL.Add('UPDATE CASH_TMP SET in_rub='+ FloatToStr( RoundTo( p_amount,-2 ) ) +',out_rub='+ FloatToStr( RoundTo( p_amount,-2 ) ) + ', info='''+floatToStr(p_payid)+''', corrector='''+p_login+''', ddate_done=sysdate, date_change=sysdate WHERE ID_CASH_TMP = '+p_code1);
+        end;// else goto l1; 
+        end;
+
+      // Предоплата по коду клиента (для предоплаты проверка денег не нужна)
+      if not TryStrToInt(p_code1,i) then begin
+      //OraSQL.SQL.Add('SELECT b.SUMM as bb FROM clients a, CASH_TMP b WHERE a.nick = upper('''+p_code1+''') and a.id_office=1 and a.id_clients=b.id_clients');
+      //OraSQL.Open;
+      //if OraSQL.FieldByName('bb').AsInteger <= (RoundTo( p_amount,-2 ))  then begin
+      //OraSQL.Close;  OraSQL.SQL.Clear;
+      OraSQL.SQL.Add(' begin cash_pkg.add_cash_record_simple('''+p_code1+''','+ FloatToStr( RoundTo( p_amount,-2 ) ) +','''+p_login+'''); end; ');
+      //end else goto l1;
+      end;
+
       OraSQL.Execute;
       SelectSession.Commit;
 
+      flag:=0;//сбросил проверку
       resp_text := 'Платеж осуществлен успешно';
-      sendIndex(resp_text, IntToStr(p_payid));
+      sendIndex(resp_text, floatToStr(p_payid));
       mmLog.Lines.Add(resp_text);
       AResponseInfo.ContentType := 'Content-type: text/xml; charset=windows-1251';
       AResponseInfo.ResponseNo := 200;// все успешно
@@ -256,7 +337,7 @@ begin
 
 end;
 
-procedure TfrmMainWebService.sendProverka(resp_text: string; err_code: string);
+procedure TfrmMainWebService.sendProverka(resp_text: string; inf:string; err_code: string);
 begin
         try
           {$I-}
@@ -267,7 +348,7 @@ begin
           writeln(f,'<RESULTCODE>'+err_code+'</RESULTCODE>');
           writeln(f,'<RESULTMESSAGE>'+resp_text+'</RESULTMESSAGE>');
           writeln(f,'<DATE>'+FormatDateTime('YYYYMMDDHHMMSS',now)+'</DATE>');
-          writeln(f,'<ADDINFO></ADDINFO>');
+          writeln(f,'<ADDINFO>'+inf+'</ADDINFO>');
           writeln(f,'</RESPONSE>');
           closefile(f);
           {$I+}
