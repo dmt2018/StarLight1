@@ -571,6 +571,22 @@ object InvoiceRecognise: TInvoiceRecognise
             DataBinding.FieldName = 'COUNTRY_GTD'
             Visible = False
           end
+          object grid_invoices_vIZAK: TcxGridDBColumn
+            Caption = #1047#1072#1082#1072#1079
+            DataBinding.FieldName = 'IARCHIVE'
+            PropertiesClassName = 'TcxCheckBoxProperties'
+            Properties.DisplayChecked = #1076#1072
+            Properties.DisplayUnchecked = #1085#1077#1090
+            Properties.ImmediatePost = True
+            Properties.NullStyle = nssUnchecked
+            Properties.ValueChecked = '2'
+            Properties.ValueUnchecked = '0'
+            HeaderAlignmentHorz = taCenter
+            MinWidth = 60
+            Options.Editing = False
+            Options.HorzSizing = False
+            Width = 60
+          end
         end
         object grid_invoices_l: TcxGridLevel
           GridView = grid_invoices_v
@@ -2123,7 +2139,7 @@ object InvoiceRecognise: TInvoiceRecognise
     Left = 257
     Top = 97
     Bitmap = {
-      494C010102000400940110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010102000400A00110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       000000000000000000000000000000000000008AEF54008BF4B00088F3C00085
       F2C90082F1CF007FF0D3007CEFD5007AEFD60077EED60076EDD50074EDD30074
@@ -2319,12 +2335,16 @@ object InvoiceRecognise: TInvoiceRecognise
       ShortCut = 16450
       OnExecute = aSearchByCodeExecute
     end
+    object aZak: TAction
+      Caption = #1044#1086#1073#1072#1074#1080#1090#1100'/'#1091#1073#1088#1072#1090#1100' '#1080#1079' '#1079#1072#1082#1072#1079#1072
+      OnExecute = aZakExecute
+    end
   end
   object ImageList2: TImageList
     Left = 329
     Top = 97
     Bitmap = {
-      494C010105000C00940110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010105000C00A00110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000000000000C572087DA25E07330000000000000000000000000000
@@ -4105,7 +4125,15 @@ object InvoiceRecognise: TInvoiceRecognise
         end
         item
           Visible = True
+          ItemName = 'chbZak'
+        end
+        item
+          Visible = True
           ItemName = 'bbArchive'
+        end
+        item
+          Visible = True
+          ItemName = 'bbzak'
         end>
       OnPopup = dxBarSubItem2Popup
     end
@@ -5254,6 +5282,42 @@ object InvoiceRecognise: TInvoiceRecognise
       Visible = ivAlways
       ImageIndex = 1
       OnClick = dxBarButton4Click
+    end
+    object dxBarButton5: TdxBarButton
+      Caption = 'New Button'
+      Category = 0
+      Hint = 'New Button'
+      Visible = ivAlways
+    end
+    object dxBarSubItem3: TdxBarSubItem
+      Caption = 'New SubItem'
+      Category = 0
+      Visible = ivAlways
+      ItemLinks = <>
+    end
+    object dxBarSubItem4: TdxBarSubItem
+      Caption = 'New SubItem'
+      Category = 0
+      Visible = ivAlways
+      ItemLinks = <>
+    end
+    object bbzak: TdxBarButton
+      Action = aZak
+      Category = 0
+    end
+    object chbZak: TcxBarEditItem
+      Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1079#1072#1082#1072#1079#1099
+      Category = 0
+      Hint = #1055#1086#1082#1072#1079#1072#1090#1100' '#1079#1072#1082#1072#1079#1099
+      Visible = ivAlways
+      Width = 30
+      PropertiesClassName = 'TcxCheckBoxProperties'
+      Properties.ImmediatePost = True
+      Properties.NullStyle = nssUnchecked
+      Properties.ValueChecked = '2'
+      Properties.ValueUnchecked = '0'
+      Properties.OnChange = chbZakPropertiesChange
+      InternalEditValue = 0
     end
   end
   object TdxBarSeparator

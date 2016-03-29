@@ -325,6 +325,13 @@ type
     dxBarButton3: TdxBarButton;
     dxBarButton4: TdxBarButton;
     st_recognized: TcxStyle;
+    dxBarButton5: TdxBarButton;
+    dxBarSubItem3: TdxBarSubItem;
+    dxBarSubItem4: TdxBarSubItem;
+    bbzak: TdxBarButton;
+    aZak: TAction;
+    grid_invoices_vIZAK: TcxGridDBColumn;
+    chbZak: TcxBarEditItem;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button6Click(Sender: TObject);
@@ -442,6 +449,9 @@ type
     procedure grid_fresh_vCustomDrawCell(Sender: TcxCustomGridTableView;
       ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
       var ADone: Boolean);
+    procedure dxBarButton6Click(Sender: TObject);
+    procedure Azakexecute(Sender: TObject);
+    procedure chbZakPropertiesChange(Sender: TObject);
   private
     pnl_msg: TPanel;
     procedure ins_to_file(cds: TOraQuery; var f: TextFile; sql_str: string; old_id: integer);
@@ -544,6 +554,7 @@ begin
     bbArchive.Visible  := ivNever;
   end;
   aArchive.Enabled := add;
+   aZAK.Enabled := add;
   // ----------------------------
 
   grid_invoices_vTOTAL_SUM_TO_BE.Visible := ed;
@@ -580,6 +591,7 @@ begin
 
     ALoadGridParams.Execute;
     grid_invoices_vIARCHIVE.Visible := add;
+    grid_invoices_vIZAK.Visible := add;
   finally
     RegIni.Free;
   end;
@@ -916,6 +928,13 @@ begin
   grid_done.SetFocus;
 end;
 
+
+procedure TInvoiceRecognise.dxBarButton6Click(Sender: TObject);
+
+begin
+
+end;
+
 //
 //  Красим позиции со 100%
 //
@@ -969,6 +988,11 @@ begin
   end;
 end;
 
+
+procedure TInvoiceRecognise.chbZakPropertiesChange(Sender: TObject);
+begin
+ btn_refreshClick(nil);
+end;
 
 procedure TInvoiceRecognise.chbCorrectionChange(Sender: TObject);
 begin
@@ -1107,7 +1131,12 @@ begin
     DM.InvoiceRegister.Close;
     DM.InvoiceRegister.ParamByName('ID_DEPARTMENTS_').Value := CUR_DEPT_ID;
     DM.InvoiceRegister.ParamByName('SHOW_SHORT_').Value := chb_sended.EditValue;
-    DM.InvoiceRegister.ParamByName('pARCHIVE').Value := chbArchive.EditValue;
+
+    if chbArchive.EditValue = 1 then
+      DM.InvoiceRegister.ParamByName('pARCHIVE').Value := chbArchive.EditValue
+    else
+      DM.InvoiceRegister.ParamByName('pARCHIVE').Value := chbzak.EditValue ;
+
     DM.InvoiceRegister.ParamByName('pNom').AsString := VarToStr(te_search.EditValue);
     DM.InvoiceRegister.Open;
 
@@ -2156,6 +2185,25 @@ begin
   end;
 end;
 
+
+//убрать из заказов
+procedure TInvoiceRecognise.Azakexecute(Sender: TObject);
+var id: integer;
+begin
+  if not DM.InvoiceRegister.Active or DM.InvoiceRegister.IsEmpty then exit;
+
+  id := DM.InvoiceRegisterINV_ID.AsInteger;
+  try
+      dm.SelQ.close;
+      dm.SelQ.sql.Clear;
+      dm.SelQ.sql.Add('update INVOICE_REGISTER set status=abs(status-2) where INV_ID='+inttostr(id));
+      dm.SelQ.Execute;
+      dm.STAR_DB.Commit;
+      btn_refreshClick(nil);
+  except
+    on E: Exception do Application.MessageBox (PChar(E.Message), 'Ошибка!', MB_ICONERROR);
+  end;
+end;
 
 //
 //  автоматическое распознование инвойса

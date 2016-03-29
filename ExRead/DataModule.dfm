@@ -7,7 +7,7 @@ object DM: TDM
     Options.Direct = True
     Username = 'creator'
     Password = '123456'
-    Server = 'KLEPOV:1521:STARNEW'
+    Server = 'roznica:1521:orcl'
     BeforeConnect = STAR_DBBeforeConnect
     HomeName = 'OraHome92'
     Left = 24
@@ -105,17 +105,14 @@ object DM: TDM
       item
         DataType = ftUnknown
         Name = 'SHOW_SHORT_'
-        Value = Null
       end
       item
         DataType = ftUnknown
         Name = 'pARCHIVE'
-        Value = Null
       end
       item
         DataType = ftUnknown
         Name = 'v_office'
-        Value = Null
       end
       item
         DataType = ftString
@@ -126,7 +123,7 @@ object DM: TDM
         DataType = ftCursor
         Name = 'CURSOR_'
         ParamType = ptOutput
-        Value = ''
+        Value = 'Object'
       end>
     object InvoiceRegisterINV_ID: TFloatField
       FieldName = 'INV_ID'
