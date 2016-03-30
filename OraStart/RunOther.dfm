@@ -169,7 +169,7 @@ object Runner: TRunner
       Left = 12
       Top = 221
       Width = 273
-      Height = 174
+      Height = 156
       Caption = ' '#1054#1073#1097#1080#1077' '
       Color = clWhite
       Font.Charset = DEFAULT_CHARSET
@@ -201,7 +201,7 @@ object Runner: TRunner
       end
       object BitBtn4: TBitBtn
         Left = 16
-        Top = 48
+        Top = 49
         Width = 241
         Height = 25
         Cursor = crHandPoint
@@ -216,26 +216,9 @@ object Runner: TRunner
         TabOrder = 1
         OnClick = BitBtn4Click
       end
-      object BitBtn7: TBitBtn
-        Left = 16
-        Top = 79
-        Width = 241
-        Height = 25
-        Cursor = crHandPoint
-        Caption = #1057#1077#1082#1088#1077#1090#1072#1088#1080#1072#1090
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Arial'
-        Font.Pitch = fpFixed
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 2
-        OnClick = BitBtn7Click
-      end
       object BitBtn13: TBitBtn
         Left = 16
-        Top = 110
+        Top = 118
         Width = 241
         Height = 25
         Cursor = crHandPoint
@@ -247,16 +230,23 @@ object Runner: TRunner
         Font.Pitch = fpFixed
         Font.Style = []
         ParentFont = False
-        TabOrder = 3
+        TabOrder = 2
         OnClick = BitBtn13Click
       end
       object Button2: TButton
         Left = 16
-        Top = 141
+        Top = 87
         Width = 241
         Height = 25
-        Caption = 'secretary'
-        TabOrder = 4
+        Caption = #1057#1077#1082#1088#1077#1090#1072#1088#1080#1072#1090
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Pitch = fpFixed
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 3
         OnClick = Button2Click
       end
     end

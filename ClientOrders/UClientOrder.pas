@@ -177,8 +177,7 @@ begin
       Q_DISTR_LIST.ParamByName('p_order_client').AsInteger := cdsClientsID_ORDERS_CLIENTS.AsInteger;
       Q_DISTR_LIST.Open;
 }
-      //frxReport1.LoadFromFile(path+'raports\order_client_list.fr3');
-      frxReport1.LoadFromFile(path+'raports\reserv.fr3');
+      frxReport1.LoadFromFile(path+'raports\order_client_list.fr3');
       frxReport1.ShowReport;
       Screen.Cursor := crDefault;
 
@@ -266,11 +265,11 @@ procedure TfrmClientOrders.FormCreate(Sender: TObject);
 var  RegIni : TIniFile;
      path : String;
 begin
-{
+
 frmClientOrders.FormStyle:=fsStayOnTop;
 frmClientOrders.Width:=Screen.Width;
 frmClientOrders.Height :=Screen.Height;
-               }
+               
   path := ExtractFilePath(Application.ExeName);
   cdsOrders.AfterScroll := nil;
 

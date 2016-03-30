@@ -23,7 +23,6 @@ type
     GroupBox5: TGroupBox;
     GroupBox6: TGroupBox;
     BitBtn3: TBitBtn;
-    BitBtn7: TBitBtn;
     BitBtn8: TBitBtn;
     BitBtn9: TBitBtn;
     BitBtn10: TBitBtn;
@@ -83,10 +82,10 @@ type
     { Private declarations }
     pnl_msg: TPanel;
     path: string;
-    dict_started, admin_started, ref_books_started, registr_started, come_go_started, sec_go_started, order_started, inv_started, fito_started, cl_started, ca_started, sv_started, cu_started, bu_started, sk_started, price_started, deb_started, dis_started, stat_started, sel_started : boolean;
-    dict_path, dict_name, admin_path, admin_name, ref_books_path, ref_books_name, registr_path, registr_name, come_go_name, come_go_path,sec_go_name, sec_go_path, order_path, order_name, inv_path, inv_name, fito_path, fito_name, cl_path, cl_name, ca_path, ca_name, sv_path, sv_name, cu_path, cu_name, bu_path, bu_name, sk_path, sk_name, price_path, price_name, deb_path, deb_name, dis_path, dis_name, stat_path, stat_name, sel_path, sel_name : string;
-    dict_si, admin_si, ref_books_si, registr_si, come_go_si, sec_go_si,order_si, inv_si, fito_si, cl_si, ca_si, sv_si, cu_si, bu_si, sk_si, price_si, deb_si, dis_si, stat_si, sel_si : STARTUPINFO;
-    dict_pi, admin_pi, ref_books_pi, registr_pi, come_go_pi, sec_go_pi, order_pi, inv_pi, fito_pi, cl_pi, ca_pi, sv_pi, cu_pi, bu_pi, sk_pi, price_pi, deb_pi, dis_pi, stat_pi, sel_pi : PROCESS_INFORMATION;
+    dict_started, admin_started, ref_books_started, registr_started, {come_go_started,} sec_go_started, order_started, inv_started, fito_started, cl_started, ca_started, sv_started, cu_started, bu_started, sk_started, price_started, deb_started, dis_started, stat_started, sel_started : boolean;
+    dict_path, dict_name, admin_path, admin_name, ref_books_path, ref_books_name, registr_path, registr_name, {come_go_name, come_go_path,}sec_go_name, sec_go_path, order_path, order_name, inv_path, inv_name, fito_path, fito_name, cl_path, cl_name, ca_path, ca_name, sv_path, sv_name, cu_path, cu_name, bu_path, bu_name, sk_path, sk_name, price_path, price_name, deb_path, deb_name, dis_path, dis_name, stat_path, stat_name, sel_path, sel_name : string;
+    dict_si, admin_si, ref_books_si, registr_si, {come_go_si,} sec_go_si,order_si, inv_si, fito_si, cl_si, ca_si, sv_si, cu_si, bu_si, sk_si, price_si, deb_si, dis_si, stat_si, sel_si : STARTUPINFO;
+    dict_pi, admin_pi, ref_books_pi, registr_pi, {come_go_pi,} sec_go_pi, order_pi, inv_pi, fito_pi, cl_pi, ca_pi, sv_pi, cu_pi, bu_pi, sk_pi, price_pi, deb_pi, dis_pi, stat_pi, sel_pi : PROCESS_INFORMATION;
     username, password : string;
 //    sql_sel_start : string;
 
@@ -101,7 +100,7 @@ type
     r_e,  r_k,  r_t,  r_a : boolean;                    // регистрация
     d_e,  d_k,  d_t,  d_a : boolean;                    // словарь номенклатуры
     rb_e, rb_k, rb_t, rb_a : boolean;                 // справочники
-    cg_e, cg_k, cg_t, cg_a : boolean;           // Come_go
+   // cg_e, cg_k, cg_t, cg_a : boolean;           // Come_go
     sec_e, sec_k, sec_t, sec_a : boolean;           // secretary
     o_e,  o_k,  o_t,  o_a : boolean;               // Для заказов
     inv_e, inv_k, inv_t, inv_a : boolean;              // Для инвойсов
@@ -155,9 +154,9 @@ begin
   registr_name := 'registration.exe';
   registr_started := false;
 
-  come_go_path := '..\Secretary';
+ { come_go_path := '..\Secretary';
   come_go_name := 'secretary.exe';
-  come_go_started := false;
+  come_go_started := false; }
 
   sec_go_path := '..\Sec';
   sec_go_name := 'sec.exe';
@@ -225,7 +224,7 @@ begin
   BitBtn3.Enabled := false;
   BitBtn4.Enabled := false;
   BitBtn5.Enabled := false;
-  BitBtn7.Enabled := false;
+  //BitBtn7.Enabled := false;
   BitBtn8.Enabled := false;
   BitBtn9.Enabled := false;
   BitBtn10.Enabled := false;
@@ -509,7 +508,7 @@ try
           BitBtn3.Enabled := false;
           BitBtn4.Enabled := false;
           BitBtn5.Enabled := false;
-          BitBtn7.Enabled := false;
+          //BitBtn7.Enabled := false;
           BitBtn8.Enabled := false;
           BitBtn9.Enabled := false;
           BitBtn10.Enabled := false;
@@ -532,7 +531,7 @@ try
               BitBtn3.Enabled := true;
               BitBtn4.Enabled := true;
               BitBtn5.Enabled := true;
-              BitBtn7.Enabled := true;
+              //BitBtn7.Enabled := true;
               BitBtn8.Enabled := true;
               BitBtn9.Enabled := true;
               BitBtn10.Enabled := true;
@@ -572,11 +571,11 @@ try
               a_k := true;
               a_e := true;
               a_a := true;
-              cg_e := true;
+              {cg_e := true;
               cg_k := true;
               cg_t := true;
               cg_a := true;
-
+               }
                sec_e:= true;
                sec_k:= true;
                sec_t:= true;
@@ -678,13 +677,13 @@ try
                       r_t := s3;
                       r_a := s4;
                     End;
-                6 : Begin  // Приход-уход
+               { 6 : Begin  // Приход-уход
                       BitBtn7.Enabled := true;
                       cg_e := s1;
                       cg_k := s2;
                       cg_t := s3;
                       cg_a := s4;
-                    End;
+                    End;     }
                 8 : Begin  // Заказы среза
                       BitBtn8.Enabled := true;
                       o_e := s1;
@@ -1003,48 +1002,9 @@ end;
 
 // Приход-уход
 procedure TRunner.BitBtn7Click(Sender: TObject);
-VAR start_line : string;
+
 begin
 
-if come_go_started = true then
-  if not (WaitForSingleObject (come_go_pi.hProcess, 0) = WAIT_OBJECT_0) then
-    Begin
-      ShowMessage('Данная программа уже запущена!');
-      Exit;
-    End;
-
-    pnl_msg := TPanel(MakePanelLabel(Panel3,300,100,'Идет обработка запроса'));
-    pnl_msg.Repaint;
-
-  username := DM.SelectSession.Username;
-  password := DM.SelectSession.Password;
-  ZeroMemory(@come_go_si,sizeof(come_go_si));
-  come_go_si.cb := SizeOf(come_go_si);
-//  start_line := come_go_path+'\'+come_go_name + ' -l ' + username + ' -p ' + password + ' -d ' + login.ora_db_path + ' -c ' + login.creator;
-  start_line := come_go_path+'\'+come_go_name + ' -l ' + username + ' -p ' + password + ' -d ' + login.ora_db_path;
-  if cg_e then start_line := start_line + ' -e';
-  if cg_k then start_line := start_line + ' -k';
-  if cg_t then start_line := start_line + ' -t';
-  if cg_a then start_line := start_line + ' -a';
-
-  if not CreateProcess( nil, // No module name (use command line).
-         PChar(start_line),  // Command line.
-         nil,             // Process handle not inheritable.
-         nil,             // Thread handle not inheritable.
-         False,           // Set handle inheritance to FALSE.
-         0,               // No creation flags.
-         nil,             // Use parent's environment block.
-         PChar(come_go_path),// Use starting directory.
-         come_go_si,         // Pointer to STARTUPINFO structure.
-         come_go_pi )        // Pointer to PROCESS_INFORMATION structure.
-    then
-      begin
-        pnl_msg.Free;
-        ShowMessage( 'CreateProcess failed.' );
-        Exit;
-      end;
-  pnl_msg.Free;
-  come_go_started := true;
 end;
 
 // Заказ и бронирование среза
