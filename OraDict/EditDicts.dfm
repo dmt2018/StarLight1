@@ -36,7 +36,7 @@ object DictsEdit: TDictsEdit
       Top = 0
       Width = 1150
       Height = 566
-      ActivePage = TabSheet2
+      ActivePage = TabSheet4
       Align = alClient
       Style = tsFlatButtons
       TabOrder = 0
@@ -2821,6 +2821,14 @@ object DictsEdit: TDictsEdit
                   Options.Moving = False
                   Width = 100
                 end
+                object gr_subtype_viewSUB_WEIGHT_DRY: TcxGridDBColumn
+                  Caption = #1057#1091#1093#1086#1081' '#1074#1077#1089
+                  DataBinding.FieldName = 'SUB_WEIGHT_DRY'
+                  MinWidth = 150
+                  Options.Editing = False
+                  Options.Grouping = False
+                  Options.Moving = False
+                end
               end
               object gr_subtype_level: TcxGridLevel
                 GridView = gr_subtype_view
@@ -5280,7 +5288,7 @@ object DictsEdit: TDictsEdit
     Left = 476
     Top = 168
     Bitmap = {
-      494C010102000400B40010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010102000400B80010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -5467,7 +5475,7 @@ object DictsEdit: TDictsEdit
     Left = 477
     Top = 134
     Bitmap = {
-      494C010101000800B40010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010101000800B80010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

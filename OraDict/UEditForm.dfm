@@ -4,8 +4,8 @@ object frm_editform: Tfrm_editform
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'frm_editform'
-  ClientHeight = 368
-  ClientWidth = 414
+  ClientHeight = 409
+  ClientWidth = 442
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,11 +20,13 @@ object frm_editform: Tfrm_editform
   TextHeight = 16
   object Panel2: TPanel
     Left = 0
-    Top = 327
-    Width = 414
+    Top = 368
+    Width = 442
     Height = 41
     Align = alBottom
     TabOrder = 1
+    ExplicitTop = 327
+    ExplicitWidth = 414
     object cxButton2: TcxButton
       Left = 61
       Top = 7
@@ -135,20 +137,25 @@ object frm_editform: Tfrm_editform
   object cxPageControl1: TcxPageControl
     Left = 0
     Top = 0
-    Width = 414
-    Height = 300
-    ActivePage = tsh_suplier
+    Width = 442
+    Height = 341
+    ActivePage = tsh_subtype
     Align = alClient
     MultiLine = True
     Style = 7
     TabOrder = 0
-    ClientRectBottom = 299
+    ExplicitWidth = 414
+    ExplicitHeight = 300
+    ClientRectBottom = 340
     ClientRectLeft = 1
-    ClientRectRight = 413
-    ClientRectTop = 108
+    ClientRectRight = 441
+    ClientRectTop = 87
     object tsh_name: TcxTabSheet
       Caption = #1053#1072#1080#1084#1077#1085#1086#1074#1072#1085#1080#1077' '#1090#1086#1074#1072#1088#1072
       ImageIndex = 0
+      ExplicitTop = 108
+      ExplicitWidth = 412
+      ExplicitHeight = 191
       object Label5: TLabel
         Left = 34
         Top = 16
@@ -311,6 +318,9 @@ object frm_editform: Tfrm_editform
     object tsh_translate: TcxTabSheet
       Caption = #1055#1077#1088#1077#1074#1086#1076' '#1085#1072#1080#1084#1077#1085#1086#1074#1072#1085#1080#1103
       ImageIndex = 1
+      ExplicitTop = 108
+      ExplicitWidth = 412
+      ExplicitHeight = 191
       object Image4: TImage
         Left = 12
         Top = 16
@@ -506,6 +516,9 @@ object frm_editform: Tfrm_editform
     object tsh_country: TcxTabSheet
       Caption = #1057#1090#1088#1072#1085#1072
       ImageIndex = 2
+      ExplicitTop = 108
+      ExplicitWidth = 412
+      ExplicitHeight = 191
       object Image5: TImage
         Left = 12
         Top = 16
@@ -664,6 +677,9 @@ object frm_editform: Tfrm_editform
     object tsh_suplier: TcxTabSheet
       Caption = #1055#1086#1089#1090#1072#1074#1097#1080#1082
       ImageIndex = 3
+      ExplicitTop = 108
+      ExplicitWidth = 412
+      ExplicitHeight = 191
       object Image6: TImage
         Left = 12
         Top = 16
@@ -877,6 +893,9 @@ object frm_editform: Tfrm_editform
     object tsh_types: TcxTabSheet
       Caption = #1058#1080#1087' '#1090#1086#1074#1072#1088#1072
       ImageIndex = 4
+      ExplicitTop = 108
+      ExplicitWidth = 412
+      ExplicitHeight = 191
       object Label10: TLabel
         Left = 34
         Top = 16
@@ -1035,6 +1054,9 @@ object frm_editform: Tfrm_editform
     object tsh_subtype: TcxTabSheet
       Caption = #1055#1086#1076#1090#1080#1087' '#1090#1086#1074#1072#1088#1072
       ImageIndex = 5
+      ExplicitTop = 108
+      ExplicitWidth = 412
+      ExplicitHeight = 259
       object Image10: TImage
         Left = 12
         Top = 16
@@ -1154,6 +1176,13 @@ object frm_editform: Tfrm_editform
         Height = 16
         Caption = #1050#1086#1076' '#1058#1085' '#1042#1101#1076
       end
+      object Label49: TLabel
+        Left = 14
+        Top = 225
+        Width = 140
+        Height = 16
+        Caption = #1057#1091#1093#1086#1081' '#1074#1077#1089' '#1076#1083#1103' '#1087#1086#1076#1090#1080#1087#1072
+      end
       object edit_subtype: TcxTextEdit
         Left = 128
         Top = 12
@@ -1201,7 +1230,7 @@ object frm_editform: Tfrm_editform
         Width = 241
       end
       object edit_weight: TcxSpinEdit
-        Left = 165
+        Left = 164
         Top = 165
         Properties.ImmediatePost = True
         Properties.SpinButtons.Visible = False
@@ -1253,10 +1282,32 @@ object frm_editform: Tfrm_editform
         TabOrder = 5
         Width = 241
       end
+      object edit_weight_dry: TcxSpinEdit
+        Left = 161
+        Top = 225
+        Properties.ImmediatePost = True
+        Properties.SpinButtons.Visible = False
+        Properties.UseCtrlIncrement = True
+        Properties.ValueType = vtFloat
+        Style.BorderStyle = ebsOffice11
+        Style.LookAndFeel.Kind = lfOffice11
+        Style.LookAndFeel.NativeStyle = True
+        StyleDisabled.LookAndFeel.Kind = lfOffice11
+        StyleDisabled.LookAndFeel.NativeStyle = True
+        StyleFocused.LookAndFeel.Kind = lfOffice11
+        StyleFocused.LookAndFeel.NativeStyle = True
+        StyleHot.LookAndFeel.Kind = lfOffice11
+        StyleHot.LookAndFeel.NativeStyle = True
+        TabOrder = 6
+        Width = 233
+      end
     end
     object tsh_change_subtype: TcxTabSheet
       Caption = #1057#1084#1077#1085#1080#1090#1100' '#1090#1080#1087' '#1076#1083#1103' '#1087#1086#1076#1090#1080#1087#1072' '#1090#1086#1074#1072#1088#1072
       ImageIndex = 6
+      ExplicitTop = 108
+      ExplicitWidth = 412
+      ExplicitHeight = 191
       object Image11: TImage
         Left = 12
         Top = 16
@@ -1339,6 +1390,9 @@ object frm_editform: Tfrm_editform
     object tsh_color: TcxTabSheet
       Caption = #1062#1074#1077#1090
       ImageIndex = 7
+      ExplicitTop = 108
+      ExplicitWidth = 412
+      ExplicitHeight = 191
       object Image12: TImage
         Left = 12
         Top = 16
@@ -1409,6 +1463,9 @@ object frm_editform: Tfrm_editform
     object tsh_spec: TcxTabSheet
       Caption = #1057#1087#1077#1094#1080#1092#1080#1082#1072#1094#1080#1103
       ImageIndex = 8
+      ExplicitTop = 108
+      ExplicitWidth = 412
+      ExplicitHeight = 191
       object Image13: TImage
         Left = 12
         Top = 16
@@ -1818,6 +1875,9 @@ object frm_editform: Tfrm_editform
     object tsh_spec_trans: TcxTabSheet
       Caption = #1055#1077#1088#1077#1074#1086#1076' '#1089#1087#1077#1094#1080#1092#1080#1082#1072#1094#1080#1080
       ImageIndex = 9
+      ExplicitTop = 108
+      ExplicitWidth = 412
+      ExplicitHeight = 191
       object Image18: TImage
         Left = 16
         Top = 16
@@ -1954,6 +2014,9 @@ object frm_editform: Tfrm_editform
     object tshPacks: TcxTabSheet
       Caption = #1055#1072#1082#1086#1074#1082#1072' '#1087#1086' '#1091#1084#1086#1083#1095#1072#1085#1080#1102
       ImageIndex = 10
+      ExplicitTop = 108
+      ExplicitWidth = 412
+      ExplicitHeight = 191
       object Image21: TImage
         Left = 12
         Top = 16
@@ -2131,6 +2194,9 @@ object frm_editform: Tfrm_editform
     object tsh_unit: TcxTabSheet
       Caption = ' '#1045#1076#1080#1085#1080#1094#1099' '#1080#1079#1084#1077#1088#1077#1085#1080#1103' '
       ImageIndex = 11
+      ExplicitTop = 108
+      ExplicitWidth = 412
+      ExplicitHeight = 191
       object Image23: TImage
         Left = 12
         Top = 16
@@ -2359,11 +2425,13 @@ object frm_editform: Tfrm_editform
   end
   object Panel1: TPanel
     Left = 0
-    Top = 300
-    Width = 414
+    Top = 341
+    Width = 442
     Height = 27
     Align = alBottom
     TabOrder = 2
+    ExplicitTop = 300
+    ExplicitWidth = 414
     object Label4: TLabel
       Left = 35
       Top = 5

@@ -149,6 +149,8 @@ type
     edUnit_code_litering_international: TcxTextEdit;
     cb_supplier_days: TcxSpinEdit;
     Label48: TLabel;
+    Label49: TLabel;
+    edit_weight_dry: TcxSpinEdit;
     procedure aSaveExecute(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure cxCheckBox1PropertiesEditValueChanged(Sender: TObject);

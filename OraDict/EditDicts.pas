@@ -239,6 +239,7 @@ type
     gr_suplier_viewID_OFFICE: TcxGridDBColumn;
     gr_suplier_viewANALYZE_DAYS: TcxGridDBColumn;
     gr_country_viewColumn1: TcxGridDBColumn;
+    gr_subtype_viewSUB_WEIGHT_DRY: TcxGridDBColumn;
     procedure btn_closeClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure BitBtn3Click(Sender: TObject);
@@ -1378,6 +1379,7 @@ begin
         ParamByName('prefix_').Value        := frm_editform.edit_subprefix.EditValue;
         ParamByName('vTnVed').Value         := frm_editform.edTnVed.EditValue;
         ParamByName('in_id_').Value         := 0;
+        ParamByName('wight_dry').Value         := frm_editform.edit_weight_dry.EditValue;
         ExecProc;
 
         ID := ParamByName('in_id_').Value;
@@ -1430,6 +1432,7 @@ begin
     frm_editform.edit_weight.EditValue          := DM.FlowerSubTypes.FieldByName('SUB_WEIGHT').AsFloat;
     frm_editform.edit_subprefix.EditValue       := DM.FlowerSubTypes.FieldByName('price_prefix').AsString;
     frm_editform.edTnVed.EditValue              := DM.FlowerSubTypes.FieldByName('TnVed').AsString;
+    frm_editform.edit_weight_dry.EditValue          := DM.FlowerSubTypes.FieldByName('SUB_WEIGHT_DRY').AsFloat;
     id := DM.FlowerSubTypes.FieldByName('FST_ID').AsInteger;
 
     if (frm_editform.ShowModal = mrOk) then
@@ -1446,6 +1449,7 @@ begin
         ParamByName('prefix_').Value        := frm_editform.edit_subprefix.EditValue;
         ParamByName('vTnVed').Value         := frm_editform.edTnVed.EditValue;
         ParamByName('in_id_').Value         := 0;
+        ParamByName('wight_dry_').Value         := frm_editform.edit_weight_dry.EditValue;
         ExecProc;
 
         ID := ParamByName('in_id_').Value;

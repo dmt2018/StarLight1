@@ -482,7 +482,7 @@ object DM: TDM
       
         'SELECT fst_id, f_sub_type, hol_sub_type, ft_id, f_type, double_n' +
         'ame, ht_id, hol_type, mnemo, sub_weight, id_office, price_prefix' +
-        ', tnved'
+        ', tnved, sub_weight_dry'
       'FROM fst_view'
       'WHERE '
       'FT_ID = :FT_ID '
@@ -556,6 +556,9 @@ object DM: TDM
     object FlowerSubTypesTNVED: TStringField
       FieldName = 'TNVED'
       Size = 50
+    end
+    object FlowerSubTypesSUB_WEIGHT_DRY: TFloatField
+      FieldName = 'SUB_WEIGHT_DRY'
     end
   end
   object FlowerSubTypes_DS: TDataSource
@@ -1105,10 +1108,11 @@ object DM: TDM
     PreviewOptions.Zoom = 1.000000000000000000
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
-    ReportOptions.CreateDate = 37936.562692592600000000
-    ReportOptions.LastChange = 42193.537289432870000000
+    ReportOptions.CreateDate = 39785.824304097200000000
+    ReportOptions.LastChange = 41569.958081724500000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
+      ''
       'begin'
       ''
       'end.')
@@ -1116,18 +1120,10 @@ object DM: TDM
     Top = 304
     Datasets = <
       item
-        DataSet = frxSelPrntPreview
-        DataSetName = 'frxSelPrntPreview'
+        DataSet = frxDictView
+        DataSetName = 'frxDictView'
       end>
-    Variables = <
-      item
-        Name = ' CustCut'
-        Value = Null
-      end
-      item
-        Name = 'PrintMark'
-        Value = Null
-      end>
+    Variables = <>
     Style = <>
     object Data: TfrxDataPage
       Height = 1000.000000000000000000
@@ -1136,60 +1132,331 @@ object DM: TDM
     object Page1: TfrxReportPage
       PaperWidth = 210.000000000000000000
       PaperHeight = 297.000000000000000000
-      PaperSize = 256
-      LeftMargin = 7.500000000000000000
-      RightMargin = 7.500000000000000000
-      TopMargin = 7.500000000000000000
-      BottomMargin = 7.500000000000000000
-      Columns = 1
-      ColumnWidth = 198.000000000000000000
-      ColumnPositions.Strings = (
-        '0')
-      object MasterData9: TfrxMasterData
-        Height = 130.015770000000000000
+      PaperSize = 9
+      LeftMargin = 10.000000000000000000
+      RightMargin = 10.000000000000000000
+      TopMargin = 10.000000000000000000
+      BottomMargin = 10.000000000000000000
+      object ReportTitle1: TfrxReportTitle
+        Height = 109.606370000000000000
         Top = 18.897650000000000000
-        Width = 737.008350000000000000
-        Columns = 3
-        ColumnWidth = 245.669291338582700000
-        DataSet = frxSelPrntPreview
-        DataSetName = 'frxSelPrntPreview'
-        RowCount = 0
+        Width = 718.110700000000000000
+        object Memo3: TfrxMemoView
+          Align = baWidth
+          Top = 1.559060000000000000
+          Width = 718.110700000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#1115#1057#8218#1056#1169#1056#181#1056#187)
+          ParentFont = False
+        end
         object Memo6: TfrxMemoView
-          Top = 0.220470000000000000
-          Width = 238.110390000000000000
-          Height = 56.236240000000000000
+          Top = 45.133890000000000000
+          Width = 476.220780000000000000
+          Height = 18.897650000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -12
           Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8 = (
+            #1056#8221#1056#176#1057#8218#1056#176': [Date]')
+          ParentFont = False
+        end
+        object Memo10: TfrxMemoView
+          Top = 90.708720000000000000
+          Width = 109.606370000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
           Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8 = (
+            #1056#8220#1057#1026#1057#1107#1056#1111#1056#1111#1056#176)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo11: TfrxMemoView
+          Left = 109.606370000000000000
+          Top = 90.708720000000000000
+          Width = 75.590600000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8 = (
+            #1056#1113#1056#1109#1056#1169)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo12: TfrxMemoView
+          Left = 185.196970000000000000
+          Top = 90.708720000000000000
+          Width = 71.811070000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8 = (
+            #1056#1106#1057#1026#1057#8218#1056#1105#1056#1108#1057#1107#1056#187)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo15: TfrxMemoView
+          Left = 540.472790000000000000
+          Top = 90.708720000000000000
+          Width = 177.637910000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           HAlign = haCenter
           Memo.UTF8 = (
-            '[frxSelPrntPreview."COMPILED_NAME_OTDEL"]'
-            '[frxSelPrntPreview."COLOUR"]')
+            #1056#1116#1056#176' '#1057#1027#1057#1107#1056#1112#1056#1112#1057#1107)
           ParentFont = False
-          VAlign = vaBottom
+          VAlign = vaCenter
         end
-        object Bar1: TfrxBarCodeView
-          Left = 67.236240000000000000
-          Top = 58.456710000000000000
-          Width = 103.000000000000000000
-          Height = 58.897650000000000000
+        object Memo16: TfrxMemoView
+          Left = 257.008040000000000000
+          Top = 90.708720000000000000
+          Width = 283.464750000000000000
+          Height = 18.897650000000000000
           ShowHint = False
-          BarType = bcCodeEAN13
-          CalcCheckSum = True
-          Expression = '<frxSelPrntPreview."CODE">'
-          Rotation = 0
-          Text = '12345678'
-          WideBarRatio = 2.000000000000000000
-          Zoom = 1.000000000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8 = (
+            #1056#1116#1056#176#1056#183#1056#1030#1056#176#1056#1029#1056#1105#1056#181)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo9: TfrxMemoView
+          Align = baWidth
+          Top = 21.456710000000000000
+          Width = 718.110700000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#1116#1056#1109#1056#1112#1056#181#1056#1029#1056#1108#1056#187#1056#176#1057#8218#1057#1107#1057#1026#1056#176)
+          ParentFont = False
+        end
+      end
+      object MasterData1: TfrxMasterData
+        Height = 22.677180000000000000
+        Top = 188.976500000000000000
+        Width = 718.110700000000000000
+        DataSet = frxDictView
+        DataSetName = 'frxDictView'
+        RowCount = 0
+        Stretched = True
+        object fr_DOC_DSID_DOC: TfrxMemoView
+          Width = 109.606370000000000000
+          Height = 22.677180000000000000
+          ShowHint = False
+          StretchMode = smMaxHeight
+          DataField = 'F_TYPE'
+          DataSet = frxDictView
+          DataSetName = 'frxDictView'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8 = (
+            '[frxDictView."F_TYPE"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object fr_DOC_DSDOC_NUMBER: TfrxMemoView
+          Left = 109.606370000000000000
+          Width = 75.590600000000000000
+          Height = 22.677180000000000000
+          ShowHint = False
+          StretchMode = smMaxHeight
+          DataField = 'CODE'
+          DataSet = frxDictView
+          DataSetName = 'frxDictView'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDictView."CODE"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object fr_DOC_DSNICK: TfrxMemoView
+          Left = 185.196970000000000000
+          Width = 71.811070000000000000
+          Height = 22.677180000000000000
+          ShowHint = False
+          StretchMode = smMaxHeight
+          DataField = 'H_CODE'
+          DataSet = frxDictView
+          DataSetName = 'frxDictView'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8 = (
+            '[frxDictView."H_CODE"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object fr_DOC_DSFIO: TfrxMemoView
+          Left = 257.008040000000000000
+          Width = 283.464505910000000000
+          Height = 22.677180000000000000
+          ShowHint = False
+          StretchMode = smMaxHeight
+          DataField = 'COMPILED_NAME_OTDEL'
+          DataSet = frxDictView
+          DataSetName = 'frxDictView'
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8 = (
+            '[frxDictView."COMPILED_NAME_OTDEL"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object fr_DOC_DSPRICE_ALL: TfrxMemoView
+          Left = 540.472790000000000000
+          Width = 177.637910000000000000
+          Height = 22.677180000000000000
+          ShowHint = False
+          StretchMode = smMaxHeight
+          DataField = 'F_NAME'
+          DataSet = frxDictView
+          DataSetName = 'frxDictView'
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8 = (
+            '[frxDictView."F_NAME"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+      end
+      object PageFooter1: TfrxPageFooter
+        Height = 22.677180000000000000
+        Top = 317.480520000000000000
+        Width = 718.110700000000000000
+        object Memo1: TfrxMemoView
+          Left = 642.520100000000000000
+          Width = 75.590600000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[Page#]')
+          ParentFont = False
+        end
+      end
+      object Footer1: TfrxFooter
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Arial'
+        Font.Style = []
+        Height = 22.677180000000000000
+        ParentFont = False
+        Top = 234.330860000000000000
+        Width = 718.110700000000000000
+        object Memo7: TfrxMemoView
+          Left = 75.590600000000000000
+          Top = 3.779530000000000000
+          Width = 90.708720000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%g'
+          DisplayFormat.Kind = fkNumeric
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -12
           Font.Name = 'Arial'
           Font.Style = []
+          Memo.UTF8 = (
+            '[COUNT(MasterData1)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo8: TfrxMemoView
+          Top = 3.779530000000000000
+          Width = 75.590600000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haRight
+          Memo.UTF8 = (
+            #1056#1119#1056#1109#1056#183#1056#1105#1057#8224#1056#1105#1056#8470': ')
+          ParentFont = False
+          VAlign = vaCenter
         end
       end
     end
