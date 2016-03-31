@@ -507,7 +507,7 @@ begin
   orders_list.DBGridEh1.FieldColumns['PREV_STOCK_AMOUNT'].Visible := (first_dialog_frm.addit and not first_dialog_frm.uHideCargoMoving);
 
 //ShowMessage('3');
-  DBCheckBoxEh1.Visible := first_dialog_frm.addit;
+//  DBCheckBoxEh1.Visible := first_dialog_frm.addit;
 //ShowMessage('4');
 
   gb_analizy.Visible := (first_dialog_frm.addit and not first_dialog_frm.uHideCargoMoving);

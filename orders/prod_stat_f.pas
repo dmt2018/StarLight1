@@ -281,7 +281,11 @@ begin
 
     ParamByName('vid_').Value      := 1; //rg_stat_vid.ItemIndex + 1;
     ParamByName('razbiv_').AsString   := cl_str;
-    ParamByName('v_office').AsInteger := cbOffices.EditValue; // DM.DeptID;
+    if cbOffices.Enabled then
+      ParamByName('v_office').AsInteger := cbOffices.EditValue // DM.DeptID;
+    else
+      ParamByName('v_office').AsInteger := DM.id_office;
+
     ParamByName('cursor_').AsCursor;
     Open;
     if (RadioGroup2.ItemIndex = 0) then IndexFieldNames := 'QUANTITY' else IndexFieldNames := 'QUANTITY desc';
@@ -308,7 +312,10 @@ begin
 
     ParamByName('vid_').Value      := 2; //rg_stat_vid.ItemIndex + 1;
     ParamByName('razbiv_').Value   := cl_str;
-    ParamByName('v_office').AsInteger := cbOffices.EditValue; // DM.DeptID;
+    if cbOffices.Enabled then
+      ParamByName('v_office').AsInteger := cbOffices.EditValue // DM.DeptID;
+    else
+      ParamByName('v_office').AsInteger := DM.id_office;
     ParamByName('cursor_').AsCursor;
     Open;
     if (RadioGroup2.ItemIndex = 0) then IndexFieldNames := 'QUANTITY' else IndexFieldNames := 'QUANTITY desc';

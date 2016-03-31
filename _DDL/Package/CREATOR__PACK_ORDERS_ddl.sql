@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.PACK_ORDERS
--- Generated 18.02.2016 22:37:39 from CREATOR@STAR_NEW
+-- Generated 01.04.2016 0:19:12 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE pack_orders
@@ -575,6 +575,32 @@ PROCEDURE get_not_use_noms
 );
 
 
+--
+-- Список распределений для выбора к заказу
+--
+PROCEDURE get_distributions
+(
+    id_dep_         in number,
+    id_             in number,
+    cursor_         out ref_cursor
+);
+
+
+
+-- Сохраним установку разносов для заказа
+PROCEDURE save_distributions
+(
+  vIdOrder          IN number,
+  vIdDistribution   IN number
+);
+
+-- Удалим установку разносов для заказа
+PROCEDURE delete_distributions
+(
+  vIdOrder          IN number
+);
+
+
 END;
 /
 
@@ -907,6 +933,52 @@ begin
 end delete_orderClient;
 
 
+
+
+--
+-- Список распределений для выбора к заказу
+--
+PROCEDURE get_distributions
+(
+    id_dep_         in number,
+    id_             in number,
+    cursor_         out ref_cursor
+)
+IS
+    v_DIST_IND_ID      number;
+    v_distributor      number;
+    v_distributor_days number;
+    v_date_out         date;
+BEGIN
+
+    begin
+      select o.S_ID, nvl(s.analyze_days,3), DATE_TRUCK_OUT into v_distributor, v_distributor_days, v_date_out
+      from orders o, suppliers s
+      where o.id_orders = id_ and o.s_id = s.s_id(+);
+    exception when NO_DATA_FOUND then
+      v_distributor      := 0;
+      v_distributor_days := 3;
+    end;
+
+    open cursor_ for
+        'select d.DIST_IND_ID, ''№''||d.DIST_IND_ID||'', ''||di.description||'' от ''||di.dist_date||'' инвойсы - ''||WM_CONCAT(distinct d.inv_id) as str
+          from distributions_invoices d, invoice_register p, prepare_price_list_index i, distributions_index di
+          where d.INV_ID = p.inv_id and p.sended_to_warehouse = 1 and p.id_departments = '||id_dep_||'
+            and p.s_id_default = decode(const_office, 1, '||v_distributor||', p.s_id_default)
+            and (p.inv_id in (i.inv_id, i.inv_id2, i.inv_id3, i.inv_id4) or p.ipp_id = i.pack_id)
+            and i.ppl_date >= trunc( :v_date_out - decode('||v_distributor||', 142, 10, 10000251, 10, 30) ) and i.ppl_date <= trunc( :v_date_out )
+            and d.dist_ind_id = di.dist_ind_id
+            group by d.DIST_IND_ID, di.description, di.dist_date
+        ' using v_date_out, v_date_out;
+
+   EXCEPTION
+      WHEN others THEN
+        LOG_ERR(SQLERRM|| ' ' || DBMS_UTILITY.format_error_backtrace, SQLCODE, 'pack_orders.get_distributions', '');
+        RAISE_APPLICATION_ERROR (-20117, 'Запрос не выполнился. ' || SQLERRM);
+end get_distributions;
+
+
+
 --
 -- Выбираем номенклатуру для заказа
 --
@@ -932,9 +1004,10 @@ IS
     v_DIST_IND_ID      number;
     v_distributor      number;
     v_distributor_days number;
+    v_date_out         date;
 BEGIN
     begin
-      select o.S_ID, nvl(s.analyze_days,3) into v_distributor, v_distributor_days
+      select o.S_ID, nvl(s.analyze_days,3), DATE_TRUCK_OUT into v_distributor, v_distributor_days, v_date_out
       from orders o, suppliers s
       where o.id_orders = id_ and o.s_id = s.s_id(+);
     exception when NO_DATA_FOUND then
@@ -958,7 +1031,9 @@ BEGIN
             and b.minus_inv_id = 0
             and b.s_id_default = s.s_id
             and ((b.s_id_default = v_distributor and const_office = 1) or const_office > 1)
-            and a.ppl_date >= trunc(sysdate-s.analyze_days) and a.ppli_id_old is not null;
+            and a.ppl_date >= trunc( v_date_out - s.analyze_days ) and a.ppl_date < trunc( v_date_out )
+            and a.ppli_id_old is not null;
+            --and a.ppl_date >= trunc(sysdate-s.analyze_days) and a.ppli_id_old is not null;
       end if;
 
       begin
@@ -973,18 +1048,24 @@ BEGIN
       insert into tmp_exp_doc (
         select distinct d.DIST_IND_ID
           from distributions_invoices d, invoice_register p
-          where d.INV_ID = p.inv_id and p.sended_to_warehouse = 0 and p.id_departments = id_dep_
-            and p.s_id_default = decode(const_office, 1, v_distributor, p.s_id_default)
+          where d.INV_ID = p.inv_id and p.sended_to_warehouse = 0 and p.id_departments = id_dep_ and status = 0
+            and p.s_id_default = decode(const_office, 1, v_distributor, p.s_id_default) and p.INV_DATE > sysdate-30
       );
 
-      insert into tmp_exp_doc_2 (
-        select distinct d.DIST_IND_ID
-          from distributions_invoices d, invoice_register p, prepare_price_list_index i
-          where d.INV_ID = p.inv_id and p.sended_to_warehouse = 1 and p.id_departments = id_dep_
-            and p.s_id_default = decode(const_office, 1, v_distributor, p.s_id_default)
-            and (p.inv_id in (i.inv_id, i.inv_id2, i.inv_id3, i.inv_id4) or p.ipp_id = i.pack_id)
-            and i.ppl_date >= trunc( sysdate - v_distributor_days )
-      );
+      select count(*) into cnt from order_distributions where id_order = id_;
+      if cnt > 0 then
+        insert into tmp_exp_doc_2 (select dist_ind_id from order_distributions where id_order = id_);
+      else
+        insert into tmp_exp_doc_2 (
+          select distinct d.DIST_IND_ID
+            from distributions_invoices d, invoice_register p, prepare_price_list_index i
+            where d.INV_ID = p.inv_id and p.sended_to_warehouse = 1 and p.id_departments = id_dep_
+              and p.s_id_default = decode(const_office, 1, v_distributor, p.s_id_default)
+              and (p.inv_id in (i.inv_id, i.inv_id2, i.inv_id3, i.inv_id4) or p.ipp_id = i.pack_id)
+              and i.ppl_date >= trunc( v_date_out - v_distributor_days ) and i.ppl_date < trunc( v_date_out )
+              --and i.ppl_date >= trunc( sysdate - v_distributor_days )
+        );
+      end if;
 
        -- Достаем РАСШИРЕННЫЙ набор данных по наменклатуре товара на складе
        open cursor_ for
@@ -992,7 +1073,10 @@ BEGIN
                   , nvl(distr.destribution_quantity,0) as client_distribution
                   , case when nvl(inv.invoice_quantity,0) <  nvl(distr.destribution_quantity,0) then 0 else nvl(inv.invoice_quantity,0) - nvl(distr.destribution_quantity,0) end stock_distribution
                   , nvl(distr_done.destribution_quantity,0) as client_distribution_done
-                  , case when nvl(inv_done.invoice_quantity,0) <  nvl(distr_done.destribution_quantity,0) then 0 else nvl(inv_done.invoice_quantity,0) - nvl(distr_done.destribution_quantity,0) end stock_distribution_done
+                  , case when nvl( case when cnt = 0 then inv_done.invoice_quantity else inv_done2.invoice_quantity end,0) <  nvl(distr_done.destribution_quantity,0)
+                      then 0
+                      else nvl( case when cnt = 0 then inv_done.invoice_quantity else inv_done2.invoice_quantity end,0) - nvl(distr_done.destribution_quantity,0)
+                    end stock_distribution_done
                 FROM (
                     SELECT nom.compiled_name_otdel, nom.h_name  as h_name_f, nom.h_name as h_name,
                         nom.f_name, nom.F_SUB_TYPE, nom.F_TYPE, nom.N_ID, nom.LEN, nom.PACK, nom.VBN, nom.WEIGHT, nom.FST_ID, nom.FT_ID, nom.C_ID, nom.S_ID,
@@ -1043,7 +1127,10 @@ BEGIN
                                   sum(case when d.id_doc_type = 3 then dd.quantity else 0 end) store_ucen,
                                   sum(case when d.id_doc_type = 4 then dd.quantity else 0 end) store_prod
                             from store_doc_data dd, store_doc d
-                            where dd.id_doc = d.id_doc and d.id_doc_type in (2,3,4) and d.doc_date > trunc(sysdate-spec_) and d.ID_DEPARTMENTS = id_dep_ and d.id_office = const_office
+                            where dd.id_doc = d.id_doc and d.id_doc_type in (2,3,4)
+                              --and d.doc_date >= trunc( v_date_out - spec_ ) and d.doc_date < trunc( v_date_out )
+                              and d.doc_date > trunc(sysdate-spec_)
+                              and d.ID_DEPARTMENTS = id_dep_ and d.id_office = const_office
                             group by dd.n_id
                       ) store_stat on store_stat.n_id = nom.n_id
                     WHERE nom.ID_DEPARTMENTS= id_dep_
@@ -1069,7 +1156,7 @@ BEGIN
                     SELECT a.n_id, sum(a.units) as invoice_quantity
                       from invoice_data a, invoice_register p, distributions_invoices d
                       where a.INV_ID = p.inv_id and d.INV_ID = p.inv_id and p.sended_to_warehouse = 0 and p.id_departments = id_dep_
-                        and p.s_id_default = decode(const_office, 1, v_distributor, p.s_id_default)
+                        and p.s_id_default = decode(const_office, 1, v_distributor, p.s_id_default) and status = 0 and p.INV_DATE > sysdate-30
                       group by a.n_id
                 ) inv on inv.n_id = a.n_id
 
@@ -1084,7 +1171,7 @@ BEGIN
                     group by a.n_id
                 ) distr_done on distr_done.n_id = a.n_id
 
-                -- Выборка всех позиций разнесенных инвойсов которые подгруженны на склад
+                -- Выборка всех позиций разнесенных инвойсов которые подгруженны на склад для версии БЕЗ выбранных разносов
                 left outer join
                 (
                     SELECT a.n_id, sum(a.units) as invoice_quantity
@@ -1092,14 +1179,33 @@ BEGIN
                       where a.INV_ID = p.inv_id and d.INV_ID = p.inv_id and p.sended_to_warehouse = 1 and p.id_departments = id_dep_
                           and p.s_id_default = decode(const_office, 1, v_distributor, p.s_id_default)
                           and (p.inv_id in (i.inv_id, i.inv_id2, i.inv_id3, i.inv_id4) or p.ipp_id = i.pack_id)
-                          and i.ppl_date >= trunc( sysdate - v_distributor_days )
+                          --and i.ppl_date >= trunc( sysdate - v_distributor_days )
+                          and ( i.ppl_date >= trunc( v_date_out - v_distributor_days ) and i.ppl_date < trunc( v_date_out ) )
+/*
+                          and (
+                            (cnt = 0 and ( i.ppl_date >= trunc( v_date_out - v_distributor_days ) and i.ppl_date < trunc( v_date_out ) ) )
+                            or
+                            (cnt > 0 and d.DIST_IND_ID in (select id_doc from tmp_exp_doc_2) )
+                          )
+*/
                       group by a.n_id
                 ) inv_done on inv_done.n_id = a.n_id
+
+                -- Выборка всех позиций разнесенных инвойсов которые подгруженны на склад для версии с выбранными разносами
+                left outer join
+                (
+                    SELECT a.n_id, sum(a.units) as invoice_quantity
+                      from invoice_data a, invoice_register p, distributions_invoices d, prepare_price_list_index i, tmp_exp_doc_2 tmp
+                      where a.INV_ID = p.inv_id and d.INV_ID = p.inv_id and p.sended_to_warehouse = 1 and p.id_departments = id_dep_
+                          and p.s_id_default = decode(const_office, 1, v_distributor, p.s_id_default)
+                          and (p.inv_id in (i.inv_id, i.inv_id2, i.inv_id3, i.inv_id4) or p.ipp_id = i.pack_id)
+                          and d.DIST_IND_ID = tmp.id_doc
+                      group by a.n_id
+                ) inv_done2 on inv_done2.n_id = a.n_id
 
                 WHERE /*Filter*/ 1=1
                   and (b.nbutton = button_ or button_ = 0)
                   ;
-
 
 
 
@@ -3374,6 +3480,8 @@ begin
       select '02 UFFA', '@#F', 1, 10016343 from dual
       union all
       select '59 PEER', '@#P', 1, 13890 from dual
+      union all
+      select '66 EKAT', '@#E', 1, 10021019 from dual
     ) a
     where idd = p_ID_CLIENT;
 
@@ -3530,6 +3638,42 @@ begin
       LOG_ERR(SQLERRM|| ' ' || DBMS_UTILITY.format_error_backtrace, SQLCODE, 'pack_orders.get_not_use_noms', '');
       RAISE_APPLICATION_ERROR (-20150, 'Запрос не выполнился. ' || SQLERRM);
 END get_not_use_noms;
+
+
+
+-- Сохраним установку разносов для заказа
+PROCEDURE save_distributions
+(
+  vIdOrder          IN number,
+  vIdDistribution   IN number
+)
+is
+begin
+
+  insert into order_distributions values(vIdOrder, vIdDistribution);
+
+  EXCEPTION
+    WHEN others THEN
+      LOG_ERR(SQLERRM|| ' ' || DBMS_UTILITY.format_error_backtrace, SQLCODE, 'pack_orders.save_distributions', '');
+      RAISE_APPLICATION_ERROR (-20151, 'Запрос не выполнился. ' || SQLERRM);
+END save_distributions;
+
+
+-- Удалим установку разносов для заказа
+PROCEDURE delete_distributions
+(
+  vIdOrder          IN number
+)
+is
+begin
+
+  delete from order_distributions where id_order = vIdOrder;
+
+  EXCEPTION
+    WHEN others THEN
+      LOG_ERR(SQLERRM|| ' ' || DBMS_UTILITY.format_error_backtrace, SQLCODE, 'pack_orders.delete_distributions', '');
+      RAISE_APPLICATION_ERROR (-20152, 'Запрос не выполнился. ' || SQLERRM);
+END delete_distributions;
 
 
 END;
