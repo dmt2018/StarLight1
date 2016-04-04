@@ -1,5 +1,5 @@
 -- Start of DDL Script for View CREATOR.FST_VIEW
--- Generated 31-мар-2016 19:45:56 from CREATOR@ORCL
+-- Generated 1-апр-2016 20:43:33 from CREATOR@STAR2
 
 CREATE OR REPLACE VIEW fst_view (
    fst_id,

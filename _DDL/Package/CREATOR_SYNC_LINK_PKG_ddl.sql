@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.SYNC_LINK_PKG
--- Generated 31-Ï‡-2016 19:47:14 from CREATOR@ORCL
+-- Generated 1-‡Ô-2016 20:44:48 from CREATOR@STAR2
 
 CREATE OR REPLACE 
 PACKAGE sync_link_pkg
@@ -129,7 +129,7 @@ begin
 
   ------------------------------------------------------------------------------
   v_str_office := '';
-  select decode(v_office, 6,'ufa', 5,'cherep', 2,'samara', 3,'kazan', '') into v_str_office from dual;
+  select decode(v_office, 6,'ufa', 5,'cherep', 2,'samara', 3,'kazan', 8,'eburg', '') into v_str_office from dual;
   begin
     sql_str := 'select 1 from dual@'||v_str_office;
     execute immediate sql_str;
@@ -514,6 +514,9 @@ begin
     if p_client in (10016216) then v_office := 5; end if;
     -- 6 - ”Ù‡
     if p_client in (10016343) then v_office := 6; end if;
+    -- 8 - ≈·Û„
+    if p_client in (10021019) then v_office := 8; end if;
+
   else
     v_office := p_office;
   end if;
@@ -521,7 +524,7 @@ begin
 
   ------------------------------------------------------------------------------
   v_str_office := '';
-  select decode(v_office, 6,'ufa', 5,'cherep', 2,'samara', 3,'kazan', '') into v_str_office from dual;
+  select decode(v_office, 6,'ufa', 5,'cherep', 2,'samara', 3,'kazan', 8,'eburg', '') into v_str_office from dual;
   begin
     sql_str := 'select 1 from dual@'||v_str_office;
     execute immediate sql_str;
@@ -647,9 +650,10 @@ begin
       ( select '||v_idd||', trunc(sysdate), 0, ''»Ì‚ÓÈÒ ËÁ Ì‡ÍÎ‡‰ÌÓÈ(˚ı) π'||p_inv_str||''', '||v_id_dep||', to_date('''||v_ddate_str||''',''dd.mm.yy''), '||v_id_doc||', 0, 1, 230, null, null, '||v_office||' from dual )';
   execute immediate sql_str;
 
+--      select '||v_idd||', n_id, units, FINAL_PRICE, total_sum, amount_in_the_pack, get_office_unique@'||v_str_office||'(''INVOICE_DATA_ID''), ID_DOC_DATA
   sql_str := 'INSERT INTO invoice_data@'||v_str_office||' (
-      select '||v_idd||', n_id, units, FINAL_PRICE, total_sum, amount_in_the_pack, get_office_unique@'||v_str_office||'(''INVOICE_DATA_ID''), ID_DOC_DATA
-             , 0, gtd, 0, '||v_office||', sysdate, null as gtd_country, 0, 0, '''', null
+      select '||v_idd||', n_id, units, FINAL_PRICE, total_sum, amount_in_the_pack, get_office_unique@'||v_str_office||'(''INVOICE_DATA_ID''), null
+             , 0, gtd, 0, '||v_office||', sysdate, null as gtd_country, 0, 0, '''', ID_DOC_DATA
       from (
         SELECT a.n_id, sum(a.QUANTITY) as units, max(a.PRICE) as FINAL_PRICE, sum(round((a.PRICE * a.QUANTITY),2)) total_sum,
                sum(a.QUANTITY) as amount_in_the_pack, min(a.ID_DOC_DATA) as ID_DOC_DATA
@@ -679,7 +683,8 @@ begin
         , max(a.PRICE) as PRICE
       FROM store_doc_data a, store_doc b, invoice_data@'||v_str_office||' z
       where a.id_doc in (select id_doc from tmp_exp_doc@'||v_str_office||' )
-        and a.ID_DOC_DATA = z.INVOICE_DATA_AS_IS_ID
+        --and a.ID_DOC_DATA = z.INVOICE_DATA_AS_IS_ID
+        and a.ID_DOC_DATA = z.PARENT_ID
         and a.id_doc = b.id_doc
         group by a.n_id
     ) a
@@ -717,7 +722,7 @@ is
 begin
   dt := sysdate-1000;
 
-  names := names_table('samara', 'kazan', 'ufa', 'cherep');
+  names := names_table('samara', 'kazan', 'ufa', 'cherep', 'eburg');
   total := names.count;
   res_str := '';
   FOR i IN 1 .. total LOOP
@@ -780,7 +785,7 @@ begin
   SYNC_ALL_DICTS(0);
   dt := sysdate-30;
 
-  names := names_table('samara', 'kazan', 'ufa', 'cherep');
+  names := names_table('samara', 'kazan', 'ufa', 'cherep', 'eburg');
   total := names.count;
   res_str := '';
   FOR i IN 1 .. total LOOP
@@ -832,7 +837,7 @@ begin
   select a.id_departments into v_idDep from nomenclature_mat_view a where a.n_id = v_nid;
   SYNC_ALL_DICTS(v_idDep);
 
-  names := names_table('samara', 'kazan', 'ufa', 'cherep');
+  names := names_table('samara', 'kazan', 'ufa', 'cherep', 'eburg');
   total := names.count;
   res_str := '';
 
@@ -884,7 +889,7 @@ begin
 
   ------------------------------------------------------------------------------
   v_str_office := '';
-  select decode(p_office, '”‘¿','ufa', '◊œ','cherep', '—¿Ã','samara', ' ¿«','kazan', '') into v_str_office from dual;
+  select decode(p_office, '”‘¿','ufa', '◊œ','cherep', '—¿Ã','samara', ' ¿«','kazan', '≈¡”–√', 'eburg', '') into v_str_office from dual;
   begin
     sql_str := 'select 1 from dual@'||v_str_office;
     execute immediate sql_str;

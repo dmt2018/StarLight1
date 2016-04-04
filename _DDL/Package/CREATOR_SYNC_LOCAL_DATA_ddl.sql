@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.SYNC_LOCAL_DATA
--- Generated 31-мар-2016 19:47:26 from CREATOR@ORCL
+-- Generated 1-апр-2016 20:45:02 from CREATOR@STAR2
 
 CREATE OR REPLACE 
 PACKAGE sync_local_data
@@ -129,9 +129,9 @@ begin
   ) s
   on (z.fst_id = s.fst_id)
   when matched THEN update set z.f_sub_type = s.f_sub_type, z.ft_id=s.ft_id, z.hol_sub_type=s.hol_sub_type, z.mnemo=s.mnemo,
-        z.sub_weight=s.sub_weight, z.sub_weight_dry=s.sub_weight_dry, z.date_change=s.date_change, z.id_office=s.id_office, z.PRICE_PREFIX=s.PRICE_PREFIX, z.tnved=s.tnved
-  WHEN NOT MATCHED THEN INSERT (z.fst_id, z.f_sub_type, z.ft_id, z.hol_sub_type, z.mnemo, z.sub_weight,z.sub_weight_dry,z.ID_OFFICE, z.date_change, z.PRICE_PREFIX, z.tnved)
-     VALUES (s.fst_id, s.f_sub_type, s.ft_id, s.hol_sub_type, s.mnemo, s.sub_weight, s.sub_weight_dry, s.ID_OFFICE, s.date_change, s.PRICE_PREFIX, s.tnved)
+        z.sub_weight=s.sub_weight, z.sub_weight_dry=s.sub_weight_dry,z.date_change=s.date_change, z.id_office=s.id_office, z.PRICE_PREFIX=s.PRICE_PREFIX, z.tnved=s.tnved
+  WHEN NOT MATCHED THEN INSERT (z.fst_id, z.f_sub_type, z.ft_id, z.hol_sub_type, z.mnemo, z.sub_weight,z.sub_weight_dry, z.ID_OFFICE, z.date_change, z.PRICE_PREFIX, z.tnved)
+     VALUES (s.fst_id, s.f_sub_type, s.ft_id, s.hol_sub_type, s.mnemo, s.sub_weight,s.sub_weight_dry, s.ID_OFFICE, s.date_change, s.PRICE_PREFIX, s.tnved)
   ;
 --------------------------------------------------------------------------------
 
@@ -267,11 +267,11 @@ is
 begin
    select const_office into v_idd from dual;
 
-   INSERT INTO SYNC_clients_groups@orcl ( select * from clients_groups WHERE id_office=v_idd and date_change > sysdate-1 );
-   INSERT INTO SYNC_clients@orcl ( select * from clients WHERE id_office=v_idd and length(ccode)=13 and date_change > sysdate-1 );
+   INSERT INTO SYNC_clients_groups@star ( select * from clients_groups WHERE id_office=v_idd and date_change > sysdate-1 );
+   INSERT INTO SYNC_clients@star ( select * from clients WHERE id_office=v_idd and length(ccode)=13 and date_change > sysdate-1 );
 --   commit;
 
-   creator.sync_local_data.SYNC_CLIENTS_save@orcl;
+   creator.sync_local_data.SYNC_CLIENTS_save@star;
 
 EXCEPTION WHEN OTHERS THEN
       LOG_ERR(SQLERRM||chr(10)||dbms_utility.format_error_backtrace, SQLCODE, 'sync_local_data.SYNC_CLIENTS', '');
@@ -365,8 +365,8 @@ is
 begin
    select const_office into v_idd from dual;
 
-   INSERT INTO SYNC_cash@orcl ( select * from cash WHERE id_office=v_idd and date_change > sysdate-1 );
-   creator.sync_local_data.SYNC_cash_save@orcl;
+   INSERT INTO SYNC_cash@star ( select * from cash WHERE id_office=v_idd and date_change > sysdate-1 );
+   creator.sync_local_data.SYNC_cash_save@star;
 
 EXCEPTION WHEN OTHERS THEN
       LOG_ERR(SQLERRM||chr(10)||dbms_utility.format_error_backtrace, SQLCODE, 'sync_local_data.SYNC_cash', '');

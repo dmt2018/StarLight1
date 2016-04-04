@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.NOMENCLATURE_PKG
--- Generated 31-мар-2016 19:46:31 from CREATOR@ORCL
+-- Generated 1-апр-2016 20:44:10 from CREATOR@STAR2
 
 CREATE OR REPLACE 
 PACKAGE nomenclature_pkg
@@ -201,7 +201,7 @@ PROCEDURE INSERT_SUBTYPES (
     vTnVed        in VARCHAR2,
     in_id_        in OUT number,
     OUT_TEXT      OUT VARCHAR2,
-    wight_dry_    in NUMBER
+    wight_dry_        in number
 );
 
 
@@ -1361,7 +1361,7 @@ PROCEDURE INSERT_SUBTYPES (
     vTnVed        in VARCHAR2,
     in_id_        in OUT number,
     OUT_TEXT      OUT VARCHAR2,
-    wight_dry_    in NUMBER
+    wight_dry_        in NUMBER
 )
 IS
     S_ID_ number;
@@ -1424,7 +1424,7 @@ BEGIN
         OUT_TEXT := 'К сожалению, такое название уже есть!';
         in_id_ := 0;
       else
-            UPDATE FLOWER_SUBTYPES SET F_SUB_TYPE = S_NAME_RU_, HOL_SUB_TYPE = HOL_SUB_TYPE_, MNEMO = mnemo_, sub_weight = wight_, date_change=sysdate, PRICE_PREFIX=prefix_, TnVed=vTnVed, sub_weight_dry = wight_dry_
+            UPDATE FLOWER_SUBTYPES SET F_SUB_TYPE = S_NAME_RU_, HOL_SUB_TYPE = HOL_SUB_TYPE_, MNEMO = mnemo_, sub_weight = wight_, date_change=sysdate, PRICE_PREFIX=prefix_, TnVed=vTnVed,sub_weight_dry = wight_dry_
             WHERE FST_ID = FST_ID_;
         COMMIT;
         in_id_ := FST_ID_;
@@ -2569,7 +2569,7 @@ BEGIN
 
    execute immediate sql_str;
    nomenclature2_pkg.sync_nomenclature_one(N_ID_IN);
-   nomenclature2_pkg.gen_h_code(N_ID_IN,p_id_dep);
+   --nomenclature2_pkg.gen_h_code(N_ID_IN,p_id_dep);
 
    COMMIT;
 
@@ -2641,7 +2641,7 @@ BEGIN
            b.great_name, b.great_name_f, b.name_code
 
            , case when b.id_departments = 62 then
-               decode(b.ft_id,113,'Роза ',115,'Роза Эквадор ',2,'Хризантема ','') || b.f_name_ru || decode(b.remarks,'VOORN','. ВОРН','MP','. МР','MK','. МК','AM','. АМ','') || case when b.RUS_MARKS is null then null else '. ' || b.RUS_MARKS end
+               decode(b.ft_id,113,'Роза ',115,'Роза Эквадор ', 10000167, 'Роза Кения ',2,'Хризантема ','') || b.f_name_ru || decode(b.remarks,'VOORN','. ВОРН','MP','. МР','MK','. МК','AM','. АМ','') || case when b.RUS_MARKS is null then null else '. ' || b.RUS_MARKS end
                --|| (case when b.col_id in (0,1639,2768,2915) then null else '. '||b.colour end)
              else
                b.f_name_ru || '. ' || (case when b.col_id in (0,1639,2768,2915) then null else b.colour||'. ' end) || b.RUS_MARKS
