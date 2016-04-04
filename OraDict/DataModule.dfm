@@ -9,7 +9,6 @@ object DM: TDM
     Password = '123456'
     Server = 'roznica:1521:orcl'
     AutoCommit = False
-    Connected = True
     Left = 24
     Top = 16
   end
