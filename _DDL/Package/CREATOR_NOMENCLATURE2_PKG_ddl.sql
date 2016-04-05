@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.NOMENCLATURE2_PKG
--- Generated 11.02.2016 22:56:32 from CREATOR@STAR_NEW
+-- Generated 06.04.2016 1:00:09 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE nomenclature2_pkg
@@ -527,7 +527,7 @@ BEGIN
         = (select
            b.compiled_name, b.full_name, b.f_name, b.f_name_ru,
            b.f_sub_type, b.f_type, b.id_departments, b.dept, b.ft_id,
-           b.hol_sub_type, b.sub_weight, b.ht_id, b.fn_id, b.fst_id,
+           b.hol_sub_type, case when nvl(b.sub_weight_dry,0) > 0 then b.sub_weight_dry else nvl(b.sub_weight,0) end, b.ht_id, b.fn_id, b.fst_id,
            b.s_id, b.c_id, b.col_id, b.h_code, b.h_name, b.code, b.len,
            b.pack, b.diameter, b.vbn, b.hol_type, b.weight, b.weightdry, b.remarks,
            b.s_name_ru, b.bar_code, b.cust_coef, b.photo, b.is_photo,

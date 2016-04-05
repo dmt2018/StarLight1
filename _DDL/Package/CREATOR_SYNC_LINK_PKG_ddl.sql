@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.SYNC_LINK_PKG
--- Generated 1-апр-2016 20:44:48 from CREATOR@STAR2
+-- Generated 05.04.2016 23:49:12 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE sync_link_pkg
