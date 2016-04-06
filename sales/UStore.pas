@@ -1367,7 +1367,10 @@ begin
       if frmSales.showmodal = mrOk then
       begin
         id_:= dm.cds_reservID_ORDERS_CLIENTS.AsInteger;
-        SP_COMMENTS      := frmSales.EditComments.Text;
+
+        //SP_COMMENTS      := frmSales.EditComments.Text;
+        if frmSales.EditComments.Text='' then SP_COMMENTS:= dm.cds_reservINFO.AsString else SP_COMMENTS:= frmSales.EditComments.Text;
+
 		    SP_DOC_DATE      := dm.cds_reservON_DATE.AsDateTime;
         SP_OPERATOR_NAME := operator_name;
         SP_OTDEL         := CUR_DEPT_ID;
