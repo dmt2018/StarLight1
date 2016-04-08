@@ -206,9 +206,9 @@ begin
   DM.Q_SQL.Close;
   DM.Q_SQL.SQL.Clear;
   DM.Q_SQL.SQL.Add('select distinct a.ppli_id, a.ppl_comment || '' №'' ||a.ppli_id as ppl_comment, 0 img, a.ppl_date from prepare_price_list_index a, invoice_register b, suppliers s');
-  DM.Q_SQL.SQL.Add(' where a.id_departments = '+IntToStr(DM.DeptID)+' and a.finished = 1 and b.s_id_default = '+VarToStr(lookcombo_suplier.EditValue));
+  DM.Q_SQL.SQL.Add(' where a.id_departments = '+IntToStr(DM.DeptID)+' and a.finished = 1 and b.s_id_default = decode(const_office,1,'+VarToStr(lookcombo_suplier.EditValue)+',1)' );
   DM.Q_SQL.SQL.Add(' and (b.inv_id in (a.inv_id, a.inv_id2, a.inv_id3, a.inv_id4) or b.ipp_id = a.pack_id)');
-  DM.Q_SQL.SQL.Add(' and b.sended_to_warehouse = 1 and b.minus_inv_id = 0 and b.s_id_default = s.s_id and a.ppl_date >= trunc(sysdate-100)');
+  DM.Q_SQL.SQL.Add(' and b.sended_to_warehouse = 1 and nvl(b.minus_inv_id,0) = 0 and b.s_id_default = s.s_id and a.ppl_date >= trunc(sysdate-40)');
   DM.Q_SQL.SQL.Add('order by a.ppl_date desc');
   DM.Q_SQL.Open;
   FillImgComboCx(DM.Q_SQL, lcb_prices, 'Выберите...');

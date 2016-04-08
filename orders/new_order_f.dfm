@@ -132,8 +132,6 @@ object new_order: Tnew_order
     ParentBackground = False
     ParentCtl3D = False
     TabOrder = 5
-    ExplicitTop = 284
-    ExplicitWidth = 368
     DesignSize = (
       555
       31)
@@ -162,7 +160,7 @@ object new_order: Tnew_order
       NumGlyphs = 2
     end
     object BitBtn2: TBitBtn
-      Left = 377
+      Left = 375
       Top = 3
       Width = 171
       Height = 25
