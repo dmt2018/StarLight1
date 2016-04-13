@@ -1379,7 +1379,7 @@ begin
         ParamByName('prefix_').Value        := frm_editform.edit_subprefix.EditValue;
         ParamByName('vTnVed').Value         := frm_editform.edTnVed.EditValue;
         ParamByName('in_id_').Value         := 0;
-        ParamByName('wight_dry').Value         := frm_editform.edit_weight_dry.EditValue;
+        ParamByName('wight_dry_').Value         := frm_editform.edit_weight_dry.EditValue;
         ExecProc;
 
         ID := ParamByName('in_id_').Value;
