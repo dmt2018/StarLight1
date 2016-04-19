@@ -125,6 +125,7 @@ object cashbook: Tcashbook
       NavigatorButtons.ConfirmDelete = False
       OnCustomDrawCell = gr_cashbook_vCustomDrawCell
       OnEditKeyDown = gr_cashbook_vEditKeyDown
+      OnFocusedRecordChanged = gr_cashbook_vFocusedRecordChanged
       DataController.DataSource = DM.CASH_TMP_DS
       DataController.Filter.Options = [fcoCaseInsensitive]
       DataController.Filter.AutoDataSetFilter = True
@@ -187,6 +188,7 @@ object cashbook: Tcashbook
       OptionsView.BandHeaderEndEllipsis = True
       Styles.Inactive = stSelect
       Styles.Selection = stSelect
+      OnColumnPosChanged = gr_cashbook_vColumnPosChanged
       Bands = <
         item
           Caption = #1048#1085#1092#1086#1088#1084#1072#1094#1080#1103' '#1086' '#1085#1072#1082#1083#1072#1076#1085#1086#1081
@@ -346,7 +348,8 @@ object cashbook: Tcashbook
         PropertiesClassName = 'TcxCurrencyEditProperties'
         Properties.Alignment.Horz = taRightJustify
         Properties.DisplayFormat = ',0.00'#39#39';-,0.00'#39#39
-        Properties.UseThousandSeparator = True
+        Properties.ReadOnly = False
+        Properties.OnEditValueChanged = gr_cashbook_vIN_RUBPropertiesEditValueChanged
         FooterAlignmentHorz = taRightJustify
         HeaderAlignmentHorz = taCenter
         MinWidth = 50
@@ -1612,7 +1615,7 @@ object cashbook: Tcashbook
     Left = 632
     Top = 408
     Bitmap = {
-      494C010127002C00500020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010127002C00640020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004001000001002000000000000080
       0200000000000000000000000000000000000000000000000000000000000000
       000000000000000000000101011A0B0B0B743B3D3DB4777777D5838383DA5152
@@ -6935,7 +6938,9 @@ object cashbook: Tcashbook
       Font.Style = [fsBold]
       TextColor = clBlack
     end
-    object cxStyle1: TcxStyle
+    object st_term: TcxStyle
+      AssignedValues = [svColor]
+      Color = clYellow
     end
     object stSelect: TcxStyle
       AssignedValues = [svColor, svFont, svTextColor]

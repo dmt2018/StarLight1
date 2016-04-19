@@ -90,7 +90,7 @@ type
     bb_endcash: TdxBarButton;
     bb_delcash: TdxBarButton;
     currEdit: TcxCurrencyEdit;
-    cxStyle1: TcxStyle;
+    st_term: TcxStyle;
     dxBarStatic7: TdxBarStatic;
     dxBarStatic8: TdxBarStatic;
     dxBarDockControl1: TdxBarDockControl;
@@ -168,6 +168,12 @@ type
     procedure aFilterOffExecute(Sender: TObject);
     procedure mnLoadFooterClick(Sender: TObject);
     procedure mnLoadCellClick(Sender: TObject);
+    procedure gr_cashbook_vIN_RUBPropertiesEditValueChanged(Sender: TObject);
+    procedure gr_cashbook_vColumnPosChanged(Sender: TcxGridTableView;
+      AColumn: TcxGridColumn);
+    procedure gr_cashbook_vFocusedRecordChanged(Sender: TcxCustomGridTableView;
+      APrevFocusedRecord, AFocusedRecord: TcxCustomGridRecord;
+      ANewItemRecordFocusingChanged: Boolean);
 //    function Kopeika(Value: integer; Skp: string): string;
   private
     { Private declarations }
@@ -212,6 +218,7 @@ begin
     gr_cashbook_vGROUP_NAME.Visible := true
   else
     gr_cashbook_vGROUP_NAME.Visible := false;
+
 end;
 
 
@@ -229,13 +236,20 @@ end;
 
 
 
+
+procedure Tcashbook.gr_cashbook_vColumnPosChanged(Sender: TcxGridTableView;
+  AColumn: TcxGridColumn);
+begin
+
+end;
+
 //
 //  Красим грид
 //
 procedure Tcashbook.gr_cashbook_vCustomDrawCell(Sender: TcxCustomGridTableView;
   ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
   var ADone: Boolean);
-var val1, val2: variant;
+var val1, val2,val3: variant;
 begin
   if (not AViewInfo.Selected) and (gr_cashbook_v.DataController.DataSet.RecordCount > 0) then
   begin
@@ -252,6 +266,11 @@ begin
       val2  := gr_cashbook_v.DataController.GetValue(
                 AViewInfo.GridRecord.RecordIndex, gr_cashbook_v.GetColumnByFieldName('R_PAYDESK').Index
                 );
+      val3  := gr_cashbook_v.DataController.GetValue(
+                AViewInfo.GridRecord.RecordIndex, gr_cashbook_v.GetColumnByFieldName('CORRECTOR').Index
+                );
+
+
       if (val1 = val2) then
          ACanvas.Brush.Color := st_green.Color;
 
@@ -260,10 +279,15 @@ begin
             if val2 = cur_paydesk then
               ACanvas.Brush.Color := st_otdel.Color
             else
-              ACanvas.Brush.Color := st_kass.Color
+              ACanvas.Brush.Color := st_kass.Color;
       end;
+
+       if val3='UEGATE' then  
+       ACanvas.Brush.Color := st_term.Color;
+
     end;
   end;
+
 end;
 
 
@@ -277,6 +301,44 @@ begin
   end;
 end;
 
+ //запрет редактирования для UEGATE
+procedure Tcashbook.gr_cashbook_vFocusedRecordChanged(
+  Sender: TcxCustomGridTableView; APrevFocusedRecord,
+  AFocusedRecord: TcxCustomGridRecord; ANewItemRecordFocusingChanged: Boolean);
+begin
+     if gr_cashbook_v.DataController.GetValue(
+  gr_cashbook_v.DataController.GetFocusedRecordIndex, gr_cashbook_v.GetColumnByFieldName('CORRECTOR').Index
+  )='UEGATE' then begin
+    gr_cashbook_vIN_RUB.Options.Editing:=false ;
+    gr_cashbook_vOUT_RUB.Options.Editing:=false ;
+
+    gr_cashbook_vIN_USD.Options.Editing:=false ;
+    gr_cashbook_vOUT_USD.Options.Editing:=false ;
+
+    gr_cashbook_vIN_EU.Options.Editing:=false ;
+    gr_cashbook_vOUT_EU.Options.Editing:=false ;
+
+    gr_cashbook_vINFO.Options.Editing:=false ;
+    end else
+    begin
+      gr_cashbook_vIN_RUB.Options.Editing:=true;
+      gr_cashbook_vOUT_RUB.Options.Editing:=true;
+
+      gr_cashbook_vIN_USD.Options.Editing:=true ;
+      gr_cashbook_vOUT_USD.Options.Editing:=true ;
+
+      gr_cashbook_vIN_EU.Options.Editing:=true ;
+      gr_cashbook_vOUT_EU.Options.Editing:=true ;
+
+      gr_cashbook_vINFO.Options.Editing:=true ;
+     end;
+end;
+
+procedure Tcashbook.gr_cashbook_vIN_RUBPropertiesEditValueChanged(
+  Sender: TObject);
+begin
+
+end;
 
 //
 //  Обновление данных
