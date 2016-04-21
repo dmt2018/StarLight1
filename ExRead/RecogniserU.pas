@@ -1105,7 +1105,7 @@ begin
   else btn_cleim.Enabled := false;
 
   btnExportInvoice.Enabled := (DM.id_office <= 1);
-  btnImportInvoice.Enabled := (DM.id_office > 1);
+  btnImportInvoice.Enabled := (DM.id_office >= 1);
 end;
 
 //
