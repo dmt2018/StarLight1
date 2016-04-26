@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.SYNC_LINK_PKG
--- Generated 05.04.2016 23:49:12 from CREATOR@STAR_NEW
+-- Generated 27.04.2016 1:02:10 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE sync_link_pkg
@@ -782,8 +782,8 @@ is
   res_str varchar2(100);
   sql_str varchar2(1000);
 begin
+  dt := sysdate;
   SYNC_ALL_DICTS(0);
-  dt := sysdate-30;
 
   names := names_table('samara', 'kazan', 'ufa', 'cherep', 'eburg');
   total := names.count;
@@ -793,10 +793,10 @@ begin
       sql_str := 'select 1 from dual@'||names(i);
       execute immediate sql_str;
 
-      sql_str := 'INSERT INTO SYNC_nomenclature@'||names(i)||' ( select * from nomenclature WHERE id_office=1 )';
-      execute immediate sql_str;
-      sql_str := 'INSERT INTO SYNC_nom_specifications@'||names(i)||' ( select * from nom_specifications WHERE id_office=1 and n_id in (select n_id from nomenclature WHERE id_office=1 ) )';
-      execute immediate sql_str;
+      sql_str := 'INSERT INTO SYNC_nomenclature@'||names(i)||' ( select * from nomenclature WHERE id_office=1 and DATE_CHANGE <= :p1)';
+      execute immediate sql_str using dt;
+      sql_str := 'INSERT INTO SYNC_nom_specifications@'||names(i)||' ( select * from nom_specifications WHERE id_office=1 and n_id in (select n_id from nomenclature WHERE id_office=1 and DATE_CHANGE <= :p1 ) )';
+      execute immediate sql_str using dt;
       commit;
 
       sql_str := 'begin creator.sync_local_data.SYNC_ALL_NOMENCLATURE@'||names(i)||'(0); end;';
@@ -925,16 +925,16 @@ PROCEDURE make_out_storedoc_msk
 )
 is
   pragma autonomous_transaction;
-  v_office number;
-  v_idd    number;
-  v_id_dep number;
-  v_id_doc number;
-  v_c_id_default number;
-  v_ddate  date;
-  v_ddate_str  varchar2(10);
-  v_str_office varchar2(20);
-  sql_str      varchar2(1000);
-  v_brief      varchar2(20);
+  v_office        number;
+  v_idd           number;
+  v_id_dep        number;
+  v_id_doc        number;
+  v_c_id_default  number;
+  v_ddate         date;
+  v_ddate_str     varchar2(10);
+  v_str_office    varchar2(20);
+  sql_str         varchar2(1000);
+  v_brief         varchar2(20);
 begin
 
   v_office := 1;
@@ -953,7 +953,7 @@ begin
   ------------------------------------------------------------------------------
 
   insert into tmp_exp_doc ( select * from table(cast(get_list_elements(p_inv_str) as number_list_type)) );
-  insert into export_to_fillials ( select a.*, null, sysdate, (select BRIEF from offices where id_office = const_office), user from table(cast(get_list_elements(p_inv_str) as number_list_type)) a );
+  insert into export_to_fillials ( select a.*, null, sysdate, v_brief, user from table(cast(get_list_elements(p_inv_str) as number_list_type)) a );
 
   sql_str := 'insert into tmp_exp_doc@'||v_str_office||' (select * from tmp_exp_doc)';
   execute immediate sql_str;
@@ -970,12 +970,12 @@ begin
   execute immediate sql_str into v_idd;
 
   sql_str := 'INSERT INTO INVOICE_REGISTER@'||v_str_office||' (INV_ID,INV_DATE,SENDED_TO_WAREHOUSE,COMMENTS,ID_DEPARTMENTS,SUPPLIER_DATE,SUPPLIER_NUMBER,INV_MINUS,s_id_default,C_ID_DEFAULT,minus_inv_id,IN_FILE,id_office)
-      ( select '||v_idd||', trunc(sysdate), 0, ''Инвойс из накладной(ых) №'||p_inv_str||' '||v_brief||' '', '||v_id_dep||', to_date('''||v_ddate_str||''',''dd.mm.yy''), '||v_id_doc||', 0, 1, 230, null, null, '||v_office||' from dual )';
+      ( select '||v_idd||', trunc(sysdate), 0, ''Инвойс из накладной(ых) №'||p_inv_str||' ('||v_brief||') '', '||v_id_dep||', to_date('''||v_ddate_str||''',''dd.mm.yy''), '||v_id_doc||', 0, 1, 230, null, null, '||v_office||' from dual )';
   execute immediate sql_str;
 
   sql_str := 'INSERT INTO invoice_data@'||v_str_office||' (
       select '||v_idd||', n_id, units, FINAL_PRICE, total_sum, amount_in_the_pack, get_office_unique@'||v_str_office||'(''INVOICE_DATA_ID''), null
-             , 0, gtd, 0, '||v_office||', sysdate, null as gtd_country, 0, 0, '''', null
+             , 0, gtd, 0, '||v_office||', sysdate, null as gtd_country, 0, 0, '''', ID_DOC_DATA
       from (
         SELECT a.n_id, sum(a.QUANTITY) as units, max(a.PRICE) as FINAL_PRICE, sum(round((a.PRICE * a.QUANTITY),2)) total_sum,
                sum(a.QUANTITY) as amount_in_the_pack, min(a.ID_DOC_DATA) as ID_DOC_DATA
