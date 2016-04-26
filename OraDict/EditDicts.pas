@@ -240,6 +240,8 @@ type
     gr_suplier_viewANALYZE_DAYS: TcxGridDBColumn;
     gr_country_viewColumn1: TcxGridDBColumn;
     gr_subtype_viewSUB_WEIGHT_DRY: TcxGridDBColumn;
+    btnChangeActive: TcxButton;
+    gr_suplier_viewIS_ACTIVE: TcxGridDBColumn;
     procedure btn_closeClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure BitBtn3Click(Sender: TObject);
@@ -302,6 +304,7 @@ type
     procedure gr_spec_vFocusedRecordChanged(Sender: TcxCustomGridTableView;
       APrevFocusedRecord, AFocusedRecord: TcxCustomGridRecord;
       ANewItemRecordFocusingChanged: Boolean);
+    procedure btnChangeActiveClick(Sender: TObject);
   private
     { Private declarations }
     pnl_msg: TPanel;
@@ -2328,6 +2331,29 @@ begin
 end;
 
 
+
+procedure TDictsEdit.btnChangeActiveClick(Sender: TObject);
+var id: integer;
+begin
+  if dm.id_office > 1 then exit;
+  if DM.Suppliers.RecordCount = 0 then exit;
+  if DM.SuppliersS_ID.IsNull then exit;
+  id := DM.SuppliersS_ID.AsInteger;
+
+  if (MessageDlg('Внимание! Вся номенклатура поставщкика "'+DM.SuppliersS_NAME_RU.AsString+'" будет активирована/деактивирована. Продолжить?',mtConfirmation,[mbNo,mbYes],0) = mrYes) then
+  begin
+      DM.SelQ.Close;
+      DM.SelQ.SQL.Clear;
+      DM.SelQ.SQL.Add('begin nomenclature2_pkg.set_active_noms_by_suplier(:v_s_id); end;');
+      DM.SelQ.ParamByName('v_s_id').Value := id;
+      DM.SelQ.Execute;
+
+      DM.Suppliers.Refresh;
+      DM.Suppliers.Locate('S_ID',id,[]);
+
+      MessageBox(Handle, 'Операция завершена успешно', 'Результат', MB_ICONINFORMATION);
+ end;
+end;
 
 // показ связанных названий поставщика
 procedure TDictsEdit.aShowTranslateExecute(Sender: TObject);

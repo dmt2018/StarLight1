@@ -7,7 +7,7 @@ object DM: TDM
     Options.Direct = True
     Username = 'creator'
     Password = '123456'
-    Server = 'roznica:1521:orcl'
+    Server = 'KLEPOV:1521:STARNEW'
     AutoCommit = False
     Left = 24
     Top = 16
@@ -352,14 +352,19 @@ object DM: TDM
   object Suppliers: TOraQuery
     Session = SelectSession
     SQL.Strings = (
-      'select rownum as nn, a.* from ('
+      'select rownum as nn, a.* '
+      ', case when nn = bb then 1 else 0 end is_active'
+      'from ('
       
         'SELECT S_ID, S_NAME_RU, C_ID, COUNTRY, NEED_CUST, id_office, ana' +
         'lyze_days'
       'FROM SUPPLIERS_VIEW '
       'WHERE (NOT (S_ID = 0)) and id_office = :v_office'
       'ORDER BY S_NAME_RU'
-      ') a')
+      
+        ') a, (select count(*) as nn, sum(notuse) as bb, s_id from nomenc' +
+        'lature z group by s_id ) b'
+      'where a.s_id = b.s_id')
     FetchAll = True
     FilterOptions = [foCaseInsensitive]
     BeforeOpen = SuppliersAfterOpen
@@ -402,6 +407,9 @@ object DM: TDM
     end
     object SuppliersANALYZE_DAYS: TIntegerField
       FieldName = 'ANALYZE_DAYS'
+    end
+    object SuppliersIS_ACTIVE: TFloatField
+      FieldName = 'IS_ACTIVE'
     end
   end
   object Suppliers_DS: TDataSource

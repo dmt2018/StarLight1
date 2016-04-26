@@ -36,7 +36,7 @@ object DictsEdit: TDictsEdit
       Top = 0
       Width = 1150
       Height = 566
-      ActivePage = TabSheet4
+      ActivePage = TabSheet3
       Align = alClient
       Style = tsFlatButtons
       TabOrder = 0
@@ -755,7 +755,6 @@ object DictsEdit: TDictsEdit
             HotZoneClassName = 'TcxXPTaskBarStyle'
             AlignSplitter = salBottom
             Control = Panel24
-            ExplicitWidth = 8
           end
         end
       end
@@ -1767,6 +1766,65 @@ object DictsEdit: TDictsEdit
               LookAndFeel.NativeStyle = True
               Spacing = 6
             end
+            object btnChangeActive: TcxButton
+              Left = 457
+              Top = 5
+              Width = 272
+              Height = 30
+              Cursor = crHandPoint
+              Caption = #1057#1084#1077#1085#1080#1090#1100' '#1072#1082#1090#1080#1074#1085#1086#1089#1090#1100' '#1085#1086#1084#1077#1085#1082#1083#1072#1090#1091#1088#1099
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -12
+              Font.Name = 'Arial'
+              Font.Pitch = fpFixed
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 3
+              OnClick = btnChangeActiveClick
+              Colors.Default = clBtnFace
+              Colors.Normal = clBtnFace
+              Colors.Hot = clSkyBlue
+              Colors.Pressed = clSkyBlue
+              Glyph.Data = {
+                36040000424D3604000000000000360000002800000010000000100000000100
+                2000000000000004000000000000000000000000000000000000000000001159
+                A410197AE6A61D7EE6D41E79E4D51D75E2D51D71E0D51D6CDDD51D69DBD51D68
+                DAD51D68DAD51D68DAD51C67DAD4185DD8A111439C0C00000000000000001983
+                EB843FBFEFFF42CAF0FF40C6F0FF3FC5F0FF3FC5F0FF3FC5F0FF3FC5F0FF3FC5
+                F0FF3FC5F0FF3FC5F0FF40C5F0FF3BABE8FF185DD87B00000000000000001987
+                ED9D47D4F1FF2EB9EFFF29ABEEFF28A3EDFF279EEBFF279BEAFF2699E9FF2699
+                E9FF2699E9FF2699E9FF29A0EAFF3FBBECFF185DD89500000000000000001A8B
+                EE9D4BDEF2FF38CFF2FF31C0F0FF2EB5EEFF2BAAEDFF29A2EBFF289EEAFF289C
+                EAFF289CEAFF289CEAFF29A3EBFF3FBBECFF185DD89500000000000000001A8E
+                F09D4EE4F3FF3AD9F3FF35CBF2FF31C1F0FF2DB6EEFF2AABEDFF28A2EBFF279B
+                EAFF2699E9FF2699E9FF289FEAFF3FBBECFF185DD89500000000000000001A90
+                F09D4DE4F3FF3DE1F2FF3ADAF2FF39D6F3FF37CDF1FF33C2F0FF2FB6EDFF2CAB
+                EBFF29A2EBFF289DEAFF29A2EBFF3FBBEDFF185DD89500000000000000001A90
+                F19D4AE0F3FF3ADAF3FF37D6F2FF38D6F2FF37D4F3FF36CDF1FF32C2F0FF2FB6
+                EEFF2BABEBFF28A1EAFF29A0EBFF3FBCEDFF185FD99500000000000000001A90
+                F19D47DBF2FF35D5F2FF36D4F3FF38D7F3FF39DAF3FF3ADBF2FF3AD6F2FF38CE
+                F1FF35C3EFFF30B7ECFF2FB2ECFF41C0EDFF1862DC9500000000000000001A90
+                F18340CAF2FF47E2F3FF4AE6F3FF4DEBF3FF4FEEF4FF51F1F3FF52F2F3FF52F1
+                F4FF51EDF3FF4EE6F2FF4ADEF2FF3EB6EBFF1867DF7A0000000000000000136C
+                B5103195E7BB40A3EDFF3FA3ECFF2A98EBE21E96F0D21E93EFD21E8FEDD21E8B
+                ECD22788E3E23C90E2FF3C8CE1FF2C74D3B81252AC0C00000000000000000000
+                0000A0A1A662E1DCDCFFDDD8D8FF8D99A65E0000000000000000000000000000
+                0000717E8E5DCFCBCBFFCFCBCBFF838387630000000000000000000000000000
+                0000A7A1A15FE3DEDEFFE1DCDCFFAEA8A8620000000000000000000000000000
+                00008E898963D2CECEFFCFCBCBFF898484610000000000000000000000000000
+                00009A949441DFDAD9FFF0EBEAFFBAB3B3B87E7A7A050000000000000000716E
+                6D08A29C9CBFE6E0E0FFC8C4C4FF827E7E470000000000000000000000000000
+                000077727108CEC7C7EDF9F3F3FFE5E1E0FFC3BEBEEAB9B3B3D2B4AFAFD2B9B4
+                B4EDDDD9D9FFF0EAEAFFAFAAAAF36A67670D0000000000000000000000000000
+                000000000000C4BDBC5BD7D1D1FDF4EEEEFFFBF6F6FFFAF6F6FFF9F5F5FFF7F2
+                F2FFEDE9E9FFC4C0C0FEA09A9A6B000000000000000000000000000000000000
+                00000000000000000000BAB3B23AC4BCBCA0C3BDBDCBC1BCBBD2BDB8B7D2B8B2
+                B2CEAEA9A8A8A69F9F4600000000000000000000000000000000}
+              LookAndFeel.Kind = lfFlat
+              LookAndFeel.NativeStyle = True
+              Spacing = 6
+            end
           end
           object gr_suplier: TcxGrid
             Left = 3
@@ -1806,6 +1864,11 @@ object DictsEdit: TDictsEdit
                   Format = '0'
                   Kind = skCount
                   Column = gr_suplier_viewNN
+                end
+                item
+                  Format = '0'
+                  Kind = skSum
+                  Column = gr_suplier_viewIS_ACTIVE
                 end>
               DataController.Summary.SummaryGroups = <>
               FilterRow.InfoText = #1055#1086#1083#1077' '#1076#1083#1103' '#1091#1089#1090#1072#1085#1086#1074#1082#1080' '#1092#1080#1083#1100#1090#1088#1086#1074
@@ -1895,6 +1958,18 @@ object DictsEdit: TDictsEdit
                 MinWidth = 220
                 Options.HorzSizing = False
                 Width = 220
+              end
+              object gr_suplier_viewIS_ACTIVE: TcxGridDBColumn
+                Caption = #1053#1077#1072#1082#1090#1080#1074#1085#1072#1103' '#1085#1086#1084'-'#1088#1072
+                DataBinding.FieldName = 'IS_ACTIVE'
+                PropertiesClassName = 'TcxCheckBoxProperties'
+                Properties.Alignment = taCenter
+                Properties.ReadOnly = True
+                Properties.ValueChecked = '1'
+                Properties.ValueUnchecked = '0'
+                FooterAlignmentHorz = taCenter
+                HeaderAlignmentHorz = taCenter
+                MinWidth = 140
               end
             end
             object gr_suplier_level: TcxGridLevel
@@ -3553,7 +3628,6 @@ object DictsEdit: TDictsEdit
             HotZoneClassName = 'TcxXPTaskBarStyle'
             AlignSplitter = salBottom
             Control = Panel21
-            ExplicitWidth = 8
           end
         end
       end
@@ -4373,7 +4447,6 @@ object DictsEdit: TDictsEdit
           HotZoneClassName = 'TcxXPTaskBarStyle'
           AlignSplitter = salBottom
           Control = Panel17
-          ExplicitWidth = 8
         end
       end
       object tshDefPacks: TTabSheet
@@ -5291,7 +5364,7 @@ object DictsEdit: TDictsEdit
     Left = 476
     Top = 168
     Bitmap = {
-      494C010102000400C00010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010102000400C40010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -5478,7 +5551,7 @@ object DictsEdit: TDictsEdit
     Left = 477
     Top = 134
     Bitmap = {
-      494C010101000800C00010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010101000800C40010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

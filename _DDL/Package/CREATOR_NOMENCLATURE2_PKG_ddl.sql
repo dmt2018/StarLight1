@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.NOMENCLATURE2_PKG
--- Generated 06.04.2016 1:00:09 from CREATOR@STAR_NEW
+-- Generated 26.04.2016 3:03:10 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE nomenclature2_pkg
@@ -194,6 +194,13 @@ PROCEDURE  gen_h_code (
    v_id_dep    in number
 );
 
+
+--
+-- Изменяем активность номенклатуры по поставщику
+--
+PROCEDURE set_active_noms_by_suplier (
+   v_s_id      in number
+);
 
 end;
 /
@@ -895,7 +902,7 @@ begin
 
 EXCEPTION
    WHEN OTHERS THEN
-           LOG_ERR(SQLERRM, SQLCODE, 'NOMENCLATURE_PKG2.select_store_for_web', '');
+           LOG_ERR(SQLERRM, SQLCODE, 'nomenclature2_pkg.select_store_for_web', '');
            RAISE_APPLICATION_ERROR (-20080, 'Запрос не выполнился. ' || SQLERRM || ' ' || DBMS_UTILITY.format_error_backtrace);
 
 END select_store_for_web;
@@ -951,11 +958,32 @@ begin
 
 EXCEPTION
    WHEN OTHERS THEN
-           LOG_ERR(SQLERRM, SQLCODE, 'NOMENCLATURE_PKG2.gen_h_code', '');
+           LOG_ERR(SQLERRM, SQLCODE, 'nomenclature2_pkg.gen_h_code', '');
            RAISE_APPLICATION_ERROR (-20081, 'Запрос не выполнился. ' || SQLERRM || ' ' || DBMS_UTILITY.format_error_backtrace);
 
 END gen_h_code;
 
+
+
+--
+-- Изменяем активность номенклатуры по поставщику
+--
+PROCEDURE set_active_noms_by_suplier (
+   v_s_id      in number
+)
+is
+begin
+
+  update nomenclature a set a.notuse = abs(a.notuse-1), date_change = sysdate where a.s_id = v_s_id;
+  update nomenclature_mat_view a set a.notuse = abs(a.notuse-1), date_change = sysdate where a.s_id = v_s_id;
+  commit;
+
+EXCEPTION
+   WHEN OTHERS THEN
+           LOG_ERR(SQLERRM, SQLCODE, 'nomenclature2_pkg.set_active_noms_by_suplier', '');
+           RAISE_APPLICATION_ERROR (-20082, 'Запрос не выполнился. ' || SQLERRM || ' ' || DBMS_UTILITY.format_error_backtrace);
+
+END set_active_noms_by_suplier;
 
 
 END;
