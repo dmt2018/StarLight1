@@ -1043,8 +1043,42 @@ begin
     CloseFile(F_CSV);
   end;
 
+  // 2016-04-30 По просьбе Дины добавлен файл SUBTOTAL (Jira: STARLIGHT-12)
+  DM.q_raznos.ParamByName('truck_').AsInteger := 99;
+  DM.q_raznos.ParamByName('packed_').AsInteger := 0; // 0-не упакованные, 1-все подряд
+  DM.q_raznos.Open;
+
+
+  file_str := str + '\CSV\' + DM.Q_ORDERSS_ID.AsString + '__' + FormatDateTime('mmyy', DM.Q_ORDERSDATE_TRUCK_OUT.AsDateTime) +'_SUBTOTAL.CSV';
+  AssignFile(F_CSV, file_str);
+  try
+    Rewrite(F_CSV);
+    // Пишем заголовок
+    head_str := FormatDateTime('dd.mm.yyyy', DM.Q_ORDERSDATE_TRUCK_OUT.AsDateTime)+';;;';
+    WriteLn(F_CSV, head_str);
+    head_str := 'TYPE;SUB_TYPE;NAME;RUS_NAME;LENGTH;QUANTITY';
+    WriteLn(F_CSV, head_str);
+
+    while not DM.q_raznos.Eof do
+    begin
+      if (DM.q_raznosZATIRKA.AsInteger = 0 ) then
+      begin
+        item := DM.q_raznosSUM_ITOG.AsInteger;
+        if item > 0 then
+        begin
+          detail_str := DM.q_raznosHOL_TYPE.AsString +';'+ DM.q_raznoshol_SUB_TYPE.AsString +';'+ DM.q_raznosH_NAME.AsString +';'+ DM.q_raznosCOMPILED_NAME_OTDEL.AsString +';'+ DM.q_raznosLEN.AsString +';'+ IntToStr(item) +';';
+          WriteLn(F_CSV, detail_str);
+        end;
+      end;
+      DM.q_raznos.Next;
+    end;
+
+  finally
+    CloseFile(F_CSV);
+  end;
+
   MessageBox(Handle, 'Генерация файлов прошла успешно','Результат...',MB_ICONINFORMATION);
-  ShellExecute(Handle, nil, PChar(file_str), nil, nil, SW_RESTORE);
+  ShellExecute(Handle, nil, PChar(str + '\CSV\'), nil, nil, SW_RESTORE);
 
 end;
 

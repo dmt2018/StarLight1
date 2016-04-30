@@ -16,10 +16,9 @@ type
     BitBtn1: TBitBtn;
     Label3: TLabel;
     ActionList1: TActionList;
-    Action1: TAction;
     BitBtn2: TBitBtn;
-    Action2: TAction;
-    Action3: TAction;
+    aCancel: TAction;
+    aSave: TAction;
     Label2: TLabel;
     Memo1: TMemo;
     DateTimePicker1: TDBDateTimeEditEh;
@@ -41,6 +40,8 @@ type
     procedure BitBtn1Click(Sender: TObject);
     procedure DateTimePicker1Change(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure lookcombo_suplierKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
     { Private declarations }
   public
@@ -205,10 +206,11 @@ var i:integer;
 begin
   DM.Q_SQL.Close;
   DM.Q_SQL.SQL.Clear;
-  DM.Q_SQL.SQL.Add('select distinct a.ppli_id, a.ppl_comment || '' №'' ||a.ppli_id as ppl_comment, 0 img, a.ppl_date from prepare_price_list_index a, invoice_register b, suppliers s');
+  DM.Q_SQL.SQL.Add('select distinct a.ppli_id, a.ppl_comment || '' №'' ||a.ppli_id||'', инв.(''||WM_CONCAT(distinct b.inv_id)||'')'' as ppl_comment, 0 img, a.ppl_date from prepare_price_list_index a, invoice_register b, suppliers s');
   DM.Q_SQL.SQL.Add(' where a.id_departments = '+IntToStr(DM.DeptID)+' and a.finished = 1 and b.s_id_default = decode(const_office,1,'+VarToStr(lookcombo_suplier.EditValue)+',1)' );
   DM.Q_SQL.SQL.Add(' and (b.inv_id in (a.inv_id, a.inv_id2, a.inv_id3, a.inv_id4) or b.ipp_id = a.pack_id)');
   DM.Q_SQL.SQL.Add(' and b.sended_to_warehouse = 1 and nvl(b.minus_inv_id,0) = 0 and b.s_id_default = s.s_id and a.ppl_date >= trunc(sysdate-40)');
+  DM.Q_SQL.SQL.Add('group by a.ppli_id, a.ppl_comment, a.ppl_date');
   DM.Q_SQL.SQL.Add('order by a.ppl_date desc');
   DM.Q_SQL.Open;
   FillImgComboCx(DM.Q_SQL, lcb_prices, 'Выберите...');
@@ -248,6 +250,16 @@ begin
   end;
 
   DateTimePicker1.SetFocus;
+end;
+
+procedure Tnew_order.lookcombo_suplierKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if (Key = VK_RETURN) then
+  begin
+    lookcombo_suplier.PostEditValue;
+    Memo1.SetFocus;
+  end
 end;
 
 end.

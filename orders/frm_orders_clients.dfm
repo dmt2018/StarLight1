@@ -442,12 +442,13 @@ object orders_clients: Torders_clients
           IsCaptionAssigned = True
         end
         object grClients_vPACK_: TcxGridDBColumn
-          Caption = #1055#1086#1082#1091#1102#1090#1089#1103
+          Caption = #1055#1072#1082#1091#1102#1090#1089#1103
           DataBinding.FieldName = 'PACK_'
           PropertiesClassName = 'TcxCheckBoxProperties'
           Properties.Alignment = taCenter
           Properties.ImmediatePost = True
           Properties.NullStyle = nssUnchecked
+          Properties.ReadOnly = True
           Properties.ValueChecked = 1
           Properties.ValueUnchecked = 0
           FooterAlignmentHorz = taCenter
@@ -848,6 +849,7 @@ object orders_clients: Torders_clients
     end
     object N10: TMenuItem
       Caption = #1055#1086#1084#1077#1090#1080#1090#1100' / '#1089#1085#1103#1090#1100' '#1087#1088#1080#1079#1085#1072#1082' '#1087#1072#1082#1086#1074#1082#1080
+      ShortCut = 16464
       OnClick = N10Click
     end
     object N11: TMenuItem

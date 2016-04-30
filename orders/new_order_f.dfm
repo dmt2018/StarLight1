@@ -93,7 +93,7 @@ object new_order: Tnew_order
   end
   object Label4: TLabel
     Left = 13
-    Top = 201
+    Top = 182
     Width = 197
     Height = 16
     Caption = #1055#1088#1072#1081#1089' '#1076#1083#1103' '#1087#1088#1077#1076#1099#1076#1091#1097#1077#1075#1086' '#1089#1082#1083#1072#1076#1072
@@ -107,7 +107,7 @@ object new_order: Tnew_order
   end
   object Label6: TLabel
     Left = 14
-    Top = 231
+    Top = 233
     Width = 306
     Height = 16
     Caption = #1056#1072#1089#1087#1088#1077#1076#1077#1083#1077#1085#1080#1103' '#1076#1083#1103' '#1088#1072#1089#1095#1077#1090#1072' '#1087#1088#1077#1076#1099#1076#1091#1097#1077#1075#1086' '#1079#1072#1082#1072#1079#1072':'
@@ -131,7 +131,7 @@ object new_order: Tnew_order
     Ctl3D = False
     ParentBackground = False
     ParentCtl3D = False
-    TabOrder = 5
+    TabOrder = 7
     DesignSize = (
       555
       31)
@@ -160,7 +160,7 @@ object new_order: Tnew_order
       NumGlyphs = 2
     end
     object BitBtn2: TBitBtn
-      Left = 375
+      Left = 371
       Top = 3
       Width = 171
       Height = 25
@@ -187,10 +187,10 @@ object new_order: Tnew_order
     end
   end
   object Memo1: TMemo
-    Left = 224
+    Left = 225
     Top = 112
     Width = 324
-    Height = 79
+    Height = 65
     Ctl3D = False
     ParentCtl3D = False
     TabOrder = 4
@@ -264,11 +264,12 @@ object new_order: Tnew_order
     StyleFocused.LookAndFeel.NativeStyle = True
     StyleHot.LookAndFeel.NativeStyle = True
     TabOrder = 3
+    OnKeyDown = lookcombo_suplierKeyDown
     Width = 324
   end
   object lcb_prices: TcxImageComboBox
-    Left = 224
-    Top = 197
+    Left = 14
+    Top = 202
     Cursor = crHandPoint
     ParentFont = False
     Properties.ImmediatePost = True
@@ -290,8 +291,8 @@ object new_order: Tnew_order
     StyleFocused.LookAndFeel.NativeStyle = True
     StyleHot.LookAndFeel.Kind = lfOffice11
     StyleHot.LookAndFeel.NativeStyle = True
-    TabOrder = 6
-    Width = 324
+    TabOrder = 5
+    Width = 534
   end
   object chlbInvoices: TcxCheckListBox
     Left = 14
@@ -302,23 +303,18 @@ object new_order: Tnew_order
       item
         Text = 'fghfgh'
       end>
-    TabOrder = 7
+    TabOrder = 6
   end
   object ActionList1: TActionList
     Left = 328
     Top = 88
-    object Action1: TAction
-      Caption = 'Action1'
-      ShortCut = 13
-      OnExecute = BitBtn1Click
-    end
-    object Action2: TAction
-      Caption = 'Action2'
+    object aCancel: TAction
+      Caption = 'aCancel'
       ShortCut = 27
       OnExecute = BitBtn2Click
     end
-    object Action3: TAction
-      Caption = 'Action3'
+    object aSave: TAction
+      Caption = 'aSave'
       ShortCut = 16397
       OnExecute = BitBtn1Click
     end

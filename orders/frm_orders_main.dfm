@@ -269,7 +269,7 @@ object orders_main: Torders_main
           Properties.ReadOnly = True
           HeaderAlignmentHorz = taCenter
           HeaderAlignmentVert = vaCenter
-          MinWidth = 74
+          MinWidth = 64
           Options.Filtering = False
           Options.HorzSizing = False
           Position.BandIndex = 2
