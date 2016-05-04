@@ -801,7 +801,11 @@ begin
 
     if (DM.CASH_TMPCORRECTOR.AsString <> '')
          and (cur_paydesk <> DM.CASH_TMPR_PAYDESK.AsInteger)
-         and (DM.CASH_TMPR_PAYDESK.AsInteger <> 0) then
+         and (DM.CASH_TMPR_PAYDESK.AsInteger <> 0)
+         or ( gr_cashbook_v.DataController.GetValue(
+  gr_cashbook_v.DataController.GetFocusedRecordIndex, gr_cashbook_v.GetColumnByFieldName('CORRECTOR').Index
+  )='UEGATE')
+         then
         MessageBox(Handle, 'Вы не проводили эту операцию! Изменения не допустимы!', 'Внимание', MB_ICONWARNING)
     else
     begin
