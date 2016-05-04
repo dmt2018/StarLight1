@@ -296,7 +296,6 @@ begin
   try
     Screen.Cursor := crHandPoint;
     DM.STAR_DB.ExecSQL('TRUNCATE TABLE CREATOR.PREPARE_PRINT',[]);
-    DM.STAR_DB.Commit;
 
     DM.PriceList.DisableControls;
     DM.PriceList.Filter   := 'D_CHECKED = 1';
@@ -329,6 +328,7 @@ begin
 
     ReactivateOraQuery(DM.SelPrntPreview);
     Screen.Cursor := crDefault;
+  DM.STAR_DB.Commit;
 
   except on E: Exception do
     begin
