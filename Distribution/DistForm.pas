@@ -811,7 +811,7 @@ Begin
 
   if CUR_DIST_IND_ID <> null then
     Begin
-      Label1.Caption       := 'Распределение: №'+ VarToStr(CUR_DIST_NUM) +' от ' + DateToStr(VarToDateTime(CUR_DIST_DATE)) + '. Описание: ' + VarToStr(CUR_DIST_DESCRIPTION);
+      Label1.Caption       := 'Распределение: №'+ VarToStr(CUR_DIST_NUM) +' (ID'+VarToStr(CUR_DIST_IND_ID)+') от ' + DateToStr(VarToDateTime(CUR_DIST_DATE)) + '. Описание: ' + VarToStr(CUR_DIST_DESCRIPTION);
       Label6.Caption       := '№ инвойсов: '+GetInvoices;
       Label8.Caption       := '№ заказов: '+GetOrders;
 
@@ -1849,14 +1849,14 @@ var cds : TDataSet; //TOraQuery;
 begin
   cds := gr_PrepDist_v.DataController.DataSet;
 
-  cds.Filter := 'WHERE_FLOWER_IS = ''инвойс'' and LEFT_QUANTITY > 0';
+  cds.Filter   := 'WHERE_FLOWER_IS = ''инвойс'' and LEFT_QUANTITY > 0';
   cds.Filtered := true;
 
   if (cds.Active = true) and (cds.RecordCount > 0) then
   begin
     frxReport1.LoadFromFile(curdir + '/reps/'+vReport+'.fr3');
     frxReport1.Variables['inv_data']   := '''' + DM.SelDistrInd.FieldByName('dist_date').AsString + '''';
-    frxReport1.Variables['order_data'] := '''' + DM.SelDistrInd.FieldByName('date_truck_out').AsString + '''';
+    frxReport1.Variables['order_data'] := ''; // '''' + DM.SelDistrInd.FieldByName('date_truck_out').AsString + '''';
     frxReport1.ShowReport;
   end;
 
