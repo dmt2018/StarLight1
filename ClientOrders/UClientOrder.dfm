@@ -2794,8 +2794,8 @@ object frmClientOrders: TfrmClientOrders
     ParentFont = False
   end
   object grOrders: TcxGrid
-    Left = 16
-    Top = 114
+    Left = 20
+    Top = 106
     Width = 198
     Height = 631
     Align = alCustom
@@ -2850,7 +2850,7 @@ object frmClientOrders: TfrmClientOrders
   end
   object grClients: TcxGrid
     Left = 224
-    Top = 216
+    Top = 210
     Width = 224
     Height = 529
     Align = alCustom
@@ -4641,7 +4641,6 @@ object frmClientOrders: TfrmClientOrders
     Password = '123456'
     Server = '192.168.1.89:1521:STAR'
     AutoCommit = False
-    Connected = True
     ConnectDialog = OraConnDlg
     LoginPrompt = False
     HomeName = 'OraHome92'
@@ -4669,13 +4668,16 @@ object frmClientOrders: TfrmClientOrders
         ' LISTAGG( s.s_name_ru, '#39', '#39' ) WITHIN GROUP (ORDER BY s_name_ru) ' +
         'as s_name_ru,'
       ' WM_CONCAT( distinct d.DIST_IND_ID ) as DIST_IND_ID'
-      'from orders a, suppliers s, DISTRIBUTIONS_INDEX d'
+      'from orders a'
+      '  left outer join suppliers s on s.S_ID = a.S_ID '
+      '  --left outer join DISTRIBUTIONS_INDEX d'
+      
+        '  left outer join distributions_orders d on d.order_id = a.id_or' +
+        'ders'
       'where a.id_departments = :id_dep '
       '  and a.date_truck >= trunc(sysdate)-:days_minus'
       '  and a.active = 1 '
       '  and a.n_type = 0 '
-      '  and a.S_ID = s.S_ID(+)'
-      '  and a.id_orders = d.ID_ORDERS(+)'
       'group by a.date_truck, a.date_truck_out'
       'order by a.date_truck'
       ''
