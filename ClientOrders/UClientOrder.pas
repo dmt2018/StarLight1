@@ -178,7 +178,12 @@ begin
       Q_DISTR_LIST.Open;
 }
       frxReport1.LoadFromFile(path+'raports\order_client_list.fr3');
-      frxReport1.ShowReport;
+      frxReport1.PrintOptions.Printer:='HP LaserJet P3011/P3015 PCL6 Invois';
+      frxReport1.PrintOptions.Copies := 1;
+      frxReport1.PrepareReport;
+      frxReport1.PrintOptions.ShowDialog:=false;
+      frxReport1.Print;
+      //frxReport1.ShowReport;
       Screen.Cursor := crDefault;
 
       Q_DISTR_LIST.Close;
