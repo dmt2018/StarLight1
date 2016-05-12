@@ -5112,7 +5112,7 @@ object frmClientOrders: TfrmClientOrders
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 39785.824304097200000000
-    ReportOptions.LastChange = 42459.812938182870000000
+    ReportOptions.LastChange = 42459.812938182900000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
