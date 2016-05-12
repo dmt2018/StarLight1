@@ -174,7 +174,6 @@ object spisanieForm: TspisanieForm
         PopupMenu = spis_menu
         TabOrder = 0
         LookAndFeel.Kind = lfOffice11
-        ExplicitTop = -1
         object grid_sp_View: TcxGridDBTableView
           PopupMenu = spis_menu
           OnDblClick = grid_sp_ViewDblClick
@@ -428,10 +427,10 @@ object spisanieForm: TspisanieForm
           object np_QUANTITY_NOW: TcxGridDBColumn
             Caption = #1053#1072' '#1089#1082#1083#1072#1076#1077
             DataBinding.FieldName = 'QUANTITY_NOW'
-            PropertiesClassName = 'TcxSpinEditProperties'
+            PropertiesClassName = 'TcxCurrencyEditProperties'
             Properties.Alignment.Horz = taCenter
-            Properties.ImmediatePost = True
-            Properties.SpinButtons.Visible = False
+            Properties.DecimalPlaces = 0
+            Properties.DisplayFormat = ',0;-,0'
             HeaderAlignmentHorz = taCenter
             MinWidth = 100
             Options.Editing = False

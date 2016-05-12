@@ -453,9 +453,10 @@ object utsenkaForm: TutsenkaForm
         object uc_QUANTITY_NOW: TcxGridDBColumn
           Caption = #1050#1086#1083'-'#1074#1086' '#1085#1072' '#1089#1082#1083#1072#1076#1077
           DataBinding.FieldName = 'QUANTITY_NOW'
-          PropertiesClassName = 'TcxSpinEditProperties'
+          PropertiesClassName = 'TcxCurrencyEditProperties'
           Properties.Alignment.Horz = taCenter
-          Properties.ImmediatePost = True
+          Properties.DecimalPlaces = 0
+          Properties.DisplayFormat = ',0;-,0'
           Properties.ReadOnly = True
           HeaderAlignmentHorz = taCenter
           MinWidth = 80

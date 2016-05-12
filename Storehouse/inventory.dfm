@@ -555,10 +555,10 @@ object inventoryForm: TinventoryForm
         object np_QUANTITY_NOW: TcxGridDBColumn
           Caption = #1042' '#1091#1095#1077#1090#1077
           DataBinding.FieldName = 'QUANTITY_NOW'
-          PropertiesClassName = 'TcxSpinEditProperties'
+          PropertiesClassName = 'TcxCurrencyEditProperties'
           Properties.Alignment.Horz = taCenter
-          Properties.ImmediatePost = True
-          Properties.SpinButtons.Visible = False
+          Properties.DecimalPlaces = 0
+          Properties.DisplayFormat = ',0;-,0'
           FooterAlignmentHorz = taCenter
           HeaderAlignmentHorz = taCenter
           MinWidth = 90
@@ -622,9 +622,10 @@ object inventoryForm: TinventoryForm
         object np_q_difference: TcxGridDBColumn
           Caption = #1050#1086#1083'-'#1074#1086
           DataBinding.FieldName = 'Q_DIFFERENCE'
-          PropertiesClassName = 'TcxSpinEditProperties'
-          Properties.ImmediatePost = True
-          Properties.SpinButtons.Visible = False
+          PropertiesClassName = 'TcxCurrencyEditProperties'
+          Properties.Alignment.Horz = taCenter
+          Properties.DecimalPlaces = 0
+          Properties.DisplayFormat = ',0;-,0'
           FooterAlignmentHorz = taCenter
           GroupSummaryAlignment = taCenter
           HeaderAlignmentHorz = taCenter
@@ -918,10 +919,6 @@ object inventoryForm: TinventoryForm
         Font.Pitch = fpFixed
         Font.Style = []
         ParentFont = False
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
       end
     end
     object Panel9: TPanel

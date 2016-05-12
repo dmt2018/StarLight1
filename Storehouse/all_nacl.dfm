@@ -1727,10 +1727,10 @@ object all_nacl_Form: Tall_nacl_Form
             object st_QUANTITY: TcxGridDBColumn
               Caption = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086
               DataBinding.FieldName = 'QUANTITY'
-              PropertiesClassName = 'TcxSpinEditProperties'
+              PropertiesClassName = 'TcxCurrencyEditProperties'
               Properties.Alignment.Horz = taCenter
-              Properties.ImmediatePost = True
-              Properties.SpinButtons.Visible = False
+              Properties.DecimalPlaces = 0
+              Properties.DisplayFormat = ',0;-,0'
               GroupSummaryAlignment = taCenter
               HeaderAlignmentHorz = taCenter
               MinWidth = 90
@@ -1743,10 +1743,10 @@ object all_nacl_Form: Tall_nacl_Form
             object st_RESERV: TcxGridDBColumn
               Caption = #1056#1077#1079#1077#1088#1074
               DataBinding.FieldName = 'RESERV'
-              PropertiesClassName = 'TcxSpinEditProperties'
+              PropertiesClassName = 'TcxCurrencyEditProperties'
               Properties.Alignment.Horz = taCenter
-              Properties.ImmediatePost = True
-              Properties.SpinButtons.Visible = False
+              Properties.DecimalPlaces = 0
+              Properties.DisplayFormat = ',0;-,0'
               GroupSummaryAlignment = taCenter
               HeaderAlignmentHorz = taCenter
               MinWidth = 75

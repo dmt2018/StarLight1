@@ -324,9 +324,10 @@ object prihodForm: TprihodForm
         object np_QUANTITY: TcxGridDBColumn
           Caption = #1050#1086#1083'-'#1074#1086
           DataBinding.FieldName = 'QUANTITY'
-          PropertiesClassName = 'TcxSpinEditProperties'
+          PropertiesClassName = 'TcxCurrencyEditProperties'
           Properties.Alignment.Horz = taCenter
-          Properties.ImmediatePost = True
+          Properties.DecimalPlaces = 0
+          Properties.DisplayFormat = ',0;-,0'
           Properties.ReadOnly = True
           FooterAlignmentHorz = taCenter
           GroupSummaryAlignment = taCenter
