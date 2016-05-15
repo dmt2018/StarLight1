@@ -1010,6 +1010,7 @@ var F_CSV: TextFile;
     head_str, detail_str, file_str, str: string;
     sum_all_, sum_, item: integer;
 begin
+  DM.q_raznos.Close;
   DM.q_raznos.ParamByName('truck_').AsInteger := 99;
   DM.q_raznos.ParamByName('packed_').AsInteger := 1; // 0-не упакованные, 1-все подряд
   DM.q_raznos.Open;
@@ -1044,6 +1045,7 @@ begin
   end;
 
   // 2016-04-30 По просьбе Дины добавлен файл SUBTOTAL (Jira: STARLIGHT-12)
+  DM.q_raznos.Close;
   DM.q_raznos.ParamByName('truck_').AsInteger := 99;
   DM.q_raznos.ParamByName('packed_').AsInteger := 0; // 0-не упакованные, 1-все подряд
   DM.q_raznos.Open;
