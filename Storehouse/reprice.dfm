@@ -1186,9 +1186,6 @@ object repriceForm: TrepriceForm
       
         ' VALUES (STORE_DOC_DATA_TEMP_SET_ID.NEXTVAL, :N_ID, :QUANTITY_NO' +
         'W, :STORE_TYPE, :PRICE, :PRICE_LIST);'
-      
-        '  creator.LOG_ERR('#39'program'#39', 1, STORE_DOC_DATA_TEMP_SET_ID.CURRV' +
-        'AL, '#39':N_ID='#39'||:N_ID);'
       'end if;  '
       ''
       'end;')

@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.SYNC_LINK_PKG
--- Generated 27.04.2016 1:02:10 from CREATOR@STAR_NEW
+-- Generated 16.05.2016 2:43:40 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE sync_link_pkg
@@ -91,6 +91,12 @@ PROCEDURE make_out_storedoc_msk
   p_doc_str   in varchar2,
   p_res  in out varchar2
 );
+
+
+--
+--  Очистим временные данные
+--
+PROCEDURE clear_tmp_data;
 
 END;
 /
@@ -730,8 +736,8 @@ begin
       sql_str := 'select 1 from dual@'||names(i);
       execute immediate sql_str;
 
-      sql_str := 'begin creator.sync_local_data.clear_tmp_data@'||names(i)||'; end;';
-      execute immediate sql_str;
+      --sql_str := 'begin creator.sync_local_data.clear_tmp_data@'||names(i)||'; end;';
+      --execute immediate sql_str;
 
       sql_str := 'INSERT INTO SYNC_FLOWER_TYPES@'||names(i)||' ( select * from FLOWER_TYPES WHERE id_office=1 )';
       execute immediate sql_str;
@@ -754,13 +760,16 @@ begin
       sql_str := 'begin creator.sync_local_data.SYNC_ALL_DICTS@'||names(i)||'; end;';
       execute immediate sql_str;
 
+      commit;
+      --DBMS_SESSION.CLOSE_DATABASE_LINK(names(i));
+
     EXCEPTION
       WHEN OTHERS THEN
-        res_str :=  res_str ||chr(10)||'Ошибка :: '||names(i);
+        res_str :=  res_str ||chr(10)||'Ошибка (нси) :: '||names(i);
         LOG_ERR(SQLERRM || ' ' || DBMS_UTILITY.format_error_backtrace, SQLCODE, 'sync_link_pkg.SYNC_ALL_DICTS', sql_str);
     end;
   end loop;
-  commit;
+--  commit;
 
 end SYNC_ALL_DICTS;
 
@@ -782,6 +791,7 @@ is
   res_str varchar2(100);
   sql_str varchar2(1000);
 begin
+  clear_tmp_data;
   dt := sysdate;
   SYNC_ALL_DICTS(0);
 
@@ -793,6 +803,7 @@ begin
       sql_str := 'select 1 from dual@'||names(i);
       execute immediate sql_str;
 
+
       sql_str := 'INSERT INTO SYNC_nomenclature@'||names(i)||' ( select * from nomenclature WHERE id_office=1 and DATE_CHANGE <= :p1)';
       execute immediate sql_str using dt;
       sql_str := 'INSERT INTO SYNC_nom_specifications@'||names(i)||' ( select * from nom_specifications WHERE id_office=1 and n_id in (select n_id from nomenclature WHERE id_office=1 and DATE_CHANGE <= :p1 ) )';
@@ -801,18 +812,80 @@ begin
 
       sql_str := 'begin creator.sync_local_data.SYNC_ALL_NOMENCLATURE@'||names(i)||'(0); end;';
       execute immediate sql_str;
+
+      commit;
+      --DBMS_SESSION.CLOSE_DATABASE_LINK(names(i));
+
     EXCEPTION
       WHEN OTHERS THEN
-        res_str :=  res_str ||chr(10)||'Ошибка :: '||names(i);
+        res_str :=  res_str ||chr(10)||'Ошибка (номенклатура) :: '||names(i);
         LOG_ERR(SQLERRM || ' ' || DBMS_UTILITY.format_error_backtrace, SQLCODE, 'sync_link_pkg.SYNC_ALL_NOMENCLATURE', sql_str);
     end;
   end loop;
   --dbms_output.put_line(res_str);
   v_res := res_str;
   LOG_ERR('Синхронизация номенклатуры на регионах :: '||user, 0, 'SYNC_LINK_PKG.SYNC_ALL_NOMENCLATURE', res_str);
-  commit;
+--  commit;
 
 end SYNC_ALL_NOMENCLATURE;
+
+
+
+--
+--  Очистим временные данные
+--
+PROCEDURE clear_tmp_data
+is
+  pragma autonomous_transaction;
+  TYPE names_table IS TABLE OF VARCHAR2(10);
+  names names_table;
+
+  total integer;
+  res_str varchar2(100);
+  sql_str varchar2(1000);
+begin
+
+  names := names_table('samara', 'kazan', 'ufa', 'cherep', 'eburg');
+  total := names.count;
+  res_str := '';
+  FOR i IN 1 .. total LOOP
+    begin
+      sql_str := 'select 1 from dual@'||names(i);
+      execute immediate sql_str;
+
+      sql_str := 'delete from SYNC_FLOWER_TYPES@'||names(i);
+      execute immediate sql_str;
+      sql_str := 'delete from SYNC_flower_subtypes@'||names(i);
+      execute immediate sql_str;
+      sql_str := 'delete from SYNC_FLOWER_NAMES@'||names(i);
+      execute immediate sql_str;
+      sql_str := 'delete from SYNC_flower_name_translations@'||names(i);
+      execute immediate sql_str;
+      sql_str := 'delete from SYNC_colours@'||names(i);
+      execute immediate sql_str;
+      sql_str := 'delete from SYNC_countries@'||names(i);
+      execute immediate sql_str;
+      sql_str := 'delete from SYNC_suppliers@'||names(i);
+      execute immediate sql_str;
+      sql_str := 'delete from sync_hol_specifications@'||names(i);
+      execute immediate sql_str;
+
+      sql_str := 'delete from SYNC_nom_specifications@'||names(i);
+      execute immediate sql_str;
+      sql_str := 'delete from sync_nomenclature@'||names(i);
+      execute immediate sql_str;
+
+      commit;
+      --DBMS_SESSION.CLOSE_DATABASE_LINK(names(i));
+
+    EXCEPTION
+      WHEN OTHERS THEN
+        res_str :=  res_str ||chr(10)||'Ошибка (очистка) :: '||names(i);
+        LOG_ERR(SQLERRM || ' ' || DBMS_UTILITY.format_error_backtrace, SQLCODE, 'sync_link_pkg.clear_tmp_data', sql_str);
+    end;
+  end loop;
+end;
+
 
 
 --
@@ -934,12 +1007,11 @@ is
   v_ddate_str     varchar2(10);
   v_str_office    varchar2(20);
   sql_str         varchar2(1000);
-  v_brief         varchar2(20);
+  v_brief         varchar2(10);
 begin
 
   v_office := 1;
   v_str_office := 'star';
-  select BRIEF into v_brief from offices where id_office = const_office;
 
   ------------------------------------------------------------------------------
   begin
@@ -951,6 +1023,7 @@ begin
   end;
   if p_res is not null then return; end if;
   ------------------------------------------------------------------------------
+  select BRIEF into v_brief from offices where id_office = const_office;
 
   insert into tmp_exp_doc ( select * from table(cast(get_list_elements(p_inv_str) as number_list_type)) );
   insert into export_to_fillials ( select a.*, null, sysdate, v_brief, user from table(cast(get_list_elements(p_inv_str) as number_list_type)) a );
@@ -970,7 +1043,7 @@ begin
   execute immediate sql_str into v_idd;
 
   sql_str := 'INSERT INTO INVOICE_REGISTER@'||v_str_office||' (INV_ID,INV_DATE,SENDED_TO_WAREHOUSE,COMMENTS,ID_DEPARTMENTS,SUPPLIER_DATE,SUPPLIER_NUMBER,INV_MINUS,s_id_default,C_ID_DEFAULT,minus_inv_id,IN_FILE,id_office)
-      ( select '||v_idd||', trunc(sysdate), 0, ''Инвойс из накладной(ых) №'||p_inv_str||' ('||v_brief||') '', '||v_id_dep||', to_date('''||v_ddate_str||''',''dd.mm.yy''), '||v_id_doc||', 0, 1, 230, null, null, '||v_office||' from dual )';
+      ( select '||v_idd||', trunc(sysdate), 0, ''Инвойс из накладной(ых) №'||p_inv_str||' ('||v_brief||')'', '||v_id_dep||', to_date('''||v_ddate_str||''',''dd.mm.yy''), '||v_id_doc||', 0, 1, 230, null, null, '||v_office||' from dual )';
   execute immediate sql_str;
 
   sql_str := 'INSERT INTO invoice_data@'||v_str_office||' (
@@ -993,6 +1066,7 @@ begin
 EXCEPTION WHEN OTHERS THEN
       LOG_ERR(SQLERRM||chr(10)||dbms_utility.format_error_backtrace, SQLCODE, 'sync_link_pkg.make_out_storedoc_msk', sql_str);
 end make_out_storedoc_msk;
+
 
 
 END;
