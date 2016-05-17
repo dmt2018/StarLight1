@@ -185,6 +185,15 @@ object SelDistrIndF: TSelDistrIndF
     DesignSize = (
       684
       40)
+    object Label1: TLabel
+      Left = 213
+      Top = 12
+      Width = 261
+      Height = 13
+      Caption = ' '#1048#1085#1074#1086#1081#1089#1099', '#1087#1086#1076#1075#1088#1091#1078#1077#1085#1085#1099#1077' '#1085#1072' '#1089#1082#1083#1072#1076' ('#1090#1086#1083#1100#1082#1086' '#1095#1090#1077#1085#1080#1077') '
+      Color = 12320699
+      ParentColor = False
+    end
     object cxButton3: TcxButton
       Left = 5
       Top = 5

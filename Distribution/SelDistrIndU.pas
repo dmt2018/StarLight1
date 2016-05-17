@@ -36,6 +36,7 @@ type
     deTill: TcxDateEdit;
     gr_distr_vIS_SENDED: TcxGridDBColumn;
     gr_distr_vSTR_ORDERS: TcxGridDBColumn;
+    Label1: TLabel;
     procedure DBGridEh1DblClick(Sender: TObject);
     procedure N1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
