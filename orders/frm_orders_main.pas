@@ -1065,7 +1065,7 @@ begin
     begin
       if (DM.q_raznosZATIRKA.AsInteger = 0 ) then
       begin
-        item := DM.q_raznosSUM_ITOG.AsInteger;
+        item := DM.q_raznosSUM_N.AsInteger + DM.q_raznosSUM_DIR.AsInteger; //DM.q_raznosSUM_ITOG.AsInteger;
         if item > 0 then
         begin
           detail_str := DM.q_raznosHOL_TYPE.AsString +';'+ DM.q_raznoshol_SUB_TYPE.AsString +';'+ DM.q_raznosH_NAME.AsString +';'+ DM.q_raznosCOMPILED_NAME_OTDEL.AsString +';'+ DM.q_raznosLEN.AsString +';'+ IntToStr(item) +';';
