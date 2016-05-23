@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.STORE_PKG
--- Generated 26.04.2016 2:25:28 from CREATOR@STAR_NEW
+-- Generated 23.05.2016 22:25:26 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE store_pkg
@@ -145,11 +145,12 @@ procedure NOM_TO_TEMP
 --
 procedure report_move
 (
-  DDATE_BEGIN IN DATE,
-  DDATE_END   IN DATE,
-  rem_nulls   in NUMBER,
-  V_GTD       in varchar2,
-  v_office    in number
+  DDATE_BEGIN   IN DATE,
+  DDATE_END     IN DATE,
+  rem_nulls     in NUMBER,
+  V_GTD         in varchar2,
+  v_office      in number,
+  v_show_nulls  in number
 --  , V_SERVICE   in number
 );
 
@@ -2522,11 +2523,12 @@ end NOM_TO_TEMP;
 --
  procedure report_move
 (
-  DDATE_BEGIN IN DATE,
-  DDATE_END   IN DATE,
-  rem_nulls   in NUMBER,
-  V_GTD       in varchar2,
-  v_office    in number
+  DDATE_BEGIN   IN DATE,
+  DDATE_END     IN DATE,
+  rem_nulls     in NUMBER,
+  V_GTD         in varchar2,
+  v_office      in number,
+  v_show_nulls  in number
 --  , V_SERVICE   in number
 )
 is
@@ -2534,131 +2536,108 @@ begin
 
   delete from STORE_REPORT_MOVE_TEMP;
 
-  insert into STORE_REPORT_MOVE_TEMP (n_id, ostatok_q, ostatok_p, prihod_q, prihod_p, spis_q, spis_p, utsen_q, utsen_p,
-                                      prod_q, prod_p, korr_q, korr_p, ostatok_end_q, ostatok_end_p, REPRICE_Q, REPRICE_p, store_q, store_p, p_add, p_add2 )
+  insert into STORE_REPORT_MOVE_TEMP ( n_id, ostatok_q, ostatok_p, prihod_q, prihod_p, spis_q, spis_p, utsen_q, utsen_p, prod_q, prod_p, korr_q, korr_p, ostatok_end_q, ostatok_end_p, REPRICE_Q, REPRICE_p, store_q, store_p, p_add, p_add2 )
   (
+select a.* from (
     select  q_1.n_id,
-            (q0_1 - q0_4 - q0_2 - q0_5) as ostatok_q,   (p0_1 - p0_4 - p0_2 - p0_5 - p0_3 + p0_6) as ostatok_p,
-            q_1 prihod_q, p_1 prihod_p,
-            q_2 spis_q,   p_2 spis_p,
-            q_3 utsen_q,  p_3 utsen_p,
-            q_4 prod_q,   p_4 prod_p,
-            q_5 korr_q,   p_5 korr_p,
+            (q0_1 - q0_4 - q0_2 - q0_5) as ostatok_q, (p0_1 - p0_4 - p0_2 - p0_5 - p0_3 + p0_6) as ostatok_p,
+            q_1 prihod_q, p_1 prihod_p, q_2 spis_q, p_2 spis_p, q_3 utsen_q, p_3 utsen_p,
+            q_4 prod_q, p_4 prod_p, q_5 korr_q, p_5 korr_p,
             ((q0_1 - q0_4 - q0_2 - q0_5) + q_1-q_4-q_2-q_5) as ostatok_end_q,  ((p0_1 - p0_4 - p0_2 - p0_5 - p0_3 + p0_6 - p0_add2) + p_1-p_4-p_2-p_5-p_3+p_6-p_add2) as ostatok_end_p,
-            q_6 REPRICE_Q, p_6 REPRICE_p,
-            c.store_q,
-            c.store_p,
-            p_add,
-            p_add2
+            q_6 REPRICE_Q, p_6 REPRICE_p, c.store_q, c.store_p, p_add, p_add2
     from
     (
-select B2.n_id,
--- 1 приход 2 списание 3 уценка 4 продажа 5 инвентаризация 6 переоценка
-       sum(decode(ID_DOC_TYPE, 1, A1.q, 0)) q_1,
-       sum(decode(ID_DOC_TYPE, 2, A1.q, 0)) q_2,
-       sum(decode(ID_DOC_TYPE, 3, A1.q, 0)) q_3,
-       sum(decode(ID_DOC_TYPE, 4, A1.q, 0)) q_4,
-       sum(decode(ID_DOC_TYPE, 5, A1.q, 0)) q_5,
-       sum(decode(ID_DOC_TYPE, 6, A1.q, 0)) q_6,
-
-       sum(decode(ID_DOC_TYPE, 1, A1.p, 0)) + sum(decode(ID_DOC_TYPE, 1, a1.addit, 0)) p_1,
-       sum(decode(ID_DOC_TYPE, 2, A1.p, 0)) p_2,
-       sum(decode(ID_DOC_TYPE, 3, A1.p, 0)) p_3,
-       sum(decode(ID_DOC_TYPE, 4, A1.p, 0)) p_4,
-       sum(decode(ID_DOC_TYPE, 5, A1.p, 0)) p_5,
-       sum(decode(ID_DOC_TYPE, 6, A1.p, 0)) p_6
-
-       , sum(decode(ID_DOC_TYPE, 4, a1.addit, 1, a1.addit, 0)) p_add
-       , sum(decode(ID_DOC_TYPE, 1, a1.addit, 0)) p_add2
-
-  from (
-    -- выбираем количество и сумму по выбранному товару за период из склада, группированный по N_ID и типу документа
-    select CASE WHEN c.ID_DOC_TYPE = 5 THEN sum(A2.QUANTITY_REAL - A2.QUANTITY)
-             ELSE sum(A2.QUANTITY) END q,
-           CASE WHEN c.ID_DOC_TYPE = 5 THEN sum(A2.QUANTITY_REAL * A2.PRICE - A2.QUANTITY * A2.PRICE)
-             else case WHEN c.ID_DOC_TYPE = 6 THEN sum(A2.QUANTITY * (A2.PRICE - A2.PRICE_LIST))
-                else case WHEN c.ID_DOC_TYPE = 3 THEN sum(A2.QUANTITY * (A2.PRICE_LIST - A2.PRICE))
-                  ELSE case when c.ID_DOC_TYPE = 4 then sum(A2.QUANTITY * decode(a2.store_type,1,A2.PRICE_list,2,a2.price))
-                    ELSE case when c.ID_DOC_TYPE = 1 then sum(A2.QUANTITY * nvl(A2.PRICE_list,a2.price))
-                      else sum(A2.QUANTITY * A2.PRICE) END end end end end p,
-
-           --case WHEN (c.ID_DOC_TYPE = 4 and A2.PRICE <> A2.PRICE_list ) THEN sum(A2.QUANTITY * (A2.PRICE - A2.PRICE_LIST)) else 0 end addit,
-           case WHEN (c.ID_DOC_TYPE in (4,1) and nvl(A2.PRICE,0) <> nvl(A2.PRICE_list,0) and nvl(A2.PRICE_list,0) <> 0 ) THEN sum(A2.QUANTITY * (A2.PRICE - A2.PRICE_LIST)) else 0 end addit,
-
-               c.ID_DOC_TYPE,
-               A2.N_ID
-          FROM store_doc_data_temp B1,
-               store_doc_data A2,
-               store_doc c
-         where B1.N_ID = A2.N_ID
-           AND c.id_doc = A2.id_doc
-           AND c.doc_date >= DDATE_BEGIN
-           AND c.doc_date <= DDATE_END
-           and (a2.GTD = V_GTD or V_GTD is null)
-           and (c.id_office = v_office or v_office = 0)
-         group by c.ID_DOC_TYPE, A2.N_ID, A2.PRICE, A2.PRICE_list
-         order by c.ID_DOC_TYPE) A1,
-       STORE_DOC_DATA_TEMP B2
- where A1.n_id(+) = B2.n_id
- group by B2.n_id
-
-) q_1,
-(
-
-select B2.n_id,
--- 1 приход 2 списание 3 уценка 4 продажа 5 инвентаризация 6 переоценка
-       sum(decode(ID_DOC_TYPE, 1, A1.q, 0)) + sum(decode(ID_DOC_TYPE, 1, a1.addit, 0)) q0_1,
-       sum(decode(ID_DOC_TYPE, 2, A1.q, 0)) q0_2,
-       sum(decode(ID_DOC_TYPE, 3, A1.q, 0)) q0_3,
-       sum(decode(ID_DOC_TYPE, 4, A1.q, 0)) q0_4,
-       sum(decode(ID_DOC_TYPE, 5, A1.q, 0)) q0_5,
-       sum(decode(ID_DOC_TYPE, 6, A1.q, 0)) q0_6,
-
-       sum(decode(ID_DOC_TYPE, 1, A1.p, 0)) p0_1,
-       sum(decode(ID_DOC_TYPE, 2, A1.p, 0)) p0_2,
-       sum(decode(ID_DOC_TYPE, 3, A1.p, 0)) p0_3,
-       sum(decode(ID_DOC_TYPE, 4, A1.p, 0)) p0_4,
-       sum(decode(ID_DOC_TYPE, 5, A1.p, 0)) p0_5,
-       sum(decode(ID_DOC_TYPE, 6, A1.p, 0)) p0_6
-
-       , sum(decode(ID_DOC_TYPE, 4, a1.addit, 1, a1.addit, 0)) p0_add
-       , sum(decode(ID_DOC_TYPE, 1, a1.addit, 0)) p0_add2
-
-  from (
-    -- выбираем количество и сумму по выбранному товару до начала периода из склада, группированный по N_ID и типу документа
-    select CASE WHEN c.ID_DOC_TYPE = 5 THEN sum(A2.QUANTITY_REAL - A2.QUANTITY)
-                                        ELSE sum(A2.QUANTITY) END q,
-           CASE WHEN c.ID_DOC_TYPE = 5 THEN sum(A2.QUANTITY_REAL * A2.PRICE - A2.QUANTITY * A2.PRICE)
-             else case WHEN c.ID_DOC_TYPE = 6 THEN sum(A2.QUANTITY * (A2.PRICE - A2.PRICE_LIST))
-                else case WHEN c.ID_DOC_TYPE = 3 THEN sum(A2.QUANTITY * (A2.PRICE_LIST - A2.PRICE))
-                  ELSE case when c.ID_DOC_TYPE = 4 then sum(A2.QUANTITY * decode(a2.store_type,1,A2.PRICE_list,2,a2.price))
-                    ELSE case when c.ID_DOC_TYPE = 1 then sum(A2.QUANTITY * nvl(A2.PRICE_list,a2.price))
-                      else sum(A2.QUANTITY * A2.PRICE) END end end end end p,
-
-           --case WHEN (c.ID_DOC_TYPE = 4 and A2.PRICE <> A2.PRICE_list ) THEN sum(A2.QUANTITY * (A2.PRICE - A2.PRICE_LIST)) else 0 end addit,
-           case WHEN (c.ID_DOC_TYPE in (4,1) and nvl(A2.PRICE,0) <> nvl(A2.PRICE_list,0) and nvl(A2.PRICE_list,0) <> 0 ) THEN sum(A2.QUANTITY * (A2.PRICE - A2.PRICE_LIST)) else 0 end addit,
-
-               c.ID_DOC_TYPE,
-               A2.N_ID
-          FROM store_doc_data_temp B1,
-               store_doc_data A2,
-               store_doc c
-         where B1.N_ID = A2.N_ID
+      select B2.n_id,
+        -- 1 приход 2 списание 3 уценка 4 продажа 5 инвентаризация 6 переоценка
+        sum(decode(ID_DOC_TYPE, 1, A1.q, 0)) q_1,
+        sum(decode(ID_DOC_TYPE, 2, A1.q, 0)) q_2,
+        sum(decode(ID_DOC_TYPE, 3, A1.q, 0)) q_3,
+        sum(decode(ID_DOC_TYPE, 4, A1.q, 0)) q_4,
+        sum(decode(ID_DOC_TYPE, 5, A1.q, 0)) q_5,
+        sum(decode(ID_DOC_TYPE, 6, A1.q, 0)) q_6,
+        sum(decode(ID_DOC_TYPE, 1, A1.p, 0)) + sum(decode(ID_DOC_TYPE, 1, a1.addit, 0)) p_1,
+        sum(decode(ID_DOC_TYPE, 2, A1.p, 0)) p_2,
+        sum(decode(ID_DOC_TYPE, 3, A1.p, 0)) p_3,
+        sum(decode(ID_DOC_TYPE, 4, A1.p, 0)) p_4,
+        sum(decode(ID_DOC_TYPE, 5, A1.p, 0)) p_5,
+        sum(decode(ID_DOC_TYPE, 6, A1.p, 0)) p_6,
+        sum(decode(ID_DOC_TYPE, 4, a1.addit, 1, a1.addit, 0)) p_add,
+        sum(decode(ID_DOC_TYPE, 1, a1.addit, 0)) p_add2
+      from (
+        -- выбираем количество и сумму по выбранному товару за период из склада, группированный по N_ID и типу документа
+        select CASE WHEN c.ID_DOC_TYPE = 5 THEN sum(A2.QUANTITY_REAL - A2.QUANTITY) ELSE sum(A2.QUANTITY) END q,
+               CASE WHEN c.ID_DOC_TYPE = 5 THEN sum(A2.QUANTITY_REAL * A2.PRICE - A2.QUANTITY * A2.PRICE)
+                  else case WHEN c.ID_DOC_TYPE = 6 THEN sum(A2.QUANTITY * (A2.PRICE - A2.PRICE_LIST))
+                    else case WHEN c.ID_DOC_TYPE = 3 THEN sum(A2.QUANTITY * (A2.PRICE_LIST - A2.PRICE))
+                      ELSE case when c.ID_DOC_TYPE = 4 then sum(A2.QUANTITY * decode(a2.store_type,1,A2.PRICE_list,2,a2.price))
+                        ELSE case when c.ID_DOC_TYPE = 1 then sum(A2.QUANTITY * nvl(A2.PRICE_list,a2.price))
+                          else sum(A2.QUANTITY * A2.PRICE) END end end end end p,
+               case WHEN (c.ID_DOC_TYPE in (4,1) and nvl(A2.PRICE,0) <> nvl(A2.PRICE_list,0) and nvl(A2.PRICE_list,0) <> 0 ) THEN sum(A2.QUANTITY * (A2.PRICE - A2.PRICE_LIST)) else 0 end addit,
+               c.ID_DOC_TYPE, A2.N_ID
+        FROM store_doc_data_temp B1,
+             store_doc_data A2,
+             store_doc c
+        where B1.N_ID = A2.N_ID
            AND c.id_doc = A2.id_doc
            AND c.doc_date < DDATE_BEGIN
            and (a2.GTD = V_GTD or V_GTD is null)
            and (c.id_office = v_office or v_office = 0)
-         group by c.ID_DOC_TYPE, A2.N_ID, A2.PRICE, A2.PRICE_list
-         order by c.ID_DOC_TYPE) A1,
-       STORE_DOC_DATA_TEMP B2
- where A1.n_id(+) = B2.n_id
- group by B2.n_id
-
-
-) q_2,
-( select n_id, sum(quantity) as store_q, sum(quantity * price) as store_p from STORE_VIEW_NULL group by n_id ) c
-where q_1.n_id=q_2.n_id
-and q_1.n_id = c.n_id(+)
+        group by c.ID_DOC_TYPE, A2.N_ID, A2.PRICE, A2.PRICE_list
+        order by c.ID_DOC_TYPE
+      ) A1, STORE_DOC_DATA_TEMP B2
+      where A1.n_id(+) = B2.n_id
+      group by B2.n_id
+    ) q_1,
+    (
+      select B2.n_id,
+        -- 1 приход 2 списание 3 уценка 4 продажа 5 инвентаризация 6 переоценка
+        sum(decode(ID_DOC_TYPE, 1, A1.q, 0)) + sum(decode(ID_DOC_TYPE, 1, a1.addit, 0)) q0_1,
+        sum(decode(ID_DOC_TYPE, 2, A1.q, 0)) q0_2,
+        sum(decode(ID_DOC_TYPE, 3, A1.q, 0)) q0_3,
+        sum(decode(ID_DOC_TYPE, 4, A1.q, 0)) q0_4,
+        sum(decode(ID_DOC_TYPE, 5, A1.q, 0)) q0_5,
+        sum(decode(ID_DOC_TYPE, 6, A1.q, 0)) q0_6,
+        sum(decode(ID_DOC_TYPE, 1, A1.p, 0)) p0_1,
+        sum(decode(ID_DOC_TYPE, 2, A1.p, 0)) p0_2,
+        sum(decode(ID_DOC_TYPE, 3, A1.p, 0)) p0_3,
+        sum(decode(ID_DOC_TYPE, 4, A1.p, 0)) p0_4,
+        sum(decode(ID_DOC_TYPE, 5, A1.p, 0)) p0_5,
+        sum(decode(ID_DOC_TYPE, 6, A1.p, 0)) p0_6,
+        sum(decode(ID_DOC_TYPE, 4, a1.addit, 1, a1.addit, 0)) p0_add,
+        sum(decode(ID_DOC_TYPE, 1, a1.addit, 0)) p0_add2
+      from (
+        -- выбираем количество и сумму по выбранному товару до начала периода из склада, группированный по N_ID и типу документа
+        select CASE WHEN c.ID_DOC_TYPE = 5 THEN sum(A2.QUANTITY_REAL - A2.QUANTITY) ELSE sum(A2.QUANTITY) END q,
+               CASE WHEN c.ID_DOC_TYPE = 5 THEN sum(A2.QUANTITY_REAL * A2.PRICE - A2.QUANTITY * A2.PRICE)
+                  else case WHEN c.ID_DOC_TYPE = 6 THEN sum(A2.QUANTITY * (A2.PRICE - A2.PRICE_LIST))
+                    else case WHEN c.ID_DOC_TYPE = 3 THEN sum(A2.QUANTITY * (A2.PRICE_LIST - A2.PRICE))
+                      ELSE case when c.ID_DOC_TYPE = 4 then sum(A2.QUANTITY * decode(a2.store_type,1,A2.PRICE_list,2,a2.price))
+                        ELSE case when c.ID_DOC_TYPE = 1 then sum(A2.QUANTITY * nvl(A2.PRICE_list,a2.price))
+                          else sum(A2.QUANTITY * A2.PRICE) END end end end end p,
+               case WHEN (c.ID_DOC_TYPE in (4,1) and nvl(A2.PRICE,0) <> nvl(A2.PRICE_list,0) and nvl(A2.PRICE_list,0) <> 0 ) THEN sum(A2.QUANTITY * (A2.PRICE - A2.PRICE_LIST)) else 0 end addit,
+               c.ID_DOC_TYPE, A2.N_ID
+        FROM store_doc_data_temp B1,
+             store_doc_data A2,
+             store_doc c
+        where B1.N_ID = A2.N_ID
+           AND c.id_doc = A2.id_doc
+           AND c.doc_date < DDATE_BEGIN
+           and (a2.GTD = V_GTD or V_GTD is null)
+           and (c.id_office = v_office or v_office = 0)
+        group by c.ID_DOC_TYPE, A2.N_ID, A2.PRICE, A2.PRICE_list
+        order by c.ID_DOC_TYPE
+      ) A1, STORE_DOC_DATA_TEMP B2
+      where A1.n_id(+) = B2.n_id
+      group by B2.n_id
+    ) q_2,
+    ( select n_id, sum(quantity) as store_q, sum(quantity * price) as store_p from STORE_VIEW_NULL group by n_id ) c
+    where q_1.n_id=q_2.n_id
+      and q_1.n_id = c.n_id(+)
+) a
+      where ( v_show_nulls = 0
+        or
+        (v_show_nulls = 1 and (ostatok_q<>0 or ostatok_p<>0 or prihod_q<>0 or spis_q<>0 or utsen_q<>0 or prod_q<>0 or ostatok_end_q<>0))
+      )
 );
 
 EXCEPTION

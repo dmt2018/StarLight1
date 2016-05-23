@@ -1529,7 +1529,9 @@ object ReportTovarnFullForm: TReportTovarnFullForm
             OnCustomDrawCell = gr_result_vCustomDrawCell
             DataController.DataSource = result_ds
             DataController.Filter.Options = [fcoCaseInsensitive]
+            DataController.Filter.OnChanged = gr_result_vDataControllerFilterChanged
             DataController.Filter.AutoDataSetFilter = True
+            DataController.Filter.OnBeforeChange = gr_result_vDataControllerFilterBeforeChange
             DataController.Options = [dcoAnsiSort, dcoCaseInsensitive, dcoAssignGroupingValues, dcoAssignMasterDetailKeys, dcoSaveExpanding]
             DataController.Summary.DefaultGroupSummaryItems = <>
             DataController.Summary.FooterSummaryItems = <
@@ -2271,7 +2273,7 @@ object ReportTovarnFullForm: TReportTovarnFullForm
             Top = 0
             Width = 957
             Height = 241
-            ActivePage = tsh_stata
+            ActivePage = tsh_summary
             Align = alClient
             LookAndFeel.Kind = lfOffice11
             LookAndFeel.NativeStyle = True
@@ -2317,6 +2319,7 @@ object ReportTovarnFullForm: TReportTovarnFullForm
                         Caption = #1054#1089#1090#1072#1090#1086#1082' '#1085#1072' '#1082#1086#1085#1077#1094' '#1087#1077#1088#1080#1086#1076#1072', '#1089#1091#1084#1084#1072' | '#1082#1086#1083'-'#1074#1086
                         EditPropertiesClassName = 'TcxCurrencyEditProperties'
                         EditProperties.Alignment.Horz = taCenter
+                        EditProperties.DisplayFormat = ',0.00 '#1088';-,0.00 '#1088
                         EditProperties.ReadOnly = True
                         EditProperties.UseThousandSeparator = True
                         Width = 350
@@ -2341,6 +2344,7 @@ object ReportTovarnFullForm: TReportTovarnFullForm
                         Caption = #1054#1089#1090#1072#1090#1082#1080' '#1087#1086' '#1089#1082#1083#1072#1076#1091', '#1089#1091#1084#1084#1072' | '#1082#1086#1083'-'#1074#1086
                         EditPropertiesClassName = 'TcxCurrencyEditProperties'
                         EditProperties.Alignment.Horz = taCenter
+                        EditProperties.DisplayFormat = ',0.00 '#1088';-,0.00 '#1088
                         EditProperties.ReadOnly = True
                         EditProperties.UseThousandSeparator = True
                         Width = 350
@@ -2396,6 +2400,7 @@ object ReportTovarnFullForm: TReportTovarnFullForm
                       item
                         EditPropertiesClassName = 'TcxCurrencyEditProperties'
                         EditProperties.Alignment.Horz = taCenter
+                        EditProperties.DisplayFormat = ',0.00 '#1088';-,0.00 '#1088
                         EditProperties.ReadOnly = True
                         Width = 150
                         DataBinding.ValueType = 'String'
@@ -2444,6 +2449,7 @@ object ReportTovarnFullForm: TReportTovarnFullForm
                         Caption = #1054#1089#1090#1072#1090#1086#1082' '#1085#1072' '#1085#1072#1095#1072#1083#1086', '#1089#1091#1084#1084#1072'  | '#1082#1086#1083'-'#1074#1086
                         EditPropertiesClassName = 'TcxCurrencyEditProperties'
                         EditProperties.Alignment.Horz = taCenter
+                        EditProperties.DisplayFormat = ',0.00 '#1088';-,0.00 '#1088
                         EditProperties.ReadOnly = True
                         EditProperties.UseThousandSeparator = True
                         Width = 350
@@ -2468,6 +2474,7 @@ object ReportTovarnFullForm: TReportTovarnFullForm
                         Caption = #1055#1088#1080#1093#1086#1076' '#1090#1086#1074#1072#1088#1072', '#1089#1091#1084#1084#1072'  | '#1082#1086#1083'-'#1074#1086
                         EditPropertiesClassName = 'TcxCurrencyEditProperties'
                         EditProperties.Alignment.Horz = taCenter
+                        EditProperties.DisplayFormat = ',0.00 '#1088';-,0.00 '#1088
                         EditProperties.ReadOnly = True
                         EditProperties.UseThousandSeparator = True
                         Width = 350
@@ -2493,6 +2500,7 @@ object ReportTovarnFullForm: TReportTovarnFullForm
                         Caption = #1055#1088#1086#1076#1072#1078#1072', '#1089#1091#1084#1084#1072'  | '#1082#1086#1083'-'#1074#1086
                         EditPropertiesClassName = 'TcxCurrencyEditProperties'
                         EditProperties.Alignment.Horz = taCenter
+                        EditProperties.DisplayFormat = ',0.00 '#1088';-,0.00 '#1088
                         EditProperties.ReadOnly = True
                         EditProperties.UseThousandSeparator = True
                         Width = 350
@@ -2518,6 +2526,7 @@ object ReportTovarnFullForm: TReportTovarnFullForm
                         Caption = #1057#1087#1080#1089#1072#1085#1080#1077', '#1089#1091#1084#1084#1072'  | '#1082#1086#1083'-'#1074#1086
                         EditPropertiesClassName = 'TcxCurrencyEditProperties'
                         EditProperties.Alignment.Horz = taCenter
+                        EditProperties.DisplayFormat = ',0.00 '#1088';-,0.00 '#1088
                         EditProperties.ReadOnly = True
                         EditProperties.UseThousandSeparator = True
                         Width = 350
@@ -2542,6 +2551,7 @@ object ReportTovarnFullForm: TReportTovarnFullForm
                         Caption = #1059#1094#1077#1085#1082#1072', '#1089#1091#1084#1084#1072'  | '#1082#1086#1083'-'#1074#1086
                         EditPropertiesClassName = 'TcxCurrencyEditProperties'
                         EditProperties.Alignment.Horz = taCenter
+                        EditProperties.DisplayFormat = ',0.00 '#1088';-,0.00 '#1088
                         EditProperties.ReadOnly = True
                         EditProperties.UseThousandSeparator = True
                         Width = 350
@@ -2566,6 +2576,7 @@ object ReportTovarnFullForm: TReportTovarnFullForm
                         Caption = #1050#1086#1088#1088#1077#1082#1094#1080#1103', '#1089#1091#1084#1084#1072'  | '#1082#1086#1083'-'#1074#1086
                         EditPropertiesClassName = 'TcxCurrencyEditProperties'
                         EditProperties.Alignment.Horz = taCenter
+                        EditProperties.DisplayFormat = ',0.00 '#1088';-,0.00 '#1088
                         EditProperties.ReadOnly = True
                         EditProperties.UseThousandSeparator = True
                         Width = 350
@@ -2590,6 +2601,7 @@ object ReportTovarnFullForm: TReportTovarnFullForm
                         Caption = #1055#1077#1088#1077#1086#1094#1077#1085#1082#1072', '#1089#1091#1084#1084#1072'  | '#1082#1086#1083'-'#1074#1086
                         EditPropertiesClassName = 'TcxCurrencyEditProperties'
                         EditProperties.Alignment.Horz = taCenter
+                        EditProperties.DisplayFormat = ',0.00 '#1088';-,0.00 '#1088
                         EditProperties.ReadOnly = True
                         EditProperties.UseThousandSeparator = True
                         Width = 350
@@ -2614,6 +2626,7 @@ object ReportTovarnFullForm: TReportTovarnFullForm
                         Caption = #1054#1089#1090#1072#1090#1086#1082' '#1085#1072' '#1082#1086#1085#1077#1094', '#1089#1091#1084#1084#1072'  | '#1082#1086#1083'-'#1074#1086
                         EditPropertiesClassName = 'TcxCurrencyEditProperties'
                         EditProperties.Alignment.Horz = taCenter
+                        EditProperties.DisplayFormat = ',0.00 '#1088';-,0.00 '#1088
                         EditProperties.ReadOnly = True
                         EditProperties.UseThousandSeparator = True
                         Width = 350
@@ -2638,6 +2651,7 @@ object ReportTovarnFullForm: TReportTovarnFullForm
                         Caption = #1057#1091#1084#1084#1072' '#1087#1086' '#1089#1090#1086#1083#1073#1094#1072#1084', '#1089#1091#1084#1084#1072' '#1087#1086' '#1089#1090#1088#1086#1082#1072#1084
                         EditPropertiesClassName = 'TcxCurrencyEditProperties'
                         EditProperties.Alignment.Horz = taCenter
+                        EditProperties.DisplayFormat = ',0.00 '#1088';-,0.00 '#1088
                         EditProperties.ReadOnly = True
                         EditProperties.UseThousandSeparator = True
                         Width = 350
@@ -3347,7 +3361,7 @@ object ReportTovarnFullForm: TReportTovarnFullForm
       'begin'
       
         '  STORE_PKG.REPORT_MOVE(:DDATE_BEGIN, :DDATE_END, :REM_NULLS, :V' +
-        '_GTD, :V_OFFICE);'
+        '_GTD, :V_OFFICE, :V_SHOW_NULLS);'
       'end;')
     Left = 785
     Top = 41
@@ -3375,6 +3389,11 @@ object ReportTovarnFullForm: TReportTovarnFullForm
       item
         DataType = ftFloat
         Name = 'V_OFFICE'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftFloat
+        Name = 'V_SHOW_NULLS'
         ParamType = ptInput
       end>
     CommandStoredProcName = 'STORE_PKG.REPORT_MOVE:0'

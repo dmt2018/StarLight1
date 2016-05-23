@@ -337,6 +337,10 @@ type
     procedure gr_added_vCustomDrawCell(Sender: TcxCustomGridTableView;
       ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
       var ADone: Boolean);
+    procedure gr_result_vDataControllerFilterChanged(Sender: TObject);
+    procedure gr_result_vDataControllerFilterBeforeChange(
+      Sender: TcxDBDataFilterCriteria; ADataSet: TDataSet;
+      const AFilterText: string);
 
   private
     path: string;
@@ -678,6 +682,7 @@ begin
     OraStoredProc.ParamByName('V_GTD').AsString     := edGTD.Text;
     OraStoredProc.ParamByName('V_OFFICE').AsInteger := DM.id_office;
 
+    OraStoredProc.ParamByName('v_show_nulls').AsInteger := BoolToInt(CB_Null_Not_View.Checked);
 {
     OraStoredProc.ParamByName('V_SERVICE').AsInteger := v_ft_id;
     if chb_service_out.Checked then
@@ -704,12 +709,14 @@ begin
     end;
   End;
 
+{
   if (CB_Null_Not_View.Checked=true) then
   begin
     gr_result_v.DataController.DataSet.Filter := '';
     gr_result_v.DataController.DataSet.Filter := ' ostatok_q<>0 or ostatok_p<>0 or prihod_q<>0 or spis_q<>0 or utsen_q<>0 or prod_q<>0 or ostatok_end_q<>0';
     gr_result_v.DataController.DataSet.Filtered := true;
   end;
+}
 
   if (CB_Null_Not_View.Checked=false) then
   begin
@@ -882,6 +889,26 @@ begin
 end;
 
 
+
+procedure TReportTovarnFullForm.gr_result_vDataControllerFilterBeforeChange(
+  Sender: TcxDBDataFilterCriteria; ADataSet: TDataSet;
+  const AFilterText: string);
+begin
+  //ShowMessage(AFilterText);
+  //if AFilterText <> '' then
+  //  ADataSet.Filter := ADataSet.Filter + ' and (ostatok_q<>0 or ostatok_p<>0 or prihod_q<>0 or spis_q<>0 or utsen_q<>0 or prod_q<>0 or ostatok_end_q<>0)';
+end;
+
+procedure TReportTovarnFullForm.gr_result_vDataControllerFilterChanged(
+  Sender: TObject);
+begin
+//    gr_result_v.DataController.DataSet.Filter := '';
+//    gr_result_v.DataController.DataSet.Filter := ' ostatok_q<>0 or ostatok_p<>0 or prihod_q<>0 or spis_q<>0 or utsen_q<>0 or prod_q<>0 or ostatok_end_q<>0';
+//    gr_result_v.DataController.DataSet.Filtered := true;
+end;
+
+
+
 //
 //  Двойной клик
 //
@@ -889,6 +916,8 @@ procedure TReportTovarnFullForm.gr_result_vDblClick(Sender: TObject);
 begin
   view_doc_report(result.FieldByName('N_ID').AsInteger);
 end;
+
+
 
 
 //
