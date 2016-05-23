@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.SYNC_PKG
--- Generated 1-апр-2016 20:45:17 from CREATOR@STAR2
+-- Generated 23.05.2016 22:58:44 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE sync_pkg
@@ -982,9 +982,9 @@ is
 begin
 
     open p_cursor for
-        select 'begin sync_pkg.ins_fstype('||fst_id||','''||f_sub_type||''','||ft_id||','''||hol_sub_type||''','''||mnemo||''','||nvl(sub_weight,0)||','''||PRICE_PREFIX||''','''||tnved||'''); end;'
+        select 'begin sync_pkg.ins_fstype('||fst_id||','''||f_sub_type||''','||ft_id||','''||hol_sub_type||''','''||mnemo||''','||nvl(sub_weight,0)||','''||PRICE_PREFIX||''','''||tnved||''','||nvl(sub_weight_dry,0)||'); end;'
         from (
-            SELECT distinct a.fst_id, a.f_sub_type, a.ft_id, replace(a.hol_sub_type,chr(39),chr(39)||chr(39)) as hol_sub_type, a.mnemo, a.sub_weight, a.PRICE_PREFIX, a.tnved
+            SELECT distinct a.fst_id, a.f_sub_type, a.ft_id, replace(a.hol_sub_type,chr(39),chr(39)||chr(39)) as hol_sub_type, a.mnemo, a.sub_weight, a.PRICE_PREFIX, a.tnved, a.sub_weight_dry
               FROM flower_subtypes a, nomenclature b, invoice_data c
               where a.fst_id = b.fst_id and b.n_id = c.n_id and c.inv_id = p_inv_id
         )
@@ -1008,9 +1008,9 @@ is
 begin
 
     open p_cursor for
-        select 'begin sync_pkg.ins_fstype('||fst_id||','''||f_sub_type||''','||ft_id||','''||hol_sub_type||''','''||mnemo||''','||nvl(sub_weight,0)||','''||PRICE_PREFIX||''','''||tnved||'''); end;'
+        select 'begin sync_pkg.ins_fstype('||fst_id||','''||f_sub_type||''','||ft_id||','''||hol_sub_type||''','''||mnemo||''','||nvl(sub_weight,0)||','''||PRICE_PREFIX||''','''||tnved||''','||nvl(sub_weight_dry,0)||'); end;'
         from (
-            SELECT distinct a.fst_id, a.f_sub_type, a.ft_id, replace(a.hol_sub_type,chr(39),chr(39)||chr(39)) as hol_sub_type, a.mnemo, a.sub_weight, a.PRICE_PREFIX, a.tnved
+            SELECT distinct a.fst_id, a.f_sub_type, a.ft_id, replace(a.hol_sub_type,chr(39),chr(39)||chr(39)) as hol_sub_type, a.mnemo, a.sub_weight, a.PRICE_PREFIX, a.tnved, a.sub_weight_dry
               FROM flower_subtypes a, nomenclature b, store_doc_data c
               where a.fst_id = b.fst_id and b.n_id = c.n_id and c.id_doc = p_inv_id
         )
@@ -1034,9 +1034,9 @@ is
 begin
 
     open p_cursor for
-        select 'begin sync_pkg.ins_fstype('||fst_id||','''||f_sub_type||''','||ft_id||','''||hol_sub_type||''','''||mnemo||''','||nvl(sub_weight,0)||','''||PRICE_PREFIX||''','''||tnved||'''); end;'
+        select 'begin sync_pkg.ins_fstype('||fst_id||','''||f_sub_type||''','||ft_id||','''||hol_sub_type||''','''||mnemo||''','||nvl(sub_weight,0)||','''||PRICE_PREFIX||''','''||tnved||''','||nvl(sub_weight_dry,0)||'); end;'
         from (
-            SELECT distinct a.fst_id, a.f_sub_type, a.ft_id, replace(a.hol_sub_type,chr(39),chr(39)||chr(39)) as hol_sub_type, a.mnemo, a.sub_weight, a.PRICE_PREFIX, a.tnved
+            SELECT distinct a.fst_id, a.f_sub_type, a.ft_id, replace(a.hol_sub_type,chr(39),chr(39)||chr(39)) as hol_sub_type, a.mnemo, a.sub_weight, a.PRICE_PREFIX, a.tnved, a.sub_weight_dry
               FROM flower_subtypes a, nomenclature_mat_view b
               where a.fst_id = b.fst_id and b.date_change >= sysdate - 2 and b.id_departments = p_debt
         )
@@ -2213,7 +2213,7 @@ begin
         if tmp_cnt = 0 then
            SELECT get_office_unique('ppl_id') INTO v_ppl_id FROM DUAL;
            insert into prepare_price_list values(v_ppli_id, v_ppl_id, sysdate, p_invoice_amount, p_stock_amount, p_left_amount, p_given_amount, p_n_id, v_invoice_data_id,
-                p_hol_price, p_ruble_price, p_last_price, p_price_pcc, p_price_pcc_pc, p_total_profit, p_final_price, p_col, const_office, sysdate, null, null, null, null );
+                p_hol_price, p_ruble_price, p_last_price, p_price_pcc, p_price_pcc_pc, p_total_profit, p_final_price, p_col, const_office, sysdate, null, null, null, null, null);
         else
            select invoice_data_id into tmp_cnt
            from invoice_data where invoice_data_as_is_id = p_invoice_data_id;

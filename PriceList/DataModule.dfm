@@ -482,11 +482,21 @@ object DM: TDM
   object PPL: TOraQuery
     SQLUpdate.Strings = (
       'begin'
-      '  UPDATE PREPARE_PRICE_LIST '
+      '  if :OLD_PROFIT_COEFFITIENT = :PROFIT_COEFFITIENT then'
+      '     UPDATE PREPARE_PRICE_LIST '
       
-        '    SET FINAL_PRICE = :FINAL_PRICE, spec_price = :spec_price, be' +
-        'st_price = :best_price, date_change=sysdate '
-      '  WHERE PPL_ID = :OLD_PPL_ID;'
+        '       SET FINAL_PRICE = :FINAL_PRICE, spec_price = :spec_price,' +
+        ' best_price = :best_price, date_change=sysdate '
+      '       WHERE PPL_ID = :OLD_PPL_ID;'
+      '  else'
+      '     UPDATE PREPARE_PRICE_LIST '
+      
+        '       SET FINAL_PRICE = round((:PRICE_PCC*:PROFIT_COEFFITIENT),' +
+        '2), PRICE_PCC_PC = round((:PRICE_PCC*:PROFIT_COEFFITIENT),2), sp' +
+        'ec_price = :spec_price, best_price = :best_price, PROFIT_COEFFIT' +
+        'IENT = :PROFIT_COEFFITIENT, date_change=sysdate '
+      '       WHERE PPL_ID = :OLD_PPL_ID;'
+      '  end if;'
       ''
       '  if :client_price is not null then'
       '    update ppl_client_price set spec_price = :FINAL_PRICE '
@@ -570,6 +580,7 @@ object DM: TDM
       '       , nvl(spec,0) as SPEC'
       '       , inv.TO_CLIENT'
       '       , decode(c.nick,'#39'M URLO'#39',1,0) as paint_super'
+      '       , PROFIT_COEFFITIENT'
       '    from ('
       
         '        SELECT a.ppli_id, ppl_id, coming_date, invoice_amount, c' +
@@ -604,6 +615,7 @@ object DM: TDM
         '          , null id_clients, null client_price, null as client_q' +
         'uantity, c.total_client_quantity'
       '          , instr(remarks,'#39'"!"'#39') as spec'
+      '          , a.PROFIT_COEFFITIENT'
       '        FROM ppl_view a'
       
         '        left outer join (select b.n_id, sum(b.quantity) as total' +
@@ -649,6 +661,7 @@ object DM: TDM
         '          , b.id_clients, b.spec_price as client_price, null as ' +
         'client_quantity, null as total_client_quantity'
       '          , instr(remarks,'#39'"!"'#39') as spec'
+      '          , a.PROFIT_COEFFITIENT'
       '        FROM ppl_view a'
       
         '        inner join ppl_client_price b on b.PPLI_ID = a.PPLI_ID a' +
@@ -955,6 +968,9 @@ object DM: TDM
     end
     object PPLPPLI_ID_OLD: TFloatField
       FieldName = 'PPLI_ID_OLD'
+    end
+    object PPLPROFIT_COEFFITIENT: TFloatField
+      FieldName = 'PROFIT_COEFFITIENT'
     end
   end
   object StoreProc: TOraStoredProc

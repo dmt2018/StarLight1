@@ -226,6 +226,17 @@ type
     aSetPriceByOld: TAction;
     aGetStatistic: TAction;
     N9: TMenuItem;
+    grid_pplView1PROFIT_COEFFITIENT: TcxGridDBColumn;
+    aSetProfit: TAction;
+    N10: TMenuItem;
+    N01: TMenuItem;
+    aSetProfitDataSet: TAction;
+    N11: TMenuItem;
+    aSelectAll: TAction;
+    aDeSelectAll: TAction;
+    N12: TMenuItem;
+    N13: TMenuItem;
+    N14: TMenuItem;
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn4Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
@@ -306,6 +317,10 @@ type
     procedure mnRollbackSyncClick(Sender: TObject);
     procedure aSetPriceByOldExecute(Sender: TObject);
     procedure aGetStatisticExecute(Sender: TObject);
+    procedure aSetProfitExecute(Sender: TObject);
+    procedure aSetProfitDataSetExecute(Sender: TObject);
+    procedure aSelectAllExecute(Sender: TObject);
+    procedure aDeSelectAllExecute(Sender: TObject);
   private
     path: string;
     is_sync: boolean;
@@ -1331,6 +1346,7 @@ begin
   price := LAST_PRICE.EditValue;
   if (pnlPrice.Visible = false) then
   begin
+    te_price.Tag     := 1;
     pnlPrice.Left    := trunc(Panel1.Width / 2) - 90;
     pnlPrice.Top     := trunc(Panel1.Height / 2) - 20;
     pnlPrice.Visible := true;
@@ -1346,6 +1362,7 @@ begin
   price := FINAL_PRICE.EditValue;
   if (pnlPrice.Visible = false) then
   begin
+    te_price.Tag     := 1;
     pnlPrice.Left    := trunc(Panel1.Width / 2) - 90;
     pnlPrice.Top     := trunc(Panel1.Height / 2) - 20;
     pnlPrice.Visible := true;
@@ -1353,6 +1370,7 @@ begin
     te_price.SetFocus;
   end;
 end;
+
 
 procedure TPriceF.te_priceKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
@@ -1373,17 +1391,49 @@ begin
     SavePlace := DM.PPL.GetBookmark;
     grid_pplView1.DataController.DataSet.DisableControls;
     try
-      DM.ForceQ.SQL.Clear;
-      DM.ForceQ.SQL.Add('UPDATE PREPARE_PRICE_LIST SET FINAL_PRICE = :FINAL_PRICE, date_change=sysdate WHERE PPL_ID = :P_ID');
-      DM.ForceQ.Prepare;
-
-      for i := 0 to grid_pplView1.Controller.SelectedRowCount-1 do
+      if te_price.Tag = 1 then
       begin
-        DM.ForceQ.ParamByName('FINAL_PRICE').AsCurrency := te_price.EditingValue;
-        DM.ForceQ.ParamByName('P_ID').AsInteger := grid_pplView1.Controller.SelectedRows[i].Values[grid_pplView1PPL_ID.Index]; 
-        DM.ForceQ.Execute;
+        DM.ForceQ.SQL.Clear;
+        DM.ForceQ.SQL.Add('UPDATE PREPARE_PRICE_LIST SET FINAL_PRICE = :FINAL_PRICE, date_change=sysdate WHERE PPL_ID = :P_ID');
+        DM.ForceQ.Prepare;
+
+        for i := 0 to grid_pplView1.Controller.SelectedRowCount-1 do
+        begin
+          DM.ForceQ.ParamByName('FINAL_PRICE').AsCurrency := te_price.EditingValue;
+          DM.ForceQ.ParamByName('P_ID').AsInteger := grid_pplView1.Controller.SelectedRows[i].Values[grid_pplView1PPL_ID.Index];
+          DM.ForceQ.Execute;
+        end;
       end;
 
+      if te_price.Tag = 2 then
+      begin
+        DM.ForceQ.SQL.Clear;
+        DM.ForceQ.SQL.Add('UPDATE PREPARE_PRICE_LIST SET FINAL_PRICE = round((PRICE_PCC*:PROFIT),2), PROFIT_COEFFITIENT = :PROFIT, date_change=sysdate WHERE PPL_ID = :P_ID');
+        DM.ForceQ.Prepare;
+
+        for i := 0 to grid_pplView1.Controller.SelectedRowCount-1 do
+        begin
+          DM.ForceQ.ParamByName('PROFIT').AsFloat := te_price.EditingValue;
+          DM.ForceQ.ParamByName('P_ID').AsInteger := grid_pplView1.Controller.SelectedRows[i].Values[grid_pplView1PPL_ID.Index];
+          DM.ForceQ.Execute;
+        end;
+      end;
+
+      if te_price.Tag = 3 then
+      begin
+        DM.ForceQ.SQL.Clear;
+        DM.ForceQ.SQL.Add('UPDATE PREPARE_PRICE_LIST SET FINAL_PRICE = round((PRICE_PCC*:PROFIT),2), PROFIT_COEFFITIENT = :PROFIT, date_change=sysdate WHERE PPL_ID = :P_ID');
+        DM.ForceQ.Prepare;
+
+        grid_pplView1.DataController.DataSet.First;
+        while not grid_pplView1.DataController.DataSet.Eof do
+        begin
+          DM.ForceQ.ParamByName('PROFIT').AsFloat := te_price.EditingValue;
+          DM.ForceQ.ParamByName('P_ID').AsInteger := grid_pplView1.DataController.DataSet.FieldByName('PPL_ID').AsInteger;
+          DM.ForceQ.Execute;
+          grid_pplView1.DataController.DataSet.Next;
+        end;
+      end;
     finally
       grid_pplView1.DataController.DataSet.EnableControls;
       DM.PPL.Refresh;
@@ -1600,10 +1650,25 @@ begin
 
 end;
 
+
 // поиск по названию
 procedure TPriceF.aSearchByNameExecute(Sender: TObject);
 begin
   search_execute(2);
+end;
+
+
+// Выделить все
+procedure TPriceF.aSelectAllExecute(Sender: TObject);
+begin
+  grid_pplView1.DataController.SelectAll;
+end;
+
+
+// Снять выделенное
+procedure TPriceF.aDeSelectAllExecute(Sender: TObject);
+begin
+  grid_pplView1.DataController.ClearSelection;
 end;
 
 
@@ -1771,5 +1836,40 @@ begin
   DM.STAR_DB.Rollback;
   DM.PPL.Refresh;
 end;
+
+
+// Установить единый коэф прибыли по выделенным
+procedure TPriceF.aSetProfitExecute(Sender: TObject);
+var price: real;
+begin
+  price := grid_pplView1PROFIT_COEFFITIENT.EditValue;
+  if (pnlPrice.Visible = false) then
+  begin
+    te_price.Tag     := 2;
+    pnlPrice.Left    := trunc(Panel1.Width / 2) - 90;
+    pnlPrice.Top     := trunc(Panel1.Height / 2) - 20;
+    pnlPrice.Visible := true;
+    te_price.EditValue := price;
+    te_price.SetFocus;
+  end;
+end;
+
+
+// Установить единый коэф прибыли по текущему датасету
+procedure TPriceF.aSetProfitDataSetExecute(Sender: TObject);
+var price: real;
+begin
+  price := grid_pplView1PROFIT_COEFFITIENT.EditValue;
+  if (pnlPrice.Visible = false) then
+  begin
+    te_price.Tag     := 3;
+    pnlPrice.Left    := trunc(Panel1.Width / 2) - 90;
+    pnlPrice.Top     := trunc(Panel1.Height / 2) - 20;
+    pnlPrice.Visible := true;
+    te_price.EditValue := price;
+    te_price.SetFocus;
+  end;
+end;
+
 
 end.

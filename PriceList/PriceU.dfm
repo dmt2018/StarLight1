@@ -673,6 +673,19 @@ object PriceF: TPriceF
           DataBinding.FieldName = 'PAINT_SUPER'
           Visible = False
         end
+        object grid_pplView1PROFIT_COEFFITIENT: TcxGridDBColumn
+          Caption = #1050#1086#1101#1092'. '#1087#1088#1080#1073#1099#1083#1080
+          DataBinding.FieldName = 'PROFIT_COEFFITIENT'
+          PropertiesClassName = 'TcxCurrencyEditProperties'
+          Properties.Alignment.Horz = taCenter
+          Properties.DecimalPlaces = 3
+          Properties.DisplayFormat = ',0.000;-,0.000'
+          FooterAlignmentHorz = taCenter
+          HeaderAlignmentHorz = taCenter
+          MinWidth = 80
+          Options.HorzSizing = False
+          Width = 80
+        end
       end
       object grid_ppl_Level1: TcxGridLevel
         GridView = grid_pplView1
@@ -728,6 +741,7 @@ object PriceF: TPriceF
       object te_price: TcxCurrencyEdit
         Left = 8
         Top = 7
+        Properties.DecimalPlaces = 4
         Properties.DisplayFormat = ',0.00;-,0.00'
         Properties.Nullable = False
         Properties.NullString = '0'
@@ -747,7 +761,6 @@ object PriceF: TPriceF
     BevelOuter = bvLowered
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = -1
     object DBText1: TDBText
       Left = 131
       Top = 8
@@ -2552,6 +2565,24 @@ object PriceF: TPriceF
       Caption = #1057#1090#1072#1090#1080#1089#1090#1080#1082#1072' '#1087#1086' '#1094#1077#1085#1072#1084
       ShortCut = 16456
       OnExecute = aGetStatisticExecute
+    end
+    object aSetProfit: TAction
+      Caption = #1059#1089#1090#1072#1085#1086#1074#1080#1090#1100' '#1077#1076#1080#1085#1099#1081' '#1082#1086#1101#1092'. '#1087#1086' '#1074#1099#1076#1077#1083#1077#1085#1085#1099#1084
+      OnExecute = aSetProfitExecute
+    end
+    object aSetProfitDataSet: TAction
+      Caption = #1059#1089#1090#1072#1085#1086#1074#1080#1090#1100' '#1077#1076#1080#1085#1099#1081' '#1082#1086#1101#1092'. '#1076#1083#1103' '#1090#1077#1082#1091#1097#1080#1093' '#1087#1086#1079#1080#1094#1080#1081
+      OnExecute = aSetProfitDataSetExecute
+    end
+    object aSelectAll: TAction
+      Caption = #1042#1099#1076#1077#1083#1080#1090#1100' '#1074#1089#1077
+      ShortCut = 16472
+      OnExecute = aSelectAllExecute
+    end
+    object aDeSelectAll: TAction
+      Caption = #1057#1085#1103#1090#1100' '#1074#1099#1076#1077#1083#1077#1085#1085#1086#1077
+      ShortCut = 16470
+      OnExecute = aDeSelectAllExecute
     end
   end
   object SaveDialog1: TSaveDialog
@@ -6266,6 +6297,15 @@ object PriceF: TPriceF
     object N8: TMenuItem
       Caption = '-'
     end
+    object N10: TMenuItem
+      Action = aSetProfit
+    end
+    object N11: TMenuItem
+      Action = aSetProfitDataSet
+    end
+    object N01: TMenuItem
+      Caption = '-'
+    end
     object mnSpecPrice: TMenuItem
       Action = aSpecDeal
     end
@@ -6305,6 +6345,15 @@ object PriceF: TPriceF
     end
     object N3: TMenuItem
       Action = aClearFilter
+    end
+    object N14: TMenuItem
+      Caption = '-'
+    end
+    object N12: TMenuItem
+      Action = aSelectAll
+    end
+    object N13: TMenuItem
+      Action = aDeSelectAll
     end
   end
 end
