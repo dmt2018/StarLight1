@@ -761,6 +761,7 @@ object PriceF: TPriceF
     BevelOuter = bvLowered
     ParentBackground = False
     TabOrder = 1
+    ExplicitTop = 8
     object DBText1: TDBText
       Left = 131
       Top = 8
@@ -796,10 +797,12 @@ object PriceF: TPriceF
     object DBText4: TDBText
       Left = 131
       Top = 44
-      Width = 100
+      Width = 58
       Height = 17
+      Color = clSkyBlue
       DataField = 'PROFIT_COEFFITIENT'
       DataSource = DM.PPL_Index_DS
+      ParentColor = False
     end
     object Label1: TLabel
       Left = 8
@@ -874,7 +877,7 @@ object PriceF: TPriceF
     object DBText5: TDBText
       Left = 131
       Top = 62
-      Width = 100
+      Width = 94
       Height = 17
       DataField = 'EXCHANGE_RATE'
       DataSource = DM.PPL_Index_DS
@@ -920,6 +923,16 @@ object PriceF: TPriceF
       Font.Pitch = fpFixed
       Font.Style = []
       ParentFont = False
+    end
+    object DBText6: TDBText
+      Left = 188
+      Top = 44
+      Width = 58
+      Height = 17
+      Color = clMoneyGreen
+      DataField = 'PC'
+      DataSource = DM.PPL_Index_DS
+      ParentColor = False
     end
     object DBCheckBox1: TDBCheckBox
       Left = 131
@@ -1626,7 +1639,7 @@ object PriceF: TPriceF
       EditValue = '0000'
       ParentFont = False
       ParentShowHint = False
-      Properties.EmptySelectionText = #1042#1099#1073#1077#1088#1080#1090#1077'...'
+      Properties.EmptySelectionText = #1042#1099#1073#1077#1088#1080#1090#1077' '#1090#1080#1087' '#1076#1083#1103' '#1079#1072#1075#1088#1091#1079#1082#1080' '#1089#1090#1086#1082#1072'...'
       Properties.ClearKey = 16452
       Properties.DropDownSizeable = True
       Properties.EditValueFormat = cvfStatesString
@@ -1666,10 +1679,10 @@ object PriceF: TPriceF
       StyleHot.LookAndFeel.Kind = lfOffice11
       StyleHot.LookAndFeel.NativeStyle = True
       TabOrder = 12
-      Width = 250
+      Width = 263
     end
     object chek_types: TCheckBox
-      Left = 914
+      Left = 926
       Top = 11
       Width = 45
       Height = 17
@@ -1752,7 +1765,7 @@ object PriceF: TPriceF
       EditValue = '0000'
       ParentFont = False
       ParentShowHint = False
-      Properties.EmptySelectionText = #1042#1099#1073#1077#1088#1080#1090#1077'...'
+      Properties.EmptySelectionText = #1042#1099#1073#1077#1088#1080#1090#1077' '#1087#1086#1089#1090#1072#1074#1097#1080#1082#1072' '#1076#1083#1103' '#1079#1072#1075#1088#1091#1079#1082#1080' '#1089#1090#1086#1082#1072'...'
       Properties.ClearKey = 16452
       Properties.DropDownSizeable = True
       Properties.EditValueFormat = cvfStatesString
@@ -1792,10 +1805,10 @@ object PriceF: TPriceF
       StyleHot.LookAndFeel.Kind = lfOffice11
       StyleHot.LookAndFeel.NativeStyle = True
       TabOrder = 14
-      Width = 250
+      Width = 263
     end
     object check_suplier: TCheckBox
-      Left = 914
+      Left = 926
       Top = 36
       Width = 45
       Height = 17
@@ -1858,10 +1871,10 @@ object PriceF: TPriceF
       StyleHot.LookAndFeel.Kind = lfOffice11
       StyleHot.LookAndFeel.NativeStyle = True
       TabOrder = 16
-      Width = 250
+      Width = 263
     end
     object check_clients: TCheckBox
-      Left = 914
+      Left = 926
       Top = 62
       Width = 45
       Height = 17

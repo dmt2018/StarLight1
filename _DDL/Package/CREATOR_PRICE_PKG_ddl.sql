@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.PRICE_PKG
--- Generated 22.05.2016 0:43:20 from CREATOR@STAR_NEW
+-- Generated 25.05.2016 1:14:55 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE price_pkg
@@ -1301,6 +1301,14 @@ BEGIN
         SELECT sum( stok_total_profit) from ( select distinct n_id, stok_total_profit FROM ppl_view  WHERE PPLI_ID = ID_ )
     ) reprice_profit
 
+    ,(
+        select mpc || ' / ' || round(pc,3) as profit_coef from (
+          select max(main_profit_coef) as mpc, avg(a.PROFIT_COEFFITIENT) as pc
+          FROM ppl_view a
+          WHERE a.PPLI_ID = ID_ and a.invoice_data_id is not null
+        ) a
+    ) profit_coef
+
     , b.*
     from
     (
@@ -1838,6 +1846,9 @@ BEGIN
         , b.INV_DATE, b.SENDED_TO_WAREHOUSE, case when b.minus_inv_id is null or b.minus_inv_id = 0 then 0 else 1 end is_minus, b.comments
         , c.S_NAME_RU
         , a.ppli_id_old
+        , round((select  avg(z.PROFIT_COEFFITIENT) as pc FROM prepare_price_list z
+          WHERE z.PPLI_ID = a.PPLI_ID and z.invoice_data_id is not null
+        ),4) as pc
     from PREPARE_PRICE_LIST_INDEX a, INVOICE_REGISTER b, suppliers c
     where  a.ID_DEPARTMENTS = ID_DEPT_ and a.id_office = v_office
         and a.inv_id = b.inv_id(+)
@@ -2136,7 +2147,7 @@ BEGIN
        --, decode(d.TO_CLIENT,'URIS',1,0) as paint_super
        , decode(c.nick,'M URLO',1,0) as paint_super
        , v_PPLI_ID_old as PPLI_ID_old
-       , PROFIT_COEFFITIENT
+       , case when a.INVOICE_DATA_ID is null then null else PROFIT_COEFFITIENT end PROFIT_COEFFITIENT
     from (
         SELECT a.ppli_id, ppl_id, coming_date, invoice_amount, case when STOCK_AMOUNT < 0 then 0 else stock_amount end STOCK_AMOUNT, left_amount, given_amount, hol_price, ruble_price, last_price
           , price_pcc, price_pcc_pc, a.n_id, final_price, inv_total_sum, stok_total_sum

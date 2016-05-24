@@ -237,6 +237,7 @@ type
     N12: TMenuItem;
     N13: TMenuItem;
     N14: TMenuItem;
+    DBText6: TDBText;
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn4Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
@@ -1056,6 +1057,8 @@ begin
       frm_stat.CDS_STAT.Open;
       frm_stat.ShowModal;
       frm_stat.CDS_STAT.Close;
+
+      dm.PPL_Index.RefreshRecord;      
     finally
       frm_stat.Free;
     end;
@@ -1413,9 +1416,12 @@ begin
 
         for i := 0 to grid_pplView1.Controller.SelectedRowCount-1 do
         begin
-          DM.ForceQ.ParamByName('PROFIT').AsFloat := te_price.EditingValue;
-          DM.ForceQ.ParamByName('P_ID').AsInteger := grid_pplView1.Controller.SelectedRows[i].Values[grid_pplView1PPL_ID.Index];
-          DM.ForceQ.Execute;
+          if grid_pplView1.Controller.SelectedRows[i].Values[grid_pplView1INVOICE_DATA_ID.Index] > 0 then
+          begin
+            DM.ForceQ.ParamByName('PROFIT').AsFloat := te_price.EditingValue;
+            DM.ForceQ.ParamByName('P_ID').AsInteger := grid_pplView1.Controller.SelectedRows[i].Values[grid_pplView1PPL_ID.Index];
+            DM.ForceQ.Execute;
+          end;
         end;
       end;
 
@@ -1428,14 +1434,18 @@ begin
         grid_pplView1.DataController.DataSet.First;
         while not grid_pplView1.DataController.DataSet.Eof do
         begin
-          DM.ForceQ.ParamByName('PROFIT').AsFloat := te_price.EditingValue;
-          DM.ForceQ.ParamByName('P_ID').AsInteger := grid_pplView1.DataController.DataSet.FieldByName('PPL_ID').AsInteger;
-          DM.ForceQ.Execute;
+          if grid_pplView1.DataController.DataSet.FieldByName('INVOICE_DATA_ID').AsInteger > 0 then
+          begin
+            DM.ForceQ.ParamByName('PROFIT').AsFloat := te_price.EditingValue;
+            DM.ForceQ.ParamByName('P_ID').AsInteger := grid_pplView1.DataController.DataSet.FieldByName('PPL_ID').AsInteger;
+            DM.ForceQ.Execute;
+          end;
           grid_pplView1.DataController.DataSet.Next;
         end;
       end;
     finally
       grid_pplView1.DataController.DataSet.EnableControls;
+      dm.PPL_Index.RefreshRecord;
       DM.PPL.Refresh;
       DM.PPL.GotoBookmark(SavePlace);
       DM.PPL.FreeBookmark(SavePlace);
@@ -1859,7 +1869,11 @@ end;
 procedure TPriceF.aSetProfitDataSetExecute(Sender: TObject);
 var price: real;
 begin
-  price := grid_pplView1PROFIT_COEFFITIENT.EditValue;
+  if grid_pplView1PROFIT_COEFFITIENT.EditValue = null then
+    price := DM.PPL_IndexPROFIT_COEFFITIENT.AsFloat
+  else
+    price := grid_pplView1PROFIT_COEFFITIENT.EditValue;
+  
   if (pnlPrice.Visible = false) then
   begin
     te_price.Tag     := 3;

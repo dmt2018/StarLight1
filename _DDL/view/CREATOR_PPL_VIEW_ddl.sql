@@ -1,5 +1,5 @@
 -- Start of DDL Script for View CREATOR.PPL_VIEW
--- Generated 23.05.2016 22:52:54 from CREATOR@STAR_NEW
+-- Generated 25.05.2016 1:14:31 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE VIEW ppl_view (
    inv_id,
@@ -58,7 +58,8 @@ CREATE OR REPLACE VIEW ppl_view (
    stok_total_profit,
    stock_amount,
    quantity,
-   profit_coeffitient )
+   profit_coeffitient,
+   main_profit_coef )
 AS
 SELECT PPLI.inv_id, ppli.inv_id2, ppli.inv_id3, ppli.inv_id4, ppli.PACK_ID, PPLI.ID_OFFICE,
        PPL.ppli_id, PPL.ppl_id, PPL.coming_date, PPL.invoice_amount, PPL.left_amount, PPL.given_amount, PPL.hol_price, PPL.ruble_price, PPL.last_price, PPL.price_pcc, ppl.PRELOAD_LAST_PRICE,
@@ -86,6 +87,7 @@ SELECT PPLI.inv_id, ppli.inv_id2, ppli.inv_id3, ppli.inv_id4, ppli.PACK_ID, PPLI
        , nvl(ppl.stock_amount,0) stock_amount
        , a.quantity
        , ppl.PROFIT_COEFFITIENT
+       , ppli.profit_coeffitient as main_profit_coef
   FROM PREPARE_PRICE_LIST_INDEX PPLI
     inner join prepare_price_list PPL on PPL.ppli_id = PPLI.ppli_id
     inner join NOMENCLATURE_mat_VIEW NOM on NOM.N_ID = PPL.N_ID

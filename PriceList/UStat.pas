@@ -44,6 +44,8 @@ type
     stat_INV_PROFIT: TcxDBEditorRow;
     cxStyleRepository1: TcxStyleRepository;
     cxStyle1: TcxStyle;
+    CDS_STATPROFIT_COEF: TStringField;
+    cxDBVerticalGrid1DBEditorRow1: TcxDBEditorRow;
     procedure cxButton1Click(Sender: TObject);
   private
     { Private declarations }

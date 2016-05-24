@@ -291,6 +291,7 @@ type
     PPL_IndexPPLI_ID_OLD: TFloatField;
     PPLPPLI_ID_OLD: TFloatField;
     PPLPROFIT_COEFFITIENT: TFloatField;
+    PPL_IndexPC: TFloatField;
     procedure STAR_DBBeforeConnect(Sender: TObject);
     procedure PPL1AfterPost(DataSet: TDataSet);
     procedure PPLAfterPost(DataSet: TDataSet);

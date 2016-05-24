@@ -22,6 +22,13 @@ object DM: TDM
       '        a.FINISHED, a.USE_CUST_COEF, a.ID_DEPARTMENTS,'
       '        a.inv_id, a.inv_id2, a.inv_id3, a.inv_id4, a.PACK_ID'
       '        , a.ppli_id_old'
+      
+        ', round((select  avg(z.PROFIT_COEFFITIENT) as pc FROM prepare_pr' +
+        'ice_list z'
+      
+        '          WHERE z.PPLI_ID = a.PPLI_ID and z.invoice_data_id is n' +
+        'ot null'
+      '        ),4) as pc'
       '    from PREPARE_PRICE_LIST_INDEX a'
       '    where  a.ppli_id = :old_ppli_id')
     Session = STAR_DB
@@ -123,6 +130,9 @@ object DM: TDM
     end
     object PPL_IndexPPLI_ID_OLD: TFloatField
       FieldName = 'PPLI_ID_OLD'
+    end
+    object PPL_IndexPC: TFloatField
+      FieldName = 'PC'
     end
   end
   object PPL_Index_DS: TOraDataSource
@@ -482,7 +492,9 @@ object DM: TDM
   object PPL: TOraQuery
     SQLUpdate.Strings = (
       'begin'
-      '  if :OLD_PROFIT_COEFFITIENT = :PROFIT_COEFFITIENT then'
+      
+        '  if :OLD_PROFIT_COEFFITIENT = :PROFIT_COEFFITIENT or :INVOICE_D' +
+        'ATA_ID is null then'
       '     UPDATE PREPARE_PRICE_LIST '
       
         '       SET FINAL_PRICE = :FINAL_PRICE, spec_price = :spec_price,' +
@@ -580,7 +592,9 @@ object DM: TDM
       '       , nvl(spec,0) as SPEC'
       '       , inv.TO_CLIENT'
       '       , decode(c.nick,'#39'M URLO'#39',1,0) as paint_super'
-      '       , PROFIT_COEFFITIENT'
+      
+        '       , case when a.INVOICE_DATA_ID is null then null else PROF' +
+        'IT_COEFFITIENT end PROFIT_COEFFITIENT'
       '    from ('
       
         '        SELECT a.ppli_id, ppl_id, coming_date, invoice_amount, c' +
