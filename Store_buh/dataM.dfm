@@ -88,7 +88,7 @@ object DM: TDM
     Left = 96
     Top = 321
     Bitmap = {
-      494C01010B000E00880010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010B000E00900010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000003000000001002000000000000030
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -659,7 +659,7 @@ object DM: TDM
     Left = 184
     Top = 320
     Bitmap = {
-      494C010105000900880018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010105000900900018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -1347,7 +1347,7 @@ object DM: TDM
     Session = OraSession
     SQL.Strings = (
       'SELECT a.ID, a.ID_CLIENTS, a.ADDRESS FROM CLIENT_ADDRESS a'
-      'where a.ID_CLIENTS = :ID_CLIENTS  ')
+      'where a.ID_CLIENTS = :ID_CLIENTS')
     AutoCommit = False
     RefreshOptions = [roAfterInsert]
     Options.DefaultValues = True
@@ -1363,7 +1363,6 @@ object DM: TDM
       item
         DataType = ftUnknown
         Name = 'ID_CLIENTS'
-        Value = Null
       end>
     object CDS_ADDRESSID: TIntegerField
       FieldName = 'ID'
@@ -1397,8 +1396,8 @@ object DM: TDM
   object cdsClients: TOraQuery
     SQL.Strings = (
       
-        'select a.id_clients, a.address, a.fio, a.inn, a.kpp, a.nick, a.p' +
-        'hone, a.bank, b.name as TTYPE_NAME '
+        'select a.id_clients, a.address, a.u_address, a.fio, a.inn, a.kpp' +
+        ', a.nick, a.phone, a.bank, b.name as TTYPE_NAME '
       'from clients a, books_client_types b'
       
         'where a.id_clients_groups = :group_id and a.ttype = b.id_client_' +
@@ -1424,6 +1423,10 @@ object DM: TDM
     end
     object cdsClientsADDRESS: TMemoField
       FieldName = 'ADDRESS'
+      BlobType = ftMemo
+    end
+    object cdsClientsU_ADDRESS: TMemoField
+      FieldName = 'U_ADDRESS'
       BlobType = ftMemo
     end
     object cdsClientsFIO: TStringField

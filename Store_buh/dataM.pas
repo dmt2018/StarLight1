@@ -61,8 +61,12 @@ type
     StorProc: TOraStoredProc;
     Q_SQL: TOraQuery;
     cdsClients: TOraQuery;
+    dsClients: TOraDataSource;
+    companyKPP2: TStringField;
+    companyADRESS2: TStringField;
     cdsClientsID_CLIENTS: TIntegerField;
     cdsClientsADDRESS: TMemoField;
+    cdsClientsU_ADDRESS: TMemoField;
     cdsClientsFIO: TStringField;
     cdsClientsINN: TStringField;
     cdsClientsKPP: TStringField;
@@ -70,9 +74,6 @@ type
     cdsClientsPHONE: TMemoField;
     cdsClientsBANK: TMemoField;
     cdsClientsTTYPE_NAME: TStringField;
-    dsClients: TOraDataSource;
-    companyKPP2: TStringField;
-    companyADRESS2: TStringField;
     procedure Ora_SQLPostError(DataSet: TDataSet; E: EDatabaseError;
       var Action: TDataAction);
 

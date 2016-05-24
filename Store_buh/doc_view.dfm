@@ -1145,6 +1145,163 @@ object docsviewForm: TdocsviewForm
         ParamType = ptOutput
         Value = 'Object'
       end>
+    object DOCADDRESS: TStringField
+      FieldName = 'ADDRESS'
+      Size = 1024
+    end
+    object DOCU_ADDRESS: TStringField
+      FieldName = 'U_ADDRESS'
+      Size = 1024
+    end
+    object DOCID_DOC: TFloatField
+      FieldName = 'ID_DOC'
+    end
+    object DOCDOC_NUMBER: TFloatField
+      FieldName = 'DOC_NUMBER'
+    end
+    object DOCID_CLIENT: TIntegerField
+      FieldName = 'ID_CLIENT'
+    end
+    object DOCID_DEPARTMENTS: TIntegerField
+      FieldName = 'ID_DEPARTMENTS'
+    end
+    object DOCOPERATOR_NAME: TStringField
+      FieldName = 'OPERATOR_NAME'
+      Size = 255
+    end
+    object DOCDOC_DATE: TDateTimeField
+      FieldName = 'DOC_DATE'
+    end
+    object DOCDOC_DATE_REAL: TDateTimeField
+      FieldName = 'DOC_DATE_REAL'
+    end
+    object DOCNUMBER_FULL: TStringField
+      FieldName = 'NUMBER_FULL'
+      Size = 51
+    end
+    object DOCCOMMENTS: TStringField
+      FieldName = 'COMMENTS'
+      Size = 255
+    end
+    object DOCNDS: TIntegerField
+      FieldName = 'NDS'
+    end
+    object DOCDISCOUNT: TIntegerField
+      FieldName = 'DISCOUNT'
+    end
+    object DOCID_DOC_TYPE: TFloatField
+      FieldName = 'ID_DOC_TYPE'
+    end
+    object DOCDOC_NUMBER_ADD: TStringField
+      FieldName = 'DOC_NUMBER_ADD'
+      Size = 10
+    end
+    object DOCID_COMPANY: TFloatField
+      FieldName = 'ID_COMPANY'
+    end
+    object DOCID_BANC: TFloatField
+      FieldName = 'ID_BANC'
+    end
+    object DOCTTYPE_NAME: TStringField
+      FieldName = 'TTYPE_NAME'
+      Size = 50
+    end
+    object DOCREG_SVID_PRINT: TIntegerField
+      FieldName = 'REG_SVID_PRINT'
+    end
+    object DOCTTYPE: TIntegerField
+      FieldName = 'TTYPE'
+    end
+    object DOCAGREEMENT: TStringField
+      FieldName = 'AGREEMENT'
+      Size = 50
+    end
+    object DOCID_CLIENTS: TIntegerField
+      FieldName = 'ID_CLIENTS'
+    end
+    object DOCREG_SVID: TStringField
+      FieldName = 'REG_SVID'
+      Size = 50
+    end
+    object DOCNICK: TStringField
+      FieldName = 'NICK'
+    end
+    object DOCFIO: TStringField
+      FieldName = 'FIO'
+      Size = 255
+    end
+    object DOCINN: TStringField
+      FieldName = 'INN'
+      Size = 50
+    end
+    object DOCKPP: TStringField
+      FieldName = 'KPP'
+    end
+    object DOCOKATO: TStringField
+      FieldName = 'OKATO'
+    end
+    object DOCBANK: TStringField
+      FieldName = 'BANK'
+      Size = 1024
+    end
+    object DOCPHONE: TStringField
+      FieldName = 'PHONE'
+      Size = 1024
+    end
+    object DOCID_CLIENTS_GROUPS: TIntegerField
+      FieldName = 'ID_CLIENTS_GROUPS'
+    end
+    object DOCGROUP_NAME: TStringField
+      FieldName = 'GROUP_NAME'
+      Size = 255
+    end
+    object DOCBUH_DOC_TYPE_NAME: TStringField
+      FieldName = 'BUH_DOC_TYPE_NAME'
+      Size = 30
+    end
+    object DOCCOMPANY_NAME: TStringField
+      FieldName = 'COMPANY_NAME'
+      Size = 255
+    end
+    object DOCBANC_NAME: TStringField
+      FieldName = 'BANC_NAME'
+      Size = 255
+    end
+    object DOCCARGO: TStringField
+      FieldName = 'CARGO'
+      Size = 4000
+    end
+    object DOCSUM_PRICE_OLD: TFloatField
+      FieldName = 'SUM_PRICE_OLD'
+    end
+    object DOCSUM_PRICE_NEW: TFloatField
+      FieldName = 'SUM_PRICE_NEW'
+    end
+    object DOCQUANTITY_ALL: TFloatField
+      FieldName = 'QUANTITY_ALL'
+    end
+    object DOCSUM_PRICE_DIFFERENCE: TFloatField
+      FieldName = 'SUM_PRICE_DIFFERENCE'
+    end
+    object DOCPRICE_ALL: TFloatField
+      FieldName = 'PRICE_ALL'
+    end
+    object DOCID_OFFICE: TIntegerField
+      FieldName = 'ID_OFFICE'
+    end
+    object DOCBRIEF: TStringField
+      FieldName = 'BRIEF'
+      Size = 10
+    end
+    object DOCSUM_QUANTITY: TFloatField
+      FieldName = 'SUM_QUANTITY'
+    end
+    object DOCBEZNDSMINUS: TIntegerField
+      FieldName = 'BEZNDSMINUS'
+    end
+    object DOCBEZNDS: TIntegerField
+      FieldName = 'BEZNDS'
+    end
   end
   object DOC_DS: TOraDataSource
     DataSet = DOC
@@ -1507,7 +1664,7 @@ object docsviewForm: TdocsviewForm
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 38328.612690243100000000
-    ReportOptions.LastChange = 42392.807242013900000000
+    ReportOptions.LastChange = 42514.749634432870000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'procedure ReportSummary1OnBeforePrint(Sender: TfrxComponent);'
@@ -2568,14 +2725,11 @@ object docsviewForm: TdocsviewForm
           HideZeros = True
           Memo.UTF8 = (
             
-              '['#1056#8220#1057#1026#1057#1107#1056#183#1056#1109#1056#1111'_'#1057#8218#1056#1105#1056#1111'] ['#1056#8220#1057#1026#1057#1107#1056#183#1056#1109#1056#1111#1056#1109#1056#187#1057#1107#1057#8225#1056#176#1057#8218#1056#181#1056#187#1057#1034'_'#1056#152#1056#1112#1057#1039'], '#1056 +
-              #152#1056#1116#1056#1116' ['#1056#8220#1057#1026#1057#1107#1056#183#1056#1109#1056#1111#1056#1109#1056#187#1057#1107#1057#8225#1056#176#1057#8218#1056#181#1056#187#1057#1034'_'#1056#152#1056#1116#1056#1116'], '#1056#1113#1056#1119#1056#1119' ['#1056#8220#1057#1026#1057#1107#1056#183#1056 +
-              #1109#1056#1111#1056#1109#1056#187#1057#1107#1057#8225#1056#176#1057#8218#1056#181#1056#187#1057#1034'_'#1056#1113#1056#1119#1056#1119'], ['#1056#8220#1057#1026#1057#1107#1056#183#1056#1109#1056#1111#1056#1109#1056#187#1057#1107#1057#8225#1056#176#1057#8218#1056#181#1056#187#1057#1034'_'#1056 +
-              #1106#1056#1169#1057#1026#1056#181#1057#1027'], '#1057#8218'. ['#1056#8220#1057#1026#1057#1107#1056#183#1056#1109#1056#1111#1056#1109#1056#187#1057#1107#1057#8225#1056#176#1057#8218#1056#181#1056#187#1057#1034'_'#1056#1118#1056#181#1056#187#1056#181#1057#8222#1056#1109#1056#1029'],' +
-              ' '#1057#8222'. ['#1056#8220#1057#1026#1057#1107#1056#183#1056#1109#1056#1111#1056#1109#1056#187#1057#1107#1057#8225#1056#176#1057#8218#1056#181#1056#187#1057#1034'_'#1056#164#1056#176#1056#1108#1057#1027'], ['#1056#8220#1057#1026#1057#1107#1056#183#1056#1109#1056#1111#1056#1109#1056 +
-              #187#1057#1107#1057#8225#1056#176#1057#8218#1056#181#1056#187#1057#1034'_'#1056#8216#1056#176#1056#1029#1056#1108#1056#152#1056#1112#1057#1039'], ['#1056#8220#1057#1026#1057#1107#1056#183#1056#1109#1056#1111#1056#1109#1056#187#1057#1107#1057#8225#1056#176#1057#8218#1056#181#1056#187#1057#1034 +
-              '_'#1056#8216#1056#176#1056#1029#1056#1108#1056#160#1056#1038'], ['#1056#8220#1057#1026#1057#1107#1056#183#1056#1109#1056#1111#1056#1109#1056#187#1057#1107#1057#8225#1056#176#1057#8218#1056#181#1056#187#1057#1034'_'#1056#8216#1056#176#1056#1029#1056#1108#1056#1113#1056#1038'], [' +
-              #1056#8220#1057#1026#1057#1107#1056#183#1056#1109#1056#1111#1056#1109#1056#187#1057#1107#1057#8225#1056#176#1057#8218#1056#181#1056#187#1057#1034'_'#1056#8216#1056#176#1056#1029#1056#1108#1056#8216#1056#152#1056#1113']')
+              '[IIF( <frxDBClients."TTYPE_NAME"> > '#39#39', <frxDBClients."TTYPE_NAM' +
+              'E">, <frxDB_DOC."TTYPE_NAME">)] [IIF( <frxDBClients."FIO"> > '#39#39',' +
+              ' <frxDBClients."FIO">, <frxDB_DOC."FIO">)] [IIF( <frxDB_Doc."U_A' +
+              'DDRESS"> > '#39#39', <frxDB_Doc."U_ADDRESS">,  IIF( <frxDBAddess."ADDR' +
+              'ESS"> > '#39#39', <frxDBAddess."ADDRESS">, <frxDB_DOC."ADDRESS"> ) )]')
           ParentFont = False
           VAlign = vaBottom
         end
@@ -2619,20 +2773,12 @@ object docsviewForm: TdocsviewForm
           Frame.Typ = [ftBottom]
           HideZeros = True
           Memo.UTF8 = (
-            '[IIF( <frxDBClients."TTYPE_NAME"> > '#39#39', '
             
-              '<frxDBClients."TTYPE_NAME"> +'#39' '#39'+ <frxDBClients."FIO"> +'#39', '#1056#152#1056#1116#1056 +
-              #1116' '#39'+ <frxDBClients."INN"> +'#39', '#1056#1113#1056#1119#1056#1119' '#39'+ <frxDBClients."KPP"> +'#39',' +
-              ' '#39'+ <frxDBClients."ADDRESS"> +'#39', '#1057#8218'. '#39'+ <frxDBClients."PHONE"> +' +
-              #39', '#1057#8222'. '#39'+ <frxDBClients."PHONE"> +'#39', '#39'+ <frxDBClients."BANK">, '
-            
-              '<'#1056#8220#1057#1026#1057#1107#1056#183#1056#1109#1056#1111'_'#1057#8218#1056#1105#1056#1111'> +'#39' '#39'+ <'#1056#8220#1057#1026#1057#1107#1056#183#1056#1109#1056#1111#1056#1109#1056#187#1057#1107#1057#8225#1056#176#1057#8218#1056#181#1056#187#1057#1034'_'#1056#152#1056#1112 +
-              #1057#1039'> +'#39', '#1056#152#1056#1116#1056#1116' '#39'+ <'#1056#8220#1057#1026#1057#1107#1056#183#1056#1109#1056#1111#1056#1109#1056#187#1057#1107#1057#8225#1056#176#1057#8218#1056#181#1056#187#1057#1034'_'#1056#152#1056#1116#1056#1116'> +'#39', '#1056#1113 +
-              #1056#1119#1056#1119' '#39'+ <'#1056#8220#1057#1026#1057#1107#1056#183#1056#1109#1056#1111#1056#1109#1056#187#1057#1107#1057#8225#1056#176#1057#8218#1056#181#1056#187#1057#1034'_'#1056#1113#1056#1119#1056#1119'> +'#39', '#39'+ <'#1056#8220#1057#1026#1057#1107#1056#183 +
-              #1056#1109#1056#1111#1056#1109#1056#187#1057#1107#1057#8225#1056#176#1057#8218#1056#181#1056#187#1057#1034'_'#1056#1106#1056#1169#1057#1026#1056#181#1057#1027'2> +'#39', '#1057#8218'. '#39'+ <'#1056#8220#1057#1026#1057#1107#1056#183#1056#1109#1056#1111#1056#1109#1056#187 +
-              #1057#1107#1057#8225#1056#176#1057#8218#1056#181#1056#187#1057#1034'_'#1056#1118#1056#181#1056#187#1056#181#1057#8222#1056#1109#1056#1029'> +'#39', '#1057#8222'. '#39'+ <'#1056#8220#1057#1026#1057#1107#1056#183#1056#1109#1056#1111#1056#1109#1056#187#1057#1107#1057#8225#1056 +
-              #176#1057#8218#1056#181#1056#187#1057#1034'_'#1056#164#1056#176#1056#1108#1057#1027'> +'#39', '#39'+ <'#1056#8220#1057#1026#1057#1107#1056#183#1056#1109#1056#1111#1056#1109#1056#187#1057#1107#1057#8225#1056#176#1057#8218#1056#181#1056#187#1057#1034'_'#1056#8216#1056#176#1056 +
-              #1029#1056#1108#1056#152#1056#1112#1057#1039'> )]')
+              '[IIF( <frxDBClients."TTYPE_NAME"> > '#39#39', <frxDBClients."TTYPE_NAM' +
+              'E">, <frxDB_DOC."TTYPE_NAME">)] [IIF( <frxDBClients."FIO"> > '#39#39',' +
+              ' <frxDBClients."FIO">, <frxDB_DOC."FIO">)] [IIF( <frxDB_Doc."U_A' +
+              'DDRESS"> > '#39#39', <frxDB_Doc."U_ADDRESS">,  IIF( <frxDBAddess."ADDR' +
+              'ESS"> > '#39#39', <frxDBAddess."ADDRESS">, <frxDB_DOC."ADDRESS"> ) )]')
           ParentFont = False
           VAlign = vaBottom
         end
@@ -4719,7 +4865,7 @@ object docsviewForm: TdocsviewForm
         Stretched = True
         object Memo71: TfrxMemoView
           Width = 22.677165350000000000
-          Height = 15.118110240000000000
+          Height = 15.118110236220500000
           ShowHint = False
           StretchMode = smMaxHeight
           DataSet = frxDB_DOC_DATA
@@ -4737,7 +4883,7 @@ object docsviewForm: TdocsviewForm
           ParentFont = False
         end
         object MemoTitle: TfrxMemoView
-          Left = 22.677165350000000000
+          Left = 22.677165354330700000
           Width = 173.858267720000000000
           Height = 15.118110240000000000
           ShowHint = False
@@ -5032,6 +5178,8 @@ object docsviewForm: TdocsviewForm
     UserName = 'frxDB_DOC'
     CloseDataSource = False
     FieldAliases.Strings = (
+      'ADDRESS=ADDRESS'
+      'U_ADDRESS=U_ADDRESS'
       'ID_DOC=ID_DOC'
       'DOC_NUMBER=DOC_NUMBER'
       'ID_CLIENT=ID_CLIENT'
@@ -5047,7 +5195,6 @@ object docsviewForm: TdocsviewForm
       'DOC_NUMBER_ADD=DOC_NUMBER_ADD'
       'ID_COMPANY=ID_COMPANY'
       'ID_BANC=ID_BANC'
-      'STORE_DOC_NUMBER=STORE_DOC_NUMBER'
       'TTYPE_NAME=TTYPE_NAME'
       'REG_SVID_PRINT=REG_SVID_PRINT'
       'TTYPE=TTYPE'
@@ -5059,17 +5206,24 @@ object docsviewForm: TdocsviewForm
       'INN=INN'
       'KPP=KPP'
       'OKATO=OKATO'
-      'ADDRESS=ADDRESS'
       'BANK=BANK'
       'PHONE=PHONE'
+      'ID_CLIENTS_GROUPS=ID_CLIENTS_GROUPS'
+      'GROUP_NAME=GROUP_NAME'
       'BUH_DOC_TYPE_NAME=BUH_DOC_TYPE_NAME'
       'COMPANY_NAME=COMPANY_NAME'
       'BANC_NAME=BANC_NAME'
+      'CARGO=CARGO'
       'SUM_PRICE_OLD=SUM_PRICE_OLD'
       'SUM_PRICE_NEW=SUM_PRICE_NEW'
-      'SUM_PRICE_DIFFERENCE=SUM_PRICE_DIFFERENCE'
       'QUANTITY_ALL=QUANTITY_ALL'
-      'PRICE_ALL=PRICE_ALL')
+      'SUM_PRICE_DIFFERENCE=SUM_PRICE_DIFFERENCE'
+      'PRICE_ALL=PRICE_ALL'
+      'ID_OFFICE=ID_OFFICE'
+      'BRIEF=BRIEF'
+      'SUM_QUANTITY=SUM_QUANTITY'
+      'BEZNDSMINUS=BEZNDSMINUS'
+      'BEZNDS=BEZNDS')
     DataSet = DOC
     BCDToCurrency = False
     Left = 232
@@ -5278,6 +5432,17 @@ object docsviewForm: TdocsviewForm
   object frxDBClients: TfrxDBDataset
     UserName = 'frxDBClients'
     CloseDataSource = False
+    FieldAliases.Strings = (
+      'ID_CLIENTS=ID_CLIENTS'
+      'ADDRESS=ADDRESS'
+      'U_ADDRESS=U_ADDRESS'
+      'FIO=FIO'
+      'INN=INN'
+      'KPP=KPP'
+      'NICK=NICK'
+      'PHONE=PHONE'
+      'BANK=BANK'
+      'TTYPE_NAME=TTYPE_NAME')
     OpenDataSource = False
     DataSet = DM.cdsClients
     BCDToCurrency = False
