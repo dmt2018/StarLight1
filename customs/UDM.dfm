@@ -6,7 +6,7 @@ object DM: TDM
     Options.Direct = True
     Username = 'creator'
     Password = '123456'
-    Server = 'KLEPOV:1521:STARNEW'
+    Server = 'ROZNICA:1521:orcl'
     Left = 32
     Top = 16
   end
@@ -300,7 +300,7 @@ object DM: TDM
     end
     object InvoiceAsIsUPACK: TStringField
       FieldName = 'UPACK'
-      Size = 6
+      Size = 10
     end
     object InvoiceAsIsSRC_TROLLEY: TStringField
       FieldName = 'SRC_TROLLEY'
@@ -345,7 +345,7 @@ object DM: TDM
     end
     object InvoiceAsIsF_NAME_RU: TStringField
       FieldName = 'F_NAME_RU'
-      Size = 50
+      Size = 256
     end
     object InvoiceAsIsTYPE_DOP: TStringField
       FieldName = 'TYPE_DOP'

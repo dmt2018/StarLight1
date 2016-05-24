@@ -1292,6 +1292,7 @@ begin
     view_asisUPACK.Visible := true;
   end;
 
+
   if (DM.InvoiceRegister.Active) and (DM.InvoiceRegister.RecordCount > 0) then
   begin
     if (DM.InvoiceAsIs.Active) {and (DM.InvoiceAsIs.RecordCount > 0)} then

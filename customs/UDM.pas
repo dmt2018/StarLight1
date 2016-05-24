@@ -4,7 +4,7 @@ interface
 
 uses
   SysUtils, Classes, DB, MemDS, DBAccess, Ora, frxClass, frxDBSet, frxExportXLS,
-  frxExportXML, frxExportBIFF, Variants, ComObj, Windows, Messages;
+  frxExportXML, frxExportBIFF, Variants, ComObj, Windows, Messages, Math;
 
 type
   TDM = class(TDataModule)
@@ -149,6 +149,7 @@ type
 var
   DM: TDM;
 
+
 implementation
 
 uses Globals;
@@ -157,7 +158,7 @@ uses Globals;
 
 procedure TDM.raport_srez_phytoes(id_inv: integer; truck: integer; report_type: integer);
 var XL, XArr, WorkBook, Sheet: OLEVariant;
-    j: integer;
+    j,j1,j2: integer;
     fileName: string;
     sum_u, sum_n, sum_b: real;
 begin
@@ -200,8 +201,8 @@ begin
         XArr[3] := FieldByName('units').Value;
         XL.Range['A'+IntToStr(j),CHR(64+3)+IntToStr(j)].Value := XArr;
         sum_u := sum_u + FieldByName('units').AsInteger;
-        sum_n := sum_n + FieldByName('netto').AsFloat;
-        sum_b := sum_b + FieldByName('brutto').AsFloat;
+        sum_n := sum_n + FieldByName('netto').Asfloat;
+        sum_b := sum_b + FieldByName('brutto').Asfloat;
         Next;
         j := j + 1;
       end;
@@ -213,10 +214,12 @@ begin
 
     XL.Range['B'+IntToStr(j),'B'+IntToStr(j)].Value := 'Total brutto:';
     XL.Range['C'+IntToStr(j),'C'+IntToStr(j)].Value := sum_b;
+    j1:=j; //запомнил номер ячейки
     j := j + 1;
 
     XL.Range['B'+IntToStr(j),'B'+IntToStr(j)].Value := 'Total netto:';
     XL.Range['C'+IntToStr(j),'C'+IntToStr(j)].Value := sum_n;
+    j2:=j; //запомнил номер ячейки
 
     XL.Range['A'+IntToStr(j-2),'C'+IntToStr(j)].select;
     XL.Selection.Font.Bold := true;
@@ -270,6 +273,8 @@ begin
     XL.Range['A'+IntToStr(j),'A'+IntToStr(j)].Value := 'Total:';
     XL.Range['B'+IntToStr(j),'B'+IntToStr(j)].Value := sum_u;
     XL.Range['C'+IntToStr(j),'C'+IntToStr(j)].Value := sum_n;
+    XL.Range['C'+IntToStr(j2),'C'+IntToStr(j2)].Value := sum_n;//перепишу нетто из верхней таблицы
+    XL.Range['C'+IntToStr(j1),'C'+IntToStr(j1)].Value := sum_b; //перепишу брутто из верхней таблицы
     XL.Range['A'+IntToStr(j),'C'+IntToStr(j)].select;
     XL.Selection.Font.Bold := true;
 
@@ -397,6 +402,10 @@ var XL, XL2, XArr, WorkBook, Sheet: OLEVariant;
     j, k: integer;
     fileName, cur_rule_name: string;
     sum_4, sum_5, sum_6, sum_7, sum_8, sum_9, sum_10, sum_11, sum_12: real;
+     ss:string;
+ S : TStringlist;
+i, i1,i2,suma:integer;
+  j1: Integer;
 begin
   try
     with DM.SelQ do
@@ -447,7 +456,6 @@ begin
     XL.Range['L2','L2'].Value := '';
 
     j := 3;
-
     XL.Range['A1','L2'].select;
     XL.Selection.Font.Bold := true;
 
@@ -455,6 +463,7 @@ begin
     begin
       while not Eof do
       begin
+
         XArr[1] := j-2;
         XArr[2] := FieldByName('CUST_REGN').Value;
         XArr[3] := FieldByName('comp_name').Value;
@@ -474,6 +483,12 @@ begin
         sum_7  := sum_7 + FieldByName('sideboards').AsInteger+FieldByName('packs').AsInteger;
         sum_8  := sum_8 + FieldByName('brutto').AsInteger;
         sum_9  := sum_9 + FieldByName('netto').AsInteger;
+
+        //sum_8  := sum_8 + FieldByName('brutto').Value;
+        //sum_9  := sum_9 + FieldByName('netto').Value;
+
+
+
         sum_10 := sum_10 + FieldByName('summ').AsInteger;
         sum_11 := sum_11 + FieldByName('telega').AsInteger;
         sum_12 := sum_12 + FieldByName('poddon').AsInteger;
@@ -481,6 +496,7 @@ begin
         j := j + 1;
       end;
     end;
+
 
     XL.Range['A'+IntToStr(j),'A'+IntToStr(j)].Value := '';
     XL.Range['B'+IntToStr(j),'B'+IntToStr(j)].Value := '';
@@ -674,7 +690,14 @@ procedure TDM.raport_totallist(id_inv: integer; truck: integer; report_type: int
 var XL, XArr, WorkBook, Sheet: OLEVariant;
     j: integer;
     fileName: string;
-    sum_u, sum_n, sum_b, sum_a: real;
+    sum_u,sum_u1, sum_n,sum_n1, sum_b,sum_b1, sum_a,sum_a1: real;    st:tstringlist;
+    dub2,dub1:string;
+
+    i : integer;
+    ss:string;
+    S : TStringlist;
+    i1,i2,suma:integer;
+    j1: Integer;
 begin
   try
     with DM.SelQ do
@@ -733,6 +756,32 @@ begin
       end;
     end;
 
+ //***************** ИСКЛЮЧАЮ ПОВТОРЫ ДЛЯ ПРАВИЛЬНОГО СЧЕТА КОЛ-ВА ********************
+ suma:=0; //эта переменная для суммир. позиций типа 281740.236-239, т.е. =3
+ S := TStringList.Create;
+  s.Duplicates := dupIgnore;
+  s.sorted := true;
+  for i:=2 to j-1 do  begin
+   ss:=trim(XL.Range['A'+IntToStr(i),'A'+IntToStr(i)].Value);
+   if pos('-',ss)<>0 then begin
+     i1:=strtoint(copy(ss,pos('.',ss)+1,pos('-',ss)-1-pos('.',ss)));
+     i2:=strtoint(copy(ss,pos('-',ss)+1,length(ss)-pos('-',ss)));
+     suma:=suma+(i2-i1);
+
+    { //так неверно считается:
+    for j1 := i1 to i2 do begin
+     ss:=copy(ss,1,pos('.',ss))+inttostr(j1);
+     s.add(ss);
+     end;  }
+
+   end;
+   s.add(ss);
+   end;
+ XL.Range['A'+IntToStr(j),'A'+IntToStr(j)].Value :='Total rows: '+ inttostr(S.Count+suma);
+  s.Free;  
+  //*************************************
+
+
     XL.Range['A'+IntToStr(j),'A'+IntToStr(j)].Value := 'Total rows: '+IntToStr(j-2);
     XL.Range['F'+IntToStr(j),'F'+IntToStr(j)].Value := sum_u;
     XL.Range['I'+IntToStr(j),'I'+IntToStr(j)].Value := sum_n;
@@ -761,7 +810,8 @@ begin
       Close;
       IndexFieldNames := '';
       SQL.Clear;
-      SQL.Add('begin custom_pkg.get_suplier_list2(:v_id_dep, :v_inv_id, :v_truck, :CURSOR_); end;');
+      //SQL.Add('begin custom_pkg.get_suplier_list2(:v_id_dep, :v_inv_id, :v_truck, :CURSOR_); end;');
+      SQL.Add('begin custom_pkg.get_fito_raport_page1(:v_id_dep, :v_inv_id, :v_truck, :CURSOR_); end;');
       ParamByName('v_inv_id').Value := id_inv;
       ParamByName('V_ID_DEP').Value := CUR_DEPT_ID;
       ParamByName('v_truck').Value := truck;
@@ -788,27 +838,60 @@ begin
     XL.Range['E1','E1'].Value := 'Netto weight';
     XL.Range['F1','F1'].Value := 'Brutto weight';
     j := 2;
-
     XL.Range['A1','F1'].select;
     XL.Selection.Font.Bold := true;
 
     with DM.SelQ do
     begin
+      sum_n1:=0; dub1:= '1';  dub2:= '1';
       while not Eof do
       begin
+
+
+        
+        sum_u1 := sum_u1 + FieldByName('units').asinteger;
+       // sum_a1 := sum_a1 + simpleroundto((FieldByName('SUMM').value/FieldByName('netto').value)*1.13,-2);
+        sum_a1 := sum_a1 + FieldByName('SUMM').ascurrency;
+        sum_n1 := sum_n1 + FieldByName('netto').asinteger;
+        sum_b1 := sum_b1 + FieldByName('brutto').asinteger;
+
+
         XArr[1] := FieldByName('NAME_CAT').Value;
         XArr[2] := FieldByName('CUST_REGN').Value;
-        XArr[3] := FieldByName('units').Value;
-        XArr[4] := FieldByName('SUMM').Value;
-        XArr[5] := FieldByName('netto').Value;
-        XArr[6] := FieldByName('brutto').Value;
-        XL.Range['A'+IntToStr(j),CHR(64+6)+IntToStr(j)].Value := XArr;
-        sum_u := sum_u + FieldByName('units').AsInteger;
-        sum_a := sum_a + FieldByName('SUMM').AsInteger;
-        sum_n := sum_n + FieldByName('netto').AsCurrency;
-        sum_b := sum_b + FieldByName('brutto').AsCurrency;
+        XArr[3] := sum_u1;//FieldByName('units').Value;
+        XArr[4] := sum_a1;//FieldByName('SUMM').Value;
+        XArr[5] := sum_n1; //FieldByName('netto').Value;
+        XArr[6] := sum_b1;//FieldByName('brutto').Value;
+
+
+         XL.Range['A'+IntToStr(j),CHR(64+6)+IntToStr(j)].Value := XArr;
+
+        sum_u := sum_u + FieldByName('units').asinteger;
+        sum_a := sum_a + FieldByName('SUMM').ascurrency;
+        sum_n := sum_n + FieldByName('netto').asinteger;
+        sum_b := sum_b + FieldByName('brutto').asinteger;
+
+
+        { if dub1<>dub2 then begin
+         sum_n1:=0; sum_b1:=0; sum_a1:=0; sum_u1:=0;
+          XL.Range['A'+IntToStr(j),CHR(64+6)+IntToStr(j)].Value := XArr;
+         j := j + 1;
+         end;    }
+
+
+        dub1:= FieldByName('NAME_CAT').Value;
         Next;
-        j := j + 1;
+        dub2:= FieldByName('NAME_CAT').Value;
+
+        if dub1<>dub2  then begin
+         j := j + 1;
+         sum_n1:=0; sum_b1:=0; sum_a1:=0; sum_u1:=0;
+        end;
+
+        if eof then j := j + 1;
+        
+
+       // j := j + 1;
       end;
     end;
 
@@ -832,9 +915,11 @@ begin
       XL.Quit;
     end;
     XL.Quit;
+  //////////////////////////////////////////////////////////////////////////
 
 
 
+  //////////////////////////////////////////////////////////////////////////
     DM.SelQ.Close;
     DM.SelQ.IndexFieldNames := '';
 
