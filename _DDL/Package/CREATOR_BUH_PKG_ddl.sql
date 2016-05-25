@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.BUH_PKG
--- Generated 24.05.2016 18:57:02 from CREATOR@ORCL
+-- Generated 26.05.2016 0:56:33 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE buh_pkg
@@ -26,8 +26,10 @@ PROCEDURE save_company
    COMPANY_ID_            in out number,
    COMPANY_NAME_          in varchar2,
    KPP_                   in varchar2,
+   KPP2_                  in varchar2,
    INN_                   in varchar2,
    ADRESS_                in varchar2,
+   ADRESS2_               in varchar2,
    PHONE_                 in varchar2,
    FAX_                   in varchar2,
    OTPUSK_PROIZVEL_FIO_   in varchar2,
@@ -446,8 +448,10 @@ PROCEDURE save_company
    COMPANY_ID_            in out number,
    COMPANY_NAME_          in varchar2,
    KPP_                   in varchar2,
+   KPP2_                  in varchar2,
    INN_                   in varchar2,
    ADRESS_                in varchar2,
+   ADRESS2_               in varchar2,
    PHONE_                 in varchar2,
    FAX_                   in varchar2,
    OTPUSK_PROIZVEL_FIO_   in varchar2,
@@ -462,9 +466,9 @@ begin
   if (COMPANY_ID_ is null) or (COMPANY_ID_ = 0) then
 
     INSERT INTO buh_company
-      (COMPANY_ID, COMPANY_NAME, KPP, INN, ADRESS, PHONE, FAX, OTPUSK_PROIZVEL_FIO, OTPUSK_RAZRESHIL_FIO, GLAV_BUH, OTPUSK_PROIZVEL_DOLJN, OTPUSK_RAZRESHIL_DOLJN)
+      (COMPANY_ID, COMPANY_NAME, KPP, KPP2, INN, ADRESS, ADRESS2, PHONE, FAX, OTPUSK_PROIZVEL_FIO, OTPUSK_RAZRESHIL_FIO, GLAV_BUH, OTPUSK_PROIZVEL_DOLJN, OTPUSK_RAZRESHIL_DOLJN)
     VALUES
-      (get_office_unique('BUH_COMPANY_SET_ID'), COMPANY_NAME_, KPP_, INN_, ADRESS_, PHONE_, FAX_, OTPUSK_PROIZVEL_FIO_, OTPUSK_RAZRESHIL_FIO_, GLAV_BUH_, OTPUSK_PROIZVEL_DOLJN_, OTPUSK_RAZRESHIL_DOLJN_)
+      (get_office_unique('BUH_COMPANY_SET_ID'), COMPANY_NAME_, KPP_, KPP2_, INN_, ADRESS_, ADRESS2_, PHONE_, FAX_, OTPUSK_PROIZVEL_FIO_, OTPUSK_RAZRESHIL_FIO_, GLAV_BUH_, OTPUSK_PROIZVEL_DOLJN_, OTPUSK_RAZRESHIL_DOLJN_)
     RETURNING COMPANY_ID INTO COMPANY_ID_;
 
   else
@@ -472,8 +476,10 @@ begin
     UPDATE buh_company SET
       COMPANY_NAME = COMPANY_NAME_,
       KPP = KPP_,
+      KPP2 = KPP2_,
       INN = INN_,
       ADRESS = ADRESS_,
+      ADRESS2 = ADRESS2_,
       PHONE = PHONE_,
       FAX = FAX_,
       OTPUSK_PROIZVEL_FIO = OTPUSK_PROIZVEL_FIO_,
@@ -719,7 +725,7 @@ from (
 
 select a.ID_DOC, a.DOC_NUMBER, a.ID_CLIENT, a.ID_DEPARTMENTS, a.OPERATOR_NAME, a.DOC_DATE, a.DOC_DATE_REAL, a.BEZNDSMINUS, a.BEZNDS,
 
-    CASE WHEN a.DOC_NUMBER_ADD is not null THEN case when a.DOC_NUMBER_ADD = 'Î' then a.DOC_NUMBER_ADD || a.DOC_NUMBER else a.DOC_NUMBER||'/'||a.DOC_NUMBER_ADD end
+    const_filial || CASE WHEN a.DOC_NUMBER_ADD is not null THEN case when a.DOC_NUMBER_ADD = 'Î' then a.DOC_NUMBER_ADD || a.DOC_NUMBER else a.DOC_NUMBER||'/'||a.DOC_NUMBER_ADD end
     ELSE to_char(a.DOC_NUMBER) END NUMBER_FULL
 
     , a.COMMENTS, a.NDS, a.DISCOUNT, a.ID_DOC_TYPE, a.DOC_NUMBER_ADD, a.ID_company, a.ID_BANC
@@ -1984,7 +1990,7 @@ begin
   --commit;
 */
 
-  update buh_doc b set (ID_CLIENT, NDS, DISCOUNT) = (select ID_CLIENT, NDS, DISCOUNT from buh_doc where id_doc = ID_DOC_ )
+  update buh_doc b set (ID_CLIENT, NDS, DISCOUNT, BEZNDSMINUS, BEZNDS) = (select ID_CLIENT, NDS, DISCOUNT, BEZNDSMINUS, BEZNDS from buh_doc where id_doc = ID_DOC_ )
   where b.doc_date = v_doc_date and b.id_doc_type in (1,2,3) and b.doc_number = v_doc_number
             and b.id_departments = v_id_departments and b.id_doc <> ID_DOC_
             and b.id_office = const_office;

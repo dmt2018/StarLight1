@@ -507,7 +507,7 @@ begin
       else
       begin
         DM.OraSession.RollbackToSavepoint('Begin_Doc_Edit');
-        //exit;
+        exit; //2016-05-25
       end;
       TDocNewForm(theForm).DOC.Close;
       TDocNewForm(theForm).doc_data.Close;
