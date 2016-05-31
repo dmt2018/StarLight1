@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.NOMENCLATURE2_PKG
--- Generated 26.04.2016 3:03:10 from CREATOR@STAR_NEW
+-- Generated 30.05.2016 23:48:17 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE nomenclature2_pkg
@@ -196,11 +196,13 @@ PROCEDURE  gen_h_code (
 
 
 --
--- Изменяем активность номенклатуры по поставщику
+-- Изменяем активность номенклатуры на сайте
 --
-PROCEDURE set_active_noms_by_suplier (
-   v_s_id      in number
+PROCEDURE set_nomenclature_site_marks (
+   v_n_id             in number,
+   v_REMOVE_FROM_SITE in number
 );
+
 
 end;
 /
@@ -439,6 +441,7 @@ BEGIN
               , a.hol_color
               , c.hs_val
               , u.nsi_name
+              , nvl(a1.REMOVE_FROM_SITE,0) as REMOVE_FROM_SITE
        FROM nomenclature_mat_view a
          left outer join import_flowers_kov i
             on i.NOM_CODE = a.code
@@ -448,6 +451,8 @@ BEGIN
             on c.n_id = a.n_id and c.hs_id = const_8march
          left outer join nsi_units u
             on u.nsi_units_id = a.vbn
+         left outer JOIN nomenclature_site_marks a1
+           on a1.n_id = a.n_id
        WHERE ID_DEPARTMENTS = dept_ and (o.id_office in (1,v_office) or v_office = 0)
        order by compiled_name_otdel;
 
@@ -902,7 +907,7 @@ begin
 
 EXCEPTION
    WHEN OTHERS THEN
-           LOG_ERR(SQLERRM, SQLCODE, 'nomenclature2_pkg.select_store_for_web', '');
+           LOG_ERR(SQLERRM, SQLCODE, 'NOMENCLATURE_PKG2.select_store_for_web', '');
            RAISE_APPLICATION_ERROR (-20080, 'Запрос не выполнился. ' || SQLERRM || ' ' || DBMS_UTILITY.format_error_backtrace);
 
 END select_store_for_web;
@@ -958,7 +963,7 @@ begin
 
 EXCEPTION
    WHEN OTHERS THEN
-           LOG_ERR(SQLERRM, SQLCODE, 'nomenclature2_pkg.gen_h_code', '');
+           LOG_ERR(SQLERRM, SQLCODE, 'NOMENCLATURE_PKG2.gen_h_code', '');
            RAISE_APPLICATION_ERROR (-20081, 'Запрос не выполнился. ' || SQLERRM || ' ' || DBMS_UTILITY.format_error_backtrace);
 
 END gen_h_code;
@@ -984,6 +989,34 @@ EXCEPTION
            RAISE_APPLICATION_ERROR (-20082, 'Запрос не выполнился. ' || SQLERRM || ' ' || DBMS_UTILITY.format_error_backtrace);
 
 END set_active_noms_by_suplier;
+
+
+
+--
+-- Изменяем активность номенклатуры на сайте
+--
+PROCEDURE set_nomenclature_site_marks (
+   v_n_id             in number,
+   v_REMOVE_FROM_SITE in number
+)
+is
+begin
+  tmp_cnt := 0;
+  if v_REMOVE_FROM_SITE = 1 then
+    select count(1) into tmp_cnt from nomenclature_site_marks where N_ID = v_n_id;
+    if tmp_cnt = 0 then
+      insert into nomenclature_site_marks values(v_n_id, 1, sysdate);
+    end if;
+  else
+    delete from nomenclature_site_marks where N_ID = v_n_id;
+  end if;
+EXCEPTION
+   WHEN OTHERS THEN
+           LOG_ERR(SQLERRM, SQLCODE, 'nomenclature2_pkg.set_nomenclature_site_marks', '');
+           RAISE_APPLICATION_ERROR (-20083, 'Запрос не выполнился. ' || SQLERRM || ' ' || DBMS_UTILITY.format_error_backtrace);
+
+END set_nomenclature_site_marks;
+
 
 
 END;
