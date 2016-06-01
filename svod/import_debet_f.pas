@@ -147,6 +147,8 @@ type
     gr_debetors_vIS_LOC_FOR: TcxGridDBColumn;
     Label29: TLabel;
     cu_debet: TcxCurrencyEdit;
+    Label30: TLabel;
+    cxInfoEdit: TcxTextEdit;
     procedure cb_showallClick(Sender: TObject);
     procedure aPostExecute(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -397,6 +399,7 @@ begin
     cu_f_eurusd.PostEditValue;
     cu_discount.PostEditValue;
     cu_discount_proc.PostEditValue;
+    cxInfoEdit.PostEditValue;
 
     try
       ind  := 0;
@@ -451,7 +454,7 @@ begin
         else
           DM.Q_SQL.ParamByName('in_ru_').AsCurrency := cu_in_rub.Value;
 
-      DM.Q_SQL.ParamByName('info_').AsString        := DM.Q_CASH_SINFO.AsString;   // P10
+      DM.Q_SQL.ParamByName('info_').AsString        := VarToStr(cxInfoEdit.EditingValue); // DM.Q_CASH_SINFO.AsString;   // P10
       DM.Q_SQL.ParamByName('discount_').Value       := cu_discount.Value;
       DM.Q_SQL.ParamByName('discount_proc_').Value  := cu_discount_proc.Value;
       DM.Q_SQL.ParamByName('v_office').AsInteger    := dm.id_office;

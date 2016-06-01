@@ -876,6 +876,7 @@ begin
          import_debet.cu_f_eur.EditValue := cu_f_eur.EditValue;
          import_debet.cu_f_usdeur.EditValue := cu_f_usdeur.EditValue;
          import_debet.cu_f_eurusd.EditValue := cu_f_eurusd.EditValue;
+         import_debet.cxInfoEdit.EditValue  := DM.Q_CASH_SINFO.AsString;
 
          // Подтянем скидку
          if (DM.Q_CASH_SIS_SALE.AsInteger = 1) then

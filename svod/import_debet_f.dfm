@@ -839,9 +839,9 @@ object import_debet: Timport_debet
       TabOrder = 1
       object Panel10: TPanel
         Left = 4
-        Top = 430
+        Top = 408
         Width = 713
-        Height = 125
+        Height = 147
         Align = alBottom
         BevelOuter = bvNone
         BorderStyle = bsSingle
@@ -1115,7 +1115,7 @@ object import_debet: Timport_debet
           ParentFont = False
         end
         object Label27: TLabel
-          Left = 58
+          Left = 57
           Top = 72
           Width = 74
           Height = 15
@@ -1156,9 +1156,23 @@ object import_debet: Timport_debet
           Font.Style = [fsBold]
           ParentFont = False
         end
+        object Label30: TLabel
+          Left = 55
+          Top = 96
+          Width = 76
+          Height = 15
+          Caption = #1048#1085#1092#1086#1088#1084#1072#1094#1080#1103
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clGreen
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Pitch = fpFixed
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
         object btn_refresh: TcxButton
           Left = 9
-          Top = 95
+          Top = 117
           Width = 113
           Height = 25
           Cursor = crHandPoint
@@ -1170,7 +1184,7 @@ object import_debet: Timport_debet
           Font.Pitch = fpFixed
           Font.Style = []
           ParentFont = False
-          TabOrder = 17
+          TabOrder = 19
           Glyph.Data = {
             36040000424D3604000000000000360000002800000010000000100000000100
             2000000000000004000000000000000000000000000000000000FF00FF00FF00
@@ -1211,7 +1225,7 @@ object import_debet: Timport_debet
         end
         object cxButton1: TcxButton
           Left = 122
-          Top = 95
+          Top = 117
           Width = 108
           Height = 25
           Cursor = crHandPoint
@@ -1264,7 +1278,7 @@ object import_debet: Timport_debet
         end
         object cxButton2: TcxButton
           Left = 230
-          Top = 95
+          Top = 117
           Width = 124
           Height = 25
           Cursor = crHandPoint
@@ -1317,7 +1331,7 @@ object import_debet: Timport_debet
         end
         object cxButton3: TcxButton
           Left = 354
-          Top = 95
+          Top = 117
           Width = 104
           Height = 25
           Cursor = crHandPoint
@@ -1720,24 +1734,40 @@ object import_debet: Timport_debet
           StyleFocused.LookAndFeel.NativeStyle = True
           StyleHot.LookAndFeel.Kind = lfOffice11
           StyleHot.LookAndFeel.NativeStyle = True
-          TabOrder = 18
+          TabOrder = 17
           Width = 100
+        end
+        object cxInfoEdit: TcxTextEdit
+          Left = 137
+          Top = 93
+          Style.LookAndFeel.Kind = lfOffice11
+          Style.LookAndFeel.NativeStyle = True
+          StyleDisabled.LookAndFeel.Kind = lfOffice11
+          StyleDisabled.LookAndFeel.NativeStyle = True
+          StyleFocused.LookAndFeel.Kind = lfOffice11
+          StyleFocused.LookAndFeel.NativeStyle = True
+          StyleHot.LookAndFeel.Kind = lfOffice11
+          StyleHot.LookAndFeel.NativeStyle = True
+          TabOrder = 18
+          Text = 'cxInfoEdit'
+          Width = 321
         end
       end
       object Panel11: TPanel
         Left = 4
-        Top = 426
+        Top = 404
         Width = 713
         Height = 4
         Align = alBottom
         BevelOuter = bvNone
         TabOrder = 0
+        ExplicitTop = 426
       end
       object gr_deps: TcxGrid
         Left = 4
         Top = 4
         Width = 713
-        Height = 422
+        Height = 400
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -1749,6 +1779,7 @@ object import_debet: Timport_debet
         TabOrder = 1
         LookAndFeel.Kind = lfOffice11
         LookAndFeel.NativeStyle = True
+        ExplicitHeight = 422
         object gr_deps_v: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
           DataController.DataSource = DM.Q_CLIENT_DEBT_DS
@@ -1926,10 +1957,11 @@ object import_debet: Timport_debet
           object gr_deps_vINFO: TcxGridDBColumn
             Caption = #1048#1085#1092#1086#1088#1084#1072#1094#1080#1103
             DataBinding.FieldName = 'INFO'
-            Visible = False
+            PropertiesClassName = 'TcxTextEditProperties'
             Options.FilteringPopup = False
             Options.FilteringPopupMultiSelect = False
             Options.Moving = False
+            Width = 300
           end
           object _gr_deps_vNN: TcxGridDBColumn
             DataBinding.FieldName = 'NN'
@@ -2119,7 +2151,7 @@ object import_debet: Timport_debet
     Left = 16
     Top = 552
     Bitmap = {
-      494C010104000900200010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010104000900240010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
