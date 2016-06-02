@@ -209,6 +209,7 @@ type
     CountriesBUH_CODE: TStringField;
     FlowerSubTypesSUB_WEIGHT_DRY: TFloatField;
     SuppliersIS_ACTIVE: TFloatField;
+    DictViewREMOVE_FROM_SITE: TFloatField;
     procedure FlowerNamesAfterPost(DataSet: TDataSet);
     procedure DictViewBeforeOpen(DataSet: TDataSet);
     procedure FlowerNamesAfterOpen(DataSet: TDataSet);

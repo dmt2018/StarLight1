@@ -463,7 +463,7 @@ object EditForm: TEditForm
     Left = 208
     Top = 232
     Bitmap = {
-      494C010102000400F40010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010102000400080110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -732,7 +732,7 @@ object EditForm: TEditForm
     Left = 504
     Top = 208
     Bitmap = {
-      494C010127002C00F40020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010127002C00080120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004001000001002000000000000080
       0200000000000000000000000000000000000000000000000000000000000000
       000000000000000000000101011A0B0B0B743B3D3DB4777777D5838383DA5152
@@ -7326,7 +7326,7 @@ object EditForm: TEditForm
     Left = 504
     Top = 256
     Bitmap = {
-      494C010101000400F40010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010101000400080110001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -7940,7 +7940,7 @@ object EditForm: TEditForm
       end
       object gr_noms_vNOM_END: TcxGridDBBandedColumn
         Caption = #1057#1077#1079#1086#1085' '#1082#1086#1085#1077#1094
-        DataBinding.FieldName = 'NOM_END'
+        DataBinding.FieldName = 'NOM_NEW'
         PropertiesClassName = 'TcxCheckBoxProperties'
         Properties.Alignment = taCenter
         Properties.DisplayChecked = #1044#1072
@@ -8101,6 +8101,26 @@ object EditForm: TEditForm
         Options.HorzSizing = False
         Position.BandIndex = 1
         Position.ColIndex = 9
+        Position.RowIndex = 0
+      end
+      object gr_noms_vWWW: TcxGridDBBandedColumn
+        Caption = #1059#1073#1088#1072#1090#1100' '#1089' '#1089#1072#1081#1090#1072
+        DataBinding.FieldName = 'REMOVE_FROM_SITE'
+        PropertiesClassName = 'TcxCheckBoxProperties'
+        Properties.Alignment = taCenter
+        Properties.DisplayChecked = #1044#1072
+        Properties.DisplayUnchecked = #1053#1077#1090
+        Properties.ImmediatePost = True
+        Properties.NullStyle = nssUnchecked
+        Properties.ValueChecked = 1
+        Properties.ValueUnchecked = 0
+        HeaderAlignmentHorz = taCenter
+        HeaderGlyphAlignmentHorz = taCenter
+        MinWidth = 110
+        Options.HorzSizing = False
+        Width = 110
+        Position.BandIndex = 2
+        Position.ColIndex = 17
         Position.RowIndex = 0
       end
     end
