@@ -236,14 +236,24 @@ begin
       Close;
       IndexFieldNames := '';
       SQL.Clear;
-      SQL.Add('begin custom_pkg.get_group_stat(:V_ID_INV, :V_ID_DEP, :V_VID, :v_truck, :CURSOR_); end;');
-      ParamByName('V_ID_INV').Value := id_inv;
+     // SQL.Add('begin custom_pkg.get_group_stat(:V_ID_INV, :V_ID_DEP, :V_VID, :v_truck, :CURSOR_); end;');
+      SQL.Add('begin custom_pkg.get_fito_raport_page1(:v_id_dep, :v_inv_id, :v_truck, :CURSOR_); end;');
+      ParamByName('v_inv_id').Value := id_inv;
+      ParamByName('V_ID_DEP').Value := CUR_DEPT_ID;
+      ParamByName('v_truck').Value := truck;
+      ParamByName('cursor_').AsCursor;
+
+
+
+
+
+
+     { ParamByName('V_ID_INV').Value := id_inv;
       ParamByName('V_ID_DEP').Value := CUR_DEPT_ID;
       ParamByName('V_VID').Value := 5;
       ParamByName('v_truck').Value := truck;
-      ParamByName('cursor_').AsCursor;
+      ParamByName('cursor_').AsCursor;  }
       Open;
-      //IndexFieldNames := 'CUST_REGN;cntr';
     end;
     j := j+2;
 
@@ -908,6 +918,98 @@ begin
     XL.Selection.Font.Size:=10;
     XL.selection.Columns.AutoFit;
     XL.Range['A1',CHR(64+6)+IntToStr(j)].Borders.LineStyle := $00000002;
+
+    try
+      XL.Workbooks[1].SaveAs(filename);
+    except
+      XL.Quit;
+    end;
+    XL.Quit;
+  //////////////////////////////////////////////////////////////////////////
+
+  
+  // новый файл:
+
+    with DM.SelQ do
+    begin
+      Close;
+      IndexFieldNames := '';
+      SQL.Clear;
+      SQL.Add('begin custom_pkg.get_suplier_list2(:v_id_dep, :v_inv_id, :v_truck, :CURSOR_); end;');
+      //SQL.Add('begin custom_pkg.get_fito_raport_page1(:v_id_dep, :v_inv_id, :v_truck, :CURSOR_); end;');
+      ParamByName('v_inv_id').Value := id_inv;
+      ParamByName('V_ID_DEP').Value := CUR_DEPT_ID;
+      ParamByName('v_truck').Value := truck;
+      ParamByName('cursor_').AsCursor;
+      Open;
+    end;
+
+    if DM.SelQ.RecordCount = 0 then exit;
+
+    sum_u := 0;
+
+
+    fileName    := ProgPath+ '\OUT\'+IntToStr(id_inv)+'\part5_tr'+IntToStr(truck)+'_'+VarToStr(DM.InvoiceRegisterS_NAME_RU.Value)+'_f1.xls';
+    XArr := VarArrayCreate([1,5],varVariant);
+    XL   := CreateOLEObject('Excel.Application');     // Создание OLE объекта
+    XL.WorkBooks.Add;
+
+    XL.Range['A1','A1'].Value := 'Code';
+    XL.Range['B1','B1'].Value := 'Group';
+    XL.Range['C1','C1'].Value := 'Country';
+    XL.Range['D1','D1'].Value := 'Units';
+    XL.Range['E1','E1'].Value := 'pcs';
+
+    j := 2;
+    XL.Range['A1','E1'].select;
+    XL.Selection.Font.Bold := true;
+
+    with DM.SelQ do
+    begin
+     // dub1:= '1';  dub2:= '1';
+      while not Eof do
+      begin
+
+        //sum_u1 := sum_u1 + FieldByName('units').asinteger;
+
+        XArr[1] := FieldByName('CUST_REGN').Value;
+        XArr[2] := FieldByName('NAME_CAT').Value;
+        XArr[3] := FieldByName('mnemo').Value;
+        XArr[4] := FieldByName('units').Value;//sum_u;
+        XArr[5] := 'pcs';
+
+         XL.Range['A'+IntToStr(j),CHR(64+5)+IntToStr(j)].Value := XArr;
+
+        sum_u := sum_u + FieldByName('units').asinteger;
+
+       // dub1:= FieldByName('NAME_CAT').Value;
+        Next;
+       // dub2:= FieldByName('NAME_CAT').Value;
+
+       { if dub1<>dub2  then begin
+         j := j + 1;
+         sum_a1:=0; sum_u1:=0;
+        end;
+
+        if eof then }j := j + 1;
+
+      end;
+    end;
+
+    XL.Range['B'+IntToStr(j),'B'+IntToStr(j)].Value := 'Total: ';
+    XL.Range['C'+IntToStr(j),'C'+IntToStr(j)].Value := sum_u;
+    XL.Range['D'+IntToStr(j),'D'+IntToStr(j)].Value := '';
+    XL.Range['E'+IntToStr(j),'E'+IntToStr(j)].Value := '';
+    XL.Range['A'+IntToStr(j),'E'+IntToStr(j)].select;
+    XL.Selection.Font.Bold := true;
+
+    XL.Range['A1',CHR(64+5)+IntToStr(j)].select;
+    XL.Selection.Font.Name:='Arial';
+    XL.Selection.Font.Size:=10;
+    XL.selection.Columns.AutoFit;
+    XL.Range['A1',CHR(64+5)+IntToStr(j)].Borders.LineStyle := $00000002;
+
+
 
     try
       XL.Workbooks[1].SaveAs(filename);
