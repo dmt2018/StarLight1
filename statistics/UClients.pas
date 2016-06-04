@@ -209,6 +209,9 @@ type
     cds_result_allPERCENT: TFloatField;
     grTotalLSUMM_TOTAL: TcxGridDBColumn;
     grTotalLPERCENT: TcxGridDBColumn;
+    tsh_clientsChart: TcxTabSheet;
+    Chart_clients: TChart;
+    PieSeries1: TPieSeries;
     procedure btnCloseClick(Sender: TObject);
     procedure cb_typePropertiesEditValueChanged(Sender: TObject);
     procedure chek_regionsClick(Sender: TObject);
@@ -224,6 +227,9 @@ type
     procedure cbOfficesPropertiesChange(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure grDocsVDblClick(Sender: TObject);
+    procedure chart_statClickSeries(Sender: TCustomChart; Series: TChartSeries;
+      ValueIndex: Integer; Button: TMouseButton; Shift: TShiftState; X,
+      Y: Integer);
   private
     { Private declarations }
   public
@@ -370,6 +376,7 @@ begin
 
         total := VarToInt(grid_allnakl_v.DataController.Summary.FooterSummaryValues[16]);
 
+        //grid_allnakl_v.DataController.Groups.FullExpand;
         chart_stat.Series[0].Clear;
         with grid_allnakl_v.DataController do
         begin
@@ -380,9 +387,6 @@ begin
               cxColorComboBox1.ItemIndex := i;
               cxColorComboBox1.PostEditValue;
               chart_stat.Series[0].Add(Summary.GroupSummaryValues[i,3], ' ('+ inttostr(round((Summary.GroupSummaryValues[i,3] / total)*100))+ '%) ' + Groups.GroupDisplayTexts[i], cxColorComboBox1.EditingValue);
-//              chart_stat.Series[0].Add(Summary.GroupSummaryValues[i,3], ' ('+ format('%.2f',[(VarToInt(Summary.GroupSummaryValues[i,3]) / total)*100])+ '%) ' + Groups.GroupDisplayTexts[i], cxColorComboBox1.EditingValue);
-//              chart_stat.Series[0].Add(Summary.GroupSummaryValues[i,3], Format('%f',[(VarToInt(Summary.GroupSummaryValues[i,3]) / total)*100]), cxColorComboBox1.EditingValue);
-              //chart_stat.Series[0].Add(Summary.GroupSummaryValues[i,3],Groups.GroupDisplayTexts[i], cxColorComboBox1.EditingValue);
             end;
           end;
         end;
@@ -390,7 +394,6 @@ begin
         chart_stat.Legend.Title.Text.Clear;
         chart_stat.Legend.Title.Text.Add('Всего накладных: '+VarToStr(grid_allnakl_v.DataController.Summary.FooterSummaryValues[15]));
         chart_stat.Legend.Title.Text.Add('На сумму '+CurrToStrF(total,ffCurrency, 2));
-//          grid_allnakl_v.DataController.Summary.FooterSummaryValues[17]
 
 
 
@@ -473,6 +476,44 @@ begin
   chek_regions.Checked := false;
 end;
 
+procedure TfrmClients.chart_statClickSeries(Sender: TCustomChart;
+  Series: TChartSeries; ValueIndex: Integer; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+var res: string;
+    i, j, ChildCount, RecIndex, CurIndex: integer;
+begin
+  res := Series.XLabel[ValueIndex];
+  res := copy(res, pos(')', res)+2, length(res)-1);
+        with grid_allnakl_v.DataController do
+        begin
+          for I := 0 to Groups.ChildCount[-1] - 1 do
+          begin
+            if Groups.GroupDisplayTexts[i] = res then
+            begin
+              Chart_clients.Series[0].Clear;
+              Chart_clients.Title.Caption := res;
+              ChildCount := grid_allnakl_v.DataController.Groups.ChildCount[i];
+
+              for j := 0 to ChildCount - 1 do
+              begin
+                RecIndex := grid_allnakl_v.DataController.Groups.ChildRecordIndex[i, j];
+                CurIndex := grid_allnakl_v.DataController.GetRowIndexByRecordIndex(RecIndex, True);
+
+                cxColorComboBox1.ItemIndex := j+1;
+                cxColorComboBox1.PostEditValue;
+                Chart_clients.Series[0].Add(grid_allnakl_v.ViewData.Rows[CurIndex].Values[grid_allnakl_vSUMM.Index], VarToStr(grid_allnakl_v.ViewData.Rows[CurIndex].Values[grid_allnakl_vNICK.Index]), cxColorComboBox1.EditingValue);
+              end;
+              Chart_clients.Series[0].ColorEachPoint := true;
+              Chart_clients.Legend.Title.Text.Clear;
+              Chart_clients.Legend.Title.Text.Add('Клиентов: '+VarToStr(Summary.GroupSummaryValues[i,1]));
+              Chart_clients.Legend.Title.Text.Add('Всего накладных: '+VarToStr(Summary.GroupSummaryValues[i,2]));
+              Chart_clients.Legend.Title.Text.Add('На сумму '+VarToStr(Summary.GroupSummaryValues[i,3]));
+            end;
+         end;
+        end;
+   pc_main.ActivePageIndex := 4;
+end;
+
 procedure TfrmClients.check_alphaClick(Sender: TObject);
 begin
   if check_alpha.Checked then
@@ -500,6 +541,7 @@ end;
 
 procedure TfrmClients.FormShow(Sender: TObject);
 begin
+    pc_main.ActivePageIndex := 1;
     dm.id_office := GetOfficeID;
     cbOffices.Enabled := (dm.id_office = 1);
     if (cbOffices.Enabled) then

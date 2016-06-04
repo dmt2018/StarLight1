@@ -547,7 +547,7 @@ object frmClients: TfrmClients
     Top = 213
     Width = 954
     Height = 332
-    ActivePage = tsh_data
+    ActivePage = tch_graph
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -584,7 +584,6 @@ object frmClients: TfrmClients
         ParentFont = False
         TabOrder = 0
         LookAndFeel.Kind = lfOffice11
-        ExplicitTop = -1
         object grid_allnakl_v: TcxGridDBTableView
           PopupMenu = pm_regions
           NavigatorButtons.ConfirmDelete = False
@@ -889,6 +888,7 @@ object frmClients: TfrmClients
         Title.Text.Strings = (
           #1043#1088#1072#1092#1080#1082' '#1074#1099#1088#1091#1095#1082#1080' '#1080' '#1076#1086#1093#1086#1076#1072' '#1087#1086' '#1074#1088#1077#1084#1077#1085#1085#1086#1084#1091' '#1086#1090#1088#1077#1079#1082#1091)
         Title.Visible = False
+        OnClickSeries = chart_statClickSeries
         BottomAxis.LabelsMultiLine = True
         BottomAxis.LabelsSize = 25
         BottomAxis.LabelStyle = talText
@@ -1483,6 +1483,57 @@ object frmClients: TfrmClients
         end
       end
     end
+    object tsh_clientsChart: TcxTabSheet
+      Caption = #1043#1088#1072#1092#1080#1082' '#1087#1086' '#1082#1083#1080#1077#1085#1090#1072#1084
+      ImageIndex = 4
+      object Chart_clients: TChart
+        Left = 0
+        Top = 0
+        Width = 946
+        Height = 297
+        AllowPanning = pmNone
+        BackWall.Brush.Color = clWhite
+        BackWall.Brush.Style = bsClear
+        Legend.CheckBoxesStyle = cbsRadio
+        MarginBottom = 1
+        MarginLeft = 1
+        MarginRight = 2
+        MarginTop = 1
+        OnClickSeries = chart_statClickSeries
+        BottomAxis.LabelsMultiLine = True
+        BottomAxis.LabelsSize = 25
+        BottomAxis.LabelStyle = talText
+        View3D = False
+        View3DOptions.Elevation = 315
+        View3DOptions.Orthogonal = False
+        View3DOptions.Perspective = 0
+        View3DOptions.Rotation = 360
+        Zoom.Allow = False
+        Align = alClient
+        BevelOuter = bvNone
+        TabOrder = 0
+        AutoSize = True
+        PrintMargins = (
+          15
+          34
+          15
+          34)
+        object PieSeries1: TPieSeries
+          Marks.Callout.Brush.Color = clBlack
+          Marks.Style = smsValue
+          Marks.Visible = True
+          Circled = True
+          Gradient.Direction = gdRadial
+          OtherSlice.Legend.Visible = False
+          OtherSlice.Style = poBelowValue
+          PiePen.Color = clRed
+          PiePen.Width = 2
+          PiePen.Visible = False
+          PieValues.Name = 'Pie'
+          PieValues.Order = loDescending
+        end
+      end
+    end
   end
   object bm_clients: TdxBarManager
     Font.Charset = DEFAULT_CHARSET
@@ -1600,7 +1651,7 @@ object frmClients: TfrmClients
     Left = 832
     Top = 144
     Bitmap = {
-      494C0101200024003C0020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010120002400400020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002001000001002000000000000040
       0200000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
