@@ -151,6 +151,7 @@ type
     Label19: TLabel;
     imcb_units: TcxImageComboBox;
     ed_length_hol: TcxSpinEdit;
+    cb_sait: TCheckBox;
     procedure BitBtn2Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
@@ -181,7 +182,7 @@ type
     N_ID, FN_ID_OLD, FT_ID_OLD, FST_ID_OLD, C_ID_OLD, S_ID_OLD,  COL_ID_OLD,
     LEN_OLD, PACK_OLD, PACK_OLD_HOL, HOL_TYPE_OLD, DIAMETER_OLD, WEIGHT_OLD, WEIGHTDRY_OLD,
     CUST_COEF_OLD, VBN_OLD, CODE_OLD, H_NAME_OLD, H_CODE_OLD, REMARKS_OLD,
-    BAR_CODE_OLD, PHOTO_OLD, NOPRINT_OLD, NOTUSE_OLD, TNVED, NOMNEW, NOMSTART, NOMEND,
+    BAR_CODE_OLD, PHOTO_OLD, NOPRINT_OLD, NOTUSE_OLD, TNVED, NOMNEW, NOMSTART, NOMEND, NOMSAIT,
     COLOR_OLD, NAME_CODE_OLD : Variant;
   public
     { Public declarations }
@@ -299,6 +300,7 @@ begin
   cb_new.Checked   := false;
   cb_start.Checked := false;
   cb_end.Checked   := false;
+  cb_sait.Checked   := false;
 
   DM.SelQ.Close;
   DM.SelQ.SQL.Clear;
@@ -306,7 +308,8 @@ begin
   DM.SelQ.Open;
   FillImgComboCx(DM.SelQ, imcb_spec, '');
   DM.SelQ.Close;
-  
+
+
   // Если редактирование, то заполняем элементы
   if editing or (N_ID_ > 0) then
   Begin
@@ -328,6 +331,20 @@ begin
           NOMNEW        := FieldByName('nom_new').Value;
           NOMSTART      := FieldByName('nom_start').Value;
           NOMEND        := FieldByName('nom_end').Value;
+          NOMSAIT       := FieldByName('REMOVE_FROM_SITE').Value;
+
+{
+    //************************читаю чекбокс в перем.NOMSAIT********
+          DM.SelQ.Close;
+          DM.SelQ.SQL.Clear;
+          DM.SelQ.SQL.Add('SELECT REMOVE_FROM_SITE FROM nomenclature_site_marks where N_ID='+floattostr(N_ID));
+          DM.SelQ.Active:=TRUE;
+          NOMSAIT:= DM.SelQ.FieldByName('REMOVE_FROM_SITE').AsString;
+          DM.SelQ.Open;
+          DM.SelQ.Close;
+          if NOMSAIT=1 then cb_sait.Checked:=true else cb_sait.Checked:=false;
+     //***********************************************************
+}
 
 //          HOL_TYPE_OLD  := FieldByName('HOL_TYPE').Value;
           DM.SelQ.Close;
@@ -339,7 +356,7 @@ begin
           else
             HOL_TYPE_OLD  := FieldByName('HT_ID').Value;
           DM.SelQ.Close;
-          
+
 
           DIAMETER_OLD  := FieldByName('DIAMETER').Value;
           WEIGHT_OLD    := FieldByName('WEIGHT').Value;
@@ -403,7 +420,7 @@ begin
 
           DM.SelQ.Close;
 
-          
+
       end;
 
       lookcombo_name.EditValue    := FN_ID_OLD;
@@ -443,6 +460,7 @@ begin
       cb_new.Checked   := (NOMNEW = 1);
       cb_start.Checked := (NOMSTART = 1);
       cb_end.Checked   := (NOMEND = 1);
+      cb_sait.Checked   := (NOMSAIT = 1);
 
       panel10.Visible := (N_ID_ > 0);
 
@@ -1107,6 +1125,7 @@ begin
     NOMNEW    := BoolToint(cb_new.Checked);
     NOMSTART  := BoolToint(cb_start.Checked);
     NOMEND    := BoolToint(cb_end.Checked);
+    NOMSAIT    := boolToint(cb_sait.Checked);
 
     with DM.StorProc do
     Begin
@@ -1146,6 +1165,7 @@ begin
       ParamByName('nom_new_').AsInteger     := NOMNEW;
       ParamByName('nom_start_').AsInteger   := NOMSTART;
       ParamByName('nom_end_').AsInteger     := NOMEND;
+      //ParamByName('nom_sait_').AsInteger     := NOMSAIT;
 
       ParamByName('name_code_').Value := NAME_CODE_OLD;
       ParamByName('hol_color_').Value := COLOR_OLD;
@@ -1192,6 +1212,14 @@ begin
 
           End;
 
+      //******** доб/удал данные ********
+        DM.SelQ.Close;
+        DM.SelQ.SQL.Clear;
+        DM.SelQ.SQL.Add('begin nomenclature2_pkg.set_nomenclature_site_marks('+floattostr(N_ID)+','+IntToStr(BoolToInt(cb_sait.Checked))+'); end;');
+        DM.SelQ.execute;
+        DM.SelQ.Close;
+     //*********************************
+          
           if editing then
             DM.DictView.RefreshRecord
           else

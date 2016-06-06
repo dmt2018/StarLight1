@@ -1228,7 +1228,7 @@ object DM: TDM
     FetchAll = True
     RefreshOptions = [roAfterUpdate]
     FilterOptions = [foCaseInsensitive]
-    Left = 320
+    Left = 336
     Top = 152
     ParamData = <
       item

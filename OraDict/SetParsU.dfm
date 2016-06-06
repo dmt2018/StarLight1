@@ -624,7 +624,6 @@ object SetParsF: TSetParsF
     Align = alClient
     ParentBackground = False
     TabOrder = 2
-    ExplicitTop = 165
     object Label14: TLabel
       Left = 12
       Top = 10
@@ -1102,6 +1101,22 @@ object SetParsF: TSetParsF
       Style.IsFontAssigned = True
       TabOrder = 18
       Width = 204
+    end
+    object cb_sait: TcxCheckBox
+      Left = 431
+      Top = 144
+      Caption = #1091#1073#1088#1072#1090#1100' '#1089' '#1089#1072#1081#1090#1072
+      Properties.AllowGrayed = True
+      Properties.DisplayChecked = '1'
+      Properties.DisplayUnchecked = '0'
+      Properties.DisplayGrayed = '2'
+      Properties.ImmediatePost = True
+      Properties.ValueChecked = '1'
+      Properties.ValueGrayed = '2'
+      Properties.ValueUnchecked = '0'
+      State = cbsGrayed
+      TabOrder = 19
+      Width = 178
     end
   end
   object Panel1: TPanel

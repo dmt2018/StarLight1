@@ -207,6 +207,7 @@ type
     odInvoice: TOpenDialog;
     gr_spec_vORD: TcxGridDBColumn;
     gr_spec_vSC_ID: TcxGridDBColumn;
+    gr_noms_vWWW: TcxGridDBBandedColumn;
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure aExitExecute(Sender: TObject);
@@ -265,11 +266,13 @@ type
     procedure bbSyncNomenclatureLoadClick(Sender: TObject);
   private
     { Private declarations }
+    nomsait:variant;
     pnl_msg: TPanel;
     procedure FildsShow(Sender: TObject);
     procedure RepaintNom;
     procedure RepaintSpec;
     procedure ins_to_file(cds: TOraQuery; var f: TextFile; sql_str: string; old_id: integer);
+
   public
     creator : string;
     path: string;
@@ -452,6 +455,9 @@ var pass_, i : integer;
     newitem: Tmenuitem;
 begin
   try
+
+
+
     path  := ExtractFilePath(Application.ExeName);
 
     RegIni := TIniFile.Create(path+'ini/'+DM.SelectSession.Username+'_font.ini');
@@ -555,7 +561,22 @@ begin
       gr_noms.SetFocus;
     end;
     gr_noms_vBRIEF.Visible := not (GetOfficeID = DM.id_office);
-    
+
+
+             try
+    //************************читаю чекбокс в перем.NOMSAIT********
+          DM.SelQ.Close;
+          DM.SelQ.SQL.Clear;
+          DM.SelQ.SQL.Add('SELECT REMOVE_FROM_SITE FROM nomenclature_site_marks');
+          DM.SelQ.Active:=TRUE;
+          NOMSAIT:= DM.SelQ.FieldByName('REMOVE_FROM_SITE').AsString;
+          DM.SelQ.Open;
+          DM.SelQ.Close;
+     //***********************************************************
+        except
+        end;
+
+
   finally
     RegIni.Free;
   end;
@@ -1376,6 +1397,7 @@ try
       DM.StorProc.ParamByName('nom_new_').Value     := SetParsF.cb_new.EditValue;  // новинка
       DM.StorProc.ParamByName('nom_start_').Value   := SetParsF.cb_start.EditValue;  // старт сезона
       DM.StorProc.ParamByName('nom_end_').Value     := SetParsF.cb_end.EditValue;  // конец сезона
+      //DM.StorProc.ParamByName('remove_from_site').Value     := SetParsF.cb_sait.EditValue;  // сайт
 
       DM.StorProc.ParamByName('TNVED_IN').Value     := SetParsF.edTnVed.EditValue;
       DM.StorProc.ParamByName('CODENAME_IN').Value  := SetParsF.ed_holcodename.EditValue;
@@ -1394,12 +1416,25 @@ try
     end;
     N_ID := gr_noms_v.Controller.SelectedRows[j].Values[gr_noms_vN_ID.Index];
 
+      //******** доб/удал данные ********
+        DM.SelQ.Close;
+        DM.SelQ.SQL.Clear;
+        DM.SelQ.SQL.Add('begin nomenclature2_pkg.set_nomenclature_site_marks(:v_n_id,'+IntToStr(BoolToInt(SetParsF.cb_sait.Checked))+'); end;');
+        for I := 0 to gr_noms_v.Controller.SelectedRowCount - 1 do begin
+        DM.SelQ.ParamByName('v_n_id').Value       := gr_noms_v.Controller.SelectedRows[i].Values[gr_noms_vN_ID.Index];
+        DM.SelQ.execute;
+        j:= i;
+        end;
+        DM.SelQ.Close;
+     //*********************************
+
     gr_noms_v.Controller.ClearSelection;
     DM.DictView.Refresh;
     //DM.DictView.Locate('N_ID',N_ID,[]);
     gr_noms_v.DataController.LocateByKey(n_id);
   end;
   SetParsF.Free;
+
 
 Except on E:Exception do
 begin

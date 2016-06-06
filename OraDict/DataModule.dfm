@@ -7,7 +7,7 @@ object DM: TDM
     Options.Direct = True
     Username = 'creator'
     Password = '123456'
-    Server = 'KLEPOV:1521:STARNEW'
+    Server = 'roznica:1521:orcl'
     AutoCommit = False
     Left = 24
     Top = 16
@@ -16,12 +16,16 @@ object DM: TDM
     SQLUpdate.Strings = (
       'select 1 from dual')
     SQLRefresh.Strings = (
-      'select a.*, nvl(i.CHECKED,1) as CHECKED, u.nsi_name'
+      
+        'select a.*, nvl(i.CHECKED,1) as CHECKED, u.nsi_name, nvl(a1.REMO' +
+        'VE_FROM_SITE,0) as REMOVE_FROM_SITE'
       'from creator.nomenclature_mat_view a'
       '  left outer join import_flowers_kov i'
       '       on i.NOM_CODE = a.code'
       '  left outer join nsi_units u'
       '       on u.nsi_units_id = a.vbn'
+      '  left outer JOIN nomenclature_site_marks a1'
+      '       on a1.n_id = a.n_id'
       'where a.n_id = :n_id')
     Session = SelectSession
     SQL.Strings = (
@@ -231,6 +235,9 @@ object DM: TDM
     end
     object DictViewHOL_PACK: TIntegerField
       FieldName = 'HOL_PACK'
+    end
+    object DictViewREMOVE_FROM_SITE: TFloatField
+      FieldName = 'REMOVE_FROM_SITE'
     end
   end
   object DictView_DS: TDataSource
