@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.NOMENCLATURE2_PKG
--- Generated 2-июн-2016 20:44:04 from CREATOR@STAR2
+-- Generated 07.06.2016 0:43:20 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE nomenclature2_pkg
@@ -200,6 +200,15 @@ PROCEDURE  gen_h_code (
 --
 PROCEDURE set_active_noms_by_suplier (
    v_s_id      in number
+);
+
+
+--
+-- товар на сайте
+--
+PROCEDURE set_nomenclature_site_marks (
+   v_n_id             in number,
+   v_REMOVE_FROM_SITE in number
 );
 
 
@@ -990,6 +999,34 @@ EXCEPTION
            RAISE_APPLICATION_ERROR (-20082, 'Запрос не выполнился. ' || SQLERRM || ' ' || DBMS_UTILITY.format_error_backtrace);
 
 END set_active_noms_by_suplier;
+
+
+--
+-- товар на сайте
+--
+PROCEDURE set_nomenclature_site_marks (
+   v_n_id             in number,
+   v_REMOVE_FROM_SITE in number
+)
+is
+begin
+  tmp_cnt := 0;
+  if v_REMOVE_FROM_SITE = 1 then
+    select count(1) into tmp_cnt from nomenclature_site_marks where N_ID = v_n_id;
+    if tmp_cnt = 0 then
+      insert into nomenclature_site_marks values(v_n_id, 1, sysdate);
+    end if;
+  else
+    delete from nomenclature_site_marks where N_ID = v_n_id;
+  end if;
+EXCEPTION
+   WHEN OTHERS THEN
+           LOG_ERR(SQLERRM, SQLCODE, 'nomenclature2_pkg.set_nomenclature_site_marks', '');
+           RAISE_APPLICATION_ERROR (-20083, 'Запрос не выполнен. ' || SQLERRM || ' ' || DBMS_UTILITY.format_error_backtrace);
+
+END set_nomenclature_site_marks;
+
+
 
 
 END;
