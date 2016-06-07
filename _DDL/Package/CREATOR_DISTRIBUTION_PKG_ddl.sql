@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.DISTRIBUTION_PKG
--- Generated 05.05.2016 1:39:33 from CREATOR@STAR_NEW
+-- Generated 7.06.2016 22:39:48 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE distribution_pkg
@@ -517,11 +517,28 @@ END get_distr_index;
 )
 IS
    vOrders number;
+   vDep    number;
+   vDate   date;
+   v_price_koef number;
 BEGIN
    begin
-       select ID_ORDERS into vOrders from DISTRIBUTIONS_INDEX where DIST_IND_ID = DIST_IND_ID_;
+       select ID_ORDERS, ID_DEPARTMENTS, DIST_DATE into vOrders, vDep, vDate from DISTRIBUTIONS_INDEX where DIST_IND_ID = DIST_IND_ID_;
    exception when no_data_found then
        vOrders := 0;
+       vDep    := 0;
+   end;
+
+  -- достанем коэф. предыдущего прайса
+   begin
+      select profit_coeffitient*PRIME_COAST_COEFFICIENT*EXCHANGE_RATE into v_price_koef from (
+        select * from prepare_price_list_index a
+          where a.id_departments = vDep
+            and pack_id is not null
+            and ppl_date > vDate-10 and ppl_date < vDate
+          order by a.ppl_date desc
+      ) where rownum = 1;
+   exception when no_data_found then
+       v_price_koef := 1;
    end;
 
    open cursor_ for
@@ -540,6 +557,7 @@ BEGIN
                     --, case when a.INVOICE_DATA_ID is null then 0 else nvl(oa.qq,0) end allorder
                     , nvl(b.nbutton,0) || ': ' || a.hol_type as hol_type, vOrders as OrderID
                     ,o.qq as qq1, oa.qq as qq2
+                    , pp.price * v_price_koef as itog_price
                 FROM PREP_DIST_VIEW a, buttons_set b
                     , (select sum(ol.QUANTITY) as qq, ol.n_id
                         from orders_list ol, orders_clients oc, distributions_orders a
@@ -552,10 +570,12 @@ BEGIN
                            and oc.ID_CLIENTS not in (const_dir,const_main) -- 2015-06-22 На совещании решили, что на директора и МАЙН не разносить и даже их не показывать
                         group by ol.n_id
                       ) oa
+                    , (select max(id.PRICE_PER_UNIT) as price, id.INVOICE_DATA_ID from invoice_data id, distributions_invoices di where id.inv_id = di.inv_id and DIST_IND_ID = DIST_IND_ID_ group by id.INVOICE_DATA_ID ) pp
                 WHERE a.DIST_IND_ID = DIST_IND_ID_
                     and a.n_id = o.n_id(+)
                     and a.n_id = oa.n_id(+)
                     and a.fst_id =  b.fst_id(+)
+                    and a.INVOICE_DATA_ID = pp.INVOICE_DATA_ID(+)
                 order by a.compiled_name_otdel||' '||a.colour
         ) z;
 EXCEPTION

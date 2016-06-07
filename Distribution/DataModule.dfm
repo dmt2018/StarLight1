@@ -430,6 +430,9 @@ object DM: TDM
       FieldName = 'SALDO'
       Size = 83
     end
+    object SelPrepDistITOG_PRICE: TFloatField
+      FieldName = 'ITOG_PRICE'
+    end
   end
   object SelPrepDist_DS: TOraDataSource
     DataSet = SelPrepDist

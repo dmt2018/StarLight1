@@ -339,6 +339,8 @@ type
     mnUnloadOrder: TdxBarSubItem;
     dxBarButton9: TdxBarButton;
     gr_goods_info_vPRIORITY: TcxGridDBColumn;
+    tlb_print_ostatok_free_group_wp: TdxBarButton;
+    aPrintSellByGroupWP: TAction;
     procedure AExitExecute(Sender: TObject);
     procedure AGetdeptExecute(Sender: TObject);
     procedure AChooseOrderExecute(Sender: TObject);
@@ -430,6 +432,7 @@ type
     procedure mnAddToClientClick(Sender: TObject);
     procedure aLoadOrderExecute(Sender: TObject);
     procedure UnloadOrderClick(Sender: TObject);
+    procedure aPrintSellByGroupWPExecute(Sender: TObject);
   private
     path: string;
     vSTOK: integer;
@@ -836,6 +839,7 @@ Begin
       aPrintOstatok.Enabled   := pr;
       aPrintOstatokByGroup.Enabled := pr;
       aPrintSellByGroup.Enabled    := pr;
+      aPrintSellByGroupWP.Enabled  := pr;
       aPrintSell.Enabled      := pr;
       aPrint.Enabled          := pr;
       aPrintKubick.Enabled    := pr;
@@ -912,8 +916,9 @@ Begin
       bbReserv.Enabled       := false;
 
       aPrintOstatok.Enabled   := false;
-      aPrintOstatokByGroup.Enabled   := false;
-      aPrintSellByGroup.Enabled   := false;
+      aPrintOstatokByGroup.Enabled := false;
+      aPrintSellByGroup.Enabled    := false;
+      aPrintSellByGroupWP.Enabled  := false;
       aPrintSell.Enabled      := false;
       aPrint.Enabled          := false;
       aPrintKubick.Enabled    := false;
@@ -1832,6 +1837,16 @@ procedure TDistFormF.aPrintSellByGroupExecute(Sender: TObject);
 begin
   DM.SelPrepDist.IndexFieldNames := 'hol_type;compiled_name_otdel';
   PrintItog('OstatokFreeGroup');
+  DM.SelPrepDist.IndexFieldNames := 'compiled_name_otdel';
+end;
+
+//
+//  Печать неразнесенных позиций в форме свободки для клиентов по группам с ценой
+//
+procedure TDistFormF.aPrintSellByGroupWPExecute(Sender: TObject);
+begin
+  DM.SelPrepDist.IndexFieldNames := 'hol_type;compiled_name_otdel';
+  PrintItog('OstatokFreeGroupWP');
   DM.SelPrepDist.IndexFieldNames := 'compiled_name_otdel';
 end;
 
