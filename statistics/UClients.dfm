@@ -909,7 +909,8 @@ object frmClients: TfrmClients
           34)
         object Series1: TPieSeries
           Marks.Callout.Brush.Color = clBlack
-          Marks.Style = smsValue
+          Marks.MultiLine = True
+          Marks.Style = smsLabelValue
           Marks.Visible = True
           Circled = True
           Gradient.Direction = gdRadial
@@ -1499,7 +1500,9 @@ object frmClients: TfrmClients
         MarginLeft = 1
         MarginRight = 2
         MarginTop = 1
-        OnClickSeries = chart_statClickSeries
+        Title.Text.Strings = (
+          'TChart')
+        OnClickSeries = Chart_clientsClickSeries
         BottomAxis.LabelsMultiLine = True
         BottomAxis.LabelsSize = 25
         BottomAxis.LabelStyle = talText
@@ -1520,7 +1523,8 @@ object frmClients: TfrmClients
           34)
         object PieSeries1: TPieSeries
           Marks.Callout.Brush.Color = clBlack
-          Marks.Style = smsValue
+          Marks.MultiLine = True
+          Marks.Style = smsLabelValue
           Marks.Visible = True
           Circled = True
           Gradient.Direction = gdRadial
@@ -1651,7 +1655,7 @@ object frmClients: TfrmClients
     Left = 832
     Top = 144
     Bitmap = {
-      494C010120002400400020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010120002400440020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002001000001002000000000000040
       0200000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

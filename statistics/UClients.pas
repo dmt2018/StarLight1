@@ -230,6 +230,9 @@ type
     procedure chart_statClickSeries(Sender: TCustomChart; Series: TChartSeries;
       ValueIndex: Integer; Button: TMouseButton; Shift: TShiftState; X,
       Y: Integer);
+    procedure Chart_clientsClickSeries(Sender: TCustomChart;
+      Series: TChartSeries; ValueIndex: Integer; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
   private
     { Private declarations }
   public
@@ -474,6 +477,21 @@ end;
 procedure TfrmClients.cb_typePropertiesEditValueChanged(Sender: TObject);
 begin
   chek_regions.Checked := false;
+end;
+
+procedure TfrmClients.Chart_clientsClickSeries(Sender: TCustomChart;
+  Series: TChartSeries; ValueIndex: Integer; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+var res: string;
+begin
+  res := Series.XLabel[ValueIndex];
+  if Trim(res) <> '' then
+  begin
+    galn_NICK.DataBinding.AddToFilter(nil,foEqual,res,res,true);
+    grDocsV.DataController.Filter.Active := true;
+    pc_main.ActivePageIndex := 2;
+    grDocs.SetFocus;
+  end;
 end;
 
 procedure TfrmClients.chart_statClickSeries(Sender: TCustomChart;
