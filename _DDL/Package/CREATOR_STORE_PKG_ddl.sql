@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.STORE_PKG
--- Generated 23.05.2016 22:25:26 from CREATOR@STAR_NEW
+-- Generated 08.06.2016 23:54:15 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE store_pkg
@@ -2579,7 +2579,8 @@ select a.* from (
              store_doc c
         where B1.N_ID = A2.N_ID
            AND c.id_doc = A2.id_doc
-           AND c.doc_date < DDATE_BEGIN
+           AND c.doc_date >= DDATE_BEGIN
+           AND c.doc_date <= DDATE_END
            and (a2.GTD = V_GTD or V_GTD is null)
            and (c.id_office = v_office or v_office = 0)
         group by c.ID_DOC_TYPE, A2.N_ID, A2.PRICE, A2.PRICE_list
