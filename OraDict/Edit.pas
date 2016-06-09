@@ -1,7 +1,7 @@
 unit Edit;
 
 interface
-
+                                   
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Forms,
   Dialogs, ExtCtrls, StdCtrls, Buttons, Grids, DBGrids, Menus, ActnList,StrUtils,
@@ -1417,6 +1417,7 @@ try
     N_ID := gr_noms_v.Controller.SelectedRows[j].Values[gr_noms_vN_ID.Index];
 
       //******** доб/удал данные ********
+      if SetParsF.cb_sait.State<>cbsgrayed then begin
         DM.SelQ.Close;
         DM.SelQ.SQL.Clear;
         DM.SelQ.SQL.Add('begin nomenclature2_pkg.set_nomenclature_site_marks(:v_n_id,'+IntToStr(BoolToInt(SetParsF.cb_sait.Checked))+'); end;');
@@ -1426,6 +1427,7 @@ try
         j:= i;
         end;
         DM.SelQ.Close;
+      end;
      //*********************************
 
     gr_noms_v.Controller.ClearSelection;
