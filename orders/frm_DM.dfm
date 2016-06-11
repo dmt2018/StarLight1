@@ -1147,7 +1147,7 @@ object DM: TDM
       'O.D_DATE, '
       'O.DATE_TRUCK,'
       'O.DATE_TRUCK_OUT,'
-      'O.INFO, d.DIST_IND_ID,'
+      'O.INFO, d.DIST_IND_ID, '
       'o.old_price,'
       
         '(select count(id_orders_clients) from orders_clients where activ' +
@@ -1189,7 +1189,7 @@ object DM: TDM
         '  left outer join INVOICE_REGISTER R on r.id_orders = o.id_order' +
         's'
       
-        '  left outer join distributions_index d on d.id_orders = o.id_or' +
+        '  left outer join distributions_orders d on d.ORDER_ID = o.id_or' +
         'ders'
       
         '  left outer join numeration_seq s on s.obj_id = O.ID_ORDERS and' +
@@ -2926,7 +2926,7 @@ object DM: TDM
     Left = 744
     Top = 192
     Bitmap = {
-      494C010127002C00B40120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010127002C00BC0120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004001000001002000000000000080
       0200000000000000000000000000000000000000000000000000000000000000
       000000000000000000000101011A0B0B0B743B3D3DB4777777D5838383DA5152

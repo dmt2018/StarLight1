@@ -895,7 +895,22 @@ arrive:	2015-06-21
 
 // 2. По дате отправки найдем заказ или добавим новый
     if vOrder > 0 then
-      idOrder := vOrder
+    begin
+      idOrder := vOrder;
+
+      // 2016-10-11
+      // СДЕЛАЙТЕ,ПОЖАЛУЙСТА ИНФОРМАЦИОННОЕ ОКНО ,КОТОРОЕ БУДЕТ СПРАШИАВАТЬ " ВЫ ДЕЙСТВИТЕЛЬНО ХОТИТЕ ЗАГРУЗИТЬ ЗАКАЗ НА "ДРУГУЮ  ДАТУ"( Т Е НА ДАТУ ,КОТОРАЯ НЕ СООТВЕТСТВУЕТ ОН-ЛАЙН ДАТЕ)
+      if dateCargo <> Q_ORDERSDATE_TRUCK_OUT.AsDateTime then
+      begin
+        if mrNo = MessageDlg(PChar('Вы действительно хотите загрузить заявку на '+DateToStr(dateCargo)+' в заказ на '+Q_ORDERSDATE_TRUCK_OUT.AsString+'.'),mtConfirmation,[mbYes, mbNo],0) then
+        begin
+          //MessageBox(Hwnd, PChar('Заказ для клиента '+alpha+' не был создан!'), 'Ошибка', MB_ICONERROR);
+          result := false;
+          exit;
+        end;
+      end;
+    end
+
     else
     begin
       if Q_ORDERS.Locate('DATE_TRUCK_OUT',dateCargo,[]) then
