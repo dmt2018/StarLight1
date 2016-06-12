@@ -32,6 +32,7 @@ type
     chlbInvoices: TcxCheckListBox;
     btnCollectInv: TButton;
     chlbOrders: TcxCheckListBox;
+    Label8: TLabel;
     procedure aEnterExecute(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure btnCollectInvClick(Sender: TObject);

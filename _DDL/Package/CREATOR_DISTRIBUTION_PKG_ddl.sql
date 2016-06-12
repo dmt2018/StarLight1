@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.DISTRIBUTION_PKG
--- Generated 7.06.2016 22:39:48 from CREATOR@STAR_NEW
+-- Generated 12.06.2016 19:56:01 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE distribution_pkg
@@ -254,6 +254,7 @@ PROCEDURE get_print_p1
   dist_ind_id_  in number,
   vFT_ID        in varchar2,
   vMain         in number, -- Îïðåäåëÿåì ÑÒÎÊ
+  vSupplier     in number,
   cursor_       out ref_cursor
 );
 
@@ -267,6 +268,7 @@ PROCEDURE get_print_p2
   dist_ind_id_  in number,
   vFT_ID        in varchar2,
   vMain         in number, -- Îïðåäåëÿåì ÑÒÎÊ
+  vSupplier     in number,
   cursor_       out ref_cursor
 );
 
@@ -1682,6 +1684,7 @@ PROCEDURE get_print_p1
   dist_ind_id_  in number,
   vFT_ID        in varchar2,
   vMain         in number, -- Îïðåäåëÿåì ÑÒÎÊ
+  vSupplier     in number,
   cursor_       out ref_cursor
 )
 IS
@@ -1706,39 +1709,41 @@ BEGIN
             , inv_nom.compiled_name_otdel, nvl(e.QUANTITY,z.TOTAL_QUANTITY) as dq, nvl(c.QUANTITY, z.LEFT_QUANTITY) as OQ, z.hol_type
             , ord_nom.compiled_name_otdel order_compiled_name_otdel
             , p.invoice_data_id, p.id_store_main, inv_nom.f_type
-            , t.ord
+            , t.ord, z.s_name_ru
         FROM PREP_DIST_VIEW z
-          inner join distributions_orders doo on doo.dist_ind_id = z.DIST_IND_ID
+          --inner join distributions_orders doo on doo.dist_ind_id = z.DIST_IND_ID
           left outer join PREPARE_DISTRIBUTION p on p.PREP_DIST_ID = z.PREP_DIST_ID
           left outer join DISTRIBUTIONS e on e.PREP_DIST_ID = z.PREP_DIST_ID
           left outer join orders_list c on c.id_orders_list = e.id_orders_list
           left outer join NOMENCLATURE_MAT_VIEW ord_nom on ord_nom.n_id = c.N_ID
-          left outer join ORDERS_CLIENTS a on a.id_orders = doo.order_id and a.active = 1 and a.id_orders_clients = c.id_orders_clients
+          left outer join ORDERS_CLIENTS a on /*a.id_orders = doo.order_id and*/ a.active = 1 and a.id_orders_clients = c.id_orders_clients
           left outer join CLIENTS b on b.ID_CLIENTS = a.ID_CLIENTS
           left outer join HOL_TYPES t on upper(t.hol_type) = upper(z.hol_type)
           left outer join invoice_data i on i.invoice_data_id = e.invoice_data_id
           left outer join CLIENTS inv on inv.nick = i.to_client
           inner join NOMENCLATURE_MAT_VIEW inv_nom on inv_nom.n_id = z.N_ID
         WHERE z.dist_ind_id = dist_ind_id_
-          and z.invoice_data_id is not null
+          --and z.invoice_data_id is not null
           and inv.id_clients is null
-          and (z.ft_id in (SELECT ID_DOC FROM TMP_EXP_DOC) or length(vFT_ID) = 0)
+          and (z.ft_id in (SELECT ID_DOC FROM TMP_EXP_DOC) or NVL(LENGTH(vFT_ID), 0) = 0)
+          and (inv_nom.s_id = vSupplier or vSupplier = 0)
 
       union all
 
       SELECT 2 as prime, 0 as PREP_DIST_ID, 0 as pack_, 'MAIN 1' as NICK, 'ÎÁÙÈÉ ÇÀÊÀÇ (MAIN 1)' as FIO, z.n_id
             , inv_nom.compiled_name_otdel, z.LEFT_QUANTITY as dq,  z.LEFT_QUANTITY as OQ, z.hol_type
             , inv_nom.compiled_name_otdel order_compiled_name_otdel
-            , p.invoice_data_id, p.id_store_main, inv_nom.f_type, t.ord
+            , p.invoice_data_id, p.id_store_main, inv_nom.f_type, t.ord, z.s_name_ru
         FROM PREP_DIST_VIEW z
           left outer join PREPARE_DISTRIBUTION p on p.PREP_DIST_ID = z.PREP_DIST_ID
           left outer join HOL_TYPES t on upper(t.hol_type) = upper(z.hol_type)
           inner join NOMENCLATURE_MAT_VIEW inv_nom on inv_nom.n_id = z.N_ID
         WHERE z.dist_ind_id = dist_ind_id_ and z.invoice_data_id is not null
-           and (z.ft_id in (SELECT ID_DOC FROM TMP_EXP_DOC) or length(vFT_ID) = 0)
+           and (z.ft_id in (SELECT ID_DOC FROM TMP_EXP_DOC) or NVL(LENGTH(vFT_ID), 0) = 0)
            and z.left_quantity > 0
+           and (inv_nom.s_id = vSupplier or vSupplier = 0)
     ) a
-    order by a.prime, a.nick, a.ord, a.compiled_name_otdel
+    order by a.prime, a.nick, a.ord, a.s_name_ru, a.compiled_name_otdel
     ;
 
 EXCEPTION
@@ -1758,6 +1763,7 @@ PROCEDURE get_print_p2
   dist_ind_id_  in number,
   vFT_ID        in varchar2,
   vMain         in number, -- Îïðåäåëÿåì ÑÒÎÊ
+  vSupplier     in number,
   cursor_       out ref_cursor
 )
 IS
@@ -1776,39 +1782,41 @@ BEGIN
             , inv_nom.compiled_name_otdel, nvl(e.QUANTITY,z.TOTAL_QUANTITY) as dq, nvl(c.QUANTITY, z.LEFT_QUANTITY) as OQ, z.hol_type
             , ord_nom.compiled_name_otdel order_compiled_name_otdel
             , p.invoice_data_id, p.id_store_main, inv_nom.f_type
-            , t.ord
+            , t.ord, z.s_name_ru
         FROM PREP_DIST_VIEW z
-          inner join distributions_orders doo on doo.dist_ind_id = z.DIST_IND_ID
+          --inner join distributions_orders doo on doo.dist_ind_id = z.DIST_IND_ID
           left outer join PREPARE_DISTRIBUTION p on p.PREP_DIST_ID = z.PREP_DIST_ID
           left outer join DISTRIBUTIONS e on e.PREP_DIST_ID = z.PREP_DIST_ID
           left outer join orders_list c on c.id_orders_list = e.id_orders_list
           left outer join NOMENCLATURE_MAT_VIEW ord_nom on ord_nom.n_id = c.N_ID
-          left outer join ORDERS_CLIENTS a on a.id_orders = doo.order_id and a.active = 1 and a.id_orders_clients = c.id_orders_clients
+          left outer join ORDERS_CLIENTS a on /*a.id_orders = doo.order_id and*/ a.active = 1 and a.id_orders_clients = c.id_orders_clients
           left outer join CLIENTS b on b.ID_CLIENTS = a.ID_CLIENTS
           left outer join HOL_TYPES t on upper(t.hol_type) = upper(z.hol_type)
           left outer join invoice_data i on i.invoice_data_id = e.invoice_data_id
           left outer join CLIENTS inv on inv.nick = i.to_client
           inner join NOMENCLATURE_MAT_VIEW inv_nom on inv_nom.n_id = z.N_ID
         WHERE z.dist_ind_id = dist_ind_id_
-          and z.invoice_data_id is not null
+          --and z.invoice_data_id is not null
           and inv.id_clients is null
-          and (z.ft_id in (SELECT ID_DOC FROM TMP_EXP_DOC) or length(vFT_ID) = 0)
+          and (z.ft_id in (SELECT ID_DOC FROM TMP_EXP_DOC) or NVL(LENGTH(vFT_ID), 0) = 0)
+          and (inv_nom.s_id = vSupplier or vSupplier = 0)
 
       union all
 
       SELECT 2 as prime, 0 as PREP_DIST_ID, 0 as pack_, 'MAIN 1' as NICK, 'ÎÁÙÈÉ ÇÀÊÀÇ (MAIN 1)' as FIO, z.n_id
             , inv_nom.compiled_name_otdel, z.LEFT_QUANTITY as dq,  z.LEFT_QUANTITY as OQ, z.hol_type
             , inv_nom.compiled_name_otdel order_compiled_name_otdel
-            , p.invoice_data_id, p.id_store_main, inv_nom.f_type, t.ord
+            , p.invoice_data_id, p.id_store_main, inv_nom.f_type, t.ord, z.s_name_ru
         FROM PREP_DIST_VIEW z
           left outer join PREPARE_DISTRIBUTION p on p.PREP_DIST_ID = z.PREP_DIST_ID
           left outer join HOL_TYPES t on upper(t.hol_type) = upper(z.hol_type)
           inner join NOMENCLATURE_MAT_VIEW inv_nom on inv_nom.n_id = z.N_ID
         WHERE z.dist_ind_id = dist_ind_id_ and z.invoice_data_id is not null
-           and (z.ft_id in (SELECT ID_DOC FROM TMP_EXP_DOC) or length(vFT_ID) = 0)
+           and (z.ft_id in (SELECT ID_DOC FROM TMP_EXP_DOC) or NVL(LENGTH(vFT_ID), 0) = 0)
            and z.left_quantity > 0
+           and (inv_nom.s_id = vSupplier or vSupplier = 0)
     ) a
-    order by a.ord, a.compiled_name_otdel, a.prime, a.nick
+    order by a.ord, a.s_name_ru, a.compiled_name_otdel, a.prime, a.nick
     ;
 
 EXCEPTION
@@ -2075,7 +2083,7 @@ PROCEDURE load_order
 IS
 BEGIN
   open cursor_ for
-      SELECT a.ID_ORDERS, nvl(s.OUTER_ID,a.ID_ORDERS) || ' : ' || (TO_CHAR(DATE_TRUCK_OUT,'DD.MM.YYYY')) || ' : ' || (select count(id_orders_clients) from orders_clients where active = 1 and id_orders=a.ID_ORDERS) || ' : ' || b.s_name_ru ||' : '|| INFO  as ORDER_TITLE
+      SELECT a.ID_ORDERS, nvl(s.OUTER_ID,a.ID_ORDERS) || ' : ' || a.ID_ORDERS || ' : ' || (TO_CHAR(DATE_TRUCK_OUT,'DD.MM.YYYY')) || ' : ' || (select count(id_orders_clients) from orders_clients where active = 1 and id_orders=a.ID_ORDERS) || ' : ' || b.s_name_ru ||' : '|| INFO  as ORDER_TITLE
          FROM ORDERS a
            left outer join suppliers b on b.s_id = a.s_id
            left outer join numeration_seq s on s.ENTITY = 'order' and s.OBJ_ID = a.ID_ORDERS

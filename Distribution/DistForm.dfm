@@ -1294,7 +1294,7 @@ object DistFormF: TDistFormF
     Left = 576
     Top = 488
     Bitmap = {
-      494C01010C00C800D80010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010C00C800E00010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000004000000001002000000000000040
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -1838,8 +1838,8 @@ object DistFormF: TDistFormF
     PreviewOptions.Zoom = 1.000000000000000000
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
-    ReportOptions.CreateDate = 39755.471620648100000000
-    ReportOptions.LastChange = 42525.932123287040000000
+    ReportOptions.CreateDate = 39736.899683588000000000
+    ReportOptions.LastChange = 41989.078537453700000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -1850,8 +1850,8 @@ object DistFormF: TDistFormF
     Top = 304
     Datasets = <
       item
-        DataSet = frxOstatok
-        DataSetName = 'frxOstatok'
+        DataSet = frxCDS_GOODS
+        DataSetName = 'frxCDS_GOODS'
       end>
     Variables = <>
     Style = <>
@@ -1863,276 +1863,94 @@ object DistFormF: TDistFormF
       PaperWidth = 210.000000000000000000
       PaperHeight = 297.000000000000000000
       PaperSize = 9
-      LeftMargin = 5.000000000000000000
-      RightMargin = 5.000000000000000000
+      LeftMargin = 10.000000000000000000
+      RightMargin = 10.000000000000000000
       TopMargin = 10.000000000000000000
       BottomMargin = 10.000000000000000000
       Columns = 2
-      ColumnWidth = 100.000000000000000000
+      ColumnWidth = 95.000000000000000000
       ColumnPositions.Strings = (
         '0'
-        '100')
-      object ReportTitle1: TfrxReportTitle
-        Height = 64.252010000000000000
-        Top = 18.897650000000000000
-        Width = 755.906000000000000000
-        object Memo4: TfrxMemoView
-          Width = 755.906000000000000000
-          Height = 18.897650000000000000
-          ShowHint = False
-          DisplayFormat.DecimalSeparator = ','
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          HAlign = haCenter
-          Memo.UTF8 = (
-            #1056#1038#1056#1030#1056#1109#1056#177#1056#1109#1056#1169#1056#1029#1056#176#1057#1039' '#1056#1111#1057#1026#1056#1109#1056#1169#1056#176#1056#182#1056#176)
-          ParentFont = False
-        end
-        object Memo5: TfrxMemoView
-          Top = 18.897650000000000000
-          Width = 188.976500000000000000
-          Height = 18.897650000000000000
-          ShowHint = False
-          DisplayFormat.DecimalSeparator = ','
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            #1056#1116#1056#176' '#1056#1169#1056#176#1057#8218#1057#1107': [Date]')
-          ParentFont = False
-        end
-        object Memo11: TfrxMemoView
-          Top = 45.354360000000000000
-          Width = 264.567100000000000000
-          Height = 18.897650000000000000
-          ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          Memo.UTF8 = (
-            #1056#1116#1056#176#1056#183#1056#1030#1056#176#1056#1029#1056#1105#1056#181)
-          ParentFont = False
-          VAlign = vaCenter
-        end
-        object Memo12: TfrxMemoView
-          Left = 264.567100000000000000
-          Top = 45.354360000000000000
-          Width = 68.031540000000000000
-          Height = 18.897650000000000000
-          ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          HAlign = haCenter
-          Memo.UTF8 = (
-            #1056#1113#1056#1109#1056#187'-'#1056#1030#1056#1109)
-          ParentFont = False
-          VAlign = vaCenter
-        end
-        object Memo1: TfrxMemoView
-          Left = 377.953000000000000000
-          Top = 45.354360000000000000
-          Width = 264.566929133858300000
-          Height = 18.897650000000000000
-          ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          Memo.UTF8 = (
-            #1056#1116#1056#176#1056#183#1056#1030#1056#176#1056#1029#1056#1105#1056#181)
-          ParentFont = False
-          VAlign = vaCenter
-        end
-        object Memo8: TfrxMemoView
-          Left = 642.520100000000000000
-          Top = 45.354360000000000000
-          Width = 68.031496062992130000
-          Height = 18.897650000000000000
-          ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          HAlign = haCenter
-          Memo.UTF8 = (
-            #1056#1113#1056#1109#1056#187'-'#1056#1030#1056#1109)
-          ParentFont = False
-          VAlign = vaCenter
-        end
-        object Memo14: TfrxMemoView
-          Left = 529.134200000000000000
-          Top = 18.897650000000000000
-          Width = 226.771800000000000000
-          Height = 18.897650000000000000
-          ShowHint = False
-          DisplayFormat.DecimalSeparator = ','
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = [ftBottom]
-          Memo.UTF8 = (
-            #1056#1113#1056#187#1056#1105#1056#181#1056#1029#1057#8218':')
-          ParentFont = False
-        end
-        object Memo16: TfrxMemoView
-          Left = 332.598640000000000000
-          Top = 45.354360000000000000
-          Width = 41.574830000000000000
-          Height = 18.897650000000000000
-          ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          HAlign = haCenter
-          Memo.UTF8 = (
-            #1056#166#1056#181#1056#1029#1056#176' *')
-          ParentFont = False
-          VAlign = vaCenter
-        end
-        object Memo17: TfrxMemoView
-          Left = 710.551640000000000000
-          Top = 45.354360000000000000
-          Width = 41.574830000000000000
-          Height = 18.897650000000000000
-          ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          HAlign = haCenter
-          Memo.UTF8 = (
-            #1056#166#1056#181#1056#1029#1056#176' *')
-          ParentFont = False
-          VAlign = vaCenter
-        end
-      end
+        '95')
+      PrintIfEmpty = False
       object MasterData1: TfrxMasterData
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
-        Font.Height = -11
+        Font.Height = -12
         Font.Name = 'Arial'
         Font.Style = []
         Height = 17.007874020000000000
         ParentFont = False
-        Top = 185.196970000000000000
-        Width = 377.953000000000000000
-        DataSet = frxOstatok
-        DataSetName = 'frxOstatok'
+        Top = 219.212740000000000000
+        Width = 359.055350000000000000
+        DataSet = frxCDS_GOODS
+        DataSetName = 'frxCDS_GOODS'
+        KeepFooter = True
+        KeepHeader = True
+        KeepTogether = True
         RowCount = 0
-        object Memo6: TfrxMemoView
-          Width = 264.567100000000000000
+        object Memo4: TfrxMemoView
+          Width = 257.008040000000000000
           Height = 17.007874020000000000
           ShowHint = False
-          DataSet = frxOstatok
-          DataSetName = 'frxOstatok'
+          DataSet = frxCDS_GOODS
+          DataSetName = 'frxCDS_GOODS'
           DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -11
+          Font.Height = -12
           Font.Name = 'Arial'
           Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           Memo.UTF8 = (
-            '[frxOstatok."COMPILED_NAME_OTDEL"]')
+            '[frxCDS_GOODS."NICK"]')
           ParentFont = False
-          VAlign = vaCenter
         end
-        object Memo7: TfrxMemoView
-          Left = 264.567100000000000000
-          Width = 34.015770000000000000
+        object Memo5: TfrxMemoView
+          Left = 272.126160000000000000
+          Width = 45.354360000000000000
           Height = 17.007874020000000000
           ShowHint = False
-          DataField = 'LEFT_QUANTITY'
-          DataSet = frxOstatok
-          DataSetName = 'frxOstatok'
+          DataSet = frxCDS_GOODS
+          DataSetName = 'frxCDS_GOODS'
           DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -11
+          Font.Height = -12
           Font.Name = 'Arial'
           Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          HAlign = haCenter
-          Memo.UTF8 = (
-            '[frxOstatok."LEFT_QUANTITY"]')
-          ParentFont = False
-          VAlign = vaCenter
-        end
-        object Memo13: TfrxMemoView
-          Left = 298.582870000000000000
-          Width = 34.015770000000000000
-          Height = 17.007874020000000000
-          ShowHint = False
-          DataSet = frxOstatok
-          DataSetName = 'frxOstatok'
-          DisplayFormat.DecimalSeparator = ','
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          HAlign = haCenter
-          ParentFont = False
-          VAlign = vaCenter
-        end
-        object Memo15: TfrxMemoView
-          Left = 332.598640000000000000
-          Width = 41.574830000000000000
-          Height = 17.007874020000000000
-          ShowHint = False
-          DataField = 'ITOG_PRICE'
-          DataSet = frxOstatok
-          DataSetName = 'frxOstatok'
-          DisplayFormat.DecimalSeparator = ','
-          DisplayFormat.FormatStr = '%2.2f'
-          DisplayFormat.Kind = fkNumeric
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           HAlign = haRight
           Memo.UTF8 = (
-            '[frxOstatok."ITOG_PRICE"]')
+            '[frxCDS_GOODS."dq"]')
           ParentFont = False
-          VAlign = vaCenter
+        end
+        object Memo7: TfrxMemoView
+          Left = 317.480520000000000000
+          Width = 34.015770000000000000
+          Height = 17.007874020000000000
+          ShowHint = False
+          DataSet = frxCDS_GOODS
+          DataSetName = 'frxCDS_GOODS'
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[IIF(<frxCDS_GOODS."id_store_main"> > 0,'#39#1057#1027#1057#8218#1056#1109#1056#1108#39','#39#39')]')
+          ParentFont = False
         end
       end
-      object PageFooter1: TfrxPageFooter
-        Height = 15.118120000000000000
-        Top = 264.567100000000000000
-        Width = 755.906000000000000000
+      object PageHeader1: TfrxPageHeader
+        Height = 49.133890000000000000
+        Top = 18.897650000000000000
+        Width = 718.110700000000000000
         object Memo2: TfrxMemoView
-          Align = baLeft
-          Width = 113.385900000000000000
-          Height = 15.118120000000000000
+          Top = 18.897650000000000000
+          Width = 359.055350000000000000
+          Height = 18.897650000000000000
           ShowHint = False
-          AutoWidth = True
           DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -2142,70 +1960,104 @@ object DistFormF: TDistFormF
           Memo.UTF8 = (
             '[Date]')
           ParentFont = False
-          VAlign = vaBottom
+          VAlign = vaCenter
         end
         object Memo3: TfrxMemoView
-          Left = 665.197280000000000000
+          Left = 623.622450000000000000
           Width = 94.488250000000000000
-          Height = 15.118120000000000000
+          Height = 18.897650000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -11
+          Font.Height = -13
           Font.Name = 'Arial'
           Font.Style = []
           HAlign = haRight
           Memo.UTF8 = (
             '[Page]')
           ParentFont = False
-          VAlign = vaBottom
         end
-        object Memo10: TfrxMemoView
-          Align = baLeft
-          Left = 113.385900000000000000
-          Width = 166.299320000000000000
-          Height = 15.118110240000000000
+        object Memo12: TfrxMemoView
+          Width = 359.055350000000000000
+          Height = 18.897650000000000000
           ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -11
+          Font.Height = -13
           Font.Name = 'Arial'
-          Font.Style = []
+          Font.Style = [fsBold]
           Memo.UTF8 = (
-            #1056#1115#1056#1115#1056#1115' '#1056#1113#1056#1109#1056#1112#1056#1111#1056#176#1056#1029#1056#1105#1057#1039' '#1042#171#1056#1038#1057#8218#1056#176#1057#1026#1056#187#1056#176#1056#8470#1057#8218#1042#187)
+            #1056#160#1056#176#1056#183#1056#1029#1056#1109#1057#1027#1056#1108#1056#176' '#1057#8218#1056#1109#1056#1030#1056#176#1057#1026'-'#1056#1108#1056#187#1056#1105#1056#181#1056#1029#1057#8218)
           ParentFont = False
-          VAlign = vaBottom
-        end
-        object Memo18: TfrxMemoView
-          Align = baRight
-          Left = 498.897960000000000000
-          Width = 166.299320000000000000
-          Height = 15.118110240000000000
-          ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -8
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            '* - '#1057#8224#1056#181#1056#1029#1056#176' '#1057#1039#1056#1030#1056#187#1057#1039#1056#181#1057#8218#1057#1027#1057#1039' '#1056#1111#1057#1026#1056#181#1056#1169#1056#1030#1056#176#1057#1026#1056#1105#1057#8218#1056#181#1056#187#1057#1034#1056#1029#1056#1109#1056#8470)
-          ParentFont = False
-          VAlign = vaBottom
         end
       end
       object GroupHeader1: TfrxGroupHeader
-        Height = 17.007874020000000000
-        Top = 143.622140000000000000
-        Width = 377.953000000000000000
-        Condition = 'frxOstatok."HOL_TYPE"'
-        OutlineText = 'frxOstatok."HOL_TYPE"'
-        object Memo9: TfrxMemoView
-          Width = 374.173470000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Arial'
+        Font.Style = []
+        Height = 18.897637800000000000
+        ParentFont = False
+        Top = 177.637910000000000000
+        Width = 359.055350000000000000
+        Condition = 'frxCDS_GOODS."compiled_name_otdel"'
+        KeepTogether = True
+        object Memo1: TfrxMemoView
+          Width = 351.496290000000000000
           Height = 17.007874020000000000
           ShowHint = False
-          DataSet = frxOstatok
-          DataSetName = 'frxOstatok'
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftBottom]
+          Memo.UTF8 = (
+            '[frxCDS_GOODS."compiled_name_otdel"]')
+          ParentFont = False
+        end
+      end
+      object GroupFooter1: TfrxGroupFooter
+        Height = 22.677180000000000000
+        Top = 260.787570000000000000
+        Width = 359.055350000000000000
+        object Memo11: TfrxMemoView
+          Left = 279.685220000000000000
+          Top = 3.779530000000000000
+          Width = 71.811070000000000000
+          Height = 17.007874020000000000
+          ShowHint = False
+          DataSet = frxCDS_GOODS
+          DataSetName = 'frxCDS_GOODS'
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[SUM(<frxCDS_GOODS."dq">,MasterData1)]')
+          ParentFont = False
+        end
+      end
+      object GroupHeader3: TfrxGroupHeader
+        Height = 26.456710000000000000
+        Top = 128.504020000000000000
+        Width = 359.055350000000000000
+        Condition = 'frxCDS_GOODS."f_type"'
+        OutlineText = 'frxCDS_GOODS."f_type"'
+        StartNewPage = True
+        object Memo6: TfrxMemoView
+          Align = baLeft
+          Width = 351.496290000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          Color = 15790320
           DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -2214,9 +2066,8 @@ object DistFormF: TDistFormF
           Font.Style = [fsBold]
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           Memo.UTF8 = (
-            '[frxOstatok."HOL_TYPE"]')
+            '[frxCDS_GOODS."f_type"]')
           ParentFont = False
-          VAlign = vaCenter
         end
       end
     end

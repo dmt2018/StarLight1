@@ -2678,6 +2678,17 @@ begin
       frm_choise_type.Q_FLOWER_TYPE.Open;
       frm_choise_type.Panel2.Visible := false;
       frm_choise_type.pnlPrint.Visible := true;
+
+      // Добавим выпадающий список из поставщиков в разносе для возможности фильтрации печати
+      DM.SelQ.Close;
+      DM.SelQ.SQL.Clear;
+      DM.SelQ.SQL.Add('SELECT a.s_id, a.s_name_ru FROM suppliers a, orders o, distributions_orders d where a.s_id = o.s_id and o.id_orders = d.order_id and d.dist_ind_id = '+VarToStr(CUR_DIST_IND_ID));
+      DM.SelQ.Open;
+      FillImgComboCx(DM.SelQ, frm_choise_type.cbSuppliers, 'Все');
+      frm_choise_type.cbSuppliers.EditValue := 0;
+      DM.SelQ.Close;
+      // -----------------------------------------------------------------------
+
       if frm_choise_type.ShowModal = mrOk then
       begin
         if not frm_choise_type.chbAllTypes.Checked then
@@ -2693,17 +2704,12 @@ begin
         begin
           dm.SelQ.Close;
           dm.SelQ.SQL.Clear;
-          dm.SelQ.SQL.Add( 'begin creator.DISTRIBUTION_PKG.get_print_p1(:DIST_IND_ID_, :vFT_ID, :vMain, :CURSOR_); end;' );
+          dm.SelQ.SQL.Add( 'begin creator.DISTRIBUTION_PKG.get_print_p1(:DIST_IND_ID_, :vFT_ID, :vMain, :vSupplier, :CURSOR_); end;' );
           //dm.SelQ.ParamByName('ID_ORDER_').AsInteger    := CUR_ID_ORDERS;
           dm.SelQ.ParamByName('DIST_IND_ID_').AsInteger := CUR_DIST_IND_ID;
-          dm.SelQ.ParamByName('vFT_ID').AsString := tmpStr;
-          dm.SelQ.ParamByName('vMain').AsInteger    := vSTOK;
-{
-          if frm_choise_type.chbAllTypes.Checked then
-            dm.SelQ.ParamByName('vFT_ID').AsInteger := 0
-          else
-            dm.SelQ.ParamByName('vFT_ID').AsInteger := frm_choise_type.Q_FLOWER_TYPEFT_ID.AsInteger;
-}
+          dm.SelQ.ParamByName('vFT_ID').AsString        := tmpStr;
+          dm.SelQ.ParamByName('vMain').AsInteger        := vSTOK;
+          dm.SelQ.ParamByName('vSupplier').AsInteger    := frm_choise_type.cbSuppliers.EditValue;
           dm.SelQ.ParamByName('CURSOR_').AsCursor;
           dm.SelQ.Open;
 
@@ -2721,17 +2727,12 @@ begin
         begin
           dm.SelQ.Close;
           dm.SelQ.SQL.Clear;
-          dm.SelQ.SQL.Add( 'begin creator.DISTRIBUTION_PKG.get_print_p2(:DIST_IND_ID_, :vFT_ID, :vMain, :CURSOR_); end;' );
+          dm.SelQ.SQL.Add( 'begin creator.DISTRIBUTION_PKG.get_print_p2(:DIST_IND_ID_, :vFT_ID, :vMain, :vSupplier, :CURSOR_); end;' );
           //dm.SelQ.ParamByName('ID_ORDER_').AsInteger    := CUR_ID_ORDERS;
           dm.SelQ.ParamByName('DIST_IND_ID_').AsInteger := CUR_DIST_IND_ID;
-          dm.SelQ.ParamByName('vFT_ID').AsString := tmpStr;
-          dm.SelQ.ParamByName('vMain').AsInteger    := vSTOK;
-{
-          if frm_choise_type.chbAllTypes.Checked then
-            dm.SelQ.ParamByName('vFT_ID').AsInteger := 0
-          else
-            dm.SelQ.ParamByName('vFT_ID').AsInteger := frm_choise_type.Q_FLOWER_TYPEFT_ID.AsInteger;
-}
+          dm.SelQ.ParamByName('vFT_ID').AsString        := tmpStr;
+          dm.SelQ.ParamByName('vMain').AsInteger        := vSTOK;
+          dm.SelQ.ParamByName('vSupplier').AsInteger    := frm_choise_type.cbSuppliers.EditValue;
           dm.SelQ.ParamByName('CURSOR_').AsCursor;
           dm.SelQ.Open;
 

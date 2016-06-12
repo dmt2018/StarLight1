@@ -5,7 +5,7 @@ object DistParamsF: TDistParamsF
   BorderStyle = bsSingle
   Caption = '  '#1056#1072#1089#1087#1088#1077#1076#1077#1083#1077#1085#1080#1077
   ClientHeight = 495
-  ClientWidth = 574
+  ClientWidth = 592
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,7 +21,7 @@ object DistParamsF: TDistParamsF
   object Panel2: TPanel
     Left = 0
     Top = 455
-    Width = 574
+    Width = 592
     Height = 40
     Align = alBottom
     Color = clWhite
@@ -29,8 +29,9 @@ object DistParamsF: TDistParamsF
     ParentBackground = False
     ParentCtl3D = False
     TabOrder = 3
+    ExplicitWidth = 574
     DesignSize = (
-      574
+      592
       40)
     object btnOK: TcxButton
       Left = 5
@@ -110,7 +111,7 @@ object DistParamsF: TDistParamsF
       Spacing = 6
     end
     object btnExit: TcxButton
-      Left = 409
+      Left = 427
       Top = 5
       Width = 160
       Height = 30
@@ -191,6 +192,7 @@ object DistParamsF: TDistParamsF
       LookAndFeel.Kind = lfFlat
       LookAndFeel.NativeStyle = True
       Spacing = 6
+      ExplicitLeft = 409
     end
     object btnCollectInv: TButton
       Left = 171
@@ -206,10 +208,11 @@ object DistParamsF: TDistParamsF
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 574
+    Width = 592
     Height = 83
     Align = alTop
     TabOrder = 0
+    ExplicitWidth = 574
     object Label1: TLabel
       Left = 32
       Top = 31
@@ -331,18 +334,19 @@ object DistParamsF: TDistParamsF
   object Panel3: TPanel
     Left = 0
     Top = 83
-    Width = 574
+    Width = 592
     Height = 178
     Align = alTop
     TabOrder = 1
+    ExplicitWidth = 574
     object Label3: TLabel
       Left = 160
       Top = 10
-      Width = 403
+      Width = 424
       Height = 13
       Caption = 
-        #8470' '#1079#1072#1082#1072#1079#1072' : '#1076#1072#1090#1072' '#1074#1099#1093#1086#1076#1072' '#1084#1072#1096#1080#1085#1099' : '#1082#1086#1083'-'#1074#1086' '#1082#1083#1080#1077#1085#1090#1086#1074' : '#1087#1086#1089#1090#1072#1074#1097#1080#1082' : '#1080#1085 +
-        #1092#1086#1088#1084#1072#1094#1080#1103
+        #8470' '#1079#1072#1082#1072#1079#1072' : ID : '#1076#1072#1090#1072' '#1074#1099#1093#1086#1076#1072' '#1084#1072#1096#1080#1085#1099' : '#1082#1086#1083'-'#1074#1086' '#1082#1083#1080#1077#1085#1090#1086#1074' : '#1087#1086#1089#1090#1072#1074#1097#1080#1082 +
+        ' : '#1080#1085#1092#1086#1088#1084#1072#1094#1080#1103
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -412,7 +416,7 @@ object DistParamsF: TDistParamsF
     object chlbOrders: TcxCheckListBox
       Left = 8
       Top = 29
-      Width = 556
+      Width = 576
       Height = 142
       Items = <
         item
@@ -424,10 +428,11 @@ object DistParamsF: TDistParamsF
   object Panel4: TPanel
     Left = 0
     Top = 261
-    Width = 574
+    Width = 592
     Height = 194
     Align = alClient
     TabOrder = 2
+    ExplicitWidth = 574
     object Label4: TLabel
       Left = 8
       Top = 240
@@ -456,10 +461,24 @@ object DistParamsF: TDistParamsF
       Font.Style = [fsBold]
       ParentFont = False
     end
+    object Label8: TLabel
+      Left = 150
+      Top = 10
+      Width = 249
+      Height = 13
+      Caption = 'ID : '#1076#1072#1090#1072' '#1087#1086#1089#1090#1072#1074#1097#1080#1082#1072' : '#1087#1086#1089#1090#1072#1074#1097#1080#1082' : '#1080#1085#1092#1086#1088#1084#1072#1094#1080#1103
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Pitch = fpFixed
+      Font.Style = []
+      ParentFont = False
+    end
     object chlbInvoices: TcxCheckListBox
       Left = 8
       Top = 27
-      Width = 555
+      Width = 576
       Height = 158
       Items = <
         item

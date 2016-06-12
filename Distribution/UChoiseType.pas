@@ -8,7 +8,8 @@ uses
   cxStyles, cxCustomData, cxGraphics, cxFilter, cxData, cxDataStorage,
   cxEdit, DB, cxDBData, cxTextEdit, cxGridCustomTableView, cxGridTableView,
   cxGridDBTableView, cxGridLevel, cxClasses, cxControls, cxGridCustomView,
-  cxGrid, Ora, MemDS, DBAccess, ActnList;
+  cxGrid, Ora, MemDS, DBAccess, ActnList, cxContainer, cxMaskEdit,
+  cxDropDownEdit, cxImageComboBox;
 
 type
   Tfrm_choise_type = class(TForm)
@@ -37,6 +38,7 @@ type
     aPrint1: TAction;
     aPrint2: TAction;
     Label1: TLabel;
+    cbSuppliers: TcxImageComboBox;
     procedure aEnterExecute(Sender: TObject);
     procedure grid_ucViewKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
