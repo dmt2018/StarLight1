@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.DISTRIBUTION_PKG
--- Generated 12.06.2016 19:56:01 from CREATOR@STAR_NEW
+-- Generated 14.06.2016 0:50:43 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE distribution_pkg
@@ -1922,28 +1922,32 @@ IS
   vOrderNum  number;
   vOrderDate date;
 
+  vComments  varchar2(1000);
+
   cursor c_list is
-        SELECT a.id_orders_clients, b.id_clients, b.NICK || ' ' || a.alpha as NICK, b.FIO, DATE_TRUCK, ID_DEPARTMENTS, nvl(s.outer_id, O.ID_ORDERS) as order_seq
+        --SELECT a.id_orders_clients, b.id_clients, b.NICK || ' ' || a.alpha as NICK, b.FIO, DATE_TRUCK, ID_DEPARTMENTS, nvl(s.outer_id, O.ID_ORDERS) as order_seq
+        SELECT distinct b.id_clients, b.NICK, b.FIO, max(DATE_TRUCK) as DATE_TRUCK, ID_DEPARTMENTS
         FROM ORDERS_CLIENTS a
           inner join CLIENTS b on b.ID_CLIENTS = a.ID_CLIENTS
           inner join orders o on o.id_orders = a.id_orders
+          inner join DISTRIBUTIONS_ORDERS d on d.order_id = o.id_orders and d.DIST_IND_ID = dist_ind_id_
           left outer join numeration_seq s on s.obj_id = O.ID_ORDERS and s.entity = 'order'
-        WHERE a.id_orders = id_order_
-              and a.active = 1
+        WHERE --a.id_orders = id_order_ and
+              a.active = 1
               and a.id_clients <> vMain
-              --and a.pack_ = 0
               and (a.pack_ = 0 or const_office > 1)
               and exists (select 1 from orders_list z where z.id_orders_clients = a.id_orders_clients)
               and a.id_clients not in (const_dir,const_main)
+        group by b.id_clients, b.NICK, b.FIO, ID_DEPARTMENTS
         ;
 
   CURSOR data_temp IS
     select a.n_id, sum(a.quantity) as quantity, sum(a.OQ) as OQ, a.price
     from (
         SELECT e.D_N_ID as n_id, e.dq as quantity, e.OQ, p.price
-        FROM ORDERS_CLIENTS a, CLIENTS b, orders_list c, DISTRIBUTION_VIEW e, price_list p
-        WHERE a.id_orders = id_order_
-              and a.active = 1
+        FROM ORDERS_CLIENTS a, CLIENTS b, orders_list c, DISTRIBUTION_VIEW e, price_list p, DISTRIBUTIONS_ORDERS d
+        WHERE --a.id_orders = id_order_ and
+              a.active = 1
               and a.ID_CLIENTS = b.ID_CLIENTS
               and a.id_orders_clients = c.id_orders_clients
               and c.id_orders_list = e.id_orders_list
@@ -1951,9 +1955,12 @@ IS
               and a.id_clients = vCurClient
               and e.D_N_ID = p.n_id(+)
               and a.id_clients not in (const_dir,const_main)
+              and d.order_id = a.id_orders and d.DIST_IND_ID = e.dist_ind_id
     ) a
     group by a.n_id, a.price
     ;
+
+
 
 
   cursor c_list_packed is
@@ -1968,7 +1975,8 @@ IS
         ) s on s.dist_ind_id = z.dist_ind_id
         inner join distributions b on b.prep_dist_id = s.prep_dist_id and b.invoice_data_id is not null
         inner join invoice_data inv on inv.invoice_data_id = b.invoice_data_id and inv.to_client is not null
-        inner join orders o on o.id_orders = z.id_orders
+        inner join DISTRIBUTIONS_ORDERS d on d.DIST_IND_ID = z.dist_ind_id
+        inner join orders o on o.id_orders = d.order_id
         left outer join numeration_seq s on s.obj_id = O.ID_ORDERS and s.entity = 'order'
         inner join clients c on c.nick = s.nick
     ;
@@ -1991,6 +1999,8 @@ IS
 
 begin
   -- 2015-06-17 Удалим предыдущие брони
+/* old version
+2016-06-13
     select nvl(s.outer_id, O.ID_ORDERS) as order_seq, DATE_TRUCK into vOrderNum, vOrderDate
     from orders o
       left outer join numeration_seq s on s.obj_id = O.ID_ORDERS and s.entity = 'order'
@@ -2007,6 +2017,26 @@ begin
 
     delete from ORDERS_LIST ol where ol.id_orders_clients in ( select oc.id_orders_clients from orders_clients oc where oc.info = 'По заказу №'||vOrderNum||' от '||vOrderDate );
     delete from orders_clients where info = 'По заказу №'||vOrderNum||' от '||vOrderDate;
+*/
+
+
+    execute immediate 'select ''По заказу №''||wm_concat(distinct nvl(s.outer_id, O.ID_ORDERS) )||'' от ''|| wm_concat(distinct DATE_TRUCK)
+    from orders o
+      left outer join numeration_seq s on s.obj_id = O.ID_ORDERS and s.entity = ''order''
+      inner join DISTRIBUTIONS_ORDERS d on d.order_id = o.id_orders and d.DIST_IND_ID = :dist_ind_id_
+      group by  d.DIST_IND_ID'
+    into vComments using dist_ind_id_;
+
+    update store_main s set date_change=sysdate, reserv = reserv - (
+      select sum(quantity) from orders_list ol, orders_clients oc where ol.id_orders_clients = oc.id_orders_clients and ol.n_id = s.n_id and oc.info = vComments
+    )
+    where n_id in (
+      select distinct n_id
+      from orders_list ol, orders_clients oc
+      where ol.id_orders_clients = oc.id_orders_clients and oc.info = vComments
+    );
+    delete from ORDERS_LIST ol where ol.id_orders_clients in ( select oc.id_orders_clients from orders_clients oc where oc.info = vComments );
+    delete from orders_clients where info = vComments;
 
 
   -- Вставляем брони для простых клиентов в заказе
@@ -2020,7 +2050,8 @@ begin
         1, 0,
         c_list_cursor.ID_DEPARTMENTS
     );
-    update ORDERS_CLIENTS set info = 'По заказу №'||c_list_cursor.order_seq||' от '||c_list_cursor.DATE_TRUCK where ID_ORDERS_CLIENTS = vNewReserv;
+    update ORDERS_CLIENTS set info = vComments --'По заказу №'||c_list_cursor.order_seq||' от '||c_list_cursor.DATE_TRUCK
+    where ID_ORDERS_CLIENTS = vNewReserv;
 
     vCurClient := c_list_cursor.id_clients;
 
