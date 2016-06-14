@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.STORE_PKG
--- Generated 08.06.2016 23:54:15 from CREATOR@STAR_NEW
+-- Generated 13.06.2016 18:25:52 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE store_pkg
@@ -552,6 +552,19 @@ PROCEDURE get_service_type
 procedure set_params_to_invoice
 (
   inv_num IN NUMBER
+);
+
+
+--
+--  Сбор статистики по движению товара в разрезе поставщика
+--
+PROCEDURE get_supplier_report
+(
+  v_id_dep      IN NUMBER,
+  DDATE_BEGIN   IN DATE,
+  DDATE_END     IN DATE,
+  v_office      in number,
+  p_cursor      out ref_cursor
 );
 
 
@@ -3819,6 +3832,81 @@ EXCEPTION
       RAISE_APPLICATION_ERROR (-20333, 'Запрос не выполнился. ' || SQLERRM);
 
 end get_service_type;
+
+
+
+--
+--  Сбор статистики по движению товара в разрезе поставщика
+--
+PROCEDURE get_supplier_report
+(
+  v_id_dep      IN NUMBER,
+  DDATE_BEGIN   IN DATE,
+  DDATE_END     IN DATE,
+  v_office      in number,
+  p_cursor      out ref_cursor
+)
+IS
+BEGIN
+  open p_cursor for
+      select
+         -- 1 приход 2 списание 3 уценка 4 продажа 5 инвентаризация 6 переоценка
+        s.s_name_ru,
+        --sum(decode(ID_DOC_TYPE, 1, A1.q, 0)) + sum(decode(ID_DOC_TYPE, 1, a1.addit, 0)) q0_1,
+        --sum(decode(ID_DOC_TYPE, 2, A1.q, 0)) q0_2,
+        --sum(decode(ID_DOC_TYPE, 3, A1.q, 0)) q0_3,
+        --sum(decode(ID_DOC_TYPE, 4, A1.q, 0)) q0_4,
+        --sum(decode(ID_DOC_TYPE, 5, A1.q, 0)) q0_5,
+        --sum(decode(ID_DOC_TYPE, 6, A1.q, 0)) q0_6,
+        sum(decode(ID_DOC_TYPE, 1, A1.p, 0)) prihod,
+        sum(decode(ID_DOC_TYPE, 4, A1.p, 0)) - sum(office_q) prodaza,
+        sum(office_q) as office,
+        sum(decode(ID_DOC_TYPE, 3, A1.p, 0)) -  sum(decode(ID_DOC_TYPE, 4, a1.addit, 1, a1.addit, 0)) ucenka,
+        sum(decode(ID_DOC_TYPE, 2, A1.p, 0)) spisanie,
+        sum(decode(ID_DOC_TYPE, 5, A1.p, 0)) invent,
+        0 as claim,
+        sum(decode(ID_DOC_TYPE, 6, A1.p, 0)) reprice
+        --sum(decode(ID_DOC_TYPE, 4, a1.addit, 1, a1.addit, 0)) p0_add,
+        --sum(decode(ID_DOC_TYPE, 1, a1.addit, 0)) p0_add2
+      from (
+        select CASE WHEN c.ID_DOC_TYPE = 5 THEN sum(A2.QUANTITY_REAL - A2.QUANTITY) ELSE sum(A2.QUANTITY) END q,
+               CASE WHEN c.ID_DOC_TYPE = 5 THEN sum(A2.QUANTITY_REAL * A2.PRICE - A2.QUANTITY * A2.PRICE)
+                  else case WHEN c.ID_DOC_TYPE = 6 THEN sum(A2.QUANTITY * (A2.PRICE - A2.PRICE_LIST))
+                    else case WHEN c.ID_DOC_TYPE = 3 THEN sum(A2.QUANTITY * (A2.PRICE_LIST - A2.PRICE))
+                      ELSE case when c.ID_DOC_TYPE = 4 then sum(A2.QUANTITY * decode(a2.store_type,1,A2.PRICE_list,2,a2.price))
+                        ELSE case when c.ID_DOC_TYPE = 1 then sum(A2.QUANTITY * nvl(A2.PRICE_list,a2.price))
+                          else sum(A2.QUANTITY * A2.PRICE) END end end end end p,
+               case WHEN (c.ID_DOC_TYPE in (4,1) and nvl(A2.PRICE,0) <> nvl(A2.PRICE_list,0) and nvl(A2.PRICE_list,0) <> 0 ) THEN sum(A2.QUANTITY * (A2.PRICE - A2.PRICE_LIST)) else 0 end addit,
+               c.ID_DOC_TYPE, b1.s_id
+               , sum( case when instr(l.NICK, 'O ') > 0 and c.ID_DOC_TYPE = 4 then A2.QUANTITY * decode(a2.store_type,1,A2.PRICE_list,2,a2.price) else 0 end ) office_q
+        FROM nomenclature_mat_view B1,
+             store_doc_data A2,
+             store_doc c,
+             clients l
+        where B1.N_ID = A2.N_ID
+           AND c.id_doc = A2.id_doc
+           AND c.doc_date >= DDATE_BEGIN
+           AND c.doc_date <= DDATE_END
+           and b1.id_departments = v_id_dep
+           and c.id_client = l.id_clients
+           and (c.id_office = v_office or v_office = 0)
+        group by c.ID_DOC_TYPE, b1.s_id, A2.PRICE, A2.PRICE_list
+        order by c.ID_DOC_TYPE
+      ) A1, suppliers s
+      where a1.s_id = s.s_id
+        group by A1.s_id, s.s_name_ru
+        order by s.s_name_ru
+        ;
+
+EXCEPTION
+   WHEN OTHERS
+   THEN
+      LOG_ERR(SQLERRM|| ' ' || DBMS_UTILITY.format_error_backtrace, SQLCODE, 'store_pkg.get_supplier_report', '');
+      RAISE_APPLICATION_ERROR (-20334, 'Запрос не выполнился. ' || SQLERRM);
+
+end get_supplier_report;
+
+
 
 
 END;
