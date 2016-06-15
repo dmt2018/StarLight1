@@ -171,7 +171,7 @@ object frmSetings: TfrmSetings
           Align = alClient
           TabOrder = 0
           LookAndFeel.Kind = lfOffice11
-          LookAndFeel.NativeStyle = True
+          LookAndFeel.NativeStyle = False
           object gr_weight_v: TcxGridDBTableView
             NavigatorButtons.ConfirmDelete = False
             FilterBox.Position = fpTop
@@ -962,7 +962,7 @@ object frmSetings: TfrmSetings
           Align = alBottom
           TabOrder = 1
           LookAndFeel.Kind = lfOffice11
-          LookAndFeel.NativeStyle = True
+          LookAndFeel.NativeStyle = False
           object gr_w_formula_v: TcxGridDBTableView
             NavigatorButtons.ConfirmDelete = False
             FilterBox.Position = fpTop
@@ -1220,7 +1220,7 @@ object frmSetings: TfrmSetings
           Align = alClient
           TabOrder = 1
           LookAndFeel.Kind = lfOffice11
-          LookAndFeel.NativeStyle = True
+          LookAndFeel.NativeStyle = False
           object gr_fito_v: TcxGridDBTableView
             NavigatorButtons.ConfirmDelete = False
             FilterBox.Position = fpTop
@@ -1813,7 +1813,7 @@ object frmSetings: TfrmSetings
           ParentFont = False
           TabOrder = 1
           LookAndFeel.Kind = lfOffice11
-          LookAndFeel.NativeStyle = True
+          LookAndFeel.NativeStyle = False
           object gr_names_v: TcxGridDBTableView
             NavigatorButtons.ConfirmDelete = False
             FilterBox.Position = fpTop
@@ -2180,7 +2180,7 @@ object frmSetings: TfrmSetings
           Align = alClient
           TabOrder = 1
           LookAndFeel.Kind = lfOffice11
-          LookAndFeel.NativeStyle = True
+          LookAndFeel.NativeStyle = False
           object grPackingV: TcxGridDBTableView
             NavigatorButtons.ConfirmDelete = False
             FilterBox.Position = fpTop
@@ -2205,6 +2205,60 @@ object frmSetings: TfrmSetings
             OptionsView.Footer = True
             OptionsView.GroupByBox = False
             OptionsView.HeaderHeight = 25
+            object grPackingVColumn1: TcxGridDBColumn
+              PropertiesClassName = 'TcxButtonEditProperties'
+              Properties.Alignment.Horz = taCenter
+              Properties.Alignment.Vert = taVCenter
+              Properties.Buttons = <
+                item
+                  Default = True
+                  Glyph.Data = {
+                    36040000424D3604000000000000360000002800000010000000100000000100
+                    2000000000000004000000000000000000000000000000000000000000000000
+                    0000181862042929A59326269B3B000000000000000000000000000000000000
+                    00000000000021218A3126269B94181863050000000000000000000000001818
+                    64042A2AA9A94D4DD0FF3535B4F226269B3B0000000000000000000000000000
+                    000022228C312F2FA9EC4242C5FF26269BAD1818630500000000191966042B2B
+                    ACA94E4ED1FF6969E2FF6969E9FF3636B5F226269B3B00000000000000002323
+                    8E322F2FABED4E4ED8FF4747D2FF4444C9FF26269BAD181863052B2BAE8E4949
+                    CDFF6060D9FF6868DDFF7070E7FF6C6CEDFF3636B5F226269B3B232391323131
+                    AEED5252DCFF4444CEFF4242CCFF4747D2FF4242C6FF26269B942828A0313434
+                    B8EC5E5EDEFF6868DEFF7070E7FF7575EEFF6D6DEFFF3636B5F23333B1ED5A5A
+                    E2FF4D4DD5FF4343CDFF4242CDFF4D4DD8FF2F2FA9ED23239233000000002828
+                    A0313535B9EC6464E4FF7070E7FF7676EEFF7777F1FF6C6CEFFF6363E9FF5A5A
+                    DEFF4C4CD4FF4444CEFF4D4DD8FF2F2FABED2424943300000000000000000000
+                    00002828A0313535B9EC6868E9FF7575EEFF7777F0FF7272EEFF6767E7FF5A5A
+                    DEFF4D4DD5FF4E4ED9FF3030ADED252596330000000000000000000000000000
+                    0000000000002828A1313636BAEC6D6DEEFF7777F0FF7272EEFF6767E7FF5A5A
+                    DEFF5454DEFF3131B0ED25259933000000000000000000000000000000000000
+                    00000000000027279E313636BBEC6D6DEEFF7777F0FF7272EEFF6767E7FF5A5A
+                    DEFF5454DEFF3232B3F226269B3B000000000000000000000000000000000000
+                    00002828A0313636BDEC6868EAFF7575EEFF7777F0FF7272EEFF6767E7FF5A5A
+                    DEFF4D4DD5FF4E4EDAFF3232B3F226269B3B0000000000000000000000002828
+                    A2313636BEEC6464E5FF7070E7FF7676EEFF7777F1FF6B6BEEFF6363E9FF5A5A
+                    DEFF4C4CD4FF4444CEFF4D4DD9FF3232B3F226269B3B000000002929A4313636
+                    C0EC5E5EDFFF6868DEFF7070E7FF7575EEFF6C6CEFFF3636BCED3535BAEC5A5A
+                    E3FF4D4DD5FF4343CDFF4242CCFF4D4DD9FF3232B3F226269B3B2E2EB9904B4B
+                    D2FF6060D9FF6868DDFF7070E7FF6B6BEDFF3737BEED2929A7332828A1313434
+                    B9EC5353DEFF4444CEFF4242CCFF4848D3FF4343CAFF2929A68D1E1E77042F2F
+                    BAAA5151D7FF6969E2FF6868E9FF3838C0ED2A2AA93300000000000000002828
+                    A0313333B8EC4E4EDAFF4848D3FF4545CEFF2A2AA9A21A1A6B02000000001E1E
+                    77042F2FBAAA4F4FD7FF3838C1ED2B2BAC330000000000000000000000000000
+                    00002828A0313333B8EC4343CCFF2B2BACA21B1B6D0200000000000000000000
+                    00001E1E77042E2EB9922B2BAE33000000000000000000000000000000000000
+                    0000000000002828A0312B2BAE891B1B6F020000000000000000}
+                  Kind = bkGlyph
+                end>
+              Properties.ViewStyle = vsButtonsOnly
+              Properties.OnButtonClick = grPackingVColumn1PropertiesButtonClick
+              MinWidth = 30
+              Options.Filtering = False
+              Options.ShowEditButtons = isebAlways
+              Options.HorzSizing = False
+              Options.Moving = False
+              Options.Sorting = False
+              Width = 30
+            end
             object grPackingVPACKING: TcxGridDBColumn
               Caption = #1059#1087#1072#1082#1086#1074#1082#1072
               DataBinding.FieldName = 'PACKING'
@@ -2539,7 +2593,7 @@ object frmSetings: TfrmSetings
           Align = alClient
           TabOrder = 1
           LookAndFeel.Kind = lfOffice11
-          LookAndFeel.NativeStyle = True
+          LookAndFeel.NativeStyle = False
           object grCustCoef_v: TcxGridDBTableView
             NavigatorButtons.ConfirmDelete = False
             FilterBox.Position = fpTop
@@ -2564,6 +2618,60 @@ object frmSetings: TfrmSetings
             OptionsView.Footer = True
             OptionsView.GroupByBox = False
             OptionsView.HeaderHeight = 25
+            object grCustCoef_vColumn1: TcxGridDBColumn
+              PropertiesClassName = 'TcxButtonEditProperties'
+              Properties.Alignment.Horz = taCenter
+              Properties.Alignment.Vert = taVCenter
+              Properties.Buttons = <
+                item
+                  Default = True
+                  Glyph.Data = {
+                    36040000424D3604000000000000360000002800000010000000100000000100
+                    2000000000000004000000000000000000000000000000000000000000000000
+                    0000181862042929A59326269B3B000000000000000000000000000000000000
+                    00000000000021218A3126269B94181863050000000000000000000000001818
+                    64042A2AA9A94D4DD0FF3535B4F226269B3B0000000000000000000000000000
+                    000022228C312F2FA9EC4242C5FF26269BAD1818630500000000191966042B2B
+                    ACA94E4ED1FF6969E2FF6969E9FF3636B5F226269B3B00000000000000002323
+                    8E322F2FABED4E4ED8FF4747D2FF4444C9FF26269BAD181863052B2BAE8E4949
+                    CDFF6060D9FF6868DDFF7070E7FF6C6CEDFF3636B5F226269B3B232391323131
+                    AEED5252DCFF4444CEFF4242CCFF4747D2FF4242C6FF26269B942828A0313434
+                    B8EC5E5EDEFF6868DEFF7070E7FF7575EEFF6D6DEFFF3636B5F23333B1ED5A5A
+                    E2FF4D4DD5FF4343CDFF4242CDFF4D4DD8FF2F2FA9ED23239233000000002828
+                    A0313535B9EC6464E4FF7070E7FF7676EEFF7777F1FF6C6CEFFF6363E9FF5A5A
+                    DEFF4C4CD4FF4444CEFF4D4DD8FF2F2FABED2424943300000000000000000000
+                    00002828A0313535B9EC6868E9FF7575EEFF7777F0FF7272EEFF6767E7FF5A5A
+                    DEFF4D4DD5FF4E4ED9FF3030ADED252596330000000000000000000000000000
+                    0000000000002828A1313636BAEC6D6DEEFF7777F0FF7272EEFF6767E7FF5A5A
+                    DEFF5454DEFF3131B0ED25259933000000000000000000000000000000000000
+                    00000000000027279E313636BBEC6D6DEEFF7777F0FF7272EEFF6767E7FF5A5A
+                    DEFF5454DEFF3232B3F226269B3B000000000000000000000000000000000000
+                    00002828A0313636BDEC6868EAFF7575EEFF7777F0FF7272EEFF6767E7FF5A5A
+                    DEFF4D4DD5FF4E4EDAFF3232B3F226269B3B0000000000000000000000002828
+                    A2313636BEEC6464E5FF7070E7FF7676EEFF7777F1FF6B6BEEFF6363E9FF5A5A
+                    DEFF4C4CD4FF4444CEFF4D4DD9FF3232B3F226269B3B000000002929A4313636
+                    C0EC5E5EDFFF6868DEFF7070E7FF7575EEFF6C6CEFFF3636BCED3535BAEC5A5A
+                    E3FF4D4DD5FF4343CDFF4242CCFF4D4DD9FF3232B3F226269B3B2E2EB9904B4B
+                    D2FF6060D9FF6868DDFF7070E7FF6B6BEDFF3737BEED2929A7332828A1313434
+                    B9EC5353DEFF4444CEFF4242CCFF4848D3FF4343CAFF2929A68D1E1E77042F2F
+                    BAAA5151D7FF6969E2FF6868E9FF3838C0ED2A2AA93300000000000000002828
+                    A0313333B8EC4E4EDAFF4848D3FF4545CEFF2A2AA9A21A1A6B02000000001E1E
+                    77042F2FBAAA4F4FD7FF3838C1ED2B2BAC330000000000000000000000000000
+                    00002828A0313333B8EC4343CCFF2B2BACA21B1B6D0200000000000000000000
+                    00001E1E77042E2EB9922B2BAE33000000000000000000000000000000000000
+                    0000000000002828A0312B2BAE891B1B6F020000000000000000}
+                  Kind = bkGlyph
+                end>
+              Properties.ViewStyle = vsButtonsOnly
+              Properties.OnButtonClick = grCustCoef_vColumn1PropertiesButtonClick
+              MinWidth = 30
+              Options.Filtering = False
+              Options.ShowEditButtons = isebAlways
+              Options.HorzSizing = False
+              Options.Moving = False
+              Options.Sorting = False
+              Width = 30
+            end
             object grCustCoef_vID: TcxGridDBColumn
               DataBinding.FieldName = 'ID'
               Visible = False
@@ -2777,15 +2885,12 @@ object frmSetings: TfrmSetings
   end
   object CDS_Packing: TOraQuery
     SQLDelete.Strings = (
-      'begin'
-      '  CUSTOM_PKG.DEL_FITO(:ID);'
-      'end;')
+      'delete from customs_packing WHERE ID = :OLD_ID')
     SQLUpdate.Strings = (
-      'begin'
       
-        '  CUSTOM_PKG.SAVE_FITO(:ID_DEP, :NAME_ENG, :NAME_RU, :NAME_ENG_F' +
-        'ULL, :ID);'
-      'end;')
+        'update customs_packing set packing=:PACKING, nullable=:NULLABLE,' +
+        ' packing_weight=:PACKING_WEIGHT'
+      'WHERE ID = :OLD_ID')
     SQLRefresh.Strings = (
       
         'select id, packing, nullable, packing_weight from customs_packin' +
