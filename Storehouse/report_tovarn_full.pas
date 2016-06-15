@@ -297,6 +297,7 @@ type
     gr_added_vQUANTITY: TcxGridDBColumn;
     gr_added_vQUANTITY_PRICE: TcxGridDBColumn;
     gr_added_vOUR_CODE: TcxGridDBColumn;
+    bitbtn2: TcxButton;
     procedure FormShow(Sender: TObject);
     procedure Filter(Sender: TObject);
     procedure AddedCBClick(Sender: TObject);
@@ -341,6 +342,7 @@ type
     procedure gr_result_vDataControllerFilterBeforeChange(
       Sender: TcxDBDataFilterCriteria; ADataSet: TDataSet;
       const AFilterText: string);
+    procedure bitbtn2Click(Sender: TObject);
 
   private
     path: string;
@@ -357,11 +359,11 @@ type
 
 var
   ReportTovarnFullForm: TReportTovarnFullForm;
-
+               
 implementation
 
 {$R *.dfm}
-uses DataM, Store_View_Filtr, all_nacl, nacl_new, Report_Tovarn_Nacls, oper_select{, frx2xto30};
+uses DataM, Store_View_Filtr, all_nacl, nacl_new, Report_Tovarn_Nacls, oper_select,tabliza{, frx2xto30};
 
 
 //
@@ -797,6 +799,11 @@ begin
   gr_result.SetFocus;
 end;
 
+
+procedure TReportTovarnFullForm.bitbtn2Click(Sender: TObject);
+begin
+form1.Show;
+end;
 
 //
 // Просмотр отчета по документам продаж------------------------------------

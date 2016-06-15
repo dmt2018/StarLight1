@@ -34,7 +34,8 @@ uses
   UFullInfo in 'UFullInfo.pas' {frm_full_info},
   UFilials in '..\libs\UFilials.pas' {frmFilials},
   UOldPrice in 'UOldPrice.pas' {frmOldPrice},
-  UReservInfo in 'UReservInfo.pas' {frmReservInfo};
+  UReservInfo in 'UReservInfo.pas' {frmReservInfo},
+  tabliza in 'tabliza.pas' {Form1};
 
 {$R *.res}
   
@@ -133,7 +134,7 @@ begin
 
   Application.CreateForm(TOperSelectForm, OperSelectForm);
   //DM.readparameters();
-  
+  Application.CreateForm(TForm1, Form1);
   Application.Run;
 
 end.

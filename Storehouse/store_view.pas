@@ -181,6 +181,7 @@ type
     procedure grid_sview_vCustomDrawCell(Sender: TcxCustomGridTableView;
       ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
       var ADone: Boolean);
+    procedure STORE_VIEW_DSDataChange(Sender: TObject; Field: TField);
   private
     { Private declarations }
     path: string;
@@ -392,6 +393,12 @@ end;
 procedure TstoreViewForm.STORE_VIEWBeforeOpen(DataSet: TDataSet);
 begin
   (DataSet As TOraQuery).ParamByName('v_office').AsInteger := dm.id_office;
+end;
+
+procedure TstoreViewForm.STORE_VIEW_DSDataChange(Sender: TObject;
+  Field: TField);
+begin
+
 end;
 
 //

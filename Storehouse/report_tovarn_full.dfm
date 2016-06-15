@@ -165,7 +165,7 @@ object ReportTovarnFullForm: TReportTovarnFullForm
       Width = 965
       Height = 636
       Cursor = crHandPoint
-      ActivePage = Store_TS_1
+      ActivePage = Store_TS_2
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -410,6 +410,29 @@ object ReportTovarnFullForm: TReportTovarnFullForm
             ParentFont = False
             State = cbChecked
             TabOrder = 6
+          end
+          object bitbtn2: TcxButton
+            Left = 762
+            Top = 4
+            Width = 183
+            Height = 42
+            Cursor = crHandPoint
+            Caption = #1054#1090#1095#1077#1090' '#1087#1086' '#1087#1086#1089#1090#1072#1074#1097#1080#1082#1072#1084
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'arial'
+            Font.Pitch = fpFixed
+            Font.Style = [fsBold]
+            ParentFont = False
+            TabOrder = 7
+            OnClick = bitbtn2Click
+            Colors.Default = clBtnFace
+            Colors.Normal = clBtnFace
+            Colors.Hot = clSkyBlue
+            Colors.Pressed = clSkyBlue
+            LookAndFeel.Kind = lfFlat
+            LookAndFeel.NativeStyle = True
           end
         end
         object Panel3: TPanel

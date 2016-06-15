@@ -954,7 +954,7 @@ object storeViewForm: TstoreViewForm
     object STORE_VIEWH_CODE: TStringField
       FieldName = 'H_CODE'
       Origin = 'H_CODE'
-      Size = 50
+      Size = 80
     end
     object STORE_VIEWLEN: TIntegerField
       FieldName = 'LEN'
@@ -1027,7 +1027,7 @@ object storeViewForm: TstoreViewForm
     object STORE_VIEWPHOTO: TStringField
       FieldName = 'PHOTO'
       Origin = 'PHOTO'
-      Size = 30
+      Size = 80
     end
     object STORE_VIEWOUR_CODE: TStringField
       FieldName = 'OUR_CODE'
@@ -1037,7 +1037,7 @@ object storeViewForm: TstoreViewForm
     object STORE_VIEWCOMPILED_NAME_OTDEL: TStringField
       FieldName = 'COMPILED_NAME_OTDEL'
       Origin = 'COMPILED_NAME_OTDEL'
-      Size = 350
+      Size = 500
     end
     object STORE_VIEWID_OFFICE: TIntegerField
       FieldName = 'ID_OFFICE'
@@ -1065,6 +1065,7 @@ object storeViewForm: TstoreViewForm
   end
   object STORE_VIEW_DS: TOraDataSource
     DataSet = STORE_VIEW
+    OnDataChange = STORE_VIEW_DSDataChange
     Left = 392
     Top = 80
   end
