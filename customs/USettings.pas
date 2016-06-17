@@ -191,6 +191,8 @@ type
     grCustCoef_vNAME_CAT_RU: TcxGridDBColumn;
     grCustCoef_vCOUNTRY: TcxGridDBColumn;
     grCustCoef_vNAME_CAT: TcxGridDBColumn;
+    grCustCoef_vColumn1: TcxGridDBColumn;
+    grPackingVColumn1: TcxGridDBColumn;
     procedure btn_closeClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
@@ -222,6 +224,10 @@ type
     procedure btnAddPackingClick(Sender: TObject);
     procedure btnAddCustCoefClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure grCustCoef_vColumn1PropertiesButtonClick(Sender: TObject;
+      AButtonIndex: Integer);
+    procedure grPackingVColumn1PropertiesButtonClick(Sender: TObject;
+      AButtonIndex: Integer);
   private
     { Private declarations }
   public
@@ -846,5 +852,22 @@ begin
   end;
 end;
 
+
+// Удаление таможенного коэффициента
+procedure TfrmSetings.grCustCoef_vColumn1PropertiesButtonClick(Sender: TObject;
+  AButtonIndex: Integer);
+begin
+  if MessageDlg('Вы действительно хотите удалить запись?',mtConfirmation,[mbYes, mbNo],0) = mrYes then
+     DM.CDS_custcoef.Delete;
+end;
+
+
+// Удалим тип упаковки
+procedure TfrmSetings.grPackingVColumn1PropertiesButtonClick(Sender: TObject;
+  AButtonIndex: Integer);
+begin
+  if MessageDlg('Вы действительно хотите удалить запись?',mtConfirmation,[mbYes, mbNo],0) = mrYes then
+     CDS_Packing.Delete;
+end;
 
 end.

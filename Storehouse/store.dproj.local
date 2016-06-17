@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions>
-    <Transaction>2016.06.14 18:29:02.481.pas,C:\1\Storehouse\Unit1.pas=C:\1\Storehouse\tabliza.pas</Transaction>
-    <Transaction>2016.06.14 18:29:02.481.dfm,C:\1\Storehouse\Unit1.dfm=C:\1\Storehouse\tabliza.dfm</Transaction>
+	<Transactions>
+    <Transaction>2012.04.28 01:28:44.049.pas,C:\_WORK\delphi\StarLight\_Цветы регионы\Storehouse\Unit1.pas=C:\_WORK\delphi\StarLight\_Цветы регионы\libs\UFilials.pas</Transaction>
+    <Transaction>2012.04.28 01:28:44.049.dfm,C:\_WORK\delphi\StarLight\_Цветы регионы\Storehouse\Unit1.dfm=C:\_WORK\delphi\StarLight\_Цветы регионы\libs\UFilials.dfm</Transaction>
+    <Transaction>2013.06.02 01:59:51.172.pas,C:\_work_\delphi\StarLight\_Цветы регионы\sales\UReservInfo.pas=</Transaction>
+    <Transaction>2013.06.02 01:59:51.172.dfm,C:\_work_\delphi\StarLight\_Цветы регионы\sales\UReservInfo.dfm=</Transaction>
   </Transactions>
 </BorlandProject>
