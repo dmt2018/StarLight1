@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.STORE_PKG
--- Generated 13.06.2016 18:25:52 from CREATOR@STAR_NEW
+-- Generated 20.06.2016 0:28:44 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE store_pkg
@@ -3888,7 +3888,7 @@ BEGIN
            AND c.doc_date >= DDATE_BEGIN
            AND c.doc_date <= DDATE_END
            and b1.id_departments = v_id_dep
-           and c.id_client = l.id_clients
+           and c.id_client = l.id_clients(+)
            and (c.id_office = v_office or v_office = 0)
         group by c.ID_DOC_TYPE, b1.s_id, A2.PRICE, A2.PRICE_list
         order by c.ID_DOC_TYPE
