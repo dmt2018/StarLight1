@@ -134,7 +134,7 @@ begin
 
   Application.CreateForm(TOperSelectForm, OperSelectForm);
   //DM.readparameters();
-  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TfrmSupplierReport, frmSupplierReport);
   Application.Run;
 
 end.

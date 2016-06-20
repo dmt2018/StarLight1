@@ -165,7 +165,7 @@ object ReportTovarnFullForm: TReportTovarnFullForm
       Width = 965
       Height = 636
       Cursor = crHandPoint
-      ActivePage = Store_TS_2
+      ActivePage = Store_TS_1
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText

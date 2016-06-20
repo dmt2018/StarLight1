@@ -801,8 +801,19 @@ end;
 
 
 procedure TReportTovarnFullForm.bitbtn2Click(Sender: TObject);
+ var theForm: tfrmSupplierReport;
 begin
-form1.Show;
+        theForm := TfrmSupplierReport.Create(Application);
+      try
+        TfrmSupplierReport(theForm).DOC_DATE1 := Doc_DateTimePicker1.Date;
+        TfrmSupplierReport(theForm).DOC_DATE2 := Doc_DateTimePicker2.Date;
+
+        theForm.ShowModal;
+      finally
+        theForm.Free;
+      end;          
+
+//frmSupplierReport.Show;
 end;
 
 //
