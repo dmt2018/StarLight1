@@ -2,7 +2,7 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'pictures'
-  ClientHeight = 332
+  ClientHeight = 252
   ClientWidth = 526
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -11,11 +11,12 @@ object Form1: TForm1
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Button1: TButton
     Left = 18
-    Top = 16
+    Top = 424
     Width = 79
     Height = 25
     Caption = '57657'
@@ -46,7 +47,7 @@ object Form1: TForm1
   end
   object Button6: TButton
     Left = 8
-    Top = 265
+    Top = 467
     Width = 510
     Height = 48
     Caption = 'START'
@@ -66,6 +67,12 @@ object Form1: TForm1
   object OraQuery1: TOraQuery
     Session = OraSession1
     Left = 400
+    Top = 24
+  end
+  object Timer1: TTimer
+    Interval = 200
+    OnTimer = Timer1Timer
+    Left = 456
     Top = 24
   end
 end
