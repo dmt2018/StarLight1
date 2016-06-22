@@ -238,6 +238,11 @@ type
     N13: TMenuItem;
     N14: TMenuItem;
     DBText6: TDBText;
+    grid_pplView1PPLI_ID_OLD: TcxGridDBColumn;
+    grid_pplView1EXTRA_GROSS: TcxGridDBColumn;
+    bsExtraGross: TdxBarStatic;
+    dxBarStatic16: TdxBarStatic;
+    st_extragross: TcxStyle;
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn4Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
@@ -322,6 +327,7 @@ type
     procedure aSetProfitDataSetExecute(Sender: TObject);
     procedure aSelectAllExecute(Sender: TObject);
     procedure aDeSelectAllExecute(Sender: TObject);
+    procedure bsExtraGrossClick(Sender: TObject);
   private
     path: string;
     is_sync: boolean;
@@ -564,7 +570,7 @@ end;
 procedure TPriceF.BitBtn4Click(Sender: TObject);
 var
   res, out_res : Variant;
-  isGood: boolean;
+  isGood, isExGross: boolean;
 begin
   if DM.PPL.Locate('FINAL_PRICE',0,[]) then
   begin
@@ -572,7 +578,8 @@ begin
       exit;
   end;
 
-  isGood := true;
+  isGood    := true;
+  isExGross := true;
   // Проверка на цену продажи = цене закупки (только для МСК)
   if (dm.id_office = 1) then
   begin
@@ -584,8 +591,10 @@ begin
         if DM.PPLRUBLE_PRICE.AsFloat = DM.PPLFINAL_PRICE.AsFloat then
         begin
           isGood := false;
-          //MessageBox(Handle, 'Есть позиции, где цена продажи = цене поставщика!', 'Внимание!', MB_ICONWARNING);
-          //exit;
+        end;
+        if DM.PPLEXTRA_GROSS.AsInteger > 1then
+        begin
+          isExGross := false;
         end;
         DM.PPL.Next;
       end
@@ -596,6 +605,8 @@ begin
     if not isGood and (MessageDlg('Есть позиции, где цена продажи = цене поставщика!'+#10+'Продолжить сохранение цен?', mtConfirmation, [mbNo,mbOk], 0, mbOk) = mrNo) then
       exit;
 
+    if not isExGross and (MessageDlg('Есть позиции, где цена продажи в 2 раза больше расчетной цены!'+#10+'Продолжить сохранение цен?', mtConfirmation, [mbNo,mbOk], 0, mbOk) = mrNo) then
+      exit;
   end;
 
   try
@@ -970,6 +981,13 @@ begin
         if (trunc(RUBLE_PRICE) = trunc(price_new)) and (dm.id_office = 1) then
           ACanvas.Brush.Color := st_equal.Color;
       end;
+
+      Col := grid_pplView1.DataController.GetValue(
+                  AViewInfo.GridRecord.RecordIndex, grid_pplView1.GetColumnByFieldName('extra_gross').Index
+                  );
+      if (Col > 1) then
+          ACanvas.Brush.Color := st_extragross.Color;
+
 
       Col := grid_pplView1.DataController.GetValue(
                   AViewInfo.GridRecord.RecordIndex, grid_pplView1.GetColumnByFieldName('FINAL_PRICE').Index
@@ -1576,6 +1594,11 @@ begin
   sort_table((Sender as TdxBarStatic).Name);
 end;
 
+procedure TPriceF.bsExtraGrossClick(Sender: TObject);
+begin
+  sort_table((Sender as TdxBarStatic).Name);
+end;
+
 procedure TPriceF.bsProfitClick(Sender: TObject);
 begin
   sort_table((Sender as TdxBarStatic).Name);
@@ -1627,6 +1650,8 @@ begin
     if filter_param = 'bsLoss' then grid_pplView1LOSS_PROFIT.DataBinding.AddToFilter(nil, foEqual, 0,'НЕТ', true);
     if filter_param = 'bsEqlPrice' then grid_pplView1EQ_PRICE.DataBinding.AddToFilter(nil, foEqual, 1);
     if filter_param = 'bsSPEC' then grid_pplView1SPEC.DataBinding.AddToFilter(nil, foGreater, 0);
+
+    if filter_param = 'bsExtraGross' then grid_pplView1EXTRA_GROSS.DataBinding.AddToFilter(nil, foGreater, 1);
 
     grid_pplView1.DataController.Filter.Active := True;
   end;

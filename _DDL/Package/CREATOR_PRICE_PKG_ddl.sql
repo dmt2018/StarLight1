@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.PRICE_PKG
--- Generated 25.05.2016 1:14:55 from CREATOR@STAR_NEW
+-- Generated 23.06.2016 1:06:17 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE price_pkg
@@ -2128,6 +2128,13 @@ BEGIN
               else z.final_price
             end
           end last_price
+
+
+       , case when a.INVOICE_DATA_ID is null then floor( a.final_price / a.last_price )
+         else floor( a.final_price / a.PRICE_PCC_PC)
+         end extra_gross
+
+
        , a.price_pcc, a.price_pcc_pc, a.n_id
        , a.final_price
        , a.inv_total_sum, a.stok_total_sum, a.inv_total_profit, a.came_type, a.nid_rownum, a.f_sub_type

@@ -686,6 +686,15 @@ object PriceF: TPriceF
           Options.HorzSizing = False
           Width = 80
         end
+        object grid_pplView1PPLI_ID_OLD: TcxGridDBColumn
+          DataBinding.FieldName = 'PPLI_ID_OLD'
+          Visible = False
+        end
+        object grid_pplView1EXTRA_GROSS: TcxGridDBColumn
+          Caption = 'Double price'
+          DataBinding.FieldName = 'EXTRA_GROSS'
+          Visible = False
+        end
       end
       object grid_ppl_Level1: TcxGridLevel
         GridView = grid_pplView1
@@ -761,7 +770,6 @@ object PriceF: TPriceF
     BevelOuter = bvLowered
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 8
     object DBText1: TDBText
       Left = 131
       Top = 8
@@ -2675,6 +2683,14 @@ object PriceF: TPriceF
           ItemName = 'dxBarStatic7'
         end
         item
+          Visible = True
+          ItemName = 'bsExtraGross'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarStatic16'
+        end
+        item
           BeginGroup = True
           Visible = True
           ItemName = 'bsNullPrice'
@@ -2916,6 +2932,23 @@ object PriceF: TPriceF
       Hint = ' - '#1087#1088#1080#1079#1085#1072#1082' "!"'
       Visible = ivAlways
     end
+    object bsExtraGross: TdxBarStatic
+      Caption = '300.00'
+      Category = 0
+      Hint = '300.00'
+      Style = st_extragross
+      Visible = ivAlways
+      AllowClick = True
+      BorderStyle = sbsEtched
+      Width = 50
+      OnClick = bsExtraGrossClick
+    end
+    object dxBarStatic16: TdxBarStatic
+      Caption = '- double price'
+      Category = 0
+      Hint = '- double price'
+      Visible = ivAlways
+    end
   end
   object cxStyleRepository1: TcxStyleRepository
     Left = 8
@@ -2961,6 +2994,10 @@ object PriceF: TPriceF
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       TextColor = clMaroon
+    end
+    object st_extragross: TcxStyle
+      AssignedValues = [svColor]
+      Color = 4227200
     end
   end
   object cds_types: TOraQuery

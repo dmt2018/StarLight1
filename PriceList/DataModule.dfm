@@ -555,6 +555,13 @@ object DM: TDM
       '              else z.final_price'
       '            end'
       '          end last_price'
+      ''
+      
+        '       , case when a.INVOICE_DATA_ID is null then floor( a.final' +
+        '_price / a.last_price ) '
+      '         else floor( a.final_price / a.price_pcc_pc)'
+      '         end extra_gross'
+      ''
       '       , a.price_pcc, a.price_pcc_pc, a.n_id'
       '       , a.final_price'
       
@@ -985,6 +992,9 @@ object DM: TDM
     end
     object PPLPROFIT_COEFFITIENT: TFloatField
       FieldName = 'PROFIT_COEFFITIENT'
+    end
+    object PPLEXTRA_GROSS: TFloatField
+      FieldName = 'EXTRA_GROSS'
     end
   end
   object StoreProc: TOraStoredProc

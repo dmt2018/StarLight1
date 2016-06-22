@@ -9,7 +9,7 @@ uses
   cxContainer, cxCurrencyEdit, DBAccess, Ora, MemDS, ActnList, cxGridLevel,
   cxGridCustomTableView, cxGridTableView, cxGridBandedTableView,
   cxGridDBBandedTableView, cxClasses, cxControls, cxGridCustomView, cxGrid,
-  StdCtrls, cxButtons, ExtCtrls, Math;
+  StdCtrls, cxButtons, ExtCtrls, Math, StrUtils;
 
 type
   TfrmNewOrder = class(TForm)
@@ -67,7 +67,7 @@ type
       var ADone: Boolean);
     procedure aSaveExecute(Sender: TObject);
   private
-    CUR_ID_ORDERS, CUR_NID, MAX_Q, vPack: integer;
+    C_ID_ORDERS, CUR_NID, MAX_Q, vPack: integer;
     { Private declarations }
   public
     { Public declarations }
@@ -76,7 +76,7 @@ type
 var
   frmNewOrder: TfrmNewOrder;
 
-function NewOrder(in_order: integer; in_nid: integer; in_q: integer; in_client: integer) : Variant;
+function NewOrder(in_order: Variant; in_nid: integer; in_q: integer; in_client: integer) : Variant;
 
 implementation
 
@@ -84,7 +84,7 @@ uses DataModule;
 
 {$R *.dfm}
 
-function NewOrder(in_order: integer; in_nid: integer; in_q: integer; in_client: integer) : Variant;
+function NewOrder(in_order: Variant; in_nid: integer; in_q: integer; in_client: integer) : Variant;
 var sql : string;
 Begin
   Application.CreateForm(TfrmNewOrder, frmNewOrder);
@@ -92,7 +92,11 @@ Begin
   with frmNewOrder do
     Begin
       try
-        CUR_ID_ORDERS := in_order;
+        if Pos( ',', VarToStr(in_order) ) > 0 then
+          C_ID_ORDERS := StrToInt( Copy( VarToStr(in_order), 0, Pos( ',', VarToStr(in_order) )-1 ) )
+        else
+          C_ID_ORDERS := in_order;
+
         CUR_NID       := in_nid;
         vPack         := 0;
 
@@ -193,7 +197,7 @@ begin
   with DM.SelQ do
   begin
     Close;
-    SQLstr := 'select id_orders_clients from orders_clients where id_orders ='+IntToStr(CUR_ID_ORDERS)+' and IN_FILE = ''добор из разноса'' and active=1 and PACK_=0 and ID_CLIENTS='+Q_CLIENTS.FieldByName('ID_CLIENTS').AsString;
+    SQLstr := 'select id_orders_clients from orders_clients where id_orders ='+IntToStr(C_ID_ORDERS)+' and IN_FILE = ''добор из разноса'' and active=1 and PACK_=0 and ID_CLIENTS='+Q_CLIENTS.FieldByName('ID_CLIENTS').AsString;
     SQL.Clear;
     SQL.Add(SQLstr);
     Open;
@@ -206,7 +210,7 @@ begin
       SQL.Clear;
       SQL.Add('begin PACK_ORDERS.save_new_order(:id_, :ID_ORDERS_F_, :ID_CLIENT_, :DDATE_, :user_, :NN_, :v_file); end; ');
       ParamByName('id_').Value := 0;
-      ParamByName('ID_ORDERS_F_').Value := CUR_ID_ORDERS;
+      ParamByName('ID_ORDERS_F_').Value := C_ID_ORDERS;
       ParamByName('ID_CLIENT_').Value   := Q_CLIENTS.FieldByName('ID_CLIENTS').Value;
       ParamByName('user_').AsString     := UpperCase(DM.StarSess.Username);
       ParamByName('DDATE_').AsDateTime  := Date;
