@@ -929,6 +929,8 @@ begin
                 if (DM.Q_CASH_SOUT_RUB.AsCurrency > 0) then debet := DM.Q_CASH_SOUT_RUB.AsCurrency;
                 if (DM.Q_CASH_SIN_RUB.AsCurrency > 0) and (DM.Q_CASH_SOUT_RUB.AsCurrency > 0) and (DM.Q_CASH_SIN_RUB.AsCurrency = DM.Q_CASH_SOUT_RUB.AsCurrency) then debet := 0-DM.Q_CASH_SIN_RUB.AsCurrency;
                 //cu_debet.EditValue := debet;  Ïîêà íå íàäî, ò.ê. è òàê ðàáîòàåò
+                //2016-06-24 Åñëè â êîììåòàðèè ñòîèò Ï/Ê, òî ýòî ×ÀÑÒÜ ÄÎËÃÀ ÍÀË, ×ÀÑÒÜ - ÏËÀÑÒÈÊ. Ðàñ÷åò òîëüêî ïî IN
+                if (DM.Q_CASH_SIN_RUB.AsCurrency > 0) and (AnsiUpperCase(DM.Q_CASHINFO.AsString) = 'Ï/Ê') then debet := 0-DM.Q_CASH_SIN_RUB.AsCurrency;
               end;
            end
            else
@@ -1094,6 +1096,8 @@ begin
               if (IN_RUB_ > 0) then debet := 0-IN_RUB_;
               if (OUT_RUB_ > 0) then debet := OUT_RUB_;
               if (IN_RUB_ > 0) and (OUT_RUB_ > 0) and (IN_RUB_ = OUT_RUB_) then debet := 0-IN_RUB_;
+              //2016-06-24 Åñëè â êîììåòàðèè ñòîèò Ï/Ê, òî ýòî ×ÀÑÒÜ ÄÎËÃÀ ÍÀË, ×ÀÑÒÜ - ÏËÀÑÒÈÊ. Ðàñ÷åò òîëüêî ïî IN
+              if (IN_RUB_ > 0) and (AnsiUpperCase(DM.Q_CASH_SINFO.AsString) = 'Ï/Ê') then debet := 0-IN_RUB_;
             end;
         end
         else
