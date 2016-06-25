@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.PRICE_PKG
--- Generated 23.06.2016 1:06:17 from CREATOR@STAR_NEW
+-- Generated 25.06.2016 17:53:45 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE price_pkg
@@ -2155,6 +2155,7 @@ BEGIN
        , decode(c.nick,'M URLO',1,0) as paint_super
        , v_PPLI_ID_old as PPLI_ID_old
        , case when a.INVOICE_DATA_ID is null then null else PROFIT_COEFFITIENT end PROFIT_COEFFITIENT
+       , NOM_NEW
     from (
         SELECT a.ppli_id, ppl_id, coming_date, invoice_amount, case when STOCK_AMOUNT < 0 then 0 else stock_amount end STOCK_AMOUNT, left_amount, given_amount, hol_price, ruble_price, last_price
           , price_pcc, price_pcc_pc, a.n_id, final_price, inv_total_sum, stok_total_sum
@@ -2170,7 +2171,7 @@ BEGIN
           , inv_id, inv_id2, inv_id3, inv_id4
           , null id_clients, null client_price, null as client_quantity, c.total_client_quantity
           , instr(remarks,'"!"') as spec
-          , a.PROFIT_COEFFITIENT
+          , a.PROFIT_COEFFITIENT, a.NOM_NEW
         FROM ppl_view a
         left outer join (select b.n_id, sum(b.quantity) as total_client_quantity from ppl_client_price b where b.PPLI_ID = v_PPLI_ID group by b.n_id) c on c.n_id = a.n_id
           WHERE a.PPLI_ID = v_PPLI_ID
@@ -2193,7 +2194,7 @@ BEGIN
           , inv_id, inv_id2, inv_id3, inv_id4
           , b.id_clients, b.spec_price as client_price, null as client_quantity, null as total_client_quantity
           , instr(remarks,'"!"') as spec
-          , a.PROFIT_COEFFITIENT
+          , a.PROFIT_COEFFITIENT, a.NOM_NEW
         FROM ppl_view a
         inner join ppl_client_price b on b.PPLI_ID = a.PPLI_ID and b.n_id = a.n_id and b.INVOICE_DATA_ID = a.INVOICE_DATA_ID
           WHERE a.PPLI_ID = v_PPLI_ID

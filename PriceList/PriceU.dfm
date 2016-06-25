@@ -172,22 +172,21 @@ object PriceF: TPriceF
           Width = 40
         end
         object grid_pplView1BEST_PRICE: TcxGridDBColumn
-          Caption = 'BP'
-          DataBinding.FieldName = 'BEST_PRICE'
+          Caption = 'NEW'
+          DataBinding.FieldName = 'NOM_NEW'
           PropertiesClassName = 'TcxSpinEditProperties'
           Properties.Alignment.Horz = taCenter
           Properties.AssignedValues.MinValue = True
           Properties.ImmediatePost = True
           Properties.MaxValue = 1.000000000000000000
           Properties.SpinButtons.Visible = False
-          Visible = False
           FooterAlignmentHorz = taCenter
           HeaderAlignmentHorz = taCenter
           HeaderAlignmentVert = vaCenter
-          MinWidth = 40
+          MinWidth = 50
           Options.Editing = False
           Options.HorzSizing = False
-          Width = 40
+          Width = 50
         end
         object H_CODE: TcxGridDBColumn
           Caption = #1040#1088#1090#1080#1082#1091#1083
@@ -2560,8 +2559,7 @@ object PriceF: TPriceF
       OnExecute = aSpecDealExecute
     end
     object aBestPrice: TAction
-      Caption = #1059#1089#1090#1072#1085#1086#1074#1080#1090#1100' '#1083#1091#1095#1096#1091#1102' '#1094#1077#1085#1091
-      Enabled = False
+      Caption = #1059#1089#1090#1072#1085#1086#1074#1080#1090#1100' '#1087#1088#1080#1079#1085#1072#1082' "'#1085#1086#1074#1080#1085#1082#1072'"'
       ShortCut = 16434
       OnExecute = aBestPriceExecute
     end
@@ -2604,6 +2602,10 @@ object PriceF: TPriceF
       Caption = #1057#1085#1103#1090#1100' '#1074#1099#1076#1077#1083#1077#1085#1085#1086#1077
       ShortCut = 16470
       OnExecute = aDeSelectAllExecute
+    end
+    object aClearNewMark: TAction
+      Caption = #1054#1095#1080#1089#1090#1080#1090#1100' '#1087#1088#1080#1079#1085#1072#1082' "'#1085#1086#1074#1080#1085#1082#1072'"'
+      OnExecute = aClearNewMarkExecute
     end
   end
   object SaveDialog1: TSaveDialog
@@ -2875,17 +2877,17 @@ object PriceF: TPriceF
     object bsBestPrice: TdxBarStatic
       Category = 0
       Style = st_best_price
-      Visible = ivNever
+      Visible = ivAlways
       AllowClick = True
       BorderStyle = sbsEtched
       Width = 40
       OnClick = bsBestPriceClick
     end
     object dxBarStatic15: TdxBarStatic
-      Caption = ' - '#1083#1091#1095#1096#1072#1103' '#1094#1077#1085#1072' '
+      Caption = ' - '#1085#1086#1074#1080#1085#1082#1072
       Category = 0
-      Hint = ' - '#1083#1091#1095#1096#1072#1103' '#1094#1077#1085#1072' '
-      Visible = ivNever
+      Hint = ' - '#1085#1086#1074#1080#1085#1082#1072
+      Visible = ivAlways
     end
     object dxBarStatic1: TdxBarStatic
       Caption = 'F11 - '#1086#1095#1080#1089#1090#1080#1090#1100' '#1092#1080#1083#1100#1090#1088#1099
@@ -6361,7 +6363,6 @@ object PriceF: TPriceF
     end
     object mnBestPrice: TMenuItem
       Action = aBestPrice
-      Visible = False
     end
     object N5: TMenuItem
       Action = aOrderStat
@@ -6392,6 +6393,9 @@ object PriceF: TPriceF
     end
     object N6: TMenuItem
       Action = aClearPriznak
+    end
+    object N15: TMenuItem
+      Action = aClearNewMark
     end
     object N3: TMenuItem
       Action = aClearFilter

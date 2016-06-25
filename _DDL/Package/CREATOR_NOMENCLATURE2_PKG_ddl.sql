@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.NOMENCLATURE2_PKG
--- Generated 07.06.2016 0:43:20 from CREATOR@STAR_NEW
+-- Generated 25.06.2016 17:53:20 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE nomenclature2_pkg
@@ -209,6 +209,14 @@ PROCEDURE set_active_noms_by_suplier (
 PROCEDURE set_nomenclature_site_marks (
    v_n_id             in number,
    v_REMOVE_FROM_SITE in number
+);
+
+
+--
+-- Изменяем признака новинки номенклатуры
+--
+PROCEDURE claer_NEW_mark (
+   v_id_dep      in number
 );
 
 
@@ -1027,6 +1035,26 @@ EXCEPTION
 END set_nomenclature_site_marks;
 
 
+--
+-- Изменяем признака новинки номенклатуры
+--
+PROCEDURE claer_NEW_mark (
+   v_id_dep      in number
+)
+is
+begin
+
+  update nomenclature_mat_view a set a.NOM_NEW = null, date_change = sysdate where a.ID_DEPARTMENTS = v_id_dep;
+  --update nomenclature a set a.NOM_NEW = null, date_change = sysdate where a.s_id = v_s_id;
+  UPDATE nomenclature p SET p.NOM_NEW = (SELECT q.NOM_NEW FROM nomenclature_mat_view q WHERE p.n_id = q.n_id);
+  --commit;
+
+EXCEPTION
+   WHEN OTHERS THEN
+           LOG_ERR(SQLERRM, SQLCODE, 'nomenclature2_pkg.claer_NEW_mark', '');
+           RAISE_APPLICATION_ERROR (-20084, 'Запрос не выполнился. ' || SQLERRM || ' ' || DBMS_UTILITY.format_error_backtrace);
+
+END claer_NEW_mark;
 
 
 END;

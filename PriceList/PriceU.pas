@@ -243,6 +243,8 @@ type
     bsExtraGross: TdxBarStatic;
     dxBarStatic16: TdxBarStatic;
     st_extragross: TcxStyle;
+    aClearNewMark: TAction;
+    N15: TMenuItem;
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn4Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
@@ -328,6 +330,7 @@ type
     procedure aSelectAllExecute(Sender: TObject);
     procedure aDeSelectAllExecute(Sender: TObject);
     procedure bsExtraGrossClick(Sender: TObject);
+    procedure aClearNewMarkExecute(Sender: TObject);
   private
     path: string;
     is_sync: boolean;
@@ -759,7 +762,7 @@ begin
   AStoreKey     := path + '/ini/Price_'+DM.STAR_DB.Username+'.ini';
   ASaveViewName := 'PriceList';
   grid_pplView1.RestoreFromIniFile(AStoreKey, False, False, AOptions, ASaveViewName);
-  grid_pplView1BEST_PRICE.Visible := false;
+  //grid_pplView1BEST_PRICE.Visible := false;
 
   cds_types.Close;
   cds_types.ParamByName('ID_DEPT_').AsInteger := CUR_DEPT_ID;
@@ -874,7 +877,7 @@ begin
   if ((Key='1') or (Key='0')) and grid_pplView1SPEC_PRICE.Focused then
     do_check('SO',DM.PPLSPEC_PRICE.AsInteger);
   if ((Key='1') or (Key='0')) and grid_pplView1BEST_PRICE.Focused then
-    do_check('BP',DM.PPLBEST_PRICE.AsInteger);
+    do_check('BP',DM.PPLNOM_NEW.AsInteger);
 end;
 
 procedure TPriceF.do_check(param: string; val: integer);
@@ -884,7 +887,7 @@ begin
      if param = 'SO' then
        DM.PPLSPEC_PRICE.AsInteger := abs(val - 1);
      if param = 'BP' then
-       DM.PPLBEST_PRICE.AsInteger := abs(val - 1);
+       DM.PPLNOM_NEW.AsInteger := abs(val - 1);
      DM.PPL.Post;
      grid_pplView1.ViewData.DataController.GotoNext;
   except
@@ -998,9 +1001,9 @@ begin
     end;
 
 
-    // Красим лучшую цену
+    // Красим новинку
     Col := grid_pplView1.DataController.GetValue(
-                AViewInfo.GridRecord.RecordIndex, grid_pplView1.GetColumnByFieldName('BEST_PRICE').Index
+                AViewInfo.GridRecord.RecordIndex, grid_pplView1.GetColumnByFieldName('NOM_NEW').Index
                 );
     if (Col = 1) then
       ACanvas.Brush.Color := st_best_price.Color;
@@ -1559,13 +1562,21 @@ var idGroup, idSubGroup, idLength: Integer;
 begin
   if grid_pplView1N_ID.EditValue > 0 then
   begin
+    // Это новинка
     if (action = 'aBestPrice') then
     begin
-      grid_pplView1BEST_PRICE.EditValue := 1;
+      if grid_pplView1BEST_PRICE.EditValue = 1 then
+        grid_pplView1BEST_PRICE.EditValue := NULL
+      else
+        grid_pplView1BEST_PRICE.EditValue := 1;
     end;
 
+    // Спец предложение
     if (action = 'aSpecDeal') then
     begin
+      if grid_pplView1SPEC_PRICE.EditValue = 1 then
+        grid_pplView1SPEC_PRICE.EditValue := NULL
+      else
       grid_pplView1SPEC_PRICE.EditValue := 1;
     end;
 {
@@ -1668,6 +1679,22 @@ begin
 end;
 
 
+procedure TPriceF.aClearNewMarkExecute(Sender: TObject);
+begin
+    if MessageDlg('Будут сброшены признак "новинка"! Продолжить операцию?', mtConfirmation, [mbNo,mbOk], 0, mbOk) <> mrOk then exit;
+
+    with DM.ForceQ do
+    Begin
+      Close;
+      SQL.Clear;
+      SQL.Add('begin nomenclature2_pkg.claer_NEW_mark(:v_id_dep); end;');
+      Prepare;
+      ParamByName('v_id_dep').Value := CUR_DEPT_ID;
+      Execute;
+    End;
+    DM.PPL.Refresh;
+end;
+
 procedure TPriceF.aClearPriznakExecute(Sender: TObject);
 begin
     if MessageDlg('Будут сброшены признак спец.цена! Продолжить операцию?', mtConfirmation, [mbNo,mbOk], 0, mbOk) <> mrOk then exit;
@@ -1682,7 +1709,6 @@ begin
       Execute;
     End;
     DM.PPL.Refresh;
-
 end;
 
 

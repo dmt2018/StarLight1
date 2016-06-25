@@ -498,8 +498,17 @@ object DM: TDM
       '     UPDATE PREPARE_PRICE_LIST '
       
         '       SET FINAL_PRICE = :FINAL_PRICE, spec_price = :spec_price,' +
-        ' best_price = :best_price, date_change=sysdate '
+        ' /*best_price = :best_price,*/ date_change=sysdate '
       '       WHERE PPL_ID = :OLD_PPL_ID;'
+      '     if nvl(:NOM_NEW,0) <> nvl(:OLD_NOM_NEW,0) then'
+      
+        '       update nomenclature_mat_view a set a.NOM_NEW = decode(:NO' +
+        'M_NEW,0,null,:NOM_NEW), date_change = sysdate where a.n_id = :OL' +
+        'D_n_id; '
+      
+        '       update nomenclature a set a.NOM_NEW = decode(:NOM_NEW,0,n' +
+        'ull,:NOM_NEW), date_change = sysdate where a.n_id = :OLD_n_id; '
+      '     end if;'
       '  else'
       '     UPDATE PREPARE_PRICE_LIST '
       
@@ -602,6 +611,7 @@ object DM: TDM
       
         '       , case when a.INVOICE_DATA_ID is null then null else PROF' +
         'IT_COEFFITIENT end PROFIT_COEFFITIENT'
+      '       , NOM_NEW'
       '    from ('
       
         '        SELECT a.ppli_id, ppl_id, coming_date, invoice_amount, c' +
@@ -636,7 +646,7 @@ object DM: TDM
         '          , null id_clients, null client_price, null as client_q' +
         'uantity, c.total_client_quantity'
       '          , instr(remarks,'#39'"!"'#39') as spec'
-      '          , a.PROFIT_COEFFITIENT'
+      '          , a.PROFIT_COEFFITIENT, a.NOM_NEW'
       '        FROM ppl_view a'
       
         '        left outer join (select b.n_id, sum(b.quantity) as total' +
@@ -682,7 +692,7 @@ object DM: TDM
         '          , b.id_clients, b.spec_price as client_price, null as ' +
         'client_quantity, null as total_client_quantity'
       '          , instr(remarks,'#39'"!"'#39') as spec'
-      '          , a.PROFIT_COEFFITIENT'
+      '          , a.PROFIT_COEFFITIENT, a.NOM_NEW'
       '        FROM ppl_view a'
       
         '        inner join ppl_client_price b on b.PPLI_ID = a.PPLI_ID a' +
@@ -873,7 +883,7 @@ object DM: TDM
     end
     object PPLCOMPILED_NAME_OTDEL: TStringField
       FieldName = 'COMPILED_NAME_OTDEL'
-      Size = 400
+      Size = 500
     end
     object PPLTOTAL_SUM: TFloatField
       FieldName = 'TOTAL_SUM'
@@ -995,6 +1005,9 @@ object DM: TDM
     end
     object PPLEXTRA_GROSS: TFloatField
       FieldName = 'EXTRA_GROSS'
+    end
+    object PPLNOM_NEW: TIntegerField
+      FieldName = 'NOM_NEW'
     end
   end
   object StoreProc: TOraStoredProc
