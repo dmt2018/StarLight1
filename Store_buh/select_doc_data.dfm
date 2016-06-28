@@ -141,6 +141,7 @@ object SelectDocDataForm: TSelectDocDataForm
       object grid_naklad_v: TcxGridDBTableView
         NavigatorButtons.ConfirmDelete = False
         FilterBox.Position = fpTop
+        OnCustomDrawCell = grid_naklad_vCustomDrawCell
         DataController.DataSource = doc_store_data_DS
         DataController.Filter.Options = [fcoCaseInsensitive, fcoShowOperatorDescription, fcoSoftCompare]
         DataController.Options = [dcoAnsiSort, dcoCaseInsensitive, dcoAssignGroupingValues, dcoAssignMasterDetailKeys, dcoSaveExpanding]

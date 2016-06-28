@@ -55,6 +55,9 @@ type
     procedure doc_storeAfterOpen(DataSet: TDataSet);
     procedure FormShow(Sender: TObject);
     procedure aEnterExecute(Sender: TObject);
+    procedure grid_naklad_vCustomDrawCell(Sender: TcxCustomGridTableView;
+      ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
+      var ADone: Boolean);
   private
     { Private declarations }
   public
@@ -101,6 +104,18 @@ begin
   End;
 end;
 
+
+procedure TSelectDocDataForm.grid_naklad_vCustomDrawCell(
+  Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+  var val1: variant;
+begin
+    val1  := grid_naklad_v.DataController.GetValue(
+  AViewInfo.GridRecord.RecordIndex, grid_naklad_v.GetColumnByFieldName('COMPILED_NAME_OTDEL').Index
+                );
+    if pos('!',val1)<>0 then
+         ACanvas.Brush.Color := clmoneygreen;
+end;
 
 //
 //  ѕосле открыти€ накладной открываем данные

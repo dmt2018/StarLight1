@@ -520,8 +520,18 @@ begin
                 );
     if (val1 > 1) then
          ACanvas.Brush.Color := stEqNoms.Color;
+
   end;
+
+
+  {val1  := grid_buh_view_v.DataController.GetValue(
+  AViewInfo.GridRecord.RecordIndex, grid_buh_view_v.GetColumnByFieldName('COMPILED_NAME_OTDEL').Index
+                );
+    if pos('!',val1)<>0 then
+         ACanvas.Brush.Color := clyellow; }
+
 {
+
   if (not AViewInfo.Selected) and (grid_buh_view_v.Columns[AViewInfo.Item.Index].DataBinding.FieldName = 'COMPILED_NAME_OTDEL') then
   begin
     val1  := grid_buh_view_v.DataController.GetValue(
