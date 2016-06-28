@@ -834,7 +834,7 @@ Begin
       APutBack.Enabled       := ed;
       aQuickRaznos.Enabled   := ed;
       bbReserv.Enabled       := ed;
-      bbCheckErrors.Enabled  := ed;
+      bbCheckErrors.Enabled  := false; //ed;  Несколько заказов трудно проверять на ошибки
 
       aPrintOstatok.Enabled   := pr;
       aPrintOstatokByGroup.Enabled := pr;
@@ -2377,7 +2377,7 @@ end;
 procedure TDistFormF.PutByNIDnew(vReplace: integer);
 var
   RES, RES_TEXT : Variant;
-  QUA, QUA2, QUA_SET, id_or_cl, leftQ, distId, destClient : Integer;
+  QUA, QUA2, QUA_SET, id_or_cl, leftQ, distId, destClient, C_ID_ORDERS : Integer;
   cds_good, cds, cds_source: TDataSet;
 begin
 
@@ -2426,7 +2426,14 @@ begin
     or ( (vReplace = 1) and (DM.SelQ.RecordCount = 0) )
     then exit;
 
-    id_or_cl := NewOrder(CUR_ID_ORDERS,cds_source.FieldByName('N_ID').AsInteger, cds_source.FieldByName('LEFT_QUANTITY').AsInteger+leftQ, destClient);
+      // 2016-06-23 Т.к. много заказов может быть, до добавим новую строчку в первый же заказ по списку
+        if Pos( ',', VarToStr(CUR_ID_ORDERS) ) > 0 then
+          C_ID_ORDERS := StrToInt( Copy( VarToStr(CUR_ID_ORDERS), 0, Pos( ',', VarToStr(CUR_ID_ORDERS) )-1 ) )
+        else
+          C_ID_ORDERS := CUR_ID_ORDERS;
+      //
+
+    id_or_cl := NewOrder(C_ID_ORDERS,cds_source.FieldByName('N_ID').AsInteger, cds_source.FieldByName('LEFT_QUANTITY').AsInteger+leftQ, destClient);
 
     if id_or_cl > 0 then
     begin
@@ -2560,7 +2567,7 @@ end;
 
 // Добавить клиентскую позицию
 procedure TDistFormF.ppgi_add_client_orderClick(Sender: TObject);
-var id_or_cl, leftQ, distId, destClient, QUA_SET : Integer;
+var id_or_cl, leftQ, distId, destClient, QUA_SET, C_ID_ORDERS : Integer;
     cds_good, cds, cds_source: TDataSet;
     RES, RES_TEXT : Variant;
 begin
@@ -2578,7 +2585,14 @@ begin
   if ( gr_PrepDist_v.ViewData.RowCount > 0) then
   begin
 
-    id_or_cl := NewOrder(CUR_ID_ORDERS, cds_source.FieldByName('N_ID').AsInteger, cds_source.FieldByName('LEFT_QUANTITY').AsInteger+leftQ, destClient);
+      // 2016-06-23 Т.к. много заказов может быть, до добавим новую строчку в первый же заказ по списку
+        if Pos( ',', VarToStr(CUR_ID_ORDERS) ) > 0 then
+          C_ID_ORDERS := StrToInt( Copy( VarToStr(CUR_ID_ORDERS), 0, Pos( ',', VarToStr(CUR_ID_ORDERS) )-1 ) )
+        else
+          C_ID_ORDERS := CUR_ID_ORDERS;
+      //
+
+    id_or_cl := NewOrder(C_ID_ORDERS, cds_source.FieldByName('N_ID').AsInteger, cds_source.FieldByName('LEFT_QUANTITY').AsInteger+leftQ, destClient);
 
     if id_or_cl > 0 then
     begin
@@ -2808,7 +2822,8 @@ begin
      dm.SelQ.Close;
      dm.SelQ.SQL.Clear;
      dm.SelQ.SQL.Add( 'begin creator.DISTRIBUTION_PKG.make_reserv(:ID_ORDER_, :DIST_IND_ID_, :vMain); end;' );
-     dm.SelQ.ParamByName('ID_ORDER_').AsInteger    := CUR_ID_ORDERS;
+     //dm.SelQ.ParamByName('ID_ORDER_').AsInteger    := CUR_ID_ORDERS;
+     dm.SelQ.ParamByName('ID_ORDER_').AsInteger    := 0;       // 2016-06-23 Рудимент. В процедуре все заказы ищутся от разноса
      dm.SelQ.ParamByName('DIST_IND_ID_').AsInteger := CUR_DIST_IND_ID;
      dm.SelQ.ParamByName('vMain').AsInteger        := vSTOK;
      dm.SelQ.Execute;
@@ -3116,15 +3131,12 @@ end;
 
 // Добавить из инвойса клиенту
 procedure TDistFormF.mnAddToClientClick(Sender: TObject);
-var id_or_cl, id_or_list, QUA_SET : integer;
+var id_or_cl, id_or_list, QUA_SET, C_ID_ORDERS : integer;
     cds_source: TDataSet;
     RES, RES_TEXT : Variant;
 begin
   frmDobor := TfrmDobor.Create(Application);
   try
-    //frmDobor.fst_view.ParamByName('P1').AsInteger := CUR_DEPT_ID;
-    //frmDobor.fst_view.Open;
-
     frmDobor.SelPrepDist.ParamByName('DIST_IND_ID_').Value  := CUR_DIST_IND_ID;
     frmDobor.SelPrepDist.ParamByName('vClient').Value       := CUR_CLIENT;
     frmDobor.SelPrepDist.Open;
@@ -3136,7 +3148,15 @@ begin
 
       if frmDobor.SelPrepDist.RecordCount = 0 then exit;
 
-      id_or_cl := DM.insert_new_order( CUR_ID_ORDERS, frmDobor.Q_CLIENTSID_CLIENTS.AsInteger );
+      // 2016-06-23 Т.к. много заказов может быть, до добавим новую строчку в первый же заказ по списку
+        if Pos( ',', VarToStr(CUR_ID_ORDERS) ) > 0 then
+          C_ID_ORDERS := StrToInt( Copy( VarToStr(CUR_ID_ORDERS), 0, Pos( ',', VarToStr(CUR_ID_ORDERS) )-1 ) )
+        else
+          C_ID_ORDERS := CUR_ID_ORDERS;
+      //
+
+      //id_or_cl := DM.insert_new_order( CUR_ID_ORDERS, frmDobor.Q_CLIENTSID_CLIENTS.AsInteger );
+      id_or_cl := DM.insert_new_order( C_ID_ORDERS, frmDobor.Q_CLIENTSID_CLIENTS.AsInteger );
       if id_or_cl = 0 then exit;
 
       cds_source := gr_PrepDist_v.DataController.DataSet;
@@ -3158,23 +3178,6 @@ begin
 
           with DM.SelQ do
           Begin
-{
-                if (vReplace = 1) then
-                begin
-                  Close;
-                  SQL.Clear;
-                  Params.Clear;
-                  SQL.Add('update distributions set QUANTITY=QUANTITY-'+IntToStr(QUA_SET)+' where DIST_ID='+IntToStr(distId));
-                  execute;
-
-                  Close;
-                  SQL.Clear;
-                  Params.Clear;
-                  SQL.Add('update prepare_distribution set LEFT_QUANTITY=LEFT_QUANTITY+'+IntToStr(QUA_SET)+', TOTAL_QUANTITY=TOTAL_QUANTITY+'+IntToStr(QUA_SET)+' where PREP_DIST_ID='+VarToStr(gr_PrepDist_vPREP_DIST_ID.EditValue));
-                  execute;
-                end;
- }
-
             Close;
             SQL.Clear;
             Params.Clear;
