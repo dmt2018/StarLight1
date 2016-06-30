@@ -534,9 +534,10 @@ end;
 procedure TfrmCustoms.aFileExecute(Sender: TObject);
 var F_CSV, F_CSV_RU: TextFile;
     country_now, type_now, tmp_str, fileName: string;
-    idd, truck_now, i, j, total_sum, trucks: integer;
+    idd, truck_now, i, j,jj, total_sum, trucks: integer;
     XL, XArr, WorkBook, Sheet: OLEVariant;
     WordApp: Variant;
+    s,s1:tstringlist;  ss0,ss,ss1,ss2,ss3:string;
 begin
   if not DM.InvoiceAsIs.Active or (DM.InvoiceAsIs.RecordCount = 0) then exit;
 
@@ -1079,13 +1080,124 @@ end;
       begin
         DM.SelQ.Filter := 'hol_sub_type='''+DM.CDS_WEIGHTSNAME_CAT.AsString+'''';
         DM.SelQ.Filtered := true;
-        if DM.SelQ.RecordCount > 0 then
+        if DM.SelQ.RecordCount > 0 then  begin
           if DM.CDS_WEIGHTSNAME_CAT.AsString = 'Roses' then
             make_out_file(idd, 2, 'raport_srez_notation_roses', 'пояснение_'+DM.CDS_WEIGHTSNAME_CAT_RU.AsString+'.xls', 0)
           else
             make_out_file(idd, 2, 'raport_srez_notation', 'пояснение_'+DM.CDS_WEIGHTSNAME_CAT_RU.AsString+'.xls', 0);
+
+
+           //--------доработка файлов пояснений--
+           i:=0;
+           XL:= CreateOLEObject('Excel.Application');
+           S := TStringList.Create;
+           if DM.CDS_WEIGHTSNAME_CAT_RU.AsString<>'Роза' then begin
+            s.Duplicates := dupIgnore;
+            s.sorted := true;
+           end;
+              XL.WorkBooks.open(ProgPath+ '\OUT\'+IntToStr(idd)+'\пояснение_'+DM.CDS_WEIGHTSNAME_CAT_RU.AsString+'.xls');
+              XL.Cells.SpecialCells($0000000B, EmptyParam).Activate;
+              for i:=1 to XL.ActiveCell.Row  do    begin
+              if TryStrToint(vartostr(trim(XL.Range['A'+IntToStr(i),'A'+IntToStr(i)].value)),jj) then  begin
+              ss0:=trim(XL.Range['A'+IntToStr(i),'A'+IntToStr(i)].value);
+              ss:=trim(XL.Range['B'+IntToStr(i),'B'+IntToStr(i)].value);
+              ss1:=trim(XL.Range['D'+IntToStr(i),'D'+IntToStr(i)].value);
+              ss2:=trim(XL.Range['E'+IntToStr(i),'E'+IntToStr(i)].value);
+              ss3:=trim(XL.Range['F'+IntToStr(i),'F'+IntToStr(i)].value);
+              s.add(ss0+'^'+ss+';'+ss1+'%'+ss2+'?'+ss3);
+              end;
+              end;
+              XL.WorkBooks.close;
+           XL.Quit;
+
+           // стринглист сформирован, закидываю в эксель:
+
+           XL:= CreateOLEObject('Excel.Application');
+           XL.WorkBooks.add;
+           for i:=0 to s.count-1  do    begin          //////////////////////////////////////
+            ss0:=copy(s[i],0,pos('^',s[i])-1);
+            ss:=copy(s[i],pos('^',s[i])+1,pos(';',s[i])-pos('^',s[i])-1);
+            ss1:= copy(s[i],pos(';',s[i])+1,pos('%',s[i])-pos(';',s[i])-1);
+            ss2:= copy(s[i],pos('%',s[i])+1,pos('?',s[i])-pos('%',s[i])-1);
+            ss3:= copy(s[i],pos('?',s[i])+1,length(s[i])-pos('?',s[i]));
+
+            XL.Range['A'+IntToStr(i+1),'A'+IntToStr(i+1)].value :=ss0;
+            XL.Range['B'+IntToStr(i+1),'B'+IntToStr(i+1)].value :=ss;
+            XL.Range['C'+IntToStr(i+1),'C'+IntToStr(i+1)].value :=', ';
+            XL.Range['D'+IntToStr(i+1),'D'+IntToStr(i+1)].value :=ss1;
+            XL.Range['E'+IntToStr(i+1),'E'+IntToStr(i+1)].value :=ss2;
+            XL.Range['F'+IntToStr(i+1),'F'+IntToStr(i+1)].value :=ss3;
+           end;
+                       
+           // -----сортирую эксель:----------------
+           XL.Range['A1','F'+inttostr(s.count)].Sort(Key1:=XL.Range['A1','A'+inttostr(s.count)],
+           Order1:=1, Key2:=XL.Range['D1','D'+inttostr(s.count)],Order1:=1,
+           Key3:=XL.Range['B1','B'+inttostr(s.count)],Order1:=1,
+           Header:=0, OrderCustom:=1,MatchCase:=False, Orientation:=1, DataOption1:=0);
+           // -------------------------------------
+           XL.Cells.SpecialCells($0000000B, EmptyParam).Activate;
+
+           // этот цикл нужен для работы следущего цикла, ибо в след.цикле XL.ActiveCell.Row
+           // задаеца как константа а внутри цикла добав-ся строки XL.Rows[i+1].Insert() и макс-й номер строки
+           // в документе увел-ся... В этом цикле я считаю в перем. jj сколько раз может добавиться XL.Rows[i+1].Insert()
+           // А в след.цикле использую jj
+           jj:=0;
+           for i:=1 to XL.ActiveCell.Row  do    begin
+             ss:=XL.Range['D'+IntToStr(i),'D'+IntToStr(i)].value;        // текущая страна
+             ss1:=XL.Range['D'+IntToStr(i+1),'D'+IntToStr(i+1)].value;   // следущая страна
+            //если разные страны и первая непустая, то:
+             if (ss<>ss1) and (ss<>'') then  begin // ss<>'' - т.к. вставлена пустая строка- текущая (в частности колонка страна) теперь пустая, значит пробегаем ее
+                jj:=jj+1;
+             end;
+           end;
+
+
+           for i:=1 to XL.ActiveCell.Row+jj  do    begin
+            //если пустая ячейка - вся строка д.б. пустой:
+            // if (XL.Range['B'+IntToStr(i+1),'B'+IntToStr(i+1)].value='') then XL.Range['A'+IntToStr(i+1),'D'+IntToStr(i+1)].value:='';
+            // if (XL.Range['B'+IntToStr(i),'B'+IntToStr(i)].value='') then XL.Range['A'+IntToStr(i),'D'+IntToStr(i)].value:='';
+             ss:=XL.Range['D'+IntToStr(i),'D'+IntToStr(i)].value;        // текущая страна
+             ss1:=XL.Range['D'+IntToStr(i+1),'D'+IntToStr(i+1)].value;   // следущая страна
+            //если разные страны, убираю запятую в текущей:
+             if (ss<>ss1) and (ss<>'') then  begin // ss<>'' - т.к. вставлена пустая строка- текущая (в частности колонка страна) теперь пустая, значит пробегаем ее
+              XL.Range['C'+IntToStr(i),'C'+IntToStr(i)].value:=' ';
+              XL.Rows[i+1].Insert();  // разделяю страны пустой строкой
+             end;
+           end;
+
+
+           //суммирую розы:
+           if DM.CDS_WEIGHTSNAME_CAT_RU.AsString='Роза' then begin
+         {  for i:=1 to XL.ActiveCell.Row  do    begin
+            ss2:=vartostr(XL.Range['B'+IntToStr(i),'B'+IntToStr(i)].value) + vartostr(XL.Range['D'+IntToStr(i),'D'+IntToStr(i)].value)+ vartostr(XL.Range['F'+IntToStr(i),'F'+IntToStr(i)].value);// текущая строка
+           for j:=2 to XL.ActiveCell.Row-1  do    begin
+             ss3:=vartostr(XL.Range['B'+IntToStr(j),'B'+IntToStr(j)].value) + vartostr(XL.Range['D'+IntToStr(j),'D'+IntToStr(j)].value)+ vartostr(XL.Range['F'+IntToStr(j),'F'+IntToStr(j)].value);// следущая строка
+             if (ss2=ss3) and (ss2<>'') then showmessage('суммировать');
+           end;
+           end; }
+           end;
+
+
+           //------внешний вид + убираю запятую из последей
+           XL.Range['A1','F'+inttostr(s.count)].select;
+          // XL.Range['A1','F'+inttostr(XL.ActiveCell.Row)].select;
+           XL.Selection.Font.Name:='Arial';
+           XL.Selection.Font.Size:=10;
+           XL.selection.Columns.AutoFit;
+           XL.Cells.SpecialCells($0000000B, EmptyParam).Activate;
+           XL.Range['C'+IntToStr(XL.ActiveCell.Row),'C'+IntToStr(XL.ActiveCell.Row)].value:=' ';
+           //--------------------------------------------------
+
+           XL.Workbooks[1].SaveAs(ProgPath+ '\OUT\'+IntToStr(idd)+'\пояснение_1'+DM.CDS_WEIGHTSNAME_CAT_RU.AsString+'.xls');
+           XL.Quit;
+           s.Free;
+           i:=0;
+         //-----конец доработка файлов пояснений-----
+
+        end; //if DM.SelQ.RecordCount > 0
         DM.CDS_WEIGHTS.Next;
       end;
+
       DM.SelQ.Close;
       DM.SelQ.Filter := '';
       DM.SelQ.Filtered := false;
@@ -1093,9 +1205,13 @@ end;
     DM.CDS_WEIGHTS.Close;
           cxProgressBar1.Position := cxProgressBar1.Position+1;
           cxProgressBar1.Repaint;
+
+
+
     // Создадим файл с описаниями (в старом варианте так и было)
     //make_out_file(idd, 3, 'raport_srez_notation', 'DUTH.xls', 0);
   end; // END 62
+
 
   MessageBox(Handle, 'Генерация файлов прошла успешно','Результат...',MB_ICONINFORMATION);
   panel_progress.Visible := false;
@@ -1106,7 +1222,7 @@ end;
 
 
 procedure TfrmCustoms.make_out_file(id: integer; report_type: integer; report_name: string; output_file: string; truck: integer);
-var mnemo : TfrxMemoView;
+var mnemo : TfrxMemoView; //XL, XArr, WorkBook, Sheet: OLEVariant;  s:tstringlist;  ss:string;   i:integer;
 begin
     try
       if (report_type = 3) or (report_type = 4) then
@@ -1251,6 +1367,9 @@ begin
       DM.SelQ3.Close;
       DM.SelQ3.IndexFieldNames := '';
 
+
+
+    
     except
       on E: Exception do
             MessageBox(Handle, PChar(E.Message), 'Ощибка!', MB_ICONERROR);
