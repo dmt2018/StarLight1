@@ -807,7 +807,7 @@ begin
       try
         TfrmSupplierReport(theForm).DOC_DATE1 := Doc_DateTimePicker1.Date;
         TfrmSupplierReport(theForm).DOC_DATE2 := Doc_DateTimePicker2.Date;
-
+        if chb_service_out.Checked then TfrmSupplierReport(theForm).v_service := 1;
         theForm.ShowModal;
       finally
         theForm.Free;

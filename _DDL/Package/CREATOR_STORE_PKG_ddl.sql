@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.STORE_PKG
--- Generated 20.06.2016 0:28:44 from CREATOR@STAR_NEW
+-- Generated 07.07.2016 0:08:26 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE store_pkg
@@ -564,6 +564,7 @@ PROCEDURE get_supplier_report
   DDATE_BEGIN   IN DATE,
   DDATE_END     IN DATE,
   v_office      in number,
+  v_service     in number,
   p_cursor      out ref_cursor
 );
 
@@ -3844,10 +3845,17 @@ PROCEDURE get_supplier_report
   DDATE_BEGIN   IN DATE,
   DDATE_END     IN DATE,
   v_office      in number,
+  v_service     in number,
   p_cursor      out ref_cursor
 )
 IS
+  p_SERVICE number;
 BEGIN
+  p_SERVICE := 0;
+  if v_service = 1 then
+    get_service_type(v_id_dep, p_SERVICE);
+  end if;
+
   open p_cursor for
       select
          -- 1 приход 2 списание 3 уценка 4 продажа 5 инвентаризация 6 переоценка
@@ -3890,6 +3898,7 @@ BEGIN
            and b1.id_departments = v_id_dep
            and c.id_client = l.id_clients(+)
            and (c.id_office = v_office or v_office = 0)
+           and (b1.ft_id <> p_SERVICE or V_SERVICE = 0)
         group by c.ID_DOC_TYPE, b1.s_id, A2.PRICE, A2.PRICE_list
         order by c.ID_DOC_TYPE
       ) A1, suppliers s

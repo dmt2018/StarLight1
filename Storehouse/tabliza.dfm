@@ -12,6 +12,7 @@ object frmSupplierReport: TfrmSupplierReport
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -29,8 +30,6 @@ object frmSupplierReport: TfrmSupplierReport
     ParentFont = False
     TabOrder = 0
     LookAndFeel.Kind = lfOffice11
-    ExplicitWidth = 856
-    ExplicitHeight = 544
     object grSupplierReport_v: TcxGridDBTableView
       NavigatorButtons.ConfirmDelete = False
       FilterBox.Position = fpTop
@@ -187,7 +186,6 @@ object frmSupplierReport: TfrmSupplierReport
     BevelInner = bvRaised
     BevelOuter = bvLowered
     TabOrder = 1
-    ExplicitWidth = 856
     DesignSize = (
       884
       47)
@@ -240,7 +238,6 @@ object frmSupplierReport: TfrmSupplierReport
         00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF}
       LookAndFeel.Kind = lfFlat
       LookAndFeel.NativeStyle = True
-      ExplicitLeft = 594
     end
     object BitBtn_Cancel: TcxButton
       Left = 751
@@ -302,7 +299,6 @@ object frmSupplierReport: TfrmSupplierReport
       LookAndFeel.Kind = lfOffice11
       LookAndFeel.NativeStyle = True
       Spacing = 6
-      ExplicitLeft = 723
     end
   end
   object OraQuery1: TOraQuery
@@ -312,7 +308,7 @@ object frmSupplierReport: TfrmSupplierReport
       'begin'
       
         '  creator.STORE_PKG.get_supplier_report(:v_id_dep, :DDATE_BEGIN,' +
-        ' :DDATE_END, :v_office, :p_cursor);'
+        ' :DDATE_END, :v_office, :v_service, :p_cursor);'
       'end;')
     FetchAll = True
     FilterOptions = [foCaseInsensitive]
@@ -340,10 +336,42 @@ object frmSupplierReport: TfrmSupplierReport
         ParamType = ptInput
       end
       item
+        DataType = ftUnknown
+        Name = 'v_service'
+      end
+      item
         DataType = ftCursor
         Name = 'p_cursor'
-        Value = ''
+        Value = 'Object'
       end>
+    object OraQuery1S_NAME_RU: TStringField
+      FieldName = 'S_NAME_RU'
+      Size = 150
+    end
+    object OraQuery1PRIHOD: TFloatField
+      FieldName = 'PRIHOD'
+    end
+    object OraQuery1PRODAZA: TFloatField
+      FieldName = 'PRODAZA'
+    end
+    object OraQuery1OFFICE: TFloatField
+      FieldName = 'OFFICE'
+    end
+    object OraQuery1UCENKA: TFloatField
+      FieldName = 'UCENKA'
+    end
+    object OraQuery1SPISANIE: TFloatField
+      FieldName = 'SPISANIE'
+    end
+    object OraQuery1INVENT: TFloatField
+      FieldName = 'INVENT'
+    end
+    object OraQuery1CLAIM: TFloatField
+      FieldName = 'CLAIM'
+    end
+    object OraQuery1REPRICE: TFloatField
+      FieldName = 'REPRICE'
+    end
   end
   object OraDataSource1: TOraDataSource
     DataSet = OraQuery1

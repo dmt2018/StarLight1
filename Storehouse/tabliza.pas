@@ -30,14 +30,25 @@ type
     Panel1: TPanel;
     btnExport: TcxButton;
     BitBtn_Cancel: TcxButton;
+    OraQuery1S_NAME_RU: TStringField;
+    OraQuery1PRIHOD: TFloatField;
+    OraQuery1PRODAZA: TFloatField;
+    OraQuery1OFFICE: TFloatField;
+    OraQuery1UCENKA: TFloatField;
+    OraQuery1SPISANIE: TFloatField;
+    OraQuery1INVENT: TFloatField;
+    OraQuery1CLAIM: TFloatField;
+    OraQuery1REPRICE: TFloatField;
     procedure FormShow(Sender: TObject);
     procedure btnExportClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
     path: string;
   public
     { Public declarations }
     doc_date1, doc_date2: TDate;
+    v_service: integer;
   end;
 
 var
@@ -61,16 +72,21 @@ begin
   End;
 end;
 
+procedure TfrmSupplierReport.FormCreate(Sender: TObject);
+begin
+  v_service := 0;
+end;
+
 procedure TfrmSupplierReport.FormShow(Sender: TObject);
 begin
   try
     screen.cursor := crhourglass;
     OraQuery1.Close;
-    OraQuery1.ParamByName('v_id_dep').AsInteger := strtoint(DataM.department_id);
-    OraQuery1.ParamByName('DDATE_BEGIN').AsDate := DOC_DATE1;
-    OraQuery1.ParamByName('DDATE_END').AsDate   := DOC_DATE2;
-    OraQuery1.ParamByName('v_office').AsInteger := dm.id_office;
-
+    OraQuery1.ParamByName('v_id_dep').AsInteger  := strtoint(DataM.department_id);
+    OraQuery1.ParamByName('DDATE_BEGIN').AsDate  := DOC_DATE1;
+    OraQuery1.ParamByName('DDATE_END').AsDate    := DOC_DATE2;
+    OraQuery1.ParamByName('v_office').AsInteger  := dm.id_office;
+    OraQuery1.ParamByName('v_service').AsInteger := v_service;
     OraQuery1.Open;
     screen.cursor := crdefault;
     grSupplierReport.SetFocus;
