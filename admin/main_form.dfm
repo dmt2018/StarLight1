@@ -2508,6 +2508,25 @@ object Main: TMain
         Ctl3D = True
         ParentCtl3D = False
         TabOrder = 1
+        ExplicitTop = 458
+        DesignSize = (
+          790
+          40)
+        object Label3: TLabel
+          Left = 448
+          Top = 12
+          Width = 337
+          Height = 14
+          Anchors = [akTop, akRight]
+          Caption = #1044#1074#1086#1081#1085#1086#1081' '#1082#1083#1080#1082' '#1085#1072' '#1079#1072#1087#1080#1089#1080' - '#1086#1090#1086#1073#1088#1072#1078#1077#1085#1080#1077' '#1088#1072#1079#1088#1077#1096#1077#1085#1085#1099#1093' '#1076#1077#1073#1080#1090#1086#1088#1086#1074'  '
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Pitch = fpFixed
+          Font.Style = []
+          ParentFont = False
+        end
         object btnAddPermission: TcxButton
           Left = 8
           Top = 5
@@ -2704,6 +2723,7 @@ object Main: TMain
         TitleFont.Name = 'Arial'
         TitleFont.Pitch = fpFixed
         TitleFont.Style = []
+        OnDblClick = EhDebitorsDblClick
         Columns = <
           item
             Alignment = taCenter
@@ -2959,7 +2979,7 @@ object Main: TMain
     Left = 544
     Top = 8
     Bitmap = {
-      494C010105002000200010001000FFFFFFFFFF00FFFFFFFFFFFFFFFF424D3600
+      494C010105002000240010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -3227,6 +3247,7 @@ object Main: TMain
       C00F000000FFC01FC00F00000000C003C00F00000000C001E01F00008000C001
       F03F0000C001C001F07F0000C003C001E03F000080C3C001E03F00008081C001
       C03F00008081C001C03F00008081C001C07F0000C081C001E07F0000C1C1F801
-      F0FF0000FFC3F81FFFFFFFFFFFFFF81F}
+      F0FF0000FFC3F81FFFFFFFFFFFFFF81F00000000000000000000000000000000
+      000000000000}
   end
 end

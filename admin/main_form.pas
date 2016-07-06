@@ -87,6 +87,7 @@ type
     btnAddPermission: TcxButton;
     btnDelPermission: TcxButton;
     EhDebitors: TDBGridEh;
+    Label3: TLabel;
     procedure BitBtn4Click(Sender: TObject);
     procedure Edit1KeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
@@ -123,6 +124,7 @@ type
     procedure btnClientsClick(Sender: TObject);
     procedure btnAddPermissionClick(Sender: TObject);
     procedure btnDelPermissionClick(Sender: TObject);
+    procedure EhDebitorsDblClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -170,6 +172,7 @@ begin
       else Edit2.Color := clred;
     end;
 end;
+
 
 //
 // Добавление логина в ИС
@@ -859,6 +862,7 @@ begin
   frmDebPermission := TfrmDebPermission.Create(Application);
   try
     frmDebPermission.DBComboBoxEh2.Tag := 0;
+    frmDebPermission.Label1.Caption   := 'Сотрудник:';
     frmDebPermission.showmodal;
     DM.Q_SET_DEBITOR.Refresh;
     DM.Q_SET_DEBITOR.Locate('id_clients',frmDebPermission.DBComboBoxEh2.Tag,[]);
@@ -866,7 +870,6 @@ begin
   finally
     frmDebPermission.Free;
   end;
-
 end;
 
 
@@ -885,6 +888,22 @@ begin
     DM.Q_SET_DEBITOR.Refresh;
   except
      on E: Exception do ShowMessage(E.Message);
+  end;
+end;
+
+
+procedure TMain.EhDebitorsDblClick(Sender: TObject);
+begin
+  frmDebPermission := TfrmDebPermission.Create(Application);
+  try
+    frmDebPermission.DBComboBoxEh2.Tag := DM.Q_SET_DEBITORID_CLIENTS.AsInteger;
+    frmDebPermission.Label1.Caption   := 'Сотрудник: '+DM.Q_SET_DEBITORNICK.AsString + ' :: ' + DM.Q_SET_DEBITORFIO.AsString;
+    frmDebPermission.showmodal;
+    DM.Q_SET_DEBITOR.Refresh;
+    DM.Q_SET_DEBITOR.Locate('id_clients',frmDebPermission.DBComboBoxEh2.Tag,[]);
+    EhDebitors.SetFocus;
+  finally
+    frmDebPermission.Free;
   end;
 end;
 

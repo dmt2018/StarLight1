@@ -101,6 +101,8 @@ type
     btnSave: TcxButton;
     procedure FormCreate(Sender: TObject);
     procedure btnSaveClick(Sender: TObject);
+    procedure DBComboBoxEh2Change(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -117,7 +119,15 @@ uses DataM;
 {$R *.dfm}
 
 procedure TfrmDebPermission.btnSaveClick(Sender: TObject);
+var user_id: integer;
 begin
+  if not btnSave.Visible then ModalResult := mrOk;
+
+  Q_IDD.Close;
+  Q_IDD.SQL.Clear;
+  Q_IDD.SQL.Add('delete from DEBETOR_PERMISSIONS where USER_ID='+IntToStr(DBComboBoxEh2.Tag));
+  Q_IDD.Execute;
+
   Q_IDD.Close;
   Q_IDD.SQL.Clear;
   Q_IDD.SQL.Add('insert into DEBETOR_PERMISSIONS values(:p1, :p2)');
@@ -131,13 +141,21 @@ begin
     exit;
   end;
 
-  DBComboBoxEh2.Tag := DBComboBoxEh2.Value;
+  if DBComboBoxEh2.Tag > 0 then
+    user_id := DBComboBoxEh2.Tag
+  else
+  begin
+    user_id := DBComboBoxEh2.Value;
+    DBComboBoxEh2.Tag := DBComboBoxEh2.Value;
+  end;
+
+
   cdsQuery.DisableControls;
   try
     cdsQuery.First;
     while not cdsQuery.Eof do
     begin
-      Q_IDD.ParamByName('p1').AsInteger := DBComboBoxEh2.Value;
+      Q_IDD.ParamByName('p1').AsInteger := user_id;
       Q_IDD.ParamByName('p2').AsInteger := cdsQueryID_DEBETORS.AsInteger;
       Q_IDD.Execute;
       cdsQuery.next;
@@ -149,14 +167,51 @@ begin
   end;
 end;
 
+procedure TfrmDebPermission.DBComboBoxEh2Change(Sender: TObject);
+begin
+  cdsQuery.Close;
+  cdsQuery.ParamByName('user_id').AsInteger   := DBComboBoxEh2.Value;
+  cdsQuery.Open;
+  grClients.SetFocus;
+end;
+
 procedure TfrmDebPermission.FormCreate(Sender: TObject);
 begin
+  DBComboBoxEh2.OnChange := nil;
   FillComboEh(Q_IDD, DBComboBoxEh2, 'select id_clients, FIO from employees_view where (id_office = '+IntToStr(DM.id_office)+' or '+IntToStr(DM.id_office)+' = 0) and active=1 and login is not null order by FIO');
   Q_IDD.Close;
 
+  cdsQuery.Filter   := '';
+  cdsQuery.Filtered := false;
+  grClientsV.DataController.Filter.Clear;
+  grClientsV.DataController.Filter.Active := false;
+end;
+
+procedure TfrmDebPermission.FormShow(Sender: TObject);
+begin
   cdsQuery.Close;
   cdsQuery.ParamByName('office_id').AsInteger := DM.id_office;
-  cdsQuery.Open;
+
+  if DBComboBoxEh2.Tag > 0 then
+  begin
+    //frmDebPermission.btnSave.Visible := false;
+    DBComboBoxEh2.ReadOnly           := true;
+    DBComboBoxEh2.Visible            := false;
+    cdsQuery.ParamByName('user_id').AsInteger   := DBComboBoxEh2.Tag;
+    cdsQuery.Open;
+
+    grBtnDel.DataBinding.AddToFilter(nil, foEqual, 1);
+    grClientsV.DataController.Filter.Active := True;
+  end
+  else
+  begin
+    //frmDebPermission.btnSave.Visible := true;
+    DBComboBoxEh2.ReadOnly           := false;
+    DBComboBoxEh2.Visible            := true;
+    cdsQuery.ParamByName('user_id').AsInteger   := DBComboBoxEh2.Value;
+    cdsQuery.Open;
+    DBComboBoxEh2.OnChange := DBComboBoxEh2Change;
+  end;
 end;
 
 end.

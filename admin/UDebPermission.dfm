@@ -13,6 +13,7 @@ object frmDebPermission: TfrmDebPermission
   OldCreateOrder = False
   Position = poScreenCenter
   OnCreate = FormCreate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object pnlTop: TPanel
@@ -30,7 +31,6 @@ object frmDebPermission: TfrmDebPermission
     ParentBackground = False
     ParentFont = False
     TabOrder = 0
-    ExplicitWidth = 601
     object Label1: TLabel
       Left = 6
       Top = 12
@@ -56,6 +56,7 @@ object frmDebPermission: TfrmDebPermission
       TabOrder = 0
       Text = 'DBComboBoxEh1'
       Visible = True
+      OnChange = DBComboBoxEh2Change
     end
   end
   object pnlMain: TPanel
@@ -66,8 +67,6 @@ object frmDebPermission: TfrmDebPermission
     Align = alClient
     BorderWidth = 5
     TabOrder = 1
-    ExplicitWidth = 601
-    ExplicitHeight = 297
     object grClients: TcxGrid
       Left = 6
       Top = 6
@@ -81,8 +80,6 @@ object frmDebPermission: TfrmDebPermission
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      ExplicitWidth = 589
-      ExplicitHeight = 285
       object grClientsV: TcxGridDBTableView
         NavigatorButtons.ConfirmDelete = False
         DataController.DataSource = dsQuery
@@ -92,14 +89,22 @@ object frmDebPermission: TfrmDebPermission
             Format = '0'
             Kind = skCount
             Column = grClientsVNICK
+          end
+          item
+            Format = '0'
+            Kind = skSum
+            Column = grBtnDel
           end>
         DataController.Summary.SummaryGroups = <>
+        FilterRow.InfoText = #1055#1086#1083#1077' '#1076#1083#1103' '#1092#1080#1083#1100#1090#1088#1086#1074
+        FilterRow.Visible = True
         OptionsView.CellEndEllipsis = True
         OptionsView.NoDataToDisplayInfoText = #1085#1077#1090' '#1076#1072#1085#1085#1099#1093
         OptionsView.ColumnAutoWidth = True
         OptionsView.Footer = True
         OptionsView.GroupByBox = False
         object grBtnDel: TcxGridDBColumn
+          Caption = #1054#1090#1084#1077#1090#1082#1072
           DataBinding.FieldName = 'D_CHECKED'
           PropertiesClassName = 'TcxCheckBoxProperties'
           Properties.Alignment = taCenter
@@ -118,7 +123,6 @@ object frmDebPermission: TfrmDebPermission
           Options.HorzSizing = False
           Options.Sorting = False
           Width = 60
-          IsCaptionAssigned = True
         end
         object grClientsVNICK: TcxGridDBColumn
           Caption = #1050#1086#1076
@@ -294,8 +298,6 @@ object frmDebPermission: TfrmDebPermission
     Color = clWhite
     ParentBackground = False
     TabOrder = 2
-    ExplicitTop = 338
-    ExplicitWidth = 601
     DesignSize = (
       727
       41)
@@ -381,7 +383,6 @@ object frmDebPermission: TfrmDebPermission
       LookAndFeel.Kind = lfFlat
       LookAndFeel.NativeStyle = True
       Spacing = 6
-      ExplicitLeft = 434
     end
     object btnSave: TcxButton
       Left = 8
@@ -466,9 +467,9 @@ object frmDebPermission: TfrmDebPermission
     Session = DM.OraSession1
     SQL.Strings = (
       
-        'select 0 as d_checked, a.nick, a.fio, a.id_debetors, a.id_client' +
-        's, a.last_ddate, a.state, a.beznal, a.mark, a.debet, a.credit_da' +
-        'ys,'
+        'select decode(b.USER_ID,null,0,1) as d_checked, a.nick, a.fio, a' +
+        '.id_debetors, a.id_clients, a.last_ddate, a.state, a.beznal, a.m' +
+        'ark, a.debet, a.credit_days,'
       
         '  a.info, a.ddate, a.rubl, a.chart, a.block1, a.block2, a.phone,' +
         ' a.region, a.group_name, a.id_clients_groups, a.kkk, a.mark_kol,' +
@@ -480,11 +481,18 @@ object frmDebPermission: TfrmDebPermission
         '  a.ID_OFFICE, a.brief, a.inn, a.ITOG_DISCOUNT, a.chart2, a.CHAR' +
         'T_GROUP '
       'from VIEW_DEBETORS a '
+      
+        'left outer join DEBETOR_PERMISSIONS b on b.DEBETOR_ID = a.id_deb' +
+        'etors and b.USER_ID = :user_id'
       'WHERE a.id_office = :office_id '
       'order by group_name, fio')
     Left = 472
     Top = 8
     ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'user_id'
+      end
       item
         DataType = ftUnknown
         Name = 'office_id'
