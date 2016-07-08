@@ -694,6 +694,24 @@ object PriceF: TPriceF
           DataBinding.FieldName = 'EXTRA_GROSS'
           Visible = False
         end
+        object grid_pplView1MDL_PRICE: TcxGridDBColumn
+          Caption = #1057#1088#1077#1076'. '#1094#1077#1085#1072
+          DataBinding.FieldName = 'MDL_PRICE'
+          PropertiesClassName = 'TcxCurrencyEditProperties'
+          Properties.Alignment.Horz = taRightJustify
+          Properties.DisplayFormat = ',0.00;-,0.00'
+          Properties.ReadOnly = True
+          HeaderAlignmentHorz = taCenter
+          Styles.Content = st_stat_col
+          Width = 60
+        end
+        object grid_pplView1STAT_LAST_PRICE: TcxGridDBColumn
+          Caption = '+ / -'
+          DataBinding.FieldName = 'STAT_LAST_PRICE'
+          PropertiesClassName = 'TcxTextEditProperties'
+          HeaderAlignmentHorz = taCenter
+          Width = 100
+        end
       end
       object grid_ppl_Level1: TcxGridLevel
         GridView = grid_pplView1
@@ -3000,6 +3018,11 @@ object PriceF: TPriceF
     object st_extragross: TcxStyle
       AssignedValues = [svColor]
       Color = 4227200
+    end
+    object st_stat_col: TcxStyle
+      AssignedValues = [svColor, svTextColor]
+      Color = 16742762
+      TextColor = clWhite
     end
   end
   object cds_types: TOraQuery

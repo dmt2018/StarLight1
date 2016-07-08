@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.PRICE_PKG
--- Generated 25.06.2016 17:53:45 from CREATOR@STAR_NEW
+-- Generated 09.07.2016 1:57:54 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE price_pkg
@@ -2113,6 +2113,11 @@ BEGIN
 
 
   open cursor_ for
+select z.*,
+ case when DISTRIBUTED_NUMBER > 0 then
+   round(last_price * 1.1, 1) || ' / ' || round(last_price * 0.9, 1)
+ else '' end stat_last_price
+from (
     select a.ppli_id, a.ppl_id, a.coming_date, a.invoice_amount
        , case when DISTRIBUTED_NUMBER_forOrder > nvl(pd.total_quantity,0)-nvl(pd.left_quantity,0)-nvl(d.DISTRIBUTED_NUMBER_to_zhirar,0) then DISTRIBUTED_NUMBER_forOrder else nvl(pd.total_quantity,0) - nvl(pd.left_quantity,0) - nvl(d.DISTRIBUTED_NUMBER_to_zhirar,0) end as DISTRIBUTED_NUMBER
        , case when DISTRIBUTED_NUMBER_forOrder is null and pd.total_quantity is null and pd.left_quantity is null and DISTRIBUTED_NUMBER_to_zhirar is null then a.invoice_amount else
@@ -2156,6 +2161,7 @@ BEGIN
        , v_PPLI_ID_old as PPLI_ID_old
        , case when a.INVOICE_DATA_ID is null then null else PROFIT_COEFFITIENT end PROFIT_COEFFITIENT
        , NOM_NEW
+       , mdl.mdl_price
     from (
         SELECT a.ppli_id, ppl_id, coming_date, invoice_amount, case when STOCK_AMOUNT < 0 then 0 else stock_amount end STOCK_AMOUNT, left_amount, given_amount, hol_price, ruble_price, last_price
           , price_pcc, price_pcc_pc, a.n_id, final_price, inv_total_sum, stok_total_sum
@@ -2249,6 +2255,17 @@ BEGIN
 
     left outer join clients c on c.id_clients = a.id_clients
     left outer join invoice_data inv on inv.INVOICE_DATA_ID = a.INVOICE_DATA_ID
+
+    left outer join
+      (
+        select z.n_id, round(p1/p2,2) as mdl_price from (
+          SELECT a.n_id, max(a.price_pcc_pc), sum(a.invoice_amount * a.price_pcc_pc) as p1, sum(a.invoice_amount) as p2
+            FROM prepare_price_list a
+          where  PPLI_ID = v_PPLI_ID and a.invoice_data_id is not null
+          group by n_id
+        ) z
+      ) mdl on mdl.n_id = a.n_id
+) z
     order by compiled_name_pot, len, RUS_MARKS, BAR_CODE;
 
 EXCEPTION

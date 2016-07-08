@@ -1009,6 +1009,13 @@ object DM: TDM
     object PPLNOM_NEW: TIntegerField
       FieldName = 'NOM_NEW'
     end
+    object PPLMDL_PRICE: TFloatField
+      FieldName = 'MDL_PRICE'
+    end
+    object PPLSTAT_LAST_PRICE: TStringField
+      FieldName = 'STAT_LAST_PRICE'
+      Size = 83
+    end
   end
   object StoreProc: TOraStoredProc
     Session = STAR_DB

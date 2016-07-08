@@ -245,6 +245,9 @@ type
     st_extragross: TcxStyle;
     aClearNewMark: TAction;
     N15: TMenuItem;
+    grid_pplView1MDL_PRICE: TcxGridDBColumn;
+    st_stat_col: TcxStyle;
+    grid_pplView1STAT_LAST_PRICE: TcxGridDBColumn;
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn4Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);

@@ -294,6 +294,8 @@ type
     PPL_IndexPC: TFloatField;
     PPLEXTRA_GROSS: TFloatField;
     PPLNOM_NEW: TIntegerField;
+    PPLMDL_PRICE: TFloatField;
+    PPLSTAT_LAST_PRICE: TStringField;
     procedure STAR_DBBeforeConnect(Sender: TObject);
     procedure PPL1AfterPost(DataSet: TDataSet);
     procedure PPLAfterPost(DataSet: TDataSet);
