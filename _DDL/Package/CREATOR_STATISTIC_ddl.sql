@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.STATISTIC
--- Generated 11-èşë-2016 17:10:07 from CREATOR@STAR2
+-- Generated 11.07.2016 22:35:19 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE statistic
@@ -675,30 +675,25 @@ IS
     sql_str varchar(4096);
     names varchar2(100);
 BEGIN
-   -- a.operation in (4, 1, 32)  4-àêñåññóàğû, 1-ñğåçêà, 32-ãîğøêè
+  -- a.operation in (4, 1, 32)  4-àêñåññóàğû, 1-ñğåçêà, 32-ãîğøêè
+  names := 'star';
+  select get_office_link(v_office) into names from dual;
 
-names:='star';
-if v_office=8 then names:='eburg'; end if;
-if v_office=3 then names:='kazan';end if;
-if v_office=2 then names:='samara';end if;
-if v_office=1 then names:='star';end if;
-if v_office=6 then names:='ufa';end if;
-if v_office=5 then names:='cherep';end if;
-
-sql_str := '
-  select a.*, b.nick, b.region, b.fio, substr(trim(b.nick),0,INSTR(trim(b.nick), '' '')-1) as alpha, c.name as region_name, o.t_long, s.brief
-  from (
-      SELECT a.id_office, a.id_clients, a.operation, count(1) as quantity, sum(a.summ) as summ, sum(a.in_rub) as in_rub, trunc(max(a.ddate_in)) as ddate
-      FROM cash@'||names||' a
-      where a.operation in ('||p_otdel||')
-          and a.r_ddate >= :p1 and a.r_ddate <= :p2
-          and (a.id_office = :v_office or :v_office = 0)
-      group by a.id_office, a.id_clients, a.operation
-  ) a, operations@'||names||' o, clients@'||names||' b, books_regions@'||names||' c, offices@'||names||' s
-  where a.operation = o.id_operations
-     and a.id_clients = b.id_clients
-     and b.region = c.id_regions
-     and a.id_office = s.id_office ';
+  sql_str := '
+    select a.*, b.nick, b.region, b.fio, substr(trim(b.nick),0,INSTR(trim(b.nick), '' '')-1) as alpha, c.name as region_name, o.t_long, s.brief
+    from (
+        SELECT a.id_office, a.id_clients, a.operation, count(1) as quantity, sum(a.summ) as summ, sum(a.in_rub) as in_rub, trunc(max(a.ddate_in)) as ddate
+        FROM cash@'||names||' a
+        where a.operation in ('||p_otdel||')
+            and a.r_ddate >= :p1 and a.r_ddate <= :p2
+            and (a.id_office = :v_office or :v_office = 0)
+        group by a.id_office, a.id_clients, a.operation
+    ) a, operations@'||names||' o, clients@'||names||' b, books_regions@'||names||' c, offices@'||names||' s
+    where a.operation = o.id_operations
+       and a.id_clients = b.id_clients
+       and b.region = c.id_regions
+       and a.id_office = s.id_office
+  ';
   if p_region is not null then sql_str := sql_str || ' and b.region in ('||p_region||') '; end if;
   if p_alpha is not null  then sql_str := sql_str || ' and substr(trim(b.nick),0,INSTR(trim(b.nick), '' '')-1) in ('||p_alpha||')'; end if;
   sql_str := sql_str || ' order by region_name, quantity desc ';
@@ -733,43 +728,39 @@ IS
     summ_total  number(15);
     names varchar2(100);
 BEGIN
-   -- a.operation in (4, 1, 32)  4-àêñåññóàğû, 1-ñğåçêà, 32-ãîğøêè
+  -- a.operation in (4, 1, 32)  4-àêñåññóàğû, 1-ñğåçêà, 32-ãîğøêè
+  names := 'star';
+  select get_office_link(v_office) into names from dual;
 
-names:='star';
-if v_office=8 then names:='eburg'; end if;
-if v_office=3 then names:='kazan';end if;
-if v_office=2 then names:='samara';end if;
-if v_office=1 then names:='star';end if;
-if v_office=6 then names:='ufa';end if;
-if v_office=5 then names:='cherep';end if;
+  sql_str := '
+      select nvl(round(sum(summ)),1)
+      from cash@'||names||'
+      where operation in ('||p_otdel||')
+        and r_ddate >= :p1 and r_ddate <= :p2
+        and (id_office = :v_office or :v_office = 0)
+  ';
+  execute immediate sql_str into summ_total using DOC_DATE1_, DOC_DATE2_, v_office, v_office;
 
-sql_str := '
-    select nvl(round(sum(summ)),1)
-    from cash@'||names||'
-    where operation in ('||p_otdel||')
-      and r_ddate >= :p1 and r_ddate <= :p2
-      and (id_office = :v_office or :v_office = 0)
-';
-execute immediate sql_str into summ_total using DOC_DATE1_, DOC_DATE2_, v_office, v_office;
-
-sql_str := '
-  select a.*, s.brief, o.t_long, '||summ_total||' as summ_total, round((summ/'||summ_total||')*100) as percent
-  from (
-      SELECT a.id_office, a.operation, count(1) as quantity, sum(a.summ) as summ, sum(a.in_rub) as in_rub, trunc(max(a.ddate_in)) as ddate
-      FROM cash@'||names||' a, clients@'||names||' b
-      where a.operation in ('||p_otdel||')
-          and a.r_ddate >= :p1 and a.r_ddate <= :p2
-          and (a.id_office = :v_office or :v_office = 0)
-          and a.id_clients = b.id_clients';
+  sql_str := '
+    select a.*, s.brief, o.t_long, '||summ_total||' as summ_total, round((summ/'||summ_total||')*100) as percent
+    from (
+        SELECT a.id_office, a.operation, count(1) as quantity, sum(a.summ) as summ, sum(a.in_rub) as in_rub, trunc(max(a.ddate_in)) as ddate
+        FROM cash@'||names||' a, clients@'||names||' b
+        where a.operation in ('||p_otdel||')
+            and a.r_ddate >= :p1 and a.r_ddate <= :p2
+            and (a.id_office = :v_office or :v_office = 0)
+            and a.id_clients = b.id_clients
+  ';
 
   if p_region is not null then sql_str := sql_str || ' and b.region in ('||p_region||') '; end if;
   if p_alpha is not null  then sql_str := sql_str || ' and substr(trim(b.nick),0,INSTR(trim(b.nick), '' '')-1) in ('||p_alpha||')'; end if;
 
- sql_str := sql_str || '
-      group by a.id_office, a.operation
-  ) a, operations@'||names||' o, offices@'||names||' s
-  where a.operation = o.id_operations and a.id_office = s.id_office
-  order by operation, s.brief';
+  sql_str := sql_str || '
+        group by a.id_office, a.operation
+    ) a, operations@'||names||' o, offices@'||names||' s
+    where a.operation = o.id_operations and a.id_office = s.id_office
+    order by operation, s.brief
+  ';
 
   open cursor_ for sql_str using DOC_DATE1_, DOC_DATE2_, v_office, v_office;
 
