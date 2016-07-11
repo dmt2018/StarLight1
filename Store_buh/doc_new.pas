@@ -1046,6 +1046,12 @@ begin
           frxReportNakl.LoadFromFile(path+'raports\doc_reserv.fr3');
         end;
 
+        // сод
+        if (doctype_id = 8) then
+        begin
+          frxReportNakl.LoadFromFile(path+'raports\doc_upd.fr3');
+        end;
+
         frxReportNakl.PrepareReport;
         frxReportNakl.PrintOptions.Copies := TPrintTypeSelectForm(theForm).UpDown1.Position; //StrToInt(PrintNumberEdit.Text);
 
