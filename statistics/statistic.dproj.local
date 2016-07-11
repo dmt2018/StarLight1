@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/10/05 15:36:50.118.pas,E:\Delphi\_Цветы 2010\statistics\Unit1.pas=E:\Delphi\_Цветы 2010\statistics\UMoney.pas</Transaction>
+    <Transaction>2010/10/05 15:36:50.118.dfm,E:\Delphi\_Цветы 2010\statistics\Unit1.dfm=E:\Delphi\_Цветы 2010\statistics\UMoney.dfm</Transaction>
+    <Transaction>2010.10.25 23:25:17.325.pas,C:\_WORK\delphi\StarLight\_Цветы 2010\statistics\Unit1.pas=C:\_WORK\delphi\StarLight\_Цветы 2010\statistics\UClients.pas</Transaction>
+    <Transaction>2010.10.25 23:25:17.325.dfm,C:\_WORK\delphi\StarLight\_Цветы 2010\statistics\Unit1.dfm=C:\_WORK\delphi\StarLight\_Цветы 2010\statistics\UClients.dfm</Transaction>
+    <Transaction>2010.11.15 02:39:20.224.pas,C:\_WORK\delphi\StarLight\_Цветы 2010\statistics\Unit1.pas=C:\_WORK\delphi\StarLight\_Цветы 2010\statistics\USettings.pas</Transaction>
+    <Transaction>2010.11.15 02:39:20.224.dfm,C:\_WORK\delphi\StarLight\_Цветы 2010\statistics\Unit1.dfm=C:\_WORK\delphi\StarLight\_Цветы 2010\statistics\USettings.dfm</Transaction>
+    <Transaction>2012.06.18 00:59:29.594.pas,C:\_WORK\delphi\StarLight\_Цветы регионы\statistics\Unit1.pas=C:\_WORK\delphi\StarLight\_Цветы регионы\statistics\UStore.pas</Transaction>
+    <Transaction>2012.06.18 00:59:29.594.dfm,C:\_WORK\delphi\StarLight\_Цветы регионы\statistics\Unit1.dfm=C:\_WORK\delphi\StarLight\_Цветы регионы\statistics\UStore.dfm</Transaction>
+    <Transaction>2012.06.18 01:25:20.690.pas,C:\_WORK\delphi\StarLight\_Цветы регионы\statistics\DM_f.pas=C:\_WORK\delphi\StarLight\_Цветы регионы\statistics\DataModule.pas</Transaction>
+    <Transaction>2012.06.18 01:25:20.690.dfm,C:\_WORK\delphi\StarLight\_Цветы регионы\statistics\DM_f.dfm=C:\_WORK\delphi\StarLight\_Цветы регионы\statistics\DataModule.dfm</Transaction>
+    <Transaction>2014.04.09 00:40:36.288.pas,C:\_work\delphi\StarLight\_Цветы регионы\statistics\Unit1.pas=C:\_work\delphi\StarLight\_Цветы регионы\statistics\USealesByClient.pas</Transaction>
+    <Transaction>2014.04.09 00:40:36.288.dfm,C:\_work\delphi\StarLight\_Цветы регионы\statistics\Unit1.dfm=C:\_work\delphi\StarLight\_Цветы регионы\statistics\USealesByClient.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

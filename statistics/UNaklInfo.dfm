@@ -190,6 +190,7 @@ object frmNaklInfo: TfrmNaklInfo
     Height = 377
     Align = alClient
     AllowedOperations = []
+    DataGrouping.GroupLevels = <>
     DataSource = doc_data_ds
     Flat = False
     Font.Charset = DEFAULT_CHARSET
@@ -210,6 +211,7 @@ object frmNaklInfo: TfrmNaklInfo
     OptionsEh = [dghFixed3D, dghHighlightFocus, dghClearSelection, dghAutoSortMarking, dghRowHighlight, dghDialogFind, dghColumnResize, dghColumnMove]
     ParentFont = False
     ReadOnly = True
+    RowDetailPanel.Color = clBtnFace
     SortLocal = True
     STFilter.Local = True
     STFilter.Visible = True
@@ -493,6 +495,8 @@ object frmNaklInfo: TfrmNaklInfo
         Title.EndEllipsis = True
         Visible = False
       end>
+    object RowDetailData: TRowDetailPanelControlEh
+    end
   end
   object doc: TOraQuery
     SQL.Strings = (

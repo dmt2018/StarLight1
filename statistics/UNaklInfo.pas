@@ -7,7 +7,7 @@ uses
   Dialogs, Menus, cxLookAndFeelPainters, cxStyles, cxGraphics, cxEdit, cxVGrid,
   cxDBVGrid, GridsEh, DBGridEh, cxControls, cxInplaceContainer, StdCtrls,
   cxButtons, ExtCtrls, cxTextEdit, Pi_library, IniFiles, DB, DBAccess, Ora,
-  MemDS;
+  MemDS, DBGridEhGrouping;
 
 type
   TfrmNaklInfo = class(TForm)

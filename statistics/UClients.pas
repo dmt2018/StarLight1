@@ -269,7 +269,9 @@ procedure TfrmClients.aSearchExecute(Sender: TObject);
 var i: integer;
     vv, res_cl, res_reg, otd: string;
     total: currency;
+    region_name,names:string;
 begin
+
   cb_clients.PostEditValue;
 	vv := cb_clients.EditValue;
   res_cl := '';
@@ -305,6 +307,13 @@ begin
         else
           res_reg := res_reg + ',' + IntToStr(chb_regions.Properties.Items.Items[i].Tag);
   end;
+
+//---------------------------------
+//region_name := cbOffices.Properties.Items.Items(cbOffices.ItemIndex)  ;
+//showmessage(cbOffices.EditValue+cbOffices.Text);
+//---------------------------------
+
+
 
   d_date_begin.PostEditValue;
   d_date_end.PostEditValue;
@@ -369,6 +378,31 @@ begin
       	  DOC.ParamByName('p_region').AsString := '';
         end;
 
+//-------------------------------------------------
+  Case DM.id_office of
+       8 : names:='EBURG';
+       3 : names:='KAZAN';
+       2 : names:='SAMARA';
+       6 : names:='UFA';
+       5 : names:='CHEREP';
+  else names:='star';
+  end;
+
+if (DM.id_office<>1) and (DM.id_office<>0) and (DM.id_office<>4) and (DM.id_office<>7) then begin  // если не москва
+ try
+  DM.SQL_Q.Close;
+  DM.SQL_Q.SQL.Clear;
+ // DM.SQL_Q.SQL.Add('select 1 from dual@'+names);
+  DM.SQL_Q.SQL.Add('select check_link('''+names+''') from dual');
+  DM.SQL_Q.open;
+  DM.SQL_Q.close;
+ except
+  showmessage('нет связи с регионом '+names);
+  exit;
+ end;
+end;      
+ //-------------------------------------------------      
+
         cds_result.ParamByName('v_office').AsInteger := dm.id_office;
     	  cds_result.ParamByName('p_otdel').AsString   := otd;
       	cds_result.Open;
@@ -413,11 +447,6 @@ begin
         DOC.ParamByName('v_office').AsInteger := dm.id_office;
     	  DOC.ParamByName('p_otdel').AsString   := otd;
       	DOC.Open;
-
-
-
-
-
 
 	      screen.cursor:=crdefault;
       except
@@ -467,6 +496,7 @@ end;
 procedure TfrmClients.cbOfficesPropertiesChange(Sender: TObject);
 begin
   DM.id_office   := cbOffices.EditValue;
+  //showmessage(inttostr(DM.id_office));
 end;
 
 procedure TfrmClients.cb_clientsPropertiesEditValueChanged(Sender: TObject);

@@ -547,7 +547,7 @@ object frmClients: TfrmClients
     Top = 213
     Width = 954
     Height = 332
-    ActivePage = tch_graph
+    ActivePage = tsh_data
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -872,6 +872,10 @@ object frmClients: TfrmClients
     object tch_graph: TcxTabSheet
       Caption = ' '#1043#1088#1072#1092#1080#1082' '
       ImageIndex = 0
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object chart_stat: TChart
         Left = 0
         Top = 0
@@ -1487,6 +1491,10 @@ object frmClients: TfrmClients
     object tsh_clientsChart: TcxTabSheet
       Caption = #1043#1088#1072#1092#1080#1082' '#1087#1086' '#1082#1083#1080#1077#1085#1090#1072#1084
       ImageIndex = 4
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Chart_clients: TChart
         Left = 0
         Top = 0
@@ -1655,7 +1663,7 @@ object frmClients: TfrmClients
     Left = 832
     Top = 144
     Bitmap = {
-      494C010120002400440020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010120002400580020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002001000001002000000000000040
       0200000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
