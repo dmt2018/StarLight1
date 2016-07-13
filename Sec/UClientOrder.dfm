@@ -2895,6 +2895,7 @@ object frmClientOrders: TfrmClientOrders
         Options.HorzSizing = False
         Options.Sorting = False
         Width = 100
+        OnCompareRowValuesForCellMerging = grOrdersViewDATE_TRUCKCompareRowValuesForCellMerging
       end
       object grOrdersViewDATE_TRUCK_OUT: TcxGridDBColumn
         Caption = #1042#1099#1093#1086#1076' '#1084#1072#1096#1080#1085#1099
@@ -11078,7 +11079,6 @@ object frmClientOrders: TfrmClientOrders
     ShowProgress = True
     OverwritePrompt = False
     DataOnly = False
-    OnBeginExport = frxXLSExport1BeginExport
     ExportEMF = True
     AsText = False
     Background = True
