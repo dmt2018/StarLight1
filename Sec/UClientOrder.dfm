@@ -9299,7 +9299,7 @@ object frmClientOrders: TfrmClientOrders
     Options.Direct = True
     Username = 'creator'
     Password = '123456'
-    Server = 'roznica:1521:orcl'
+    Server = 'ROZNICA:1521:orcl'
     AutoCommit = False
     LoginPrompt = False
     AfterConnect = Main_sessionAfterConnect
@@ -9316,13 +9316,16 @@ object frmClientOrders: TfrmClientOrders
         ' LISTAGG( s.s_name_ru, '#39', '#39' ) WITHIN GROUP (ORDER BY s_name_ru) ' +
         'as s_name_ru,'
       ' WM_CONCAT( distinct d.DIST_IND_ID ) as DIST_IND_ID'
-      'from orders a, suppliers s, DISTRIBUTIONS_INDEX d'
+      
+        'from orders a, suppliers s, Distributions_orders d --DISTRIBUTIO' +
+        'NS_INDEX d'
       'where a.id_departments = :id_dep '
       '  and a.date_truck between :p1 and :p2'
       '  and a.active = 1 '
       '  and a.n_type = 0 '
       '  and a.S_ID = s.S_ID(+)'
-      '  and a.id_orders = d.ID_ORDERS(+)'
+      '  --and a.id_orders = d.ID_ORDERS(+)'
+      '  and a.id_orders = d.ORDER_ID(+)'
       'group by a.date_truck, a.date_truck_out'
       'order by a.date_truck'
       ''
