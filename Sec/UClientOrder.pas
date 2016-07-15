@@ -227,7 +227,11 @@ type
     procedure cdsOrdersAfterScroll(DataSet: TDataSet);
     procedure aFreeSaleExecute(Sender: TObject);
     procedure Main_sessionAfterConnect(Sender: TObject);
-    procedure frxXLSExport1BeginExport(Sender: TObject);
+    procedure grOrdersViewDATE_TRUCKCompareRowValuesForCellMerging(
+      Sender: TcxGridColumn; ARow1: TcxGridDataRow;
+      AProperties1: TcxCustomEditProperties; const AValue1: Variant;
+      ARow2: TcxGridDataRow; AProperties2: TcxCustomEditProperties;
+      const AValue2: Variant; var AAreEqual: Boolean);
   private
     { Private declarations }
   public
@@ -252,6 +256,10 @@ implementation
 procedure TfrmClientOrders.imgExportClick(Sender: TObject);
 begin
   if (cdsOrders.RecordCount = 0) or (cdsClients.RecordCount = 0) {or not cdsClients.Filtered} then exit;
+     //--------------
+     if not directoryexists(edPath.Text+'\'+vartostr(grOrdersViewDATE_TRUCK.EditValue)+'\') then
+          createdir(edPath.Text+'\'+vartostr(grOrdersViewDATE_TRUCK.EditValue)+'\');
+     //--------------
 
     Screen.Cursor := crHourGlass;
     try
@@ -261,7 +269,7 @@ begin
         while not cdsClients.Eof do
         begin
           frxReport1.LoadFromFile(path+'raports\order_client_export.fr3');
-          frxXLSExport1.DefaultPath := edPath.Text;
+          frxXLSExport1.DefaultPath := edPath.Text+'\'+vartostr(grOrdersViewDATE_TRUCK.EditValue)+'\';
           if cdsClientsCHECKED.AsInteger = 1 then
           begin
             Q_DISTR_LIST.Close;
@@ -276,7 +284,7 @@ begin
           end;
           cdsClients.Next;
         end;
-        ShellExecute(Handle, nil, PChar(edPath.Text), nil, nil, SW_RESTORE);
+        ShellExecute(Handle, nil, PChar(edPath.Text+'\'+vartostr(grOrdersViewDATE_TRUCK.EditValue)+'\'), nil, nil, SW_RESTORE);
       except
         on E: Exception do
         begin
@@ -457,7 +465,11 @@ begin
 end;
 
 
-procedure TfrmClientOrders.frxXLSExport1BeginExport(Sender: TObject);
+procedure TfrmClientOrders.grOrdersViewDATE_TRUCKCompareRowValuesForCellMerging(
+  Sender: TcxGridColumn; ARow1: TcxGridDataRow;
+  AProperties1: TcxCustomEditProperties; const AValue1: Variant;
+  ARow2: TcxGridDataRow; AProperties2: TcxCustomEditProperties;
+  const AValue2: Variant; var AAreEqual: Boolean);
 begin
 
 end;
