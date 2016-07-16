@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.PRICE_PKG
--- Generated 09.07.2016 1:57:54 from CREATOR@STAR_NEW
+-- Generated 16.07.2016 8:30:23 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE price_pkg
@@ -555,10 +555,21 @@ begin
    /* Проверим, если минусовой инвойс то грузанем предыдущие параметры */
    select a.inv_minus, a.minus_inv_id, ID_DEPARTMENTS into v_is_minus, v_old_inv_id, v_ID_DEPARTMENTS from INVOICE_REGISTER a where a.inv_id = IN_INV_ID;
    if v_is_minus = 3 then
-      select count(*) into cnt from PREPARE_PRICE_LIST_INDEX b where b.inv_id = v_old_inv_id;
+      --select count(*) into cnt from PREPARE_PRICE_LIST_INDEX b where b.inv_id = v_old_inv_id;
+      select count(1) into cnt
+        from PREPARE_PRICE_LIST_INDEX p, invoice_register r
+        where  v_old_inv_id = r.inv_id
+          and ( r.inv_id in (p.inv_id, p.inv_id2, p.inv_id3, p.inv_id4) or r.ipp_id = p.pack_id );
+
       if cnt > 0 then
         UPDATE PREPARE_PRICE_LIST_INDEX a set (a.EXCHANGE_RATE,a.PROFIT_COEFFITIENT,a.PRIME_COAST_COEFFICIENT,a.USE_CUST_COEF, date_change) =
-          (select b.EXCHANGE_RATE,b.PROFIT_COEFFITIENT,b.PRIME_COAST_COEFFICIENT,b.USE_CUST_COEF, sysdate from PREPARE_PRICE_LIST_INDEX b where b.inv_id = v_old_inv_id)
+          (
+            --select b.EXCHANGE_RATE,b.PROFIT_COEFFITIENT,b.PRIME_COAST_COEFFICIENT,b.USE_CUST_COEF, sysdate from PREPARE_PRICE_LIST_INDEX b where b.inv_id = v_old_inv_id
+            select distinct p.EXCHANGE_RATE, p.PROFIT_COEFFITIENT, p.PRIME_COAST_COEFFICIENT, p.USE_CUST_COEF, sysdate
+              from PREPARE_PRICE_LIST_INDEX p, invoice_register r
+              where  v_old_inv_id = r.inv_id
+                and ( r.inv_id in (p.inv_id, p.inv_id2, p.inv_id3, p.inv_id4) or r.ipp_id = p.pack_id )
+          )
         where a.PPLI_ID = IN_PPLI_ID;
       end if;
    end if;
@@ -2258,7 +2269,7 @@ from (
 
     left outer join
       (
-        select z.n_id, round(p1/p2,2) as mdl_price from (
+        select z.n_id, round(p1/decode(p2,0,1,p2),2) as mdl_price from (
           SELECT a.n_id, max(a.price_pcc_pc), sum(a.invoice_amount * a.price_pcc_pc) as p1, sum(a.invoice_amount) as p2
             FROM prepare_price_list a
           where  PPLI_ID = v_PPLI_ID and a.invoice_data_id is not null
