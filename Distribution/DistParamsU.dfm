@@ -29,7 +29,6 @@ object DistParamsF: TDistParamsF
     ParentBackground = False
     ParentCtl3D = False
     TabOrder = 3
-    ExplicitWidth = 574
     DesignSize = (
       592
       40)
@@ -192,7 +191,6 @@ object DistParamsF: TDistParamsF
       LookAndFeel.Kind = lfFlat
       LookAndFeel.NativeStyle = True
       Spacing = 6
-      ExplicitLeft = 409
     end
     object btnCollectInv: TButton
       Left = 171
@@ -212,7 +210,6 @@ object DistParamsF: TDistParamsF
     Height = 83
     Align = alTop
     TabOrder = 0
-    ExplicitWidth = 574
     object Label1: TLabel
       Left = 32
       Top = 31
@@ -338,7 +335,6 @@ object DistParamsF: TDistParamsF
     Height = 178
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 574
     object Label3: TLabel
       Left = 160
       Top = 10
@@ -432,7 +428,6 @@ object DistParamsF: TDistParamsF
     Height = 194
     Align = alClient
     TabOrder = 2
-    ExplicitWidth = 574
     object Label4: TLabel
       Left = 8
       Top = 240

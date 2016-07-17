@@ -86,8 +86,8 @@ Begin
         //FillComboOlmer(DM.SelQ, DBComboBoxEh2, 'Без инвойса');
         DM.SelQ.Close;
 
-        Panel3.Visible := not (OrderID > 0);
-        Panel4.Visible := not (OrderID > 0);
+        Panel3.Visible := not (Length(OrderID) > 0);
+        Panel4.Visible := not (Length(OrderID) > 0);
 
         DateTimePicker1.DateTime := VarToDateTime(DistDate);
         Edit1.Text  := VarToStr(DistComment);

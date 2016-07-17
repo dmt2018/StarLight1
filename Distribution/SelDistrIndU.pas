@@ -126,8 +126,17 @@ end;
 
 procedure TSelDistrIndF.N1Click(Sender: TObject);
 begin
-  gr_distr_v.DataController.DataSet.Delete;
-  gr_distr_v.DataController.DataSet.Refresh;
+  if not gr_distr_v.DataController.DataSet.FieldByName('IS_SENDED').IsNull then
+  begin
+    MessageBox(Handle, 'Нельзя удалять разнос с подгруженными инвойсами в склад', 'Внимание', MB_ICONWARNING);
+    exit;
+  end;
+
+  if (MessageDlg('Вы действительно хотите удалить разнос?', mtConfirmation, [mbOk, mbNo], 0, mbOk) = mrOk) then
+  begin
+    gr_distr_v.DataController.DataSet.Delete;
+    gr_distr_v.DataController.DataSet.Refresh;
+  end;
 end;
 
 end.

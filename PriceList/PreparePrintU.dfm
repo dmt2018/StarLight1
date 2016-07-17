@@ -552,7 +552,7 @@ object PreparePrintF: TPreparePrintF
     Left = 417
     Top = 193
     Bitmap = {
-      494C0101020004006C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010102000400700010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -702,7 +702,7 @@ object PreparePrintF: TPreparePrintF
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 38616.761564004600000000
-    ReportOptions.LastChange = 42291.065554444400000000
+    ReportOptions.LastChange = 42196.070587071800000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'procedure MasterData1OnBeforePrint(Sender: TfrxComponent);'
@@ -734,21 +734,25 @@ object PreparePrintF: TPreparePrintF
       RightMargin = 5.000000000000000000
       TopMargin = 5.000000000000000000
       BottomMargin = 5.000000000000000000
-      ColumnWidth = 99.000000000000000000
+      Columns = 2
+      ColumnWidth = 98.000000000000000000
+      ColumnPositions.Strings = (
+        '0'
+        '100')
       PrintOnPreviousPage = True
       object ReportTitle1: TfrxReportTitle
-        Height = 139.842610000000000000
+        Height = 128.504020000000000000
         Top = 18.897650000000000000
         Width = 755.906000000000000000
         object Memo1: TfrxMemoView
           Align = baWidth
           Width = 755.906000000000000000
-          Height = 45.354360000000000000
+          Height = 41.574830000000000000
           ShowHint = False
           AutoWidth = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -19
+          Font.Height = -16
           Font.Name = 'tahoma'
           Font.Style = [fsBold]
           HAlign = haCenter
@@ -758,14 +762,14 @@ object PreparePrintF: TPreparePrintF
         end
         object Memo2: TfrxMemoView
           Left = 400.630180000000000000
-          Top = 64.252010000000000000
+          Top = 79.370130000000000000
           Width = 355.275453860000000000
           Height = 18.897650000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -16
+          Font.Height = -12
           Font.Name = 'tahoma'
           Font.Style = [fsUnderline]
           HAlign = haRight
@@ -775,16 +779,16 @@ object PreparePrintF: TPreparePrintF
           VAlign = vaCenter
         end
         object Memo9: TfrxMemoView
-          Align = baWidth
-          Top = 94.488250000000000000
-          Width = 589.606680000000000000
-          Height = 45.354342910000000000
+          Align = baLeft
+          Top = 109.606370000000000000
+          Width = 302.362448820000000000
+          Height = 18.897650000000000000
           ShowHint = False
           DataSet = frSelPriceList
           DataSetName = 'frSelPriceList'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -29
+          Font.Height = -12
           Font.Name = 'tahoma'
           Font.Style = [fsBold]
           Frame.Typ = [ftLeft, ftTop, ftBottom]
@@ -795,37 +799,97 @@ object PreparePrintF: TPreparePrintF
           VAlign = vaCenter
         end
         object Memo10: TfrxMemoView
-          Align = baRight
-          Left = 589.606680000000000000
-          Top = 94.488250000000000000
-          Width = 166.299320000000000000
-          Height = 45.354345350000000000
+          Align = baLeft
+          Left = 302.362448820000000000
+          Top = 109.606370000000000000
+          Width = 68.031491180000000000
+          Height = 18.897650000000000000
           ShowHint = False
           DataSet = frSelPriceList
           DataSetName = 'frSelPriceList'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -29
+          Font.Height = -12
           Font.Name = 'tahoma'
           Font.Style = [fsBold]
           Frame.Typ = [ftRight, ftTop, ftBottom]
           HAlign = haRight
           Memo.UTF8 = (
-            #1056#166#1056#181#1056#1029#1056#176', '#1057#1026#1057#1107#1056#177'.')
+            #1056#166#1056#181#1056#1029#1056#176', '#1057#1026#1057#1107#1056#177)
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo15: TfrxMemoView
-          Top = 57.472480000000000000
-          Width = 143.622140000000000000
-          Height = 22.677180000000000000
+          Align = baWidth
+          Top = 41.574803150000000000
+          Width = 755.906000000000000000
+          Height = 18.897637800000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -19
+          Font.Height = -13
           Font.Name = 'tahoma'
           Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#1115#1057#8218#1056#1169#1056#181#1056#187': [frSelPriceList."DEPT"]')
+          ParentFont = False
+        end
+        object Memo3: TfrxMemoView
+          Left = 377.953000000000000000
+          Top = 109.606370000000000000
+          Width = 302.362448820000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DataSet = frSelPriceList
+          DataSetName = 'frSelPriceList'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'tahoma'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#1116#1056#176#1056#183#1056#1030#1056#176#1056#1029#1056#1105#1056#181)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo4: TfrxMemoView
+          Align = baLeft
+          Left = 680.315448820000000000
+          Top = 109.606370000000000000
+          Width = 68.031491180000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DataSet = frSelPriceList
+          DataSetName = 'frSelPriceList'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'tahoma'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftRight, ftTop, ftBottom]
+          HAlign = haRight
+          Memo.UTF8 = (
+            #1056#166#1056#181#1056#1029#1056#176', '#1057#1026#1057#1107#1056#177)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object MemoKind: TfrxMemoView
+          Align = baWidth
+          Top = 60.472480000000000000
+          Width = 755.906000000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'tahoma'
+          Font.Style = []
+          HAlign = haCenter
           Memo.UTF8 = (
             #1056#1119#1057#1026#1056#176#1056#8470#1057#1027'-'#1056#187#1056#1105#1057#1027#1057#8218)
           ParentFont = False
@@ -833,49 +897,46 @@ object PreparePrintF: TPreparePrintF
         end
       end
       object MasterData1: TfrxMasterData
-        Height = 45.354330710000000000
-        Top = 309.921460000000000000
-        Width = 755.906000000000000000
+        Height = 18.897650000000000000
+        Top = 272.126160000000000000
+        Width = 370.393940000000000000
         OnBeforePrint = 'MasterData1OnBeforePrint'
         DataSet = frSelPriceList
         DataSetName = 'frSelPriceList'
         RowCount = 0
         Stretched = True
-        object Memo5: TfrxMemoView
-          Align = baWidth
-          Width = 623.622450000000000000
-          Height = 45.354342910000000000
+        object MemoName: TfrxMemoView
+          Align = baLeft
+          Width = 302.362448820000000000
+          Height = 18.897650000000000000
           ShowHint = False
           StretchMode = smMaxHeight
-          DataField = 'COMPILED_NAME_POT'
           DataSet = frSelPriceList
           DataSetName = 'frSelPriceList'
           DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNone
-          Font.Height = -29
+          Font.Color = clBlack
+          Font.Height = -12
           Font.Name = 'tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           Frame.Typ = [ftLeft, ftTop, ftBottom]
-          GapX = 3.000000000000000000
-          GapY = 3.000000000000000000
           Highlight.Font.Charset = DEFAULT_CHARSET
           Highlight.Font.Color = clBlack
-          Highlight.Font.Height = -29
+          Highlight.Font.Height = -12
           Highlight.Font.Name = 'tahoma'
-          Highlight.Font.Style = [fsBold]
-          Highlight.Color = 14737632
+          Highlight.Font.Style = []
+          Highlight.Color = clSilver
           Highlight.Condition = '<frSelPriceList."BEST_PRICE"> = 1'
           Memo.UTF8 = (
-            '[frSelPriceList."COMPILED_NAME_POT"]')
+            '[frSelPriceList."H_CODE"] [frSelPriceList."COMPILED_NAME_POT"]')
           ParentFont = False
           VAlign = vaCenter
         end
-        object Memo6: TfrxMemoView
-          Align = baRight
-          Left = 623.622450000000000000
-          Width = 132.283550000000000000
-          Height = 45.354342910000000000
+        object MemoPrice: TfrxMemoView
+          Align = baLeft
+          Left = 302.362448820000000000
+          Width = 68.031491180000000000
+          Height = 18.897650000000000000
           ShowHint = False
           StretchMode = smMaxHeight
           DataSet = frSelPriceList
@@ -885,22 +946,20 @@ object PreparePrintF: TPreparePrintF
           DisplayFormat.Kind = fkNumeric
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -29
+          Font.Height = -12
           Font.Name = 'tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           Frame.Typ = [ftRight, ftTop, ftBottom]
-          GapX = 3.000000000000000000
-          GapY = 3.000000000000000000
           HAlign = haRight
           Highlight.Font.Charset = DEFAULT_CHARSET
           Highlight.Font.Color = clBlack
-          Highlight.Font.Height = -29
+          Highlight.Font.Height = -12
           Highlight.Font.Name = 'tahoma'
-          Highlight.Font.Style = [fsBold]
-          Highlight.Color = 14737632
+          Highlight.Font.Style = []
+          Highlight.Color = clSilver
           Highlight.Condition = '<frSelPriceList."BEST_PRICE"> = 1'
           Memo.UTF8 = (
-            '[frSelPriceList."PRICE"] ')
+            '[frSelPriceList."PRICE"]')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -911,16 +970,16 @@ object PreparePrintF: TPreparePrintF
         Font.Height = -12
         Font.Name = 'Arial'
         Font.Style = []
-        Height = 45.354330710000000000
+        Height = 18.897650000000000000
         ParentFont = False
-        Top = 241.889920000000000000
-        Width = 755.906000000000000000
+        Top = 230.551330000000000000
+        Width = 370.393940000000000000
         Condition = 'frSelPriceList."F_SUB_TYPE"'
         OutlineText = 'frSelPriceList."F_SUB_TYPE"'
         object frSelPriceListF_SUB_TYPE: TfrxMemoView
           Align = baClient
-          Width = 755.906000000000000000
-          Height = 45.354330710000000000
+          Width = 370.393940000000000000
+          Height = 18.897650000000000000
           ShowHint = False
           Color = clGradientInactiveCaption
           DataSet = frSelPriceList
@@ -928,12 +987,12 @@ object PreparePrintF: TPreparePrintF
           DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -29
+          Font.Height = -12
           Font.Name = 'tahoma'
           Font.Style = [fsBold]
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           Memo.UTF8 = (
-            '[frSelPriceList."F_TYPE"] :: [frSelPriceList."F_SUB_TYPE"]')
+            ' [frSelPriceList."F_TYPE"] :: [frSelPriceList."F_SUB_TYPE"]')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -946,7 +1005,7 @@ object PreparePrintF: TPreparePrintF
         Font.Style = []
         Height = 22.677180000000000000
         ParentFont = False
-        Top = 415.748300000000000000
+        Top = 351.496290000000000000
         Width = 755.906000000000000000
         object Memo16: TfrxMemoView
           Left = 536.693260000000000000
@@ -956,7 +1015,7 @@ object PreparePrintF: TPreparePrintF
           DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -12
+          Font.Height = -11
           Font.Name = 'tahoma'
           Font.Style = []
           HAlign = haRight
@@ -972,11 +1031,10 @@ object PreparePrintF: TPreparePrintF
         Font.Name = 'Arial'
         Font.Style = []
         ParentFont = False
-        Top = 219.212740000000000000
-        Width = 755.906000000000000000
+        Top = 207.874150000000000000
+        Width = 370.393940000000000000
         Condition = 'frSelPriceList."F_TYPE"'
         OutlineText = 'frSelPriceList."F_TYPE"'
-        StartNewPage = True
       end
     end
   end
@@ -2518,7 +2576,7 @@ object PreparePrintF: TPreparePrintF
     Left = 416
     Top = 264
     Bitmap = {
-      494C010128002C006C0010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010128002C00700010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000040000000B0000000010020000000000000B0
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -3983,7 +4041,7 @@ object PreparePrintF: TPreparePrintF
     Left = 512
     Top = 232
     Bitmap = {
-      494C010127002C006C0020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010127002C00700020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004001000001002000000000000080
       0200000000000000000000000000000000000000000000000000000000000000
       000000000000000000000101011A0B0B0B743B3D3DB4777777D5838383DA5152
