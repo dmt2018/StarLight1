@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.DISTRIBUTION_PKG
--- Generated 14.06.2016 0:50:43 from CREATOR@STAR_NEW
+-- Generated 20.07.2016 21:56:26 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE distribution_pkg
@@ -1038,7 +1038,7 @@ begin
         GOTO LAST_STEP;
   END;
 
-  SELECT COUNT(*) INTO ROW_COUNT FROM ORDERS_LIST_VIEW a, ORDERS_CLIENTS b WHERE b.id_orders = ID_ORDERS_I and a.id_orders_clients = b.id_orders_clients;
+  SELECT COUNT(*) INTO ROW_COUNT FROM ORDERS_LIST_VIEW a, ORDERS_CLIENTS b, distributions_orders o WHERE o.dist_ind_id = IN_DIST_IND_ID and b.id_orders = o.order_id and a.id_orders_clients = b.id_orders_clients;
   IF ROW_COUNT = 0 THEN
     OUT_TEXT := 'В заказе нет ни одной строчки!';
     GOTO LAST_STEP;
