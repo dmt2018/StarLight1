@@ -1,0 +1,131 @@
+unit star_lib;
+
+interface
+
+uses StdCtrls,Classes,Variants,Ora,SysUtils,Graphics,OraError,Dialogs,
+     CheckLst,windows,ComCtrls, DB,DBGrids;
+
+type
+  PFixedFileInfo = ^TFixedFileInfo;
+  TFixedFileInfo = record
+     dwSignature       : DWORD;
+     dwStrucVersion    : DWORD;
+     wFileVersionMS    : WORD;  // Minor Version
+     wFileVersionLS    : WORD;  // Major Version
+     wProductVersionMS : WORD;  // Build Number
+     wProductVersionLS : WORD;  // Release Version
+     dwFileFlagsMask   : DWORD;
+     dwFileFlags       : DWORD;
+     dwFileOS          : DWORD;
+     dwFileType        : DWORD;
+     dwFileSubtype     : DWORD;
+     dwFileDateMS      : DWORD;
+     dwFileDateLS      : DWORD;
+  end; // TFixedFileInfo
+type
+ PTOKEN_USER = ^TOKEN_USER;
+ _TOKEN_USER = record
+   User : TSidAndAttributes;
+ end;
+ TOKEN_USER = _TOKEN_USER;
+
+// Версия файла
+  function FileInfo( const FileName : String ) : TFixedFileInfo;
+// Информация о файле
+  function GetFileInformation( const FileName, Value : String ): String;
+
+const RussianMonthsNames: array[1..12] of String =  //Просто массив русских названий месяцев
+('Январь',
+ 'Февраль',
+ 'Март',
+ 'Апрель',
+ 'Май',
+ 'Июнь',
+ 'Июль',
+ 'Август',
+ 'Сентябрь',
+ 'Октябрь',
+ 'Ноябрь',
+ 'Декабрь');
+
+const RussianWeekDays: array[1..7,0..1] of String =  //Просто массив русских названий дней недели
+(('Понедельник','пн'),
+ ('Вторник','вт'),
+ ('Среда','ср'),
+ ('Четверг','чт'),
+ ('Пятница','пт'),
+ ('Суббота','сб'),
+ ('Воскресенье','вс'));
+
+implementation
+
+
+//// Версия файла FIXEDFILEINFO
+function FileInfo( const FileName :String ) : TFixedFileInfo;
+var
+  dwHandle, dwVersionSize : DWORD;
+  strSubBlock             : String;
+  pTemp                   : Pointer;
+  pData                   : Pointer;
+begin
+   strSubBlock := '\';
+
+   // get version information values
+   dwVersionSize := GetFileVersionInfoSize( PChar( FileName ), // pointer to filename string
+                                            dwHandle );        // pointer to variable to receive zero
+
+   // if GetFileVersionInfoSize is successful
+   if dwVersionSize <> 0 then
+   begin
+      GetMem( pTemp, dwVersionSize );
+      try
+         if GetFileVersionInfo( PChar( FileName ),             // pointer to filename string
+                                dwHandle,                      // ignored
+                                dwVersionSize,                 // size of buffer
+                                pTemp ) then                   // pointer to buffer to receive file-version info.
+
+            if VerQueryValue( pTemp,                           // pBlock     - address of buffer for version resource
+                              PChar( strSubBlock ),            // lpSubBlock - address of value to retrieve
+                              pData,                           // lplpBuffer - address of buffer for version pointer
+                              dwVersionSize ) then             // puLen      - address of version-value length buffer
+               Result := PFixedFileInfo( pData )^;
+      finally
+         FreeMem( pTemp );
+      end; // try
+   end; // if dwVersionSize
+end;
+
+function GetFileInformation( const FileName, Value : String ): String;
+var
+  dwHandle, dwVersionSize   : DWORD;
+  strLangCharSetInfoString  : String;
+  pcBuffer                  : PChar;
+  pTemp                     : Pointer;
+begin
+   strLangCharSetInfoString := '\StringFileInfo\040904E4\' + Value;
+   // get version information values
+   dwVersionSize := GetFileVersionInfoSize( PChar( FileName ),   // pointer to filename string
+                                            dwHandle );          // pointer to variable to receive zero
+   // if GetFileVersionInfoSize is successful
+   if dwVersionSize <> 0 then
+   begin
+      GetMem( pcBuffer, dwVersionSize );
+      try
+         if GetFileVersionInfo( PChar( FileName ),               // pointer to filename string
+                                dwHandle,                        // ignored
+                                dwVersionSize,                   // size of buffer
+                                pcBuffer ) then                  // pointer to buffer to receive file-version info.
+
+            if VerQueryValue( pcBuffer,                          // pBlock     - address of buffer for version resource
+                              PChar( strLangCharSetInfoString ), // lpSubBlock - address of value to retrieve
+                              pTemp,                             // lplpBuffer - address of buffer for version pointer
+                              dwVersionSize ) then               // puLen      - address of version-value length buffer
+
+               Result := PChar( pTemp );
+      finally
+         FreeMem( pcBuffer );
+      end; // try
+   end;// if dwVersionSize
+end; // GetFileInformation
+
+end.

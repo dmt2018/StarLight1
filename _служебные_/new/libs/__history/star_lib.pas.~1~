@@ -1,0 +1,881 @@
+unit PI_Library;
+
+{***********************************************************
+ *   Библиотека написана Демидовым Игорем Вячеславовичем   *
+ *   для ЗАО "Пересвет-Инвест"                             *
+ *   Москва 2004 - 2008 г.г.                               *
+ ***********************************************************}
+
+interface
+
+uses StdCtrls,Classes,Variants,Ora,SysUtils,Graphics,OraError,Dialogs,
+     CheckLst,windows,ComCtrls, IgaComboBox,DB,DBGrids,DBCtrlsEh;
+
+type
+  PFixedFileInfo = ^TFixedFileInfo;
+  TFixedFileInfo = record
+     dwSignature       : DWORD;
+     dwStrucVersion    : DWORD;
+     wFileVersionMS    : WORD;  // Minor Version
+     wFileVersionLS    : WORD;  // Major Version
+     wProductVersionMS : WORD;  // Build Number
+     wProductVersionLS : WORD;  // Release Version
+     dwFileFlagsMask   : DWORD;
+     dwFileFlags       : DWORD;
+     dwFileOS          : DWORD;
+     dwFileType        : DWORD;
+     dwFileSubtype     : DWORD;
+     dwFileDateMS      : DWORD;
+     dwFileDateLS      : DWORD;
+  end; // TFixedFileInfo
+type
+ PTOKEN_USER = ^TOKEN_USER;
+ _TOKEN_USER = record
+   User : TSidAndAttributes;
+ end;
+ TOKEN_USER = _TOKEN_USER;
+
+
+
+//функция FillComboOlmer написана Клёповым А.В.
+function FillComboOlmer(TheQuery : TOraQuery; TheCombo : TDBComboBoxEh; BeginStr : String) : boolean;
+
+//функция FillComboEh написана Клёповым А.В.
+function FillComboEh(TheQuery : TOraQuery; TheCombo : TDBComboBoxEh; TheSql : String) : boolean;
+
+function FillCombo(TheQuery : TOraQuery; TheCombo : TComboBox; TheList : TList; TheSql : String) : boolean;
+function FillComboEx(TheQuery : TOraQuery; TheCombo : TComboBoxEx; TheSql : String) : boolean;
+function FillComboIga(TheQuery : TOraQuery; TheCombo : TComboBoxIga; TheSql : String) : boolean; overload;
+function FillComboIga(TheQuery : TOraQuery; TheCombo : TComboBoxIga; TheSql : String; EmptyText: String) : boolean; overload;
+function ReadComboEx(TheCombo : TcomboBoxEx) : Variant;
+function ReadComboExText(TheCombo : TcomboBoxEx) : Variant;
+procedure SetComboEx(TheCombo : TcomboBoxEx; const TheValue : Integer);
+procedure SetComboIga(TheCombo : TComboBoxIga; const TheValue : Variant);
+function FillListBox(TheQuery : TOraQuery; TheListBox : TListBox; TheList : TList; TheSql : String) : boolean;
+procedure CheckListBox(IDList : TList; CheckedList : TList; CheckListBox : TCheckListBox);
+function  StrToVar(Str : String) : Variant;
+function  StrToVarInt(Str : String) : Variant;
+function  StrToVarFloat(Str : String) : Variant;
+function  VarToStr(VarVar : Variant) : String;
+function  VarToInt(VarVar : Variant) : Integer;
+function IsRole(Que : TOraQuery; ROLE_NAME : String) : boolean;
+function GetEmplID(const Que : TOraQuery; const login : String; OUT FIO : String) : integer;
+function GetEmplOFFICE_ID(const Que : TOraQuery; const EMPL_ID : Integer) : integer;
+function BoolToInt(inp : boolean) : integer;
+function EditIsNotEmpty(Ed : TEdit) : boolean;
+function OpenConnection(Conn : TOraSession) : boolean;
+procedure ListToStr (TheList : TList; OUT TheString : String);
+function SysExec(start_line : String; start_dir : String) : boolean;
+function IsThereAnotherApp(AppExe : String) : boolean;
+procedure ReactivateOraQuery(Que : TOraQuery);
+procedure ClickOnListedID (InList : TList; InID : Integer);
+procedure CheckTEditContentFloat(Sender: TObject; ColNormal : TColor; ColAlert : TColor);
+function StringListToStr (TheList : TStrings) : WideString;
+procedure CheckAllInt(TheList : TList; TheIdFieldName : String; TheQuery : TOraQuery; TheGrid : TDBGrid);
+
+// Версия файла
+  function FileInfo( const FileName : String ) : TFixedFileInfo;
+// Информация о файле
+  function GetFileInformation( const FileName, Value : String ): String;
+// Получения имени пользователя и домена под которым работает текущий поток или процесс
+  function GetCurrentUserAndDomain (szUser : PChar; var chUser: DWORD; szDomain :PChar; var chDomain : DWORD ):Boolean;
+
+const RussianMonthsNames: array[1..12] of String =  //Просто массив русских названий месяцев
+('Январь',
+ 'Февраль',
+ 'Март',
+ 'Апрель',
+ 'Май',
+ 'Июнь',
+ 'Июль',
+ 'Август',
+ 'Сентябрь',
+ 'Октябрь',
+ 'Ноябрь',
+ 'Декабрь');
+
+const RussianWeekDays: array[1..7,0..1] of String =  //Просто массив русских названий дней недели
+(('Понедельник','пн'),
+ ('Вторник','вт'),
+ ('Среда','ср'),
+ ('Четверг','чт'),
+ ('Пятница','пт'),
+ ('Суббота','сб'),
+ ('Воскресенье','вс'));
+
+implementation
+
+function FillComboOlmer(TheQuery : TOraQuery; TheCombo : TDBComboBoxEh; BeginStr : String) : boolean;
+{********************************************************************************
+ * Функция предназначена для заполнения комбо-бокса значениями                  *
+ * А также для запоминания ID каждого значения компонента EhLib                 *
+ * TheQuery - TQuery с набором данных                                           *
+ * TheCombo - комбо-бокс для значений                                           *
+ * BeginStr - начальная строка в списке с ID=0, если NULL то нет первой строки  *
+ * первый столбик TheQuery содержит ID , а второй - значение.                   *
+ ********************************************************************************}
+Begin
+  try
+    TheQuery.First;
+    TheCombo.Items.Clear;
+    TheCombo.KeyItems.Clear;
+    if Length(BeginStr) > 0 then
+    begin
+        TheCombo.KeyItems.Add('0');
+        TheCombo.Items.Add(BeginStr);
+    end;
+    while not TheQuery.Eof do
+      Begin
+        TheCombo.KeyItems.Add(TheQuery.Fields[0].AsString);
+        TheCombo.Items.Add(TheQuery.Fields[1].AsString);
+        TheQuery.Next;
+      End;
+    TheCombo.ItemIndex := 0;
+    TheQuery.First;
+    FillComboOlmer := true;
+  except
+    FillComboOlmer := false;
+  End;
+End;
+
+
+function FillComboEh(TheQuery : TOraQuery; TheCombo : TDBComboBoxEh; TheSql : String) : boolean;
+{***************************************************************
+ * Функция предназначена для заполнения комбо-бокса значениями *
+ * А также для запоминания ID каждого значения компонента EhLib*
+ * TheQuery - TQuery для обращени к БД                         *
+ * TheCombo - комбо-бокс для значений                          *
+ *                             *
+ * TheSql - SQL выражение которое должно содержать селект,     *
+ * первый столбик которого содержит ID , а второй - значение.  *
+ ***************************************************************}
+Begin
+  try
+    with TheQuery do
+      Begin
+        Close;
+        SQL.Clear;
+        SQL.Add(TheSql);
+        Open;
+      End;
+    TheCombo.Items.Clear;
+    TheCombo.KeyItems.Clear;
+    while not TheQuery.Eof do
+      Begin
+        TheCombo.KeyItems.Add(TheQuery.Fields[0].AsString);
+        TheCombo.Items.Add(TheQuery.Fields[1].AsString);
+        TheQuery.Next;
+      End;
+    TheQuery.Close;
+    TheCombo.ItemIndex := 0;
+    FillComboEh := true;
+  except
+    FillComboEh := false;
+  End;
+End;
+
+function FillCombo(TheQuery : TOraQuery; TheCombo : TcomboBox; TheList : TList; TheSql : String) : boolean;
+{***************************************************************
+ * Функция предназначена для заполнения                        *
+ * eh комбо-бокса значениями                                   *
+ * А также для запоминания ID каждого значения                 *
+ * TheQuery - TQuery для обращени к БД                         *
+ * TheCombo - комбо-бокс для значений                          *
+ * TheList - лист для хранения ID                              *
+ * TheSql - SQL выражение которое должно содержать селект,     *
+ * первый столбик которого содержит ID , а второй - значение.  *
+ ***************************************************************}
+Begin
+  try
+    with TheQuery do
+      Begin
+        Close;
+        SQL.Clear;
+        SQL.Add(TheSql);
+        Open;
+      End;
+    TheList.Clear;
+    TheCombo.Items.Clear;
+    while not TheQuery.Eof do
+      Begin
+        TheList.Add(Pointer(TheQuery.Fields[0].AsInteger));
+        TheCombo.Items.Add(TheQuery.Fields[1].AsString);
+        TheQuery.Next;
+      End;
+    TheQuery.Close;
+    TheCombo.ItemIndex := 0;
+    FillCombo := true;
+  except
+    FillCombo := false;
+  End;
+End;
+
+function FillComboEx(TheQuery : TOraQuery; TheCombo : TcomboBoxEx; TheSql : String) : boolean;
+{***************************************************************
+ * Функция предназначена для заполнения                        *
+ * Ex комбо-бокса значениями и ID каждого объекта              *
+ * TheQuery - TQuery для обращени к БД                         *
+ * TheCombo - комбо-бокс для значений                          *
+ * TheSql - SQL выражение которое должно содержать селект,     *
+ * первый столбик которого содержит ID , а второй - значение.  *
+ ***************************************************************}
+Begin
+  try
+    TheCombo.Items.Clear;
+    with TheQuery do
+      Begin
+        Close;
+        SQL.Clear;
+        SQL.Add(TheSql);
+        Open;
+      End;
+    while not TheQuery.Eof do
+      Begin
+        TheCombo.ItemsEx.AddItem(TheQuery.Fields[1].AsString,-1,-1,-1,-1,Pointer(TheQuery.Fields[0].AsInteger));
+        TheQuery.Next;
+      End;
+    TheQuery.Close;
+    TheCombo.ItemIndex := 0;
+    result := true;
+  except
+    result := false;
+  End;
+End;
+
+function FillComboIga(TheQuery : TOraQuery; TheCombo : TComboBoxIga; TheSql : String) : boolean;
+{***************************************************************
+ * Функция предназначена для заполнения                        *
+ * Iga комбо-бокса значениями и идентификаторами типа Variant  *
+ * каждого объекта                                             *
+ * TheQuery - TQuery для обращени к БД                         *
+ * TheCombo - комбо-бокс для значений                          *
+ * TheSql - SQL выражение которое должно содержать селект,     *
+ * первый столбик которого содержит ID , а второй - значение.  *
+ ***************************************************************}
+Begin
+  try
+    with TheQuery do
+      Begin
+        Close;
+        SQL.Clear;
+        SQL.Add(TheSql);
+        Open;
+      End;
+    TheCombo.Items.Clear;
+    while not TheQuery.Eof do
+      Begin
+        TheCombo.ItemsEx.AddItem(TheQuery.Fields[1].AsString,-1,-1,-1,-1,nil,TheQuery.Fields[0].Value);
+        TheQuery.Next;
+      End;
+    TheQuery.Close;
+    TheCombo.ItemIndex := 0;
+    result := true;
+  except
+    result := false;
+  End;
+End;
+
+function FillComboIga(TheQuery : TOraQuery; TheCombo : TComboBoxIga; TheSql : String; EmptyText: String) : boolean; overload;
+{***************************************************************
+ * Функция предназначена для заполнения                        *
+ * Iga комбо-бокса значениями и идентификаторами типа Variant  *
+ * каждого объекта                                             *
+ * TheQuery - TQuery для обращени к БД                         *
+ * TheCombo - комбо-бокс для значений                          *
+ * TheSql - SQL выражение которое должно содержать селект,     *
+ * первый столбик которого содержит ID , а второй - значение.  *
+ * EmptyText - Текст первого пустого значения                  *
+ ***************************************************************}
+Begin
+  try
+    with TheQuery do
+      Begin
+        Close;
+        SQL.Clear;
+        SQL.Add(TheSql);
+        Open;
+      End;
+    TheCombo.Items.Clear;
+    TheCombo.ItemsEx.AddItem(EmptyText,-1,-1,-1,-1,nil,null);
+    while not TheQuery.Eof do
+      Begin
+        TheCombo.ItemsEx.AddItem(TheQuery.Fields[1].AsString,-1,-1,-1,-1,nil,TheQuery.Fields[0].Value);
+        TheQuery.Next;
+      End;
+    TheQuery.Close;
+    TheCombo.ItemIndex := 0;
+    result := true;
+  except
+    result := false;
+  End;
+End;
+
+function ReadComboEx(TheCombo : TcomboBoxEx) : Variant;
+{***************************************************************
+ * Функция предназначена для считывания значения               *
+ * Ex комбо-бокса                                              *
+ ***************************************************************}
+Begin
+  if TheCombo.ItemIndex = -1 then result := NULL
+                             else result := Integer(TheCombo.ItemsEx[TheCombo.ItemIndex].Data);
+End;
+
+function ReadComboExText(TheCombo : TcomboBoxEx) : Variant;
+{***************************************************************
+ * Функция предназначена для считывания выбранного текста      *
+ * Ex комбо-бокса                                              *
+ ***************************************************************}
+Begin
+  if TheCombo.ItemIndex = -1 then result := NULL
+                             else result := TheCombo.ItemsEx[TheCombo.ItemIndex].Caption;
+End;
+
+procedure SetComboEx(TheCombo : TcomboBoxEx; const TheValue : Integer);
+{***************************************************************
+ * Функция предназначена для установки значения                *
+ * Ex комбо-бокса                                              *
+ ***************************************************************}
+VAR
+  i,indx : integer;
+Begin
+  indx := -1;
+  for i := 0 to TheCombo.ItemsEx.Count -1 do
+    if Integer(TheCombo.ItemsEx[i].Data) = TheValue then
+      Begin
+        indx := i;
+        Break;
+      End;
+  TheCombo.ItemIndex := indx;
+End;
+
+procedure SetComboIga(TheCombo : TComboBoxIga; const TheValue : Variant);
+{***************************************************************
+ * Функция предназначена для установки значения                *
+ * Iga комбо-бокса                                              *
+ ***************************************************************}
+VAR
+  i,indx : integer;
+Begin
+  indx := -1;
+  for i := 0 to TheCombo.ItemsEx.Count -1 do
+    if TheCombo.ItemsEx.ComboItems[i].IgaData = TheValue then
+      Begin
+        indx := i;
+        Break;
+      End;
+  TheCombo.ItemIndex := indx;
+End;
+
+function FillListBox(TheQuery : TOraQuery; TheListBox : TListBox; TheList : TList; TheSql : String) : boolean;
+{***************************************************************
+ * Функция предназначена для заполнения лист-бокса значениями  *
+ * А также для запоминания ID каждого значения                 *
+ * TheQuery - TQuery для обращени к БД                         *
+ * TheListBox - комбо-бокс для значений                        *
+ * TheList - лист для хранения ID                              *
+ * TheSql - SQL выражение которое должно содержать селект,     *
+ * первый столбик которого содержит ID , а второй - значение.  *
+ ***************************************************************}
+Begin
+  try
+    with TheQuery do
+      Begin
+        Close;
+        SQL.Clear;
+        SQL.Add(TheSql);
+        Open;
+      End;
+    TheList.Clear;
+    TheListBox.Items.Clear;
+    while not TheQuery.Eof do
+      Begin
+        TheList.Add(Pointer(TheQuery.Fields[0].AsInteger));
+        TheListBox.Items.Add(TheQuery.Fields[1].AsString);
+        TheQuery.Next;
+      End;
+    TheQuery.Close;
+    TheListBox.ItemIndex := 0;
+    FillListBox := true;
+  except
+    FillListBox := false;
+  End;
+End;
+
+procedure CheckListBox(IDList : TList; CheckedList : TList; CheckListBox : TCheckListBox);
+{***************************************************************
+ * Функция предназначена для заполнения ЧекЛистБокса галочками *
+ * IDList - Лист ID                                            *
+ * CheckedList - лист отмеченных ID                            *
+ * CheckListBox - компонент                                    *
+ ***************************************************************}
+VAR
+  i,CheckedIndex : integer;
+  pID : Pointer;
+Begin
+  For i := 0 to CheckListBox.Items.Count - 1 do
+    Begin
+      pID := IDList[i];
+      CheckedIndex := CheckedList.IndexOf(pID);
+      if CheckedIndex = -1 then CheckListBox.Checked[i] := false
+                           else CheckListBox.Checked[i] := true;
+    End;
+End;
+
+procedure ListToStr (TheList : TList; OUT TheString : String);
+{***************************************************************
+ * Функция предназначена для превращения списка в строку       *
+ * с разделителеми запятой                                     *
+ * TheList - Лист                                              *
+ * TheString - строка                                          *
+ ***************************************************************}
+VAR
+i : integer;
+Begin
+  TheString := '';
+  for i := 0 to TheList.Count -1 do
+    Begin
+      TheString := TheString + IntToStr(Integer(TheList[i]));
+      if i < (TheList.Count -1) then TheString := TheString + ',';
+    End;
+End;
+
+function  StrToVar(Str : String) : Variant;
+Begin
+  if Str = '' then StrToVar := NULL
+              else StrToVar := Str;
+End;
+
+function  StrToVarInt(Str : String) : Variant;
+Begin
+  try
+    result := StrToInt(Str);
+  except
+    result := NULL;
+  end;
+End;
+
+function  StrToVarFloat(Str : String) : Variant;
+{***************************************************************
+ * Функция предназначена для превращения string в variant      *
+ * по возможности в Float = типа                               *
+ ***************************************************************}
+Begin
+  try
+    result := StrToFloat(Str);
+  except
+    result := NULL;
+  end;
+End;
+
+function  VarToStr(VarVar : Variant) : String;
+{***************************************************************
+ * Функция предназначена для преобразования                    *
+ * переменной типа Variant в строчку                           *
+ ***************************************************************}
+VAR
+  VT : TVarType;
+Begin
+  VT := VarType(VarVar);
+  case VT of
+    varEmpty,varNull	: VarToStr := '';
+    varString : VarToStr := VarVar;
+    varInteger,varSmallint : VarToStr := IntToStr(VarVar);
+    varSingle,varDouble	: VarToStr := FloatToStr(VarVar);
+    varDate : VarToStr := DateToStr(VarVar);
+  End;
+End;
+
+function  VarToInt(VarVar : Variant) : Integer;
+{***************************************************************
+ * Функция предназначена для преобразования                    *
+ * переменной типа Variant в integer                           *
+ * в случае невозможности преобразования результат -1          * 
+ ***************************************************************}
+VAR
+  VT : TVarType;
+Begin
+  VT := VarType(VarVar);
+  case VT of
+    varEmpty,varNull	: VarToInt := -1;
+    varString : try
+                  VarToInt := StrToInt(VarVar);
+                except
+                  VarToInt := -1
+                end;
+    varInteger,varSmallint : VarToInt := VarVar;
+    varSingle,varDouble	: VarToInt := Trunc(VarVar);
+  End;
+End;
+
+
+function IsRole(Que : TOraQuery; ROLE_NAME : String) : boolean;
+{***************************************************************
+ * Функция предназначена для проверки наличия роли у текущего  *
+ * оператора                                                   *
+ * TheQuery - TQuery для обращени к БД                         *
+ * ROLE_NAME - Название роли                                   *
+ ***************************************************************}
+VAR
+  test_sql : String;
+Begin
+  test_sql := 'SELECT * FROM USER_ROLE_PRIVS WHERE GRANTED_ROLE = ''' + AnsiUpperCase(ROLE_NAME) + '''';
+  with Que do
+    Begin
+      Close;
+      SQL.Clear;
+      SQL.Add(test_sql);
+      Open;
+      if not IsEmpty then IsRole := true
+                     else IsRole := false;
+    End;
+End;
+
+function GetEmplID(const Que : TOraQuery; const login : String; OUT FIO : String) : integer;
+{***************************************************************
+ * Функция предназначена для нахождения ID по логину           *
+ * TheQuery - TQuery для обращени к БД                         *
+ * login - логин пользователя                                  *
+ * FIO - ФИО                                                   *
+ * возвращает -1 в случае провала                              *
+ ***************************************************************}
+VAR
+  sql_str : string;
+Begin
+  sql_str := 'Select EMPL_ID, FIO from EMPL_ID_FIO_VIEW where (upper(USER_LOGIN) = upper(:LOGIN))';
+  with Que do
+    Begin
+      close;
+      SQL.Clear;
+      SQL.Add(sql_str);
+      ParamByName('LOGIN').Value := login;
+      try
+        Open;
+        if IsEmpty then abort;
+        GetEmplID := FieldByName('EMPL_ID').Value;
+        FIO := FieldByName('FIO').Value;
+      except
+        GetEmplID := -1;
+      End;
+    End;
+End;
+
+function GetEmplOFFICE_ID(const Que : TOraQuery; const EMPL_ID : Integer) : integer;
+{***************************************************************
+ * Функция предназначена для нахождения OFFICE_ID по EMPL_ID   *
+ * TheQuery - TQuery для обращени к БД                         *
+ * EMPL_ID  - без комментариев                                 *
+ * возвращает -1 в случае провала                              * 
+ ***************************************************************}
+VAR
+  sql_str : string;
+Begin
+  sql_str := 'Select OFFICE_ID from DEPT WHERE (DEPT_ID IN (SELECT DEPT_ID FROM STAFF WHERE (EMPL_ID = :EMPL_ID) AND (DEATH IS NULL))) AND (ACTIVE = 1)';
+  with Que do
+    Begin
+      close;
+      SQL.Clear;
+      SQL.Add(sql_str);
+      ParamByName('EMPL_ID').Value := EMPL_ID;
+      try
+        Open;
+        if IsEmpty then abort;
+        result := FieldByName('OFFICE_ID').Value;
+      except
+        result := -1;
+      End;
+    End;
+End;
+
+function BoolToInt(inp : boolean) : integer;
+Begin
+  if inp then BoolToInt := 1
+         else BoolToInt := 0;
+End;
+
+function EditIsNotEmpty(Ed : TEdit) : boolean;
+VAR
+  tmp_str : string;
+Begin
+  tmp_str := trim(Ed.text);
+  if tmp_str = '' then
+    Begin
+      Ed.Clear;
+      Ed.Color := clRed;
+      EditIsNotEmpty := false;
+    End
+  else
+    Begin
+      EditIsNotEmpty := true;
+    End;
+End;
+
+function OpenConnection(Conn : TOraSession) : boolean;
+{***************************************************************
+ * Функция предназначена для соединения с БД и для вывода      *
+ * сообщений об ошибках                                        *
+ * Conn - TOraSession которую хотим подключить                 *
+ ***************************************************************}
+Begin
+  try
+    OpenConnection := True;
+    Conn.Connect;
+    Conn.StartTransaction;
+  except
+    on E: EOraError do
+      Begin
+        if E.ErrorCode = 01017 then ShowMessage('Неправильный Логин/пароль!' + #13 + E.Message);
+        if E.ErrorCode = 28000 then ShowMessage('Пользователь заблокирован!' + #13 + E.Message);
+        if E.ErrorCode = 01005 then ShowMessage('А пароль?' + #13 + E.Message);
+        if E.ErrorCode = 1 then ShowMessage('Неправильный путь к БД!' + #13 + E.Message);
+        OpenConnection := False;
+      End;
+    else
+      Begin
+        OpenConnection := False;
+        ShowMessage('Ошибка!');
+      End;
+  end;
+End;
+
+function SysExec(start_line : String; start_dir : String) : boolean;
+{*****************************************************************
+ * Функция предназначена для облегчения запуска внешних программ *
+ * start_line - приложение + параметры                           *
+ * start_dir - стартовая директория                              *
+ *****************************************************************}
+VAR
+  pr_si : STARTUPINFO;
+  pr_pi : PROCESS_INFORMATION;
+begin
+
+  ZeroMemory(@pr_si,sizeof(pr_si));
+  pr_si.cb := SizeOf(pr_si);
+  start_line := 'notepad help.txt';
+  pr_si.cb := SizeOf(pr_si);
+  SysExec := CreateProcess( nil, // No module name (use command line).
+                            PChar(start_line),  // Command line.
+                            nil,                // Process handle not inheritable.
+                            nil,                // Thread handle not inheritable.
+                            False,              // Set handle inheritance to FALSE.
+                            0,                  // No creation flags.
+                            nil,                // Use parent's environment block.
+                            PChar('./help'),    // Use starting directory.
+                            pr_si,              // Pointer to STARTUPINFO structure.
+                            pr_pi )             // Pointer to PROCESS_INFORMATION structure.
+end;
+
+function IsThereAnotherApp(AppExe : String) : boolean;
+var
+  CCMapping:THandle;
+Begin
+  CCMapping := CreateFileMapping($ffffffff,nil,PAGE_READONLY,0,32,PChar(AppExe));
+  result := true;
+  if CCMapping=0 then
+    begin
+      ShowMessage('Ошибка выделения памяти!');
+      exit;
+    end
+  else if GetLastError=ERROR_ALREADY_EXISTS then
+    begin
+      exit;
+    end;
+  result := false;
+End;
+
+procedure ReactivateOraQuery(Que : TOraQuery);
+Begin
+  with Que do
+    if active then refresh
+              else Open;
+end;
+
+procedure ClickOnListedID (InList : TList; InID : Integer);
+{*****************************************************************
+ * Функция включает / исключает ID из списка руководствуясь      *
+ * его присутствием в списке                                     *
+ *****************************************************************}
+VAR
+  ind : integer;
+Begin
+  ind := InList.IndexOf(Pointer(InID));
+  if ind <> -1 then InList.Delete(ind)
+               else InList.Add(Pointer(InID));
+End;
+
+procedure CheckTEditContentFloat(Sender: TObject; ColNormal : TColor; ColAlert : TColor);
+{*****************************************************************
+ * функция проверяет введённое значение на соответствие типу     *
+ * float, и красит его в один из цветов в зависимости от рез.    *
+ *****************************************************************}
+Begin
+  if Sender.ClassName <> 'TEdit' then exit;
+  with TEdit(Sender) do
+    Begin
+      if Text = '' then Color := ColNormal
+      else
+        try
+          StrToFloat(Text);
+          Color := ColNormal;
+        except
+          Color := ColAlert;
+        end;
+    End;
+End;
+
+function StringListToStr (TheList : TStrings) : WideString;
+{***************************************************************
+ * Функция предназначена для превращения TStrings в строку  *
+ * с разделителеми запятой                                     *
+ * TheList - Лист                                              *
+ ***************************************************************}
+VAR
+i : integer;
+Begin
+  result := '';
+  for i := 0 to TheList.Count -1 do
+    Begin
+      result := result + '''' + TheList[i] + '''';
+      if i < (TheList.Count -1) then result := result + ',';
+    End;
+End;
+
+procedure CheckAllInt(TheList : TList; TheIdFieldName : String; TheQuery : TOraQuery; TheGrid : TDBGrid);
+{***************************************************************
+ * Функция предназначена для наполнения TheList значениями поля*
+ * TheIdFieldName из TheQuery                                  *
+ ***************************************************************}
+Var
+  SavePlace : TBookmark;
+  THE_ID : Integer;
+begin
+  TheGrid.Hide;
+  With TheQuery do
+    Begin
+      SavePlace := GetBookmark;
+      first;
+      TheList.Clear;
+      while not eof do
+        Begin
+          THE_ID := FieldByName(TheIdFieldName).Value;
+          TheList.Add(Pointer(THE_ID));
+          Next;
+        End;
+      GotoBookmark(SavePlace);
+      FreeBookmark(SavePlace);
+    End;
+  TheGrid.Show;
+End;
+
+//// Версия файла FIXEDFILEINFO
+function FileInfo( const FileName :String ) : TFixedFileInfo;
+var
+  dwHandle, dwVersionSize : DWORD;
+  strSubBlock             : String;
+  pTemp                   : Pointer;
+  pData                   : Pointer;
+begin
+   strSubBlock := '\';
+
+   // get version information values
+   dwVersionSize := GetFileVersionInfoSize( PChar( FileName ), // pointer to filename string
+                                            dwHandle );        // pointer to variable to receive zero
+
+   // if GetFileVersionInfoSize is successful
+   if dwVersionSize <> 0 then
+   begin
+      GetMem( pTemp, dwVersionSize );
+      try
+         if GetFileVersionInfo( PChar( FileName ),             // pointer to filename string
+                                dwHandle,                      // ignored
+                                dwVersionSize,                 // size of buffer
+                                pTemp ) then                   // pointer to buffer to receive file-version info.
+
+            if VerQueryValue( pTemp,                           // pBlock     - address of buffer for version resource
+                              PChar( strSubBlock ),            // lpSubBlock - address of value to retrieve
+                              pData,                           // lplpBuffer - address of buffer for version pointer
+                              dwVersionSize ) then             // puLen      - address of version-value length buffer
+               Result := PFixedFileInfo( pData )^;
+      finally
+         FreeMem( pTemp );
+      end; // try
+   end; // if dwVersionSize
+end;
+
+function GetFileInformation( const FileName, Value : String ): String;
+var
+  dwHandle, dwVersionSize   : DWORD;
+  strLangCharSetInfoString  : String;
+  pcBuffer                  : PChar;
+  pTemp                     : Pointer;
+begin
+   strLangCharSetInfoString := '\StringFileInfo\040904E4\' + Value;
+   // get version information values
+   dwVersionSize := GetFileVersionInfoSize( PChar( FileName ),   // pointer to filename string
+                                            dwHandle );          // pointer to variable to receive zero
+   // if GetFileVersionInfoSize is successful
+   if dwVersionSize <> 0 then
+   begin
+      GetMem( pcBuffer, dwVersionSize );
+      try
+         if GetFileVersionInfo( PChar( FileName ),               // pointer to filename string
+                                dwHandle,                        // ignored
+                                dwVersionSize,                   // size of buffer
+                                pcBuffer ) then                  // pointer to buffer to receive file-version info.
+
+            if VerQueryValue( pcBuffer,                          // pBlock     - address of buffer for version resource
+                              PChar( strLangCharSetInfoString ), // lpSubBlock - address of value to retrieve
+                              pTemp,                             // lplpBuffer - address of buffer for version pointer
+                              dwVersionSize ) then               // puLen      - address of version-value length buffer
+
+               Result := PChar( pTemp );
+      finally
+         FreeMem( pcBuffer );
+      end; // try
+   end;// if dwVersionSize
+end; // GetFileInformation
+
+// Получения имени пользователя и домена под которым работает текущий поток или процесс
+function GetCurrentUserAndDomain (szUser : PChar; var chUser: DWORD; szDomain :PChar; var chDomain : DWORD ):Boolean;
+var
+ hToken : THandle;
+ cbBuf  : Cardinal;
+ ptiUser : PTOKEN_USER;
+ snu    : SID_NAME_USE;
+begin
+  Result:=false;
+  // Получаем маркер доступа текущего потока нашего процесса
+  if not OpenThreadToken(GetCurrentThread(),TOKEN_QUERY,true,hToken) then
+  begin
+    if GetLastError() <> ERROR_NO_TOKEN then exit;
+    // В случее ошибки - получаем маркер доступа нашего процесса.
+    if not OpenProcessToken(GetCurrentProcess(),TOKEN_QUERY,hToken)
+     then exit;
+  end;
+
+  // Вызываем GetTokenInformation для получения размера буфера
+  if not GetTokenInformation(hToken, TokenUser, nil, 0, cbBuf) then
+     if GetLastError()<> ERROR_INSUFFICIENT_BUFFER then
+     begin
+       CloseHandle(hToken);
+       Exit;
+     end;
+
+  if cbBuf = 0 then exit;
+
+  // Выделяем память под буфер
+  GetMem(ptiUser,cbBuf);
+
+  // В случае удачного вызова получим указатель на TOKEN_USER
+  if GetTokenInformation(hToken,TokenUser,ptiUser,cbBuf,cbBuf) then
+  begin
+   // Ищем имя пользователя и его домен по его SID
+   if LookupAccountSid(nil,ptiUser.User.Sid,szUser,chUser,szDomain,chDomain,snu)
+    then Result:=true;
+  end;
+
+  // Освобождаем ресурсы
+  CloseHandle(hToken);
+  FreeMem(ptiUser);
+end;
+
+end.

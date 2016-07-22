@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2016.07.19 17:00:14.839.pas,C:\Users\Prg_10\Documents\RAD Studio\Projects\Unit8.pas=C:\Users\Prg_10\Desktop\new\UAdmin.pas</Transaction>
+    <Transaction>2016.07.19 17:00:14.839.dfm,C:\Users\Prg_10\Documents\RAD Studio\Projects\Unit8.dfm=C:\Users\Prg_10\Desktop\new\UAdmin.dfm</Transaction>
+    <Transaction>2016.07.19 17:00:28.521.pas,C:\Users\Prg_10\Documents\RAD Studio\Projects\Unit7.pas=C:\Users\Prg_10\Desktop\new\UAdminAccount.pas</Transaction>
+    <Transaction>2016.07.19 17:00:28.521.dfm,C:\Users\Prg_10\Documents\RAD Studio\Projects\Unit7.dfm=C:\Users\Prg_10\Desktop\new\UAdminAccount.dfm</Transaction>
+    <Transaction>2016.07.19 17:00:44.745.pas,C:\Users\Prg_10\Documents\RAD Studio\Projects\Unit6.pas=C:\Users\Prg_10\Desktop\new\ULogin.pas</Transaction>
+    <Transaction>2016.07.19 17:00:44.745.dfm,C:\Users\Prg_10\Documents\RAD Studio\Projects\Unit6.dfm=C:\Users\Prg_10\Desktop\new\ULogin.dfm</Transaction>
+    <Transaction>2016.07.19 17:01:01.846.pas,C:\Users\Prg_10\Documents\RAD Studio\Projects\Unit5.pas=C:\Users\Prg_10\Desktop\new\uMain.pas</Transaction>
+    <Transaction>2016.07.19 17:01:01.846.dfm,C:\Users\Prg_10\Documents\RAD Studio\Projects\Unit5.dfm=C:\Users\Prg_10\Desktop\new\uMain.dfm</Transaction>
+    <Transaction>2016.07.19 17:01:18.822.pas,C:\Users\Prg_10\Documents\RAD Studio\Projects\Unit4.pas=C:\Users\Prg_10\Desktop\new\UNSICurrency.pas</Transaction>
+    <Transaction>2016.07.19 17:01:18.822.dfm,C:\Users\Prg_10\Documents\RAD Studio\Projects\Unit4.dfm=C:\Users\Prg_10\Desktop\new\UNSICurrency.dfm</Transaction>
+    <Transaction>2016.07.19 17:01:31.089.pas,C:\Users\Prg_10\Documents\RAD Studio\Projects\Unit3.pas=C:\Users\Prg_10\Desktop\new\USettings.pas</Transaction>
+    <Transaction>2016.07.19 17:01:31.089.dfm,C:\Users\Prg_10\Documents\RAD Studio\Projects\Unit3.dfm=C:\Users\Prg_10\Desktop\new\USettings.dfm</Transaction>
+    <Transaction>2016.07.19 17:01:39.690.pas,C:\Users\Prg_10\Documents\RAD Studio\Projects\Unit2.pas=C:\Users\Prg_10\Desktop\new\UDM.pas</Transaction>
+    <Transaction>2016.07.19 17:01:56.181.pas,C:\Users\Prg_10\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\Prg_10\Desktop\new\info_f.pas</Transaction>
+    <Transaction>2016.07.19 17:01:56.181.dfm,C:\Users\Prg_10\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\Prg_10\Desktop\new\info_f.dfm</Transaction>
+    <Transaction>2016.07.19 17:02:12.097.dproj,C:\Users\Prg_10\Documents\RAD Studio\Projects\Project2.dproj=C:\Users\Prg_10\Desktop\new\StarLight.dproj</Transaction>
+    <Transaction>2016.07.19 17:47:21.791.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\Udm.pas</Transaction>
+    <Transaction>2016.07.19 17:47:21.791.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\Udm.dfm</Transaction>
+  </Transactions>
+</BorlandProject>
