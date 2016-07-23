@@ -568,7 +568,9 @@ object DM: TDM
       
         '       , case when a.INVOICE_DATA_ID is null then floor( a.final' +
         '_price / a.last_price ) '
-      '         else floor( a.final_price / a.price_pcc_pc)'
+      
+        '         else floor( a.final_price / decode(a.PRICE_PCC_PC,0,1,a' +
+        '.PRICE_PCC_PC))'
       '         end extra_gross'
       ''
       '       , a.price_pcc, a.price_pcc_pc, a.n_id'
