@@ -122,21 +122,56 @@ implementation
  uses info_f, UNSICurrency, USettings, UAdmin;
 {$R *.dfm}
 
+////////////////////////////////////////////////////////////////////////////////
+// BOF - Работа со статусбаром + вход/выход
+////////////////////////////////////////////////////////////////////////////////
+
+// событие перед выходом
+procedure TfrmMain.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+begin
+  if MessageBox(Application.Handle,'Вы действительно хотите выйти из программы ?',
+                PChar(Format('%s',[Application.Title])),MB_ICONQUESTION + MB_YESNO + mb_DefButton2 ) = mrYES then
+     CanClose := True
+  else CanClose := False;
+end;
+
+// вывод юзера в 2_статусбар:
+procedure TfrmMain.FormCreate(Sender: TObject);
+begin
+  //porasessStarLight := @DM.OraSession;
+  stbMain.Panels[0].Text := verApplication;
+  stbMain.Panels[1].Text := ' Сервер: ['+strServerName+':'+IntToStr(intServerPort)+'] ';
+  stbMain.Panels[2].Text := ' Пользователь: ['+strUserName+'] ';
+  stbMain.Refresh;
+  self.Caption := Application.Title;
+end;
+
+
+// вывод справки в 0_статусбар:
+procedure TfrmMain.apevMainHint(Sender: TObject);
+begin
+  stbMain.Panels[3].Text := GetLongHint(Application.Hint);
+end;
+
+// вывод запущеной проги в 1_статусбар:
+procedure TfrmMain.apevMainMessage(var Msg: tagMSG; var Handled: Boolean);
+begin
+{
+  if Assigned(ActiveMDIChild) AND (ActiveMDIChild.Active) then
+    stbMain.Panels[1].Text := ' '+ActiveMDIChild.Caption
+  else stbMain.Panels[1].Text := '';
+}
+end;
+
+////////////////////////////////////////////////////////////////////////////////
+// EOF - Работа со статусбаром + вход/выход
+////////////////////////////////////////////////////////////////////////////////
+
+
 //форма о программе
 procedure TfrmMain.actAboutExecute(Sender: TObject);
 begin
- if not Assigned(about) then
-  begin
-    about := Tabout.Create(Application);
-    try
-      about.Show;
-
-    finally
-      null;
-    end;
-  end
-  else
-    if (about.WindowState = wsMinimized) then about.WindowState := wsNormal;
+  frmAbout.ShowInfo;
 end;
 
 // форма справка
@@ -151,43 +186,12 @@ begin
     showmessage('');
 end;
 
-// вывод справки в 0_статусбар:
-procedure TfrmMain.apevMainHint(Sender: TObject);
-begin
-  stbMain.Panels[0].Text:= GetLongHint(Application.Hint);
-end;
 
-// вывод запущеной проги в 1_статусбар:
-procedure TfrmMain.apevMainMessage(var Msg: tagMSG; var Handled: Boolean);
-begin
-  if Assigned(ActiveMDIChild) AND (ActiveMDIChild.Active) then
-    stbMain.Panels[1].Text:=' '+ActiveMDIChild.Caption
-  else stbMain.Panels[1].Text:='';
-end;
-
-// событие перед выходом
-procedure TfrmMain.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
-begin
-  if MessageBox(Application.Handle,'Вы действительно хотите выйти из программы ?',
-                PChar(Format('%s',[Application.Title])),MB_ICONQUESTION  or MB_YESNO )=mrYES then
-     CanClose:=True
-  else CanClose:=False;
-end;
-
-// вывод юзера в 2_статусбар:
-procedure TfrmMain.FormCreate(Sender: TObject);
-begin
-  porasessStarLight:=@DM.OraSession;
-  stbMain.Panels[2].Text:=' Сервер: ['+strServerName+':'+IntToStr(intServerPort)+'] - Пользователь: ['+strUserName+']';
-  stbMain.Panels[3].Text:= verApplication;
-  stbMain.Refresh;
-  self.Caption := Application.Title;
-end;
 
 //кнопка выход mainmenu
 procedure TfrmMain.miExitClick(Sender: TObject);
 begin
- close;
+  close;
 end;
 
 //форма Администрирование

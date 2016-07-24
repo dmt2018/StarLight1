@@ -1,8 +1,8 @@
 object frmMain: TfrmMain
   Left = 0
   Top = 0
-  ClientHeight = 299
-  ClientWidth = 952
+  ClientHeight = 310
+  ClientWidth = 949
   Color = clBtnShadow
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,8 +19,8 @@ object frmMain: TfrmMain
   TextHeight = 13
   object stbMain: TStatusBar
     Left = 0
-    Top = 280
-    Width = 952
+    Top = 291
+    Width = 949
     Height = 19
     Panels = <
       item
@@ -35,6 +35,8 @@ object frmMain: TfrmMain
       item
         Width = 250
       end>
+    ExplicitTop = 280
+    ExplicitWidth = 952
   end
   object mmMain: TMainMenu
     Left = 48
@@ -198,7 +200,7 @@ object frmMain: TfrmMain
       end
       object mmiAbout: TMenuItem
         Action = actAbout
-        Hint = #1086' '#1087#1088#1086#1075#1077
+        Hint = #1048#1085#1092#1086#1088#1084#1072#1094#1080#1103' '#1086' '#1087#1088#1086#1075#1088#1072#1084#1084#1077
       end
     end
     object miExit: TMenuItem

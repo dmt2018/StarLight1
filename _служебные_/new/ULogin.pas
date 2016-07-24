@@ -49,17 +49,17 @@ var
 begin
   frmLogin := TfrmLogin.Create(nil);
   try
-    Result  :=False;
+    Result := False;
 
     // считывание последних параметров из файла *.ini
-    strAppIniName  :=ExtractFilePath(Application.ExeName)+ Copy(ExtractFileName(Application.ExeName),1,Pos('.',ExtractFileName(Application.ExeName)))+'ini';
-    IniFile        :=TIniFile.Create(strAppIniName);
-    intServerPort  :=StrToIntDef(IniFile.ReadString('ServerPort','Port','1521'),0);
-    strDataBaseName:=IniFile.ReadString('DataBase','DataBaseName','orcl');
+    strAppIniName   := ExtractFilePath(Application.ExeName) + Copy(ExtractFileName(Application.ExeName),1,Pos('.',ExtractFileName(Application.ExeName))) + 'ini';
+    IniFile         := TIniFile.Create(strAppIniName);
+    intServerPort   := StrToIntDef(IniFile.ReadString('ServerPort','Port','1521'),0);
+    strDataBaseName := IniFile.ReadString('DataBase','DataBaseName','orcl');
 
     with frmLogin do
     begin
-      strServerName  :=IniFile.ReadString('Server','ServerName','');
+      strServerName := IniFile.ReadString('Server','ServerName','');
 
       // если не найден настроечный файл *.ini
       if (not FileExists(strAppIniName)) OR (Trim(strDataBaseName)='') then
@@ -75,14 +75,14 @@ begin
         // ѕытаемс€ открыть соединение с ќраклом
         DM.OraSession.Username  := strUserName;
         DM.OraSession.Password  := strPassword;
-        DM.OraSession.Server    := strServerName;//+':'+IntToStr(intServerPort)+':'+strDataBaseName;
+        DM.OraSession.Server    := strServerName+':'+IntToStr(intServerPort)+':'+strDataBaseName;
 
-        Result      := True;
+        Result := True;
       end;//if ShowModal = mrOK
     end;//with frmLogin
   finally
     IniFile.Free;
-    if Assigned (frmLogin) then
+    if Assigned(frmLogin) then
     begin
       frmLogin.Free;
       frmLogin:=nil
@@ -97,17 +97,17 @@ end;
 
 procedure TfrmLogin.ActOKExecute(Sender: TObject);
 begin
-  ModalResult:= mrOk;
+  ModalResult := mrOk;
 end;
 
 procedure TfrmLogin.edLoginChange(Sender: TObject);
 begin
-   strUserName:= edLogin.Text;
+  strUserName := edLogin.Text;
 end;
 
 procedure TfrmLogin.edPassChange(Sender: TObject);
 begin
-   strPassword:= edPass.Text;
+  strPassword := edPass.Text;
 end;
 
 procedure TfrmLogin.lblEmailToClick(Sender: TObject);

@@ -1,4 +1,4 @@
-object about: Tabout
+object frmAbout: TfrmAbout
   Left = 0
   Top = 0
   BorderIcons = [biSystemMenu]
@@ -14,23 +14,18 @@ object about: Tabout
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
-  Visible = True
   PixelsPerInch = 96
   TextHeight = 13
-  object Panel1: TPanel
+  object pnlTop: TPanel
     Left = 0
     Top = 0
     Width = 429
-    Height = 235
+    Height = 194
     Align = alClient
+    BevelInner = bvRaised
     BevelOuter = bvNone
     TabOrder = 0
-    object Bevel1: TBevel
-      Left = 0
-      Top = 169
-      Width = 425
-      Height = 2
-    end
+    ExplicitHeight = 193
     object Label1: TLabel
       Left = 24
       Top = 32
@@ -39,7 +34,7 @@ object about: Tabout
       Caption = #1088#1072#1079#1088#1072#1073#1086#1090#1095#1080#1082#1080'...............................'
     end
     object gbInfo: TcxGroupBox
-      Left = 225
+      Left = 222
       Top = 25
       Caption = #1044#1086#1087#1086#1083#1085#1080#1090#1077#1083#1100#1085#1086':'
       TabOrder = 0
@@ -61,14 +56,29 @@ object about: Tabout
         OnClick = Label3Click
       end
     end
+  end
+  object pnlBottom: TPanel
+    Left = 0
+    Top = 194
+    Width = 429
+    Height = 41
+    Align = alBottom
+    TabOrder = 1
+    ExplicitLeft = 224
+    ExplicitTop = 208
+    ExplicitWidth = 185
+    DesignSize = (
+      429
+      41)
     object btnexit: TcxButton
-      Left = 296
-      Top = 200
+      Left = 299
+      Top = 8
       Width = 123
       Height = 25
       Cursor = crHandPoint
+      Anchors = [akRight, akBottom]
       Caption = #1047#1072#1082#1088#1099#1090#1100
-      TabOrder = 1
+      TabOrder = 0
       OnClick = btnexitClick
       Colors.Default = clActiveBorder
     end

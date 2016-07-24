@@ -8,12 +8,12 @@ uses
   cxEdit, cxGroupBox, Menus, cxLookAndFeelPainters, cxButtons;
 
 type
-  Tabout = class(TForm)
-    Panel1: TPanel;
-    Bevel1: TBevel;
+  TfrmAbout = class(TForm)
+    pnlTop: TPanel;
     Label1: TLabel;
     gbInfo: TcxGroupBox;
     Label3: TLabel;
+    pnlBottom: TPanel;
     btnexit: TcxButton;
     procedure Label3Click(Sender: TObject);
     procedure btnexitClick(Sender: TObject);
@@ -21,23 +21,44 @@ type
     { Private declarations }
   public
     { Public declarations }
-  end;
+    function ShowInfo : boolean;
+ end;
 
 var
-  about: Tabout;
+  frmAbout: TfrmAbout;
 
 implementation
 
 {$R *.dfm}
 
-procedure Tabout.btnexitClick(Sender: TObject);
-begin
- close;
+
+function TfrmAbout.ShowInfo : boolean;
+Begin
+  Application.CreateForm(TfrmAbout, frmAbout);
+  try
+    with frmAbout do
+    Begin
+      if ShowModal <> mrOk then
+      begin
+        result := false;
+        Exit;
+      end;
+      result := true;
+    End;
+  finally
+    frmAbout.Free;
+  end;
 end;
 
-procedure Tabout.Label3Click(Sender: TObject);
+
+procedure TfrmAbout.btnexitClick(Sender: TObject);
 begin
- ShellExecute(Handle, nil, 'mailto:alex_olmer@mail.ru?subject=ИС Старлайт.', nil, nil, SW_RESTORE);
+  close;
+end;
+
+procedure TfrmAbout.Label3Click(Sender: TObject);
+begin
+  ShellExecute(Handle, nil, 'mailto:alex_olmer@mail.ru?subject=ИС Старлайт.', nil, nil, SW_RESTORE);
 end;
 
 end.

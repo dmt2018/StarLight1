@@ -60,11 +60,10 @@ begin
 
   // получение версии файла
   recFileInfo :=  FileInfo(Application.ExeName);
-
-  verApplication:='¬ерси€ ' + IntToStr(recFileInfo.wFileVersionLS )+'.'+IntToStr( recFileInfo.wFileVersionMS ) + '.' +
+  verApplication := '¬ерси€ ' + IntToStr(recFileInfo.wFileVersionLS )+'.'+IntToStr( recFileInfo.wFileVersionMS ) + '.' +
                               IntToStr(recFileInfo.wProductVersionLS)+'.'+IntToStr(recFileInfo.wProductVersionMS);
    // caption главной формы:
-  Application.Title := Application.Title ;//+ '. ' + verApplication;
+  Application.Title := Application.Title;
   
   // загрузка формы Login
   // провер€ем есть ли командна€ строка или показываем окно логона

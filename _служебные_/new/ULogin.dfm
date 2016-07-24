@@ -4,7 +4,7 @@ object frmLogin: TfrmLogin
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = #1048#1057' "'#1057#1090#1072#1088#1083#1072#1081#1090'" - ['#1040#1074#1090#1086#1088#1080#1079#1072#1094#1080#1103']'
-  ClientHeight = 334
+  ClientHeight = 323
   ClientWidth = 574
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
@@ -14,14 +14,18 @@ object frmLogin: TfrmLogin
   Font.Style = []
   OldCreateOrder = False
   Position = poDesktopCenter
+  DesignSize = (
+    574
+    323)
   PixelsPerInch = 96
   TextHeight = 13
   object lblEmailTo: TLabel
     Left = 167
-    Top = 296
+    Top = 302
     Width = 94
     Height = 13
     Cursor = crHandPoint
+    Anchors = [akLeft, akBottom]
     Caption = 'alex_olmer@mail.ru'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlue
@@ -30,13 +34,16 @@ object frmLogin: TfrmLogin
     Font.Style = [fsUnderline]
     ParentFont = False
     OnClick = lblEmailToClick
+    ExplicitTop = 313
   end
   object Label1: TLabel
     Left = 8
-    Top = 296
+    Top = 302
     Width = 153
     Height = 13
+    Anchors = [akLeft, akBottom]
     Caption = #1055#1086' '#1074#1086#1087#1088#1086#1089#1072#1084' '#1088#1072#1073#1086#1090#1099' '#1089#1080#1089#1090#1077#1084#1099':'
+    ExplicitTop = 313
   end
   object Image2: TImage
     Left = 0
@@ -2776,7 +2783,7 @@ object frmLogin: TfrmLogin
     Left = 167
     Top = 111
     Width = 209
-    Height = 179
+    Height = 170
     Color = clGradientActiveCaption
     ParentBackground = False
     TabOrder = 0
@@ -3029,9 +3036,9 @@ object frmLogin: TfrmLogin
       OnChange = edPassChange
     end
     object btnOk: TcxButton
-      Left = 40
-      Top = 144
-      Width = 129
+      Left = 83
+      Top = 132
+      Width = 121
       Height = 25
       Action = ActOK
       TabOrder = 2
@@ -3039,13 +3046,15 @@ object frmLogin: TfrmLogin
     end
   end
   object btnClose: TcxButton
-    Left = 440
-    Top = 291
+    Left = 450
+    Top = 290
     Width = 116
     Height = 25
     Action = ActCancel
+    Anchors = [akLeft, akBottom]
     TabOrder = 1
     Colors.Default = clActiveBorder
+    ExplicitTop = 301
   end
   object Actlistlogon: TActionList
     Left = 528
@@ -3053,6 +3062,7 @@ object frmLogin: TfrmLogin
     object ActOK: TAction
       Caption = #1040#1074#1090#1086#1088#1080#1079#1072#1094#1080#1103
       Hint = #1040#1074#1090#1086#1088#1080#1079#1072#1094#1080#1103
+      ShortCut = 13
       OnExecute = ActOKExecute
     end
     object ActCancel: TAction
