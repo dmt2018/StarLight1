@@ -15,6 +15,12 @@ type
     Label3: TLabel;
     pnlBottom: TPanel;
     btnexit: TcxButton;
+    Label2: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
     procedure Label3Click(Sender: TObject);
     procedure btnexitClick(Sender: TObject);
   private

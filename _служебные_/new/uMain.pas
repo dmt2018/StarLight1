@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, Menus, AppEvnts, ActnList, StdActns, StdCtrls,  Buttons, ExtCtrls, ComCtrls,
-  ToolWin, ImgList,IniFiles, ActnMan, ActnCtrls,UDM, DateUtils, DB, MemDS, DBAccess, Ora, cxGraphics;
+  ToolWin, ImgList,IniFiles, ActnMan, ActnCtrls,UDM, DateUtils, DB, MemDS, DBAccess, Ora, cxGraphics,ShellAPI;
 
   type
   POraSession = ^TOraSession;
@@ -88,17 +88,16 @@ type
     EditCut: TEditCut;
     EditCopy: TEditCopy;
     EditPaste: TEditPaste;
-    WindowCascade: TWindowCascade;
-    WindowTileHorizontal: TWindowTileHorizontal;
-    WindowTileVertical: TWindowTileVertical;
-    WindowMinimizeAll: TWindowMinimizeAll;
-    WindowArrangeAll: TWindowArrange;
     actAbout: TAction;
     stbMain: TStatusBar;
     ActHelp: TAction;
-    Action11: TMenuItem;
+    mmiaHelp: TMenuItem;
+    WindowCascade: TAction;
+    WindowTileHorizontal: TAction;
+    WindowTileVertical: TAction;
+    WindowMinimizeAll: TAction;
+    WindowArrangeAll: TAction;
     procedure actAboutExecute(Sender: TObject);
-    procedure actHelpExecute(Sender: TObject);
     procedure mnNSI_CurrencyClick(Sender: TObject);
     procedure mmiSettingsClick(Sender: TObject);
     procedure mmiAdminToolsClick(Sender: TObject);
@@ -107,7 +106,12 @@ type
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure miExitClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure Action1Execute(Sender: TObject);
+    procedure ActHelpExecute(Sender: TObject);
+    procedure WindowCascadeExecute(Sender: TObject);
+    procedure WindowMinimizeAllExecute(Sender: TObject);
+    procedure WindowArrangeAllExecute(Sender: TObject);
+    procedure WindowTileHorizontalExecute(Sender: TObject);
+    procedure WindowTileVerticalExecute(Sender: TObject);
   private
     { Private declarations }
     porasessStarLight:POraSession;
@@ -119,7 +123,7 @@ var
   frmMain: TfrmMain;
 
 implementation
- uses info_f, UNSICurrency, USettings, UAdmin;
+ uses info_f, UNSICurrency, USettings, UAdmin,Orient;
 {$R *.dfm}
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -144,10 +148,16 @@ begin
   stbMain.Panels[2].Text := ' Пользователь: ['+strUserName+'] ';
   stbMain.Refresh;
   self.Caption := Application.Title;
+
 end;
 
 
-// вывод справки в 0_статусбар:
+// вывод справки
+procedure TfrmMain.ActHelpExecute(Sender: TObject);
+begin
+  Shellexecute(handle,'Open',PChar(strpath+'\DOC\123.docx'),nil,nil,sw_restore);
+end;
+
 procedure TfrmMain.apevMainHint(Sender: TObject);
 begin
   stbMain.Panels[3].Text := GetLongHint(Application.Hint);
@@ -174,19 +184,6 @@ begin
   frmAbout.ShowInfo;
 end;
 
-// форма справка
-procedure TfrmMain.actHelpExecute(Sender: TObject);
-begin
-showmessage('');   // нада выяснить почему неактивна
-end;
-
-
-procedure TfrmMain.Action1Execute(Sender: TObject);
-begin
-    showmessage('');
-end;
-
-
 
 //кнопка выход mainmenu
 procedure TfrmMain.miExitClick(Sender: TObject);
@@ -197,18 +194,23 @@ end;
 //форма Администрирование
 procedure TfrmMain.mmiAdminToolsClick(Sender: TObject);
 begin
-   if not Assigned(frmAdmin) then
+  { if not Assigned(frmAdmin) then
   begin
     frmAdmin := TfrmAdmin.Create(Application);
     try
       frmAdmin.Show;
+      dm.LoadFormState(frmAdmin); //полож.окна
     finally
       null;
     end;
   end
   else
-    if (frmSettings.WindowState = wsMinimized) then frmSettings.WindowState := wsNormal;
+    if (frmAdmin.WindowState = wsMinimized) then frmAdmin.WindowState := wsNormal;  }
+   frmAdmin.ShowInfo;
 end;
+
+
+
 
 //форма Настройки
 procedure TfrmMain.mmiSettingsClick(Sender: TObject);
@@ -218,6 +220,7 @@ begin
     frmSettings := TfrmSettings.Create(Application);
     try
       frmSettings.Show;
+      dm.LoadFormState(frmSettings); //полож.окна
     finally
       null;
     end;
@@ -226,20 +229,78 @@ begin
     if (frmSettings.WindowState = wsMinimized) then frmSettings.WindowState := wsNormal;
 end;
 
+
+
 //форма курсы валют
 procedure TfrmMain.mnNSI_CurrencyClick(Sender: TObject);
 begin
-     if not Assigned(frmNSICurreny) then
+  if not Assigned(frmNSICurreny) then
   begin
     frmNSICurreny := TfrmNSICurreny.Create(Application);
     try
       frmNSICurreny.Show;
+      dm.LoadFormState(frmNSICurreny); //полож.окна
     finally
       null;
     end;
   end
   else
     if (frmNSICurreny.WindowState = wsMinimized) then frmNSICurreny.WindowState := wsNormal;
+end;
+
+//разворачиваю окна
+procedure TfrmMain.WindowArrangeAllExecute(Sender: TObject);
+ var iCount: Integer;
+begin
+   for iCount:=0 to MDIChildCount-1 do 
+   MDIChildren[iCount].WindowState:= wsNormal;
+ //if Assigned(frmNSICurreny) and (frmNSICurreny.WindowState = wsMinimized) then frmNSICurreny.WindowState:= wsNormal;
+ //if Assigned(frmAdmin) and (frmAdmin.WindowState = wsMinimized) then frmAdmin.WindowState:= wsNormal;
+end;
+
+//окна каскадом
+procedure TfrmMain.WindowCascadeExecute(Sender: TObject);
+ var iCount:integer;
+     {FForms : TList;
+     FRect: TRect;}
+begin
+      for iCount:=0 to MDIChildCount-1 do
+      begin
+        MDIChildren[iCount].Left := iCount * 20;
+        MDIChildren[iCount].Top := iCount * 20;
+      end;
+  {FForms := TList.Create;
+  FRect := Screen.WorkAreaRect;
+  if Assigned(frmNSICurreny) then FForms.Add(frmNSICurreny);
+  if Assigned(frmAdmin) then FForms.Add(frmAdmin);
+  if FForms.Count = 0 then EXIT;
+  for i := 0 to FForms.Count - 1 do begin
+    TForm(FForms[i]).Left := FRect.Left + (i + 1) * 20;
+    TForm(FForms[i]).Top := FRect.Top + (i + 1) * 20;
+  end;
+  FForms.Destroy;}
+end;
+
+//сворачиваю окна
+procedure TfrmMain.WindowMinimizeAllExecute(Sender: TObject);
+ var iCount: Integer;
+begin
+   for iCount:=MDIChildCount-1 downto 0 do 
+   MDIChildren[iCount].WindowState:= wsMinimized;
+end;
+
+//выравнивание окон по гориз.
+procedure TfrmMain.WindowTileHorizontalExecute(Sender: TObject);
+begin
+  TileMode:=tbHorizontal;
+  Tile;
+end;
+
+// выравнивание окон по верт.
+procedure TfrmMain.WindowTileVerticalExecute(Sender: TObject);
+begin
+   TileMode:=tbVertical;
+   Tile;
 end;
 
 end.

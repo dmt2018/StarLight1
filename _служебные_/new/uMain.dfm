@@ -9,6 +9,7 @@ object frmMain: TfrmMain
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  FormStyle = fsMDIForm
   Menu = mmMain
   OldCreateOrder = False
   WindowState = wsMaximized
@@ -35,8 +36,6 @@ object frmMain: TfrmMain
       item
         Width = 250
       end>
-    ExplicitTop = 280
-    ExplicitWidth = 952
   end
   object mmMain: TMainMenu
     Left = 48
@@ -192,9 +191,10 @@ object frmMain: TfrmMain
       end
     end
     object miHelp: TMenuItem
-      Caption = #1055#1086#1084#1086#1097#1100
+      Caption = #1057#1087#1088#1072#1074#1082#1072
       GroupIndex = 1
-      object Action11: TMenuItem
+      Hint = #1057#1087#1088#1072#1074#1082#1072
+      object mmiaHelp: TMenuItem
         Action = ActHelp
         ShortCut = 112
       end
@@ -246,43 +246,41 @@ object frmMain: TfrmMain
       ImageIndex = 2
       ShortCut = 16470
     end
-    object WindowCascade: TWindowCascade
-      Category = 'Window'
-      Caption = '&Cascade'
-      Hint = 'Cascade'
-      ImageIndex = 17
-    end
-    object WindowTileHorizontal: TWindowTileHorizontal
-      Category = 'Window'
-      Caption = 'Tile &Horizontally'
-      Hint = 'Tile Horizontal'
-      ImageIndex = 15
-    end
-    object WindowTileVertical: TWindowTileVertical
-      Category = 'Window'
-      Caption = '&Tile Vertically'
-      Hint = 'Tile Vertical'
-      ImageIndex = 16
-    end
-    object WindowMinimizeAll: TWindowMinimizeAll
-      Category = 'Window'
-      Caption = '&Minimize All'
-      Hint = 'Minimize All'
-    end
-    object WindowArrangeAll: TWindowArrange
-      Category = 'Window'
-      Caption = '&Arrange'
-    end
     object ActHelp: TAction
       Category = 'Help'
       Caption = #1057#1087#1088#1072#1074#1082#1072
       Hint = #1057#1087#1088#1072#1074#1082#1072
-      OnExecute = Action1Execute
+      OnExecute = ActHelpExecute
     end
     object actAbout: TAction
       Category = 'Help'
       Caption = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077'...'
       OnExecute = actAboutExecute
+    end
+    object WindowCascade: TAction
+      Category = 'Window'
+      Caption = 'WindowCascade'
+      OnExecute = WindowCascadeExecute
+    end
+    object WindowTileHorizontal: TAction
+      Category = 'Window'
+      Caption = 'WindowTileHorizontal'
+      OnExecute = WindowTileHorizontalExecute
+    end
+    object WindowTileVertical: TAction
+      Category = 'Window'
+      Caption = 'WindowTileVertical'
+      OnExecute = WindowTileVerticalExecute
+    end
+    object WindowMinimizeAll: TAction
+      Category = 'Window'
+      Caption = 'WindowMinimizeAll'
+      OnExecute = WindowMinimizeAllExecute
+    end
+    object WindowArrangeAll: TAction
+      Category = 'Window'
+      Caption = 'WindowArrangeAll'
+      OnExecute = WindowArrangeAllExecute
     end
   end
 end

@@ -1,7 +1,7 @@
 object frmAdmin: TfrmAdmin
   Left = 0
   Top = 0
-  Caption = 'frmAdmin'
+  Caption = #1040#1076#1084#1080#1085#1080#1089#1090#1088#1080#1088#1086#1074#1072#1085#1080#1077
   ClientHeight = 299
   ClientWidth = 635
   Color = clBtnFace
@@ -10,7 +10,10 @@ object frmAdmin: TfrmAdmin
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  FormStyle = fsMDIChild
   OldCreateOrder = False
+  Visible = True
+  OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 13
 end

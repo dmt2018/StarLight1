@@ -4,21 +4,48 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs;
+  Dialogs, StdCtrls;
 
 type
   TfrmAdmin = class(TForm)
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
     { Public declarations }
+     function ShowInfo : boolean;
   end;
 
 var
   frmAdmin: TfrmAdmin;
 
 implementation
-
+ uses umain,UDM;
 {$R *.dfm}
+
+function TfrmAdmin.ShowInfo : boolean;
+Begin
+if not Assigned(frmAdmin) then
+  begin
+    frmAdmin := TfrmAdmin.Create(Application);
+    try
+      frmAdmin.Show;
+      dm.LoadFormState(frmAdmin); //полож.окна
+    finally
+      null;
+    end;
+  end
+  else
+    if (frmAdmin.WindowState = wsMinimized) then frmAdmin.WindowState := wsNormal;
+end;
+
+
+
+procedure TfrmAdmin.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  dm.SaveFormState(frmAdmin);  //полож.окна
+  frmAdmin:=nil;
+  Action := caFree;
+end;
 
 end.

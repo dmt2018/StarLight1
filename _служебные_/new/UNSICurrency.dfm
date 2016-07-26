@@ -10,7 +10,10 @@ object frmNSICurreny: TfrmNSICurreny
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  FormStyle = fsMDIChild
   OldCreateOrder = False
+  Visible = True
+  OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 13
   object grCurrency: TcxGrid
@@ -189,7 +192,6 @@ object frmNSICurreny: TfrmNSICurreny
     object btnRefresh: TdxBarLargeButton
       Action = aRefresh
       Category = 0
-      OnClick = btnRefreshClick
     end
     object btnAdd: TdxBarLargeButton
       Action = aEdit

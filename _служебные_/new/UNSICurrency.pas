@@ -34,6 +34,7 @@ type
     cxBarEditItem3: TcxBarEditItem;
     cxBarEditItem4: TcxBarEditItem;
     procedure btnRefreshClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -44,13 +45,21 @@ var
   frmNSICurreny: TfrmNSICurreny;
 
 implementation
-
+ uses umain,udm;
 {$R *.dfm}
+
 
 procedure TfrmNSICurreny.btnRefreshClick(Sender: TObject);
 begin
 ///  обновить
 showmessage('');
+end;
+
+procedure TfrmNSICurreny.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  dm.SaveFormState(frmNSICurreny); //полож.окна
+  frmNSICurreny:=nil;
+  Action := caFree;
 end;
 
 end.
