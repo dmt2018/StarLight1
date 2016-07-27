@@ -2,7 +2,7 @@ unit star_lib;
 
 interface
 
-uses StdCtrls,Classes,Variants,SysUtils,Graphics,Dialogs, Ora,
+uses StdCtrls,Classes,Variants,SysUtils,Graphics,Dialogs, Ora, Forms, IniFiles,
      CheckLst,windows,ComCtrls, DB, DBGrids, cxImageComboBox, cxBarEditItem,
      cxCustomData, Clipbrd, cxDBData, cxGridLevel, cxGridCustomView, cxGridDBBandedTableView,
      cxGridTableView, cxGridDBDataDefinitions;
@@ -42,6 +42,9 @@ type
 // Заполнение комбобокса значениями из запроса
   function FillImgComboCx(TheQuery : TOraQuery; TheCombo : TCxImageComboBox; BeginStr : String) : boolean;
   function FillImgComboCxItm(TheQuery : TOraQuery; TheCombo : TCxBarEditItem; BeginStr : String) : boolean;
+//Запомнить положение форм на экране
+  procedure SaveFormState(aForm: TForm);
+  procedure LoadFormState(aForm: TForm);
 
 const RussianMonthsNames: array[1..12] of String =  //Просто массив русских названий месяцев
 ('Январь',
@@ -259,5 +262,43 @@ begin
       end; // try
    end;// if dwVersionSize
 end; // GetFileInformation
+
+
+//при закрытии форм  запоминаю координаты
+ procedure SaveFormState(aForm: TForm);
+    var
+      ini: TIniFile;
+    begin
+      ini := TIniFile.Create(ChangeFileExt(Application.ExeName, '_forms.ini'));
+      with aForm do
+      begin
+        ini.WriteInteger(aForm.Name, 'WindowState', Integer(WindowState));
+        ini.WriteInteger(aForm.Name, 'Left',   Left);
+        ini.WriteInteger(aForm.Name, 'Top',    Top);
+        ini.WriteInteger(aForm.Name, 'Width',  Width);
+        ini.WriteInteger(aForm.Name, 'Height', Height);
+      end;
+      ini.Free;
+    end;
+
+ //при открытии форм запоминаю координаты
+ procedure LoadFormState(aForm: TForm);
+    var
+      ini: TIniFile;
+    begin
+      ini := TIniFile.Create(ChangeFileExt(Application.ExeName, '_forms.ini'));
+      with aForm do
+      begin
+        WindowState := TWindowState(ini.ReadInteger(aForm.Name, 'WindowState', Integer(WindowState)));
+        if Integer(WindowState) = 0 then
+        begin
+          Left  := ini.ReadInteger(aForm.Name, 'Left',   Left);
+          Top   := ini.ReadInteger(aForm.Name, 'Top',    Top);
+          Width := ini.ReadInteger(aForm.Name, 'Width',  Width);
+          Height:= ini.ReadInteger(aForm.Name, 'Height', Height);
+        end;
+      end;
+      ini.Free;
+    end;
 
 end.

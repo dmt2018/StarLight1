@@ -17,17 +17,15 @@ type
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
     procedure OraSessionAfterConnect(Sender: TObject);
-    procedure SaveIni;
+    //procedure SaveIni;
   private
     { Private declarations }
-    procedure LoadIni;
+    //procedure LoadIni;
   public
     { Public declarations }
     id_office: integer;
     CUR_DEPT_ID: integer;
     CUR_DEPT_NAME: string;
-    procedure SaveFormState(aForm: TForm);
-    procedure LoadFormState(aForm: TForm);
   end;
 
 var
@@ -49,44 +47,9 @@ var
 implementation
 
 uses uLogin;
+
 {$R *.dfm}
 
- //при закрытии форм
- procedure Tdm.SaveFormState(aForm: TForm);
-    var
-      ini: TIniFile;
-    begin
-      ini := TIniFile.Create(ChangeFileExt(Application.ExeName, '_forms.ini'));
-      with aForm do
-      begin
-        ini.WriteInteger(aForm.Name, 'WindowState', Integer(WindowState));
-        ini.WriteInteger(aForm.Name, 'Left', Left);
-        ini.WriteInteger(aForm.Name, 'Top', Top);
-        ini.WriteInteger(aForm.Name, 'Width', Width);
-        ini.WriteInteger(aForm.Name, 'Height', Height);
-      end;
-      ini.Free;
-    end;
-
- //при открытии форм
- procedure Tdm.LoadFormState(aForm: TForm);
-    var
-      ini: TIniFile;
-    begin
-      ini := TIniFile.Create(ChangeFileExt(Application.ExeName, '_forms.ini'));
-      with aForm do
-      begin
-        WindowState := TWindowState(ini.ReadInteger(aForm.Name, 'WindowState', Integer(WindowState)));
-        if Integer(WindowState) = 0 then
-        begin
-          Left := ini.ReadInteger(aForm.Name, 'Left', Left);
-          Top := ini.ReadInteger(aForm.Name, 'Top', Top);
-          Width := ini.ReadInteger(aForm.Name, 'Width', Width);
-          Height := ini.ReadInteger(aForm.Name, 'Height', Height);
-        end;
-      end;
-      ini.Free;
-    end;
 
 procedure Tdm.DataModuleCreate(Sender: TObject);
 var recFileInfo :TFixedFileInfo;
@@ -154,16 +117,32 @@ end;
 
 procedure Tdm.OraSessionAfterConnect(Sender: TObject);
 begin
-  cdsOffices.Open;
-  cdsDeps.ParamByName('login_').Value := UpperCase(OraSession.Username);
-  cdsDeps.ParamByName('cursor_').AsCursor;
-  cdsDeps.Open;
+  //cdsOffices.Open; //пока не надо
+    cdsDeps.ParamByName('login_').Value := UpperCase(OraSession.Username);
+    cdsDeps.ParamByName('cursor_').AsCursor;
+    cdsDeps.Open;
 
-  loadIni; // после коннекта читаю последние знач.шрифта и отдела для юзера
+ // после коннекта читаю последние знач.шрифта и отдела для юзера
+ //где то косяк!!!!!!!!!!!!!!:    на завтра
+  {cdsSQL.Close;
+   cdsSQL.SQL.clear;
+   cdsSQL.SQL.Add('begim service_pkg.get_user_setting(:cursor_);end;');
+   cdsSQL.open;
+   cdsSQL.First;
+    while not cdsSQL.Eof do
+    begin
+     if (orasession.Username = cdsSQL.Fields[0].value) then begin
+      if (cdsSQL.Fields[1].value='FontSize')   then intDefFont := cdsSQL.Fields[2].Asinteger;
+      if (cdsSQL.Fields[1].value='Department') then intDefDept := cdsSQL.Fields[2].Asinteger;
+     end;
+    cdsSQL.Next;
+    end;
+   cdsSQL.Close;
+       }
+
 end;
 
-
-
+  {
 procedure TDM.LoadIni;
 var vv, path: string;
     RegIni : TIniFile;
@@ -172,13 +151,12 @@ begin
     path   := strPath+'ini\'+OraSession.Username+'.ini';
     RegIni := TIniFile.Create(path);
 
-    intDefFont := RegIni.ReadInteger('FontSize', 'Value', 9);
+    intDefFont := RegIni.ReadInteger('FontSize',   'Value', 9);
     intDefDept := RegIni.ReadInteger('Department', 'Value', 0);
   finally
     RegIni.Free;
   end;
 end;
-
 
 procedure TDM.SaveIni;
 var vv, path: string;
@@ -188,12 +166,12 @@ begin
     path   := strPath+'ini\'+OraSession.Username+'.ini';
     RegIni := TIniFile.Create(path);
 
-    RegIni.WriteInteger('FontSize', 'Value', intDefFont);
+    RegIni.WriteInteger('FontSize',   'Value', intDefFont);
     RegIni.WriteInteger('Department', 'Value', intDefDept);
   finally
     RegIni.Free;
   end;
 end;
-
+      }
 
 end.

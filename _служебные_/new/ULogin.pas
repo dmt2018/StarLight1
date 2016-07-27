@@ -40,7 +40,9 @@ var
   function CreateLoginForm:Boolean;
 
 implementation
-  uses uDM;
+
+uses uDM;
+
 {$R *.dfm}
 
 function CreateLoginForm:Boolean;

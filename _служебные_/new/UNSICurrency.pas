@@ -8,7 +8,7 @@ uses
   cxFilter, cxData, cxDataStorage, cxEdit, DB, cxDBData, cxGridLevel,
   cxControls, cxGridCustomView, cxGridCustomTableView, cxGridTableView,
   cxGridDBTableView, cxGrid, dxBarExtItems, cxDropDownEdit, cxLabel,
-  cxBarEditItem;
+  cxBarEditItem,star_lib;
 
 type
   TfrmNSICurreny = class(TForm)
@@ -39,26 +39,44 @@ type
     { Private declarations }
   public
     { Public declarations }
+    function ShowInfo : boolean;
   end;
 
 var
   frmNSICurreny: TfrmNSICurreny;
 
 implementation
- uses umain,udm;
+
+uses umain,udm;
+
 {$R *.dfm}
 
+function TfrmNSICurreny.ShowInfo : boolean;
+Begin
+ if not Assigned(frmNSICurreny) then
+  begin
+    frmNSICurreny := TfrmNSICurreny.Create(Application);
+    try
+      frmNSICurreny.Show;
+      LoadFormState(frmNSICurreny); //полож.окна
+    finally
+      null;
+    end;
+  end
+  else
+   if (frmNSICurreny.WindowState = wsMinimized) then frmNSICurreny.WindowState := wsNormal;
+end;
 
 procedure TfrmNSICurreny.btnRefreshClick(Sender: TObject);
 begin
-///  обновить
-showmessage('');
+ //обновить
+ showmessage('');
 end;
 
 procedure TfrmNSICurreny.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  dm.SaveFormState(frmNSICurreny); //полож.окна
-  frmNSICurreny:=nil;
+  SaveFormState(frmNSICurreny); //полож.окна
+   frmNSICurreny:=nil;
   Action := caFree;
 end;
 

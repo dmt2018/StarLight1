@@ -3,7 +3,7 @@ unit uMain;
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,star_lib,
   Dialogs, Menus, AppEvnts, ActnList, StdActns, StdCtrls,  Buttons, ExtCtrls, ComCtrls,
   ToolWin, ImgList,IniFiles, ActnMan, ActnCtrls,UDM, DateUtils, DB, MemDS, DBAccess, Ora, cxGraphics,ShellAPI;
 
@@ -43,33 +43,30 @@ type
 type
   TfrmMain = class(TForm)
     mmMain: TMainMenu;
-    miASOUP: TMenuItem;
+    micom: TMenuItem;
     miEdit: TMenuItem;
     miByx: TMenuItem;
     miOtdels: TMenuItem;
-    miDirector: TMenuItem;
+    miZP: TMenuItem;
     mnNSI: TMenuItem;
     miTools: TMenuItem;
     miWindow: TMenuItem;
     miHelp: TMenuItem;
     miExit: TMenuItem;
-    mmiSpravNomen: TMenuItem;
-    mmiSprav: TMenuItem;
-    mmiPrihodUhod: TMenuItem;
-    mmiCurrEx: TMenuItem;
+    mmiStatis: TMenuItem;
+    mmiSec: TMenuItem;
     mmiUndo: TMenuItem;
     mmiCut: TMenuItem;
     mmiCopy: TMenuItem;
     mmiPaste: TMenuItem;
-    mmiRegClients: TMenuItem;
     mmiKasses: TMenuItem;
-    mmiBrigIncomings: TMenuItem;
+    mmiKasSvod: TMenuItem;
     mmiZakaz: TMenuItem;
     mmiRazZakaz: TMenuItem;
     mmiInvoice: TMenuItem;
     mmiSklad: TMenuItem;
     mmiPrices: TMenuItem;
-    mmiStats: TMenuItem;
+    mmiPrList: TMenuItem;
     mnNSI_Currency: TMenuItem;
     mmiAdminTools: TMenuItem;
     mmiSettings: TMenuItem;
@@ -81,7 +78,6 @@ type
     mmiAbout: TMenuItem;
     apevMain: TApplicationEvents;
     actlstMain: TActionList;
-    mmiDebitors: TMenuItem;
     mmiPretenz: TMenuItem;
     mmiByx: TMenuItem;
     EditUndo: TEditUndo;
@@ -97,6 +93,29 @@ type
     WindowTileVertical: TAction;
     WindowMinimizeAll: TAction;
     WindowArrangeAll: TAction;
+    mmiUserSettings: TMenuItem;
+    mnNSI_Regions: TMenuItem;
+    mnNSI_Cityes: TMenuItem;
+    mnNSI_Adver: TMenuItem;
+    mnNSI_ClientsType: TMenuItem;
+    mnNSI_Dep: TMenuItem;
+    mnNSI_Job: TMenuItem;
+    mnNSI_Countries: TMenuItem;
+    mnNSI_Supplier: TMenuItem;
+    mnNSI_pcs: TMenuItem;
+    miNomen: TMenuItem;
+    miNomen_Nom: TMenuItem;
+    miNomen_Name: TMenuItem;
+    miNomen_SupName: TMenuItem;
+    miNomen_TS: TMenuItem;
+    miNomen_Colour: TMenuItem;
+    miNomen_Spec: TMenuItem;
+    miNomen_Fas: TMenuItem;
+    miClient: TMenuItem;
+    miClient_Reg: TMenuItem;
+    miClient_Deb: TMenuItem;
+    mmiFito: TMenuItem;
+    mmiSpez: TMenuItem;
     procedure actAboutExecute(Sender: TObject);
     procedure mnNSI_CurrencyClick(Sender: TObject);
     procedure mmiSettingsClick(Sender: TObject);
@@ -123,7 +142,9 @@ var
   frmMain: TfrmMain;
 
 implementation
- uses info_f, UNSICurrency, USettings, UAdmin,Orient;
+
+uses info_f, UNSICurrency, USettings, UAdmin,Orient;
+
 {$R *.dfm}
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -144,18 +165,17 @@ procedure TfrmMain.FormCreate(Sender: TObject);
 begin
   //porasessStarLight := @DM.OraSession;
   stbMain.Panels[0].Text := verApplication;
-  stbMain.Panels[1].Text := ' Сервер: ['+strServerName+':'+IntToStr(intServerPort)+'] ';
-  stbMain.Panels[2].Text := ' Пользователь: ['+strUserName+'] ';
-  stbMain.Refresh;
+   stbMain.Panels[1].Text := ' Сервер: ['+strServerName+':'+IntToStr(intServerPort)+'] ';
+    stbMain.Panels[2].Text := ' Пользователь: ['+strUserName+'] ';
+   stbMain.Refresh;
   self.Caption := Application.Title;
-
 end;
 
 
 // вывод справки
 procedure TfrmMain.ActHelpExecute(Sender: TObject);
 begin
-  Shellexecute(handle,'Open',PChar(strpath+'\DOC\123.docx'),nil,nil,sw_restore);
+  Shellexecute(handle,'Open',PChar(strpath+'\DOC\Strarlight CRM documentation.doc'),nil,nil,sw_restore);
 end;
 
 procedure TfrmMain.apevMainHint(Sender: TObject);
@@ -177,13 +197,11 @@ end;
 // EOF - Работа со статусбаром + вход/выход
 ////////////////////////////////////////////////////////////////////////////////
 
-
 //форма о программе
 procedure TfrmMain.actAboutExecute(Sender: TObject);
 begin
   frmAbout.ShowInfo;
 end;
-
 
 //кнопка выход mainmenu
 procedure TfrmMain.miExitClick(Sender: TObject);
@@ -194,58 +212,19 @@ end;
 //форма Администрирование
 procedure TfrmMain.mmiAdminToolsClick(Sender: TObject);
 begin
-  { if not Assigned(frmAdmin) then
-  begin
-    frmAdmin := TfrmAdmin.Create(Application);
-    try
-      frmAdmin.Show;
-      dm.LoadFormState(frmAdmin); //полож.окна
-    finally
-      null;
-    end;
-  end
-  else
-    if (frmAdmin.WindowState = wsMinimized) then frmAdmin.WindowState := wsNormal;  }
-   frmAdmin.ShowInfo;
+  frmAdmin.ShowInfo;
 end;
-
-
-
 
 //форма Настройки
 procedure TfrmMain.mmiSettingsClick(Sender: TObject);
 begin
-    if not Assigned(frmSettings) then
-  begin
-    frmSettings := TfrmSettings.Create(Application);
-    try
-      frmSettings.Show;
-      dm.LoadFormState(frmSettings); //полож.окна
-    finally
-      null;
-    end;
-  end
-  else
-    if (frmSettings.WindowState = wsMinimized) then frmSettings.WindowState := wsNormal;
+  frmSettings.ShowInfo
 end;
-
-
 
 //форма курсы валют
 procedure TfrmMain.mnNSI_CurrencyClick(Sender: TObject);
 begin
-  if not Assigned(frmNSICurreny) then
-  begin
-    frmNSICurreny := TfrmNSICurreny.Create(Application);
-    try
-      frmNSICurreny.Show;
-      dm.LoadFormState(frmNSICurreny); //полож.окна
-    finally
-      null;
-    end;
-  end
-  else
-    if (frmNSICurreny.WindowState = wsMinimized) then frmNSICurreny.WindowState := wsNormal;
+  frmNSICurreny.ShowInfo
 end;
 
 //разворачиваю окна
