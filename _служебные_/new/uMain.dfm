@@ -167,12 +167,15 @@ object frmMain: TfrmMain
       GroupIndex = 1
       object mnNSI_Regions: TMenuItem
         Caption = #1056#1077#1075#1080#1086#1085#1099
+        OnClick = mnNSI_RegionsClick
       end
       object mnNSI_Cityes: TMenuItem
         Caption = #1043#1086#1088#1086#1076#1072
+        OnClick = mnNSI_CityesClick
       end
       object mnNSI_Adver: TMenuItem
         Caption = #1056#1077#1082#1083#1072#1084#1072
+        OnClick = mnNSI_AdverClick
       end
       object mnNSI_ClientsType: TMenuItem
         Caption = #1058#1080#1087#1099' '#1082#1083#1080#1077#1085#1090#1086#1074
@@ -206,6 +209,7 @@ object frmMain: TfrmMain
       end
       object mmiUserSettings: TMenuItem
         Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
+        OnClick = mmiUserSettingsClick
       end
     end
     object miWindow: TMenuItem

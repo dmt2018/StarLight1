@@ -62,7 +62,7 @@ begin
    Close;
 end;
 
-//пишу значения в БД и закр.форму
+//пишу значения шрифта и отдела в БД и закр.форму
 procedure TfrmSettings.aEnterExecute(Sender: TObject);
 var
    p_key:array [1..2] of string;
@@ -75,17 +75,16 @@ begin
   p_key[1]:='FontSize';    p_val[1]:=intDefFont;
   p_key[2]:='Department';  p_val[2]:=intDefDept;
 
-  //ХЗ почему, но не работает!!!!!: на завтра, может имя пользователя надо добавить
-  {for i:=1 to 2 do begin
+  for i:=1 to 2 do begin
     dm.cdsSQL.Close;
      dm.cdsSQL.SQL.clear;
-      dm.cdsSQL.SQL.Add('begim service_pkg.save_user_setting(:p_key, :p_val);end;');
+      dm.cdsSQL.SQL.Add('begin service_pkg.save_user_setting(:p_key, :p_val);end;');
        dm.cdsSQL.ParamByName('p_key').value := p_key[i];
        dm.cdsSQL.ParamByName('p_val').value := p_val[i];
       dm.cdsSQL.execute;
      dm.OraSession.Commit;
     dm.cdsSQL.Close;
-  end;    }
+  end;
 
   Close;
 end;
@@ -99,7 +98,7 @@ end;
 
 procedure TfrmSettings.FormShow(Sender: TObject);
 begin
-  dm.cdsDeps.Close; //список отделов получен - закрываю
+ // dm.cdsDeps.Close; //список отделов получен - закрываю
    cbFont.EditValue := intDefFont;
   cbOtdel.EditValue := intDefDept;
 end;

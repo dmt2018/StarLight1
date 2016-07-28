@@ -25,7 +25,6 @@ object frmAbout: TfrmAbout
     BevelInner = bvRaised
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitHeight = 340
     object gbInfoBuh: TcxGroupBox
       Left = 24
       Top = 87
@@ -40,7 +39,7 @@ object frmAbout: TfrmAbout
       TabOrder = 0
       Height = 50
       Width = 589
-      object Label7: TLabel
+      object lbl3: TLabel
         Left = 24
         Top = 19
         Width = 194
@@ -53,7 +52,7 @@ object frmAbout: TfrmAbout
         Font.Style = []
         ParentFont = False
       end
-      object Label8: TLabel
+      object lblmail3: TLabel
         Left = 256
         Top = 19
         Width = 94
@@ -66,7 +65,7 @@ object frmAbout: TfrmAbout
         Font.Name = 'Tahoma'
         Font.Style = [fsUnderline]
         ParentFont = False
-        OnClick = Label8Click
+        OnClick = lblmail3Click
       end
     end
     object gbInfoProg: TcxGroupBox
@@ -83,7 +82,7 @@ object frmAbout: TfrmAbout
       TabOrder = 1
       Height = 73
       Width = 589
-      object Label9: TLabel
+      object lbl1: TLabel
         Left = 24
         Top = 24
         Width = 216
@@ -96,7 +95,7 @@ object frmAbout: TfrmAbout
         Font.Style = []
         ParentFont = False
       end
-      object Label10: TLabel
+      object lblmail1: TLabel
         Left = 256
         Top = 25
         Width = 115
@@ -109,9 +108,9 @@ object frmAbout: TfrmAbout
         Font.Name = 'Tahoma'
         Font.Style = [fsUnderline]
         ParentFont = False
-        OnClick = Label10Click
+        OnClick = lblmail1Click
       end
-      object Label11: TLabel
+      object lbl2: TLabel
         Left = 24
         Top = 47
         Width = 212
@@ -124,7 +123,7 @@ object frmAbout: TfrmAbout
         Font.Style = []
         ParentFont = False
       end
-      object Label12: TLabel
+      object lblmail2: TLabel
         Left = 256
         Top = 47
         Width = 85
@@ -137,7 +136,7 @@ object frmAbout: TfrmAbout
         Font.Name = 'Tahoma'
         Font.Style = [fsUnderline]
         ParentFont = False
-        OnClick = Label12Click
+        OnClick = lblmail2Click
       end
     end
     object gbInfoInv: TcxGroupBox
@@ -178,7 +177,6 @@ object frmAbout: TfrmAbout
     Height = 103
     Align = alBottom
     TabOrder = 1
-    ExplicitTop = 336
     DesignSize = (
       622
       103)
@@ -199,7 +197,6 @@ object frmAbout: TfrmAbout
       TabOrder = 0
       OnClick = btnexitClick
       Colors.Default = clActiveBorder
-      ExplicitTop = 123
     end
     object gbInfo: TcxGroupBox
       Left = 24
@@ -215,7 +212,7 @@ object frmAbout: TfrmAbout
       TabOrder = 1
       Height = 51
       Width = 589
-      object Label1: TLabel
+      object lbl4: TLabel
         Left = 16
         Top = 26
         Width = 195
@@ -228,7 +225,7 @@ object frmAbout: TfrmAbout
         Font.Style = []
         ParentFont = False
       end
-      object Label2: TLabel
+      object lblmail4: TLabel
         Left = 232
         Top = 27
         Width = 115
@@ -241,7 +238,7 @@ object frmAbout: TfrmAbout
         Font.Name = 'Tahoma'
         Font.Style = [fsUnderline]
         ParentFont = False
-        OnClick = Label2Click
+        OnClick = lblmail4Click
       end
     end
   end

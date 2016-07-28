@@ -13,23 +13,23 @@ type
     gbInfoBuh: TcxGroupBox;
     pnlBottom: TPanel;
     btnexit: TcxButton;
-    Label7: TLabel;
-    Label8: TLabel;
+    lbl3: TLabel;
+    lblmail3: TLabel;
     gbInfoProg: TcxGroupBox;
     gbInfoInv: TcxGroupBox;
     gbInfoRaznos: TcxGroupBox;
-    Label9: TLabel;
-    Label10: TLabel;
-    Label11: TLabel;
-    Label12: TLabel;
+    lbl1: TLabel;
+    lblmail1: TLabel;
+    lbl2: TLabel;
+    lblmail2: TLabel;
     gbInfo: TcxGroupBox;
-    Label1: TLabel;
-    Label2: TLabel;
+    lbl4: TLabel;
+    lblmail4: TLabel;
     procedure btnexitClick(Sender: TObject);
-    procedure Label2Click(Sender: TObject);
-    procedure Label10Click(Sender: TObject);
-    procedure Label12Click(Sender: TObject);
-    procedure Label8Click(Sender: TObject);
+    procedure lblmail4Click(Sender: TObject);
+    procedure lblmail1Click(Sender: TObject);
+    procedure lblmail2Click(Sender: TObject);
+    procedure lblmail3Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -69,22 +69,22 @@ begin
   close;
 end;
 
-procedure TfrmAbout.Label10Click(Sender: TObject);
+procedure TfrmAbout.lblmail1Click(Sender: TObject);
 begin
   ShellExecute(Handle, nil, 'mailto:alex_olmer@mail.ru?subject=ИС Старлайт.', nil, nil, SW_RESTORE);
 end;
 
-procedure TfrmAbout.Label12Click(Sender: TObject);
+procedure TfrmAbout.lblmail2Click(Sender: TObject);
 begin
   ShellExecute(Handle, nil, 'mailto:dt@starlight.ru?subject=ИС Старлайт.', nil, nil, SW_RESTORE);
 end;
 
-procedure TfrmAbout.Label2Click(Sender: TObject);
+procedure TfrmAbout.lblmail4Click(Sender: TObject);
 begin
   ShellExecute(Handle, nil, 'mailto:alex_olmer@mail.ru?subject=ИС Старлайт.', nil, nil, SW_RESTORE);
 end;
 
-procedure TfrmAbout.Label8Click(Sender: TObject);
+procedure TfrmAbout.lblmail3Click(Sender: TObject);
 begin
   ShellExecute(Handle, nil, 'mailto:eva@starlight.ru?subject=ИС Старлайт.', nil, nil, SW_RESTORE);
 end;

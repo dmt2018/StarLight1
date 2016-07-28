@@ -27,8 +27,6 @@ object frmSettings: TfrmSettings
     ActivePage = tshMain
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 626
-    ExplicitHeight = 285
     ClientRectBottom = 264
     ClientRectRight = 628
     ClientRectTop = 24
@@ -43,9 +41,6 @@ object frmSettings: TfrmSettings
       ImageIndex = 0
       ParentColor = False
       ParentFont = False
-      ExplicitTop = 0
-      ExplicitWidth = 626
-      ExplicitHeight = 269
       object cbOtdel: TcxImageComboBox
         Left = 24
         Top = 35

@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Forms, Dialogs, sysUtils, Classes, star_lib, DBAccess, Ora, Messages,
-  MemDS, IniFiles, DB, ImgList, Controls;
+  MemDS, IniFiles, DB, ImgList, Controls, cxGraphics;
 
 
 type
@@ -13,7 +13,7 @@ type
     cdsOffices: TOraQuery;
     cdsDeps: TOraQuery;
     cdsSQL: TOraQuery;
-    ImgLst: TImageList;
+    cxImglst: TcxImageList;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
     procedure OraSessionAfterConnect(Sender: TObject);
@@ -23,6 +23,7 @@ type
     //procedure LoadIni;
   public
     { Public declarations }
+    //это пока не использую:
     id_office: integer;
     CUR_DEPT_ID: integer;
     CUR_DEPT_NAME: string;
@@ -40,9 +41,10 @@ var
   strPassword    :String;          // Пароль пользователя
   blShowFormLogin:Boolean;         // Признак отображения формы логина
 
-  strPath  :String;          // Полный путь к файлу приложения
+  strPath  :String;             // Полный путь к файлу приложения
   intDefFont  :Integer;         // Шрифт по умолчанию
   intDefDept  :Integer;         // Отдел по умолчанию
+  intDefOffice:Integer;         // Офис по умолчанию
   
 implementation
 
@@ -117,16 +119,17 @@ end;
 
 procedure Tdm.OraSessionAfterConnect(Sender: TObject);
 begin
-  //cdsOffices.Open; //пока не надо
+    intDefOffice:=1;//по умолч.Старлайт (Москва)
+   {cdsOffices.Open;
     cdsDeps.ParamByName('login_').Value := UpperCase(OraSession.Username);
     cdsDeps.ParamByName('cursor_').AsCursor;
-    cdsDeps.Open;
+    cdsDeps.Open; }
 
- // после коннекта читаю последние знач.шрифта и отдела для юзера
- //где то косяк!!!!!!!!!!!!!!:    на завтра
-  {cdsSQL.Close;
+ // после коннекта читаю последние знач.шрифта и отдела для текущ. юзера
+   cdsSQL.Close;
    cdsSQL.SQL.clear;
-   cdsSQL.SQL.Add('begim service_pkg.get_user_setting(:cursor_);end;');
+   cdsSQL.SQL.Add('begin service_pkg.get_user_setting(:cursor_);end;');
+   cdsSQL.ParamByName('cursor_').AsCursor;
    cdsSQL.open;
    cdsSQL.First;
     while not cdsSQL.Eof do
@@ -138,8 +141,6 @@ begin
     cdsSQL.Next;
     end;
    cdsSQL.Close;
-       }
-
 end;
 
   {

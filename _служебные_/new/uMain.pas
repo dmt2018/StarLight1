@@ -131,6 +131,10 @@ type
     procedure WindowArrangeAllExecute(Sender: TObject);
     procedure WindowTileHorizontalExecute(Sender: TObject);
     procedure WindowTileVerticalExecute(Sender: TObject);
+    procedure mmiUserSettingsClick(Sender: TObject);
+    procedure mnNSI_RegionsClick(Sender: TObject);
+    procedure mnNSI_CityesClick(Sender: TObject);
+    procedure mnNSI_AdverClick(Sender: TObject);
   private
     { Private declarations }
     porasessStarLight:POraSession;
@@ -143,7 +147,7 @@ var
 
 implementation
 
-uses info_f, UNSICurrency, USettings, UAdmin,Orient;
+uses info_f, UNSICurrency, USettings, UAdmin, Orient, UUsSet, UReg, UCity, URekl;
 
 {$R *.dfm}
 
@@ -165,9 +169,9 @@ procedure TfrmMain.FormCreate(Sender: TObject);
 begin
   //porasessStarLight := @DM.OraSession;
   stbMain.Panels[0].Text := verApplication;
-   stbMain.Panels[1].Text := ' Сервер: ['+strServerName+':'+IntToStr(intServerPort)+'] ';
-    stbMain.Panels[2].Text := ' Пользователь: ['+strUserName+'] ';
-   stbMain.Refresh;
+  stbMain.Panels[1].Text := ' Сервер: ['+strServerName+':'+IntToStr(intServerPort)+'] ';
+  stbMain.Panels[2].Text := ' Пользователь: ['+strUserName+'] ';
+  stbMain.Refresh;
   self.Caption := Application.Title;
 end;
 
@@ -221,10 +225,34 @@ begin
   frmSettings.ShowInfo
 end;
 
+//форма Настройки пользователя
+procedure TfrmMain.mmiUserSettingsClick(Sender: TObject);
+begin
+ frmUsSet.ShowInfo;
+end;
+
+ //форма реклама
+procedure TfrmMain.mnNSI_AdverClick(Sender: TObject);
+begin
+  frmRekl.ShowInfo;
+end;
+
+ //форма города
+procedure TfrmMain.mnNSI_CityesClick(Sender: TObject);
+begin
+  frmCity.ShowInfo;
+end;
+
 //форма курсы валют
 procedure TfrmMain.mnNSI_CurrencyClick(Sender: TObject);
 begin
   frmNSICurreny.ShowInfo
+end;
+
+//форма регионы
+procedure TfrmMain.mnNSI_RegionsClick(Sender: TObject);
+begin
+  frmReg.ShowInfo;
 end;
 
 //разворачиваю окна
