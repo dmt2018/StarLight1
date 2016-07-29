@@ -204,12 +204,8 @@ object frmMain: TfrmMain
         OnClick = mmiAdminToolsClick
       end
       object mmiSettings: TMenuItem
-        Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080
-        OnClick = mmiSettingsClick
-      end
-      object mmiUserSettings: TMenuItem
         Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
-        OnClick = mmiUserSettingsClick
+        OnClick = mmiSettingsClick
       end
     end
     object miWindow: TMenuItem

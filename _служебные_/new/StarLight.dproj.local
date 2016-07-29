@@ -27,5 +27,11 @@
     <Transaction>2016.07.28 18:55:24.954.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\UCity.dfm</Transaction>
     <Transaction>2016.07.28 19:05:09.308.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\URekl.pas</Transaction>
     <Transaction>2016.07.28 19:05:09.308.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\URekl.dfm</Transaction>
+    <Transaction>2016.07.29 17:21:57.054.pas,C:\Users\Prg_10\Desktop\new\URekl.pas=C:\Users\Prg_10\Desktop\new\UPromo.pas</Transaction>
+    <Transaction>2016.07.29 17:21:57.054.dfm,C:\Users\Prg_10\Desktop\new\URekl.dfm=C:\Users\Prg_10\Desktop\new\UPromo.dfm</Transaction>
+    <Transaction>2016.07.29 17:31:36.752.pas,C:\Users\Prg_10\Desktop\new\info_f.pas=C:\Users\Prg_10\Desktop\new\UAbout.pas</Transaction>
+    <Transaction>2016.07.29 17:31:36.752.dfm,C:\Users\Prg_10\Desktop\new\info_f.dfm=C:\Users\Prg_10\Desktop\new\UAbout.dfm</Transaction>
+    <Transaction>2016.07.29 17:40:05.682.pas,C:\Users\Prg_10\Desktop\new\UAbout.pas=C:\Users\Prg_10\Desktop\new\info_f.pas</Transaction>
+    <Transaction>2016.07.29 17:40:05.682.dfm,C:\Users\Prg_10\Desktop\new\UAbout.dfm=C:\Users\Prg_10\Desktop\new\info_f.dfm</Transaction>
   </Transactions>
 </BorlandProject>

@@ -1,4 +1,4 @@
-unit UCity;
+unit UPromo;
 
 interface
 
@@ -7,7 +7,7 @@ uses
   Dialogs, StdCtrls, star_lib;
 
 type
-  TfrmCity = class(TForm)
+  TfrmPromo = class(TForm)
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
@@ -17,7 +17,7 @@ type
   end;
 
 var
-  frmCity: TfrmCity;
+  frmPromo: TfrmPromo;
 
 implementation
 
@@ -25,30 +25,27 @@ implementation
 
  uses umain, UDM;
 
-function TfrmCity.MainFormShow : boolean;
+function TfrmPromo.MainFormShow : boolean;
 Begin
- if not Assigned(frmCity) then
+ if not Assigned(frmPromo) then
   begin
-    frmCity := TfrmCity.Create(Application);
+    frmPromo := TfrmPromo.Create(Application);
     try
-      frmCity.Show;
-      LoadFormState(frmCity); //полож.окна
+      frmPromo.Show;
+      LoadFormState(frmPromo); //полож.окна
     finally
       null;
     end;
   end
   else
-    if (frmCity.WindowState = wsMinimized) then frmCity.WindowState := wsNormal;
+    if (frmPromo.WindowState = wsMinimized) then frmPromo.WindowState := wsNormal;
 end;
 
-procedure TfrmCity.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmPromo.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  SaveFormState(frmCity);  //полож.окна
-   frmCity := nil;
+  SaveFormState(frmPromo);  //полож.окна
+   frmPromo := nil;
   Action := caFree;
 end;
-
-
-
 
 end.

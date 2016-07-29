@@ -3,9 +3,10 @@ unit uMain;
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,star_lib,
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, star_lib,
   Dialogs, Menus, AppEvnts, ActnList, StdActns, StdCtrls,  Buttons, ExtCtrls, ComCtrls,
-  ToolWin, ImgList,IniFiles, ActnMan, ActnCtrls,UDM, DateUtils, DB, MemDS, DBAccess, Ora, cxGraphics,ShellAPI;
+  ToolWin, ImgList,IniFiles, ActnMan, ActnCtrls,UDM, DateUtils, DB, MemDS, DBAccess, Ora,
+  cxGraphics, ShellAPI;
 
   type
   POraSession = ^TOraSession;
@@ -93,7 +94,6 @@ type
     WindowTileVertical: TAction;
     WindowMinimizeAll: TAction;
     WindowArrangeAll: TAction;
-    mmiUserSettings: TMenuItem;
     mnNSI_Regions: TMenuItem;
     mnNSI_Cityes: TMenuItem;
     mnNSI_Adver: TMenuItem;
@@ -131,13 +131,12 @@ type
     procedure WindowArrangeAllExecute(Sender: TObject);
     procedure WindowTileHorizontalExecute(Sender: TObject);
     procedure WindowTileVerticalExecute(Sender: TObject);
-    procedure mmiUserSettingsClick(Sender: TObject);
     procedure mnNSI_RegionsClick(Sender: TObject);
     procedure mnNSI_CityesClick(Sender: TObject);
     procedure mnNSI_AdverClick(Sender: TObject);
   private
     { Private declarations }
-    porasessStarLight:POraSession;
+    porasessStarLight: POraSession;
   public
     { Public declarations }
   end;
@@ -147,7 +146,7 @@ var
 
 implementation
 
-uses info_f, UNSICurrency, USettings, UAdmin, Orient, UUsSet, UReg, UCity, URekl;
+uses info_f, UNSICurrency, USettings, UAdmin, Orient, UReg, UCity, UPromo;
 
 {$R *.dfm}
 
@@ -179,7 +178,7 @@ end;
 // вывод справки
 procedure TfrmMain.ActHelpExecute(Sender: TObject);
 begin
-  Shellexecute(handle,'Open',PChar(strpath+'\DOC\Strarlight CRM documentation.doc'),nil,nil,sw_restore);
+  CheckShell(Handle, PChar(strpath + '\DOC\Strarlight CRM documentation.doc'));
 end;
 
 procedure TfrmMain.apevMainHint(Sender: TObject);
@@ -204,7 +203,7 @@ end;
 //форма о программе
 procedure TfrmMain.actAboutExecute(Sender: TObject);
 begin
-  frmAbout.ShowInfo;
+  frmAbout.MainFormShow;
 end;
 
 //кнопка выход mainmenu
@@ -216,65 +215,62 @@ end;
 //форма Администрирование
 procedure TfrmMain.mmiAdminToolsClick(Sender: TObject);
 begin
-  frmAdmin.ShowInfo;
+  frmAdmin.MainFormShow;
 end;
 
 //форма Настройки
 procedure TfrmMain.mmiSettingsClick(Sender: TObject);
 begin
-  frmSettings.ShowInfo
+  frmSettings.MainFormShow;
 end;
 
-//форма Настройки пользователя
-procedure TfrmMain.mmiUserSettingsClick(Sender: TObject);
-begin
- frmUsSet.ShowInfo;
-end;
+
+
 
  //форма реклама
 procedure TfrmMain.mnNSI_AdverClick(Sender: TObject);
 begin
-  frmRekl.ShowInfo;
+  frmPromo.MainFormShow;
 end;
 
  //форма города
 procedure TfrmMain.mnNSI_CityesClick(Sender: TObject);
 begin
-  frmCity.ShowInfo;
+  frmCity.MainFormShow;
 end;
 
 //форма курсы валют
 procedure TfrmMain.mnNSI_CurrencyClick(Sender: TObject);
 begin
-  frmNSICurreny.ShowInfo
+  frmNSICurreny.MainFormShow;
 end;
 
 //форма регионы
 procedure TfrmMain.mnNSI_RegionsClick(Sender: TObject);
 begin
-  frmReg.ShowInfo;
+  frmReg.MainFormShow;
 end;
 
 //разворачиваю окна
 procedure TfrmMain.WindowArrangeAllExecute(Sender: TObject);
  var iCount: Integer;
 begin
-   for iCount:=0 to MDIChildCount-1 do 
-   MDIChildren[iCount].WindowState:= wsNormal;
+   for iCount := 0 to MDIChildCount - 1 do
+   MDIChildren[iCount].WindowState := wsNormal;
  //if Assigned(frmNSICurreny) and (frmNSICurreny.WindowState = wsMinimized) then frmNSICurreny.WindowState:= wsNormal;
  //if Assigned(frmAdmin) and (frmAdmin.WindowState = wsMinimized) then frmAdmin.WindowState:= wsNormal;
 end;
 
 //окна каскадом
 procedure TfrmMain.WindowCascadeExecute(Sender: TObject);
- var iCount:integer;
+ var iCount: integer;
      {FForms : TList;
      FRect: TRect;}
 begin
-      for iCount:=0 to MDIChildCount-1 do
+      for iCount := 0 to MDIChildCount - 1 do
       begin
         MDIChildren[iCount].Left := iCount * 20;
-        MDIChildren[iCount].Top := iCount * 20;
+        MDIChildren[iCount].Top  := iCount * 20;
       end;
   {FForms := TList.Create;
   FRect := Screen.WorkAreaRect;
@@ -292,21 +288,21 @@ end;
 procedure TfrmMain.WindowMinimizeAllExecute(Sender: TObject);
  var iCount: Integer;
 begin
-   for iCount:=MDIChildCount-1 downto 0 do 
-   MDIChildren[iCount].WindowState:= wsMinimized;
+   for iCount := MDIChildCount - 1 downto 0 do
+   MDIChildren[iCount].WindowState := wsMinimized;
 end;
 
 //выравнивание окон по гориз.
 procedure TfrmMain.WindowTileHorizontalExecute(Sender: TObject);
 begin
-  TileMode:=tbHorizontal;
+  TileMode := tbHorizontal;
   Tile;
 end;
 
 // выравнивание окон по верт.
 procedure TfrmMain.WindowTileVerticalExecute(Sender: TObject);
 begin
-   TileMode:=tbVertical;
+   TileMode := tbVertical;
    Tile;
 end;
 

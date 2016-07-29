@@ -5,7 +5,7 @@ interface
 uses StdCtrls,Classes,Variants,SysUtils,Graphics,Dialogs, Ora, Forms, IniFiles,
      CheckLst,windows,ComCtrls, DB, DBGrids, cxImageComboBox, cxBarEditItem,
      cxCustomData, Clipbrd, cxDBData, cxGridLevel, cxGridCustomView, cxGridDBBandedTableView,
-     cxGridTableView, cxGridDBDataDefinitions;
+     cxGridTableView, cxGridDBDataDefinitions, Shellapi;
 
 type
   PFixedFileInfo = ^TFixedFileInfo;
@@ -42,9 +42,11 @@ type
 // Заполнение комбобокса значениями из запроса
   function FillImgComboCx(TheQuery : TOraQuery; TheCombo : TCxImageComboBox; BeginStr : String) : boolean;
   function FillImgComboCxItm(TheQuery : TOraQuery; TheCombo : TCxBarEditItem; BeginStr : String) : boolean;
-//Запомнить положение форм на экране
+// Запомнить положение форм на экране
   procedure SaveFormState(aForm: TForm);
   procedure LoadFormState(aForm: TForm);
+// Для shellexecute
+  procedure CheckShell(hand: Thandle; st: pchar);
 
 const RussianMonthsNames: array[1..12] of String =  //Просто массив русских названий месяцев
 ('Январь',
@@ -83,7 +85,7 @@ begin
   if vParam = 1 then clipboard.SetTextBuf(PChar(vControl.Controller.FocusedItem.FocusedCellViewInfo.Text))
   else
   begin
-    for i:=0 to (vControl.Summary.FooterSummaryItems.Count-1) do
+    for i := 0 to (vControl.Summary.FooterSummaryItems.Count-1) do
     begin
       str := str + VarToStr(vControl.Summary.FooterSummaryValues[i]) + '  ';
     end;
@@ -117,7 +119,7 @@ function FillImgComboCx(TheQuery : TOraQuery; TheCombo : TCxImageComboBox; Begin
  * первый столбик TheQuery содержит ID , а второй - значение.                   *
  ********************************************************************************}
 var cbep: TcxImageComboBoxProperties;
-    itm: TcxImageComboBoxItem;
+    itm:  TcxImageComboBoxItem;
 Begin
   try
     TheQuery.First;
@@ -162,7 +164,7 @@ function FillImgComboCxItm(TheQuery : TOraQuery; TheCombo : TCxBarEditItem; Begi
  * первый столбик TheQuery содержит ID , а второй - значение.                   *
  ********************************************************************************}
 var cbep: TcxImageComboBoxProperties;
-    itm: TcxImageComboBoxItem;
+    itm:  TcxImageComboBoxItem;
 Begin
   try
     TheQuery.First;
@@ -299,6 +301,12 @@ end; // GetFileInformation
         end;
       end;
       ini.Free;
-    end;
+ end;
+
+ // Для shellexecute
+ procedure CheckShell(hand: Thandle; st: pchar);
+  begin
+     ShellExecute(hand, nil, st, nil, nil, SW_RESTORE);
+  end;
 
 end.

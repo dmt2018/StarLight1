@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls,star_lib;
+  Dialogs, StdCtrls, star_lib;
 
 type
   TfrmReg = class(TForm)
@@ -13,7 +13,7 @@ type
     { Private declarations }
   public
     { Public declarations }
-    function ShowInfo : boolean;
+    function MainFormShow : boolean;
   end;
 
 var
@@ -23,10 +23,10 @@ implementation
 
 {$R *.dfm}
 
-uses umain,UDM;
+uses umain, UDM;
 
 
-function TfrmReg.ShowInfo : boolean;
+function TfrmReg.MainFormShow : boolean;
 Begin
  if not Assigned(frmReg) then
   begin
@@ -45,7 +45,7 @@ end;
 procedure TfrmReg.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   SaveFormState(frmReg);  //полож.окна
-   frmReg:=nil;
+   frmReg := nil;
   Action := caFree;
 end;
 

@@ -3054,7 +3054,6 @@ object frmLogin: TfrmLogin
     Anchors = [akLeft, akBottom]
     TabOrder = 1
     Colors.Default = clActiveBorder
-    ExplicitTop = 301
   end
   object Actlistlogon: TActionList
     Left = 528

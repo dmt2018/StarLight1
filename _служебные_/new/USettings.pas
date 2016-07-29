@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, cxPC, cxControls, ActnList, cxGraphics, Menus, cxLookAndFeelPainters,
   cxLabel, StdCtrls, cxButtons, cxContainer, cxEdit, cxTextEdit, cxMaskEdit,
-  cxDropDownEdit, cxImageComboBox,star_lib, ExtCtrls;
+  cxDropDownEdit, cxImageComboBox, star_lib, ExtCtrls;
 
 type
   TfrmSettings = class(TForm)
@@ -22,6 +22,7 @@ type
     pnlBottom: TPanel;
     btnSav: TcxButton;
     btnClos: TcxButton;
+    Pnltop: TPanel;
     procedure aCloseExecute(Sender: TObject);
     procedure aEnterExecute(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -30,18 +31,20 @@ type
     { Private declarations }
   public
     { Public declarations }
-    function ShowInfo : boolean;
+    function MainFormShow : boolean;
   end;
 
 var
   frmSettings: TfrmSettings;
 
 implementation
+
 uses UDM;
+
 {$R *.dfm}
 
 
-function TfrmSettings.ShowInfo : boolean;
+function TfrmSettings.MainFormShow : boolean;
 Begin
  if not Assigned(frmSettings) then
   begin
@@ -65,17 +68,17 @@ end;
 //пишу значения шрифта и отдела в БД и закр.форму
 procedure TfrmSettings.aEnterExecute(Sender: TObject);
 var
-   p_key:array [1..2] of string;
-   p_val:array [1..2] of integer;
-   i:integer;
+   p_key: array [1..2] of string;
+   p_val: array [1..2] of integer;
+   i:     integer;
 begin
   intDefFont := cbFont.EditValue;
   intDefDept := cbOtdel.EditValue;
 
-  p_key[1]:='FontSize';    p_val[1]:=intDefFont;
-  p_key[2]:='Department';  p_val[2]:=intDefDept;
+  p_key[1] := 'FontSize';    p_val[1] := intDefFont;
+  p_key[2] := 'Department';  p_val[2] := intDefDept;
 
-  for i:=1 to 2 do begin
+  for i := 1 to 2 do begin
     dm.cdsSQL.Close;
      dm.cdsSQL.SQL.clear;
       dm.cdsSQL.SQL.Add('begin service_pkg.save_user_setting(:p_key, :p_val);end;');
@@ -92,15 +95,15 @@ end;
 procedure TfrmSettings.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   SaveFormState(frmSettings); //полож.окна
-   frmSettings:=nil;
+   frmSettings := nil;
   Action := caFree;
 end;
 
 procedure TfrmSettings.FormShow(Sender: TObject);
 begin
  // dm.cdsDeps.Close; //список отделов получен - закрываю
-   cbFont.EditValue := intDefFont;
-  cbOtdel.EditValue := intDefDept;
+   cbFont.EditValue  := intDefFont;
+   cbOtdel.EditValue := intDefDept;
 end;
 
 end.

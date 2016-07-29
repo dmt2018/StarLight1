@@ -6,8 +6,8 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs,cxGraphics, cxLookAndFeels, ShellAPI, IniFiles,
   cxLookAndFeelPainters, Menus, //dxSkinsCore, dxSkinOffice2010Black,
-  StdCtrls, cxButtons, Mask, ExtCtrls, 
-  ActnList, jpeg, Buttons;
+  StdCtrls, cxButtons, Mask, ExtCtrls, star_lib, ActnList, jpeg, Buttons;
+  
 type
   TfrmLogin = class(TForm)
     Panel1: TPanel;
@@ -64,7 +64,7 @@ begin
       strServerName := IniFile.ReadString('Server','ServerName','');
 
       // если не найден настроечный файл *.ini
-      if (not FileExists(strAppIniName)) OR (Trim(strDataBaseName)='') then
+      if (not FileExists(strAppIniName)) OR (Trim(strDataBaseName) = '') then
       begin
         // отображение панели настройки
         Application.MessageBox('Не найдены настройки соединения с БД. Обратитесь к разработчикам.','Ошибка',MB_ICONWARNING);
@@ -87,7 +87,7 @@ begin
     if Assigned(frmLogin) then
     begin
       frmLogin.Free;
-      frmLogin:=nil
+      frmLogin := nil
     end;
   end;//try
 end;
@@ -114,7 +114,7 @@ end;
 
 procedure TfrmLogin.lblEmailToClick(Sender: TObject);
 begin
-  ShellExecute(Handle, nil, 'mailto:alex_olmer@mail.ru?subject=ИС Старлайт.', nil, nil, SW_RESTORE);
+  CheckShell(Handle, 'mailto:alex_olmer@mail.ru?subject=ИС Старлайт.');
 end;
 
 end.

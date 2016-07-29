@@ -41,7 +41,7 @@ var
   strPassword    :String;          // Пароль пользователя
   blShowFormLogin:Boolean;         // Признак отображения формы логина
 
-  strPath  :String;             // Полный путь к файлу приложения
+  strPath     :String;          // Полный путь к файлу приложения
   intDefFont  :Integer;         // Шрифт по умолчанию
   intDefDept  :Integer;         // Отдел по умолчанию
   intDefOffice:Integer;         // Офис по умолчанию
@@ -55,17 +55,16 @@ uses uLogin;
 
 procedure Tdm.DataModuleCreate(Sender: TObject);
 var recFileInfo :TFixedFileInfo;
-    i: integer;
+    i           :integer;
     strMsgError :String;
 begin
-  strMsgError:='';
-
-  strPath := ExtractFilePath(Application.ExeName); // путь к ехе
+  strMsgError := '';
+  strPath     := ExtractFilePath(Application.ExeName); // путь к ехе
 
   // получение версии файла
-  recFileInfo :=  FileInfo(Application.ExeName);
-  verApplication := 'Версия ' + IntToStr(recFileInfo.wFileVersionLS )+'.'+IntToStr( recFileInfo.wFileVersionMS ) + '.' +
-                              IntToStr(recFileInfo.wProductVersionLS)+'.'+IntToStr(recFileInfo.wProductVersionMS);
+  recFileInfo    :=  FileInfo(Application.ExeName);
+  verApplication := 'Версия ' + IntToStr(recFileInfo.wFileVersionLS) + '.' + IntToStr(recFileInfo.wFileVersionMS) + '.' +
+                                IntToStr(recFileInfo.wProductVersionLS) + '.' + IntToStr(recFileInfo.wProductVersionMS);
    // caption главной формы:
   Application.Title := Application.Title;
   
@@ -76,21 +75,21 @@ begin
     i := 0;
     while (blShowFormLogin = True) do
     begin
-      i:=i+1;
+      i := i + 1;
         try
           OraSession.Connected := True;
           Break;
         except on E: Exception do
           begin
-            strMsgError:=E.Message;
-            if Pos('ORA-01005',E.Message)<>0 then
+            strMsgError := E.Message;
+            if Pos('ORA-01005',E.Message) <>0 then
                strMsgError:='Указан пустой пароль. Вход в систему запрещен.';
-            if Pos('ORA-01017',E.Message)<>0 then
+            if Pos('ORA-01017',E.Message) <>0 then
                strMsgError:='Неверное имя пользователя или пароль.';
-            if (Pos('ORA-12154',E.Message)<>0) OR (Pos('ORA-12500',E.Message)<>0 ) then
-               strMsgError:='Не удаётся установить соединение с сервером БД.';
+            if (Pos('ORA-12154',E.Message) <>0) OR (Pos('ORA-12500',E.Message) <>0 ) then
+               strMsgError := 'Не удаётся установить соединение с сервером БД.';
 
-            if i<4 then
+            if i < 4 then
             begin
                Application.MessageBox(PChar(Format('Ошибка подключения к БД: %s',[strMsgError])),
                           'Подключение', MB_ICONERROR);
@@ -99,7 +98,7 @@ begin
             end
             else
             begin
-               Application.MessageBox(PChar(Format('Ошибка подключения к БД: %s '+#13#10+'Обратитесь к администратору.',[strMsgError])),
+               Application.MessageBox(PChar(Format('Ошибка подключения к БД: %s '+#13#10+'Обратитесь к администратору.', [strMsgError])),
                           'Подключение', MB_ICONERROR);
 
                Exit;
@@ -119,7 +118,8 @@ end;
 
 procedure Tdm.OraSessionAfterConnect(Sender: TObject);
 begin
-    intDefOffice:=1;//по умолч.Старлайт (Москва)
+    intDefOffice := GetOfficeID;//по умолч.Старлайт (Москва)
+
    {cdsOffices.Open;
     cdsDeps.ParamByName('login_').Value := UpperCase(OraSession.Username);
     cdsDeps.ParamByName('cursor_').AsCursor;
@@ -134,9 +134,9 @@ begin
    cdsSQL.First;
     while not cdsSQL.Eof do
     begin
-     if (orasession.Username = cdsSQL.Fields[0].value) then begin
-      if (cdsSQL.Fields[1].value='FontSize')   then intDefFont := cdsSQL.Fields[2].Asinteger;
-      if (cdsSQL.Fields[1].value='Department') then intDefDept := cdsSQL.Fields[2].Asinteger;
+     if (orasession.Username = cdsSQL.FieldByName('DB_USER').value) then begin
+      if (cdsSQL.FieldByName('STG_KEY').value = 'FontSize')   then intDefFont := cdsSQL.FieldByName('STG_VALUE').Asinteger;
+      if (cdsSQL.FieldByName('STG_KEY').value = 'Department') then intDefDept := cdsSQL.FieldByName('STG_VALUE').Asinteger;
      end;
     cdsSQL.Next;
     end;

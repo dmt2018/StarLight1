@@ -8,7 +8,7 @@ uses
   cxFilter, cxData, cxDataStorage, cxEdit, DB, cxDBData, cxGridLevel,
   cxControls, cxGridCustomView, cxGridCustomTableView, cxGridTableView,
   cxGridDBTableView, cxGrid, dxBarExtItems, cxDropDownEdit, cxLabel,
-  cxBarEditItem,star_lib, cxImageComboBox, MemDS, DBAccess, Ora;
+  cxBarEditItem, star_lib, cxImageComboBox, MemDS, DBAccess, Ora;
 
 type
   TfrmNSICurreny = class(TForm)
@@ -49,7 +49,7 @@ type
     { Private declarations }
   public
     { Public declarations }
-    function ShowInfo : boolean;
+    function MainFormShow : boolean;
   end;
 
 var
@@ -57,11 +57,11 @@ var
 
 implementation
 
-uses umain,udm;
+uses umain, udm;
 
 {$R *.dfm}
 
-function TfrmNSICurreny.ShowInfo : boolean;
+function TfrmNSICurreny.MainFormShow : boolean;
 Begin
  if not Assigned(frmNSICurreny) then
   begin
@@ -87,7 +87,7 @@ end;
 procedure TfrmNSICurreny.aRefreshExecute(Sender: TObject);
 begin
 
-    Q_CURR.ParamByName('V_OFFICE').Value:=  intDefOffice;
+    Q_CURR.ParamByName('V_OFFICE').Value :=  intDefOffice;
     Q_CURR.ParamByName('cursor_').AsCursor;
     Q_CURR.Open;
 
@@ -109,7 +109,7 @@ end;
 procedure TfrmNSICurreny.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   SaveFormState(frmNSICurreny); //полож.окна
-   frmNSICurreny:=nil;
+   frmNSICurreny := nil;
   Action := caFree;
 end;
 
@@ -124,22 +124,22 @@ begin
 
 
      // Заполнение офисов
-    if imgOtdel.EditValue=trim('') then
+    if imgOtdel.EditValue = trim('') then
       MessageBox(Handle, 'Не выбран офис.', 'Внимание!', MB_ICONWARNING)
     else
     begin
       //DM.id_office := 0;
-      imgOffice.EditValue:= intDefOffice;
+      imgOffice.EditValue := intDefOffice;
     end;
 
   // Заполнение отделов
-    if imgOtdel.EditValue=trim('') then
+    if imgOtdel.EditValue = trim('') then
       MessageBox(Handle, 'Не указан ни один отдел продаж.', 'Внимание!', MB_ICONWARNING)
     else
     begin
       //DM.CUR_DEPT_ID   := 0;
       //DM.CUR_DEPT_NAME := '';
-      imgOtdel.EditValue:= intDefDept;
+      imgOtdel.EditValue := intDefDept;
     end;
 
     aRefresh.Execute;  //обновить таблицу
@@ -149,7 +149,7 @@ end;
 //меняю офис
 procedure TfrmNSICurreny.imgOfficePropertiesChange(Sender: TObject);
 begin
-  intDefOffice:=  imgOffice.EditValue;
+  intDefOffice := imgOffice.EditValue;
   //DM.id_office := imgOffice.EditValue; //в перем id_office пишу текущ.знач комбобокса
   aRefresh.Execute;  //обновить таблицу
 end;
@@ -157,7 +157,7 @@ end;
 //меняю отдел
 procedure TfrmNSICurreny.imgOtdelPropertiesChange(Sender: TObject);
 begin
-  intDefDept:=   imgOtdel.EditValue;
+  intDefDept := imgOtdel.EditValue;
   //DM.CUR_DEPT_ID        := imgOtdel.EditValue;
   //DM.CUR_DEPT_NAME      := imgOtdel.Properties.GetDisplayText(DM.CUR_DEPT_ID);
   aRefresh.Execute;  //обновить таблицу
