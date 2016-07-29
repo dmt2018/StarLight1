@@ -344,6 +344,7 @@ type
     bbSyncClients: TdxBarButton;
     odInvoice: TOpenDialog;
     cxClientViewINN: TcxGridDBColumn;
+    btninf: TBitBtn;
     procedure Edit1KeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure Edit2KeyUp(Sender: TObject; var Key: Word;
@@ -436,6 +437,7 @@ type
     procedure btnFileExportClick(Sender: TObject);
     procedure bbSyncCLientsLoadClick(Sender: TObject);
     procedure bbSyncClientsClick(Sender: TObject);
+    procedure btninfClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -1006,6 +1008,48 @@ begin
 end;
 
 
+procedure Tmain.btninfClick(Sender: TObject);
+var str: string;
+begin
+try
+  if (DM.Q_CLIENTS.FieldByName('ID_CLIENTS').AsInteger > 0) then
+  begin
+    DM.Q_CLIENT_VIEW.Close;
+    DM.Q_CLIENT_VIEW.SQL.Clear;
+    DM.Q_CLIENT_VIEW.SQL.Add('SELECT C.*, case when c.id_office > 1 then o.OFFICE_NAME else case c.reg_type when 0 then ''Старлайт'' when 1 then ''Старлайт Кэш & Кэрри'' end end as reg_type_name, G.NAME AS GROUP_NAME, T.NAME AS TTYPE_NAME, R.NAME AS REGION_NAME, A.NAME AS ADVERT, s.city ');
+    DM.Q_CLIENT_VIEW.SQL.Add(' FROM CLIENTS_GROUPS G, BOOKS_CLIENT_TYPES T, BOOKS_ADVERTISMENTS A, CLIENTS C, BOOKS_REGIONS R, offices o, books_cities s');
+    DM.Q_CLIENT_VIEW.SQL.Add(' WHERE C.ID_CLIENTS_GROUPS = G.ID_CLIENTS_GROUPS AND C.TTYPE = T.ID_CLIENT_TYPES AND C.ADVERTISMENT = A.ID_ADVERTISMENTS AND C.REGION = R.ID_REGIONS AND ID_CLIENTS=:ID and c.id_office = o.ID_OFFICE and c.id_city = s.id_city(+)');
+    DM.Q_CLIENT_VIEW.ParamByName('ID').Value := DM.Q_CLIENTS.FieldByName('ID_CLIENTS').AsInteger;
+    DM.Q_CLIENT_VIEW.Open;
+
+    str := '';
+    if (DM.Q_CLIENT_VIEW.FieldByName('PLANTS').AsInteger = 1) then str := str + 'Горшечные растения  ';
+    if (DM.Q_CLIENT_VIEW.FieldByName('FLOWERS').AsInteger = 1) then str := str + 'Срезанные растения';
+    if str = '' then str := 'Нет';
+    u_info.Label4.Caption := str;
+//    if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsInteger = 1) then u_info.Label7.Caption := 'Да' else u_info.Label7.Caption := 'Нет';
+    u_info.chbRuleSite.Checked  := (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[1] = '1');
+    u_info.chbRulePics.Checked  := (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[3] = '1');
+    u_info.chbRulePrice.Checked := (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[5] = '1');
+    u_info.chbRuleOrder.Checked := (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[7] = '1');
+
+    if (DM.Q_CLIENT_VIEW.FieldByName('BLOCK1').AsInteger = 1) then u_info.Label10.Caption := 'Да' else u_info.Label10.Caption := 'Нет';
+    if (DM.Q_CLIENT_VIEW.FieldByName('BLOCK2').AsInteger = 1) then u_info.Label12.Caption := 'Да' else u_info.Label12.Caption := 'Нет';
+
+    DM.cds_adress.Close;
+    dm.cds_adress.ParamByName('p1').AsInteger := DM.Q_CLIENTS.FieldByName('ID_CLIENTS').AsInteger;
+    DM.cds_adress.Open;
+
+    frxReport1.LoadFromFile(main.path+'raports\clients_card.fr3');
+    frxReport1.ShowReport;
+  end
+  else ShowMessage('Нет данных для просмотра!');
+except
+    on E: Exception do ShowMessage('Ошибка при выводе на печать!'+#10#13+'Проверьте настройки принтера');
+End;
+
+end;
+
 // Обновить
 procedure Tmain.RefreshExecute(Sender: TObject);
 begin
@@ -1178,6 +1222,7 @@ begin
   BitBtn1.Enabled  := print_;
   BitBtn20.Enabled := print_;
   btn_conctact.Enabled := print_;
+  btninf.Enabled   :=  print_;
 
   bbSyncCLientsLoad.Enabled := (ed_ and (DM.id_office = 1));
   bbSyncClients.Enabled := (ed_ and (DM.id_office > 1));
@@ -1495,7 +1540,7 @@ try
     dm.cds_adress.ParamByName('p1').AsInteger := DM.Q_CLIENTS.FieldByName('ID_CLIENTS').AsInteger;
     DM.cds_adress.Open;
 
-    frxReport1.LoadFromFile(main.path+'raports\clients_card.fr3');
+    frxReport1.LoadFromFile(main.path+'raports\clients_card_new.fr3');
     frxReport1.ShowReport;
   end
   else ShowMessage('Нет данных для просмотра!');

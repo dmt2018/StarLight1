@@ -7,7 +7,7 @@ object DM: TDM
     Options.Direct = True
     Username = 'CREATOR'
     Password = '123456'
-    Server = 'KLEPOV:1521:STARNEW'
+    Server = 'ROZNICA:1521:orcl'
     AfterConnect = OraSession1AfterConnect
     Left = 32
     Top = 16
