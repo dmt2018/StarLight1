@@ -47,7 +47,7 @@ object main: Tmain
         Left = 0
         Top = 0
         Width = 962
-        Height = 170
+        Height = 174
         Align = alTop
         BevelInner = bvRaised
         BevelOuter = bvLowered
@@ -63,6 +63,7 @@ object main: Tmain
         ParentCtl3D = False
         ParentFont = False
         TabOrder = 1
+        ExplicitTop = -6
         object BitBtn6: TBitBtn
           Left = 8
           Top = 8
@@ -108,28 +109,28 @@ object main: Tmain
         end
         object GroupBox1: TGroupBox
           Left = 8
-          Top = 93
-          Width = 265
+          Top = 97
+          Width = 288
           Height = 70
           Caption = ' '#1041#1099#1089#1090#1088#1099#1081' '#1087#1086#1080#1089#1082' '#1087#1086' '
-          TabOrder = 4
+          TabOrder = 5
           object Label1: TLabel
             Left = 8
-            Top = 24
+            Top = 22
             Width = 86
             Height = 15
             Caption = #1050#1086#1076#1091'  (Ctrl + F2)'
           end
           object Label2: TLabel
             Left = 8
-            Top = 48
+            Top = 46
             Width = 87
             Height = 15
             Caption = #1060#1048#1054'  (Ctrl + F3)'
           end
           object Edit1: TEdit
             Left = 179
-            Top = 20
+            Top = 18
             Width = 74
             Height = 24
             AutoSize = False
@@ -147,7 +148,7 @@ object main: Tmain
           end
           object Edit2: TEdit
             Left = 128
-            Top = 44
+            Top = 42
             Width = 125
             Height = 23
             MaxLength = 100
@@ -156,7 +157,7 @@ object main: Tmain
           end
           object ComboBox12: TComboBox
             Left = 128
-            Top = 20
+            Top = 18
             Width = 50
             Height = 24
             Font.Charset = DEFAULT_CHARSET
@@ -177,14 +178,14 @@ object main: Tmain
           end
         end
         object GroupBox2: TGroupBox
-          Left = 440
+          Left = 452
           Top = 4
           Width = 334
-          Height = 160
+          Height = 163
           Caption = ' '#1060#1080#1083#1100#1090#1088#1072#1094#1080#1103' '
           Ctl3D = True
           ParentCtl3D = False
-          TabOrder = 6
+          TabOrder = 7
           object Label22: TLabel
             Left = 8
             Top = 110
@@ -545,12 +546,12 @@ object main: Tmain
           end
         end
         object GroupBox3: TGroupBox
-          Left = 291
+          Left = 302
           Top = 4
           Width = 145
-          Height = 160
+          Height = 163
           Caption = ' '#1057#1090#1072#1090#1080#1089#1090#1080#1082#1072' '#1087#1086' '
-          TabOrder = 5
+          TabOrder = 6
           object RadioButton1: TRadioButton
             Left = 8
             Top = 16
@@ -638,7 +639,7 @@ object main: Tmain
         object BitBtn5: TBitBtn
           Left = 151
           Top = 8
-          Width = 140
+          Width = 144
           Height = 30
           Cursor = crHandPoint
           Caption = #1055#1077#1095#1072#1090#1100' '#1082#1072#1088#1090#1086#1095#1082#1080
@@ -724,7 +725,7 @@ object main: Tmain
         object btn_conctact: TBitBtn
           Left = 151
           Top = 37
-          Width = 140
+          Width = 144
           Height = 30
           Cursor = crHandPoint
           Caption = #1055#1077#1095#1072#1090#1100' '#1082#1086#1085#1090#1072#1082#1090#1086#1074
@@ -767,12 +768,12 @@ object main: Tmain
         object btninf: TBitBtn
           Left = 7
           Top = 66
-          Width = 285
-          Height = 27
+          Width = 288
+          Height = 30
           Cursor = crHandPoint
           Caption = #1055#1077#1095#1072#1090#1100' '#1087#1086#1083#1085#1086#1081' '#1080#1085#1092#1086#1088#1084#1072#1094#1080#1080' '#1086' '#1082#1083#1080#1077#1085#1090#1077
           Enabled = False
-          TabOrder = 7
+          TabOrder = 4
           OnClick = btninfClick
           Glyph.Data = {
             CA030000424DCA030000000000008A0100002800000018000000180000000100
@@ -810,15 +811,17 @@ object main: Tmain
       end
       object cxClient: TcxGrid
         Left = 0
-        Top = 170
+        Top = 174
         Width = 962
-        Height = 345
+        Height = 341
         Align = alClient
         PopupMenu = PopupMenu2
         TabOrder = 0
         LevelTabs.Style = 7
         LookAndFeel.Kind = lfOffice11
         LookAndFeel.NativeStyle = False
+        ExplicitTop = 170
+        ExplicitHeight = 345
         object cxClientView: TcxGridDBTableView
           OnDblClick = CRDBGrid1DblClick
           NavigatorButtons.ConfirmDelete = False
@@ -3792,7 +3795,7 @@ object main: Tmain
     Left = 676
     Top = 65533
     Bitmap = {
-      494C010104000900000110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010104000900040110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -5468,7 +5471,7 @@ object main: Tmain
     Left = 240
     Top = 328
     Bitmap = {
-      494C010127002C00F00020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010127002C00F40020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004001000001002000000000000080
       0200000000000000000000000000000000000000000000000000000000000000
       000000000000000000000101011A0B0B0B743B3D3DB4777777D5838383DA5152
