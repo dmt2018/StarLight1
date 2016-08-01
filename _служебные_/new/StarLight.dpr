@@ -13,7 +13,8 @@ uses
   Udm in 'Udm.pas' {dm: TDataModule},
   UReg in 'UReg.pas' {frmReg},
   UCity in 'UCity.pas' {frmCity},
-  UPromo in 'UPromo.pas' {frmPromo};
+  UPromo in 'UPromo.pas' {frmPromo},
+  Ueditor in 'Ueditor.pas' {frmeditor};
 
 {$R *.res}
 
