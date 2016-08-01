@@ -675,7 +675,7 @@ object all_nacl_Form: Tall_nacl_Form
       Top = 11
       Width = 1063
       Height = 430
-      ActivePage = TabSheet3
+      ActivePage = TabSheet2
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -1520,6 +1520,10 @@ object all_nacl_Form: Tall_nacl_Form
             Font.Pitch = fpFixed
             Font.Style = []
             ParentFont = False
+            ExplicitLeft = 0
+            ExplicitTop = 0
+            ExplicitWidth = 0
+            ExplicitHeight = 0
             object Bevel9: TBevel
               Left = 0
               Top = 13
@@ -2065,7 +2069,6 @@ object all_nacl_Form: Tall_nacl_Form
             OptionsSelection.MultiSelect = True
             OptionsView.CellEndEllipsis = True
             OptionsView.NoDataToDisplayInfoText = #1053#1077#1090' '#1076#1072#1085#1085#1099#1093' '#1076#1083#1103' '#1087#1088#1086#1089#1084#1086#1090#1088#1072
-            OptionsView.Footer = True
             OptionsView.FooterMultiSummaries = True
             OptionsView.GroupByBox = False
             OptionsView.GroupFooters = gfVisibleWhenExpanded

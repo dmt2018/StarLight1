@@ -300,7 +300,7 @@ object frmStore: TfrmStore
     Top = 127
     Width = 986
     Height = 445
-    ActivePage = tch_reserv
+    ActivePage = tch_main
     Align = alClient
     LookAndFeel.Kind = lfOffice11
     LookAndFeel.NativeStyle = True
@@ -722,7 +722,6 @@ object frmStore: TfrmStore
           OptionsSelection.MultiSelect = True
           OptionsView.CellEndEllipsis = True
           OptionsView.NoDataToDisplayInfoText = #1053#1077#1090' '#1076#1072#1085#1085#1099#1093' '#1076#1083#1103' '#1087#1088#1086#1089#1084#1086#1090#1088#1072
-          OptionsView.Footer = True
           OptionsView.FooterMultiSummaries = True
           OptionsView.GroupByBox = False
           OptionsView.GroupFooters = gfVisibleWhenExpanded
