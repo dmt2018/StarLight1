@@ -248,6 +248,8 @@ type
     grid_pplView1MDL_PRICE: TcxGridDBColumn;
     st_stat_col: TcxStyle;
     grid_pplView1STAT_LAST_PRICE: TcxGridDBColumn;
+    N16: TMenuItem;
+    N17: TMenuItem;
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn4Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
@@ -334,6 +336,7 @@ type
     procedure aDeSelectAllExecute(Sender: TObject);
     procedure bsExtraGrossClick(Sender: TObject);
     procedure aClearNewMarkExecute(Sender: TObject);
+    procedure N16Click(Sender: TObject);
   private
     path: string;
     is_sync: boolean;
@@ -356,7 +359,7 @@ implementation
 
 uses DataModule, WhatToDoU, InvoChooseU, ChangeParamsU,
   StockLoadOptsU, Globals, StartU, UStat, UOldPrice, UChoiseType, UClientList,
-  UPriceStatistic;
+  UPriceStatistic, UaddSpecOrder;
 
 {$R *.dfm}
 
@@ -1854,6 +1857,17 @@ begin
     sync_execute(cbInvoices.EditValue)
   else
     MessageBox(Handle, 'Необходимо выбрать инвойс для синхронизации', 'Внимание!', MB_ICONINFORMATION);
+end;
+
+procedure TPriceF.N16Click(Sender: TObject);
+begin
+  frmAddSpecOrder.AddSpecOfferFormShow(
+    grid_pplView1F_TYPE.EditValue + ' / ' + grid_pplView1F_SUB_TYPE.EditValue,
+    COMPILED_NAME.EditValue,
+    grid_pplView1COUNTRY.EditValue,
+    FINAL_PRICE.EditValue,
+    grid_pplView1N_ID.EditValue
+  );
 end;
 
 // собственно синхронизация

@@ -29,6 +29,7 @@ object frmPriceArchive: TfrmPriceArchive
     Font.Style = []
     ParentFont = False
     TabOrder = 0
+    ExplicitTop = -6
     DesignSize = (
       1080
       40)

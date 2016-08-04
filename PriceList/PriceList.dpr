@@ -22,7 +22,9 @@ uses
   UChoiseType in 'UChoiseType.pas' {frm_choise_type},
   UClientList in 'UClientList.pas' {frmClientList},
   UClientSale in 'UClientSale.pas' {frmClientSales},
-  UPriceStatistic in 'UPriceStatistic.pas' {frmPriceStatisitic};
+  UPriceStatistic in 'UPriceStatistic.pas' {frmPriceStatisitic},
+  USpecOrder in 'USpecOrder.pas' {frmSpecOrder},
+  UaddSpecOrder in 'UaddSpecOrder.pas' {frmAddSpecOrder};
 
 {$R *.res}
 
@@ -36,5 +38,6 @@ begin
   Application.Title := 'Цены';
   Application.CreateForm(TDM, DM);
   Application.CreateForm(TStartF, StartF);
+  Application.CreateForm(TfrmAddSpecOrder, frmAddSpecOrder);
   Application.Run;
 end.

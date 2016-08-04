@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.PRICE_PKG
--- Generated 23.07.2016 21:56:57 from CREATOR@STAR_NEW
+-- Generated 05.08.2016 0:21:37 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE price_pkg
@@ -407,6 +407,31 @@ procedure sync_with_curr_pricelist
    v_PPLI_ID_old IN       NUMBER
 );
 
+
+
+--
+-- Получение спец.предложения по товару
+--
+PROCEDURE get_spec_orders
+(
+    v_id_dep  in number,
+    v_d_b     in date,
+    v_d_e     in date,
+    cursor_   out ref_cursor
+);
+
+
+--
+-- Добавление спец.предложения по товару
+--
+PROCEDURE add_spec_orders
+(
+    v_n_id    in number,
+    v_d_b     in date,
+    v_d_e     in date,
+    v_price   in number,
+    v_res     in out number
+);
 
 
 END;
@@ -2465,6 +2490,69 @@ EXCEPTION
 end sync_with_curr_pricelist;
 
 
+
+--
+-- Получение спец.предложения по товару
+--
+PROCEDURE get_spec_orders
+(
+    v_id_dep  in number,
+    v_d_b     in date,
+    v_d_e     in date,
+    cursor_   out ref_cursor
+)
+IS
+begin
+
+  open cursor_ for
+    SELECT a.SPEC_ORDERS_ID, a.n_id, a.start_date, a.end_date, a.is_active, a.price,
+       a.cur_price, a.price_date,
+       n.COMPILED_NAME_OTDEL, F_TYPE, F_SUB_TYPE, REMARKS, RUS_MARKS, COLOUR, COUNTRY
+    FROM spec_orders_view a
+    inner join nomenclature_mat_view n on n.n_id = a.n_id
+    where n.ID_DEPARTMENTS = v_id_dep and a.start_date >= v_d_b and a.end_date <= v_d_e
+    order by F_TYPE, F_SUB_TYPE, COMPILED_NAME_OTDEL
+    ;
+
+EXCEPTION
+  WHEN others THEN
+      LOG_ERR(SQLERRM|| ' ' || DBMS_UTILITY.format_error_backtrace, SQLCODE, 'price_pkg.get_spec_orders', v_id_dep);
+      RAISE_APPLICATION_ERROR (-20428, 'Запрос не выполнился. ' || SQLERRM);
+
+end get_spec_orders;
+
+
+
+--
+-- Добавление спец.предложения по товару
+--
+PROCEDURE add_spec_orders
+(
+    v_n_id    in number,
+    v_d_b     in date,
+    v_d_e     in date,
+    v_price   in number,
+    v_res     in out number
+)
+is
+begin
+  select count(*) into cnt from spec_orders where n_id = v_n_id and
+  (
+    start_date between v_d_b and v_d_e
+    or
+    end_date between v_d_b and v_d_e
+  );
+  if cnt > 0 then v_res := 1;
+  else
+    insert into spec_orders values(v_n_id, v_d_b, v_d_e, 1, v_price, universal_id.nextval);
+    commit;
+  end if;
+
+EXCEPTION
+  WHEN others THEN
+      LOG_ERR(SQLERRM|| ' ' || DBMS_UTILITY.format_error_backtrace, SQLCODE, 'price_pkg.add_spec_orders', v_n_id);
+      RAISE_APPLICATION_ERROR (-20429, 'Запрос не выполнился. ' || SQLERRM);
+end add_spec_orders;
 
 END;
 /

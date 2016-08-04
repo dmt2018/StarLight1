@@ -153,6 +153,7 @@ type
     mnSpecPrice: TdxBarButton;
     mnBestOrders: TdxBarButton;
     mnClearSign: TdxBarButton;
+    addSpecOrder: TdxBarButton;
     procedure FormShow(Sender: TObject);
     procedure tlb_save1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -191,6 +192,7 @@ type
     procedure bsSpecPriceClick(Sender: TObject);
     procedure bsBestPriceClick(Sender: TObject);
     procedure mnClearSignClick(Sender: TObject);
+    procedure addSpecOrderClick(Sender: TObject);
   private
     path: string;
     pnl_msg: TPanel;
@@ -210,7 +212,7 @@ var
 
 implementation
 
-uses DataModule, print_f, InvoChooseU, Globals, TypInfo;
+uses DataModule, print_f, InvoChooseU, Globals, TypInfo, UaddSpecOrder;
 
 {$R *.dfm}
 
@@ -1094,6 +1096,21 @@ begin
   end;
 end;
 // -----------------------------------------------------------------------------
+
+
+//
+// Установить спец.предложение
+//
+procedure TPreparePrintF.addSpecOrderClick(Sender: TObject);
+begin
+  frmAddSpecOrder.AddSpecOfferFormShow(
+    F_TYPE.EditValue + ' / ' + F_SUB_TYPE.EditValue,
+    grid_priceView1COMPILED_NAME.EditValue,
+    COUNTRY.EditValue,
+    PRICE.EditValue,
+    grid_priceView1N_ID.EditValue
+  );
+end;
 
 
 end.

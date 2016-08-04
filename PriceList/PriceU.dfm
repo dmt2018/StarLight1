@@ -6393,6 +6393,13 @@ object PriceF: TPriceF
     object N9: TMenuItem
       Action = aGetStatistic
     end
+    object N17: TMenuItem
+      Caption = '-'
+    end
+    object N16: TMenuItem
+      Caption = #1044#1086#1073#1072#1074#1080#1090#1100' '#1089#1087#1077#1094'.'#1087#1088#1077#1076#1083#1086#1078#1077#1085#1080#1077
+      OnClick = N16Click
+    end
     object N4: TMenuItem
       Caption = '-'
     end
