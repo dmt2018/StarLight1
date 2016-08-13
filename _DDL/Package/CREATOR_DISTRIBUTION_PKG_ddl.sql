@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.DISTRIBUTION_PKG
--- Generated 20.07.2016 21:56:26 from CREATOR@STAR_NEW
+-- Generated 13.08.2016 14:02:26 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE distribution_pkg
@@ -431,8 +431,8 @@ is
     select INV_ID FROM DISTRIBUTIONS_INVOICES
       WHERE DIST_IND_ID = IN_DIST_IND_ID;
 
-  str_ varchar2(100);
-  id_  varchar2(10);
+  str_ varchar2(200);
+  id_  varchar2(20);
 begin
   str_ := '';
   open s_;
@@ -461,8 +461,8 @@ is
     select order_id FROM distributions_orders
       WHERE DIST_IND_ID = IN_DIST_IND_ID;
 
-  str_ varchar2(100);
-  id_  varchar2(10);
+  str_ varchar2(200);
+  id_  varchar2(20);
 begin
   str_ := '';
   open s_;
