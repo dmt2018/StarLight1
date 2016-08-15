@@ -5,7 +5,7 @@ object frmSetings: TfrmSetings
   BorderStyle = bsSingle
   Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080
   ClientHeight = 570
-  ClientWidth = 694
+  ClientWidth = 777
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -22,24 +22,27 @@ object frmSetings: TfrmSetings
   object Panel3: TPanel
     Left = 0
     Top = 0
-    Width = 694
+    Width = 777
     Height = 529
     Align = alClient
     TabOrder = 1
+    ExplicitWidth = 694
     object pc_settings: TcxPageControl
       Left = 1
       Top = 1
-      Width = 692
+      Width = 775
       Height = 527
-      ActivePage = tsh_personal
+      ActivePage = tsh_customs_coef
       Align = alClient
       TabOrder = 0
+      ExplicitWidth = 692
       ClientRectBottom = 527
-      ClientRectRight = 692
+      ClientRectRight = 775
       ClientRectTop = 25
       object tsh_personal: TcxTabSheet
         Caption = ' '#1055#1077#1088#1089#1086#1085#1072#1083#1100#1085#1099#1077' '#1085#1072#1089#1090#1088#1086#1081#1082#1080' '
         ImageIndex = 0
+        ExplicitWidth = 692
         object Label3: TLabel
           Left = 11
           Top = 17
@@ -163,15 +166,17 @@ object frmSetings: TfrmSetings
         Tag = 1
         Caption = ' '#1057#1077#1090#1082#1072' '#1074#1077#1089#1086#1074' '
         ImageIndex = 2
+        ExplicitWidth = 692
         object gr_weight: TcxGrid
           Left = 0
           Top = 205
-          Width = 692
+          Width = 775
           Height = 182
           Align = alClient
           TabOrder = 0
           LookAndFeel.Kind = lfOffice11
           LookAndFeel.NativeStyle = False
+          ExplicitWidth = 692
           object gr_weight_v: TcxGridDBTableView
             NavigatorButtons.ConfirmDelete = False
             FilterBox.Position = fpTop
@@ -421,7 +426,7 @@ object frmSetings: TfrmSetings
         object Panel6: TPanel
           Left = 0
           Top = 0
-          Width = 692
+          Width = 775
           Height = 205
           Align = alTop
           BevelOuter = bvNone
@@ -957,12 +962,13 @@ object frmSetings: TfrmSetings
         object gr_w_formula: TcxGrid
           Left = 0
           Top = 395
-          Width = 692
+          Width = 775
           Height = 107
           Align = alBottom
           TabOrder = 1
           LookAndFeel.Kind = lfOffice11
           LookAndFeel.NativeStyle = False
+          ExplicitWidth = 692
           object gr_w_formula_v: TcxGridDBTableView
             NavigatorButtons.ConfirmDelete = False
             FilterBox.Position = fpTop
@@ -1201,7 +1207,7 @@ object frmSetings: TfrmSetings
         object Panel4: TPanel
           Left = 0
           Top = 387
-          Width = 692
+          Width = 775
           Height = 8
           Align = alBottom
           BevelOuter = bvNone
@@ -1212,15 +1218,17 @@ object frmSetings: TfrmSetings
         Tag = 2
         Caption = ' '#1060#1048#1058#1054' '#1082#1072#1090#1077#1075#1086#1088#1080#1080' '
         ImageIndex = 1
+        ExplicitWidth = 692
         object gr_fito: TcxGrid
           Left = 0
           Top = 111
-          Width = 692
+          Width = 775
           Height = 391
           Align = alClient
           TabOrder = 1
           LookAndFeel.Kind = lfOffice11
           LookAndFeel.NativeStyle = False
+          ExplicitWidth = 692
           object gr_fito_v: TcxGridDBTableView
             NavigatorButtons.ConfirmDelete = False
             FilterBox.Position = fpTop
@@ -1343,7 +1351,7 @@ object frmSetings: TfrmSetings
         object Panel1: TPanel
           Left = 0
           Top = 0
-          Width = 692
+          Width = 775
           Height = 111
           Align = alTop
           BevelOuter = bvNone
@@ -1564,10 +1572,11 @@ object frmSetings: TfrmSetings
         Tag = 3
         Caption = ' '#1053#1072#1079#1074#1072#1085#1080#1103' '
         ImageIndex = 3
+        ExplicitWidth = 692
         object pnl_name_top: TPanel
           Left = 0
           Top = 0
-          Width = 692
+          Width = 775
           Height = 130
           Align = alTop
           BevelOuter = bvNone
@@ -1802,7 +1811,7 @@ object frmSetings: TfrmSetings
         object gr_names: TcxGrid
           Left = 0
           Top = 130
-          Width = 692
+          Width = 775
           Height = 372
           Align = alClient
           Font.Charset = DEFAULT_CHARSET
@@ -1814,6 +1823,7 @@ object frmSetings: TfrmSetings
           TabOrder = 1
           LookAndFeel.Kind = lfOffice11
           LookAndFeel.NativeStyle = False
+          ExplicitWidth = 692
           object gr_names_v: TcxGridDBTableView
             NavigatorButtons.ConfirmDelete = False
             FilterBox.Position = fpTop
@@ -1947,10 +1957,11 @@ object frmSetings: TfrmSetings
       object tsh_packing: TcxTabSheet
         Caption = ' '#1058#1080#1087#1099' '#1091#1087#1072#1082#1086#1074#1082#1080' '
         ImageIndex = 4
+        ExplicitWidth = 692
         object Panel5: TPanel
           Left = 0
           Top = 0
-          Width = 692
+          Width = 775
           Height = 111
           Align = alTop
           BevelOuter = bvNone
@@ -2175,12 +2186,13 @@ object frmSetings: TfrmSetings
         object grPacking: TcxGrid
           Left = 0
           Top = 111
-          Width = 692
+          Width = 775
           Height = 391
           Align = alClient
           TabOrder = 1
           LookAndFeel.Kind = lfOffice11
           LookAndFeel.NativeStyle = False
+          ExplicitWidth = 692
           object grPackingV: TcxGridDBTableView
             NavigatorButtons.ConfirmDelete = False
             FilterBox.Position = fpTop
@@ -2295,15 +2307,17 @@ object frmSetings: TfrmSetings
       object tsh_customs_coef: TcxTabSheet
         Caption = ' '#1058#1072#1084'. '#1082#1086#1101#1092#1092#1080#1094#1080#1077#1085#1090#1099' '
         ImageIndex = 5
+        ExplicitWidth = 692
         object Panel7: TPanel
           Left = 0
           Top = 0
-          Width = 692
+          Width = 775
           Height = 111
           Align = alTop
           BevelOuter = bvNone
           BorderWidth = 2
           TabOrder = 0
+          ExplicitWidth = 692
           object Label21: TLabel
             Left = 10
             Top = 27
@@ -2470,6 +2484,7 @@ object frmSetings: TfrmSetings
             Style.Font.Name = 'Tahoma'
             Style.Font.Style = [fsBold]
             Style.IsFontAssigned = True
+            ExplicitWidth = 688
           end
           object btnAddCustCoef: TcxButton
             Left = 417
@@ -2588,13 +2603,15 @@ object frmSetings: TfrmSetings
         object grCustCoef: TcxGrid
           Left = 0
           Top = 111
-          Width = 692
+          Width = 775
           Height = 391
           Align = alClient
           TabOrder = 1
           LookAndFeel.Kind = lfOffice11
           LookAndFeel.NativeStyle = False
+          ExplicitWidth = 692
           object grCustCoef_v: TcxGridDBTableView
+            PopupMenu = pm_cust_coef
             NavigatorButtons.ConfirmDelete = False
             FilterBox.Position = fpTop
             DataController.DataSource = DM.ds_custcoef
@@ -2699,6 +2716,8 @@ object frmSetings: TfrmSetings
               DataBinding.FieldName = 'COUNTRY'
               PropertiesClassName = 'TcxTextEditProperties'
               Properties.ReadOnly = True
+              Visible = False
+              GroupIndex = 0
             end
             object grCustCoef_vFS_COUNTRY_ID: TcxGridDBColumn
               DataBinding.FieldName = 'FS_COUNTRY_ID'
@@ -2715,6 +2734,10 @@ object frmSetings: TfrmSetings
               MinWidth = 100
               Width = 120
             end
+            object grCustCoef_vID_DEPARTMENTS: TcxGridDBColumn
+              DataBinding.FieldName = 'ID_DEPARTMENTS'
+              Visible = False
+            end
           end
           object grCustCoef_l: TcxGridLevel
             GridView = grCustCoef_v
@@ -2726,17 +2749,18 @@ object frmSetings: TfrmSetings
   object Panel2: TPanel
     Left = 0
     Top = 529
-    Width = 694
+    Width = 777
     Height = 41
     Align = alBottom
     Color = clWhite
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 694
     DesignSize = (
-      694
+      777
       41)
     object btn_close: TBitBtn
-      Left = 537
+      Left = 620
       Top = 5
       Width = 150
       Height = 30
@@ -2787,9 +2811,10 @@ object frmSetings: TfrmSetings
         B7E82828A13463607B27C0BFBFFF625F5F270000000000000000000000000000
         00000000000000000000000000000000000027279E212F2FB7BE2E2EB5BF2727
         9F2300000000383636025D5A5A1E3D3B3B020000000000000000}
+      ExplicitLeft = 537
     end
     object btn_save: TBitBtn
-      Left = 337
+      Left = 420
       Top = 5
       Width = 197
       Height = 30
@@ -2840,6 +2865,7 @@ object frmSetings: TfrmSetings
         A1FFE0BFBAFFFF958FFFDE9083FFFDCDCDFFC38A83FF964B4082A95E41BDB26D
         53DFB16C53DFB46950DFBD725BDFB5715ADFB4705ADFB4705ADFB46F5ADFB36E
         59DFB46E59DFBA705BDFAE644FDFA45E50DE994E406D00000000}
+      ExplicitLeft = 337
     end
   end
   object Clients_table: TTable
@@ -2903,8 +2929,8 @@ object frmSetings: TfrmSetings
     FetchAll = True
     RefreshOptions = [roAfterUpdate]
     FilterOptions = [foCaseInsensitive]
-    Left = 552
-    Top = 48
+    Left = 424
+    Top = 248
     object CDS_PackingID: TIntegerField
       FieldName = 'ID'
       Required = True
@@ -2924,7 +2950,16 @@ object frmSetings: TfrmSetings
   end
   object DS_Packing: TDataSource
     DataSet = CDS_Packing
-    Left = 552
-    Top = 80
+    Left = 424
+    Top = 280
+  end
+  object pm_cust_coef: TPopupMenu
+    OnPopup = pm_cust_coefPopup
+    Left = 192
+    Top = 344
+    object mn_clone_coef: TMenuItem
+      Caption = #1057#1082#1086#1087#1080#1088#1086#1074#1072#1090#1100' '#1076#1083#1103' '#1090#1077#1082#1091#1097#1077#1081' '#1089#1090#1088#1072#1085#1099' '#1082#1086#1101#1092'.'
+      OnClick = mn_clone_coefClick
+    end
   end
 end

@@ -136,6 +136,8 @@ type
     SelQ3: TOraQuery;
     SelQ3_ds: TDataSource;
     frxBIFFExport1: TfrxBIFFExport;
+    InvoiceAsIsREMARK: TStringField;
+    cds_custcoefID_DEPARTMENTS: TIntegerField;
   private
     { Private declarations }
   public
@@ -242,17 +244,6 @@ begin
       ParamByName('V_ID_DEP').Value := CUR_DEPT_ID;
       ParamByName('v_truck').Value := truck;
       ParamByName('cursor_').AsCursor;
-
-
-
-
-
-
-     { ParamByName('V_ID_INV').Value := id_inv;
-      ParamByName('V_ID_DEP').Value := CUR_DEPT_ID;
-      ParamByName('V_VID').Value := 5;
-      ParamByName('v_truck').Value := truck;
-      ParamByName('cursor_').AsCursor;  }
       Open;
     end;
     j := j+2;
@@ -288,10 +279,6 @@ begin
     XL.Range['A'+IntToStr(j),'C'+IntToStr(j)].select;
     XL.Selection.Font.Bold := true;
 
-
-
-
-
     XL.Range['A1',CHR(64+3)+IntToStr(j)].select;
     XL.Selection.Font.Name:='Arial';
     XL.Selection.Font.Size:=10;
@@ -305,15 +292,13 @@ begin
     end;
     XL.Quit;
 
-
-
     DM.SelQ.Close;
     DM.SelQ.IndexFieldNames := '';
 
   except
     on E: Exception do
     begin
-      //(PChar(E.Message));
+      MessageBox(NULL, PChar(E.Message), 'Ошибка', MB_ICONERROR);
       DM.SelQ.Close;
       DM.SelQ.IndexFieldNames := '';
     end;
@@ -391,8 +376,6 @@ begin
     end;
     XL.Quit;
 
-
-
     DM.SelQ.Close;
     DM.SelQ.IndexFieldNames := '';
 
@@ -438,7 +421,6 @@ begin
     XL   := CreateOLEObject('Excel.Application');     // Создание OLE объекта
     XL.WorkBooks.Add;
 
-
     XL.Range['A1','A1'].Value := '№ п/п';
     XL.Range['B1','B1'].Value := 'Код ТН ВЭД';
     XL.Range['C1','C1'].Value := 'Наименование товара';
@@ -473,7 +455,6 @@ begin
     begin
       while not Eof do
       begin
-
         XArr[1] := j-2;
         XArr[2] := FieldByName('CUST_REGN').Value;
         XArr[3] := FieldByName('comp_name').Value;
@@ -493,12 +474,6 @@ begin
         sum_7  := sum_7 + FieldByName('sideboards').AsInteger+FieldByName('packs').AsInteger;
         sum_8  := sum_8 + FieldByName('brutto').AsInteger;
         sum_9  := sum_9 + FieldByName('netto').AsInteger;
-
-        //sum_8  := sum_8 + FieldByName('brutto').Value;
-        //sum_9  := sum_9 + FieldByName('netto').Value;
-
-
-
         sum_10 := sum_10 + FieldByName('summ').AsInteger;
         sum_11 := sum_11 + FieldByName('telega').AsInteger;
         sum_12 := sum_12 + FieldByName('poddon').AsInteger;
@@ -506,7 +481,6 @@ begin
         j := j + 1;
       end;
     end;
-
 
     XL.Range['A'+IntToStr(j),'A'+IntToStr(j)].Value := '';
     XL.Range['B'+IntToStr(j),'B'+IntToStr(j)].Value := '';

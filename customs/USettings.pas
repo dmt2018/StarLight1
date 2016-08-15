@@ -193,6 +193,9 @@ type
     grCustCoef_vNAME_CAT: TcxGridDBColumn;
     grCustCoef_vColumn1: TcxGridDBColumn;
     grPackingVColumn1: TcxGridDBColumn;
+    pm_cust_coef: TPopupMenu;
+    mn_clone_coef: TMenuItem;
+    grCustCoef_vID_DEPARTMENTS: TcxGridDBColumn;
     procedure btn_closeClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
@@ -228,6 +231,8 @@ type
       AButtonIndex: Integer);
     procedure grPackingVColumn1PropertiesButtonClick(Sender: TObject;
       AButtonIndex: Integer);
+    procedure mn_clone_coefClick(Sender: TObject);
+    procedure pm_cust_coefPopup(Sender: TObject);
   private
     { Private declarations }
   public
@@ -422,7 +427,7 @@ begin
     DM.SelQ.SQL.Clear;
     DM.SelQ.SQL.Add('SELECT C_ID, COUNTRY FROM COUNTRIES order by COUNTRY');
     DM.SelQ.Open;
-    FillImgComboCx(DM.SelQ, icb_countries, '');
+    FillImgComboCx(DM.SelQ, icb_countries, 'Any country');
     icb_suplier.EditValue := i;
     DM.SelQ.Close;
 
@@ -759,6 +764,46 @@ begin
      DM.CDS_W_FORMULA.Delete;
 end;
 
+// Скопировать текущие коэффициенты страны на новую странц
+procedure TfrmSetings.mn_clone_coefClick(Sender: TObject);
+var cur_country, sel_country: integer;
+begin
+  if (icb_countries.EditValue < 0) then
+  begin
+      MessageBox(Handle, 'Укажите обязательно страну для копирования!', 'Внимание', MB_ICONINFORMATION);
+      exit;
+  end;
+
+  sel_country := icb_countries.EditValue;
+  cur_country := DM.cds_custcoefFS_COUNTRY_ID.AsInteger;
+
+  if cur_country = sel_country then
+  begin
+      MessageBox(Handle, 'Нельзя копировать значения в одну и ту же страну!', 'Внимание', MB_ICONWARNING);
+      exit;
+  end;
+
+  try
+    DM.SelQ.Close;
+    DM.SelQ.SQL.Clear;
+    DM.SelQ.SQL.Add('begin custom_pkg.copy_cust_coef(:V_ID_DEP, :V_CUR_COUNTRY, :V_SEL_COUNTRY); end;');
+    DM.SelQ.ParamByName('V_ID_DEP').AsInteger      := CUR_DEPT_ID;
+    DM.SelQ.ParamByName('V_CUR_COUNTRY').AsInteger := cur_country;
+    DM.SelQ.ParamByName('V_SEL_COUNTRY').AsInteger := sel_country;
+    DM.SelQ.Execute;
+    DM.cds_custcoef.Refresh;
+    grCustCoef.SetFocus;
+  except
+    on E: Exception do
+       MessageBox(Handle, PChar(E.Message), 'Ошибка!', MB_ICONERROR);
+  end;
+end;
+
+procedure TfrmSetings.pm_cust_coefPopup(Sender: TObject);
+begin
+  mn_clone_coef.Enabled := (DM.cds_custcoef.Active and (DM.cds_custcoef.RecordCount > 0) and (grCustCoef_v.ViewData.RecordCount > 0));
+end;
+
 { **************************************************************************** }
 
 
@@ -811,7 +856,7 @@ end;
 // Добавление таможенного коэффициента
 procedure TfrmSetings.btnAddCustCoefClick(Sender: TObject);
 begin
-  if (icb_categories.EditValue < 1) or (icb_countries.EditValue < 1) then
+  if (icb_categories.EditValue < 1) or (icb_countries.EditValue < 0) then
   begin
       MessageBox(Handle, 'Укажите обязательные значения!', 'Внимание', MB_ICONINFORMATION);
       exit;

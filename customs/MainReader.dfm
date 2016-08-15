@@ -876,9 +876,9 @@ object ReadInvoice: TReadInvoice
     end
     object pnl_help: TPanel
       Left = 212
-      Top = 79
+      Top = 39
       Width = 400
-      Height = 329
+      Height = 386
       BorderWidth = 4
       Caption = #1055#1072#1084#1103#1090#1082#1072' '#1087#1086' '#1087#1086#1083#1103#1084
       Color = 12049407
@@ -895,7 +895,7 @@ object ReadInvoice: TReadInvoice
       Visible = False
       DesignSize = (
         400
-        329)
+        386)
       object SpeedButton1: TSpeedButton
         Left = 372
         Top = 4
@@ -946,9 +946,9 @@ object ReadInvoice: TReadInvoice
       end
       object cxVerticalGrid1: TcxVerticalGrid
         Left = 5
-        Top = 28
+        Top = 32
         Width = 390
-        Height = 296
+        Height = 349
         Align = alBottom
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -1049,6 +1049,11 @@ object ReadInvoice: TReadInvoice
         end
         object cxVerticalGrid1EditorRow18: TcxEditorRow
           Properties.Caption = #1059#1087#1072#1082#1086#1074#1082#1072
+          Properties.DataBinding.ValueType = 'String'
+          Properties.Value = #1090#1077#1082#1089#1090
+        end
+        object cxVerticalGrid1EditorRow19: TcxEditorRow
+          Properties.Caption = #1056#1077#1084#1072#1088#1082
           Properties.DataBinding.ValueType = 'String'
           Properties.Value = #1090#1077#1082#1089#1090
         end

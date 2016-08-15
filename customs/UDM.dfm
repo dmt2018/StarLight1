@@ -6,7 +6,7 @@ object DM: TDM
     Options.Direct = True
     Username = 'creator'
     Password = '123456'
-    Server = 'ROZNICA:1521:orcl'
+    Server = 'KLEPOV:1521:STARNEW'
     Left = 32
     Top = 16
   end
@@ -356,6 +356,10 @@ object DM: TDM
     end
     object InvoiceAsIsSPLIT_ROSE: TFloatField
       FieldName = 'SPLIT_ROSE'
+    end
+    object InvoiceAsIsREMARK: TStringField
+      FieldName = 'REMARK'
+      Size = 50
     end
   end
   object InvoiceRegister_DS: TDataSource
@@ -934,10 +938,12 @@ object DM: TDM
       'begin'
       
         '  CUSTOM_PKG.save_custcoef(:ID, :id_w, :fs_country_id, :fo_value' +
-        ');'
+        ', :ID_DEPARTMENTS);'
       'end;')
     SQLRefresh.Strings = (
-      'SELECT a.id, a.id_w, a.fs_country_id, a.fo_value'
+      
+        'SELECT a.id, a.id_w, a.fs_country_id, a.fo_value, a.ID_DEPARTMEN' +
+        'TS'
       'FROM customs_weight_group_settings a'
       'WHERE ID = :OLD_ID')
     SQL.Strings = (
@@ -982,6 +988,9 @@ object DM: TDM
     end
     object cds_custcoefNAME_CAT: TStringField
       FieldName = 'NAME_CAT'
+    end
+    object cds_custcoefID_DEPARTMENTS: TIntegerField
+      FieldName = 'ID_DEPARTMENTS'
     end
   end
   object ds_custcoef: TDataSource

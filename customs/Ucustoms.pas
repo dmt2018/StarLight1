@@ -142,6 +142,8 @@ type
     panel_progress: TPanel;
     Label2: TLabel;
     cxProgressBar1: TcxProgressBar;
+    view_asisTROLLEY1: TcxGridDBColumn;
+    view_asisREMARK: TcxGridDBColumn;
     procedure FormCreate(Sender: TObject);
     procedure dxBarLargeButton1Click(Sender: TObject);
     procedure btn_settingsClick(Sender: TObject);
@@ -1016,7 +1018,6 @@ end;
   // Создадим выходные файлы для срезки
   if ( CUR_DEPT_ID = 62 ) then
   begin
-
       panel_progress.Left           := trunc(Panel2.Width / 2) - 300;
       panel_progress.Top            := trunc(Panel2.Height / 2) - 30;
       panel_progress.Visible        := true;
@@ -1054,8 +1055,8 @@ end;
 
     // Создадим файл PRECOU
     make_out_file(idd, 3, 'raport_srez_precou', 'precou.xls', 0);
-          cxProgressBar1.Position := cxProgressBar1.Position+1;
-          cxProgressBar1.Repaint;
+    cxProgressBar1.Position := cxProgressBar1.Position+1;
+    cxProgressBar1.Repaint;
 
 
     DM.CDS_WEIGHTS.Close;
@@ -1203,8 +1204,8 @@ end;
       DM.SelQ.Filtered := false;
     end;
     DM.CDS_WEIGHTS.Close;
-          cxProgressBar1.Position := cxProgressBar1.Position+1;
-          cxProgressBar1.Repaint;
+    cxProgressBar1.Position := cxProgressBar1.Position+1;
+    cxProgressBar1.Repaint;
 
 
 

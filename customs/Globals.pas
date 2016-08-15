@@ -54,7 +54,7 @@ End;
 
 procedure FillRecogniser();
 Begin
-  SetLength(Recogniser,19);
+  SetLength(Recogniser,20);
   Recogniser[0].Name := '№ Заказа';
   Recogniser[0].column := -1;
   Recogniser[1].Name := 'Машина';
@@ -93,6 +93,8 @@ Begin
   Recogniser[17].column := -1;
   Recogniser[18].Name := 'Название (src)';
   Recogniser[18].column := -1;
+  Recogniser[19].Name := 'Ремарк';
+  Recogniser[19].column := -1;
 End;
 
 procedure ReadIni();

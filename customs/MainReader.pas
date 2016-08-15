@@ -87,6 +87,7 @@ type
     btn_help: TBitBtn;
     Label10: TLabel;
     ed_cource: TcxCurrencyEdit;
+    cxVerticalGrid1EditorRow19: TcxEditorRow;
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure XXClick(Sender: TObject);
@@ -508,7 +509,7 @@ VAR
 
   ORDER_NUMBER, ORDER_MARKNAME, TRUCS, PACKING_CODE, PACKING_AMOUNT, AMOUNT_PER_UNIT
   , UNITS, PACKING_MARKS, DESCRIPTION, HOL_COUNTRY, HOL_SUB_TYPE, PD, TROLLEY
-  , PRICE, SUMM, DIAMETR, HEIGHT, TITLE, H_CODE, UPACK, SRC_NAME : Variant;
+  , PRICE, SUMM, DIAMETR, HEIGHT, TITLE, H_CODE, UPACK, SRC_NAME, REMARK : Variant;
 begin
   try
     if (Recogniser[1].column = -1) // Машина
@@ -636,7 +637,7 @@ begin
             sql_str := 'begin ';
             sql_str := sql_str + ' custom_pkg.CUSTOMS_INV_REG_INSERT_DATA(:INV_ID_, :ORDER_NUMBER_, :TRUCS_, :PACKING_MARKS_, :PACKING_AMOUNT_, ';
             sql_str := sql_str + ' :AMOUNT_PER_UNIT_, :UNITS_, :PRICE_, :SUMM_, :TITLE_, :DESCRIPTION_, :HOL_COUNTRY_, :HOL_SUB_TYPE_, :PD_, ';
-            sql_str := sql_str + ' :DIAMETR_, :HEIGHT_, :TROLLEY_, :H_CODE_, :UPACK_, :SRC_NAME_); end;';
+            sql_str := sql_str + ' :DIAMETR_, :HEIGHT_, :TROLLEY_, :H_CODE_, :UPACK_, :SRC_NAME_, :REMARK_); end;';
             SQL.Add(sql_str);
 
             ORDER_NUMBER := 0;
@@ -718,6 +719,8 @@ begin
                                            else UPACK := NULL;
             if Recogniser[18].column <> -1 then SRC_NAME := StrToVar(SG.Cells[Recogniser[18].column,i])
                                            else SRC_NAME := TITLE;
+            if Recogniser[19].column <> -1 then REMARK := StrToVar(SG.Cells[Recogniser[19].column,i])
+                                           else REMARK := NULL;
 
 
             ParamByName('INV_ID_').AsInteger         := res_val;
@@ -740,6 +743,7 @@ begin
             ParamByName('H_CODE_').AsString          := H_CODE;
             ParamByName('UPACK_').AsString           := trim(VarToStr(UPACK));
             ParamByName('SRC_NAME_').AsString        := CutSpaces(trim(VarToStr(SRC_NAME)));
+            ParamByName('REMARK_').AsString          := CutSpaces(trim(VarToStr(REMARK)));
             Execute;
 
           End; // цикл по StringGrid

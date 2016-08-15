@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.CUSTOM_PKG
--- Generated 24.05.2016 18:54:54 from CREATOR@ORCL
+-- Generated 16.08.2016 1:37:15 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE custom_pkg
@@ -263,7 +263,8 @@ PROCEDURE CUSTOMS_INV_REG_INSERT_DATA
     TROLLEY_                    in varchar2,
     H_CODE_                     in varchar2,
     UPACK_                      in varchar2,
-    SRC_NAME_                   in varchar2
+    SRC_NAME_                   in varchar2,
+    REMARK_                     in varchar2
 );
 
 
@@ -432,6 +433,7 @@ PROCEDURE save_custcoef
     , v_id_w        in number
     , v_country_id  in number
     , v_value       in number
+    , V_ID_DEP      in number
 );
 
 
@@ -441,6 +443,17 @@ PROCEDURE save_custcoef
 PROCEDURE del_custcoef
 (
     v_id              in out number
+);
+
+
+--
+--   ÎÓÌËÛÂÏ Ú‡ÏÓÊÂÌÌÛ˛ ÒÂÚÍÛ ‚ÂÒÓ‚
+--
+PROCEDURE copy_cust_coef
+(
+    V_ID_DEP         in number
+    , V_CUR_COUNTRY  in number
+    , V_SEL_COUNTRY  in number
 );
 
 
@@ -685,35 +698,22 @@ begin
            , show_weight_formula(c.id,a.description,a.height,0) as type_dop
            , v_id_dep as id_dep
            , split_rose_ as split_rose
+           , a.remark
 
         FROM CUSTOMS_INV_DATA_AS_IS a
           left outer join countries e on lower(e.country_eng) = lower(a.hol_country)
           left outer join fito_category b on upper(b.name_eng) = upper(a.pd) and b.id_dep = v_id_dep
           left outer join customs_weight c on lower(c.name_cat) = lower(a.hol_sub_type) and c.id_dep = v_id_dep
           left outer join (
-SELECT distinct fn.name_code, fn.f_name, n.f_name_ru FROM FLOWER_NAME_TRANSLATIONS fn, flower_names n
-where fn.id_departments = v_id_dep and remarks is null
-and fn.fn_id = n.fn_id
-          ) nom on upper(nom.f_name) = upper(a.title) and nom.name_code = H_CODE
+            SELECT distinct fn.name_code, upper(fn.f_name) as f_name, n.f_name_ru, fn.remarks
+            FROM FLOWER_NAME_TRANSLATIONS fn, flower_names n, (select max(fn_id) as fn_id, remarks from FLOWER_NAME_TRANSLATIONS /*where remarks is null*/ group by name_code, remarks) fn2
+            where fn.id_departments = v_id_dep /*and remarks is null*/ and nvl(fn.remarks,'') = nvl(fn2.remarks,'')
+              and fn.fn_id = n.fn_id and fn.fn_id = fn2.fn_id
+            ) nom on nom.f_name = upper(a.title) and nom.name_code = H_CODE and nvl(nom.remarks,'') = nvl(a.remark,'')
           left outer join (select fito_id, F_NAME, fito_name, name_code from FLOWER_FITO_ALL_NAMES where ID_DEP = v_id_dep) n on upper(n.F_NAME) = upper(a.title) and upper(n.name_code) = upper(a.h_code)
 
         where a.INV_ID = INV_ID_
 
-
-
-/*
-        FROM customs_inv_data_as_is a, countries e
-            , fito_category b, customs_weight c
-            , (select fito_id, F_NAME, fito_name, name_code from FLOWER_FITO_ALL_NAMES where ID_DEP = v_id_dep) n
-        where a.INV_ID = INV_ID_
-            and lower(a.hol_country) = lower(e.country_eng(+))
-            and upper(a.pd) = upper(b.name_eng(+)) and b.id_dep(+) = v_id_dep
-            and lower(a.hol_sub_type) = lower(c.name_cat(+)) and c.id_dep(+) = v_id_dep
-            --and a.h_code = d.NAME_CODE(+)
-            and (
-              upper(a.title) = upper(n.F_NAME(+)) and upper(a.h_code) = upper(n.name_code(+))
-            )
-*/
         order by
             case when (split_rose_=1 and v_id_dep = 62 and lower(a.hol_sub_type) = 'roses') then c.orderby + (case when instr(a.description,' ECUA ') > 0 then 0.2 else 0.1 end ) else c.orderby end
             , a.description
@@ -1440,7 +1440,8 @@ PROCEDURE CUSTOMS_INV_REG_INSERT_DATA
     TROLLEY_                    in varchar2,
     H_CODE_                     in varchar2,
     UPACK_                      in varchar2,
-    SRC_NAME_                   in varchar2
+    SRC_NAME_                   in varchar2,
+    REMARK_                     in varchar2
 )
 IS
   INV_DATA_AS_IS_ID_ number;
@@ -1484,6 +1485,7 @@ BEGIN
   VALUES (
     INV_ID_, INV_DATA_AS_IS_ID_, ORDER_NUMBER_, v_truck, PACKING_MARKS_, PACKING_AMOUNT_, AMOUNT_PER_UNIT_, UNITS_, PRICE_, SUMM_,
     TITLE_,DESCRIPTION_ , HOL_COUNTRY_, HOL_SUB_TYPE_, PD_, DIAMETR_, HEIGHT_, v_trolley, 0, trunc(sysdate), H_CODE_, UPACK_, SRC_NAME_, TROLLEY_
+    , REMARK_
   );
   commit;--decode(SRC_NAME_,'',descr,SRC_NAME_)
 
@@ -1980,10 +1982,14 @@ begin
     SELECT a.id, a.id_w, a.fs_country_id, a.fo_value
       , c.name_cat_ru
       , c.name_cat
-      , b.COUNTRY
+      , nvl(n.country, b.COUNTRY) as country
+      , a.ID_DEPARTMENTS
       FROM customs_weight_group_settings a
-      inner join countries b on b.C_ID = a.fs_country_id
-      inner join customs_weight c on c.id = a.id_w and c.ID_DEP = v_id_dep
+        left outer join (select 0 as c_id, 'Any country' as country from dual) n on n.C_ID = a.fs_country_id
+        left outer join countries b on b.C_ID = a.fs_country_id
+        inner join customs_weight c on c.id = a.id_w and c.ID_DEP = a.ID_DEPARTMENTS
+      where a.ID_DEPARTMENTS = v_id_dep
+      order by b.COUNTRY, ORDERBY
     ;
   EXCEPTION WHEN OTHERS THEN
       LOG_ERR(SQLERRM||chr(10)||dbms_utility.format_error_backtrace, SQLCODE, 'custom_pkg.get_custcoef', tmp_sql);
@@ -2001,12 +2007,13 @@ PROCEDURE save_custcoef
     , v_id_w        in number
     , v_country_id  in number
     , v_value       in number
+    , V_ID_DEP      in number
 )
 is
 begin
-  select count(*) into tmp_cnt from customs_weight_group_settings where  fs_country_id = v_country_id and id_w = v_id_w;
+  select count(*) into tmp_cnt from customs_weight_group_settings where fs_country_id = v_country_id and id_w = v_id_w and ID_DEPARTMENTS = V_ID_DEP;
   if tmp_cnt = 1 then
-    select id into v_id from customs_weight_group_settings where  fs_country_id = v_country_id and id_w = v_id_w;
+    select id into v_id from customs_weight_group_settings where fs_country_id = v_country_id and id_w = v_id_w and ID_DEPARTMENTS = V_ID_DEP;
   end if;
 
     if v_id > 0 then
@@ -2014,8 +2021,8 @@ begin
         update customs_weight_group_settings set fs_country_id = v_country_id, fo_value = v_value where id = v_id
         ;
     else
-        tmp_sql := 'insert into customs_weight_group_settings values(seq_weight.nextval, '||v_id_w||', '||v_country_id||', '||v_value||')';
-        insert into customs_weight_group_settings values(seq_weight.nextval, v_id_w, v_country_id, v_value)
+        tmp_sql := 'insert into customs_weight_group_settings values(seq_weight.nextval, '||v_id_w||', '||v_country_id||', '||v_value||', '||V_ID_DEP||')';
+        insert into customs_weight_group_settings values(seq_weight.nextval, v_id_w, v_country_id, v_value, V_ID_DEP)
         returning id into v_id
         ;
     end if;
@@ -2046,6 +2053,33 @@ begin
        RAISE_APPLICATION_ERROR (-20248, '«‡ÔÓÒ ÌÂ ‚˚ÔÓÎÌËÎÒˇ. ' || SQLERRM);
 
 end del_custcoef;
+
+
+
+--
+--   ÎÓÌËÛÂÏ Ú‡ÏÓÊÂÌÌÛ˛ ÒÂÚÍÛ ‚ÂÒÓ‚
+--
+PROCEDURE copy_cust_coef
+(
+    V_ID_DEP         in number
+    , V_CUR_COUNTRY  in number
+    , V_SEL_COUNTRY  in number
+)
+is
+begin
+
+  insert into customs_weight_group_settings (
+    select seq_weight.nextval, a.ID_W, V_SEL_COUNTRY, a.FO_VALUE, a.ID_DEPARTMENTS
+    from customs_weight_group_settings a
+    where a.FS_COUNTRY_ID = V_CUR_COUNTRY and a.ID_DEPARTMENTS = V_ID_DEP
+  );
+  commit;
+
+  EXCEPTION WHEN OTHERS THEN
+      LOG_ERR(SQLERRM||chr(10)||dbms_utility.format_error_backtrace, SQLCODE, 'copy_cust_coef.save_custcoef', tmp_sql);
+       RAISE_APPLICATION_ERROR (-20247, '«‡ÔÓÒ ÌÂ ‚˚ÔÓÎÌËÎÒˇ. ' || SQLERRM);
+
+end copy_cust_coef;
 
 
 
@@ -2122,6 +2156,62 @@ is
 begin
 
   open cursor_ for
+    select CUST_REGN, TRUCKS, NAME_CAT_RU, NAME_CAT, fo_rule, hol_country, COUNTRY, orderby
+      , sum(units) as units, sum(netto) as netto, sum(brutto) as brutto, sum(summ) as summ, max(telega) as telega, max(poddon) as poddon, fo_rule_name, comp_name
+      , sum(korobki) as packs
+      , sum(baki) as sideboards
+    from (
+      select a.*
+        , case when counter = 1 and upack is null then pp else 0 end korobki
+        , case when counter = 1 and upack is not null then pp else 0 end baki
+      from (
+        select a.*
+          , row_number() over(partition by src_trolley order by units desc) counter
+          , case
+              when fo_rule = 2 and cust_regn = 0603110000 then 'ƒÀ»ÕÕ¿ —“≈¡Àﬂ Œ“ 40 ƒŒ 60 —Ã'
+              when fo_rule = 3 and cust_regn = 0603110000 then 'ƒÀ»ÕÕ¿ —“≈¡Àﬂ Œ“ 70 ƒŒ 100 —Ã'
+              else null
+            end fo_rule_name
+          , NAME_CAT_RU || ' ' || case when fo_rule = 2 and cust_regn = 0603110000 then 'ƒÀ»ÕÕ¿ —“≈¡Àﬂ Œ“ 40 ƒŒ 60 —Ã' when fo_rule = 3 and cust_regn = 0603110000 then 'ƒÀ»ÕÕ¿ —“≈¡Àﬂ Œ“ 70 ƒŒ 100 —Ã' else '' end || ' ' || COUNTRY as comp_name
+        from (
+          select c.CUST_REGN, a.src_trolley, a.UPACK, min(a.PACKING_AMOUNT) pp, sum(a.units) as units
+                 , a.TRUCKS, NAME_CAT_RU, NAME_CAT
+                 , fo_rule
+                 , decode(a.hol_country,'','Holland',a.hol_country) as hol_country
+                 , t.COUNTRY
+                 , orderby
+                 , round(sum(STEM_WEIGHT*a.units)) as netto
+                 , round(sum((case when UPACK = 'W' then weight_tank else weight_pack end)*PACKING_AMOUNT + STEM_WEIGHT*a.units) + nvl(max(e.telega)*const_customs_telega,0) + nvl(max(e.poddon)*const_customs_poddon,0)) as brutto
+                 , sum(summ) as summ
+                 , max(nvl(e.telega,0)) as telega, max(nvl(e.poddon,0)) as poddon
+            FROM customs_inv_data_as_is a
+             left outer join (
+                 select w.id, w.NAME_CAT, nvl(wf.fo_rule,0) fo_rule, wf.fo_value, wf.FO_NAME, w.CUST_REGN, nvl(wf.V_WEIGHT, w.STEM_WEIGHT) as STEM_WEIGHT
+                        , w.weight_tank, w.weight_pack, NAME_CAT_RU, w.orderby
+                 from customs_weight w
+                   left outer join customs_weight_formula wf on wf.id_w = w.id and wf.fo_rule > 0
+                 where w.ID_DEP = v_id_dep
+                ) c on lower(c.NAME_CAT) = lower(a.hol_sub_type)
+                  and (
+                     (c.fo_rule = 3 and c.fo_value <= a.height)
+                      or
+                     (c.fo_rule = 2 and c.fo_value > a.height)
+                      or
+                     (c.fo_rule = 0)
+                    )
+              left outer join countries t on lower(t.country_eng) = lower(a.hol_country)
+              left outer join fito_category b on upper(b.name_eng) = upper(a.pd) and b.id_dep = v_id_dep
+              left outer join customs_inv_equipment e on e.inv_id = a.inv_id and e.id = c.id and e.truck = to_number(a.TRUCKS)
+            where a.inv_id = v_inv_id and to_number(a.TRUCKS) = v_truck
+            group by a.TRUCKS, CUST_REGN, a.src_trolley, a.UPACK, orderby, NAME_CAT_RU, NAME_CAT, fo_rule, decode(a.hol_country,'','Holland',a.hol_country), t.COUNTRY
+        ) a
+      ) a
+    ) a
+    group by TRUCKS, CUST_REGN, orderby, NAME_CAT_RU, NAME_CAT, fo_rule, hol_country, COUNTRY, fo_rule_name, comp_name
+    order by TRUCKS, orderby, NAME_CAT_RU, fo_rule, country
+    ;
+
+/*
     select a.*,
         case
           when fo_rule = 2 and cust_regn = 0603110000 then 'ƒÀ»ÕÕ¿ —“≈¡Àﬂ Œ“ 40 ƒŒ 60 —Ã'
@@ -2168,7 +2258,7 @@ begin
      ) a
      order by a.TRUCKS, orderby, NAME_CAT_RU, fo_rule, country
      ;
-
+*/
   EXCEPTION
   WHEN OTHERS THEN
        LOG_ERR(SQLERRM, SQLCODE, 'custom_pkg.get_fito_raport_page1', tmp_sql);
