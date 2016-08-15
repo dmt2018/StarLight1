@@ -122,6 +122,7 @@ begin
   a[3]:='192.168.12.23';  b[3]:='Ufa';//уфа
   a[4]:='192.168.15.23';  b[4]:='Ebg';//ебг
   a[5]:='192.168.2.7';    b[5]:='Samara';//samara
+   //a[5]:='83.242.248.139';
 
   try
     OraSession1.Username := 'creator';
@@ -148,7 +149,7 @@ if FindFirst('*.jpg', faAnyFile , sr)=0 then
 repeat
  if (sr.Name= '.') or (sr.Name='..') then continue;
   data:=getFileDate(sr.Name); // на самом деле это дата изменения а не создания
- if OraQuery1.FieldByName('date_change').Asdatetime < strtodatetime(data) then  begin
+ if OraQuery1.FieldByName('date_change').Asdatetime <= strtodatetime(data) then  begin
   memo3.Lines.Add(sr.Name);  application.processmessages;
   CopyFile(PChar('\\Stsrz_term1\ис2\images\61\'+sr.Name), PChar('\\'+a[i]+'\ис\images\61\'+sr.Name), false);  //второй параметр - это локал.пк
  end;
@@ -164,7 +165,7 @@ if FindFirst('*.jpg', faAnyFile , sr)=0 then
 repeat
  if (sr.Name= '.') or (sr.Name='..') then continue;
   data:=getFileDate(sr.Name);
- if OraQuery1.FieldByName('date_change').Asdatetime < strtodatetime(data) then  begin
+ if OraQuery1.FieldByName('date_change').Asdatetime <= strtodatetime(data) then  begin
   memo2.Lines.Add(sr.Name);   application.processmessages;
   CopyFile(PChar('\\Stsrz_term1\ис2\images\62\'+sr.Name), PChar('\\'+a[i]+'\ис\images\62\'+sr.Name), false);  //второй параметр - это локал.пк
  end;
@@ -180,7 +181,7 @@ if FindFirst('*.jpg', faAnyFile , sr)=0 then
 repeat
  if (sr.Name= '.') or (sr.Name='..') then continue;
   data:=getFileDate(sr.Name);
- if OraQuery1.FieldByName('date_change').Asdatetime < strtodatetime(data) then  begin
+ if OraQuery1.FieldByName('date_change').Asdatetime <= strtodatetime(data) then  begin
   memo1.Lines.Add(sr.Name);    application.processmessages;
   CopyFile(PChar('\\Stsrz_term1\ис2\images\121\'+sr.Name), PChar('\\'+a[i]+'\ис\images\121\'+sr.Name), false);  //второй параметр - это локал.пк
  end;
@@ -226,7 +227,7 @@ procedure TForm1.Timer1Timer(Sender: TObject);
 var sr:TSearchRec;     data:string;
 begin
  // if abs(time - strtotime('12:22:00')) <    strtotime('00:00:02') then start;
-if abs(time - strtotime('05:00:00')) <    strtotime('00:00:02') then MyThread.Execute;
+if abs(time - strtotime('5:00:00')) <    strtotime('00:00:02') then MyThread.Execute;
 end;
 
 
@@ -241,6 +242,7 @@ var
  sr:TSearchRec;
  data:string;  name:string;  mon,i:integer;
  a: array [1..5] of string;
+ b: array [1..5] of string;
 begin
 
  button6.Enabled:=false;
@@ -249,11 +251,12 @@ begin
  ShowMessage('Файл успешно скопирован!')
  else ShowMessage(SysErrorMessage(GetLastError));}
 
-  a[1]:='192.168.3.23';  //казань
-  a[2]:='192.168.11.23';  //череп
-  a[3]:='192.168.12.23';  //уфа
-  a[4]:='192.168.15.23';  //ебг
-  a[5]:='192.168.2.7'; //samara
+  a[1]:='192.168.3.23';   b[1]:='Kazan';//казань
+  a[2]:='192.168.11.23';  b[2]:='Cherepovez';//череп
+  a[3]:='192.168.12.23';  b[3]:='Ufa';//уфа
+  a[4]:='192.168.15.23';  b[4]:='Ebg';//ебг
+  a[5]:='192.168.2.7';    b[5]:='Samara';//samara
+ // a[5]:='83.242.248.139';
 
   try
     OraSession1.Username := 'creator';
@@ -279,13 +282,13 @@ if FindFirst('*.jpg', faAnyFile , sr)=0 then
 repeat
  if (sr.Name= '.') or (sr.Name='..') then continue;
   data:=getFileDate(sr.Name); // на самом деле это дата изменения а не создания
- if OraQuery1.FieldByName('date_change').Asdatetime < strtodatetime(data) then  begin
+ if OraQuery1.FieldByName('date_change').Asdatetime <= strtodatetime(data) then  begin
   memo3.Lines.Add(sr.Name);   application.processmessages;
   CopyFile(PChar('\\Stsrz_term1\ис2\images\61\'+sr.Name), PChar('\\'+a[i]+'\ис\images\61\'+sr.Name), false);  //второй параметр - это локал.пк
  end;
 until (FindNext(sr) <> 0) ;
  findclose(sr);
- memo3.Lines.Add(a[i]+' check');
+ memo3.Lines.Add(b[i]+' check');
 //------------------------------------------------------------
 
   Memo2.Lines.Clear;
@@ -295,13 +298,13 @@ if FindFirst('*.jpg', faAnyFile , sr)=0 then
 repeat
  if (sr.Name= '.') or (sr.Name='..') then continue;
   data:=getFileDate(sr.Name);
- if OraQuery1.FieldByName('date_change').Asdatetime < strtodatetime(data) then  begin
+ if OraQuery1.FieldByName('date_change').Asdatetime <= strtodatetime(data) then  begin
   memo2.Lines.Add(sr.Name);  application.processmessages;
   CopyFile(PChar('\\Stsrz_term1\ис2\images\62\'+sr.Name), PChar('\\'+a[i]+'\ис\images\62\'+sr.Name), false);  //второй параметр - это локал.пк
  end;
 until (FindNext(sr) <> 0) ;
  findclose(sr);
- memo2.Lines.Add(a[i]+' check');
+ memo2.Lines.Add(b[i]+' check');
 //------------------------------------------------------------
 
   Memo1.Lines.Clear;
@@ -311,13 +314,13 @@ if FindFirst('*.jpg', faAnyFile , sr)=0 then
 repeat
  if (sr.Name= '.') or (sr.Name='..') then continue;
   data:=getFileDate(sr.Name);
- if OraQuery1.FieldByName('date_change').Asdatetime < strtodatetime(data) then  begin
+ if OraQuery1.FieldByName('date_change').Asdatetime <= strtodatetime(data) then  begin
   memo1.Lines.Add(sr.Name);   application.processmessages;
   CopyFile(PChar('\\Stsrz_term1\ис2\images\121\'+sr.Name), PChar('\\'+a[i]+'\ис\images\121\'+sr.Name), false);  //второй параметр - это локал.пк
  end;
 until (FindNext(sr) <> 0) ;
  findclose(sr);
- memo1.Lines.Add(a[i]+' check');
+ memo1.Lines.Add(b[i]+' check');
 
 END;
 
