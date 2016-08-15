@@ -140,7 +140,7 @@ begin
      end;
     cdsSQL.Next;
     end;
-   cdsSQL.Close;
+   cdsSQL.Close; 
 end;
 
   {

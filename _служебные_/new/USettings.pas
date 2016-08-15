@@ -102,8 +102,27 @@ end;
 procedure TfrmSettings.FormShow(Sender: TObject);
 begin
  // dm.cdsDeps.Close; //список отделов получен - закрываю
+   {
    cbFont.EditValue  := intDefFont;
    cbOtdel.EditValue := intDefDept;
+    }
+ with dm do begin
+   cdsSQL.Close;
+   cdsSQL.SQL.clear;
+   cdsSQL.SQL.Add('begin service_pkg.get_user_setting(:cursor_);end;');
+   cdsSQL.ParamByName('cursor_').AsCursor;
+   cdsSQL.open;
+   cdsSQL.First;
+    while not cdsSQL.Eof do
+    begin
+     if (orasession.Username = cdsSQL.FieldByName('DB_USER').value) then begin
+      if (cdsSQL.FieldByName('STG_KEY').value = 'FontSize')   then cbFont.EditValue := cdsSQL.FieldByName('STG_VALUE').Asinteger;
+      if (cdsSQL.FieldByName('STG_KEY').value = 'Department') then cbOtdel.EditValue := cdsSQL.FieldByName('STG_VALUE').Asinteger;
+     end;
+    cdsSQL.Next;
+    end;
+   cdsSQL.Close;
+ end;
 end;
 
 end.

@@ -21,9 +21,6 @@ object frmNSICurreny: TfrmNSICurreny
     Height = 410
     Align = alClient
     TabOrder = 4
-    ExplicitLeft = 16
-    ExplicitTop = 70
-    ExplicitWidth = 721
     object grCurrencyView: TcxGridDBTableView
       NavigatorButtons.ConfirmDelete = False
       NavigatorButtons.First.Visible = True

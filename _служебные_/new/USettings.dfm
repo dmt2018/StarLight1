@@ -26,7 +26,6 @@ object frmSettings: TfrmSettings
     Height = 50
     Align = alBottom
     TabOrder = 0
-    ExplicitTop = 379
     object btnSav: TcxButton
       Left = 392
       Top = 14
@@ -65,10 +64,6 @@ object frmSettings: TfrmSettings
     Height = 211
     Align = alClient
     TabOrder = 1
-    ExplicitLeft = 104
-    ExplicitTop = 232
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object pcSettings: TcxPageControl
       Left = 1
       Top = 1
@@ -77,10 +72,6 @@ object frmSettings: TfrmSettings
       ActivePage = tshMain
       Align = alClient
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 628
-      ExplicitHeight = 185
       ClientRectBottom = 209
       ClientRectRight = 626
       ClientRectTop = 24
@@ -95,8 +86,6 @@ object frmSettings: TfrmSettings
         ImageIndex = 0
         ParentColor = False
         ParentFont = False
-        ExplicitWidth = 628
-        ExplicitHeight = 161
         object cbOtdel: TcxImageComboBox
           Left = 24
           Top = 35

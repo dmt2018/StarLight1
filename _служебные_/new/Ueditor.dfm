@@ -17,7 +17,7 @@ object frmeditor: Tfrmeditor
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
-  object Label1: TLabel
+  object Lbl1: TLabel
     Left = 8
     Top = 29
     Width = 34
@@ -30,7 +30,7 @@ object frmeditor: Tfrmeditor
     Font.Style = []
     ParentFont = False
   end
-  object Label2: TLabel
+  object Lbl2: TLabel
     Left = 8
     Top = 75
     Width = 59
@@ -43,7 +43,7 @@ object frmeditor: Tfrmeditor
     Font.Style = []
     ParentFont = False
   end
-  object Label3: TLabel
+  object Lbl3: TLabel
     Left = 8
     Top = 105
     Width = 58
@@ -56,7 +56,7 @@ object frmeditor: Tfrmeditor
     Font.Style = []
     ParentFont = False
   end
-  object Label4: TLabel
+  object Lbl4: TLabel
     Left = 8
     Top = 129
     Width = 96
@@ -69,7 +69,7 @@ object frmeditor: Tfrmeditor
     Font.Style = []
     ParentFont = False
   end
-  object Label5: TLabel
+  object Lbl5: TLabel
     Left = 8
     Top = 159
     Width = 96
@@ -82,7 +82,7 @@ object frmeditor: Tfrmeditor
     Font.Style = []
     ParentFont = False
   end
-  object Label6: TLabel
+  object Lbl6: TLabel
     Left = 108
     Top = 56
     Width = 35
@@ -95,7 +95,7 @@ object frmeditor: Tfrmeditor
     Font.Style = []
     ParentFont = False
   end
-  object Label7: TLabel
+  object Lbl7: TLabel
     Left = 234
     Top = 55
     Width = 50
@@ -108,7 +108,7 @@ object frmeditor: Tfrmeditor
     Font.Style = []
     ParentFont = False
   end
-  object SpeedButton1: TSpeedButton
+  object sbtn1: TSpeedButton
     Left = 203
     Top = 128
     Width = 23
@@ -127,9 +127,9 @@ object frmeditor: Tfrmeditor
       0333337F777777737F333308888888880333337F333333337F33330888888888
       03333373FFFFFFFF733333700000000073333337777777773333}
     NumGlyphs = 2
-    OnClick = SpeedButton1Click
+    OnClick = sbtn1Click
   end
-  object SpeedButton2: TSpeedButton
+  object SBtn2: TSpeedButton
     Left = 203
     Top = 156
     Width = 23
@@ -148,9 +148,9 @@ object frmeditor: Tfrmeditor
       0333337F777777737F333308888888880333337F333333337F33330888888888
       03333373FFFFFFFF733333700000000073333337777777773333}
     NumGlyphs = 2
-    OnClick = SpeedButton2Click
+    OnClick = SBtn2Click
   end
-  object SpeedButton3: TSpeedButton
+  object SBtn3: TSpeedButton
     Left = 331
     Top = 127
     Width = 23
@@ -169,9 +169,9 @@ object frmeditor: Tfrmeditor
       0333337F777777737F333308888888880333337F333333337F33330888888888
       03333373FFFFFFFF733333700000000073333337777777773333}
     NumGlyphs = 2
-    OnClick = SpeedButton3Click
+    OnClick = SBtn3Click
   end
-  object SpeedButton4: TSpeedButton
+  object SBtn4: TSpeedButton
     Left = 331
     Top = 155
     Width = 23
@@ -190,7 +190,7 @@ object frmeditor: Tfrmeditor
       0333337F777777737F333308888888880333337F333333337F33330888888888
       03333373FFFFFFFF733333700000000073333337777777773333}
     NumGlyphs = 2
-    OnClick = SpeedButton4Click
+    OnClick = SBtn4Click
   end
   object cxDateEdit1: TcxDateEdit
     Left = 108
@@ -246,14 +246,13 @@ object frmeditor: Tfrmeditor
     TabOrder = 8
     Width = 93
   end
-  object cxButton1: TcxButton
+  object btnSav: TcxButton
     Left = 16
-    Top = 192
+    Top = 200
     Width = 88
     Height = 35
-    Caption = #1047#1072#1087#1080#1089#1072#1090#1100
+    Action = Action1
     TabOrder = 9
-    OnClick = cxButton1Click
     Glyph.Data = {
       76060000424D7606000000000000360400002800000018000000180000000100
       08000000000040020000320B0000320B00000001000000000000942121009429
@@ -308,14 +307,14 @@ object frmeditor: Tfrmeditor
       64646464645C37150C66666666093D514D4D4D4D4D4D4D4D4D4D4D4D4D4D3611
       6666666666666666666666666666666666666666666666666666}
   end
-  object cxButton2: TcxButton
+  object btnClos: TcxButton
     Left = 232
-    Top = 192
+    Top = 200
     Width = 91
     Height = 35
     Caption = #1047#1072#1082#1088#1099#1090#1100
     TabOrder = 10
-    OnClick = cxButton2Click
+    OnClick = btnClosClick
     Glyph.Data = {
       F6060000424DF606000000000000360000002800000018000000180000000100
       180000000000C0060000120B0000120B00000000000000000000FF00FFFF00FF
@@ -377,5 +376,9 @@ object frmeditor: Tfrmeditor
   object ActionList1: TActionList
     Left = 136
     Top = 184
+    object Action1: TAction
+      Caption = 'Action1'
+      OnExecute = Action1Execute
+    end
   end
 end

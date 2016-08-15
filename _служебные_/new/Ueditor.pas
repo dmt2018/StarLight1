@@ -10,13 +10,13 @@ uses
 
 type
   Tfrmeditor = class(TForm)
-    Label1: TLabel;
-    Label2: TLabel;
-    Label3: TLabel;
-    Label4: TLabel;
-    Label5: TLabel;
-    Label6: TLabel;
-    Label7: TLabel;
+    Lbl1: TLabel;
+    Lbl2: TLabel;
+    Lbl3: TLabel;
+    Lbl4: TLabel;
+    Lbl5: TLabel;
+    Lbl6: TLabel;
+    Lbl7: TLabel;
     cxDateEdit1: TcxDateEdit;
     Ed1: TcxCurrencyEdit;
     Ed2: TcxCurrencyEdit;
@@ -26,20 +26,21 @@ type
     Ed6: TcxCurrencyEdit;
     Ed7: TcxCurrencyEdit;
     Ed8: TcxCurrencyEdit;
-    cxButton1: TcxButton;
-    cxButton2: TcxButton;
+    btnSav: TcxButton;
+    btnClos: TcxButton;
     ActionList1: TActionList;
-    SpeedButton1: TSpeedButton;
-    SpeedButton2: TSpeedButton;
-    SpeedButton3: TSpeedButton;
-    SpeedButton4: TSpeedButton;
+    sbtn1: TSpeedButton;
+    SBtn2: TSpeedButton;
+    SBtn3: TSpeedButton;
+    SBtn4: TSpeedButton;
+    Action1: TAction;
     procedure FormShow(Sender: TObject);
-    procedure cxButton2Click(Sender: TObject);
-    procedure cxButton1Click(Sender: TObject);
-    procedure SpeedButton1Click(Sender: TObject);
-    procedure SpeedButton2Click(Sender: TObject);
-    procedure SpeedButton3Click(Sender: TObject);
-    procedure SpeedButton4Click(Sender: TObject);
+    procedure btnClosClick(Sender: TObject);
+    procedure sbtn1Click(Sender: TObject);
+    procedure SBtn2Click(Sender: TObject);
+    procedure SBtn3Click(Sender: TObject);
+    procedure SBtn4Click(Sender: TObject);
+    procedure Action1Execute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -75,8 +76,9 @@ Begin
   end;
 end;
 
+
 //запись
-procedure Tfrmeditor.cxButton1Click(Sender: TObject);
+procedure Tfrmeditor.Action1Execute(Sender: TObject);
  var ddd: TDate;
 begin
   Ed1.PostEditValue;
@@ -116,7 +118,7 @@ begin
 end;
 
 //закрыть
-procedure Tfrmeditor.cxButton2Click(Sender: TObject);
+procedure Tfrmeditor.btnClosClick(Sender: TObject);
 begin
  close;
 end;
@@ -126,28 +128,28 @@ begin
  cxDateEdit1.SetFocus;
 end;
 
-procedure Tfrmeditor.SpeedButton1Click(Sender: TObject);
+procedure Tfrmeditor.sbtn1Click(Sender: TObject);
 begin
   Ed1.PostEditValue;
   Ed2.PostEditValue;
   Ed3.EditValue := Ed2.EditValue / Ed1.EditValue;
 end;
 
-procedure Tfrmeditor.SpeedButton2Click(Sender: TObject);
+procedure Tfrmeditor.SBtn2Click(Sender: TObject);
 begin
   Ed1.PostEditValue;
   Ed2.PostEditValue;
   Ed4.EditValue := Ed1.EditValue / Ed2.EditValue;
 end;
 
-procedure Tfrmeditor.SpeedButton3Click(Sender: TObject);
+procedure Tfrmeditor.SBtn3Click(Sender: TObject);
 begin
   Ed5.PostEditValue;
   Ed6.PostEditValue;
   Ed7.EditValue := Ed6.EditValue / Ed5.EditValue;
 end;
 
-procedure Tfrmeditor.SpeedButton4Click(Sender: TObject);
+procedure Tfrmeditor.SBtn4Click(Sender: TObject);
 begin
   Ed5.PostEditValue;
   Ed6.PostEditValue;

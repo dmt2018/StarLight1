@@ -169,7 +169,7 @@ end;
 
 procedure TfrmNSICurreny.btnEditClick(Sender: TObject);
 begin
-     if (id_office <> Q_CURR.FieldByName('ID_OFFICE').AsInteger) then
+  if (id_office <> Q_CURR.FieldByName('ID_OFFICE').AsInteger) then
   begin
     MessageBox(Handle,'Данная запись не принадлежит главному офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
     exit;
