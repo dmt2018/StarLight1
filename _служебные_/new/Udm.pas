@@ -14,6 +14,7 @@ type
     cdsDeps: TOraQuery;
     cdsSQL: TOraQuery;
     cxImglst: TcxImageList;
+    cdsSettings: TOraQuery;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
     procedure OraSessionAfterConnect(Sender: TObject);
@@ -140,7 +141,7 @@ begin
      end;
     cdsSQL.Next;
     end;
-   cdsSQL.Close; 
+   cdsSQL.Close;  
 end;
 
   {

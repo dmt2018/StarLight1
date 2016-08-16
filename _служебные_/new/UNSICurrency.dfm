@@ -225,19 +225,13 @@ object frmNSICurreny: TfrmNSICurreny
       AutoGrayScale = False
     end
     object btnEdit: TdxBarLargeButton
-      Caption = #1048#1079#1084#1077#1085#1080#1090#1100
+      Action = aEdit
       Category = 0
-      Hint = #1048#1079#1084#1077#1085#1080#1090#1100
-      Visible = ivAlways
-      OnClick = btnEditClick
       AutoGrayScale = False
     end
     object btnDelete: TdxBarLargeButton
-      Caption = #1059#1076#1072#1083#1080#1090#1100
+      Action = aDelete
       Category = 0
-      Hint = #1059#1076#1072#1083#1080#1090#1100
-      Visible = ivAlways
-      OnClick = btnDeleteClick
       AutoGrayScale = False
     end
     object imgOffice: TcxBarEditItem
@@ -407,10 +401,12 @@ object frmNSICurreny: TfrmNSICurreny
     object aEdit: TAction
       Category = 'Main'
       Caption = #1048#1079#1084#1077#1085#1080#1090#1100
+      OnExecute = aEditExecute
     end
     object aDelete: TAction
       Category = 'Main'
       Caption = #1059#1076#1072#1083#1080#1090#1100
+      OnExecute = aDeleteExecute
     end
   end
   object Q_CURR_DS: TOraDataSource

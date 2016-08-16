@@ -77,6 +77,7 @@ Begin
 end;
 
 
+
 //запись
 procedure Tfrmeditor.Action1Execute(Sender: TObject);
  var ddd: TDate;

@@ -68,10 +68,10 @@ type
     procedure btnExitClick(Sender: TObject);
     procedure imgOfficePropertiesChange(Sender: TObject);
     procedure dxBarButton4Click(Sender: TObject);
-    procedure btnDeleteClick(Sender: TObject);
     procedure btnHelpClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure aEditExecute(Sender: TObject);
+    procedure aDeleteExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -103,6 +103,50 @@ Begin
   end
   else
    if (frmNSICurreny.WindowState = wsMinimized) then frmNSICurreny.WindowState := wsNormal;
+end;
+
+//удалить
+procedure TfrmNSICurreny.aDeleteExecute(Sender: TObject);
+begin
+     if (id_office <> Q_CURR.FieldByName('ID_OFFICE').AsInteger) then
+  begin
+    MessageBox(Handle,'Данная запись не принадлежит главному офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
+    exit;
+  end;
+
+
+  if MessageDlg('Вы действительно хотите удалить курсы?',mtConfirmation,[mbYes, mbNo],0) = mrYes then
+  begin
+     OraSQL2.ParamByName('P1').AsDate := Q_CURR.FieldByName('DDATE').AsDateTime;
+     try
+        OraSQL2.Execute;
+        Q_CURR.Refresh;
+     except
+        on E: Exception do ShowMessage('Ошибка! ' + E.Message);
+     end;
+  end;
+end;
+
+//изменить
+procedure TfrmNSICurreny.aEditExecute(Sender: TObject);
+begin
+    if (id_office <> Q_CURR.FieldByName('ID_OFFICE').AsInteger) then
+  begin
+    MessageBox(Handle,'Данная запись не принадлежит главному офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
+    exit;
+  end;
+
+  frmeditor.cxDateEdit1.Date := Q_CURR.FieldByName('DDATE').AsDateTime;
+  frmeditor.Ed1.EditValue := Q_CURR.FieldByName('USD').AsFloat;
+  frmeditor.Ed2.EditValue := Q_CURR.FieldByName('EUR').AsFloat;
+  frmeditor.Ed3.EditValue := Q_CURR.FieldByName('USD_EUR').AsFloat;
+  frmeditor.Ed4.EditValue := Q_CURR.FieldByName('EUR_USD').AsFloat;
+  frmeditor.Ed5.EditValue := Q_CURR.FieldByName('SHEV_USD').AsFloat;
+  frmeditor.Ed6.EditValue := Q_CURR.FieldByName('SHEV_EUR').AsFloat;
+  frmeditor.Ed7.EditValue := Q_CURR.FieldByName('SHEV_USD_EUR').AsFloat;
+  frmeditor.Ed8.EditValue := Q_CURR.FieldByName('SHEV_EUR_USD').AsFloat;
+  frmeditor.Showmodal;
+  grCurrency.SetFocus;
 end;
 
 //добавить
@@ -144,48 +188,6 @@ begin
    dm.cdsSQL.open;
     grCur  := dm.cdsSQL.FieldByName('SHEV_USD').AsFloat;
    dm.cdsSQL.Close;     }
-end;
-
-procedure TfrmNSICurreny.btnDeleteClick(Sender: TObject);
-begin
-    if (id_office <> Q_CURR.FieldByName('ID_OFFICE').AsInteger) then
-  begin
-    MessageBox(Handle,'Данная запись не принадлежит главному офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
-    exit;
-  end;
-
-
-  if MessageDlg('Вы действительно хотите удалить курсы?',mtConfirmation,[mbYes, mbNo],0) = mrYes then
-  begin
-     OraSQL2.ParamByName('P1').AsDate := Q_CURR.FieldByName('DDATE').AsDateTime;
-     try
-        OraSQL2.Execute;
-        Q_CURR.Refresh;
-     except
-        on E: Exception do ShowMessage('Ошибка! ' + E.Message);
-     end;
-  end;
-end;
-
-procedure TfrmNSICurreny.btnEditClick(Sender: TObject);
-begin
-  if (id_office <> Q_CURR.FieldByName('ID_OFFICE').AsInteger) then
-  begin
-    MessageBox(Handle,'Данная запись не принадлежит главному офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
-    exit;
-  end;
-
-  frmeditor.cxDateEdit1.Date := Q_CURR.FieldByName('DDATE').AsDateTime;
-  frmeditor.Ed1.EditValue := Q_CURR.FieldByName('USD').AsFloat;
-  frmeditor.Ed2.EditValue := Q_CURR.FieldByName('EUR').AsFloat;
-  frmeditor.Ed3.EditValue := Q_CURR.FieldByName('USD_EUR').AsFloat;
-  frmeditor.Ed4.EditValue := Q_CURR.FieldByName('EUR_USD').AsFloat;
-  frmeditor.Ed5.EditValue := Q_CURR.FieldByName('SHEV_USD').AsFloat;
-  frmeditor.Ed6.EditValue := Q_CURR.FieldByName('SHEV_EUR').AsFloat;
-  frmeditor.Ed7.EditValue := Q_CURR.FieldByName('SHEV_USD_EUR').AsFloat;
-  frmeditor.Ed8.EditValue := Q_CURR.FieldByName('SHEV_EUR_USD').AsFloat;
-  frmeditor.Showmodal;
-  grCurrency.SetFocus;
 end;
 
 procedure TfrmNSICurreny.btnExitClick(Sender: TObject);

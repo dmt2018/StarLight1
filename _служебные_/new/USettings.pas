@@ -78,7 +78,7 @@ begin
   p_key[1] := 'FontSize';    p_val[1] := intDefFont;
   p_key[2] := 'Department';  p_val[2] := intDefDept;
 
-  for i := 1 to 2 do begin
+ { for i := 1 to 2 do begin
     dm.cdsSQL.Close;
      dm.cdsSQL.SQL.clear;
       dm.cdsSQL.SQL.Add('begin service_pkg.save_user_setting(:p_key, :p_val);end;');
@@ -87,7 +87,33 @@ begin
       dm.cdsSQL.execute;
      dm.OraSession.Commit;
     dm.cdsSQL.Close;
-  end;
+  end;    }
+
+
+//------cdssettings открыто с момента открыти€ формы и хранит настройки---------------------
+for i := 1 to 2 do begin
+    dm.cdsSQL.Close;
+     dm.cdsSQL.SQL.clear;
+      dm.cdsSQL.SQL.Add('begin service_pkg.save_user_setting(:p_key, :p_val);end;');
+
+       dm.cdssettings.First;
+        while not dm.cdssettings.Eof do begin
+         if (dm.orasession.Username = dm.cdssettings.FieldByName('DB_USER').value) then
+         if (dm.cdssettings.FieldByName('STG_KEY').value = p_key[i])
+         and (dm.cdssettings.FieldByName('STG_VALUE').Asinteger <> p_val[i]) then begin
+           dm.cdsSQL.ParamByName('p_key').value := p_key[i];
+           dm.cdsSQL.ParamByName('p_val').value := p_val[i];
+           dm.cdsSQL.execute;
+         end;
+         dm.cdssettings.Next;
+        end;
+
+     dm.OraSession.Commit;
+    dm.cdsSQL.Close;
+end;
+
+dm.cdssettings.close; // закрываю при закрытии формы
+//-------------------------------------------------------------------------------------
 
   Close;
 end;
@@ -106,8 +132,27 @@ begin
    cbFont.EditValue  := intDefFont;
    cbOtdel.EditValue := intDefDept;
     }
+
+// при открытии формы считываю знач.шрифта и отдела дл€ текущ.юзера на форму
  with dm do begin
-   cdsSQL.Close;
+   cdssettings.ParamByName('cursor_').AsCursor;
+   cdssettings.Open;
+   cdssettings.First;
+   while not cdssettings.Eof do
+    begin
+      if (orasession.Username = cdssettings.FieldByName('DB_USER').value) then begin
+        if (cdssettings.FieldByName('STG_KEY').value = 'FontSize')   then cbFont.EditValue  := cdssettings.FieldByName('STG_VALUE').Asinteger;
+        if (cdssettings.FieldByName('STG_KEY').value = 'Department') then cbOtdel.EditValue := cdssettings.FieldByName('STG_VALUE').Asinteger;
+      end;
+    cdssettings.Next;
+    end;
+
+
+  // сохран€ю значени€ в переменные:
+  //intDefFont := cbFont.EditValue;
+  //intDefDept := cbOtdel.EditValue;
+
+  { cdsSQL.Close;
    cdsSQL.SQL.clear;
    cdsSQL.SQL.Add('begin service_pkg.get_user_setting(:cursor_);end;');
    cdsSQL.ParamByName('cursor_').AsCursor;
@@ -121,7 +166,7 @@ begin
      end;
     cdsSQL.Next;
     end;
-   cdsSQL.Close;
+   cdsSQL.Close; }
  end;
 end;
 
