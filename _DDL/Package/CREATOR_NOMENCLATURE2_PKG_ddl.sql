@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.NOMENCLATURE2_PKG
--- Generated 25.06.2016 17:53:20 from CREATOR@STAR_NEW
+-- Generated 17.08.2016 21:54:21 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE nomenclature2_pkg
@@ -199,7 +199,8 @@ PROCEDURE  gen_h_code (
 -- Изменяем активность номенклатуры по поставщику
 --
 PROCEDURE set_active_noms_by_suplier (
-   v_s_id      in number
+   v_s_id      in number,
+   v_id_dep    in number
 );
 
 
@@ -992,13 +993,14 @@ END gen_h_code;
 -- Изменяем активность номенклатуры по поставщику
 --
 PROCEDURE set_active_noms_by_suplier (
-   v_s_id      in number
+   v_s_id      in number,
+   v_id_dep    in number
 )
 is
 begin
 
-  update nomenclature a set a.notuse = abs(a.notuse-1), date_change = sysdate where a.s_id = v_s_id;
-  update nomenclature_mat_view a set a.notuse = abs(a.notuse-1), date_change = sysdate where a.s_id = v_s_id;
+  update nomenclature a set a.notuse = abs(a.notuse-1), date_change = sysdate where a.s_id = v_s_id and a.fn_id in ( select b.fn_id from flower_names b where b.ID_DEPARTMENTS = v_id_dep );
+  update nomenclature_mat_view a set a.notuse = abs(a.notuse-1), date_change = sysdate where a.id_departments = v_id_dep and a.s_id = v_s_id;
   commit;
 
 EXCEPTION

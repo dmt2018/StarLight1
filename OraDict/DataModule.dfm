@@ -360,18 +360,19 @@ object DM: TDM
     Session = SelectSession
     SQL.Strings = (
       'select rownum as nn, a.* '
-      ', case when nn = bb then 1 else 0 end is_active'
+      '  , case when nn = bb then 1 else 0 end is_active'
       'from ('
       
-        'SELECT S_ID, S_NAME_RU, C_ID, COUNTRY, NEED_CUST, id_office, ana' +
-        'lyze_days'
-      'FROM SUPPLIERS_VIEW '
-      'WHERE (NOT (S_ID = 0)) and id_office = :v_office'
-      'ORDER BY S_NAME_RU'
+        '  SELECT S_ID, S_NAME_RU, C_ID, COUNTRY, NEED_CUST, id_office, a' +
+        'nalyze_days'
+      '  FROM SUPPLIERS_VIEW '
+      '  WHERE (NOT (S_ID = 0)) and id_office = :v_office'
+      ') a'
       
-        ') a, (select count(*) as nn, sum(notuse) as bb, s_id from nomenc' +
-        'lature z group by s_id ) b'
-      'where a.s_id = b.s_id')
+        '  left outer join (select count(*) as nn, sum(notuse) as bb, s_i' +
+        'd from nomenclature_mat_view z where z.id_departments = :ID_DEPA' +
+        'RTMENTS group by s_id ) b on b.s_id = a.s_id'
+      'ORDER BY S_NAME_RU')
     FetchAll = True
     FilterOptions = [foCaseInsensitive]
     BeforeOpen = SuppliersAfterOpen
@@ -384,6 +385,11 @@ object DM: TDM
         ParamType = ptInput
         Value = Null
         ExtDataType = 107
+      end
+      item
+        DataType = ftInteger
+        Name = 'ID_DEPARTMENTS'
+        ParamType = ptInput
       end>
     object SuppliersS_ID: TFloatField
       FieldName = 'S_ID'

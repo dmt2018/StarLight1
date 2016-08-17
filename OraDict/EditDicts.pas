@@ -435,6 +435,7 @@ begin
   DM.FNameTransLink.ParamByName('ID_DEPARTMENTS').Value := CUR_DEPT_ID;
   ReactivateOraQuery(DM.FNameTransLink);
   ReactivateOraQuery(DM.Countries);
+  DM.Suppliers.ParamByName('ID_DEPARTMENTS').Value := CUR_DEPT_ID;
   ReactivateOraQuery(DM.Suppliers);
   ReactivateOraQuery(DM.cds_def_pack);
   ReactivateOraQuery(DM.cds_units);
@@ -2344,8 +2345,9 @@ begin
   begin
       DM.SelQ.Close;
       DM.SelQ.SQL.Clear;
-      DM.SelQ.SQL.Add('begin nomenclature2_pkg.set_active_noms_by_suplier(:v_s_id); end;');
-      DM.SelQ.ParamByName('v_s_id').Value := id;
+      DM.SelQ.SQL.Add('begin nomenclature2_pkg.set_active_noms_by_suplier(:v_s_id, :v_id_dep); end;');
+      DM.SelQ.ParamByName('v_s_id').Value   := id;
+      DM.SelQ.ParamByName('v_id_dep').Value := CUR_DEPT_ID;
       DM.SelQ.Execute;
 
       DM.Suppliers.Refresh;

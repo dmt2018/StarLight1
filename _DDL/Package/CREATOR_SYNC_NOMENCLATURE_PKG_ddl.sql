@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.SYNC_NOMENCLATURE_PKG
--- Generated 09.07.2016 2:40:08 from CREATOR@STAR_NEW
+-- Generated 17.08.2016 22:09:27 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE sync_nomenclature_pkg
@@ -55,6 +55,7 @@ CREATE OR REPLACE
 PACKAGE BODY sync_nomenclature_pkg
 IS
 
+
 -- логирование работы синхронизации
 PROCEDURE ins_log
 (
@@ -106,6 +107,9 @@ begin
   sql_str := 'INSERT INTO sync_hol_specifications@'||v_link||' ( select * from hol_specifications )';
   execute immediate sql_str;
 
+  sql_str := 'begin creator.sync_local_data.SYNC_ALL_DICTS@'||v_link||'; end;';
+  execute immediate sql_str;
+
   commit;
 
   EXCEPTION
@@ -127,44 +131,57 @@ is
   TYPE names_table IS TABLE OF VARCHAR2(10);
   names names_table;
 
-  dt date;
-  v_code number;
-  total integer;
+  dt      date;
+  v_code  number;
+  total   integer;
   res_str varchar2(100);
   sql_str varchar2(1000);
+  cnt     number;
 begin
   dt      := sysdate;
   names   := names_table('samara', 'kazan', 'ufa', 'cherep', 'eburg');
   total   := names.count;
   res_str := '';
   FOR i IN 1 .. total LOOP
+    cnt := 0;
     begin
       sql_str := 'select 1 from dual@'||names(i);
-      execute immediate sql_str;
-
-      clear_tmp_data(names(i));
-      SYNC_ALL_DICTS(names(i));
-
-      sql_str := 'INSERT INTO SYNC_nomenclature@'||names(i)||' ( select * from nomenclature WHERE id_office=1 and DATE_CHANGE <= :p1)';
-      execute immediate sql_str using dt;
-      sql_str := 'INSERT INTO SYNC_nom_specifications@'||names(i)||' ( select * from nom_specifications WHERE id_office=1 and n_id in (select n_id from nomenclature WHERE id_office=1 and DATE_CHANGE <= :p1 ) )';
-      execute immediate sql_str using dt;
-      commit;
-
-      sql_str := 'begin creator.sync_local_data.SYNC_ALL_DICTS@'||names(i)||'; end;';
-      execute immediate sql_str;
-
-      sql_str := 'begin creator.sync_local_data.SYNC_ALL_NOMENCLATURE@'||names(i)||'(0); end;';
-      execute immediate sql_str;
-
-      commit;
-      --DBMS_SESSION.CLOSE_DATABASE_LINK(names(i));
-
+      execute immediate sql_str into cnt;
     EXCEPTION
       WHEN OTHERS THEN
-        res_str :=  res_str ||chr(10)||'Ошибка (номенклатура) :: '||names(i);
-        ins_log(SQLERRM || ' ' || DBMS_UTILITY.format_error_backtrace, SQLCODE, user, sql_str);
+        res_str :=  res_str ||chr(10)||'Ошибка соединения - '||names(i);
     end;
+
+    if cnt = 1 then
+      begin
+        clear_tmp_data(names(i));
+        commit;
+        SYNC_ALL_DICTS(names(i));
+        commit;
+
+        sql_str := 'INSERT INTO SYNC_nomenclature@'||names(i)||' ( select a.n_id, a.fn_id, a.fst_id, a.s_id, a.c_id, a.h_code, a.h_name,
+         a.len, a.pack, a.col_id, a.vbn, a.hol_type, a.weight, a.bar_code,
+         a.code, a.diameter, a.cust_coef, a.remarks, a.photo,
+         a.h_namecode, a.id_office, a.date_change, a.noprint, 0 as notuse,
+         a.tnved, a.weightdry, a.nom_new, a.nom_start, a.nom_end,
+         a.hol_color, a.hol_pack from nomenclature a WHERE a.id_office=1 and a.DATE_CHANGE <= :p1)';
+        execute immediate sql_str using dt;
+        sql_str := 'INSERT INTO SYNC_nom_specifications@'||names(i)||' ( select * from nom_specifications WHERE id_office=1 and n_id in (select n_id from nomenclature WHERE id_office=1 and DATE_CHANGE <= :p1 ) )';
+        execute immediate sql_str using dt;
+        commit;
+
+        sql_str := 'begin creator.sync_local_data.SYNC_ALL_NOMENCLATURE@'||names(i)||'(0); end;';
+        execute immediate sql_str;
+        commit;
+
+      EXCEPTION
+        WHEN OTHERS THEN
+          res_str :=  res_str ||chr(10)||'Ошибка синхронизации - '||names(i);
+          ins_log(SQLERRM || ' ' || DBMS_UTILITY.format_error_backtrace, SQLCODE, user, sql_str);
+      end;
+
+    end if;
+
   end loop;
   v_res := res_str;
   ins_log('', 0, user, res_str);
@@ -221,10 +238,6 @@ end clear_tmp_data;
 END;
 /
 
-create public synonym sync_nomenclature_pkg for creator.sync_nomenclature_pkg
-/
-grant execute on sync_nomenclature_pkg to new_role
-/
 
 -- End of DDL Script for Package Body CREATOR.SYNC_NOMENCLATURE_PKG
 
