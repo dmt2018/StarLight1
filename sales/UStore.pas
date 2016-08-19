@@ -388,6 +388,7 @@ var
   RegIni : TIniFile;
 begin
   try
+
     aExport.Enabled     := pr;
     aMakeNakl.Enabled   := ed;
     aSetStatus.Enabled  := ed;
@@ -434,6 +435,8 @@ begin
     gr_main.FieldColumns['BRIEF'].Visible       := not (GetOfficeID = DM.id_office);
     grid_allnakl_vBRIEF.Visible                 := gr_main.FieldColumns['BRIEF'].Visible;
     grid_allreserv_vBRIEF.Visible               := gr_main.FieldColumns['BRIEF'].Visible;
+
+    grid_allnakl_v.OptionsView.Footer:=false;
 
   finally
     RegIni.Free;

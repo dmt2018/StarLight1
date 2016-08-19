@@ -1520,10 +1520,6 @@ object all_nacl_Form: Tall_nacl_Form
             Font.Pitch = fpFixed
             Font.Style = []
             ParentFont = False
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object Bevel9: TBevel
               Left = 0
               Top = 13

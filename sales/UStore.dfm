@@ -300,7 +300,7 @@ object frmStore: TfrmStore
     Top = 127
     Width = 986
     Height = 445
-    ActivePage = tch_main
+    ActivePage = tch_nakls
     Align = alClient
     LookAndFeel.Kind = lfOffice11
     LookAndFeel.NativeStyle = True
@@ -314,6 +314,10 @@ object frmStore: TfrmStore
     object tch_main: TcxTabSheet
       Caption = ' '#1058#1077#1082#1091#1097#1080#1081' '#1089#1082#1083#1072#1076' (Ctrl+1) '
       ImageIndex = 0
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object gr_main: TDBGridEh
         Left = 0
         Top = 0
