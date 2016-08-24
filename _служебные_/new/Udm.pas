@@ -46,7 +46,8 @@ var
   intDefFont  :Integer;         // Ўрифт по умолчанию
   intDefDept  :Integer;         // ќтдел по умолчанию
   intDefOffice:Integer;         // ќфис по умолчанию
-  
+
+
 implementation
 
 uses uLogin;
@@ -126,22 +127,19 @@ begin
     cdsDeps.ParamByName('cursor_').AsCursor;
     cdsDeps.Open; }
 
- // после коннекта читаю последние знач.шрифта и отдела дл€ текущ. юзера
-   cdsSQL.Close;
-   cdsSQL.SQL.clear;
-   cdsSQL.SQL.Add('begin service_pkg.get_user_setting(:cursor_);end;');
-   cdsSQL.ParamByName('cursor_').AsCursor;
-   cdsSQL.open;
-   cdsSQL.First;
-    while not cdsSQL.Eof do
+   // все настройки сохран€ю в переменные и не закрываю cdssettings
+   cdssettings.ParamByName('cursor_').AsCursor;
+   cdssettings.Open;
+   cdssettings.First;
+   while not cdssettings.Eof do
     begin
-     if (orasession.Username = cdsSQL.FieldByName('DB_USER').value) then begin
-      if (cdsSQL.FieldByName('STG_KEY').value = 'FontSize')   then intDefFont := cdsSQL.FieldByName('STG_VALUE').Asinteger;
-      if (cdsSQL.FieldByName('STG_KEY').value = 'Department') then intDefDept := cdsSQL.FieldByName('STG_VALUE').Asinteger;
-     end;
-    cdsSQL.Next;
+      if (orasession.Username = cdssettings.FieldByName('DB_USER').value) then begin
+        if (cdssettings.FieldByName('STG_KEY').value = 'FontSize')   then intDefFont  := cdssettings.FieldByName('STG_VALUE').Asinteger;
+        if (cdssettings.FieldByName('STG_KEY').value = 'Department') then intDefDept  := cdssettings.FieldByName('STG_VALUE').Asinteger;
+      end;
+    cdssettings.Next;
     end;
-   cdsSQL.Close;  
+
 end;
 
   {
