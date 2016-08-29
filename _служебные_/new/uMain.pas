@@ -134,6 +134,7 @@ type
     procedure mnNSI_RegionsClick(Sender: TObject);
     procedure mnNSI_CityesClick(Sender: TObject);
     procedure mnNSI_AdverClick(Sender: TObject);
+    procedure mnNSI_ClientsTypeClick(Sender: TObject);
   private
     { Private declarations }
     porasessStarLight: POraSession;
@@ -146,7 +147,7 @@ var
 
 implementation
 
-uses info_f, UNSICurrency, USettings, UAdmin, Orient, UReg, UCity, UPromo;
+uses info_f, UNSICurrency, USettings, UAdmin, Orient, UReg, UCity, UPromo, UClientTypes;
 
 {$R *.dfm}
 
@@ -224,9 +225,6 @@ begin
   frmSettings.MainFormShow;
 end;
 
-
-
-
  //форма реклама
 procedure TfrmMain.mnNSI_AdverClick(Sender: TObject);
 begin
@@ -237,6 +235,12 @@ end;
 procedure TfrmMain.mnNSI_CityesClick(Sender: TObject);
 begin
   frmCity.MainFormShow;
+end;
+
+ //форма типы клиентов
+procedure TfrmMain.mnNSI_ClientsTypeClick(Sender: TObject);
+begin
+  frmClientTypes.MainFormShow;
 end;
 
 //форма курсы валют

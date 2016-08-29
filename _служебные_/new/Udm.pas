@@ -13,8 +13,8 @@ type
     cdsOffices: TOraQuery;
     cdsDeps: TOraQuery;
     cdsSQL: TOraQuery;
-    cxImglst: TcxImageList;
     cdsSettings: TOraQuery;
+    cxImglst: TcxImageList;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
     procedure OraSessionAfterConnect(Sender: TObject);
@@ -28,6 +28,8 @@ type
     id_office: integer;
     CUR_DEPT_ID: integer;
     CUR_DEPT_NAME: string;
+
+    r_edit, r_delete, r_print : boolean;
   end;
 
 var

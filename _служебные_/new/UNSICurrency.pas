@@ -186,7 +186,7 @@ begin
    dm.cdsSQL.ParamByName('V_OFFICE').asinteger := intDefOffice;
    dm.cdsSQL.ParamByName('cursor_').AsCursor;
    dm.cdsSQL.open;
-    grCur  := dm.cdsSQL.FieldByName('SHEV_USD').AsFloat;
+    grCurrency  := dm.cdsSQL.FieldByName('SHEV_USD').AsFloat;
    dm.cdsSQL.Close;     }
 end;
 
@@ -266,12 +266,12 @@ end;
 //  Заполним списки
 procedure TfrmNSICurreny.FormShow(Sender: TObject);
 begin
-   dm.cxImgLst.GetBitmap(0, btnRefresh.largeGlyph);
-   dm.cxImgLst.GetBitmap(1, btnAdd.largeGlyph);
-   dm.cxImgLst.GetBitmap(2, btnedit.largeGlyph);
-   dm.cxImgLst.GetBitmap(3, btnDelete.largeGlyph);
-   dm.cxImgLst.GetBitmap(4, btnHelp.largeGlyph);
-   dm.cxImgLst.GetBitmap(5, btnExit.largeGlyph);
+   dm.cxImgLst.GetBitmap(32, btnRefresh.largeGlyph);
+   dm.cxImgLst.GetBitmap(4, btnAdd.largeGlyph);
+   dm.cxImgLst.GetBitmap(5, btnedit.largeGlyph);
+   dm.cxImgLst.GetBitmap(6, btnDelete.largeGlyph);
+   dm.cxImgLst.GetBitmap(20, btnHelp.largeGlyph);
+   dm.cxImgLst.GetBitmap(33, btnExit.largeGlyph);
 
       {
      // Заполнение офисов

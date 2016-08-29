@@ -179,6 +179,7 @@ object frmMain: TfrmMain
       end
       object mnNSI_ClientsType: TMenuItem
         Caption = #1058#1080#1087#1099' '#1082#1083#1080#1077#1085#1090#1086#1074
+        OnClick = mnNSI_ClientsTypeClick
       end
       object mnNSI_Dep: TMenuItem
         Caption = #1054#1090#1076#1077#1083#1099

@@ -35,5 +35,9 @@
     <Transaction>2016.07.29 17:40:05.682.dfm,C:\Users\Prg_10\Desktop\new\UAbout.dfm=C:\Users\Prg_10\Desktop\new\info_f.dfm</Transaction>
     <Transaction>2016.08.01 16:30:20.952.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\Ueditor.pas</Transaction>
     <Transaction>2016.08.01 16:30:20.952.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\Ueditor.dfm</Transaction>
+    <Transaction>2016.08.29 15:01:46.206.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\UClientTypes.pas</Transaction>
+    <Transaction>2016.08.29 15:01:46.206.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\UClientTypes.dfm</Transaction>
+    <Transaction>2016.08.29 18:00:44.100.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\UEditClientTypes.pas</Transaction>
+    <Transaction>2016.08.29 18:00:44.100.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\UEditClientTypes.dfm</Transaction>
   </Transactions>
 </BorlandProject>

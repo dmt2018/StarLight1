@@ -14,7 +14,9 @@ uses
   UReg in 'UReg.pas' {frmReg},
   UCity in 'UCity.pas' {frmCity},
   UPromo in 'UPromo.pas' {frmPromo},
-  Ueditor in 'Ueditor.pas' {frmeditor};
+  Ueditor in 'Ueditor.pas' {frmeditor},
+  UClientTypes in 'UClientTypes.pas' {frmClientTypes},
+  UEditClientTypes in 'UEditClientTypes.pas' {frmEditClientTypes};
 
 {$R *.res}
 
