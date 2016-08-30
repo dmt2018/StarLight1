@@ -29,7 +29,7 @@ type
     CUR_DEPT_ID: integer;
     CUR_DEPT_NAME: string;
 
-    r_edit, r_delete, r_print : boolean;
+    //r_edit, r_delete, r_print : boolean;
   end;
 
 var

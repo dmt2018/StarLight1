@@ -14,6 +14,7 @@ object frmEditClientTypes: TfrmEditClientTypes
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Panel2: TPanel
@@ -29,7 +30,6 @@ object frmEditClientTypes: TfrmEditClientTypes
     ParentBackground = False
     ParentCtl3D = False
     TabOrder = 0
-    ExplicitWidth = 594
     object Label6: TLabel
       Left = 16
       Top = 12
@@ -68,8 +68,6 @@ object frmEditClientTypes: TfrmEditClientTypes
     ParentBackground = False
     ParentCtl3D = False
     TabOrder = 1
-    ExplicitTop = 364
-    ExplicitWidth = 594
     object BitBtn4: TBitBtn
       Left = 7
       Top = 488
@@ -90,7 +88,7 @@ object frmEditClientTypes: TfrmEditClientTypes
       Color = clGreen
       TabOrder = 4
     end
-    object cxButton1: TcxButton
+    object btnClos: TcxButton
       Left = 424
       Top = 5
       Width = 160
@@ -106,6 +104,7 @@ object frmEditClientTypes: TfrmEditClientTypes
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 2
+      OnClick = btnClosClick
       Colors.Default = clBtnFace
       Colors.Normal = clBtnFace
       Colors.Hot = clSkyBlue
@@ -171,7 +170,7 @@ object frmEditClientTypes: TfrmEditClientTypes
       LookAndFeel.NativeStyle = True
       Spacing = 6
     end
-    object cxButton2: TcxButton
+    object btnClear: TcxButton
       Left = 200
       Top = 6
       Width = 134
@@ -186,6 +185,7 @@ object frmEditClientTypes: TfrmEditClientTypes
       Font.Style = []
       ParentFont = False
       TabOrder = 1
+      OnClick = btnClearClick
       Colors.Default = clBtnFace
       Colors.Normal = clBtnFace
       Colors.Hot = clSkyBlue
@@ -251,13 +251,14 @@ object frmEditClientTypes: TfrmEditClientTypes
       LookAndFeel.NativeStyle = True
       Spacing = 6
     end
-    object cxButton3: TcxButton
+    object btnSav: TcxButton
       Left = 8
-      Top = 5
+      Top = 6
       Width = 186
       Height = 30
       Cursor = crHandPoint
-      Caption = ' '#1047#1072#1087#1080#1089#1072#1090#1100' (Ctrl+Enter) '
+      Action = aCtrlEnter
+      Caption = #1047#1072#1087#1080#1089#1072#1090#1100' (Ctrl+Enter)'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -337,8 +338,6 @@ object frmEditClientTypes: TfrmEditClientTypes
     BevelInner = bvRaised
     BevelOuter = bvLowered
     TabOrder = 2
-    ExplicitWidth = 594
-    ExplicitHeight = 324
     DesignSize = (
       673
       333)
@@ -593,6 +592,7 @@ object frmEditClientTypes: TfrmEditClientTypes
     object aCtrlEnter: TAction
       Caption = 'aCtrlEnter'
       ShortCut = 16397
+      OnExecute = aCtrlEnterExecute
     end
   end
 end

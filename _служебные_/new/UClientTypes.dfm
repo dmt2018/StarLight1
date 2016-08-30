@@ -25,9 +25,6 @@ object frmClientTypes: TfrmClientTypes
     Height = 360
     Align = alClient
     TabOrder = 0
-    ExplicitTop = 22
-    ExplicitWidth = 663
-    ExplicitHeight = 410
     object grClientTypesView: TcxGridDBTableView
       NavigatorButtons.ConfirmDelete = False
       NavigatorButtons.First.Visible = True
@@ -46,6 +43,7 @@ object frmClientTypes: TfrmClientTypes
       NavigatorButtons.SaveBookmark.Visible = True
       NavigatorButtons.GotoBookmark.Visible = True
       NavigatorButtons.Filter.Visible = True
+      OnCustomDrawCell = grClientTypesViewCustomDrawCell
       DataController.DataSource = Q_CT_DS
       DataController.Summary.DefaultGroupSummaryItems = <>
       DataController.Summary.FooterSummaryItems = <>
@@ -88,6 +86,10 @@ object frmClientTypes: TfrmClientTypes
         Caption = #1048#1085#1092#1086#1088#1084#1072#1094#1080#1103
         DataBinding.FieldName = 'INFO'
       end
+      object tview_TYPESCONTRACTOR: TcxGridDBColumn
+        Caption = #1050#1086#1085#1090#1088#1072#1075#1077#1085#1090
+        DataBinding.FieldName = 'IS_CONTRACTOR'
+      end
     end
     object grClientTypesLevel: TcxGridLevel
       GridView = grClientTypesView
@@ -126,10 +128,8 @@ object frmClientTypes: TfrmClientTypes
       AllowClose = False
       AllowCustomizing = False
       AllowQuickCustomizing = False
-      AllowReset = False
       Caption = 'MainTB'
       CaptionButtons = <>
-      Color = clBtnShadow
       DockedDockingStyle = dsTop
       DockedLeft = 0
       DockedTop = 0
@@ -185,7 +185,7 @@ object frmClientTypes: TfrmClientTypes
       UseOwnFont = True
       UseRestSpace = True
       Visible = True
-      WholeRow = True
+      WholeRow = False
     end
     object bmFooter: TdxBar
       AllowClose = False
@@ -194,7 +194,6 @@ object frmClientTypes: TfrmClientTypes
       AllowReset = False
       Caption = 'FooterTB'
       CaptionButtons = <>
-      Color = clBtnShadow
       DockedDockingStyle = dsBottom
       DockedLeft = 0
       DockedTop = 0
@@ -213,22 +212,29 @@ object frmClientTypes: TfrmClientTypes
     end
     object btnRefresh: TdxBarLargeButton
       Action = aRefresh
+      Caption = #1054#1073#1085#1086#1074#1080#1090#1100' (F5)'
       Category = 0
       AutoGrayScale = False
     end
     object btnAdd: TdxBarLargeButton
       Action = aNew
+      Caption = #1044#1086#1073#1072#1074#1080#1090#1100' (F4)'
       Category = 0
+      ShortCut = 115
       AutoGrayScale = False
     end
     object btnEdit: TdxBarLargeButton
       Action = aEdit
+      Caption = #1048#1079#1084#1077#1085#1080#1090#1100' (F2)'
       Category = 0
+      ShortCut = 113
       AutoGrayScale = False
     end
     object btnDelete: TdxBarLargeButton
       Action = aDelete
+      Caption = #1059#1076#1072#1083#1080#1090#1100' (F3)'
       Category = 0
+      ShortCut = 114
       AutoGrayScale = False
     end
     object imgOffice: TcxBarEditItem
@@ -267,6 +273,7 @@ object frmClientTypes: TfrmClientTypes
           Description = #1045#1082#1072#1090#1077#1088#1080#1085#1073#1091#1088#1075
           Value = '8'
         end>
+      Properties.OnChange = imgOfficePropertiesChange
     end
     object imgOtdel: TcxBarEditItem
       Caption = #1054#1090#1076#1077#1083':'
@@ -309,6 +316,7 @@ object frmClientTypes: TfrmClientTypes
       Category = 0
       Hint = #1047#1072#1082#1088#1099#1090#1100
       Visible = ivAlways
+      OnClick = btnExitClick
       AutoGrayScale = False
     end
     object cxBarEditItem3: TcxBarEditItem
@@ -385,6 +393,8 @@ object frmClientTypes: TfrmClientTypes
     object aRefresh: TAction
       Category = 'Main'
       Caption = #1054#1073#1085#1086#1074#1080#1090#1100
+      ImageIndex = 32
+      ShortCut = 116
       OnExecute = aRefreshExecute
     end
     object aNew: TAction
@@ -421,9 +431,40 @@ object frmClientTypes: TfrmClientTypes
         Name = 'CURSOR_'
         Value = 'Object'
       end>
+    object Q_CTID_CLIENT_TYPES: TIntegerField
+      FieldName = 'ID_CLIENT_TYPES'
+    end
+    object Q_CTNAME: TStringField
+      FieldName = 'NAME'
+      Size = 50
+    end
+    object Q_CTINFO: TStringField
+      FieldName = 'INFO'
+      Size = 1024
+    end
+    object Q_CTT_TYPE: TIntegerField
+      FieldName = 'T_TYPE'
+    end
+    object Q_CTDISCOUNT: TFloatField
+      FieldName = 'DISCOUNT'
+    end
+    object Q_CTID_OFFICE: TIntegerField
+      FieldName = 'ID_OFFICE'
+    end
+    object Q_CTBRIEF: TStringField
+      FieldName = 'BRIEF'
+      Size = 10
+    end
+    object Q_CTNN: TFloatField
+      FieldName = 'NN'
+    end
+    object Q_CTIS_CONTRACTOR: TIntegerField
+      FieldName = 'IS_CONTRACTOR'
+    end
   end
   object Q_CT_DS: TOraDataSource
     DataSet = Q_CT
+    OnDataChange = Q_CT_DSDataChange
     Left = 560
     Top = 192
   end

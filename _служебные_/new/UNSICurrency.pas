@@ -108,7 +108,7 @@ end;
 //удалить
 procedure TfrmNSICurreny.aDeleteExecute(Sender: TObject);
 begin
-     if (id_office <> Q_CURR.FieldByName('ID_OFFICE').AsInteger) then
+  if (id_office <> Q_CURR.FieldByName('ID_OFFICE').AsInteger) then
   begin
     MessageBox(Handle,'Данная запись не принадлежит главному офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
     exit;
@@ -178,7 +178,7 @@ begin
   id := 01-02-2016;//now;//Q_CURRDDATE.AsDateTime;
   Q_CURR.Refresh;
   Q_CURR.Locate('DDATE',id,[]);
-  grCurrency.SetFocus;    
+  grCurrency.SetFocus;
 
   { dm.cdsSQL.Close;
    dm.cdsSQL.SQL.clear;
