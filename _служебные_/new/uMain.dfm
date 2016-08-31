@@ -132,6 +132,7 @@ object frmMain: TfrmMain
       GroupIndex = 1
       object miClient_Reg: TMenuItem
         Caption = #1056#1077#1075#1080#1089#1090#1088#1072#1094#1080#1103' '#1082#1083#1080#1077#1085#1090#1086#1074
+        OnClick = miClient_RegClick
       end
       object miClient_Deb: TMenuItem
         Caption = #1044#1077#1073#1080#1090#1086#1088#1099

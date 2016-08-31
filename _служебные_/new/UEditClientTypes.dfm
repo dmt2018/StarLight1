@@ -585,6 +585,14 @@ object frmEditClientTypes: TfrmEditClientTypes
         TabOrder = 2
       end
     end
+    object CheckBox2: TCheckBox
+      Left = 26
+      Top = 280
+      Width = 353
+      Height = 17
+      Caption = ' '#1103#1074#1083#1103#1077#1090#1089#1103' '#1082#1086#1085#1090#1088#1072#1075#1077#1085#1090#1086#1084
+      TabOrder = 6
+    end
   end
   object ActionList1: TActionList
     Left = 344

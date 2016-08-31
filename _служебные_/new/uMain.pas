@@ -135,6 +135,7 @@ type
     procedure mnNSI_CityesClick(Sender: TObject);
     procedure mnNSI_AdverClick(Sender: TObject);
     procedure mnNSI_ClientsTypeClick(Sender: TObject);
+    procedure miClient_RegClick(Sender: TObject);
   private
     { Private declarations }
     porasessStarLight: POraSession;
@@ -147,7 +148,7 @@ var
 
 implementation
 
-uses info_f, UNSICurrency, USettings, UAdmin, Orient, UReg, UCity, UPromo, UClientTypes;
+uses info_f, UNSICurrency, USettings, UAdmin, Orient, UReg, UCity, UPromo, UClientTypes, URegistration;
 
 {$R *.dfm}
 
@@ -208,6 +209,12 @@ begin
 end;
 
 //кнопка выход mainmenu
+procedure TfrmMain.miClient_RegClick(Sender: TObject);
+begin
+  frmRegistration.MainFormShow;
+end;
+
+  //кнопка выход mainmenu
 procedure TfrmMain.miExitClick(Sender: TObject);
 begin
   close;

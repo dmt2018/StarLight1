@@ -16,7 +16,9 @@ uses
   UPromo in 'UPromo.pas' {frmPromo},
   Ueditor in 'Ueditor.pas' {frmeditor},
   UClientTypes in 'UClientTypes.pas' {frmClientTypes},
-  UEditClientTypes in 'UEditClientTypes.pas' {frmEditClientTypes};
+  UEditClientTypes in 'UEditClientTypes.pas' {frmEditClientTypes},
+  URegistration in 'URegistration.pas' {frmRegistration},
+  UEditRegistration in 'UEditRegistration.pas' {frmEditRegistration};
 
 {$R *.res}
 

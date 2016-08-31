@@ -130,6 +130,7 @@ object frmClientTypes: TfrmClientTypes
       AllowQuickCustomizing = False
       Caption = 'MainTB'
       CaptionButtons = <>
+      Color = clGradientActiveCaption
       DockedDockingStyle = dsTop
       DockedLeft = 0
       DockedTop = 0
@@ -194,6 +195,7 @@ object frmClientTypes: TfrmClientTypes
       AllowReset = False
       Caption = 'FooterTB'
       CaptionButtons = <>
+      Color = clGradientActiveCaption
       DockedDockingStyle = dsBottom
       DockedLeft = 0
       DockedTop = 0

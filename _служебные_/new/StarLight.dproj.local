@@ -39,5 +39,9 @@
     <Transaction>2016.08.29 15:01:46.206.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\UClientTypes.dfm</Transaction>
     <Transaction>2016.08.29 18:00:44.100.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\UEditClientTypes.pas</Transaction>
     <Transaction>2016.08.29 18:00:44.100.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\UEditClientTypes.dfm</Transaction>
+    <Transaction>2016.08.31 13:13:09.150.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\URegistration.pas</Transaction>
+    <Transaction>2016.08.31 13:13:09.150.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\URegistration.dfm</Transaction>
+    <Transaction>2016.08.31 14:56:28.795.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\UEditRegistration.pas</Transaction>
+    <Transaction>2016.08.31 14:56:28.795.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\UEditRegistration.dfm</Transaction>
   </Transactions>
 </BorlandProject>

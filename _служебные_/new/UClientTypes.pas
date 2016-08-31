@@ -189,6 +189,7 @@ begin
       frmEditClientTypes.CheckBox1.Caption := ' печать № свидетельства о регистрации';
       frmEditClientTypes.CheckBox1.Visible := true;
       if Q_CT.FieldByName('T_TYPE').AsInteger = 1 then frmEditClientTypes.checkbox1.checked := true else frmEditClientTypes.checkbox1.checked := false;
+      if Q_CT.FieldByName('is_contractor').AsInteger = 1 then frmEditClientTypes.checkbox2.checked := true else frmEditClientTypes.checkbox2.checked := false;
       frmEditClientTypes.Label7.Visible := true;
       frmEditClientTypes.Znak_EditPercent.Visible := true;
       frmEditClientTypes.DBNumberEditEh1.Visible := true;
@@ -289,7 +290,7 @@ begin
    dm.cxImgLst.GetBitmap(5, btnedit.largeGlyph);
    dm.cxImgLst.GetBitmap(6, btnDelete.largeGlyph);
    dm.cxImgLst.GetBitmap(20, btnHelp.largeGlyph);
-   dm.cxImgLst.GetBitmap(33, btnExit.largeGlyph);
+   dm.cxImgLst.GetBitmap(21, btnExit.largeGlyph);
    //AddN.Enabled    := DM.r_edit;
    //EditN.Enabled   := DM.r_edit;
    //DeleteN.Enabled := DM.r_delete;

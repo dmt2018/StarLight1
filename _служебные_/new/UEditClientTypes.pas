@@ -41,6 +41,7 @@ type
     Edit3: TEdit;
     ActionList1: TActionList;
     aCtrlEnter: TAction;
+    CheckBox2: TCheckBox;
     procedure btnClosClick(Sender: TObject);
     procedure aCtrlEnterExecute(Sender: TObject);
     procedure btnClearClick(Sender: TObject);
@@ -100,10 +101,12 @@ begin
       frmClientTypes.selq.ParamByName('name_').AsString := trim(Edit1.Text);
       frmClientTypes.selq.ParamByName('info_').AsString := Memo1.Text;
       frmClientTypes.selq.ParamByName('id_').AsInteger  := Edit1.Tag;
-      frmClientTypes.selq.ParamByName('is_contractor_').AsInteger  := 1;  //пока так, завтра допилю
 
       if checkBox1.Checked = true then frmClientTypes.selq.ParamByName('TTYPE_').Value := 1
       else frmClientTypes.selq.ParamByName('TTYPE_').Value := 0;
+
+      if checkBox2.Checked = true then frmClientTypes.selq.ParamByName('is_contractor_').AsInteger := 1
+      else frmClientTypes.selq.ParamByName('is_contractor_').AsInteger := 0;
 
       if DBNumberEditEh1.Value = NULL then price_part := 0
       else
