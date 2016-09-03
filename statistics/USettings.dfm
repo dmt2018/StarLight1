@@ -545,7 +545,9 @@ object frmSettings: TfrmSettings
         #1050#1083#1080#1077#1085#1090#1089#1082#1072#1103' '#1085#1072#1075#1088#1091#1079#1082#1072
         #1055#1088#1086#1076#1072#1078#1080
         #1044#1086#1093#1086#1076#1085#1086#1089#1090#1100
-        #1055#1088#1086#1076#1072#1078#1080' '#1087#1086' '#1088#1077#1075#1080#1086#1085#1072#1084)
+        #1055#1088#1086#1076#1072#1078#1080' '#1087#1086' '#1088#1077#1075#1080#1086#1085#1072#1084
+        #1057#1082#1083#1072#1076
+        #1055#1088#1086#1076#1072#1078#1080' '#1087#1086' '#1082#1083#1080#1077#1085#1090#1072#1084)
       Style.LookAndFeel.Kind = lfOffice11
       Style.LookAndFeel.NativeStyle = True
       StyleDisabled.LookAndFeel.Kind = lfOffice11
@@ -562,7 +564,9 @@ object frmSettings: TfrmSettings
     SQL.Strings = (
       'SELECT a.id_clients, a.fio, a.nick'
       '  FROM clients a'
-      '  where a.login is not null and a.active = 1 and a.staff = 1'
+      
+        '  where a.login is not null and a.active = 1 and a.staff = 1 and' +
+        ' a.id_office = const_office'
       'order by fio')
     FetchAll = True
     Left = 520

@@ -40,7 +40,7 @@ type
     { Private declarations }
   public
     p_edit, p_delete, p_print, p_addit  : boolean;
-    tag1, tag2, tag3, tag4, tag5: boolean;
+    tag1, tag2, tag3, tag4, tag5, tag6: boolean;
     { Public declarations }
   end;
 
@@ -74,6 +74,7 @@ begin
     tag3 := tag1;
     tag4 := tag1;
     tag5 := tag1;
+    tag6 := tag1;
   end
   else
   begin
@@ -86,6 +87,7 @@ begin
     tag3 := tag1;
     tag4 := tag1;
     tag5 := tag1;
+    tag6 := tag1;
     if (DM.SQL_Q.RecordCount > 0) then
     begin
       DM.SQL_Q.First;
@@ -96,6 +98,7 @@ begin
         if (DM.SQL_Q.FieldByName('tag').AsInteger = 3) then tag3 := CharToBool(DM.SQL_Q.FieldByName('c_start').AsString);
         if (DM.SQL_Q.FieldByName('tag').AsInteger = 4) then tag4 := CharToBool(DM.SQL_Q.FieldByName('c_start').AsString);
         if (DM.SQL_Q.FieldByName('tag').AsInteger = 5) then tag5 := CharToBool(DM.SQL_Q.FieldByName('c_start').AsString);
+        if (DM.SQL_Q.FieldByName('tag').AsInteger = 6) then tag6 := CharToBool(DM.SQL_Q.FieldByName('c_start').AsString);
         DM.SQL_Q.Next;
       end;
     end;
@@ -104,12 +107,14 @@ begin
 
   img_clients.Enabled   := tag1;
   img_sales.Enabled     := tag2;
+  imgSalesByClient.Enabled     := tag6;
   img_money.Enabled     := tag3;
   img_cl_sales.Enabled  := tag4;
   imgStore.Enabled      := tag5;
 
   label_clients.Enabled := tag1;
   label_sales.Enabled   := tag2;
+  lblSalesByClient.Enabled   := tag6;
   cxLabel1.Enabled      := tag3;
   cxLabel2.Enabled      := tag4;
   lblStore.Enabled      := tag5;
@@ -235,16 +240,12 @@ end;
 //
 procedure Tmain.imgSalesByClientClick(Sender: TObject);
 begin
-  if (tag2 = false) then exit;
+  if (tag6 = false) then exit;
 
   frmSalesByClients := TfrmSalesByClients.Create(Application);
   try
-//    frmSalesByClients.d_date_begin.Properties.OnEditValueChanged := nil;
-//    frmSalesByClients.d_date_end.Properties.OnEditValueChanged := nil;
     frmSalesByClients.d_date_begin.EditValue  := Now()-30;
     frmSalesByClients.d_date_end.EditValue    := Now();
- //   frmSalesByClients.d_date_begin.Properties.OnEditValueChanged := frmClients.d_date_beginPropertiesEditValueChanged;
- //   frmSalesByClients.d_date_end.Properties.OnEditValueChanged := frmClients.d_date_beginPropertiesEditValueChanged;
 
     frmSalesByClients.chb_regions.Properties.OnEditValueChanged := nil;
     DM.SQL_Q.Close;

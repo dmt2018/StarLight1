@@ -3,7 +3,7 @@ object frmSalesByClients: TfrmSalesByClients
   Top = 0
   Caption = ' '#1055#1088#1086#1076#1072#1078#1080' '#1087#1086' '#1082#1083#1080#1077#1085#1090#1072#1084' '
   ClientHeight = 697
-  ClientWidth = 931
+  ClientWidth = 989
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,15 +19,13 @@ object frmSalesByClients: TfrmSalesByClients
   object Panel4: TPanel
     Left = 0
     Top = 663
-    Width = 931
+    Width = 989
     Height = 34
     Align = alBottom
     Color = clWhite
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = -170
-    ExplicitTop = 527
-    ExplicitWidth = 954
+    ExplicitWidth = 931
     object btn_help: TcxButton
       Left = 8
       Top = 4
@@ -91,7 +89,7 @@ object frmSalesByClients: TfrmSalesByClients
       LookAndFeel.Kind = lfOffice11
     end
     object Panel1: TPanel
-      Left = 693
+      Left = 751
       Top = 1
       Width = 237
       Height = 32
@@ -100,7 +98,7 @@ object frmSalesByClients: TfrmSalesByClients
       Color = clWhite
       ParentBackground = False
       TabOrder = 1
-      ExplicitLeft = 716
+      ExplicitLeft = 693
       object btnClose: TcxButton
         Left = 84
         Top = 4
@@ -159,7 +157,7 @@ object frmSalesByClients: TfrmSalesByClients
   object Panel2: TPanel
     Left = 0
     Top = 0
-    Width = 931
+    Width = 989
     Height = 41
     Align = alTop
     Caption = #1055#1088#1086#1076#1072#1078#1080' '#1087#1086' '#1082#1083#1080#1077#1085#1090#1072#1084
@@ -174,14 +172,13 @@ object frmSalesByClients: TfrmSalesByClients
     ParentFont = False
     TabOrder = 1
     TabStop = True
-    ExplicitLeft = -170
-    ExplicitWidth = 954
+    ExplicitWidth = 931
   end
   object top_panel: TPanel
     Left = 0
     Top = 41
-    Width = 931
-    Height = 112
+    Width = 989
+    Height = 136
     Align = alTop
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack
@@ -193,8 +190,7 @@ object frmSalesByClients: TfrmSalesByClients
     ParentFont = False
     TabOrder = 2
     TabStop = True
-    ExplicitLeft = -170
-    ExplicitWidth = 954
+    ExplicitWidth = 931
     object Label8: TLabel
       Left = 615
       Top = 14
@@ -211,7 +207,7 @@ object frmSalesByClients: TfrmSalesByClients
     end
     object Label10: TLabel
       Left = 10
-      Top = 48
+      Top = 44
       Width = 91
       Height = 16
       Caption = #1044#1072#1090#1072' ('#1087#1077#1088#1080#1086#1076')'
@@ -240,9 +236,9 @@ object frmSalesByClients: TfrmSalesByClients
     object Label4: TLabel
       Left = 10
       Top = 14
-      Width = 41
+      Width = 37
       Height = 16
-      Caption = #1054#1092#1080#1089':'
+      Caption = #1054#1092#1080#1089
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -253,10 +249,24 @@ object frmSalesByClients: TfrmSalesByClients
     end
     object Label2: TLabel
       Left = 10
-      Top = 78
-      Width = 46
+      Top = 74
+      Width = 42
       Height = 16
-      Caption = #1057#1091#1084#1084#1072':'
+      Caption = #1057#1091#1084#1084#1072
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label3: TLabel
+      Left = 10
+      Top = 104
+      Width = 101
+      Height = 16
+      Caption = #1050#1086#1083'-'#1074#1086' '#1087#1086#1082#1091#1087#1086#1082
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -267,7 +277,7 @@ object frmSalesByClients: TfrmSalesByClients
     end
     object d_date_end: TcxDateEdit
       Left = 241
-      Top = 44
+      Top = 40
       Cursor = crHandPoint
       ParentFont = False
       Properties.DateOnError = deToday
@@ -307,7 +317,7 @@ object frmSalesByClients: TfrmSalesByClients
       Font.Style = []
       ParentFont = False
       State = cbChecked
-      TabOrder = 6
+      TabOrder = 7
       OnClick = chek_regionsClick
     end
     object GroupBox1: TGroupBox
@@ -323,7 +333,7 @@ object frmSalesByClients: TfrmSalesByClients
       Font.Pitch = fpFixed
       Font.Style = [fsBold]
       ParentFont = False
-      TabOrder = 4
+      TabOrder = 5
       object CheckBox1: TCheckBox
         Tag = 1
         Left = 16
@@ -412,7 +422,7 @@ object frmSalesByClients: TfrmSalesByClients
       StyleFocused.LookAndFeel.NativeStyle = True
       StyleHot.LookAndFeel.Kind = lfOffice11
       StyleHot.LookAndFeel.NativeStyle = True
-      TabOrder = 7
+      TabOrder = 8
       Width = 116
     end
     object chb_regions: TcxCheckComboBox
@@ -451,7 +461,7 @@ object frmSalesByClients: TfrmSalesByClients
       StyleFocused.LookAndFeel.NativeStyle = True
       StyleHot.LookAndFeel.Kind = lfOffice11
       StyleHot.LookAndFeel.NativeStyle = True
-      TabOrder = 5
+      TabOrder = 6
       Width = 243
     end
     object check_alpha: TCheckBox
@@ -469,7 +479,7 @@ object frmSalesByClients: TfrmSalesByClients
       Font.Style = []
       ParentFont = False
       State = cbChecked
-      TabOrder = 8
+      TabOrder = 9
       OnClick = check_alphaClick
     end
     object cbOffices: TcxImageComboBox
@@ -494,7 +504,7 @@ object frmSalesByClients: TfrmSalesByClients
     end
     object d_date_begin: TcxDateEdit
       Left = 114
-      Top = 44
+      Top = 40
       Cursor = crHandPoint
       ParentFont = False
       Properties.DateOnError = deToday
@@ -520,20 +530,21 @@ object frmSalesByClients: TfrmSalesByClients
       Width = 116
     end
     object cxColorComboBox1: TcxColorComboBox
-      Left = 249
-      Top = 74
+      Left = 796
+      Top = 82
       Properties.CustomColors = <>
       Properties.PrepareList = cxplX11
-      TabOrder = 9
+      TabOrder = 10
       Visible = False
       Width = 121
     end
     object edCurrency: TcxCurrencyEdit
       Left = 114
-      Top = 74
+      Top = 70
       EditValue = '0'
       Properties.DecimalPlaces = 0
       Properties.DisplayFormat = ',0 '#1088#39'.'#39';-,0 '#1088#39'.'#39
+      Properties.Nullable = False
       Style.BorderStyle = ebsOffice11
       Style.LookAndFeel.Kind = lfOffice11
       Style.LookAndFeel.NativeStyle = True
@@ -546,20 +557,41 @@ object frmSalesByClients: TfrmSalesByClients
       TabOrder = 3
       Width = 116
     end
+    object edQuantity: TcxCurrencyEdit
+      Left = 114
+      Top = 100
+      EditValue = '0'
+      Properties.DecimalPlaces = 0
+      Properties.DisplayFormat = ',0;-,0'
+      Properties.Nullable = False
+      Style.BorderStyle = ebsOffice11
+      Style.LookAndFeel.Kind = lfOffice11
+      Style.LookAndFeel.NativeStyle = True
+      StyleDisabled.LookAndFeel.Kind = lfOffice11
+      StyleDisabled.LookAndFeel.NativeStyle = True
+      StyleFocused.LookAndFeel.Kind = lfOffice11
+      StyleFocused.LookAndFeel.NativeStyle = True
+      StyleHot.LookAndFeel.Kind = lfOffice11
+      StyleHot.LookAndFeel.NativeStyle = True
+      TabOrder = 4
+      Width = 116
+    end
   end
   object bcMainSalesByClient: TdxBarDockControl
     Left = 0
-    Top = 153
-    Width = 931
+    Top = 177
+    Width = 989
     Height = 60
     Align = dalTop
     BarManager = bm_clients
+    ExplicitTop = 153
+    ExplicitWidth = 931
   end
   object pc_main: TcxPageControl
     Left = 0
-    Top = 213
-    Width = 931
-    Height = 450
+    Top = 237
+    Width = 989
+    Height = 426
     ActivePage = tsh_data
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
@@ -574,24 +606,24 @@ object frmSalesByClients: TfrmSalesByClients
     TabHeight = 25
     TabOrder = 8
     TabWidth = 150
-    ExplicitLeft = -23
-    ExplicitWidth = 954
-    ExplicitHeight = 332
-    ClientRectBottom = 446
+    ExplicitTop = 213
+    ExplicitWidth = 931
+    ExplicitHeight = 450
+    ClientRectBottom = 422
     ClientRectLeft = 4
-    ClientRectRight = 927
+    ClientRectRight = 985
     ClientRectTop = 31
     object tsh_data: TcxTabSheet
       Tag = 1
       Caption = ' '#1058#1072#1073#1083#1080#1094#1072' '#1089#1091#1084#1084' '
       ImageIndex = 1
-      ExplicitWidth = 946
-      ExplicitHeight = 297
+      ExplicitWidth = 923
+      ExplicitHeight = 415
       object grid_allnakl: TcxGrid
         Left = 0
         Top = 0
-        Width = 923
-        Height = 415
+        Width = 981
+        Height = 391
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -602,8 +634,8 @@ object frmSalesByClients: TfrmSalesByClients
         ParentFont = False
         TabOrder = 0
         LookAndFeel.Kind = lfOffice11
-        ExplicitWidth = 946
-        ExplicitHeight = 297
+        ExplicitWidth = 923
+        ExplicitHeight = 415
         object grid_allnakl_v: TcxGridDBTableView
           PopupMenu = pm_regions
           NavigatorButtons.ConfirmDelete = False
@@ -723,7 +755,6 @@ object frmSalesByClients: TfrmSalesByClients
             item
               Format = '0'
               Kind = skSum
-              Column = grid_allnakl_vCL_SUMM
             end>
           DataController.Summary.SummaryGroups = <>
           FilterRow.InfoText = #1055#1086#1083#1077' '#1076#1083#1103' '#1091#1089#1090#1072#1085#1086#1074#1082#1080' '#1092#1080#1083#1100#1090#1088#1086#1074
@@ -748,7 +779,6 @@ object frmSalesByClients: TfrmSalesByClients
             Caption = #1054#1092#1080#1089
             DataBinding.FieldName = 'BRIEF'
             Visible = False
-            GroupIndex = 0
           end
           object grid_allnakl_vOPERATION: TcxGridDBColumn
             Caption = #1054#1090#1076#1077#1083
@@ -764,45 +794,79 @@ object frmSalesByClients: TfrmSalesByClients
             Width = 150
           end
           object grid_allnakl_vCLIENT_GROUP: TcxGridDBColumn
-            Caption = #1043#1088#1091#1087#1087#1072
+            Caption = #1043#1088#1091#1087#1087#1072' / '#1050#1083#1080#1077#1085#1090
             DataBinding.FieldName = 'CLIENT_GROUP'
-            PropertiesClassName = 'TcxTextEditProperties'
-            Properties.ReadOnly = True
-            MinWidth = 50
-            Width = 150
-          end
-          object grid_allnakl_vNICK: TcxGridDBColumn
-            Caption = #1050#1083#1080#1077#1085#1090
-            DataBinding.FieldName = 'NICK'
             PropertiesClassName = 'TcxTextEditProperties'
             Properties.ReadOnly = True
             MinWidth = 50
             Width = 120
           end
-          object grid_allnakl_vCL_SUMM: TcxGridDBColumn
-            Caption = #1057#1091#1084#1084#1072' '#1087#1086' '#1082#1083#1080#1077#1085#1090#1091
-            DataBinding.FieldName = 'CL_SUMM'
-            PropertiesClassName = 'TcxCurrencyEditProperties'
-            Properties.Alignment.Horz = taRightJustify
-            Properties.ReadOnly = True
-            FooterAlignmentHorz = taRightJustify
-            HeaderAlignmentHorz = taCenter
-            MinWidth = 100
-            Width = 150
-          end
           object grid_allnakl_vGR_SUMM: TcxGridDBColumn
-            Caption = #1057#1091#1084#1084#1072' '#1087#1086' '#1075#1088#1091#1087#1087#1077
+            Caption = #1057#1091#1084#1084#1072
             DataBinding.FieldName = 'GR_SUMM'
             PropertiesClassName = 'TcxCurrencyEditProperties'
             Properties.Alignment.Horz = taRightJustify
+            Properties.DisplayFormat = ',0.00;-,0.00'
+            Properties.Nullable = False
             Properties.ReadOnly = True
             HeaderAlignmentHorz = taCenter
             MinWidth = 100
-            Width = 150
+            Width = 120
           end
           object grid_allnakl_vID_CLIENTS_GROUPS: TcxGridDBColumn
             DataBinding.FieldName = 'ID_CLIENTS_GROUPS'
             Visible = False
+          end
+          object grid_allnakl_vR_DDATE: TcxGridDBColumn
+            Caption = #1044#1072#1090#1072' '#1087#1086#1089#1083'. '#1087#1086#1082#1091#1087#1082#1080
+            DataBinding.FieldName = 'R_DDATE'
+            PropertiesClassName = 'TcxDateEditProperties'
+            Properties.Alignment.Horz = taCenter
+            Properties.ReadOnly = True
+            Properties.SaveTime = False
+            Properties.ShowTime = False
+            HeaderAlignmentHorz = taCenter
+          end
+          object grid_allnakl_vCNT: TcxGridDBColumn
+            Caption = #1050#1086#1083'-'#1074#1086
+            DataBinding.FieldName = 'CNT'
+            PropertiesClassName = 'TcxTextEditProperties'
+            Properties.Alignment.Horz = taCenter
+            Properties.ReadOnly = True
+            HeaderAlignmentHorz = taCenter
+            MinWidth = 70
+            Options.HorzSizing = False
+            Width = 70
+          end
+          object grid_allnakl_vCNT_DIST: TcxGridDBColumn
+            Caption = #1059#1085#1080#1082'. '#1087#1086#1082#1091#1087#1086#1082
+            DataBinding.FieldName = 'CNT_DIST'
+            PropertiesClassName = 'TcxTextEditProperties'
+            Properties.Alignment.Horz = taCenter
+            Properties.ReadOnly = True
+            HeaderAlignmentHorz = taCenter
+            MinWidth = 70
+            Options.HorzSizing = False
+            Width = 70
+          end
+          object grid_allnakl_vMIDLE_CHECK: TcxGridDBColumn
+            Caption = #1057#1088#1077#1076#1085#1080#1081' '#1095#1077#1082
+            DataBinding.FieldName = 'MIDLE_CHECK'
+            PropertiesClassName = 'TcxCurrencyEditProperties'
+            Properties.Alignment.Horz = taRightJustify
+            Properties.DecimalPlaces = 0
+            Properties.DisplayFormat = ',0.0;-,0.0'
+            Properties.ReadOnly = True
+            HeaderAlignmentHorz = taCenter
+            Width = 90
+          end
+          object grid_allnakl_vNICK: TcxGridDBColumn
+            Caption = #1050#1083#1080#1077#1085#1090#1099' '#1074' '#1075#1088#1091#1087#1087#1077
+            DataBinding.FieldName = 'NICKS'
+            PropertiesClassName = 'TcxTextEditProperties'
+            Properties.ReadOnly = True
+            MinWidth = 50
+            Width = 200
           end
         end
         object grid_allnakl_l: TcxGridLevel
@@ -813,12 +877,13 @@ object frmSalesByClients: TfrmSalesByClients
     object tch_graph: TcxTabSheet
       Caption = ' '#1043#1088#1072#1092#1080#1082' '
       ImageIndex = 0
-      ExplicitHeight = 279
+      ExplicitWidth = 923
+      ExplicitHeight = 415
       object chart_stat: TChart
         Left = 0
         Top = 0
-        Width = 923
-        Height = 415
+        Width = 981
+        Height = 391
         AllowPanning = pmNone
         BackWall.Brush.Color = clWhite
         BackWall.Brush.Style = bsClear
@@ -843,7 +908,8 @@ object frmSalesByClients: TfrmSalesByClients
         BevelOuter = bvNone
         TabOrder = 0
         AutoSize = True
-        ExplicitHeight = 279
+        ExplicitWidth = 923
+        ExplicitHeight = 415
         PrintMargins = (
           15
           34
@@ -1017,7 +1083,7 @@ object frmSalesByClients: TfrmSalesByClients
     Left = 832
     Top = 144
     Bitmap = {
-      494C010120002400400020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010120002400440020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002001000001002000000000000040
       0200000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -5842,7 +5908,8 @@ object frmSalesByClients: TfrmSalesByClients
       'begin'
       
         '  statistic.get_client_stat_for_summ(:DOC_DATE1_, :DOC_DATE2_, :' +
-        'P_ALPHA, :P_REGION, :V_OFFICE, :P_OTDEL, :P_SUMM, :CURSOR_);'
+        'P_ALPHA, :P_REGION, :V_OFFICE, :P_OTDEL, :P_KOL, :P_SUMM, :CURSO' +
+        'R_);'
       'end;')
     FetchAll = True
     Left = 616
@@ -5872,20 +5939,24 @@ object frmSalesByClients: TfrmSalesByClients
         DataType = ftFloat
         Name = 'V_OFFICE'
         ParamType = ptInput
-        Value = 0.000000000000000000
+        Value = 1.000000000000000000
       end
       item
         DataType = ftString
         Name = 'P_OTDEL'
         ParamType = ptInput
-        Size = 10
-        Value = ''
+        Size = 50
+        Value = #39'1'#39
+      end
+      item
+        DataType = ftFloat
+        Name = 'P_KOL'
+        ParamType = ptInput
       end
       item
         DataType = ftFloat
         Name = 'P_SUMM'
         ParamType = ptInput
-        Value = 0.000000000000000000
       end
       item
         DataType = ftCursor
@@ -5904,11 +5975,8 @@ object frmSalesByClients: TfrmSalesByClients
       FieldName = 'T_LONG'
       Size = 50
     end
-    object cds_resultCL_SUMM: TFloatField
-      FieldName = 'CL_SUMM'
-    end
-    object cds_resultNICK: TStringField
-      FieldName = 'NICK'
+    object cds_resultGR_SUMM: TFloatField
+      FieldName = 'GR_SUMM'
     end
     object cds_resultCLIENT_GROUP: TStringField
       FieldName = 'CLIENT_GROUP'
@@ -5917,8 +5985,21 @@ object frmSalesByClients: TfrmSalesByClients
     object cds_resultID_CLIENTS_GROUPS: TIntegerField
       FieldName = 'ID_CLIENTS_GROUPS'
     end
-    object cds_resultGR_SUMM: TFloatField
-      FieldName = 'GR_SUMM'
+    object cds_resultR_DDATE: TDateTimeField
+      FieldName = 'R_DDATE'
+    end
+    object cds_resultCNT: TFloatField
+      FieldName = 'CNT'
+    end
+    object cds_resultNICKS: TStringField
+      FieldName = 'NICKS'
+      Size = 4000
+    end
+    object cds_resultCNT_DIST: TFloatField
+      FieldName = 'CNT_DIST'
+    end
+    object cds_resultMIDLE_CHECK: TFloatField
+      FieldName = 'MIDLE_CHECK'
     end
   end
   object ds_result: TOraDataSource

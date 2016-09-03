@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.STATISTIC
--- Generated 11.07.2016 22:35:19 from CREATOR@STAR_NEW
+-- Generated 03.09.2016 22:21:21 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE statistic
@@ -174,6 +174,7 @@ PROCEDURE get_client_stat_for_summ
    p_region     in varchar2,
    v_office     in number,
    p_otdel      in varchar2,
+   p_kol        in number,
    p_summ       in number,
    cursor_      out ref_cursor
 );
@@ -955,12 +956,14 @@ PROCEDURE get_client_stat_for_summ
    p_region     in varchar2,
    v_office     in number,
    p_otdel      in varchar2,
+   p_kol        in number,
    p_summ       in number,
    cursor_      out ref_cursor
 )
 IS
    sql_str varchar(4096);
 BEGIN
+/*
   sql_str := '
     select a.*, b.gr_summ
     from (
@@ -1005,6 +1008,45 @@ BEGIN
     order by a.BRIEF, a.operation, a.t_long, a.client_group, a.nick
   ';
   open cursor_ for sql_str using DOC_DATE1_, DOC_DATE2_, v_office, v_office, DOC_DATE1_, DOC_DATE2_, v_office, v_office, p_summ, p_summ;
+*/
+
+/*
+    client_kazan = 14942;
+    client_samara = 10690;
+    client_samara2 = 12173;
+    client_yarik = 10016021;
+    client_cherep = 10016216;
+    client_ufa = 10016343;
+    client_eburg = 10021019;
+*/
+  sql_str := '
+    select a.*, round(gr_summ/cnt_dist) as midle_check from (
+      select a.BRIEF, a.operation, a.t_long, sum(a.summ) as gr_summ, a.client_group, a.ID_CLIENTS_GROUPS, max(a.R_DDATE) as R_DDATE, count(*) as cnt, count(distinct a.R_DDATE) as cnt_dist, wm_concat(distinct nick) as nicks
+      from (
+          SELECT a.id_office, o.BRIEF, a.operation, op.t_long, a.summ, c.ID_CLIENTS_GROUPS, decode(c.ID_CLIENTS_GROUPS, 2, c.nick, g.NAME) as client_group, a.R_DDATE, c.nick
+          FROM cash a
+          inner join clients c on c.id_clients = a.id_clients
+          inner join offices o on o.id_office = a.id_office
+          inner join operations op on op.id_operations = a.operation
+          inner join clients_groups g on g.ID_CLIENTS_GROUPS = c.ID_CLIENTS_GROUPS and g.name not in (''CHL (R)'',''Сотрудник фирмы'',''Служебная'',''ОФИС'')
+          where a.r_ddate >= :p1 and a.r_ddate <= :p2
+              and a.operation in ('||p_otdel||')
+              and (a.id_office = :v_office or :v_office = 0)
+              and a.id_clients not in (14942,10690,12173,10016021,10016216,10016343,10021019)
+              and c.ID_CLIENTS_GROUPS not in (10001720,10001800,10001660,10001661,792)
+  ';
+  if p_region is not null then sql_str := sql_str || ' and c.region in ('||p_region||') '; end if;
+  if p_alpha is not null  then sql_str := sql_str || ' and substr(trim(c.nick),0,INSTR(trim(c.nick), '' '')-1) in ('||p_alpha||')'; end if;
+  sql_str := sql_str || '
+       ) a
+      group by a.BRIEF, a.operation, a.t_long, a.client_group, a.ID_CLIENTS_GROUPS
+    ) a
+    where (nvl(cnt,0) >= :p_kol or :p_kol = 0) and (nvl(gr_summ,0) >= :p_summ or :p_summ = 0)
+    order by round(gr_summ/cnt_dist) desc
+  ';
+  open cursor_ for sql_str using DOC_DATE1_, DOC_DATE2_, v_office, v_office, p_kol, p_kol, p_summ, p_summ;
+
+        LOG_ERR(SQLERRM, SQLCODE, 'STATISTIC.get_client_stat_for_summ', sql_str);
 
 EXCEPTION
    WHEN others THEN

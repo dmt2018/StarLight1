@@ -35,7 +35,6 @@ object main: Tmain
     ParentBackground = False
     ParentFont = False
     TabOrder = 0
-    ExplicitWidth = 586
     object img_clients: TcxImage
       Tag = 1
       Left = 64
@@ -1470,15 +1469,14 @@ object main: Tmain
     ParentBackground = False
     ParentFont = False
     TabOrder = 1
-    ExplicitWidth = 586
     DesignSize = (
       623
       41)
     object btnClose: TcxButton
-      Left = 438
+      Left = 440
       Top = 6
       Width = 168
-      Height = 25
+      Height = 28
       Cursor = crHandPoint
       Anchors = [akTop, akRight]
       Caption = #1042#1099#1093#1086#1076
@@ -1527,13 +1525,12 @@ object main: Tmain
         00000000000000000000000000000000000027279E212F2FB7BE2E2EB5BF2727
         9F2300000000383636025D5A5A1E3D3B3B020000000000000000}
       LookAndFeel.Kind = lfOffice11
-      ExplicitLeft = 401
     end
     object btn_user: TcxButton
       Left = 16
       Top = 6
       Width = 194
-      Height = 25
+      Height = 28
       Cursor = crHandPoint
       Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1072' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1077#1081
       Font.Charset = DEFAULT_CHARSET
@@ -1600,6 +1597,5 @@ object main: Tmain
     ParentBackground = False
     ParentFont = False
     TabOrder = 2
-    ExplicitWidth = 586
   end
 end

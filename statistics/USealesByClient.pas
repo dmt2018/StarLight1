@@ -74,18 +74,9 @@ type
     DS_REGIONS: TOraDataSource;
     cds_result: TOraQuery;
     ds_result: TOraDataSource;
-    cds_resultBRIEF: TStringField;
-    cds_resultOPERATION: TIntegerField;
-    cds_resultT_LONG: TStringField;
-    cds_resultCL_SUMM: TFloatField;
-    cds_resultNICK: TStringField;
-    cds_resultCLIENT_GROUP: TStringField;
-    cds_resultID_CLIENTS_GROUPS: TIntegerField;
-    cds_resultGR_SUMM: TFloatField;
     grid_allnakl_vBRIEF: TcxGridDBColumn;
     grid_allnakl_vOPERATION: TcxGridDBColumn;
     grid_allnakl_vT_LONG: TcxGridDBColumn;
-    grid_allnakl_vCL_SUMM: TcxGridDBColumn;
     grid_allnakl_vNICK: TcxGridDBColumn;
     grid_allnakl_vCLIENT_GROUP: TcxGridDBColumn;
     grid_allnakl_vID_CLIENTS_GROUPS: TcxGridDBColumn;
@@ -94,6 +85,23 @@ type
     Label2: TLabel;
     cxColorComboBox1: TcxColorComboBox;
     edCurrency: TcxCurrencyEdit;
+    Label3: TLabel;
+    edQuantity: TcxCurrencyEdit;
+    cds_resultBRIEF: TStringField;
+    cds_resultOPERATION: TIntegerField;
+    cds_resultT_LONG: TStringField;
+    cds_resultGR_SUMM: TFloatField;
+    cds_resultCLIENT_GROUP: TStringField;
+    cds_resultID_CLIENTS_GROUPS: TIntegerField;
+    cds_resultR_DDATE: TDateTimeField;
+    cds_resultCNT: TFloatField;
+    cds_resultNICKS: TStringField;
+    grid_allnakl_vR_DDATE: TcxGridDBColumn;
+    grid_allnakl_vCNT: TcxGridDBColumn;
+    cds_resultCNT_DIST: TFloatField;
+    cds_resultMIDLE_CHECK: TFloatField;
+    grid_allnakl_vCNT_DIST: TcxGridDBColumn;
+    grid_allnakl_vMIDLE_CHECK: TcxGridDBColumn;
     procedure btnCloseClick(Sender: TObject);
     procedure chb_regionsPropertiesEditValueChanged(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -270,6 +278,9 @@ var i: integer;
 begin
   if not collectData then exit;
 
+  edQuantity.PostEditValue;
+  edCurrency.PostEditValue;
+
 	vv := cb_clients.EditValue;
   res_cl := '';
  	for i:=0 to cb_clients.Properties.Items.Count do
@@ -318,6 +329,7 @@ begin
 
     cds_result.ParamByName('v_office').AsInteger := dm.id_office;
     cds_result.ParamByName('p_otdel').AsString   := otd;
+    cds_result.ParamByName('p_kol').AsInteger    := edQuantity.EditValue;
     cds_result.ParamByName('p_summ').AsInteger   := edCurrency.EditValue;
    	cds_result.Open;
 
