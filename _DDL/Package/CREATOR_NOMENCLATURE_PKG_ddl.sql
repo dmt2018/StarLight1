@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.NOMENCLATURE_PKG
--- Generated 06.04.2016 0:59:32 from CREATOR@STAR_NEW
+-- Generated 05.09.2016 0:29:38 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE nomenclature_pkg
@@ -629,6 +629,16 @@ PROCEDURE UPDATE_SPECIFICATIONS
 (
    N_ID_IN        in number,
    param_IN       in varchar2
+);
+
+
+--
+--Функция смены подтипа на другой у номенклатуры
+--
+PROCEDURE CHANGE_SUBTYPE_FROM_TO
+(
+     v_FST_ID_FROM        IN NUMBER,
+     v_FST_ID_TO          in number
 );
 
 
@@ -2747,6 +2757,28 @@ EXCEPTION
            RAISE_APPLICATION_ERROR (-20079, 'Запрос не выполнился. ' || SQLERRM || ' ' || DBMS_UTILITY.format_error_backtrace);
 
 END UPDATE_SPECIFICATIONS;
+
+
+--
+--Функция смены подтипа на другой у номенклатуры
+--
+PROCEDURE CHANGE_SUBTYPE_FROM_TO
+(
+     v_FST_ID_FROM        IN NUMBER,
+     v_FST_ID_TO          in number
+)
+IS
+BEGIN
+  UPDATE NOMENCLATURE SET FST_ID = v_FST_ID_TO, date_change = sysdate WHERE FST_ID = v_FST_ID_FROM;
+  UPDATE NOMENCLATURE_MAT_VIEW SET FST_ID = v_FST_ID_TO, date_change = sysdate WHERE FST_ID = v_FST_ID_FROM;
+  COMMIT;
+EXCEPTION
+      WHEN OTHERS THEN
+           LOG_ERR(SQLERRM, SQLCODE, 'NOMENCLATURE_PKG.CHANGE_SUBTYPE_FROM_TO', '');
+           RAISE_APPLICATION_ERROR (-20080, 'Запрос не выполнился. ' || SQLERRM || ' ' || DBMS_UTILITY.format_error_backtrace);
+
+END CHANGE_SUBTYPE_FROM_TO;
+
 
 
 END; -- nomenclature_pkg

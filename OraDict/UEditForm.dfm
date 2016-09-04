@@ -25,7 +25,6 @@ object frm_editform: Tfrm_editform
     Height = 41
     Align = alBottom
     TabOrder = 1
-    ExplicitTop = 368
     object cxButton2: TcxButton
       Left = 61
       Top = 7
@@ -138,12 +137,11 @@ object frm_editform: Tfrm_editform
     Top = 0
     Width = 442
     Height = 344
-    ActivePage = tsh_subtype
+    ActivePage = tsh_change_subtype
     Align = alClient
     MultiLine = True
     Style = 7
     TabOrder = 0
-    ExplicitHeight = 341
     ClientRectBottom = 343
     ClientRectLeft = 1
     ClientRectRight = 441
@@ -151,7 +149,6 @@ object frm_editform: Tfrm_editform
     object tsh_name: TcxTabSheet
       Caption = #1053#1072#1080#1084#1077#1085#1086#1074#1072#1085#1080#1077' '#1090#1086#1074#1072#1088#1072
       ImageIndex = 0
-      ExplicitHeight = 345
       object Label5: TLabel
         Left = 34
         Top = 16
@@ -314,7 +311,6 @@ object frm_editform: Tfrm_editform
     object tsh_translate: TcxTabSheet
       Caption = #1055#1077#1088#1077#1074#1086#1076' '#1085#1072#1080#1084#1077#1085#1086#1074#1072#1085#1080#1103
       ImageIndex = 1
-      ExplicitHeight = 345
       object Image4: TImage
         Left = 12
         Top = 16
@@ -510,7 +506,6 @@ object frm_editform: Tfrm_editform
     object tsh_country: TcxTabSheet
       Caption = #1057#1090#1088#1072#1085#1072
       ImageIndex = 2
-      ExplicitHeight = 345
       object Image5: TImage
         Left = 12
         Top = 16
@@ -669,7 +664,6 @@ object frm_editform: Tfrm_editform
     object tsh_suplier: TcxTabSheet
       Caption = #1055#1086#1089#1090#1072#1074#1097#1080#1082
       ImageIndex = 3
-      ExplicitHeight = 345
       object Image6: TImage
         Left = 12
         Top = 16
@@ -883,7 +877,6 @@ object frm_editform: Tfrm_editform
     object tsh_types: TcxTabSheet
       Caption = #1058#1080#1087' '#1090#1086#1074#1072#1088#1072
       ImageIndex = 4
-      ExplicitHeight = 345
       object Label10: TLabel
         Left = 34
         Top = 16
@@ -1042,7 +1035,6 @@ object frm_editform: Tfrm_editform
     object tsh_subtype: TcxTabSheet
       Caption = #1055#1086#1076#1090#1080#1087' '#1090#1086#1074#1072#1088#1072
       ImageIndex = 5
-      ExplicitHeight = 253
       object Image10: TImage
         Left = 12
         Top = 16
@@ -1291,7 +1283,6 @@ object frm_editform: Tfrm_editform
     object tsh_change_subtype: TcxTabSheet
       Caption = #1057#1084#1077#1085#1080#1090#1100' '#1090#1080#1087' '#1076#1083#1103' '#1087#1086#1076#1090#1080#1087#1072' '#1090#1086#1074#1072#1088#1072
       ImageIndex = 6
-      ExplicitHeight = 345
       object Image11: TImage
         Left = 12
         Top = 16
@@ -1343,6 +1334,14 @@ object frm_editform: Tfrm_editform
         Height = 16
         Caption = #1042#1099#1073#1077#1088#1080#1090#1077' '#1090#1080#1087
       end
+      object lbl_change_subtype: TLabel
+        Left = 14
+        Top = 51
+        Width = 126
+        Height = 16
+        Caption = #1047#1072#1084#1077#1085#1103#1077#1084#1099#1081' '#1087#1086#1076#1090#1080#1087':'
+        Visible = False
+      end
       object lcb_types: TcxLookupComboBox
         Left = 128
         Top = 10
@@ -1370,11 +1369,38 @@ object frm_editform: Tfrm_editform
         TabOrder = 0
         Width = 266
       end
+      object lcb_subtypes: TcxLookupComboBox
+        Left = 144
+        Top = 12
+        Properties.ImmediatePost = True
+        Properties.KeyFieldNames = 'FST_ID'
+        Properties.ListColumns = <
+          item
+            FieldName = 'F_SUB_TYPE'
+          end>
+        Properties.ListOptions.AnsiSort = True
+        Properties.ListOptions.CaseInsensitive = True
+        Properties.ListOptions.ShowHeader = False
+        Properties.ListOptions.SyncMode = True
+        Properties.ListSource = DM.FlowerSubTypes_DS
+        Style.BorderStyle = ebsOffice11
+        Style.LookAndFeel.Kind = lfOffice11
+        Style.LookAndFeel.NativeStyle = True
+        Style.ButtonStyle = btsOffice11
+        StyleDisabled.LookAndFeel.Kind = lfOffice11
+        StyleDisabled.LookAndFeel.NativeStyle = True
+        StyleFocused.LookAndFeel.Kind = lfOffice11
+        StyleFocused.LookAndFeel.NativeStyle = True
+        StyleHot.LookAndFeel.Kind = lfOffice11
+        StyleHot.LookAndFeel.NativeStyle = True
+        TabOrder = 1
+        Visible = False
+        Width = 266
+      end
     end
     object tsh_color: TcxTabSheet
       Caption = #1062#1074#1077#1090
       ImageIndex = 7
-      ExplicitHeight = 345
       object Image12: TImage
         Left = 12
         Top = 16
@@ -1445,7 +1471,6 @@ object frm_editform: Tfrm_editform
     object tsh_spec: TcxTabSheet
       Caption = #1057#1087#1077#1094#1080#1092#1080#1082#1072#1094#1080#1103
       ImageIndex = 8
-      ExplicitHeight = 345
       object Image13: TImage
         Left = 12
         Top = 16
@@ -1855,7 +1880,6 @@ object frm_editform: Tfrm_editform
     object tsh_spec_trans: TcxTabSheet
       Caption = #1055#1077#1088#1077#1074#1086#1076' '#1089#1087#1077#1094#1080#1092#1080#1082#1072#1094#1080#1080
       ImageIndex = 9
-      ExplicitHeight = 345
       object Image18: TImage
         Left = 16
         Top = 16
@@ -1992,7 +2016,6 @@ object frm_editform: Tfrm_editform
     object tshPacks: TcxTabSheet
       Caption = #1055#1072#1082#1086#1074#1082#1072' '#1087#1086' '#1091#1084#1086#1083#1095#1072#1085#1080#1102
       ImageIndex = 10
-      ExplicitHeight = 345
       object Image21: TImage
         Left = 12
         Top = 16
@@ -2170,7 +2193,6 @@ object frm_editform: Tfrm_editform
     object tsh_unit: TcxTabSheet
       Caption = ' '#1045#1076#1080#1085#1080#1094#1099' '#1080#1079#1084#1077#1088#1077#1085#1080#1103' '
       ImageIndex = 11
-      ExplicitHeight = 345
       object Image23: TImage
         Left = 12
         Top = 16
@@ -2404,7 +2426,6 @@ object frm_editform: Tfrm_editform
     Height = 27
     Align = alBottom
     TabOrder = 2
-    ExplicitTop = 341
     object Label4: TLabel
       Left = 35
       Top = 5
@@ -2466,7 +2487,7 @@ object frm_editform: Tfrm_editform
   end
   object ActionList1: TActionList
     Left = 72
-    Top = 124
+    Top = 188
     object aSave: TAction
       Caption = #1047#1072#1087#1080#1089#1072#1090#1100' (Ctrl+Enter)'
       ShortCut = 16397

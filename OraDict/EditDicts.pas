@@ -242,6 +242,13 @@ type
     gr_subtype_viewSUB_WEIGHT_DRY: TcxGridDBColumn;
     btnChangeActive: TcxButton;
     gr_suplier_viewIS_ACTIVE: TcxGridDBColumn;
+    gr_subtype_viewF_TYPE: TcxGridDBColumn;
+    gr_subtype_viewDOUBLE_NAME: TcxGridDBColumn;
+    gr_subtype_viewHT_ID: TcxGridDBColumn;
+    gr_subtype_viewHOL_TYPE: TcxGridDBColumn;
+    gr_subtype_viewID_OFFICE: TcxGridDBColumn;
+    gr_subtype_viewCNT: TcxGridDBColumn;
+    btnJoinSubtypes: TcxButton;
     procedure btn_closeClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure BitBtn3Click(Sender: TObject);
@@ -305,6 +312,7 @@ type
       APrevFocusedRecord, AFocusedRecord: TcxCustomGridRecord;
       ANewItemRecordFocusingChanged: Boolean);
     procedure btnChangeActiveClick(Sender: TObject);
+    procedure btnJoinSubtypesClick(Sender: TObject);
   private
     { Private declarations }
     pnl_msg: TPanel;
@@ -394,7 +402,7 @@ begin
   aEdit.Enabled       := ed;
   aDelete.Enabled     := del;
   aChangeType.Enabled := ed;
-
+  btnJoinSubtypes.Enabled := (add and (dm.id_office = 1));
 
 
   BitBtn4.Enabled    := (ed and (dm.id_office = 1));
@@ -1494,6 +1502,12 @@ begin
       exit;
     end;
 
+    if (0 < DM.FlowerSubTypes.FieldByName('CNT').AsInteger) then
+    begin
+      MessageBox(Handle,'Есть номенклатурные позиции, использующие данный подтип! Операция невозможна!','Внимание!',MB_ICONERROR);
+      exit;
+    end;
+
     if MessageDlg('Вы действительно хотите удалить подтип товаров?',mtConfirmation,[mbNo,mbYes],0) = mrYes then
     Begin
       try
@@ -1567,7 +1581,6 @@ begin
       end;
     end;
   end;
-
 end;
 
 
@@ -2357,6 +2370,7 @@ begin
  end;
 end;
 
+
 // показ связанных названий поставщика
 procedure TDictsEdit.aShowTranslateExecute(Sender: TObject);
 begin
@@ -2508,6 +2522,61 @@ begin
     begin
       frm_editform.Free;
       MessageBox(Handle, PChar(E.Message), 'Ошибка', MB_ICONERROR);
+    end;
+  end;
+end;
+
+
+//
+//  Объединить подтипы
+//
+procedure TDictsEdit.btnJoinSubtypesClick(Sender: TObject);
+begin
+  if (DM.FlowerSubTypes.RecordCount > 0) then
+  begin
+    if (DM.id_office <> DM.FlowerSubTypes.FieldByName('ID_OFFICE').AsInteger) then
+    begin
+      MessageBox(Handle,'Данная запись принадлежит главному офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
+      exit;
+    end;
+
+    if MessageDlg('Вы действительно хотите изменить подтип на другой у всей номенклатуры (записей '+DM.FlowerSubTypes.FieldByName('CNT').AsString+')?',mtConfirmation,[mbNo,mbYes],0) <> mrYes then exit;
+
+    frm_editform                                := Tfrm_editform.Create(Application);
+    try
+      frm_editform.cxPageControl1.HideTabs        := true;
+      frm_editform.cxPageControl1.ActivePageIndex := 6;
+      frm_editform.Caption                        := frm_editform.cxPageControl1.ActivePage.Caption;
+      frm_editform.lbl_change_subtype.visible     := true;
+      frm_editform.lbl_change_subtype.caption     := 'Заменяемый подтип: '+VarToStr(gr_subtype_viewf_sub_type.EditValue);
+      frm_editform.lbl_change_subtype.Tag         := gr_subtype_viewfst_id.EditValue;
+      frm_editform.lcb_subtypes.visible           := true;
+      frm_editform.lcb_types.visible              := false;
+      frm_editform.lcb_types.EditValue            := DM.FlowerSubTypes.FieldByName('FT_ID').AsString;
+//      ID_FST := DM.FlowerSubTypes.FieldByName('FST_ID').Value;
+      if (frm_editform.ShowModal = mrOk) then
+      begin
+
+        with DM.StorProc do
+        Begin
+          StoredProcName := 'NOMENCLATURE_PKG.CHANGE_SUBTYPE_FROM_TO';
+          Prepare;
+          ParamByName('v_FST_ID_FROM').Value := frm_editform.lbl_change_subtype.Tag;
+          ParamByName('v_FST_ID_TO').Value   := DM.FlowerSubTypes.FieldByName('FST_ID').Value;
+          Execute;
+          DM.FlowerSubTypes.Refresh;
+        End;
+
+        gr_subtype.SetFocus;
+
+      end;
+      frm_editform.Free;
+
+    Except on E:Exception do
+      begin
+        frm_editform.Free;
+        MessageBox(Handle, PChar(E.Message), 'Ошибка', MB_ICONERROR);
+      end;
     end;
   end;
 end;

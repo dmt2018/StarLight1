@@ -151,6 +151,8 @@ type
     Label48: TLabel;
     Label49: TLabel;
     edit_weight_dry: TcxSpinEdit;
+    lcb_subtypes: TcxLookupComboBox;
+    lbl_change_subtype: TLabel;
     procedure aSaveExecute(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure cxCheckBox1PropertiesEditValueChanged(Sender: TObject);
@@ -241,10 +243,13 @@ begin
 
   if cxPageControl1.ActivePageIndex = 6 then
   begin
-    if ( lcb_types.EditValue < 1 ) then
+    if ( lcb_types.EditValue < 1 ) and lcb_types.Visible then
       MessageBox(Handle, 'Необходимо выбрать тип товара', 'Внимание', MB_ICONWARNING)
     else
-      Modalresult := mrOk;
+      if ( lcb_subtypes.EditValue < 1 ) and lcb_subtypes.Visible then
+        MessageBox(Handle, 'Необходимо выбрать подтип товара', 'Внимание', MB_ICONWARNING)
+      else
+        Modalresult := mrOk;
   end;
 
   if cxPageControl1.ActivePageIndex = 7 then
@@ -340,7 +345,8 @@ begin
   if cxPageControl1.ActivePageIndex = 3 then edit_suplier.SetFocus;
   if cxPageControl1.ActivePageIndex = 4 then edit_type.SetFocus;
   if cxPageControl1.ActivePageIndex = 5 then edit_subtype.SetFocus;
-  if cxPageControl1.ActivePageIndex = 6 then lcb_types.SetFocus;
+  if (cxPageControl1.ActivePageIndex = 6) and lcb_types.Visible then lcb_types.SetFocus;
+  if (cxPageControl1.ActivePageIndex = 6) and lcb_subtypes.Visible then lcb_subtypes.SetFocus;
   if cxPageControl1.ActivePageIndex = 7 then edit_color.SetFocus;
   if cxPageControl1.ActivePageIndex = 8 then edit_spec_kod.SetFocus;
   if cxPageControl1.ActivePageIndex = 9 then edit_spec_trans.SetFocus;

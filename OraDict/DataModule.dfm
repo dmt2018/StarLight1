@@ -7,7 +7,7 @@ object DM: TDM
     Options.Direct = True
     Username = 'creator'
     Password = '123456'
-    Server = 'roznica:1521:orcl'
+    Server = 'KLEPOV:1521:STARNEW'
     AutoCommit = False
     Left = 24
     Top = 16
@@ -500,13 +500,15 @@ object DM: TDM
     SQL.Strings = (
       'select rownum as nn, a.* from ('
       
-        'SELECT fst_id, f_sub_type, hol_sub_type, ft_id, f_type, double_n' +
-        'ame, ht_id, hol_type, mnemo, sub_weight, id_office, price_prefix' +
-        ', tnved, sub_weight_dry'
-      'FROM fst_view'
-      'WHERE '
-      'FT_ID = :FT_ID '
-      ' and (id_office in (1,:v_office) or :v_office = 0)'
+        'SELECT a.fst_id, a.f_sub_type, a.hol_sub_type, a.ft_id, a.f_type' +
+        ', a.double_name, a.ht_id, a.hol_type, a.mnemo, a.sub_weight, a.i' +
+        'd_office, a.price_prefix, a.tnved, a.sub_weight_dry, b.cnt'
+      'FROM fst_view a'
+      
+        '  left outer join (select n.FST_ID, count(*) as cnt from nomencl' +
+        'ature n group by n.FST_ID) b on b.fst_id = a.fst_id '
+      'WHERE FT_ID = :FT_ID '
+      '  and (id_office in (1,:v_office) or :v_office = 0)'
       'order by f_sub_type'
       ') a')
     MasterSource = FlowerTypes_DS
@@ -579,6 +581,9 @@ object DM: TDM
     end
     object FlowerSubTypesSUB_WEIGHT_DRY: TFloatField
       FieldName = 'SUB_WEIGHT_DRY'
+    end
+    object FlowerSubTypesCNT: TFloatField
+      FieldName = 'CNT'
     end
   end
   object FlowerSubTypes_DS: TDataSource
