@@ -24,7 +24,7 @@ object frmRegistration: TfrmRegistration
     Width = 1052
     Height = 558
     Align = alClient
-    TabOrder = 1
+    TabOrder = 0
     LevelTabs.Style = 7
     LookAndFeel.Kind = lfOffice11
     LookAndFeel.NativeStyle = False
@@ -3746,6 +3746,7 @@ object frmRegistration: TfrmRegistration
       Category = 0
       Visible = ivAlways
       ShortCut = 114
+      OnClick = btnDeleteClick
       AutoGrayScale = False
     end
     object imgOffice: TcxBarEditItem
@@ -3828,6 +3829,7 @@ object frmRegistration: TfrmRegistration
       Category = 0
       Hint = #1047#1072#1082#1088#1099#1090#1100
       Visible = ivAlways
+      OnClick = btnExitClick
       AutoGrayScale = False
     end
     object cxBarEditItem3: TcxBarEditItem
@@ -4396,7 +4398,7 @@ object frmRegistration: TfrmRegistration
     Left = 820
     Top = 125
     Bitmap = {
-      494C0101040009001C0110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101040009002C0110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -5262,8 +5264,8 @@ object frmRegistration: TfrmRegistration
     end
   end
   object PopupMenu2: TPopupMenu
-    Left = 20
-    Top = 331
+    Left = 412
+    Top = 323
     object m_type: TMenuItem
       Caption = #1043#1088#1091#1087#1087#1080#1088#1086#1074#1072#1090#1100' '#1087#1086' '#1090#1080#1087#1091' '#1082#1083#1080#1077#1085#1090#1072
     end
@@ -5362,8 +5364,8 @@ object frmRegistration: TfrmRegistration
     end
   end
   object PopupMenu1: TPopupMenu
-    Left = 668
-    Top = 379
+    Left = 492
+    Top = 323
     object N1: TMenuItem
     end
     object N2: TMenuItem
@@ -5525,7 +5527,7 @@ object frmRegistration: TfrmRegistration
     Left = 240
     Top = 328
     Bitmap = {
-      494C010127002C000C0120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010127002C001C0120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004001000001002000000000000080
       0200000000000000000000000000000000000000000000000000000000000000
       000000000000000000000101011A0B0B0B743B3D3DB4777777D5838383DA5152
@@ -10936,20 +10938,21 @@ object frmRegistration: TfrmRegistration
     end
   end
   object SelQ: TOraQuery
-    Left = 376
-    Top = 432
+    Left = 680
+    Top = 392
   end
   object Q_CLIENTS: TOraQuery
     SQLUpdate.Strings = (
       'update clients set count=:count where id_clients=:id_clients')
     SQLRefresh.Strings = (
       'where id_clients=:id_clients')
+    Session = dm.OraSession
     SQL.Strings = (
       'SELECT * from CLIENTS_VIEW2')
     FetchAll = True
     FilterOptions = [foCaseInsensitive]
-    Left = 328
-    Top = 432
+    Left = 680
+    Top = 312
     object Q_CLIENTSID_CLIENTS: TIntegerField
       FieldName = 'ID_CLIENTS'
       Required = True
@@ -11057,6 +11060,7 @@ object frmRegistration: TfrmRegistration
     end
   end
   object Q_CLIENT_VIEW: TOraQuery
+    Session = dm.OraSession
     SQL.Strings = (
       'SELECT C.*, '
       
@@ -11080,8 +11084,8 @@ object frmRegistration: TfrmRegistration
       '   AND C.REGION = R.ID_REGIONS'
       '   and c.id_office = o.ID_OFFICE'
       '   and c.id_city = s.id_city(+)')
-    Left = 424
-    Top = 432
+    Left = 680
+    Top = 352
     object Q_CLIENT_VIEWID_CLIENTS: TIntegerField
       FieldName = 'ID_CLIENTS'
     end
@@ -11271,12 +11275,682 @@ object frmRegistration: TfrmRegistration
   end
   object Q_CLIENTS_DS: TOraDataSource
     DataSet = Q_CLIENTS
-    Left = 328
-    Top = 472
+    Left = 720
+    Top = 312
   end
   object Q_CLIENT_VIEW_DS: TOraDataSource
     DataSet = Q_CLIENT_VIEW
-    Left = 424
+    Left = 720
+    Top = 352
+  end
+  object Q_ADVERT: TOraQuery
+    Session = dm.OraSession
+    SQL.Strings = (
+      
+        'SELECT a.ID_ADVERTISMENTS, a.NAME, a.ID_OFFICE, o.BRIEF FROM BOO' +
+        'KS_ADVERTISMENTS a, offices o'
+      
+        'where (a.ID_OFFICE = 1 or a.id_office=1) and a.id_office = o.id_' +
+        'office')
+    AfterOpen = Q_ADVERTAfterOpen
+    AfterRefresh = Q_ADVERTAfterOpen
+    Left = 816
+    Top = 312
+    object Q_ADVERTID_ADVERTISMENTS: TIntegerField
+      FieldName = 'ID_ADVERTISMENTS'
+      Required = True
+    end
+    object Q_ADVERTNAME: TStringField
+      FieldName = 'NAME'
+      Required = True
+      Size = 255
+    end
+    object Q_ADVERTID_OFFICE: TIntegerField
+      FieldName = 'ID_OFFICE'
+    end
+    object Q_ADVERTBRIEF: TStringField
+      FieldName = 'BRIEF'
+      Size = 10
+    end
+  end
+  object Q_ADVERT_DS: TOraDataSource
+    DataSet = Q_ADVERT
+    Left = 856
+    Top = 312
+  end
+  object Q_TYPES: TOraQuery
+    Session = dm.OraSession
+    SQL.Strings = (
+      
+        'SELECT a.ID_CLIENT_TYPES, a.NAME, a.ID_OFFICE, o.BRIEF FROM BOOK' +
+        'S_CLIENT_TYPES a, offices o'
+      
+        'where (a.ID_OFFICE = 1 or a.id_office=1) and a.id_office = o.id_' +
+        'office')
+    AfterOpen = Q_TYPESAfterOpen
+    AfterRefresh = Q_TYPESAfterOpen
+    Left = 816
+    Top = 352
+    object Q_TYPESID_CLIENT_TYPES: TIntegerField
+      FieldName = 'ID_CLIENT_TYPES'
+      Required = True
+    end
+    object Q_TYPESNAME: TStringField
+      FieldName = 'NAME'
+      Required = True
+      Size = 50
+    end
+    object Q_TYPESID_OFFICE: TIntegerField
+      FieldName = 'ID_OFFICE'
+    end
+    object Q_TYPESBRIEF: TStringField
+      FieldName = 'BRIEF'
+      Size = 10
+    end
+  end
+  object Q_TYPES_DS: TOraDataSource
+    DataSet = Q_TYPES
+    Left = 856
+    Top = 352
+  end
+  object Q_REGIONS: TOraQuery
+    Session = dm.OraSession
+    SQL.Strings = (
+      
+        'SELECT a.ID_REGIONS, a.NAME, a.ID_OFFICE, o.BRIEF FROM BOOKS_REG' +
+        'IONS a, offices o'
+      
+        'where (a.ID_OFFICE = 1 or a.id_office=1) and a.id_office = o.id_' +
+        'office')
+    AfterOpen = Q_REGIONSAfterOpen
+    AfterRefresh = Q_REGIONSAfterOpen
+    Left = 816
+    Top = 392
+    object Q_REGIONSID_REGIONS: TIntegerField
+      FieldName = 'ID_REGIONS'
+      Required = True
+    end
+    object Q_REGIONSNAME: TStringField
+      FieldName = 'NAME'
+      Required = True
+      Size = 255
+    end
+    object Q_REGIONSID_OFFICE: TIntegerField
+      FieldName = 'ID_OFFICE'
+    end
+    object Q_REGIONSBRIEF: TStringField
+      FieldName = 'BRIEF'
+      Size = 10
+    end
+  end
+  object Q_REGIONS_DS: TOraDataSource
+    DataSet = Q_REGIONS
+    Left = 856
+    Top = 392
+  end
+  object Q_G_CL: TOraQuery
+    Session = dm.OraSession
+    SQL.Strings = (
+      
+        'SELECT C.ID_CLIENTS, C.FIO, C.NICK, G.NAME AS GROUP_NAME, T.NAME' +
+        ' AS TTYPE_NAME FROM CLIENTS_GROUPS G, BOOKS_CLIENT_TYPES T, CLIE' +
+        'NTS_VIEW C '
+      
+        'WHERE C.ID_CLIENTS_GROUPS = G.ID_CLIENTS_GROUPS AND C.TTYPE = T.' +
+        'ID_CLIENT_TYPES AND C.ID_CLIENTS_GROUPS=:ID_CLIENTS_GROUPS ORDER' +
+        ' BY C.NICK')
+    MasterFields = 'ID'
+    FetchAll = True
+    Left = 816
+    Top = 432
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'ID_CLIENTS_GROUPS'
+      end>
+    object Q_G_CLID_CLIENTS: TIntegerField
+      FieldName = 'ID_CLIENTS'
+      Required = True
+    end
+    object Q_G_CLFIO: TStringField
+      FieldName = 'FIO'
+      Size = 255
+    end
+    object Q_G_CLNICK: TStringField
+      FieldName = 'NICK'
+    end
+    object Q_G_CLGROUP_NAME: TStringField
+      FieldName = 'GROUP_NAME'
+      Required = True
+      Size = 255
+    end
+    object Q_G_CLTTYPE_NAME: TStringField
+      FieldName = 'TTYPE_NAME'
+      Required = True
+      Size = 50
+    end
+  end
+  object Q_G_CL_DS: TOraDataSource
+    DataSet = Q_G_CL
+    Left = 856
+    Top = 432
+  end
+  object Q_GROUPS: TOraQuery
+    Session = dm.OraSession
+    SQL.Strings = (
+      'SELECT a.*, o.BRIEF FROM CLIENTS_GROUPS a, offices o'
+      
+        'where (a.ID_OFFICE = 1 or a.id_office=1) and a.id_office = o.id_' +
+        'office')
+    FetchAll = True
+    AfterOpen = Q_GROUPSAfterOpen
+    AfterRefresh = Q_GROUPSAfterOpen
+    Left = 816
     Top = 472
+    object Q_GROUPSID_CLIENTS_GROUPS: TIntegerField
+      FieldName = 'ID_CLIENTS_GROUPS'
+      Required = True
+    end
+    object Q_GROUPSNAME: TStringField
+      FieldName = 'NAME'
+      Required = True
+      Size = 255
+    end
+    object Q_GROUPSINFO: TStringField
+      FieldName = 'INFO'
+      Size = 1024
+    end
+    object Q_GROUPSID_OFFICE: TIntegerField
+      FieldName = 'ID_OFFICE'
+    end
+    object Q_GROUPSBRIEF: TStringField
+      FieldName = 'BRIEF'
+      Size = 10
+    end
+  end
+  object Q_GROUPS_DS: TOraDataSource
+    DataSet = Q_GROUPS
+    Left = 856
+    Top = 472
+  end
+  object Q_EMPL: TOraQuery
+    SQLUpdate.Strings = (
+      
+        'update clients set active=:active, staff=:staff where id_clients' +
+        '=:id_clients')
+    Session = dm.OraSession
+    SQL.Strings = (
+      'SELECT E.* FROM EMPLOYEES_VIEW E')
+    FetchAll = True
+    FilterOptions = [foCaseInsensitive]
+    Left = 952
+    Top = 312
+    object Q_EMPLNN: TFloatField
+      FieldName = 'NN'
+    end
+    object Q_EMPLACTIVE: TIntegerField
+      FieldName = 'ACTIVE'
+    end
+    object Q_EMPLCCODE: TStringField
+      FieldName = 'CCODE'
+      Required = True
+      Size = 13
+    end
+    object Q_EMPLFIO: TStringField
+      FieldName = 'FIO'
+      Size = 255
+    end
+    object Q_EMPLID_CLIENTS: TIntegerField
+      FieldName = 'ID_CLIENTS'
+      Required = True
+    end
+    object Q_EMPLLOGIN: TStringField
+      FieldName = 'LOGIN'
+    end
+    object Q_EMPLNICK: TStringField
+      FieldName = 'NICK'
+    end
+    object Q_EMPLSTAFF: TIntegerField
+      FieldName = 'STAFF'
+      Required = True
+    end
+    object Q_EMPLCOUNT: TIntegerField
+      FieldName = 'COUNT'
+      Required = True
+    end
+    object Q_EMPLID_OFFICE: TIntegerField
+      FieldName = 'ID_OFFICE'
+    end
+    object Q_EMPLBRIEF: TStringField
+      FieldName = 'BRIEF'
+      Size = 10
+    end
+    object Q_EMPLREGIONS_NAME: TStringField
+      FieldName = 'REGIONS_NAME'
+      Size = 255
+    end
+    object Q_EMPLREGION: TIntegerField
+      FieldName = 'REGION'
+      Required = True
+    end
+  end
+  object Q_EMPL_DS: TOraDataSource
+    DataSet = Q_EMPL
+    Left = 992
+    Top = 312
+  end
+  object Q_DEPS: TOraQuery
+    Session = dm.OraSession
+    SQL.Strings = (
+      
+        'SELECT ED.*, BD.NAME FROM BOOKS_DEPARTMENTS BD, EMPLOYEES_DEPART' +
+        'MENTS ED WHERE ED.ID_DEPARTMENTS = BD.ID_DEPARTMENTS AND ED.ID_E' +
+        'MPLOYEES =:ID_CLIENTS ORDER BY NAME')
+    MasterSource = Q_EMPL_DS
+    MasterFields = 'ID_CLIENTS'
+    Left = 952
+    Top = 352
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'ID_CLIENTS'
+      end>
+    object Q_DEPSID_EMPLOYEES: TIntegerField
+      FieldName = 'ID_EMPLOYEES'
+      Required = True
+    end
+    object Q_DEPSID_DEPARTMENTS: TIntegerField
+      FieldName = 'ID_DEPARTMENTS'
+      Required = True
+    end
+    object Q_DEPSNAME: TStringField
+      FieldName = 'NAME'
+      Required = True
+      Size = 100
+    end
+  end
+  object Q_DEPS_DS: TOraDataSource
+    DataSet = Q_DEPS
+    Left = 992
+    Top = 352
+  end
+  object Q_JOBS: TOraQuery
+    Session = dm.OraSession
+    SQL.Strings = (
+      
+        'SELECT EJ.*, J.NAME FROM BOOKS_JOB_TITLES J, EMPLOYEES_JOB_TITLE' +
+        'S EJ WHERE EJ.ID_JOB_TITLES = J.ID_JOB_TITLES AND EJ.ID_EMPLOYEE' +
+        'S =:ID_CLIENTS ORDER BY NAME')
+    MasterSource = Q_EMPL_DS
+    MasterFields = 'ID_CLIENTS'
+    Left = 952
+    Top = 392
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'ID_CLIENTS'
+      end>
+    object Q_JOBSID_EMPLOYEES: TIntegerField
+      FieldName = 'ID_EMPLOYEES'
+      Required = True
+    end
+    object Q_JOBSID_JOB_TITLES: TIntegerField
+      FieldName = 'ID_JOB_TITLES'
+      Required = True
+    end
+    object Q_JOBSNAME: TStringField
+      FieldName = 'NAME'
+      Required = True
+      Size = 100
+    end
+  end
+  object Q_JOBS_DS: TOraDataSource
+    DataSet = Q_JOBS
+    Left = 992
+    Top = 392
+  end
+  object Q_TITLES: TOraQuery
+    Session = dm.OraSession
+    SQL.Strings = (
+      
+        'SELECT a.ID_JOB_TITLES, a.NAME, a.ID_OFFICE, o.BRIEF FROM BOOKS_' +
+        'JOB_TITLES a, offices o'
+      
+        'where (a.ID_OFFICE = 1 or a.id_office=1) and a.id_office = o.id_' +
+        'office')
+    AfterOpen = Q_TITLESAfterOpen
+    AfterRefresh = Q_TITLESAfterOpen
+    Left = 952
+    Top = 432
+    object Q_TITLESID_JOB_TITLES: TIntegerField
+      FieldName = 'ID_JOB_TITLES'
+      Required = True
+    end
+    object Q_TITLESNAME: TStringField
+      FieldName = 'NAME'
+      Required = True
+      Size = 100
+    end
+    object Q_TITLESBRIEF: TStringField
+      FieldName = 'BRIEF'
+      Size = 10
+    end
+    object Q_TITLESID_OFFICE: TIntegerField
+      FieldName = 'ID_OFFICE'
+    end
+  end
+  object Q_TITLES_DS: TOraDataSource
+    DataSet = Q_TITLES
+    Left = 992
+    Top = 432
+  end
+  object Q_DEPART: TOraQuery
+    Session = dm.OraSession
+    SQL.Strings = (
+      'SELECT ID_DEPARTMENTS, NAME FROM BOOKS_DEPARTMENTS ORDER BY NAME')
+    AfterOpen = Q_DEPARTAfterOpen
+    AfterRefresh = Q_DEPARTAfterOpen
+    Left = 952
+    Top = 472
+    object Q_DEPARTID_DEPARTMENTS: TIntegerField
+      FieldName = 'ID_DEPARTMENTS'
+      Required = True
+    end
+    object Q_DEPARTNAME: TStringField
+      FieldName = 'NAME'
+      Required = True
+      Size = 100
+    end
+  end
+  object Q_DEPART_DS: TOraDataSource
+    DataSet = Q_DEPART
+    Left = 992
+    Top = 472
+  end
+  object Q_SEARCH: TOraQuery
+    LocalUpdate = True
+    Session = dm.OraSession
+    SQL.Strings = (
+      
+        'SELECT C.*, G.NAME AS GROUP_NAME, T.NAME AS TTYPE_NAME, R.NAME A' +
+        'S REGION_NAME, A.NAME AS ADVERT, o.BRIEF, s.city'
+      
+        'FROM CLIENTS C, CLIENTS_GROUPS G, BOOKS_CLIENT_TYPES T, BOOKS_AD' +
+        'VERTISMENTS A, BOOKS_REGIONS R, offices o, books_cities s'
+      'WHERE C.ID_CLIENTS_GROUPS = G.ID_CLIENTS_GROUPS '
+      '  AND C.TTYPE = T.ID_CLIENT_TYPES '
+      '  AND C.ADVERTISMENT = A.ID_ADVERTISMENTS '
+      '  AND C.REGION = R.ID_REGIONS'
+      '  and c.id_office = o.id_office'
+      '  and c.id_city = s.id_city(+)')
+    FilterOptions = [foCaseInsensitive]
+    Left = 680
+    Top = 440
+    object Q_SEARCHID_CLIENTS: TIntegerField
+      FieldName = 'ID_CLIENTS'
+      Required = True
+    end
+    object Q_SEARCHFIO: TStringField
+      FieldName = 'FIO'
+      Required = True
+      Size = 255
+    end
+    object Q_SEARCHNICK: TStringField
+      FieldName = 'NICK'
+      Required = True
+    end
+    object Q_SEARCHCCODE: TStringField
+      FieldName = 'CCODE'
+      Required = True
+      Size = 13
+    end
+    object Q_SEARCHREGION: TIntegerField
+      FieldName = 'REGION'
+      Required = True
+    end
+    object Q_SEARCHADDRESS: TStringField
+      FieldName = 'ADDRESS'
+      Size = 1024
+    end
+    object Q_SEARCHU_ADDRESS: TStringField
+      FieldName = 'U_ADDRESS'
+      Size = 1024
+    end
+    object Q_SEARCHPHONE: TStringField
+      FieldName = 'PHONE'
+      Size = 1024
+    end
+    object Q_SEARCHPASSPORT: TStringField
+      FieldName = 'PASSPORT'
+      Size = 1024
+    end
+    object Q_SEARCHCONTACT: TStringField
+      FieldName = 'CONTACT'
+      Size = 100
+    end
+    object Q_SEARCHCONT_PHONE: TStringField
+      FieldName = 'CONT_PHONE'
+      Size = 1024
+    end
+    object Q_SEARCHEMAIL: TStringField
+      FieldName = 'EMAIL'
+      Size = 50
+    end
+    object Q_SEARCHWWW: TStringField
+      FieldName = 'WWW'
+      Size = 50
+    end
+    object Q_SEARCHINN: TStringField
+      FieldName = 'INN'
+      Size = 50
+    end
+    object Q_SEARCHREG_SVID: TStringField
+      FieldName = 'REG_SVID'
+      Size = 50
+    end
+    object Q_SEARCHKPP: TStringField
+      FieldName = 'KPP'
+    end
+    object Q_SEARCHOKATO: TStringField
+      FieldName = 'OKATO'
+    end
+    object Q_SEARCHBANK: TStringField
+      FieldName = 'BANK'
+      Size = 1024
+    end
+    object Q_SEARCHAGREEMENT: TStringField
+      FieldName = 'AGREEMENT'
+      Required = True
+      Size = 50
+    end
+    object Q_SEARCHADVERTISMENT: TIntegerField
+      FieldName = 'ADVERTISMENT'
+      Required = True
+    end
+    object Q_SEARCHDDATE: TDateTimeField
+      FieldName = 'DDATE'
+      Required = True
+    end
+    object Q_SEARCHBLOCK1: TIntegerField
+      FieldName = 'BLOCK1'
+      Required = True
+    end
+    object Q_SEARCHBLOCK2: TIntegerField
+      FieldName = 'BLOCK2'
+      Required = True
+    end
+    object Q_SEARCHFLOWERS: TIntegerField
+      FieldName = 'FLOWERS'
+      Required = True
+    end
+    object Q_SEARCHPLANTS: TIntegerField
+      FieldName = 'PLANTS'
+    end
+    object Q_SEARCHMARK: TStringField
+      FieldName = 'MARK'
+      Required = True
+      Size = 10
+    end
+    object Q_SEARCHTTYPE: TIntegerField
+      FieldName = 'TTYPE'
+      Required = True
+    end
+    object Q_SEARCHID_CLIENTS_GROUPS: TIntegerField
+      FieldName = 'ID_CLIENTS_GROUPS'
+      Required = True
+    end
+    object Q_SEARCHCORRECTOR: TStringField
+      FieldName = 'CORRECTOR'
+    end
+    object Q_SEARCHDATE_COR: TDateTimeField
+      FieldName = 'DATE_COR'
+    end
+    object Q_SEARCHCORRECTOR_COR: TStringField
+      FieldName = 'CORRECTOR_COR'
+    end
+    object Q_SEARCHDUTIES: TStringField
+      FieldName = 'DUTIES'
+      Size = 1024
+    end
+    object Q_SEARCHINSURANCE: TStringField
+      FieldName = 'INSURANCE'
+      Size = 50
+    end
+    object Q_SEARCHDATE_IN: TDateTimeField
+      FieldName = 'DATE_IN'
+    end
+    object Q_SEARCHDATE_OUT: TDateTimeField
+      FieldName = 'DATE_OUT'
+    end
+    object Q_SEARCHL_SERVICE: TStringField
+      FieldName = 'L_SERVICE'
+      Size = 10
+    end
+    object Q_SEARCHSTAFF: TIntegerField
+      FieldName = 'STAFF'
+    end
+    object Q_SEARCHACTIVE: TIntegerField
+      FieldName = 'ACTIVE'
+    end
+    object Q_SEARCHLOGIN: TStringField
+      FieldName = 'LOGIN'
+    end
+    object Q_SEARCHINFO: TStringField
+      FieldName = 'INFO'
+      Size = 1024
+    end
+    object Q_SEARCHREG_TYPE: TIntegerField
+      FieldName = 'REG_TYPE'
+      Required = True
+    end
+    object Q_SEARCHCOUNT: TIntegerField
+      FieldName = 'COUNT'
+      Required = True
+    end
+    object Q_SEARCHDOSTAVKA: TIntegerField
+      FieldName = 'DOSTAVKA'
+    end
+    object Q_SEARCHID_OFFICE: TIntegerField
+      FieldName = 'ID_OFFICE'
+    end
+    object Q_SEARCHDATE_CHANGE: TDateTimeField
+      FieldName = 'DATE_CHANGE'
+    end
+    object Q_SEARCHPREFIX: TStringField
+      FieldName = 'PREFIX'
+      Size = 5
+    end
+    object Q_SEARCHID_CITY: TIntegerField
+      FieldName = 'ID_CITY'
+    end
+    object Q_SEARCHGROUP_NAME: TStringField
+      FieldName = 'GROUP_NAME'
+      Size = 255
+    end
+    object Q_SEARCHTTYPE_NAME: TStringField
+      FieldName = 'TTYPE_NAME'
+      Size = 50
+    end
+    object Q_SEARCHREGION_NAME: TStringField
+      FieldName = 'REGION_NAME'
+      Size = 255
+    end
+    object Q_SEARCHADVERT: TStringField
+      FieldName = 'ADVERT'
+      Size = 255
+    end
+    object Q_SEARCHBRIEF: TStringField
+      FieldName = 'BRIEF'
+      Size = 10
+    end
+    object Q_SEARCHCITY: TStringField
+      FieldName = 'CITY'
+      Size = 255
+    end
+  end
+  object Q_SEARCH_DS: TOraDataSource
+    DataSet = Q_SEARCH
+    Left = 720
+    Top = 440
+  end
+  object OraQuery1: TOraQuery
+    Session = dm.OraSession
+    SQL.Strings = (
+      
+        'SELECT C.ID_CLIENTS, C.FIO, C.NICK, G.NAME AS GROUP_NAME, T.NAME' +
+        ' AS TTYPE_NAME FROM CLIENTS_GROUPS G, BOOKS_CLIENT_TYPES T, CLIE' +
+        'NTS_VIEW C '
+      
+        'WHERE C.ID_CLIENTS_GROUPS = G.ID_CLIENTS_GROUPS AND C.TTYPE = T.' +
+        'ID_CLIENT_TYPES AND C.ID_CLIENTS_GROUPS=:ID_CLIENTS_GROUPS ORDER' +
+        ' BY C.NICK')
+    MasterSource = Q_GROUPS_DS
+    MasterFields = 'ID'
+    FetchAll = True
+    Left = 680
+    Top = 480
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'ID_CLIENTS_GROUPS'
+      end>
+    object IntegerField1: TIntegerField
+      FieldName = 'ID_CLIENTS'
+      Required = True
+    end
+    object StringField1: TStringField
+      FieldName = 'FIO'
+      Size = 255
+    end
+    object StringField2: TStringField
+      FieldName = 'NICK'
+    end
+    object StringField3: TStringField
+      FieldName = 'GROUP_NAME'
+      Required = True
+      Size = 255
+    end
+    object StringField4: TStringField
+      FieldName = 'TTYPE_NAME'
+      Required = True
+      Size = 50
+    end
+  end
+  object OraDataSource1: TOraDataSource
+    DataSet = OraQuery1
+    Left = 720
+    Top = 480
+  end
+  object Q_IDD: TOraQuery
+    Session = dm.OraSession
+    SQL.Strings = (
+      'SELECT OLMER.PARAMS_SET_ID.nextval from DUAL')
+    Left = 680
+    Top = 520
+  end
+  object Q_IDD_DS: TOraDataSource
+    DataSet = Q_IDD
+    Left = 720
+    Top = 520
   end
 end
