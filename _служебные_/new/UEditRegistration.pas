@@ -9,7 +9,8 @@ uses
   MemDS, ImgList, ActnList, cxGridLevel, cxGridCustomTableView, cxGridTableView,
   cxGridDBTableView, cxClasses, cxControls, cxGridCustomView, cxGrid,
   cxContainer, cxTextEdit, cxMaskEdit, cxDropDownEdit, cxLookupEdit,
-  cxDBLookupEdit, cxDBLookupComboBox, Mask, DBCtrlsEh, ExtCtrls, ComCtrls, star_lib;
+  cxDBLookupEdit, cxDBLookupComboBox, Mask, DBCtrlsEh, ExtCtrls, ComCtrls, star_lib,
+  Grids, Calendar;
 
 type
   TfrmEditRegistration = class(TForm)
@@ -97,6 +98,50 @@ type
     Q_ADDRESSID_CLIENTS: TIntegerField;
     Q_Q_ADDRESS_DS: TOraDataSource;
     Q_CLIENT_VIEW: TOraQuery;
+    cdsCity: TOraQuery;
+    cdsCityID_CITY: TIntegerField;
+    cdsCityCITY: TStringField;
+    cdsCityKOD: TStringField;
+    cdsCityID_REGION: TIntegerField;
+    dsCity: TOraDataSource;
+    CheckBox1: TCheckBox;
+    CheckBox2: TCheckBox;
+    Panel4: TPanel;
+    Label27: TLabel;
+    CheckBox4: TCheckBox;
+    CheckBox5: TCheckBox;
+    Label13: TLabel;
+    Label14: TLabel;
+    Label17: TLabel;
+    Label23: TLabel;
+    DBText1: TDBText;
+    DBText2: TDBText;
+    DBText3: TDBText;
+    DBText4: TDBText;
+    Panel1: TPanel;
+    SpeedButton5: TSpeedButton;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    btnClone: TBitBtn;
+    Edit2: TEdit;
+    Edit4: TEdit;
+    Edit5: TEdit;
+    Edit6: TEdit;
+    Label30: TLabel;
+    Label31: TLabel;
+    Label32: TLabel;
+    Label34: TLabel;
+    Label35: TLabel;
+    Label36: TLabel;
+    ComboBox5: TComboBox;
+    ComboBox6: TComboBox;
+    ComboBox7: TComboBox;
+    ComboBox8: TComboBox;
+    Label37: TLabel;
+    Label38: TLabel;
+    Memo8: TMemo;
     Q_CLIENT_VIEWID_CLIENTS: TIntegerField;
     Q_CLIENT_VIEWFIO: TStringField;
     Q_CLIENT_VIEWNICK: TStringField;
@@ -144,54 +189,13 @@ type
     Q_CLIENT_VIEWDATE_CHANGE: TDateTimeField;
     Q_CLIENT_VIEWPREFIX: TStringField;
     Q_CLIENT_VIEWID_CITY: TIntegerField;
+    Q_CLIENT_VIEWINTERES: TStringField;
     Q_CLIENT_VIEWREG_TYPE_NAME: TStringField;
     Q_CLIENT_VIEWGROUP_NAME: TStringField;
     Q_CLIENT_VIEWTTYPE_NAME: TStringField;
     Q_CLIENT_VIEWREGION_NAME: TStringField;
     Q_CLIENT_VIEWADVERT: TStringField;
     Q_CLIENT_VIEWCITY: TStringField;
-    cdsCity: TOraQuery;
-    cdsCityID_CITY: TIntegerField;
-    cdsCityCITY: TStringField;
-    cdsCityKOD: TStringField;
-    cdsCityID_REGION: TIntegerField;
-    dsCity: TOraDataSource;
-    CheckBox1: TCheckBox;
-    CheckBox2: TCheckBox;
-    Panel4: TPanel;
-    Label27: TLabel;
-    CheckBox4: TCheckBox;
-    CheckBox5: TCheckBox;
-    Label13: TLabel;
-    Label14: TLabel;
-    Label17: TLabel;
-    Label23: TLabel;
-    DBText1: TDBText;
-    DBText2: TDBText;
-    DBText3: TDBText;
-    DBText4: TDBText;
-    Panel1: TPanel;
-    SpeedButton5: TSpeedButton;
-    BitBtn1: TBitBtn;
-    BitBtn2: TBitBtn;
-    BitBtn3: TBitBtn;
-    BitBtn4: TBitBtn;
-    btnClone: TBitBtn;
-    Edit2: TEdit;
-    Edit4: TEdit;
-    Edit5: TEdit;
-    Edit6: TEdit;
-    Label30: TLabel;
-    Label31: TLabel;
-    Label32: TLabel;
-    Label34: TLabel;
-    Label35: TLabel;
-    Label36: TLabel;
-    ComboBox5: TComboBox;
-    ComboBox6: TComboBox;
-    ComboBox7: TComboBox;
-    ComboBox8: TComboBox;
-    Label37: TLabel;
     procedure SpeedButton1Click(Sender: TObject);
     procedure BitBtn3Click(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
@@ -242,20 +246,8 @@ begin
   for i := 0 to tip.Count - 1 do
   If (combobox3.Text = tip[i]) or ((LabeledEdit9.Text = 'Без договора') and (combobox3.Text ='Частное лицо'))
   or (((copy(LabeledEdit1.Text,1,1) = 'F') or (copy(LabeledEdit1.Text,1,1) = 'O')) and (combobox3.Text ='Предприниматель'))  then begin
-   Memo2.Color:=clsilver;
-   Memo2.Enabled:=false;
-
-   edit2.Enabled:=false;  edit2.Color:=clsilver;
-   edit4.Enabled:=false;  edit4.Color:=clsilver;
-   edit5.Enabled:=false;  edit5.Color:=clsilver;
-   edit6.Enabled:=false;  edit6.Color:=clsilver;
-   combobox5.Enabled:=false; combobox5.Color:=clsilver;
-   combobox6.Enabled:=false; combobox6.Color:=clsilver;
-   combobox7.Enabled:=false; combobox7.Color:=clsilver;
-   combobox8.Enabled:=false; combobox8.Color:=clsilver;
-
-   break;
-  end else begin
+   //Memo2.Color:=clwhite;
+   //Memo2.Enabled:=true;
    edit2.Enabled:=true;  edit2.Color:=clwhite;
    edit4.Enabled:=true;  edit4.Color:=clwhite;
    edit5.Enabled:=true;  edit5.Color:=clwhite;
@@ -265,8 +257,18 @@ begin
    combobox7.Enabled:=true; combobox7.Color:=clwhite;
    combobox8.Enabled:=true; combobox8.Color:=clwhite;
 
-   Memo2.Color:=clwhite;
-   Memo2.Enabled:=true;
+   break;
+  end else begin
+   edit2.Enabled:=false;  edit2.Color:=clsilver;
+   edit4.Enabled:=false;  edit4.Color:=clsilver;
+   edit5.Enabled:=false;  edit5.Color:=clsilver;
+   edit6.Enabled:=false;  edit6.Color:=clsilver;
+   combobox5.Enabled:=false; combobox5.Color:=clsilver;
+   combobox6.Enabled:=false; combobox6.Color:=clsilver;
+   combobox7.Enabled:=false; combobox7.Color:=clsilver;
+   combobox8.Enabled:=false; combobox8.Color:=clsilver;
+   //Memo2.Color:=clsilver;
+   //Memo2.Enabled:=false;
   end;
   tip.Free;
 end;
@@ -329,7 +331,7 @@ begin
         // SQL для добавления
         if (ttype = 1) then
         begin
-          sql := 'INSERT INTO CLIENTS VALUES(get_office_unique(''CLIENTS_ID''),:P1,:P2,:P3,:P4,:P5,:P6,:P7,:P8,:P9,:P10,:P11,:P12,:P13,:P14,:P15,:P16,:P17,:P18,:P19,SYSDATE,:P20,:P21,:P22,:P23,:P24,:P25,:P26,'''+ frmRegistration.corrector +''',null,null,null,null,null,null,null,9,null,null,:P27,:P28,0,:P30,CONST_OFFICE,sysdate,:prefix,:city)';
+          sql := 'INSERT INTO CLIENTS VALUES(get_office_unique(''CLIENTS_ID''),:P1,:P2,:P3,:P4,:P5,:P6,:P7,:P8,:P9,:P10,:P11,:P12,:P13,:P14,:P15,:P16,:P17,:P18,:P19,SYSDATE,:P20,:P21,:P22,:P23,:P24,:P25,:P26,'''+ frmRegistration.corrector +''',null,null,null,null,null,null,null,9,null,null,:P27,:P28,0,:P30,CONST_OFFICE,sysdate,:prefix,:city,:P31)';
           frmRegistration.selq.SQL.Add(sql);
         end;
 
@@ -338,7 +340,7 @@ begin
         begin
           ind := frmRegistration.Q_CLIENTS.FieldByName('ID_CLIENTS').AsInteger;
           sql := 'UPDATE CLIENTS SET FIO=:P1,NICK=:P2,CCODE=:P3,REGION=:P4,ADDRESS=:P5,U_ADDRESS=:P6,PHONE=:P7,PASSPORT=:P8,CONTACT=:P9,CONT_PHONE=:P10,EMAIL=:P11,WWW=:P12,INN=:P13,REG_SVID=:P14,KPP=:P15,OKATO=:P16,BANK=:P17,DOSTAVKA=:P30, DATE_CHANGE=sysdate';
-          sql := sql + ',AGREEMENT=:P18,ADVERTISMENT=:P19,BLOCK1=:P20,BLOCK2=:P21,FLOWERS=:P22,PLANTS=:P23,MARK=:P24,TTYPE=:P25,ID_CLIENTS_GROUPS=:P26, INFO=:P27, REG_TYPE=:P28, DATE_COR=SYSDATE, CORRECTOR_COR='''+ frmRegistration.corrector +''', prefix=:prefix, id_city=:city WHERE ID_CLIENTS=:ID';
+          sql := sql + ',AGREEMENT=:P18,ADVERTISMENT=:P19,BLOCK1=:P20,BLOCK2=:P21,FLOWERS=:P22,PLANTS=:P23,MARK=:P24,TTYPE=:P25,ID_CLIENTS_GROUPS=:P26, INFO=:P27, REG_TYPE=:P28, DATE_COR=SYSDATE, CORRECTOR_COR='''+ frmRegistration.corrector +''', prefix=:prefix, id_city=:city, INTERES=:P31 WHERE ID_CLIENTS=:ID';
           frmRegistration.selq.SQL.Add(sql);
           frmRegistration.selq.ParamByName('ID').Value := ind;
         end;
@@ -350,7 +352,8 @@ begin
         frmRegistration.selq.ParamByName('P5').Value := Memo4.Text;
         frmRegistration.selq.ParamByName('P6').Value := Memo5.Text;
         frmRegistration.selq.ParamByName('P7').Value := Memo6.Text;
-        frmRegistration.selq.ParamByName('P8').Value := Memo2.Text;
+        frmRegistration.selq.ParamByName('P8').Value := edit2.text + '%' + combobox5.text + '%' + combobox6.text + '%' +
+        combobox7.text + '%' + combobox8.text + '%' + edit4.text + '%' + edit5.text + '%' + edit6.text;//Memo2.Text;
         frmRegistration.selq.ParamByName('P9').Value := trim(LabeledEdit10.Text);
         frmRegistration.selq.ParamByName('P10').Value := Memo3.Text;
         frmRegistration.selq.ParamByName('P11').Value := trim(LabeledEdit11.Text);
@@ -376,7 +379,7 @@ begin
         frmRegistration.selq.ParamByName('P30').Value := dostavka;
         frmRegistration.selq.ParamByName('prefix').Value := trim(lePrefix.Text);
         frmRegistration.selq.ParamByName('city').Value := icbCity.EditValue;
-
+        frmRegistration.selq.ParamByName('P31').Value := Memo8.Text;
 
         // Пытаемся выполнить SQL запрос
         try
@@ -411,7 +414,7 @@ end;
 
 //очистка данных
 procedure TfrmEditRegistration.BitBtn2Click(Sender: TObject);
-var ind: integer;
+var ind: integer;  ss:string;
 begin
   if (ttype = 1) then
   begin
@@ -434,7 +437,17 @@ begin
     Edit1.Text := '';
 
     Memo1.Lines.Clear;
-    Memo2.Lines.Clear;
+
+    //Memo2.Lines.Clear;
+    edit2.Clear;
+    combobox5.Clear;
+    combobox6.Clear;
+    combobox7.Clear;
+    combobox8.Clear;
+    edit4.Clear;
+    edit5.Clear;
+    edit6.Clear;
+
     Memo3.Lines.Clear;
     Memo4.Lines.Clear;
     Memo5.Lines.Clear;
@@ -478,7 +491,26 @@ begin
     Edit1.Text := frmRegistration.Q_CLIENT_VIEW.FieldByName('CCODE').AsString;
 
     Memo1.Text := frmRegistration.Q_CLIENT_VIEW.FieldByName('BANK').AsString;
-    Memo2.Text := frmRegistration.Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString;
+    //Memo2.Text := frmRegistration.Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString;
+  if pos('%',frmRegistration.Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString) <> 0 then begin
+    ss := frmRegistration.Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString;
+    edit2.Text := copy(ss,1,pos('%',ss)-1);
+    delete(ss,1,pos('%',ss));
+    combobox5.Text := copy(ss,1,pos('%',ss)-1);
+    delete(ss,1,pos('%',ss));
+    combobox6.Text := copy(ss,1,pos('%',ss)-1);
+    delete(ss,1,pos('%',ss));
+    combobox7.Text := copy(ss,1,pos('%',ss)-1);
+    delete(ss,1,pos('%',ss));
+    combobox8.Text := copy(ss,1,pos('%',ss)-1);
+    delete(ss,1,pos('%',ss));
+    edit4.Text := copy(ss,1,pos('%',ss)-1);
+    delete(ss,1,pos('%',ss));
+    edit5.Text := copy(ss,1,pos('%',ss)-1);
+    delete(ss,1,pos('%',ss));
+    edit6.Text := ss;
+  end;
+
     Memo3.Text := frmRegistration.Q_CLIENT_VIEW.FieldByName('CONT_PHONE').AsString;
     Memo5.Text := frmRegistration.Q_CLIENT_VIEW.FieldByName('U_ADDRESS').AsString;
     Memo6.Text := frmRegistration.Q_CLIENT_VIEW.FieldByName('PHONE').AsString;
@@ -723,6 +755,11 @@ end;
 procedure TfrmEditRegistration.LabeledEdit1Change(Sender: TObject);
 begin
  TZ;
+   if copy(LabeledEdit1.Text,1,1) = 'F' then label37.Caption := 'флорист - флорист'
+    else
+   if copy(LabeledEdit1.Text,1,1) = 'O' then label37.Caption := 'флорист - оформитель'
+    else
+   if (copy(LabeledEdit1.Text,1,1) <> 'O') and (copy(LabeledEdit1.Text,1,1) <> 'F') then label37.Caption := '***';
 end;
 
 // При нажатии кнопки будут проходить только латинские буквы, цифры и пробел

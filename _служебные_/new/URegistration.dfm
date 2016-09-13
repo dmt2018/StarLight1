@@ -3,7 +3,7 @@ object frmRegistration: TfrmRegistration
   Top = 0
   Caption = #1056#1077#1075#1080#1089#1090#1088#1072#1094#1080#1103' '#1082#1083#1080#1077#1085#1090#1086#1074
   ClientHeight = 630
-  ClientWidth = 1052
+  ClientWidth = 1064
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,7 +21,7 @@ object frmRegistration: TfrmRegistration
   object cxClient: TcxGrid
     Left = 0
     Top = 46
-    Width = 1052
+    Width = 1064
     Height = 558
     Align = alClient
     TabOrder = 0
@@ -268,7 +268,7 @@ object frmRegistration: TfrmRegistration
   object PageControl1: TPageControl
     Left = 0
     Top = 46
-    Width = 1052
+    Width = 1064
     Height = 558
     Cursor = crHandPoint
     ActivePage = TabSheet1
@@ -288,7 +288,7 @@ object frmRegistration: TfrmRegistration
       object Panel1: TPanel
         Left = 0
         Top = 0
-        Width = 1044
+        Width = 1056
         Height = 174
         Align = alTop
         BevelInner = bvRaised
@@ -1043,7 +1043,7 @@ object frmRegistration: TfrmRegistration
       object cxGrid1: TcxGrid
         Left = 0
         Top = 174
-        Width = 1044
+        Width = 1056
         Height = 351
         Align = alClient
         PopupMenu = PopupMenu2
@@ -1141,7 +1141,7 @@ object frmRegistration: TfrmRegistration
             DataBinding.FieldName = 'NICK'
             BestFitMaxWidth = 100
             Options.Editing = False
-            Width = 70
+            Width = 48
           end
           object cxGridDBColumn5: TcxGridDBColumn
             Caption = #1055#1088#1077#1092'.'
@@ -1166,7 +1166,7 @@ object frmRegistration: TfrmRegistration
               end>
             Properties.CaseInsensitive = False
             Options.Editing = False
-            Width = 200
+            Width = 137
           end
           object cxGridDBColumn7: TcxGridDBColumn
             Caption = #1064#1090#1088#1080#1093'-'#1082#1086#1076
@@ -1180,25 +1180,25 @@ object frmRegistration: TfrmRegistration
             Caption = #1058#1080#1087' '#1082#1083#1080#1077#1085#1090#1072
             DataBinding.FieldName = 'TTYPE_NAME'
             Options.Editing = False
-            Width = 120
+            Width = 82
           end
           object cxGridDBColumn9: TcxGridDBColumn
             Caption = #1043#1088#1091#1087#1087#1072
             DataBinding.FieldName = 'GROUP_NAME'
             Options.Editing = False
-            Width = 100
+            Width = 69
           end
           object cxGridDBColumn10: TcxGridDBColumn
             Caption = #1056#1077#1075#1080#1086#1085
             DataBinding.FieldName = 'REGIONS_NAME'
             Options.Editing = False
-            Width = 100
+            Width = 68
           end
           object cxGridDBColumn11: TcxGridDBColumn
             Caption = #1043#1086#1088#1086#1076
             DataBinding.FieldName = 'CITY'
             Options.Editing = False
-            Width = 100
+            Width = 69
           end
           object cxGridDBColumn12: TcxGridDBColumn
             DataBinding.FieldName = 'NN'
@@ -1253,7 +1253,7 @@ object frmRegistration: TfrmRegistration
             DataBinding.FieldName = 'REG_TYPE_NAME'
             MinWidth = 50
             Options.Editing = False
-            Width = 100
+            Width = 69
           end
           object cxGridDBColumn23: TcxGridDBColumn
             DataBinding.FieldName = 'EMAIL'
@@ -1286,7 +1286,12 @@ object frmRegistration: TfrmRegistration
           object cxGridDBColumn27: TcxGridDBColumn
             Caption = #1048#1053#1053
             DataBinding.FieldName = 'INN'
-            Width = 100
+            Width = 55
+          end
+          object cxGridDBColumn33: TcxGridDBColumn
+            Caption = #1048#1085#1090#1077#1088#1077#1089#1099
+            DataBinding.FieldName = 'INTERES'
+            Width = 57
           end
         end
         object cxGridLevel1: TcxGridLevel
@@ -1300,7 +1305,7 @@ object frmRegistration: TfrmRegistration
       object Panel4: TPanel
         Left = 0
         Top = 0
-        Width = 1044
+        Width = 1056
         Height = 57
         Align = alTop
         BevelOuter = bvNone
@@ -1496,7 +1501,7 @@ object frmRegistration: TfrmRegistration
       object Panel5: TPanel
         Left = 0
         Top = 57
-        Width = 1044
+        Width = 1056
         Height = 184
         Align = alTop
         BevelOuter = bvNone
@@ -1506,13 +1511,14 @@ object frmRegistration: TfrmRegistration
         object DBGrid2: TDBGridEh
           Left = 0
           Top = 0
-          Width = 1044
+          Width = 1056
           Height = 184
           Align = alClient
           AllowedOperations = []
           AutoFitColWidths = True
           ColumnDefValues.EndEllipsis = True
           DataGrouping.GroupLevels = <>
+          DataSource = Q_GROUPS_DS
           Flat = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -1577,7 +1583,7 @@ object frmRegistration: TfrmRegistration
       object Panel11: TPanel
         Left = 0
         Top = 249
-        Width = 1044
+        Width = 1056
         Height = 276
         Align = alClient
         BevelOuter = bvNone
@@ -1585,7 +1591,7 @@ object frmRegistration: TfrmRegistration
         object Panel6: TPanel
           Left = 0
           Top = 0
-          Width = 1044
+          Width = 1056
           Height = 25
           Align = alTop
           Alignment = taLeftJustify
@@ -1605,7 +1611,7 @@ object frmRegistration: TfrmRegistration
         object cxGrid2: TcxGrid
           Left = 0
           Top = 25
-          Width = 1044
+          Width = 1056
           Height = 251
           Align = alClient
           TabOrder = 1
@@ -1615,6 +1621,7 @@ object frmRegistration: TfrmRegistration
           object cxGridDBTableView2: TcxGridDBTableView
             NavigatorButtons.ConfirmDelete = False
             FilterBox.Position = fpTop
+            DataController.DataSource = Q_CLIENTS_DS
             DataController.Filter.Options = [fcoCaseInsensitive]
             DataController.Filter.AutoDataSetFilter = True
             DataController.Options = [dcoAnsiSort, dcoAssignGroupingValues, dcoAssignMasterDetailKeys, dcoSaveExpanding]
@@ -1687,7 +1694,7 @@ object frmRegistration: TfrmRegistration
       object cxSplitter1: TcxSplitter
         Left = 0
         Top = 241
-        Width = 1044
+        Width = 1056
         Height = 8
         HotZoneClassName = 'TcxMediaPlayer9Style'
         AlignSplitter = salTop
@@ -1700,7 +1707,7 @@ object frmRegistration: TfrmRegistration
       object Panel7: TPanel
         Left = 0
         Top = 0
-        Width = 1044
+        Width = 1056
         Height = 145
         Align = alTop
         BevelOuter = bvNone
@@ -2272,18 +2279,19 @@ object frmRegistration: TfrmRegistration
       object Panel8: TPanel
         Left = 0
         Top = 145
-        Width = 1044
+        Width = 1056
         Height = 13
         Align = alTop
         BevelOuter = bvNone
         Ctl3D = False
         ParentCtl3D = False
         TabOrder = 1
+        ExplicitWidth = 1044
       end
       object Panel12: TPanel
         Left = 0
         Top = 158
-        Width = 852
+        Width = 864
         Height = 367
         Align = alClient
         BevelOuter = bvNone
@@ -2293,7 +2301,7 @@ object frmRegistration: TfrmRegistration
         object gr_empl: TcxGrid
           Left = 1
           Top = 1
-          Width = 850
+          Width = 862
           Height = 365
           Align = alClient
           PopupMenu = PopupMenu3
@@ -2304,6 +2312,7 @@ object frmRegistration: TfrmRegistration
           object gr_empl_v: TcxGridDBTableView
             NavigatorButtons.ConfirmDelete = False
             FilterBox.Position = fpTop
+            DataController.DataSource = Q_EMPL_DS
             DataController.Filter.Options = [fcoCaseInsensitive]
             DataController.Filter.AutoDataSetFilter = True
             DataController.Options = [dcoAnsiSort, dcoAssignGroupingValues, dcoAssignMasterDetailKeys, dcoSaveExpanding]
@@ -2445,7 +2454,7 @@ object frmRegistration: TfrmRegistration
         end
       end
       object Panel13: TPanel
-        Left = 852
+        Left = 864
         Top = 158
         Width = 192
         Height = 367
@@ -2670,10 +2679,14 @@ object frmRegistration: TfrmRegistration
     object TabSheet4: TTabSheet
       Caption = ' '#1055#1054#1048#1057#1050' '#1050#1051#1048#1045#1053#1058#1040' '
       ImageIndex = 3
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 1044
+      ExplicitHeight = 0
       object Panel9: TPanel
         Left = 0
         Top = 0
-        Width = 1044
+        Width = 1056
         Height = 193
         Align = alTop
         BevelOuter = bvNone
@@ -2689,6 +2702,7 @@ object frmRegistration: TfrmRegistration
         ParentCtl3D = False
         ParentFont = False
         TabOrder = 0
+        ExplicitWidth = 1044
         object Label26: TLabel
           Left = 8
           Top = 10
@@ -2906,7 +2920,7 @@ object frmRegistration: TfrmRegistration
           Left = 152
           Top = 104
           Width = 150
-          Height = 22
+          Height = 24
           Cursor = crHandPoint
           AlwaysShowBorder = True
           Ctl3D = True
@@ -3248,7 +3262,7 @@ object frmRegistration: TfrmRegistration
       object Panel10: TPanel
         Left = 0
         Top = 193
-        Width = 1044
+        Width = 1056
         Height = 32
         Align = alTop
         BevelOuter = bvNone
@@ -3265,11 +3279,12 @@ object frmRegistration: TfrmRegistration
         ParentCtl3D = False
         ParentFont = False
         TabOrder = 1
+        ExplicitWidth = 1044
       end
       object CRDBGrid4: TDBGridEh
         Left = 0
         Top = 225
-        Width = 1044
+        Width = 1056
         Height = 300
         Align = alClient
         AllowedOperations = []
@@ -4398,7 +4413,7 @@ object frmRegistration: TfrmRegistration
     Left = 820
     Top = 125
     Bitmap = {
-      494C0101040009002C0110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010104000900340110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -5527,7 +5542,7 @@ object frmRegistration: TfrmRegistration
     Left = 240
     Top = 328
     Bitmap = {
-      494C010127002C001C0120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010127002C00240120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004001000001002000000000000080
       0200000000000000000000000000000000000000000000000000000000000000
       000000000000000000000101011A0B0B0B743B3D3DB4777777D5838383DA5152
@@ -11054,9 +11069,16 @@ object frmRegistration: TfrmRegistration
       Required = True
       Size = 10
     end
+    object Q_CLIENTSID_OFFICE_SRC: TIntegerField
+      FieldName = 'ID_OFFICE_SRC'
+    end
     object Q_CLIENTSINN: TStringField
       FieldName = 'INN'
       Size = 50
+    end
+    object Q_CLIENTSINTERES: TStringField
+      FieldName = 'INTERES'
+      Size = 1024
     end
   end
   object Q_CLIENT_VIEW: TOraQuery
@@ -11272,6 +11294,10 @@ object frmRegistration: TfrmRegistration
       FieldName = 'CITY'
       Size = 255
     end
+    object Q_CLIENT_VIEWINTERES: TStringField
+      FieldName = 'INTERES'
+      Size = 1024
+    end
   end
   object Q_CLIENTS_DS: TOraDataSource
     DataSet = Q_CLIENTS
@@ -11462,6 +11488,9 @@ object frmRegistration: TfrmRegistration
     end
     object Q_GROUPSID_OFFICE: TIntegerField
       FieldName = 'ID_OFFICE'
+    end
+    object Q_GROUPSDATE_CHANGE: TDateTimeField
+      FieldName = 'DATE_CHANGE'
     end
     object Q_GROUPSBRIEF: TStringField
       FieldName = 'BRIEF'

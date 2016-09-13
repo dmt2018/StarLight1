@@ -374,32 +374,6 @@ type
     CRDBGrid4: TDBGridEh;
     SelQ: TOraQuery;
     Q_CLIENTS: TOraQuery;
-    Q_CLIENTSID_CLIENTS: TIntegerField;
-    Q_CLIENTSNICK: TStringField;
-    Q_CLIENTSFIO: TStringField;
-    Q_CLIENTSDDATE: TDateTimeField;
-    Q_CLIENTSCCODE: TStringField;
-    Q_CLIENTSREGION: TIntegerField;
-    Q_CLIENTSTTYPE: TIntegerField;
-    Q_CLIENTSID_CLIENTS_GROUPS: TIntegerField;
-    Q_CLIENTSREGIONS_NAME: TStringField;
-    Q_CLIENTSGROUP_NAME: TStringField;
-    Q_CLIENTSTTYPE_NAME: TStringField;
-    Q_CLIENTSCORRECTOR: TStringField;
-    Q_CLIENTSPHONE: TStringField;
-    Q_CLIENTSBLOCK1: TIntegerField;
-    Q_CLIENTSBLOCK2: TIntegerField;
-    Q_CLIENTSCOUNT: TIntegerField;
-    Q_CLIENTSREG_TYPE_NAME: TStringField;
-    Q_CLIENTSSALES: TFloatField;
-    Q_CLIENTSEMAIL: TStringField;
-    Q_CLIENTSADDRESS: TStringField;
-    Q_CLIENTSID_OFFICE: TFloatField;
-    Q_CLIENTSBRIEF: TStringField;
-    Q_CLIENTSPREFIX: TStringField;
-    Q_CLIENTSCITY: TStringField;
-    Q_CLIENTSMARK: TStringField;
-    Q_CLIENTSINN: TStringField;
     Q_CLIENT_VIEW: TOraQuery;
     Q_CLIENT_VIEWID_CLIENTS: TIntegerField;
     Q_CLIENT_VIEWFIO: TStringField;
@@ -482,11 +456,6 @@ type
     Q_G_CLTTYPE_NAME: TStringField;
     Q_G_CL_DS: TOraDataSource;
     Q_GROUPS: TOraQuery;
-    Q_GROUPSID_CLIENTS_GROUPS: TIntegerField;
-    Q_GROUPSNAME: TStringField;
-    Q_GROUPSINFO: TStringField;
-    Q_GROUPSID_OFFICE: TIntegerField;
-    Q_GROUPSBRIEF: TStringField;
     Q_GROUPS_DS: TOraDataSource;
     Q_EMPL: TOraQuery;
     Q_EMPLNN: TFloatField;
@@ -587,6 +556,42 @@ type
     OraDataSource1: TOraDataSource;
     Q_IDD: TOraQuery;
     Q_IDD_DS: TOraDataSource;
+    Q_CLIENT_VIEWINTERES: TStringField;
+    cxGridDBColumn33: TcxGridDBColumn;
+    Q_CLIENTSID_CLIENTS: TIntegerField;
+    Q_CLIENTSNICK: TStringField;
+    Q_CLIENTSFIO: TStringField;
+    Q_CLIENTSDDATE: TDateTimeField;
+    Q_CLIENTSCCODE: TStringField;
+    Q_CLIENTSREGION: TIntegerField;
+    Q_CLIENTSTTYPE: TIntegerField;
+    Q_CLIENTSID_CLIENTS_GROUPS: TIntegerField;
+    Q_CLIENTSREGIONS_NAME: TStringField;
+    Q_CLIENTSGROUP_NAME: TStringField;
+    Q_CLIENTSTTYPE_NAME: TStringField;
+    Q_CLIENTSCORRECTOR: TStringField;
+    Q_CLIENTSPHONE: TStringField;
+    Q_CLIENTSBLOCK1: TIntegerField;
+    Q_CLIENTSBLOCK2: TIntegerField;
+    Q_CLIENTSCOUNT: TIntegerField;
+    Q_CLIENTSREG_TYPE_NAME: TStringField;
+    Q_CLIENTSSALES: TFloatField;
+    Q_CLIENTSEMAIL: TStringField;
+    Q_CLIENTSADDRESS: TStringField;
+    Q_CLIENTSID_OFFICE: TFloatField;
+    Q_CLIENTSBRIEF: TStringField;
+    Q_CLIENTSPREFIX: TStringField;
+    Q_CLIENTSCITY: TStringField;
+    Q_CLIENTSMARK: TStringField;
+    Q_CLIENTSID_OFFICE_SRC: TIntegerField;
+    Q_CLIENTSINN: TStringField;
+    Q_CLIENTSINTERES: TStringField;
+    Q_GROUPSID_CLIENTS_GROUPS: TIntegerField;
+    Q_GROUPSNAME: TStringField;
+    Q_GROUPSINFO: TStringField;
+    Q_GROUPSID_OFFICE: TIntegerField;
+    Q_GROUPSDATE_CHANGE: TDateTimeField;
+    Q_GROUPSBRIEF: TStringField;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure btnAddClick(Sender: TObject);
@@ -951,8 +956,8 @@ end;
 //добавить
 procedure TfrmRegistration.btnAddClick(Sender: TObject);
 begin
-  frmEditRegistration := TfrmEditRegistration.Create(Application);
   try
+  frmEditRegistration := TfrmEditRegistration.Create(Application);
   // Добавление клиента
   if (PageControl1.TabIndex = 0) then
   begin
@@ -1217,6 +1222,8 @@ end;
 procedure TfrmRegistration.btnEditClick(Sender: TObject);
 var ind: integer;
 begin
+ try
+ frmEditRegistration := TfrmEditRegistration.Create(Application);
   // Редактирование клиента
   if (PageControl1.TabIndex = 0) then
   begin
@@ -1238,7 +1245,7 @@ begin
         Q_CLIENT_VIEW.SQL.Add(' FROM CLIENTS_GROUPS G, BOOKS_CLIENT_TYPES T, BOOKS_ADVERTISMENTS A, CLIENTS C, BOOKS_REGIONS R, offices o, books_cities s');
         Q_CLIENT_VIEW.SQL.Add(' WHERE C.ID_CLIENTS_GROUPS = G.ID_CLIENTS_GROUPS(+) AND C.TTYPE = T.ID_CLIENT_TYPES(+) AND C.ADVERTISMENT = A.ID_ADVERTISMENTS(+) AND C.REGION = R.ID_REGIONS(+) AND ID_CLIENTS=:ID and c.id_office = o.ID_OFFICE and c.id_city = s.id_city(+)');
         Q_CLIENT_VIEW.ParamByName('ID').Value := Q_CLIENTS.FieldByName('ID_CLIENTS').AsInteger;
-        Q_CLIENT_VIEW.Open;
+        Q_CLIENT_VIEW.Open;    
 
         ind := frmEditRegistration.ComboBox1.Items.IndexOf(Q_CLIENT_VIEW.FieldByName('REGION_NAME').AsString);
         frmEditRegistration.ComboBox1.ItemIndex := ind;
@@ -1405,6 +1412,9 @@ begin
     end
     else ShowMessage('Нет данных для редактирования!');
   end; }
+ finally
+  frmEditRegistration.Free;
+ end;
 end;
 
 // выход из проги

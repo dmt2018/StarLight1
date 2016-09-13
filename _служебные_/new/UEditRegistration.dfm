@@ -149,13 +149,20 @@ object frmEditRegistration: TfrmEditRegistration
     Font.Style = []
     ParentFont = False
   end
+  object Label37: TLabel
+    Left = 8
+    Top = 545
+    Width = 18
+    Height = 13
+    Caption = '***'
+  end
   object PageControl1: TPageControl
     Left = 0
     Top = 0
     Width = 791
     Height = 505
     Cursor = crHandPoint
-    ActivePage = TabSheet2
+    ActivePage = TabSheet1
     Align = alTop
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack
@@ -1267,8 +1274,8 @@ object frmEditRegistration: TfrmEditRegistration
           ParentFont = False
         end
         object Label30: TLabel
-          Left = 16
-          Top = 166
+          Left = 19
+          Top = 181
           Width = 126
           Height = 14
           Caption = #1057#1077#1088#1080#1103' '#1080' '#1085#1086#1084#1077#1088' '#1087#1072#1089#1087#1086#1088#1090#1072
@@ -1281,8 +1288,8 @@ object frmEditRegistration: TfrmEditRegistration
           ParentFont = False
         end
         object Label31: TLabel
-          Left = 16
-          Top = 196
+          Left = 19
+          Top = 211
           Width = 119
           Height = 14
           Caption = #1044#1072#1090#1072' '#1074#1099#1076#1072#1095#1080' '#1087#1072#1089#1087#1086#1088#1090#1072
@@ -1295,8 +1302,8 @@ object frmEditRegistration: TfrmEditRegistration
           ParentFont = False
         end
         object Label32: TLabel
-          Left = 16
-          Top = 229
+          Left = 19
+          Top = 244
           Width = 79
           Height = 14
           Caption = #1057#1090#1088#1072#1085#1072' '#1074#1099#1076#1072#1095#1080
@@ -1309,8 +1316,8 @@ object frmEditRegistration: TfrmEditRegistration
           ParentFont = False
         end
         object Label34: TLabel
-          Left = 16
-          Top = 256
+          Left = 19
+          Top = 271
           Width = 71
           Height = 14
           Caption = #1043#1086#1088#1086#1076' '#1074#1099#1076#1072#1095#1080
@@ -1323,8 +1330,8 @@ object frmEditRegistration: TfrmEditRegistration
           ParentFont = False
         end
         object Label35: TLabel
-          Left = 16
-          Top = 285
+          Left = 19
+          Top = 300
           Width = 102
           Height = 14
           Caption = #1050#1077#1084' '#1074#1099#1076#1072#1085' '#1087#1072#1089#1087#1086#1088#1090
@@ -1337,8 +1344,8 @@ object frmEditRegistration: TfrmEditRegistration
           ParentFont = False
         end
         object Label36: TLabel
-          Left = 16
-          Top = 310
+          Left = 19
+          Top = 325
           Width = 85
           Height = 14
           Caption = #1052#1077#1089#1090#1086' '#1088#1086#1078#1076#1077#1085#1080#1103
@@ -1350,15 +1357,15 @@ object frmEditRegistration: TfrmEditRegistration
           Font.Style = []
           ParentFont = False
         end
-        object Label37: TLabel
-          Left = 369
-          Top = 329
-          Width = 414
-          Height = 18
-          Caption = #1074#1077#1079#1076#1077' '#1087#1086' '#1082#1086#1076#1091' '#1084#1077#1085#1103#1090#1100' '#1089#1090#1072#1088#1086#1077' '#1087#1086#1083#1077' '#1087#1072#1089#1087' '#1085#1072' '#1085#1086#1074#1099#1077'.. '#1078#1077#1089#1090#1100
+        object Label38: TLabel
+          Left = 424
+          Top = 248
+          Width = 122
+          Height = 16
+          Caption = #1050#1083#1102#1095#1077#1074#1099#1077' '#1080#1085#1090#1077#1088#1077#1089#1099
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -16
+          Font.Height = -13
           Font.Name = 'Arial'
           Font.Pitch = fpFixed
           Font.Style = []
@@ -1443,7 +1450,7 @@ object frmEditRegistration: TfrmEditRegistration
           Left = 424
           Top = 162
           Width = 329
-          Height = 105
+          Height = 80
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -1456,8 +1463,8 @@ object frmEditRegistration: TfrmEditRegistration
           TabOrder = 5
         end
         object Memo2: TMemo
-          Left = 16
-          Top = 342
+          Left = 384
+          Top = 356
           Width = 369
           Height = 22
           Color = clWhite
@@ -1471,6 +1478,7 @@ object frmEditRegistration: TfrmEditRegistration
           ParentFont = False
           ScrollBars = ssVertical
           TabOrder = 3
+          Visible = False
         end
         object Memo4: TMemo
           Left = 424
@@ -1506,64 +1514,174 @@ object frmEditRegistration: TfrmEditRegistration
           TabOrder = 6
         end
         object Edit2: TEdit
-          Left = 148
-          Top = 170
+          Left = 151
+          Top = 185
           Width = 215
           Height = 22
           TabOrder = 7
         end
         object Edit4: TEdit
-          Left = 148
-          Top = 258
+          Left = 151
+          Top = 273
           Width = 215
           Height = 22
           TabOrder = 8
         end
         object Edit5: TEdit
-          Left = 148
-          Top = 286
+          Left = 151
+          Top = 301
           Width = 215
           Height = 22
           TabOrder = 9
         end
         object Edit6: TEdit
-          Left = 148
-          Top = 314
+          Left = 151
+          Top = 329
           Width = 215
           Height = 22
           TabOrder = 10
         end
         object ComboBox5: TComboBox
-          Left = 148
-          Top = 198
+          Left = 151
+          Top = 213
           Width = 49
           Height = 24
           ItemHeight = 16
           TabOrder = 11
+          Items.Strings = (
+            '01'
+            '02'
+            '03'
+            '04'
+            '05'
+            '06'
+            '07'
+            '08'
+            '09'
+            '10'
+            '11'
+            '12'
+            '13'
+            '14'
+            '15'
+            '16'
+            '17'
+            '18'
+            '19'
+            '20'
+            '21'
+            '22'
+            '23'
+            '24'
+            '25'
+            '26'
+            '27'
+            '28'
+            '29'
+            '30'
+            '31')
         end
         object ComboBox6: TComboBox
-          Left = 203
-          Top = 198
+          Left = 206
+          Top = 213
           Width = 79
           Height = 24
           ItemHeight = 16
           TabOrder = 12
+          Items.Strings = (
+            #1103#1085#1074#1072#1088#1103
+            #1092#1077#1074#1088#1072#1083#1103
+            #1084#1072#1088#1090#1072
+            #1072#1087#1088#1077#1083#1103
+            #1084#1072#1103
+            #1080#1102#1085#1103
+            #1080#1102#1083#1103
+            #1072#1074#1075#1091#1089#1090#1072
+            #1089#1077#1085#1090#1103#1073#1088#1103
+            #1086#1082#1090#1103#1073#1088#1103
+            #1085#1086#1103#1073#1088#1103
+            #1076#1077#1082#1072#1073#1088#1103)
         end
         object ComboBox7: TComboBox
-          Left = 288
-          Top = 198
+          Left = 291
+          Top = 213
           Width = 75
           Height = 24
           ItemHeight = 16
           TabOrder = 13
+          Items.Strings = (
+            '1970'
+            '1971'
+            '1972'
+            '1973'
+            '1974'
+            '1975'
+            '1976'
+            '1977'
+            '1978'
+            '1979'
+            '1980'
+            '1981'
+            '1982'
+            '1983'
+            '1984'
+            '1985'
+            '1986'
+            '1987'
+            '1988'
+            '1989'
+            '1990'
+            '1991'
+            '1992'
+            '1993'
+            '1994'
+            '1995'
+            '1996'
+            '1997'
+            '1998'
+            '1999'
+            '2000'
+            '2001'
+            '2002'
+            '2003'
+            '2004'
+            '2005'
+            '2006'
+            '2007'
+            '2008'
+            '2009'
+            '2010'
+            '2011'
+            '2012'
+            '2013'
+            '2014'
+            '2015'
+            '2016'
+            '2017')
         end
         object ComboBox8: TComboBox
-          Left = 148
-          Top = 228
+          Left = 151
+          Top = 243
           Width = 215
           Height = 24
           ItemHeight = 16
           TabOrder = 14
+        end
+        object Memo8: TMemo
+          Left = 424
+          Top = 270
+          Width = 329
+          Height = 80
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Pitch = fpFixed
+          Font.Style = []
+          MaxLength = 1024
+          ParentFont = False
+          ScrollBars = ssVertical
+          TabOrder = 15
         end
       end
     end
@@ -2043,7 +2161,7 @@ object frmEditRegistration: TfrmEditRegistration
     Left = 532
     Top = 22
     Bitmap = {
-      494C010107000900A00010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010107000900A80010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000084CA84FF54B757FF000000000000000000000000000000000000
@@ -2334,7 +2452,7 @@ object frmEditRegistration: TfrmEditRegistration
     FetchAll = True
     AfterInsert = Q_ADDRESSAfterInsert
     Left = 600
-    Top = 240
+    Top = 208
     ParamData = <
       item
         DataType = ftUnknown
@@ -2355,7 +2473,7 @@ object frmEditRegistration: TfrmEditRegistration
   object Q_Q_ADDRESS_DS: TOraDataSource
     DataSet = Q_ADDRESS
     Left = 632
-    Top = 240
+    Top = 208
   end
   object Q_CLIENT_VIEW: TOraQuery
     SQL.Strings = (
@@ -2382,8 +2500,8 @@ object frmEditRegistration: TfrmEditRegistration
       '   and c.id_office = o.ID_OFFICE'
       '   and c.id_city = s.id_city(+)'
       '   and c.ID_CLIENTS = :p1')
-    Left = 480
-    Top = 376
+    Left = 528
+    Top = 248
     ParamData = <
       item
         DataType = ftInteger
@@ -2551,6 +2669,10 @@ object frmEditRegistration: TfrmEditRegistration
     object Q_CLIENT_VIEWID_CITY: TIntegerField
       FieldName = 'ID_CITY'
     end
+    object Q_CLIENT_VIEWINTERES: TStringField
+      FieldName = 'INTERES'
+      Size = 1024
+    end
     object Q_CLIENT_VIEWREG_TYPE_NAME: TStringField
       FieldName = 'REG_TYPE_NAME'
       Size = 50
@@ -2584,8 +2706,8 @@ object frmEditRegistration: TfrmEditRegistration
       '--where a.id_region = :ID_REGION'
       'order by city')
     FetchAll = True
-    Left = 592
-    Top = 368
+    Left = 600
+    Top = 248
     object cdsCityID_CITY: TIntegerField
       FieldName = 'ID_CITY'
       Required = True
@@ -2605,7 +2727,7 @@ object frmEditRegistration: TfrmEditRegistration
   end
   object dsCity: TOraDataSource
     DataSet = cdsCity
-    Left = 624
-    Top = 368
+    Left = 632
+    Top = 248
   end
 end

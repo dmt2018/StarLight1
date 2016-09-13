@@ -18,29 +18,6 @@ type
     strMsgErr    : WideString; // Сообщение об ошибке
   end;
 
-// структура передаваемых данных вызова плагинов/модулей
-type TRecParams = record
-     intADD     :Integer;  // Добавление
-     intEDIT    :Integer;  // Редактирование
-     intDELETE  :Integer;  // Удаление
-     intPRINT   :Integer;  // Печать
-     intPARAM1  :Integer;  // Доп. параметр 1
-     intPARAM2  :Integer;  // Доп. параметр 2
-     intPARAM3  :Integer;  // Доп. параметр 3
-end;
-
-//Инициализация функций для создания/удаления плагинов/модулей
-type
-  TCreateChildForm  = function(DllHandle:THandle;
-                               AppHandle:TApplication;
-                               AppScreen:TScreen;
-                               AppHintWindowClass:THintWindowClass;
-                               FormHandle:THandle;
-                               OraSessConnString:AnsiString;
-                               recParams:TRecParams):TRecResult;stdcall;
-type
-  TDestroyChildForm = function():TRecResult;stdcall;
-
 type
   TfrmMain = class(TForm)
     mmMain: TMainMenu;
