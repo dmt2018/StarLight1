@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.CUSTOM_PKG
--- Generated 16.08.2016 1:37:15 from CREATOR@STAR_NEW
+-- Generated 14.09.2016 22:39:41 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE custom_pkg
@@ -474,6 +474,17 @@ PROCEDURE get_fito_raport_page2
 --  Для отчета по фито список групп с коробками и баками
 --
 PROCEDURE get_fito_raport_page1
+(
+    v_id_dep  in number,
+    v_inv_id  in number,
+    v_truck   in number,
+    cursor_   out ref_cursor
+);
+
+--
+--  Для отчета по фито список групп с коробками и баками (часть 2)
+--
+PROCEDURE get_fito_raport_page1_1
 (
     v_id_dep  in number,
     v_inv_id  in number,
@@ -2268,6 +2279,90 @@ end get_fito_raport_page1;
 
 
 
+
+--
+--  Для отчета по фито список групп с коробками и баками (часть 2)
+--
+PROCEDURE get_fito_raport_page1_1
+(
+    v_id_dep  in number,
+    v_inv_id  in number,
+    v_truck   in number,
+    cursor_   out ref_cursor
+)
+is
+begin
+
+  open cursor_ for
+    select hol_country, sum(units) as units, case when round(sum(netto)) = 0 then 1 else round(sum(netto)) end netto, round(sum(brutto)) as brutto from (
+    select CUST_REGN, TRUCKS, NAME_CAT_RU, NAME_CAT, fo_rule, hol_country, COUNTRY, orderby
+      , sum(units) as units, sum(netto) as netto, sum(brutto) as brutto, sum(summ) as summ, max(telega) as telega, max(poddon) as poddon, fo_rule_name, comp_name
+      , sum(korobki) as packs
+      , sum(baki) as sideboards
+    from (
+      select a.*
+        , case when counter = 1 and upack is null then pp else 0 end korobki
+        , case when counter = 1 and upack is not null then pp else 0 end baki
+      from (
+        select a.*
+          , row_number() over(partition by src_trolley order by units desc) counter
+          , case
+              when fo_rule = 2 and cust_regn = 0603110000 then 'ДЛИННА СТЕБЛЯ ОТ 40 ДО 60 СМ'
+              when fo_rule = 3 and cust_regn = 0603110000 then 'ДЛИННА СТЕБЛЯ ОТ 70 ДО 100 СМ'
+              else null
+            end fo_rule_name
+          , NAME_CAT_RU || ' ' || case when fo_rule = 2 and cust_regn = 0603110000 then 'ДЛИННА СТЕБЛЯ ОТ 40 ДО 60 СМ' when fo_rule = 3 and cust_regn = 0603110000 then 'ДЛИННА СТЕБЛЯ ОТ 70 ДО 100 СМ' else '' end || ' ' || COUNTRY as comp_name
+        from (
+          select c.CUST_REGN, a.src_trolley, a.UPACK, min(a.PACKING_AMOUNT) pp, sum(a.units) as units
+                 , a.TRUCKS, NAME_CAT_RU, NAME_CAT
+                 , fo_rule
+                 , decode(a.hol_country,'','Holland',a.hol_country) as hol_country
+                 , t.COUNTRY
+                 , orderby
+                 , round(sum(STEM_WEIGHT*a.units)) as netto
+                 , round(sum((case when UPACK = 'W' then weight_tank else weight_pack end)*PACKING_AMOUNT + STEM_WEIGHT*a.units) + nvl(max(e.telega)*const_customs_telega,0) + nvl(max(e.poddon)*const_customs_poddon,0)) as brutto
+                 , sum(summ) as summ
+                 , max(nvl(e.telega,0)) as telega, max(nvl(e.poddon,0)) as poddon
+            FROM customs_inv_data_as_is a
+             left outer join (
+                 select w.id, w.NAME_CAT, nvl(wf.fo_rule,0) fo_rule, wf.fo_value, wf.FO_NAME, w.CUST_REGN, nvl(wf.V_WEIGHT, w.STEM_WEIGHT) as STEM_WEIGHT
+                        , w.weight_tank, w.weight_pack, NAME_CAT_RU, w.orderby
+                 from customs_weight w
+                   left outer join customs_weight_formula wf on wf.id_w = w.id and wf.fo_rule > 0
+                 where w.ID_DEP = v_id_dep
+                ) c on lower(c.NAME_CAT) = lower(a.hol_sub_type)
+                  and (
+                     (c.fo_rule = 3 and c.fo_value <= a.height)
+                      or
+                     (c.fo_rule = 2 and c.fo_value > a.height)
+                      or
+                     (c.fo_rule = 0)
+                    )
+              left outer join countries t on lower(t.country_eng) = lower(a.hol_country)
+              left outer join fito_category b on upper(b.name_eng) = upper(a.pd) and b.id_dep = v_id_dep
+              left outer join customs_inv_equipment e on e.inv_id = a.inv_id and e.id = c.id and e.truck = to_number(a.TRUCKS)
+            where a.inv_id = v_inv_id and to_number(a.TRUCKS) = v_truck
+            group by a.TRUCKS, CUST_REGN, a.src_trolley, a.UPACK, orderby, NAME_CAT_RU, NAME_CAT, fo_rule, decode(a.hol_country,'','Holland',a.hol_country), t.COUNTRY
+        ) a
+      ) a
+    ) a
+    group by TRUCKS, CUST_REGN, orderby, NAME_CAT_RU, NAME_CAT, fo_rule, hol_country, COUNTRY, fo_rule_name, comp_name
+    )
+    group by hol_country
+    order by hol_country
+    ;
+
+  EXCEPTION
+  WHEN OTHERS THEN
+       LOG_ERR(SQLERRM, SQLCODE, 'custom_pkg.get_fito_raport_page1_1', tmp_sql);
+       RAISE_APPLICATION_ERROR (-20250, 'Запрос не выполнился. ' || SQLERRM);
+
+end get_fito_raport_page1_1;
+
+
+
+
+
 --
 --  Для отчета по фито список групп с ростами
 --
@@ -2403,6 +2498,7 @@ begin
        , round(sum((case when UPACK = 'W' then weight_tank else weight_pack end)*PACKING_AMOUNT + STEM_WEIGHT*a.units) + nvl(max(e.telega)*const_customs_telega,0) + nvl(max(e.poddon)*const_customs_poddon,0)) as brutto
        , sum(summ) as summ
        , max(nvl(e.telega,0)) as telega, max(nvl(e.poddon,0)) as poddon
+       , decode(a.hol_country,'','Holland',a.hol_country) as MNEMO
      FROM customs_inv_data_as_is a
        left outer join (
           select w.id, w.NAME_CAT, w.CUST_REGN, nvl(wf.V_WEIGHT, w.STEM_WEIGHT) as STEM_WEIGHT
@@ -2424,7 +2520,7 @@ begin
        left outer join customs_inv_equipment e on e.inv_id = a.inv_id and e.id = c.id and e.truck = to_number(a.TRUCKS)
 
      WHERE a.INV_ID = v_inv_id and to_number(a.TRUCKS) = v_truck
-     group by a.TRUCKS, CUST_REGN, orderby, NAME_CAT_RU, NAME_CAT,decode(a.hol_country,'','Holland',a.hol_country)
+     group by a.TRUCKS, CUST_REGN, orderby, NAME_CAT_RU, NAME_CAT, decode(a.hol_country,'','Holland',a.hol_country)
      order by a.TRUCKS, orderby, NAME_CAT_RU
   ;
   EXCEPTION

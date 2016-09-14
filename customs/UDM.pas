@@ -4,7 +4,7 @@ interface
 
 uses
   SysUtils, Classes, DB, MemDS, DBAccess, Ora, frxClass, frxDBSet, frxExportXLS,
-  frxExportXML, frxExportBIFF, Variants, ComObj, Windows, Messages, Math;
+  frxExportXML, frxExportBIFF, Variants, ComObj, Windows, Messages, Math, Dialogs;
 
 type
   TDM = class(TDataModule)
@@ -158,6 +158,11 @@ uses Globals;
 
 {$R *.dfm}
 
+//
+// Формирование файла
+// part1_tr%_Phytoes_for_cut_flowers.xls
+// Страна;Подтип;Количество
+//
 procedure TDM.raport_srez_phytoes(id_inv: integer; truck: integer; report_type: integer);
 var XL, XArr, WorkBook, Sheet: OLEVariant;
     j,j1,j2: integer;
@@ -226,9 +231,6 @@ begin
     XL.Range['A'+IntToStr(j-2),'C'+IntToStr(j)].select;
     XL.Selection.Font.Bold := true;
 
-
-
-
     // Часть вторая
     sum_u := 0;
     sum_n := 0;
@@ -238,8 +240,7 @@ begin
       Close;
       IndexFieldNames := '';
       SQL.Clear;
-     // SQL.Add('begin custom_pkg.get_group_stat(:V_ID_INV, :V_ID_DEP, :V_VID, :v_truck, :CURSOR_); end;');
-      SQL.Add('begin custom_pkg.get_fito_raport_page1(:v_id_dep, :v_inv_id, :v_truck, :CURSOR_); end;');
+      SQL.Add('begin custom_pkg.get_fito_raport_page1_1(:v_id_dep, :v_inv_id, :v_truck, :CURSOR_); end;');
       ParamByName('v_inv_id').Value := id_inv;
       ParamByName('V_ID_DEP').Value := CUR_DEPT_ID;
       ParamByName('v_truck').Value := truck;
@@ -306,6 +307,11 @@ begin
 end;
 
 
+//
+// Формирование файла
+// part2_tr%_Phytoes_for_cut_flowers.xls
+// ТН ВЭД;ТОВАР;КОЛИЧЕСТВО;СТРАНА ПРОИСХОЖДЕНИЯ
+//
 procedure TDM.raport_srez_phytoes_part2(id_inv: integer; truck: integer; report_type: integer);
 var XL, XArr, WorkBook, Sheet: OLEVariant;
     j: integer;
@@ -382,7 +388,6 @@ begin
   except
     on E: Exception do
     begin
-      //(PChar(E.Message));
       DM.SelQ.Close;
       DM.SelQ.IndexFieldNames := '';
     end;
@@ -390,15 +395,22 @@ begin
 end;
 
 
+//
+// Формирование 3х файлов
+// part3_%_gtd_f1.xls
+// № п/п;Код ТН ВЭД;Наименование товара;ОБЩЕЕ Количество ШТУК;БАКИ;КОРОБКИ;ОБЩЕЕ Количество мест;Вес брутто, кг;Вес нетто, кг;Цена (ЕВРО);КОЛ-ВО ТЕЛЕЖЕК, 1 ТЕЛ. 94 КГ;КОЛ-ВО ПОДДОНОВ, 1 ПОДДОН - 20 КГ
+// part3_%_gtd_f2.xls
+// № п/п;Код ТН ВЭД;Наименование товара;Сорта
+// part3_%_gtd_f3.xls
+// РОСТ 40 СМ;40;шт.
+//
 procedure TDM.raport_gtd(id_inv: integer; truck: integer; report_type: integer);
 var XL, XL2, XArr, WorkBook, Sheet: OLEVariant;
     j, k: integer;
-    fileName, cur_rule_name: string;
+    fileName, cur_rule_name, ss: string;
     sum_4, sum_5, sum_6, sum_7, sum_8, sum_9, sum_10, sum_11, sum_12: real;
-     ss:string;
- S : TStringlist;
-i, i1,i2,suma:integer;
-  j1: Integer;
+    S : TStringlist;
+    i, i1, i2, suma, j1 :integer;
 begin
   try
     with DM.SelQ do
@@ -511,8 +523,7 @@ begin
     end;
     XL.Quit;
 
-
-////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////
 
     with DM.SelQ do
     begin
@@ -574,10 +585,7 @@ begin
     end;
     XL.Quit;
 
-
-
-////////////////////////////////////////////////////////////////////////////////
-
+    ////////////////////////////////////////////////////////////////////////////////
 
     with DM.SelQ do
     begin
@@ -651,9 +659,7 @@ begin
     end;
     XL.Quit;
 
-
-////////////////////////////////////////////////////////////////////////////////
-
+    ////////////////////////////////////////////////////////////////////////////////
 
     DM.SelQ.Close;
     DM.SelQ.IndexFieldNames := '';
@@ -661,7 +667,6 @@ begin
   except
     on E: Exception do
     begin
-      //(PChar(E.Message));
       DM.SelQ.Close;
       DM.SelQ.IndexFieldNames := '';
     end;
@@ -669,21 +674,37 @@ begin
 end;
 
 
-
+//
+// Формирование файла
+// part4_tr%_G Van Dijk im & export b.v._f1.xls
+// ТН ВЭД;ТОВАР;КОЛИЧЕСТВО;СТРАНА ПРОИСХОЖДЕНИЯ
+// part4_tr%_G Van Dijk im & export b.v._f2.xls
+// Name;Code;Units;Amount;Netto weight;Brutto weight
+// part5_tr%_G Van Dijk im & export b.v._f1.xls
+// Code;Group;Country;Units;pcs
+//
 procedure TDM.raport_totallist(id_inv: integer; truck: integer; report_type: integer);
 var XL, XArr, WorkBook, Sheet: OLEVariant;
-    j: integer;
+    j, total_packs: integer;
     fileName: string;
     sum_u,sum_u1, sum_n,sum_n1, sum_b,sum_b1, sum_a,sum_a1: real;    st:tstringlist;
     dub2,dub1:string;
-
-    i : integer;
-    ss:string;
-    S : TStringlist;
-    i1,i2,suma:integer;
-    j1: Integer;
 begin
   try
+    total_packs := 0;
+    with DM.SelQ do
+    begin
+      Close;
+      IndexFieldNames := '';
+      SQL.Clear;
+      SQL.Add('select sum(PACKING_AMOUNT) as cnt from (select distinct SRC_TROLLEY, PACKING_AMOUNT from customs_inv_data_as_is where INV_ID = :v_inv_id and trucks = :v_truck)');
+      ParamByName('v_inv_id').Value := id_inv;
+      ParamByName('v_truck').Value  := truck;
+      Open;
+      total_packs := Fields[0].AsInteger;
+      Close;
+    end;
+
     with DM.SelQ do
     begin
       Close;
@@ -740,33 +761,11 @@ begin
       end;
     end;
 
- //***************** ИСКЛЮЧАЮ ПОВТОРЫ ДЛЯ ПРАВИЛЬНОГО СЧЕТА КОЛ-ВА ********************
- suma:=0; //эта переменная для суммир. позиций типа 281740.236-239, т.е. =3
- S := TStringList.Create;
-  s.Duplicates := dupIgnore;
-  s.sorted := true;
-  for i:=2 to j-1 do  begin
-   ss:=trim(XL.Range['A'+IntToStr(i),'A'+IntToStr(i)].Value);
-   if pos('-',ss)<>0 then begin
-     i1:=strtoint(copy(ss,pos('.',ss)+1,pos('-',ss)-1-pos('.',ss)));
-     i2:=strtoint(copy(ss,pos('-',ss)+1,length(ss)-pos('-',ss)));
-     suma:=suma+(i2-i1);
+    //***************** ИСКЛЮЧАЮ ПОВТОРЫ ДЛЯ ПРАВИЛЬНОГО СЧЕТА КОЛ-ВА ********************
+    XL.Range['A'+IntToStr(j),'A'+IntToStr(j)].Value :='Total rows: '+ inttostr(total_packs);
+    //*************************************
 
-    { //так неверно считается:
-    for j1 := i1 to i2 do begin
-     ss:=copy(ss,1,pos('.',ss))+inttostr(j1);
-     s.add(ss);
-     end;  }
-
-   end;
-   s.add(ss);
-   end;
- XL.Range['A'+IntToStr(j),'A'+IntToStr(j)].Value :='Total rows: '+ inttostr(S.Count+suma);
-  s.Free;  
-  //*************************************
-
-
-    XL.Range['A'+IntToStr(j),'A'+IntToStr(j)].Value := 'Total rows: '+IntToStr(j-2);
+    //XL.Range['A'+IntToStr(j),'A'+IntToStr(j)].Value := 'Total rows: '+IntToStr(j-2);
     XL.Range['F'+IntToStr(j),'F'+IntToStr(j)].Value := sum_u;
     XL.Range['I'+IntToStr(j),'I'+IntToStr(j)].Value := sum_n;
     XL.Range['A'+IntToStr(j),'J'+IntToStr(j)].select;
@@ -786,7 +785,7 @@ begin
     XL.Quit;
 
 
-////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////
 
 
     with DM.SelQ do
@@ -794,7 +793,6 @@ begin
       Close;
       IndexFieldNames := '';
       SQL.Clear;
-      //SQL.Add('begin custom_pkg.get_suplier_list2(:v_id_dep, :v_inv_id, :v_truck, :CURSOR_); end;');
       SQL.Add('begin custom_pkg.get_fito_raport_page1(:v_id_dep, :v_inv_id, :v_truck, :CURSOR_); end;');
       ParamByName('v_inv_id').Value := id_inv;
       ParamByName('V_ID_DEP').Value := CUR_DEPT_ID;
@@ -830,15 +828,11 @@ begin
       sum_n1:=0; dub1:= '1';  dub2:= '1';
       while not Eof do
       begin
-
-
-        
         sum_u1 := sum_u1 + FieldByName('units').asinteger;
        // sum_a1 := sum_a1 + simpleroundto((FieldByName('SUMM').value/FieldByName('netto').value)*1.13,-2);
         sum_a1 := sum_a1 + FieldByName('SUMM').ascurrency;
         sum_n1 := sum_n1 + FieldByName('netto').asinteger;
         sum_b1 := sum_b1 + FieldByName('brutto').asinteger;
-
 
         XArr[1] := FieldByName('NAME_CAT').Value;
         XArr[2] := FieldByName('CUST_REGN').Value;
@@ -847,21 +841,12 @@ begin
         XArr[5] := sum_n1; //FieldByName('netto').Value;
         XArr[6] := sum_b1;//FieldByName('brutto').Value;
 
-
-         XL.Range['A'+IntToStr(j),CHR(64+6)+IntToStr(j)].Value := XArr;
+        XL.Range['A'+IntToStr(j),CHR(64+6)+IntToStr(j)].Value := XArr;
 
         sum_u := sum_u + FieldByName('units').asinteger;
         sum_a := sum_a + FieldByName('SUMM').ascurrency;
         sum_n := sum_n + FieldByName('netto').asinteger;
         sum_b := sum_b + FieldByName('brutto').asinteger;
-
-
-        { if dub1<>dub2 then begin
-         sum_n1:=0; sum_b1:=0; sum_a1:=0; sum_u1:=0;
-          XL.Range['A'+IntToStr(j),CHR(64+6)+IntToStr(j)].Value := XArr;
-         j := j + 1;
-         end;    }
-
 
         dub1:= FieldByName('NAME_CAT').Value;
         Next;
@@ -873,9 +858,6 @@ begin
         end;
 
         if eof then j := j + 1;
-        
-
-       // j := j + 1;
       end;
     end;
 
@@ -899,10 +881,10 @@ begin
       XL.Quit;
     end;
     XL.Quit;
-  //////////////////////////////////////////////////////////////////////////
 
-  
-  // новый файл:
+
+    //////////////////////////////////////////////////////////////////////////
+
 
     with DM.SelQ do
     begin
@@ -910,7 +892,6 @@ begin
       IndexFieldNames := '';
       SQL.Clear;
       SQL.Add('begin custom_pkg.get_suplier_list2(:v_id_dep, :v_inv_id, :v_truck, :CURSOR_); end;');
-      //SQL.Add('begin custom_pkg.get_fito_raport_page1(:v_id_dep, :v_inv_id, :v_truck, :CURSOR_); end;');
       ParamByName('v_inv_id').Value := id_inv;
       ParamByName('V_ID_DEP').Value := CUR_DEPT_ID;
       ParamByName('v_truck').Value := truck;
@@ -921,7 +902,6 @@ begin
     if DM.SelQ.RecordCount = 0 then exit;
 
     sum_u := 0;
-
 
     fileName    := ProgPath+ '\OUT\'+IntToStr(id_inv)+'\part5_tr'+IntToStr(truck)+'_'+VarToStr(DM.InvoiceRegisterS_NAME_RU.Value)+'_f1.xls';
     XArr := VarArrayCreate([1,5],varVariant);
@@ -943,30 +923,18 @@ begin
      // dub1:= '1';  dub2:= '1';
       while not Eof do
       begin
-
-        //sum_u1 := sum_u1 + FieldByName('units').asinteger;
-
         XArr[1] := FieldByName('CUST_REGN').Value;
         XArr[2] := FieldByName('NAME_CAT').Value;
-        XArr[3] := FieldByName('mnemo').Value;
+        XArr[3] := FieldByName('MNEMO').Value;
         XArr[4] := FieldByName('units').Value;//sum_u;
         XArr[5] := 'pcs';
 
-         XL.Range['A'+IntToStr(j),CHR(64+5)+IntToStr(j)].Value := XArr;
+        XL.Range['A'+IntToStr(j),CHR(64+5)+IntToStr(j)].Value := XArr;
 
         sum_u := sum_u + FieldByName('units').asinteger;
 
-       // dub1:= FieldByName('NAME_CAT').Value;
         Next;
-       // dub2:= FieldByName('NAME_CAT').Value;
-
-       { if dub1<>dub2  then begin
-         j := j + 1;
-         sum_a1:=0; sum_u1:=0;
-        end;
-
-        if eof then }j := j + 1;
-
+        j := j + 1;
       end;
     end;
 
@@ -983,26 +951,25 @@ begin
     XL.selection.Columns.AutoFit;
     XL.Range['A1',CHR(64+5)+IntToStr(j)].Borders.LineStyle := $00000002;
 
-
-
     try
       XL.Workbooks[1].SaveAs(filename);
     except
       XL.Quit;
     end;
     XL.Quit;
-  //////////////////////////////////////////////////////////////////////////
+
+    //////////////////////////////////////////////////////////////////////////
 
 
 
-  //////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////
     DM.SelQ.Close;
     DM.SelQ.IndexFieldNames := '';
 
   except
     on E: Exception do
     begin
-      //(PChar(E.Message));
+      ShowMessage(E.Message);
       DM.SelQ.Close;
       DM.SelQ.IndexFieldNames := '';
     end;

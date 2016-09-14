@@ -1018,31 +1018,47 @@ end;
   // Создадим выходные файлы для срезки
   if ( CUR_DEPT_ID = 62 ) then
   begin
-      panel_progress.Left           := trunc(Panel2.Width / 2) - 300;
-      panel_progress.Top            := trunc(Panel2.Height / 2) - 30;
-      panel_progress.Visible        := true;
-      cxProgressBar1.Properties.Min := 0;
-      cxProgressBar1.Position       := 0;
-      cxProgressBar1.Properties.Max := trucks*4+2;
-      panel_progress.Repaint;
+    panel_progress.Left           := trunc(Panel2.Width / 2) - 300;
+    panel_progress.Top            := trunc(Panel2.Height / 2) - 30;
+    panel_progress.Visible        := true;
+    cxProgressBar1.Properties.Min := 0;
+    cxProgressBar1.Position       := 0;
+    cxProgressBar1.Properties.Max := trucks*4+2;
+    panel_progress.Repaint;
 
-    //Phytoes for cut flowers.xls
+    // Бегаем по машинам
     for i := 1 to trucks do
     begin
+      // part1_tr%_Phytoes_for_cut_flowers.xls
+      // Страна	Подтип	Количество
       DM.raport_srez_phytoes(idd,i,4);
       cxProgressBar1.Position := cxProgressBar1.Position+1;
       cxProgressBar1.Repaint;
 
+      // part2_tr%_Phytoes_for_cut_flowers.xls
+      // ТН ВЭД;ТОВАР;КОЛИЧЕСТВО;СТРАНА ПРОИСХОЖДЕНИЯ
       DM.raport_srez_phytoes_part2(idd,i,6);
       cxProgressBar1.Position := cxProgressBar1.Position+1;
       cxProgressBar1.Repaint;
 
+      // part3_%_gtd_f1.xls
+      // № п/п;Код ТН ВЭД;Наименование товара;ОБЩЕЕ Количество ШТУК;БАКИ;КОРОБКИ;ОБЩЕЕ Количество мест;Вес брутто, кг;Вес нетто, кг;Цена (ЕВРО);КОЛ-ВО ТЕЛЕЖЕК, 1 ТЕЛ. 94 КГ;КОЛ-ВО ПОДДОНОВ, 1 ПОДДОН - 20 КГ
+      // part3_%_gtd_f2.xls
+      // № п/п;Код ТН ВЭД;Наименование товара;Сорта
+      // part3_%_gtd_f3.xls
+      // РОСТ 40 СМ;40;шт.
       DM.raport_GTD(idd,i,5);
       cxProgressBar1.Position := cxProgressBar1.Position+1;
       cxProgressBar1.Repaint;
       //make_out_file(idd, 4, 'raport_srez_phytoes',intToStr(i)+'_Phytoes_for_cut_flowers.xls', i);
       //make_out_file(idd, 5, 'raport_srez_fito', intToStr(i)+'_gtd.xls', i);
 
+      // part4_tr%_G Van Dijk im & export b.v._f1.xls
+      // ТН ВЭД;ТОВАР;КОЛИЧЕСТВО;СТРАНА ПРОИСХОЖДЕНИЯ
+      // part4_tr%_G Van Dijk im & export b.v._f2.xls
+      // Name;Code;Units;Amount;Netto weight;Brutto weight
+      // part5_tr%_G Van Dijk im & export b.v._f1.xls
+      // Code;Group;Country;Units;pcs
       DM.raport_totallist(idd,i,6);
       cxProgressBar1.Position := cxProgressBar1.Position+1;
       cxProgressBar1.Repaint;
@@ -1051,7 +1067,7 @@ end;
     end;
 
     // Создадим файл по странам (в старом варианте так и было)
-//    make_out_file(idd, 2, 'raport_srez_countries', 'DUTH.xls', 0);
+    // make_out_file(idd, 2, 'raport_srez_countries', 'DUTH.xls', 0);
 
     // Создадим файл PRECOU
     make_out_file(idd, 3, 'raport_srez_precou', 'precou.xls', 0);
@@ -1065,15 +1081,15 @@ end;
     DM.CDS_WEIGHTS.ParamByName('V_ID_DEP').AsInteger := CUR_DEPT_ID;
     DM.CDS_WEIGHTS.Open;
     DM.CDS_WEIGHTS.First;
-        with DM.SelQ do
-        begin
-          Close;
-          SQL.Clear;
-          SQL.Add('begin custom_pkg.get_additional_information(:V_ID_INV, :CURSOR_); end;');
-          ParamByName('V_ID_INV').Value := idd;
-          ParamByName('cursor_').AsCursor;
-          Open;
-        end;
+    with DM.SelQ do
+    begin
+      Close;
+      SQL.Clear;
+      SQL.Add('begin custom_pkg.get_additional_information(:V_ID_INV, :CURSOR_); end;');
+      ParamByName('V_ID_INV').Value := idd;
+      ParamByName('cursor_').AsCursor;
+      Open;
+    end;
 
     if DM.SelQ.RecordCount > 0 then
     begin
@@ -1081,13 +1097,15 @@ end;
       begin
         DM.SelQ.Filter := 'hol_sub_type='''+DM.CDS_WEIGHTSNAME_CAT.AsString+'''';
         DM.SelQ.Filtered := true;
-        if DM.SelQ.RecordCount > 0 then  begin
+        if DM.SelQ.RecordCount > 0 then
+        begin
           if DM.CDS_WEIGHTSNAME_CAT.AsString = 'Roses' then
             make_out_file(idd, 2, 'raport_srez_notation_roses', 'пояснение_'+DM.CDS_WEIGHTSNAME_CAT_RU.AsString+'.xls', 0)
           else
             make_out_file(idd, 2, 'raport_srez_notation', 'пояснение_'+DM.CDS_WEIGHTSNAME_CAT_RU.AsString+'.xls', 0);
 
-
+{ 2016-09-13
+Это код Димы. Я не понимаю, что он здесь хотел. Как Настя проверит файлы, то сразу скажет, что не хватает и тогда надо менять запрос
            //--------доработка файлов пояснений--
            i:=0;
            XL:= CreateOLEObject('Excel.Application');
@@ -1167,18 +1185,6 @@ end;
            end;
 
 
-           //суммирую розы:
-           if DM.CDS_WEIGHTSNAME_CAT_RU.AsString='Роза' then begin
-         {  for i:=1 to XL.ActiveCell.Row  do    begin
-            ss2:=vartostr(XL.Range['B'+IntToStr(i),'B'+IntToStr(i)].value) + vartostr(XL.Range['D'+IntToStr(i),'D'+IntToStr(i)].value)+ vartostr(XL.Range['F'+IntToStr(i),'F'+IntToStr(i)].value);// текущая строка
-           for j:=2 to XL.ActiveCell.Row-1  do    begin
-             ss3:=vartostr(XL.Range['B'+IntToStr(j),'B'+IntToStr(j)].value) + vartostr(XL.Range['D'+IntToStr(j),'D'+IntToStr(j)].value)+ vartostr(XL.Range['F'+IntToStr(j),'F'+IntToStr(j)].value);// следущая строка
-             if (ss2=ss3) and (ss2<>'') then showmessage('суммировать');
-           end;
-           end; }
-           end;
-
-
            //------внешний вид + убираю запятую из последей
            XL.Range['A1','F'+inttostr(s.count)].select;
           // XL.Range['A1','F'+inttostr(XL.ActiveCell.Row)].select;
@@ -1194,7 +1200,7 @@ end;
            s.Free;
            i:=0;
          //-----конец доработка файлов пояснений-----
-
+}
         end; //if DM.SelQ.RecordCount > 0
         DM.CDS_WEIGHTS.Next;
       end;
@@ -1204,6 +1210,7 @@ end;
       DM.SelQ.Filtered := false;
     end;
     DM.CDS_WEIGHTS.Close;
+
     cxProgressBar1.Position := cxProgressBar1.Position+1;
     cxProgressBar1.Repaint;
 
