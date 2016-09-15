@@ -14,22 +14,19 @@ type
     cdsDeps: TOraQuery;
     cdsSQL: TOraQuery;
     cdsSettings: TOraQuery;
-    cxImglst: TcxImageList;
+    ImgList_32: TcxImageList;
+    ImgList_24: TImageList;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
     procedure OraSessionAfterConnect(Sender: TObject);
-    //procedure SaveIni;
   private
     { Private declarations }
-    //procedure LoadIni;
   public
     { Public declarations }
     //это пока не использую:
     id_office: integer;
     CUR_DEPT_ID: integer;
     CUR_DEPT_NAME: string;
-
-    //r_edit, r_delete, r_print : boolean;
   end;
 
 var
@@ -114,6 +111,7 @@ begin
   end;
 end;
 
+
 procedure Tdm.DataModuleDestroy(Sender: TObject);
 begin
  OraSession.Close;
@@ -122,58 +120,20 @@ end;
 
 procedure Tdm.OraSessionAfterConnect(Sender: TObject);
 begin
-    intDefOffice := GetOfficeID;//по умолч.Старлайт (Москва)
+  intDefOffice := GetOfficeID;
 
-   {cdsOffices.Open;
-    cdsDeps.ParamByName('login_').Value := UpperCase(OraSession.Username);
-    cdsDeps.ParamByName('cursor_').AsCursor;
-    cdsDeps.Open; }
-
-   // все настройки сохраняю в переменные и не закрываю cdssettings
-   cdssettings.ParamByName('cursor_').AsCursor;
-   cdssettings.Open;
-   cdssettings.First;
-   while not cdssettings.Eof do
-    begin
-      if (orasession.Username = cdssettings.FieldByName('DB_USER').value) then begin
-        if (cdssettings.FieldByName('STG_KEY').value = 'FontSize')   then intDefFont  := cdssettings.FieldByName('STG_VALUE').Asinteger;
-        if (cdssettings.FieldByName('STG_KEY').value = 'Department') then intDefDept  := cdssettings.FieldByName('STG_VALUE').Asinteger;
-      end;
-    cdssettings.Next;
-    end;
-
-end;
-
-  {
-procedure TDM.LoadIni;
-var vv, path: string;
-    RegIni : TIniFile;
-begin
-  try
-    path   := strPath+'ini\'+OraSession.Username+'.ini';
-    RegIni := TIniFile.Create(path);
-
-    intDefFont := RegIni.ReadInteger('FontSize',   'Value', 9);
-    intDefDept := RegIni.ReadInteger('Department', 'Value', 0);
-  finally
-    RegIni.Free;
+  // все настройки сохраняю в переменные и не закрываю cdssettings
+  cdssettings.ParamByName('cursor_').AsCursor;
+  cdssettings.Open;
+  cdssettings.First;
+  while not cdssettings.Eof do
+  begin
+    if (orasession.Username = cdssettings.FieldByName('DB_USER').value) then begin
+    if (cdssettings.FieldByName('STG_KEY').value = 'FontSize')   then intDefFont  := cdssettings.FieldByName('STG_VALUE').Asinteger;
+    if (cdssettings.FieldByName('STG_KEY').value = 'Department') then intDefDept  := cdssettings.FieldByName('STG_VALUE').Asinteger;
+  end;
+  cdssettings.Next;
   end;
 end;
-
-procedure TDM.SaveIni;
-var vv, path: string;
-    RegIni : TIniFile;
-begin
-  try
-    path   := strPath+'ini\'+OraSession.Username+'.ini';
-    RegIni := TIniFile.Create(path);
-
-    RegIni.WriteInteger('FontSize',   'Value', intDefFont);
-    RegIni.WriteInteger('Department', 'Value', intDefDept);
-  finally
-    RegIni.Free;
-  end;
-end;
-      }
 
 end.

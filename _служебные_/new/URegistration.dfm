@@ -1699,6 +1699,7 @@ object frmRegistration: TfrmRegistration
         HotZoneClassName = 'TcxMediaPlayer9Style'
         AlignSplitter = salTop
         Control = Panel5
+        ExplicitWidth = 8
       end
     end
     object TabSheet3: TTabSheet
@@ -2678,6 +2679,10 @@ object frmRegistration: TfrmRegistration
     object TabSheet4: TTabSheet
       Caption = ' '#1055#1054#1048#1057#1050' '#1050#1051#1048#1045#1053#1058#1040' '
       ImageIndex = 3
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Panel9: TPanel
         Left = 0
         Top = 0
@@ -2914,7 +2919,7 @@ object frmRegistration: TfrmRegistration
           Left = 152
           Top = 104
           Width = 150
-          Height = 22
+          Height = 24
           Cursor = crHandPoint
           AlwaysShowBorder = True
           Ctl3D = True
@@ -4406,7 +4411,7 @@ object frmRegistration: TfrmRegistration
     Left = 820
     Top = 125
     Bitmap = {
-      494C0101040009003C0110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010104000900400110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -5535,7 +5540,7 @@ object frmRegistration: TfrmRegistration
     Left = 240
     Top = 328
     Bitmap = {
-      494C010127002C002C0120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010127002C00300120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004001000001002000000000000080
       0200000000000000000000000000000000000000000000000000000000000000
       000000000000000000000101011A0B0B0B743B3D3DB4777777D5838383DA5152

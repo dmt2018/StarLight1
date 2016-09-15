@@ -724,12 +724,6 @@ end;
 
 procedure TfrmRegistration.FormShow(Sender: TObject);
 begin
-   dm.cxImgLst.GetBitmap(32, btnRefresh.largeGlyph);
-   dm.cxImgLst.GetBitmap(4, btnAdd.largeGlyph);
-   dm.cxImgLst.GetBitmap(5, btnedit.largeGlyph);
-   dm.cxImgLst.GetBitmap(6, btnDelete.largeGlyph);
-   dm.cxImgLst.GetBitmap(20, btnHelp.largeGlyph);
-   dm.cxImgLst.GetBitmap(21, btnExit.largeGlyph);
 
    RefreshAll; //вывод клиентов в грид
 

@@ -3,7 +3,7 @@ object frmNSICurreny: TfrmNSICurreny
   Top = 0
   Caption = ' '#1050#1091#1088#1089#1099' '#1074#1072#1083#1102#1090
   ClientHeight = 482
-  ClientWidth = 663
+  ClientWidth = 773
   Color = clBtnFace
   ParentFont = True
   FormStyle = fsMDIChild
@@ -16,11 +16,14 @@ object frmNSICurreny: TfrmNSICurreny
   TextHeight = 13
   object grCurrency: TcxGrid
     Left = 0
-    Top = 46
-    Width = 663
-    Height = 410
+    Top = 58
+    Width = 773
+    Height = 398
     Align = alClient
     TabOrder = 4
+    ExplicitTop = 46
+    ExplicitWidth = 663
+    ExplicitHeight = 410
     object grCurrencyView: TcxGridDBTableView
       NavigatorButtons.ConfirmDelete = False
       NavigatorButtons.First.Visible = True
@@ -60,34 +63,96 @@ object frmNSICurreny: TfrmNSICurreny
       object grCurrencyViewColumn1: TcxGridDBColumn
         Caption = #1054#1092#1080#1089
         DataBinding.FieldName = 'ID_OFFICE'
+        Visible = False
       end
       object grCurrencyViewColumn2: TcxGridDBColumn
         Caption = #1044#1072#1090#1072
         DataBinding.FieldName = 'DDATE'
+        PropertiesClassName = 'TcxDateEditProperties'
+        Properties.Alignment.Horz = taCenter
+        Properties.ReadOnly = True
+        Properties.SaveTime = False
+        Properties.ShowTime = False
+        HeaderAlignmentHorz = taCenter
+        Width = 100
       end
       object grCurrencyViewColumn3: TcxGridDBColumn
         DataBinding.FieldName = 'USD'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.Alignment.Horz = taRightJustify
+        Properties.DecimalPlaces = 5
+        Properties.DisplayFormat = ',0.00000;-,0.00000'
+        HeaderAlignmentHorz = taCenter
+        Width = 80
       end
       object grCurrencyViewColumn4: TcxGridDBColumn
         DataBinding.FieldName = 'EUR'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.Alignment.Horz = taRightJustify
+        Properties.DecimalPlaces = 5
+        Properties.DisplayFormat = ',0.00000;-,0.00000'
+        HeaderAlignmentHorz = taCenter
+        Width = 80
       end
       object grCurrencyViewColumn5: TcxGridDBColumn
+        Caption = '$ '#1082' '#8364
         DataBinding.FieldName = 'USD_EUR'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.Alignment.Horz = taRightJustify
+        Properties.DecimalPlaces = 5
+        Properties.DisplayFormat = ',0.00000;-,0.00000'
+        HeaderAlignmentHorz = taCenter
+        Width = 80
       end
       object grCurrencyViewColumn6: TcxGridDBColumn
+        Caption = #8364' '#1082' $'
         DataBinding.FieldName = 'EUR_USD'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.Alignment.Horz = taRightJustify
+        Properties.DecimalPlaces = 5
+        Properties.DisplayFormat = ',0.00000;-,0.00000'
+        HeaderAlignmentHorz = taCenter
+        Width = 80
       end
       object grCurrencyViewColumn7: TcxGridDBColumn
+        Caption = #1044#1080#1088'. USD'
         DataBinding.FieldName = 'SHEV_USD'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.Alignment.Horz = taRightJustify
+        Properties.DecimalPlaces = 5
+        Properties.DisplayFormat = ',0.00000;-,0.00000'
+        HeaderAlignmentHorz = taCenter
+        Width = 80
       end
       object grCurrencyViewColumn8: TcxGridDBColumn
+        Caption = #1044#1080#1088'. EUR'
         DataBinding.FieldName = 'SHEV_EUR'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.Alignment.Horz = taRightJustify
+        Properties.DecimalPlaces = 5
+        Properties.DisplayFormat = ',0.00000;-,0.00000'
+        HeaderAlignmentHorz = taCenter
+        Width = 80
       end
       object grCurrencyViewColumn9: TcxGridDBColumn
+        Caption = #1044#1080#1088'. $ '#1082' '#8364
         DataBinding.FieldName = 'SHEV_USD_EUR'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.Alignment.Horz = taRightJustify
+        Properties.DecimalPlaces = 5
+        Properties.DisplayFormat = ',0.00000;-,0.00000'
+        HeaderAlignmentHorz = taCenter
+        Width = 80
       end
       object grCurrencyViewColumn10: TcxGridDBColumn
+        Caption = #1044#1080#1088'. '#8364' '#1082' $'
         DataBinding.FieldName = 'SHEV_EUR_USD'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.Alignment.Horz = taRightJustify
+        Properties.DecimalPlaces = 5
+        Properties.DisplayFormat = ',0.00000;-,0.00000'
+        HeaderAlignmentHorz = taCenter
+        Width = 80
       end
     end
     object grCurrencyLevel: TcxGridLevel
@@ -107,6 +172,8 @@ object frmNSICurreny: TfrmNSICurreny
       2)
     Categories.Visibles = (
       True)
+    ImageOptions.Images = dm.ImgList_24
+    ImageOptions.LargeImages = dm.ImgList_32
     ImageOptions.SmoothGlyphs = True
     ImageOptions.StretchGlyphs = False
     ImageOptions.UseLargeImagesForLargeIcons = True
@@ -121,7 +188,7 @@ object frmNSICurreny: TfrmNSICurreny
     DockControlHeights = (
       0
       0
-      46
+      58
       26)
     object bmToolBar: TdxBar
       AllowClose = False
@@ -130,7 +197,7 @@ object frmNSICurreny: TfrmNSICurreny
       AllowReset = False
       Caption = 'MainTB'
       CaptionButtons = <>
-      Color = clBtnShadow
+      Color = clBtnFace
       DockedDockingStyle = dsTop
       DockedLeft = 0
       DockedTop = 0
@@ -139,11 +206,6 @@ object frmNSICurreny: TfrmNSICurreny
       FloatTop = 8
       FloatClientWidth = 0
       FloatClientHeight = 0
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Segoe UI'
-      Font.Style = []
       ItemLinks = <
         item
           Visible = True
@@ -155,20 +217,12 @@ object frmNSICurreny: TfrmNSICurreny
           ItemName = 'btnAdd'
         end
         item
-          BeginGroup = True
           Visible = True
           ItemName = 'btnEdit'
         end
         item
-          BeginGroup = True
           Visible = True
           ItemName = 'btnDelete'
-        end
-        item
-          UserDefine = [udWidth]
-          UserWidth = 94
-          Visible = True
-          ItemName = 'imgOffice'
         end
         item
           BeginGroup = True
@@ -183,7 +237,7 @@ object frmNSICurreny: TfrmNSICurreny
       NotDocking = [dsNone, dsLeft, dsTop, dsRight, dsBottom]
       OneOnRow = True
       Row = 0
-      UseOwnFont = True
+      UseOwnFont = False
       UseRestSpace = True
       Visible = True
       WholeRow = True
@@ -195,7 +249,7 @@ object frmNSICurreny: TfrmNSICurreny
       AllowReset = False
       Caption = 'FooterTB'
       CaptionButtons = <>
-      Color = clBtnShadow
+      Color = clBtnFace
       DockedDockingStyle = dsBottom
       DockedLeft = 0
       DockedTop = 0
@@ -204,7 +258,11 @@ object frmNSICurreny: TfrmNSICurreny
       FloatTop = 8
       FloatClientWidth = 0
       FloatClientHeight = 0
-      ItemLinks = <>
+      ItemLinks = <
+        item
+          Visible = True
+          ItemName = 'btnHotKeys'
+        end>
       OneOnRow = True
       Row = 0
       UseOwnFont = False
@@ -215,23 +273,25 @@ object frmNSICurreny: TfrmNSICurreny
     object btnRefresh: TdxBarLargeButton
       Action = aRefresh
       Category = 0
-      LargeImageIndex = 0
-      ShortCut = 116
+      LargeImageIndex = 32
       AutoGrayScale = False
     end
     object btnAdd: TdxBarLargeButton
       Action = aNew
       Category = 0
+      LargeImageIndex = 4
       AutoGrayScale = False
     end
     object btnEdit: TdxBarLargeButton
       Action = aEdit
       Category = 0
+      LargeImageIndex = 5
       AutoGrayScale = False
     end
     object btnDelete: TdxBarLargeButton
       Action = aDelete
       Category = 0
+      LargeImageIndex = 6
       AutoGrayScale = False
     end
     object imgOffice: TcxBarEditItem
@@ -305,15 +365,15 @@ object frmNSICurreny: TfrmNSICurreny
       Category = 0
       Hint = #1050#1091#1088#1089' '#1074#1072#1083#1102#1090' '#1074' '#1062#1041
       Visible = ivAlways
+      LargeImageIndex = 13
       OnClick = btnHelpClick
       AutoGrayScale = False
     end
     object btnExit: TdxBarLargeButton
-      Caption = #1047#1072#1082#1088#1099#1090#1100
+      Action = aExit
+      Align = iaRight
       Category = 0
-      Hint = #1047#1072#1082#1088#1099#1090#1100
-      Visible = ivAlways
-      OnClick = btnExitClick
+      LargeImageIndex = 21
       AutoGrayScale = False
     end
     object cxBarEditItem3: TcxBarEditItem
@@ -368,7 +428,6 @@ object frmNSICurreny: TfrmNSICurreny
       Category = 0
       Hint = #1050#1091#1088#1089' '#1074#1072#1083#1102#1090' '#1074' '#1062#1041
       Visible = ivAlways
-      OnClick = dxBarButton4Click
     end
     object dxBarButton5: TdxBarButton
       Caption = #1042#1099#1093#1086#1076
@@ -384,6 +443,14 @@ object frmNSICurreny: TfrmNSICurreny
       Width = 100
       PropertiesClassName = 'TcxLabelProperties'
     end
+    object btnHotKeys: TdxBarButton
+      Caption = 'New Button'
+      Category = 0
+      Hint = 'New Button'
+      Visible = ivAlways
+      ImageIndex = 36
+      OnClick = btnHotKeysClick
+    end
   end
   object AlMain: TActionList
     Left = 608
@@ -391,22 +458,32 @@ object frmNSICurreny: TfrmNSICurreny
     object aRefresh: TAction
       Category = 'Main'
       Caption = #1054#1073#1085#1086#1074#1080#1090#1100
+      ShortCut = 116
       OnExecute = aRefreshExecute
     end
     object aNew: TAction
       Category = 'Main'
       Caption = #1044#1086#1073#1072#1074#1080#1090#1100
+      ShortCut = 113
       OnExecute = aNewExecute
     end
     object aEdit: TAction
       Category = 'Main'
       Caption = #1048#1079#1084#1077#1085#1080#1090#1100
+      ShortCut = 114
       OnExecute = aEditExecute
     end
     object aDelete: TAction
       Category = 'Main'
       Caption = #1059#1076#1072#1083#1080#1090#1100
+      ShortCut = 115
       OnExecute = aDeleteExecute
+    end
+    object aExit: TAction
+      Category = 'Main'
+      Caption = #1047#1072#1082#1088#1099#1090#1100
+      ShortCut = 16499
+      OnExecute = aExitExecute
     end
   end
   object Q_CURR_DS: TOraDataSource

@@ -285,15 +285,6 @@ end;
 procedure TfrmClientTypes.FormShow(Sender: TObject);
 begin
  try
-   dm.cxImgLst.GetBitmap(32, btnRefresh.largeGlyph);
-   dm.cxImgLst.GetBitmap(4, btnAdd.largeGlyph);
-   dm.cxImgLst.GetBitmap(5, btnedit.largeGlyph);
-   dm.cxImgLst.GetBitmap(6, btnDelete.largeGlyph);
-   dm.cxImgLst.GetBitmap(20, btnHelp.largeGlyph);
-   dm.cxImgLst.GetBitmap(21, btnExit.largeGlyph);
-   //AddN.Enabled    := DM.r_edit;
-   //EditN.Enabled   := DM.r_edit;
-   //DeleteN.Enabled := DM.r_delete;
 
   if (imgOffice.Enabled) then
   begin

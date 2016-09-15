@@ -9,7 +9,8 @@ uses
   cxControls, cxGridCustomView, cxGridCustomTableView, cxGridTableView,
   cxGridDBTableView, cxGrid, dxBarExtItems, cxDropDownEdit, cxLabel,
   cxBarEditItem, star_lib, cxImageComboBox, MemDS, DBAccess, Ora, cxButtonEdit,ComObj,
-  xmldom, XMLIntf, msxmldom, XMLDoc, Xmlxform, DBClient;
+  xmldom, XMLIntf, msxmldom, XMLDoc, Xmlxform, DBClient, cxCalendar,
+  cxCurrencyEdit;
 
 type
   TfrmNSICurreny = class(TForm)
@@ -61,22 +62,22 @@ type
     XMLTransform1: TXMLTransform;
     ClientDataSet1: TClientDataSet;
     ClientDataSet2: TClientDataSet;
+    aExit: TAction;
+    btnHotKeys: TdxBarButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure aNewExecute(Sender: TObject);
     procedure aRefreshExecute(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure btnExitClick(Sender: TObject);
-    procedure imgOfficePropertiesChange(Sender: TObject);
-    procedure dxBarButton4Click(Sender: TObject);
     procedure btnHelpClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure aEditExecute(Sender: TObject);
     procedure aDeleteExecute(Sender: TObject);
+    procedure aExitExecute(Sender: TObject);
+    procedure btnHotKeysClick(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
-    id_office: integer;
     function MainFormShow : boolean;
   end;
 
@@ -85,10 +86,13 @@ var
 
 implementation
 
-uses umain, udm, Ueditor;
+uses umain, udm, Ueditor, UHotKeys;
 
 {$R *.dfm}
 
+//
+//  Основной метод открытия формы
+//
 function TfrmNSICurreny.MainFormShow : boolean;
 Begin
  if not Assigned(frmNSICurreny) then
@@ -105,10 +109,54 @@ Begin
    if (frmNSICurreny.WindowState = wsMinimized) then frmNSICurreny.WindowState := wsNormal;
 end;
 
+
+// BOF :: Основные действия с формой -------------------------------------------
+
+// Действие на закрытие формы
+procedure TfrmNSICurreny.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  if MessageDlg('Закрыть программу?',mtConfirmation,[mbYes, mbNo],0) <> mrYes then
+    Action := caNone
+  else
+  begin
+    SaveFormState(frmNSICurreny); //полож.окна
+    frmNSICurreny := nil;
+    Action := caFree;
+  end;
+end;
+
+// Действие на создание формы
+procedure TfrmNSICurreny.FormCreate(Sender: TObject);
+ var i:integer;
+begin
+  Application.CreateForm(Tfrmeditor, frmeditor);
+  grCurrency.Font.Size := intDefFont;
+end;
+
+// Действие на показ формы
+// Заполним списки и открываем основные таблицы
+procedure TfrmNSICurreny.FormShow(Sender: TObject);
+begin
+  try
+    Q_CURR.Close;
+    Q_CURR.ParamByName('v_office').AsInteger := DM.id_office;
+    Q_CURR.Open;
+    grCurrency.SetFocus
+  except
+    on E: Exception do ShowMessage(E.Message);
+  end;
+end;
+
+// EOF :: Основные действия с формой -------------------------------------------
+// -----------------------------------------------------------------------------
+
+
+// BOF :: Основные кнопки управления -------------------------------------------
+
 //удалить
 procedure TfrmNSICurreny.aDeleteExecute(Sender: TObject);
 begin
-  if (id_office <> Q_CURR.FieldByName('ID_OFFICE').AsInteger) then
+  if (DM.id_office <> Q_CURR.FieldByName('ID_OFFICE').AsInteger) then
   begin
     MessageBox(Handle,'Данная запись не принадлежит главному офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
     exit;
@@ -130,7 +178,7 @@ end;
 //изменить
 procedure TfrmNSICurreny.aEditExecute(Sender: TObject);
 begin
-    if (id_office <> Q_CURR.FieldByName('ID_OFFICE').AsInteger) then
+    if (DM.id_office <> Q_CURR.FieldByName('ID_OFFICE').AsInteger) then
   begin
     MessageBox(Handle,'Данная запись не принадлежит главному офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
     exit;
@@ -190,10 +238,31 @@ begin
    dm.cdsSQL.Close;     }
 end;
 
-procedure TfrmNSICurreny.btnExitClick(Sender: TObject);
+// Закрыть
+procedure TfrmNSICurreny.aExitExecute(Sender: TObject);
 begin
-  if MessageDlg('Закрыть программу?',mtConfirmation,[mbYes, mbNo],0) = mrYes then close;// self.Close;
+  Close;
 end;
+
+// EOF :: Основные кнопки управления -------------------------------------------
+// -----------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 procedure TfrmNSICurreny.btnHelpClick(Sender: TObject);
@@ -242,92 +311,9 @@ begin
   ClientDataSet2.Open;
 end;
 
-procedure TfrmNSICurreny.dxBarButton4Click(Sender: TObject);
+procedure TfrmNSICurreny.btnHotKeysClick(Sender: TObject);
 begin
-
+  frmHotKeys.MainFormShow;
 end;
-
-// Закрыть прогу
-procedure TfrmNSICurreny.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  SaveFormState(frmNSICurreny); //полож.окна
-   frmNSICurreny := nil;
-  Action := caFree;
-end;
-
-procedure TfrmNSICurreny.FormCreate(Sender: TObject);
- var i:integer;
-begin
-  Application.CreateForm(Tfrmeditor, frmeditor);
-  //for i:=0 to frmNSICurreny.componentcount-1 do  frmNSICurreny.Components[i].Font.Size := intDefFont;
-  grCurrency.Font.Size := intDefFont;
-end;
-
-//  Заполним списки
-procedure TfrmNSICurreny.FormShow(Sender: TObject);
-begin
-   dm.cxImgLst.GetBitmap(32, btnRefresh.largeGlyph);
-   dm.cxImgLst.GetBitmap(4, btnAdd.largeGlyph);
-   dm.cxImgLst.GetBitmap(5, btnedit.largeGlyph);
-   dm.cxImgLst.GetBitmap(6, btnDelete.largeGlyph);
-   dm.cxImgLst.GetBitmap(20, btnHelp.largeGlyph);
-   dm.cxImgLst.GetBitmap(33, btnExit.largeGlyph);
-
-      {
-     // Заполнение офисов
-    if imgOtdel.EditValue = trim('') then
-      MessageBox(Handle, 'Не выбран офис.', 'Внимание!', MB_ICONWARNING)
-    else
-    begin
-      //DM.id_office := 0;
-      imgOffice.EditValue := intDefOffice;
-    end;
-
-  // Заполнение отделов
-    if imgOtdel.EditValue = trim('') then
-      MessageBox(Handle, 'Не указан ни один отдел продаж.', 'Внимание!', MB_ICONWARNING)
-    else
-    begin
-      //DM.CUR_DEPT_ID   := 0;
-      //DM.CUR_DEPT_NAME := '';
-      imgOtdel.EditValue := intDefDept;
-    end;
-
-    aRefresh.Execute;  //обновить таблицу
-    grCurrency.SetFocus; //фокус на таблицу      }
-
-if (imgOffice.Enabled) then
-  begin
-  try
-    id_office := GetOfficeID;
-    imgOffice.Enabled := (id_office = 1);
-    grCurrencyView.Columns[0].Visible := imgOffice.Enabled;
-
-    imgOffice.Properties.OnChange := nil;
-    SelQ.Close;
-    SelQ.SQL.Clear;
-    SelQ.SQL.Add('SELECT ID_OFFICE, OFFICE_NAME FROM OFFICES ORDER BY OFFICE_NAME');
-    SelQ.Open;
-    //FillImgComboCx(SelQ, imgOffice, 'Все');
-    SelQ.Close;
-    imgOffice.EditValue := id_office;
-    imgOffice.Properties.OnChange := imgOfficePropertiesChange;
-
-    Q_CURR.ParamByName('v_office').AsInteger := id_office;
-    Q_CURR.Open;
-  except
-    on E: Exception do ShowMessage(E.Message);
-  end;
-  end;
-end;
-
-//меняю офис
-procedure TfrmNSICurreny.imgOfficePropertiesChange(Sender: TObject);
-begin
-  intDefOffice := imgOffice.EditValue;
-  //DM.id_office := imgOffice.EditValue; //в перем id_office пишу текущ.знач комбобокса
-  aRefresh.Execute;  //обновить таблицу
-end;
-
 
 end.

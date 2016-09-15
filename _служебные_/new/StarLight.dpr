@@ -18,7 +18,8 @@ uses
   UClientTypes in 'UClientTypes.pas' {frmClientTypes},
   UEditClientTypes in 'UEditClientTypes.pas' {frmEditClientTypes},
   URegistration in 'URegistration.pas' {frmRegistration},
-  UEditRegistration in 'UEditRegistration.pas' {frmEditRegistration};
+  UEditRegistration in 'UEditRegistration.pas' {frmEditRegistration},
+  UHotKeys in 'UHotKeys.pas' {frmHotKeys};
 
 {$R *.res}
 
