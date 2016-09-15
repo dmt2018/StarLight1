@@ -162,7 +162,7 @@ object frmEditRegistration: TfrmEditRegistration
     Width = 791
     Height = 505
     Cursor = crHandPoint
-    ActivePage = TabSheet1
+    ActivePage = TabSheet2
     Align = alTop
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack
@@ -1248,9 +1248,9 @@ object frmEditRegistration: TfrmEditRegistration
         object Label20: TLabel
           Left = 424
           Top = 8
-          Width = 38
+          Width = 117
           Height = 16
-          Caption = #1040#1076#1088#1077#1089
+          Caption = #1060#1072#1082#1090#1080#1095#1077#1089#1082#1080#1081' '#1072#1076#1088#1077#1089
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -2161,7 +2161,7 @@ object frmEditRegistration: TfrmEditRegistration
     Left = 532
     Top = 22
     Bitmap = {
-      494C010107000900A80010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010107000900B00010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000084CA84FF54B757FF000000000000000000000000000000000000

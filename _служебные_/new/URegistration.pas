@@ -375,59 +375,6 @@ type
     SelQ: TOraQuery;
     Q_CLIENTS: TOraQuery;
     Q_CLIENT_VIEW: TOraQuery;
-    Q_CLIENT_VIEWID_CLIENTS: TIntegerField;
-    Q_CLIENT_VIEWFIO: TStringField;
-    Q_CLIENT_VIEWNICK: TStringField;
-    Q_CLIENT_VIEWCCODE: TStringField;
-    Q_CLIENT_VIEWREGION: TIntegerField;
-    Q_CLIENT_VIEWADDRESS: TStringField;
-    Q_CLIENT_VIEWU_ADDRESS: TStringField;
-    Q_CLIENT_VIEWPHONE: TStringField;
-    Q_CLIENT_VIEWPASSPORT: TStringField;
-    Q_CLIENT_VIEWCONTACT: TStringField;
-    Q_CLIENT_VIEWCONT_PHONE: TStringField;
-    Q_CLIENT_VIEWEMAIL: TStringField;
-    Q_CLIENT_VIEWWWW: TStringField;
-    Q_CLIENT_VIEWINN: TStringField;
-    Q_CLIENT_VIEWREG_SVID: TStringField;
-    Q_CLIENT_VIEWKPP: TStringField;
-    Q_CLIENT_VIEWOKATO: TStringField;
-    Q_CLIENT_VIEWBANK: TStringField;
-    Q_CLIENT_VIEWAGREEMENT: TStringField;
-    Q_CLIENT_VIEWADVERTISMENT: TIntegerField;
-    Q_CLIENT_VIEWDDATE: TDateTimeField;
-    Q_CLIENT_VIEWBLOCK1: TIntegerField;
-    Q_CLIENT_VIEWBLOCK2: TIntegerField;
-    Q_CLIENT_VIEWFLOWERS: TIntegerField;
-    Q_CLIENT_VIEWPLANTS: TIntegerField;
-    Q_CLIENT_VIEWMARK: TStringField;
-    Q_CLIENT_VIEWTTYPE: TIntegerField;
-    Q_CLIENT_VIEWID_CLIENTS_GROUPS: TIntegerField;
-    Q_CLIENT_VIEWCORRECTOR: TStringField;
-    Q_CLIENT_VIEWDATE_COR: TDateTimeField;
-    Q_CLIENT_VIEWCORRECTOR_COR: TStringField;
-    Q_CLIENT_VIEWDUTIES: TStringField;
-    Q_CLIENT_VIEWINSURANCE: TStringField;
-    Q_CLIENT_VIEWDATE_IN: TDateTimeField;
-    Q_CLIENT_VIEWDATE_OUT: TDateTimeField;
-    Q_CLIENT_VIEWL_SERVICE: TStringField;
-    Q_CLIENT_VIEWSTAFF: TIntegerField;
-    Q_CLIENT_VIEWACTIVE: TIntegerField;
-    Q_CLIENT_VIEWLOGIN: TStringField;
-    Q_CLIENT_VIEWINFO: TStringField;
-    Q_CLIENT_VIEWREG_TYPE: TIntegerField;
-    Q_CLIENT_VIEWCOUNT: TIntegerField;
-    Q_CLIENT_VIEWDOSTAVKA: TIntegerField;
-    Q_CLIENT_VIEWID_OFFICE: TIntegerField;
-    Q_CLIENT_VIEWDATE_CHANGE: TDateTimeField;
-    Q_CLIENT_VIEWPREFIX: TStringField;
-    Q_CLIENT_VIEWID_CITY: TIntegerField;
-    Q_CLIENT_VIEWREG_TYPE_NAME: TStringField;
-    Q_CLIENT_VIEWGROUP_NAME: TStringField;
-    Q_CLIENT_VIEWTTYPE_NAME: TStringField;
-    Q_CLIENT_VIEWREGION_NAME: TStringField;
-    Q_CLIENT_VIEWADVERT: TStringField;
-    Q_CLIENT_VIEWCITY: TStringField;
     Q_CLIENTS_DS: TOraDataSource;
     Q_CLIENT_VIEW_DS: TOraDataSource;
     Q_ADVERT: TOraQuery;
@@ -437,16 +384,8 @@ type
     Q_ADVERTBRIEF: TStringField;
     Q_ADVERT_DS: TOraDataSource;
     Q_TYPES: TOraQuery;
-    Q_TYPESID_CLIENT_TYPES: TIntegerField;
-    Q_TYPESNAME: TStringField;
-    Q_TYPESID_OFFICE: TIntegerField;
-    Q_TYPESBRIEF: TStringField;
     Q_TYPES_DS: TOraDataSource;
     Q_REGIONS: TOraQuery;
-    Q_REGIONSID_REGIONS: TIntegerField;
-    Q_REGIONSNAME: TStringField;
-    Q_REGIONSID_OFFICE: TIntegerField;
-    Q_REGIONSBRIEF: TStringField;
     Q_REGIONS_DS: TOraDataSource;
     Q_G_CL: TOraQuery;
     Q_G_CLID_CLIENTS: TIntegerField;
@@ -556,7 +495,6 @@ type
     OraDataSource1: TOraDataSource;
     Q_IDD: TOraQuery;
     Q_IDD_DS: TOraDataSource;
-    Q_CLIENT_VIEWINTERES: TStringField;
     cxGridDBColumn33: TcxGridDBColumn;
     Q_CLIENTSID_CLIENTS: TIntegerField;
     Q_CLIENTSNICK: TStringField;
@@ -592,6 +530,68 @@ type
     Q_GROUPSID_OFFICE: TIntegerField;
     Q_GROUPSDATE_CHANGE: TDateTimeField;
     Q_GROUPSBRIEF: TStringField;
+    Q_REGIONSID_REGIONS: TIntegerField;
+    Q_REGIONSNAME: TStringField;
+    Q_REGIONSID_OFFICE: TIntegerField;
+    Q_REGIONSBRIEF: TStringField;
+    Q_TYPESID_CLIENT_TYPES: TIntegerField;
+    Q_TYPESNAME: TStringField;
+    Q_TYPESID_OFFICE: TIntegerField;
+    Q_TYPESBRIEF: TStringField;
+    Q_CLIENT_VIEWID_CLIENTS: TIntegerField;
+    Q_CLIENT_VIEWFIO: TStringField;
+    Q_CLIENT_VIEWNICK: TStringField;
+    Q_CLIENT_VIEWCCODE: TStringField;
+    Q_CLIENT_VIEWREGION: TIntegerField;
+    Q_CLIENT_VIEWADDRESS: TStringField;
+    Q_CLIENT_VIEWU_ADDRESS: TStringField;
+    Q_CLIENT_VIEWPHONE: TStringField;
+    Q_CLIENT_VIEWPASSPORT: TStringField;
+    Q_CLIENT_VIEWCONTACT: TStringField;
+    Q_CLIENT_VIEWCONT_PHONE: TStringField;
+    Q_CLIENT_VIEWEMAIL: TStringField;
+    Q_CLIENT_VIEWWWW: TStringField;
+    Q_CLIENT_VIEWINN: TStringField;
+    Q_CLIENT_VIEWREG_SVID: TStringField;
+    Q_CLIENT_VIEWKPP: TStringField;
+    Q_CLIENT_VIEWOKATO: TStringField;
+    Q_CLIENT_VIEWBANK: TStringField;
+    Q_CLIENT_VIEWAGREEMENT: TStringField;
+    Q_CLIENT_VIEWADVERTISMENT: TIntegerField;
+    Q_CLIENT_VIEWDDATE: TDateTimeField;
+    Q_CLIENT_VIEWBLOCK1: TIntegerField;
+    Q_CLIENT_VIEWBLOCK2: TIntegerField;
+    Q_CLIENT_VIEWFLOWERS: TIntegerField;
+    Q_CLIENT_VIEWPLANTS: TIntegerField;
+    Q_CLIENT_VIEWMARK: TStringField;
+    Q_CLIENT_VIEWTTYPE: TIntegerField;
+    Q_CLIENT_VIEWID_CLIENTS_GROUPS: TIntegerField;
+    Q_CLIENT_VIEWCORRECTOR: TStringField;
+    Q_CLIENT_VIEWDATE_COR: TDateTimeField;
+    Q_CLIENT_VIEWCORRECTOR_COR: TStringField;
+    Q_CLIENT_VIEWDUTIES: TStringField;
+    Q_CLIENT_VIEWINSURANCE: TStringField;
+    Q_CLIENT_VIEWDATE_IN: TDateTimeField;
+    Q_CLIENT_VIEWDATE_OUT: TDateTimeField;
+    Q_CLIENT_VIEWL_SERVICE: TStringField;
+    Q_CLIENT_VIEWSTAFF: TIntegerField;
+    Q_CLIENT_VIEWACTIVE: TIntegerField;
+    Q_CLIENT_VIEWLOGIN: TStringField;
+    Q_CLIENT_VIEWINFO: TStringField;
+    Q_CLIENT_VIEWREG_TYPE: TIntegerField;
+    Q_CLIENT_VIEWCOUNT: TIntegerField;
+    Q_CLIENT_VIEWDOSTAVKA: TIntegerField;
+    Q_CLIENT_VIEWID_OFFICE: TIntegerField;
+    Q_CLIENT_VIEWDATE_CHANGE: TDateTimeField;
+    Q_CLIENT_VIEWPREFIX: TStringField;
+    Q_CLIENT_VIEWID_CITY: TIntegerField;
+    Q_CLIENT_VIEWINTERES: TStringField;
+    Q_CLIENT_VIEWREG_TYPE_NAME: TStringField;
+    Q_CLIENT_VIEWGROUP_NAME: TStringField;
+    Q_CLIENT_VIEWTTYPE_NAME: TStringField;
+    Q_CLIENT_VIEWREGION_NAME: TStringField;
+    Q_CLIENT_VIEWADVERT: TStringField;
+    Q_CLIENT_VIEWCITY: TStringField;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure btnAddClick(Sender: TObject);
@@ -840,10 +840,9 @@ Begin
     if (frmRegistration.WindowState = wsMinimized) then frmRegistration.WindowState := wsNormal;
 end;
 
-//ВСЕ АФТЕР ОПЕН ПЕРЕНЕС В ОНШОУ ФОРМЫ РЕДАКТОРА:
+//перенес все из оншоу в кнопку изменить, а то непонятно когда frmEditRegistration.Free делать
 procedure TfrmRegistration.Q_ADVERTAfterOpen(DataSet: TDataSet);
 begin
- { frmEditRegistration := TfrmEditRegistration.Create(Application);
   frmEditRegistration.ComboBox2.Items.Clear;
   Q_ADVERT.First;
   while not Q_ADVERT.Eof do
@@ -852,13 +851,12 @@ begin
     Q_ADVERT.Next;
   end;
   Q_ADVERT.First;
-  frmEditRegistration.Free; }
 end;
 
 
 procedure TfrmRegistration.Q_DEPARTAfterOpen(DataSet: TDataSet);
 begin
-  {ComboBox7.Items.Clear;
+  ComboBox7.Items.Clear;
   ComboBox7.Items.Add('');
   ComboBox9.Items.Clear;
   ComboBox9.Items.Add('');
@@ -869,12 +867,12 @@ begin
     ComboBox9.Items.Add(Q_DEPART.FieldValues['NAME']);
     Q_DEPART.Next;
   end;
-  Q_DEPART.First;   }
+  Q_DEPART.First;
 end;
+
 
 procedure TfrmRegistration.Q_GROUPSAfterOpen(DataSet: TDataSet);
 begin
- { frmEditRegistration := TfrmEditRegistration.Create(Application);
   Q_G_CL.Close;
   //DBGrid2.DataSource.DataSet.DisableControls;
   Q_GROUPS.last;
@@ -889,12 +887,10 @@ begin
   Q_GROUPS.First;
   //DBGrid2.DataSource.DataSet.EnableControls;
   Q_G_CL.Open;
-  frmEditRegistration.Free;    }
 end;
 
 procedure TfrmRegistration.Q_REGIONSAfterOpen(DataSet: TDataSet);
 begin
- { frmEditRegistration := TfrmEditRegistration.Create(Application);
   frmEditRegistration.ComboBox1.Items.Clear;
   Q_REGIONS.First;
   while not Q_REGIONS.Eof do
@@ -904,12 +900,11 @@ begin
     Q_REGIONS.Next;
   end;
   Q_REGIONS.First;
-  frmEditRegistration.Free;   }
 end;
 
 procedure TfrmRegistration.Q_TITLESAfterOpen(DataSet: TDataSet);
 begin
- { ComboBox3.Items.Clear;
+  ComboBox3.Items.Clear;
   ComboBox3.Items.Add('');
   ComboBox5.Items.Clear;
   ComboBox5.Items.Add('');
@@ -920,12 +915,11 @@ begin
     ComboBox5.Items.Add(Q_TITLES.FieldValues['NAME']);
   Q_TITLES.Next;
   end;
-  Q_TITLES.First;   }
+  Q_TITLES.First;   
 end;
 
 procedure TfrmRegistration.Q_TYPESAfterOpen(DataSet: TDataSet);
 begin
-  {frmEditRegistration := TfrmEditRegistration.Create(Application);
   frmEditRegistration.ComboBox3.Items.Clear;
   Q_TYPES.First;
   while not Q_TYPES.Eof do
@@ -934,7 +928,6 @@ begin
     Q_TYPES.Next;
   end;
   Q_TYPES.First;
-  frmEditRegistration.Free; }
 end;
 
 procedure TfrmRegistration.RefreshExecute(Sender: TObject);
@@ -957,7 +950,7 @@ end;
 procedure TfrmRegistration.btnAddClick(Sender: TObject);
 begin
   try
-  frmEditRegistration := TfrmEditRegistration.Create(Application);
+ // frmEditRegistration := TfrmEditRegistration.Create(Application);
   // Добавление клиента
   if (PageControl1.TabIndex = 0) then
   begin
@@ -982,12 +975,22 @@ begin
     frmEditRegistration.Edit1.Text := '';
 
     frmEditRegistration.Memo1.Lines.Clear;
-    frmEditRegistration.Memo2.Lines.Clear;
+    //frmEditRegistration.Memo2.Lines.Clear;
+    frmEditRegistration.edit2.Clear;
+    frmEditRegistration.combobox5.Clear;
+    frmEditRegistration.combobox6.Clear;
+    frmEditRegistration.combobox7.Clear;
+    frmEditRegistration.combobox8.Clear;
+    frmEditRegistration.edit4.Clear;
+    frmEditRegistration.edit5.Clear;
+    frmEditRegistration.edit6.Clear;
+    
     frmEditRegistration.Memo3.Lines.Clear;
     frmEditRegistration.Memo4.Lines.Clear;
     frmEditRegistration.Memo5.Lines.Clear;
     frmEditRegistration.Memo6.Lines.Clear;
     frmEditRegistration.Memo7.Lines.Clear;
+    frmEditRegistration.Memo8.Lines.Clear;
 
     frmEditRegistration.CheckBox1.Checked := false;
     frmEditRegistration.CheckBox2.Checked := false;
@@ -1016,6 +1019,8 @@ begin
     frmEditRegistration.chbRulePics.Checked := true;
     frmEditRegistration.chbRulePrice.Checked := true;
     frmEditRegistration.chbRuleOrder.Checked := true;
+
+
   end;
  {
   // Добавление группы
@@ -1059,7 +1064,7 @@ begin
   end;                }
 
   finally
-  frmEditRegistration.Free;
+  //frmEditRegistration.Free;
   end;
 end;
 
@@ -1220,10 +1225,10 @@ end;
 
 // изменить
 procedure TfrmRegistration.btnEditClick(Sender: TObject);
-var ind: integer;
+var ind: integer;  ss:string;
 begin
  try
- frmEditRegistration := TfrmEditRegistration.Create(Application);
+ //frmEditRegistration := TfrmEditRegistration.Create(Application);
   // Редактирование клиента
   if (PageControl1.TabIndex = 0) then
   begin
@@ -1245,20 +1250,27 @@ begin
         Q_CLIENT_VIEW.SQL.Add(' FROM CLIENTS_GROUPS G, BOOKS_CLIENT_TYPES T, BOOKS_ADVERTISMENTS A, CLIENTS C, BOOKS_REGIONS R, offices o, books_cities s');
         Q_CLIENT_VIEW.SQL.Add(' WHERE C.ID_CLIENTS_GROUPS = G.ID_CLIENTS_GROUPS(+) AND C.TTYPE = T.ID_CLIENT_TYPES(+) AND C.ADVERTISMENT = A.ID_ADVERTISMENTS(+) AND C.REGION = R.ID_REGIONS(+) AND ID_CLIENTS=:ID and c.id_office = o.ID_OFFICE and c.id_city = s.id_city(+)');
         Q_CLIENT_VIEW.ParamByName('ID').Value := Q_CLIENTS.FieldByName('ID_CLIENTS').AsInteger;
-        Q_CLIENT_VIEW.Open;    
+        Q_CLIENT_VIEW.Open;
 
         ind := frmEditRegistration.ComboBox1.Items.IndexOf(Q_CLIENT_VIEW.FieldByName('REGION_NAME').AsString);
         frmEditRegistration.ComboBox1.ItemIndex := ind;
-        ind := frmEditRegistration.ComboBox2.Items.IndexOf(Q_CLIENT_VIEW.FieldByName('ADVERT').AsString);
-        frmEditRegistration.ComboBox2.ItemIndex := ind;
+
         ind := frmEditRegistration.ComboBox3.Items.IndexOf(Q_CLIENT_VIEW.FieldByName('TTYPE_NAME').AsString);
         frmEditRegistration.ComboBox3.ItemIndex := ind;
+
         ind := frmEditRegistration.ComboBox4.Items.IndexOf(Q_CLIENT_VIEW.FieldByName('GROUP_NAME').AsString);
         frmEditRegistration.ComboBox4.ItemIndex := ind;
 
+        ind := frmEditRegistration.ComboBox2.Items.IndexOf(Q_CLIENT_VIEW.FieldByName('ADVERT').AsString);
+        frmEditRegistration.ComboBox2.ItemIndex := ind;
+
+
+        //----------город не показывает - не разбирался- потом гляну----
         frmEditRegistration.cdsCity.Filter    := 'id_region='+Q_CLIENT_VIEW.FieldByName('REGION').AsString;
         frmEditRegistration.cdsCity.Filtered  := true;
         frmEditRegistration.icbCity.EditValue := Q_CLIENT_VIEW.FieldByName('id_city').AsInteger;
+        //------------------------------------------------------------
+
 
         frmEditRegistration.LabeledEdit1.Text := Q_CLIENT_VIEW.FieldByName('NICK').AsString;
         frmEditRegistration.LabeledEdit2.Text := Q_CLIENT_VIEW.FieldByName('FIO').AsString;
@@ -1285,12 +1297,32 @@ begin
         frmEditRegistration.Edit1.Text := Q_CLIENT_VIEW.FieldByName('CCODE').AsString;
 
         frmEditRegistration.Memo1.Text := Q_CLIENT_VIEW.FieldByName('BANK').AsString;
-        frmEditRegistration.Memo2.Text := Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString;
+        //frmEditRegistration.Memo2.Text := Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString;
+        if pos('%',Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString) <> 0 then begin
+           ss := Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString;
+           frmEditRegistration.edit2.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmEditRegistration.combobox5.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmEditRegistration.combobox6.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmEditRegistration.combobox7.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmEditRegistration.combobox8.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmEditRegistration.edit4.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmEditRegistration.edit5.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmEditRegistration.edit6.Text := ss;
+        end;
+
         frmEditRegistration.Memo3.Text := Q_CLIENT_VIEW.FieldByName('CONT_PHONE').AsString;
         frmEditRegistration.Memo4.Text := Q_CLIENT_VIEW.FieldByName('ADDRESS').AsString;
         frmEditRegistration.Memo5.Text := Q_CLIENT_VIEW.FieldByName('U_ADDRESS').AsString;
         frmEditRegistration.Memo6.Text := Q_CLIENT_VIEW.FieldByName('PHONE').AsString;
         frmEditRegistration.Memo7.Text := Q_CLIENT_VIEW.FieldByName('INFO').AsString;
+        frmEditRegistration.Memo8.Text := Q_CLIENT_VIEW.FieldByName('INTERES').AsString;
 
         if (Q_CLIENT_VIEW.FieldByName('PLANTS').AsInteger = 1) then frmEditRegistration.CheckBox1.Checked := true else frmEditRegistration.CheckBox1.Checked := false;
         if (Q_CLIENT_VIEW.FieldByName('FLOWERS').AsInteger = 1) then frmEditRegistration.CheckBox2.Checked := true else frmEditRegistration.CheckBox2.Checked := false;
@@ -1413,7 +1445,7 @@ begin
     else ShowMessage('Нет данных для редактирования!');
   end; }
  finally
-  frmEditRegistration.Free;
+  //frmEditRegistration.Free;
  end;
 end;
 
@@ -1428,6 +1460,8 @@ begin
  SaveFormState(frmRegistration);  //полож.окна
   frmRegistration := nil;
  Action := caFree;
+
+ frmEditRegistration.Free;
 end;
 
 
@@ -1444,6 +1478,8 @@ begin
   DateTimePicker2.Checked := false;
   DateTimePicker3.Checked := false;
   DateTimePicker4.Checked := false;
+
+  frmEditRegistration := TfrmEditRegistration.Create(Application);
 end;
 
 end.
