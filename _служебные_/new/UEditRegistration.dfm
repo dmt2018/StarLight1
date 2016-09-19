@@ -156,13 +156,125 @@ object frmEditRegistration: TfrmEditRegistration
     Height = 13
     Caption = '***'
   end
+  object Label39: TLabel
+    Left = 19
+    Top = 244
+    Width = 79
+    Height = 14
+    Caption = #1057#1090#1088#1072#1085#1072' '#1074#1099#1076#1072#1095#1080
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Pitch = fpFixed
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label40: TLabel
+    Left = 19
+    Top = 271
+    Width = 71
+    Height = 14
+    Caption = #1043#1086#1088#1086#1076' '#1074#1099#1076#1072#1095#1080
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Pitch = fpFixed
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label41: TLabel
+    Left = 19
+    Top = 300
+    Width = 102
+    Height = 14
+    Caption = #1050#1077#1084' '#1074#1099#1076#1072#1085' '#1087#1072#1089#1087#1086#1088#1090
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Pitch = fpFixed
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label42: TLabel
+    Left = 19
+    Top = 325
+    Width = 85
+    Height = 14
+    Caption = #1052#1077#1089#1090#1086' '#1088#1086#1078#1076#1077#1085#1080#1103
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Pitch = fpFixed
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label43: TLabel
+    Left = 27
+    Top = 252
+    Width = 79
+    Height = 14
+    Caption = #1057#1090#1088#1072#1085#1072' '#1074#1099#1076#1072#1095#1080
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Pitch = fpFixed
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label44: TLabel
+    Left = 27
+    Top = 279
+    Width = 71
+    Height = 14
+    Caption = #1043#1086#1088#1086#1076' '#1074#1099#1076#1072#1095#1080
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Pitch = fpFixed
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label45: TLabel
+    Left = 27
+    Top = 308
+    Width = 102
+    Height = 14
+    Caption = #1050#1077#1084' '#1074#1099#1076#1072#1085' '#1087#1072#1089#1087#1086#1088#1090
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Pitch = fpFixed
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label46: TLabel
+    Left = 27
+    Top = 333
+    Width = 85
+    Height = 14
+    Caption = #1052#1077#1089#1090#1086' '#1088#1086#1078#1076#1077#1085#1080#1103
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Pitch = fpFixed
+    Font.Style = []
+    ParentFont = False
+  end
   object PageControl1: TPageControl
     Left = 0
     Top = 0
     Width = 791
     Height = 505
     Cursor = crHandPoint
-    ActivePage = TabSheet2
+    ActivePage = TabSheet1
     Align = alTop
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack
@@ -1217,6 +1329,8 @@ object frmEditRegistration: TfrmEditRegistration
         Ctl3D = False
         ParentCtl3D = False
         TabOrder = 0
+        ExplicitLeft = -32
+        ExplicitTop = 2
         object Label4: TLabel
           Left = 424
           Top = 144
@@ -1303,7 +1417,7 @@ object frmEditRegistration: TfrmEditRegistration
         end
         object Label32: TLabel
           Left = 19
-          Top = 244
+          Top = 242
           Width = 79
           Height = 14
           Caption = #1057#1090#1088#1072#1085#1072' '#1074#1099#1076#1072#1095#1080
@@ -1371,6 +1485,62 @@ object frmEditRegistration: TfrmEditRegistration
           Font.Style = []
           ParentFont = False
         end
+        object Label47: TLabel
+          Left = 427
+          Top = 30
+          Width = 38
+          Height = 14
+          Caption = #1048#1085#1076#1077#1082#1089
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Pitch = fpFixed
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label48: TLabel
+          Left = 427
+          Top = 56
+          Width = 29
+          Height = 14
+          Caption = #1043#1086#1088#1086#1076
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Pitch = fpFixed
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label49: TLabel
+          Left = 427
+          Top = 86
+          Width = 30
+          Height = 14
+          Caption = #1059#1083#1080#1094#1072
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Pitch = fpFixed
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label50: TLabel
+          Left = 435
+          Top = 115
+          Width = 22
+          Height = 14
+          Caption = #1044#1086#1084
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Pitch = fpFixed
+          Font.Style = []
+          ParentFont = False
+        end
         object LabeledEdit10: TLabeledEdit
           Left = 16
           Top = 26
@@ -1399,7 +1569,7 @@ object frmEditRegistration: TfrmEditRegistration
         object LabeledEdit11: TLabeledEdit
           Left = 16
           Top = 70
-          Width = 350
+          Width = 220
           Height = 22
           EditLabel.Width = 38
           EditLabel.Height = 16
@@ -1460,42 +1630,7 @@ object frmEditRegistration: TfrmEditRegistration
           MaxLength = 1024
           ParentFont = False
           ScrollBars = ssVertical
-          TabOrder = 5
-        end
-        object Memo2: TMemo
-          Left = 384
-          Top = 356
-          Width = 369
-          Height = 22
-          Color = clWhite
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Pitch = fpFixed
-          Font.Style = []
-          MaxLength = 1024
-          ParentFont = False
-          ScrollBars = ssVertical
           TabOrder = 3
-          Visible = False
-        end
-        object Memo4: TMemo
-          Left = 424
-          Top = 26
-          Width = 329
-          Height = 111
-          Color = clWhite
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Pitch = fpFixed
-          Font.Style = []
-          MaxLength = 1024
-          ParentFont = False
-          ScrollBars = ssVertical
-          TabOrder = 4
         end
         object Memo7: TMemo
           Left = 16
@@ -1511,43 +1646,53 @@ object frmEditRegistration: TfrmEditRegistration
           MaxLength = 1024
           ParentFont = False
           ScrollBars = ssVertical
-          TabOrder = 6
+          TabOrder = 4
         end
         object Edit2: TEdit
           Left = 151
           Top = 185
           Width = 215
           Height = 22
-          TabOrder = 7
+          Color = clSilver
+          Enabled = False
+          TabOrder = 5
         end
         object Edit4: TEdit
           Left = 151
           Top = 273
           Width = 215
           Height = 22
-          TabOrder = 8
+          Color = clSilver
+          Enabled = False
+          TabOrder = 6
         end
         object Edit5: TEdit
           Left = 151
           Top = 301
           Width = 215
           Height = 22
-          TabOrder = 9
+          Color = clSilver
+          Enabled = False
+          TabOrder = 7
         end
         object Edit6: TEdit
           Left = 151
           Top = 329
           Width = 215
           Height = 22
-          TabOrder = 10
+          Color = clSilver
+          Enabled = False
+          TabOrder = 8
         end
         object ComboBox5: TComboBox
           Left = 151
           Top = 213
           Width = 49
           Height = 24
+          Color = clSilver
+          Enabled = False
           ItemHeight = 16
-          TabOrder = 11
+          TabOrder = 9
           Items.Strings = (
             '01'
             '02'
@@ -1586,8 +1731,10 @@ object frmEditRegistration: TfrmEditRegistration
           Top = 213
           Width = 79
           Height = 24
+          Color = clSilver
+          Enabled = False
           ItemHeight = 16
-          TabOrder = 12
+          TabOrder = 10
           Items.Strings = (
             #1103#1085#1074#1072#1088#1103
             #1092#1077#1074#1088#1072#1083#1103
@@ -1607,8 +1754,10 @@ object frmEditRegistration: TfrmEditRegistration
           Top = 213
           Width = 75
           Height = 24
+          Color = clSilver
+          Enabled = False
           ItemHeight = 16
-          TabOrder = 13
+          TabOrder = 11
           Items.Strings = (
             '1970'
             '1971'
@@ -1664,8 +1813,10 @@ object frmEditRegistration: TfrmEditRegistration
           Top = 243
           Width = 215
           Height = 24
+          Color = clSilver
+          Enabled = False
           ItemHeight = 16
-          TabOrder = 14
+          TabOrder = 12
         end
         object Memo8: TMemo
           Left = 424
@@ -1681,7 +1832,47 @@ object frmEditRegistration: TfrmEditRegistration
           MaxLength = 1024
           ParentFont = False
           ScrollBars = ssVertical
+          TabOrder = 13
+        end
+        object Edit3: TEdit
+          Left = 479
+          Top = 30
+          Width = 258
+          Height = 22
+          Color = clWhite
+          TabOrder = 14
+        end
+        object Edit7: TEdit
+          Left = 479
+          Top = 58
+          Width = 258
+          Height = 22
+          Color = clWhite
           TabOrder = 15
+        end
+        object Edit8: TEdit
+          Left = 479
+          Top = 86
+          Width = 258
+          Height = 22
+          Color = clWhite
+          TabOrder = 16
+        end
+        object Edit9: TEdit
+          Left = 479
+          Top = 114
+          Width = 258
+          Height = 22
+          Color = clWhite
+          TabOrder = 17
+        end
+        object CB1: TCheckBox
+          Left = 242
+          Top = 73
+          Width = 124
+          Height = 17
+          Caption = #1079#1072#1087#1080#1089#1100' '#1073#1077#1079' e-mail'
+          TabOrder = 18
         end
       end
     end
@@ -2161,7 +2352,7 @@ object frmEditRegistration: TfrmEditRegistration
     Left = 532
     Top = 22
     Bitmap = {
-      494C010107000900B00010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010107000900B80010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000084CA84FF54B757FF000000000000000000000000000000000000

@@ -20,9 +20,9 @@ object frmRegistration: TfrmRegistration
   TextHeight = 13
   object cxClient: TcxGrid
     Left = 0
-    Top = 46
+    Top = 58
     Width = 1064
-    Height = 558
+    Height = 546
     Align = alClient
     TabOrder = 0
     LevelTabs.Style = 7
@@ -267,9 +267,9 @@ object frmRegistration: TfrmRegistration
   end
   object PageControl1: TPageControl
     Left = 0
-    Top = 46
+    Top = 58
     Width = 1064
-    Height = 558
+    Height = 546
     Cursor = crHandPoint
     ActivePage = TabSheet1
     Align = alClient
@@ -1044,7 +1044,7 @@ object frmRegistration: TfrmRegistration
         Left = 0
         Top = 174
         Width = 1056
-        Height = 351
+        Height = 339
         Align = alClient
         PopupMenu = PopupMenu2
         TabOrder = 0
@@ -1584,7 +1584,7 @@ object frmRegistration: TfrmRegistration
         Left = 0
         Top = 249
         Width = 1056
-        Height = 276
+        Height = 264
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 1
@@ -1612,7 +1612,7 @@ object frmRegistration: TfrmRegistration
           Left = 0
           Top = 25
           Width = 1056
-          Height = 251
+          Height = 239
           Align = alClient
           TabOrder = 1
           LevelTabs.Style = 7
@@ -1699,7 +1699,6 @@ object frmRegistration: TfrmRegistration
         HotZoneClassName = 'TcxMediaPlayer9Style'
         AlignSplitter = salTop
         Control = Panel5
-        ExplicitWidth = 8
       end
     end
     object TabSheet3: TTabSheet
@@ -2292,7 +2291,7 @@ object frmRegistration: TfrmRegistration
         Left = 0
         Top = 158
         Width = 864
-        Height = 367
+        Height = 355
         Align = alClient
         BevelOuter = bvNone
         BorderWidth = 1
@@ -2302,7 +2301,7 @@ object frmRegistration: TfrmRegistration
           Left = 1
           Top = 1
           Width = 862
-          Height = 365
+          Height = 353
           Align = alClient
           PopupMenu = PopupMenu3
           TabOrder = 0
@@ -2457,7 +2456,7 @@ object frmRegistration: TfrmRegistration
         Left = 864
         Top = 158
         Width = 192
-        Height = 367
+        Height = 355
         Align = alRight
         BevelOuter = bvNone
         BorderWidth = 1
@@ -2679,10 +2678,6 @@ object frmRegistration: TfrmRegistration
     object TabSheet4: TTabSheet
       Caption = ' '#1055#1054#1048#1057#1050' '#1050#1051#1048#1045#1053#1058#1040' '
       ImageIndex = 3
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Panel9: TPanel
         Left = 0
         Top = 0
@@ -2919,7 +2914,7 @@ object frmRegistration: TfrmRegistration
           Left = 152
           Top = 104
           Width = 150
-          Height = 24
+          Height = 22
           Cursor = crHandPoint
           AlwaysShowBorder = True
           Ctl3D = True
@@ -3283,7 +3278,7 @@ object frmRegistration: TfrmRegistration
         Left = 0
         Top = 225
         Width = 1056
-        Height = 300
+        Height = 288
         Align = alClient
         AllowedOperations = []
         AutoFitColWidths = True
@@ -3625,6 +3620,8 @@ object frmRegistration: TfrmRegistration
       2)
     Categories.Visibles = (
       True)
+    ImageOptions.Images = dm.ImgList_24
+    ImageOptions.LargeImages = dm.ImgList_32
     ImageOptions.SmoothGlyphs = True
     ImageOptions.StretchGlyphs = False
     ImageOptions.UseLargeImagesForLargeIcons = True
@@ -3639,7 +3636,7 @@ object frmRegistration: TfrmRegistration
     DockControlHeights = (
       0
       0
-      46
+      58
       26)
     object bmToolBar: TdxBar
       AllowClose = False
@@ -3647,7 +3644,7 @@ object frmRegistration: TfrmRegistration
       AllowQuickCustomizing = False
       Caption = 'MainTB'
       CaptionButtons = <>
-      Color = clGradientActiveCaption
+      Color = clBtnFace
       DockedDockingStyle = dsTop
       DockedLeft = 0
       DockedTop = 0
@@ -3716,7 +3713,7 @@ object frmRegistration: TfrmRegistration
       AllowReset = False
       Caption = 'FooterTB'
       CaptionButtons = <>
-      Color = clGradientActiveCaption
+      Color = clBtnFace
       DockedDockingStyle = dsBottom
       DockedLeft = 0
       DockedTop = 0
@@ -3737,19 +3734,25 @@ object frmRegistration: TfrmRegistration
       Action = Refresh
       Category = 0
       AutoGrayScale = False
+      SyncImageIndex = False
+      ImageIndex = 32
     end
     object btnAdd: TdxBarLargeButton
       Caption = #1044#1086#1073#1072#1074#1080#1090#1100' (F4)'
       Category = 0
       Visible = ivAlways
+      LargeImageIndex = 4
       ShortCut = 115
       OnClick = btnAddClick
       AutoGrayScale = False
+      SyncImageIndex = False
+      ImageIndex = 4
     end
     object btnEdit: TdxBarLargeButton
       Caption = #1048#1079#1084#1077#1085#1080#1090#1100' (F2)'
       Category = 0
       Visible = ivAlways
+      LargeImageIndex = 5
       ShortCut = 113
       OnClick = btnEditClick
       AutoGrayScale = False
@@ -3758,6 +3761,7 @@ object frmRegistration: TfrmRegistration
       Caption = #1059#1076#1072#1083#1080#1090#1100' (F3)'
       Category = 0
       Visible = ivAlways
+      LargeImageIndex = 6
       ShortCut = 114
       OnClick = btnDeleteClick
       AutoGrayScale = False
@@ -3842,6 +3846,7 @@ object frmRegistration: TfrmRegistration
       Category = 0
       Hint = #1047#1072#1082#1088#1099#1090#1100
       Visible = ivAlways
+      LargeImageIndex = 21
       OnClick = btnExitClick
       AutoGrayScale = False
     end
@@ -4411,7 +4416,7 @@ object frmRegistration: TfrmRegistration
     Left = 820
     Top = 125
     Bitmap = {
-      494C010104000900400110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010104000900480110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -5540,7 +5545,7 @@ object frmRegistration: TfrmRegistration
     Left = 240
     Top = 328
     Bitmap = {
-      494C010127002C00300120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010127002C00380120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004001000001002000000000000080
       0200000000000000000000000000000000000000000000000000000000000000
       000000000000000000000101011A0B0B0B743B3D3DB4777777D5838383DA5152
@@ -10951,8 +10956,21 @@ object frmRegistration: TfrmRegistration
     end
   end
   object SelQ: TOraQuery
+    SQL.Strings = (
+      'begin'
+      '  BOOKS.GET_CLIENT_TYPES(:V_OFFICE, :CURSOR_);'
+      'end;')
     Left = 680
     Top = 392
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'V_OFFICE'
+      end
+      item
+        DataType = ftUnknown
+        Name = 'CURSOR_'
+      end>
   end
   object Q_CLIENTS: TOraQuery
     SQLUpdate.Strings = (

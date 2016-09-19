@@ -20,11 +20,13 @@ object frmClientTypes: TfrmClientTypes
   TextHeight = 13
   object grClientTypes: TcxGrid
     Left = 0
-    Top = 46
+    Top = 58
     Width = 762
-    Height = 360
+    Height = 348
     Align = alClient
     TabOrder = 0
+    ExplicitTop = 46
+    ExplicitHeight = 360
     object grClientTypesView: TcxGridDBTableView
       NavigatorButtons.ConfirmDelete = False
       NavigatorButtons.First.Visible = True
@@ -108,6 +110,8 @@ object frmClientTypes: TfrmClientTypes
       2)
     Categories.Visibles = (
       True)
+    ImageOptions.Images = dm.ImgList_24
+    ImageOptions.LargeImages = dm.ImgList_32
     ImageOptions.SmoothGlyphs = True
     ImageOptions.StretchGlyphs = False
     ImageOptions.UseLargeImagesForLargeIcons = True
@@ -122,7 +126,7 @@ object frmClientTypes: TfrmClientTypes
     DockControlHeights = (
       0
       0
-      46
+      58
       26)
     object bmToolBar: TdxBar
       AllowClose = False
@@ -130,7 +134,7 @@ object frmClientTypes: TfrmClientTypes
       AllowQuickCustomizing = False
       Caption = 'MainTB'
       CaptionButtons = <>
-      Color = clGradientActiveCaption
+      Color = clBtnFace
       DockedDockingStyle = dsTop
       DockedLeft = 0
       DockedTop = 0
@@ -195,7 +199,7 @@ object frmClientTypes: TfrmClientTypes
       AllowReset = False
       Caption = 'FooterTB'
       CaptionButtons = <>
-      Color = clGradientActiveCaption
+      Color = clBtnFace
       DockedDockingStyle = dsBottom
       DockedLeft = 0
       DockedTop = 0
@@ -222,6 +226,7 @@ object frmClientTypes: TfrmClientTypes
       Action = aNew
       Caption = #1044#1086#1073#1072#1074#1080#1090#1100' (F4)'
       Category = 0
+      LargeImageIndex = 4
       ShortCut = 115
       AutoGrayScale = False
     end
@@ -229,6 +234,7 @@ object frmClientTypes: TfrmClientTypes
       Action = aEdit
       Caption = #1048#1079#1084#1077#1085#1080#1090#1100' (F2)'
       Category = 0
+      LargeImageIndex = 5
       ShortCut = 113
       AutoGrayScale = False
     end
@@ -236,6 +242,7 @@ object frmClientTypes: TfrmClientTypes
       Action = aDelete
       Caption = #1059#1076#1072#1083#1080#1090#1100' (F3)'
       Category = 0
+      LargeImageIndex = 6
       ShortCut = 114
       AutoGrayScale = False
     end
@@ -311,6 +318,7 @@ object frmClientTypes: TfrmClientTypes
       Category = 0
       Hint = #1055#1086#1084#1086#1097#1100
       Visible = ivAlways
+      LargeImageIndex = 20
       AutoGrayScale = False
     end
     object btnExit: TdxBarLargeButton
@@ -318,6 +326,7 @@ object frmClientTypes: TfrmClientTypes
       Category = 0
       Hint = #1047#1072#1082#1088#1099#1090#1100
       Visible = ivAlways
+      LargeImageIndex = 21
       OnClick = btnExitClick
       AutoGrayScale = False
     end

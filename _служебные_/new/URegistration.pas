@@ -980,7 +980,12 @@ begin
     frmEditRegistration.edit6.Clear;
     
     frmEditRegistration.Memo3.Lines.Clear;
-    frmEditRegistration.Memo4.Lines.Clear;
+    //frmEditRegistration.Memo4.Lines.Clear;
+    frmEditRegistration.edit3.Clear;
+    frmEditRegistration.edit7.Clear;
+    frmEditRegistration.edit8.Clear;
+    frmEditRegistration.edit9.Clear;
+
     frmEditRegistration.Memo5.Lines.Clear;
     frmEditRegistration.Memo6.Lines.Clear;
     frmEditRegistration.Memo7.Lines.Clear;
@@ -1312,7 +1317,18 @@ begin
         end;
 
         frmEditRegistration.Memo3.Text := Q_CLIENT_VIEW.FieldByName('CONT_PHONE').AsString;
-        frmEditRegistration.Memo4.Text := Q_CLIENT_VIEW.FieldByName('ADDRESS').AsString;
+        //frmEditRegistration.Memo4.Text := Q_CLIENT_VIEW.FieldByName('ADDRESS').AsString;
+        if pos('%',Q_CLIENT_VIEW.FieldByName('ADDRESS').AsString) <> 0 then begin
+           ss := Q_CLIENT_VIEW.FieldByName('ADDRESS').AsString;
+           frmEditRegistration.edit3.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmEditRegistration.edit7.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmEditRegistration.edit8.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmEditRegistration.edit9.Text := ss;
+        end;
+
         frmEditRegistration.Memo5.Text := Q_CLIENT_VIEW.FieldByName('U_ADDRESS').AsString;
         frmEditRegistration.Memo6.Text := Q_CLIENT_VIEW.FieldByName('PHONE').AsString;
         frmEditRegistration.Memo7.Text := Q_CLIENT_VIEW.FieldByName('INFO').AsString;

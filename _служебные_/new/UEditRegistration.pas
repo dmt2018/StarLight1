@@ -73,8 +73,6 @@ type
     LabeledEdit11: TLabeledEdit;
     LabeledEdit12: TLabeledEdit;
     Memo3: TMemo;
-    Memo2: TMemo;
-    Memo4: TMemo;
     Memo7: TMemo;
     TabSheet3: TTabSheet;
     gr_address: TcxGrid;
@@ -196,6 +194,23 @@ type
     Q_CLIENT_VIEWREGION_NAME: TStringField;
     Q_CLIENT_VIEWADVERT: TStringField;
     Q_CLIENT_VIEWCITY: TStringField;
+    Edit3: TEdit;
+    Edit7: TEdit;
+    Edit8: TEdit;
+    Edit9: TEdit;
+    Label39: TLabel;
+    Label40: TLabel;
+    Label41: TLabel;
+    Label42: TLabel;
+    Label43: TLabel;
+    Label44: TLabel;
+    Label45: TLabel;
+    Label46: TLabel;
+    Label47: TLabel;
+    Label48: TLabel;
+    Label49: TLabel;
+    Label50: TLabel;
+    CB1: TCheckBox;
     procedure SpeedButton1Click(Sender: TObject);
     procedure BitBtn3Click(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
@@ -237,15 +252,26 @@ uses URegistration, udm;
 procedure TfrmEditRegistration.TZ;
  var tip: tstringlist; i:integer;
 begin
-  tip := TStringList.Create;
-  tip.add('ИП');
-  //tip.add('Частное лицо');    // здесь более широкое условие
-  //tip.add('Предприниматель'); // здесь более широкое условие
-  tip.add('СОТРУДНИК ФИРМЫ');
+  //tip := TStringList.Create;
+  //tip.add('ИП');
+  /////tip.add('Частное лицо');    // здесь более широкое условие
+  /////tip.add('Предприниматель'); // здесь более широкое условие
+  //tip.add('СОТРУДНИК ФИРМЫ');
 
-  for i := 0 to tip.Count - 1 do
-  If (combobox3.Text = tip[i]) or ((LabeledEdit9.Text = 'Без договора') and (combobox3.Text ='Частное лицо'))
-  or (((copy(LabeledEdit1.Text,1,1) = 'F') or (copy(LabeledEdit1.Text,1,1) = 'O')) and (combobox3.Text ='Предприниматель'))  then begin
+  //сначала думал через стринглист, но потом вспомнил про is_contractor...
+   frmRegistration.selq.close;
+   frmRegistration.selq.SQL.Clear;
+   frmRegistration.selq.SQL.Add('select IS_CONTRACTOR from BOOKS_CLIENT_TYPES where NAME = '+combobox3.text);
+   frmRegistration.selq.Open; //  но тут лажа какаято, разбираца нада
+  if (frmRegistration.selq.FieldByName('IS_CONTRACTOR').AsInteger = 0)
+  or ((LabeledEdit9.Text = 'Без договора') and (combobox3.Text ='Частное лицо'))
+  or (((copy(LabeledEdit1.Text,1,1) = 'F') or (copy(LabeledEdit1.Text,1,1) = 'O')) and (combobox3.Text ='Предприниматель'))
+  then
+  begin
+  //for i := 0 to tip.Count - 1 do
+  //If (combobox3.Text = tip[i]) or ((LabeledEdit9.Text = 'Без договора') and (combobox3.Text ='Частное лицо'))
+  //or (((copy(LabeledEdit1.Text,1,1) = 'F') or (copy(LabeledEdit1.Text,1,1) = 'O')) and (combobox3.Text ='Предприниматель'))  then begin
+
    //Memo2.Color:=clwhite;
    //Memo2.Enabled:=true;
    edit2.Enabled:=true;  edit2.Color:=clwhite;
@@ -256,8 +282,7 @@ begin
    combobox6.Enabled:=true; combobox6.Color:=clwhite;
    combobox7.Enabled:=true; combobox7.Color:=clwhite;
    combobox8.Enabled:=true; combobox8.Color:=clwhite;
-
-   break;
+   //break;
   end else begin
    edit2.Enabled:=false;  edit2.Color:=clsilver;
    edit4.Enabled:=false;  edit4.Color:=clsilver;
@@ -270,7 +295,8 @@ begin
    //Memo2.Color:=clsilver;
    //Memo2.Enabled:=false;
   end;
-  tip.Free;
+  //tip.Free;
+  frmRegistration.selq.close;
 end;
 
 // Добавление \ редактирование
@@ -278,6 +304,7 @@ procedure TfrmEditRegistration.BitBtn1Click(Sender: TObject);
 var sql, region, reklama, t_type, plant, flower, price, block1, block2, id_group, dostavka: string;
     ind, flag: integer;
 begin
+  if (trim(LabeledEdit11.Text) = '') and (cb1.Checked=false) then ShowMessage('Поле e-mail не заполнено!') else
   if ( (trim(LabeledEdit1.Text) = '') or (trim(LabeledEdit2.Text) = '')  or (trim(LabeledEdit9.Text) = '') or (ComboBox1.ItemIndex = -1) or (ComboBox2.ItemIndex = -1) or (ComboBox3.ItemIndex = -1) or (ComboBox4.ItemIndex = -1) or (trim(Edit1.Text) = '') ) then ShowMessage('Вы не заполнили обязательные поля!')
   else
   begin
@@ -349,7 +376,7 @@ begin
         frmRegistration.selq.ParamByName('P2').Value := trim(LabeledEdit1.Text);
         frmRegistration.selq.ParamByName('P3').Value := trim(Edit1.Text);
         frmRegistration.selq.ParamByName('P4').Value := region;
-        frmRegistration.selq.ParamByName('P5').Value := Memo4.Text;
+        frmRegistration.selq.ParamByName('P5').Value := edit3.text + '%' + '%' + edit7.text + '%' + edit8.text + '%' + edit9.text;//Memo4.Text;
         frmRegistration.selq.ParamByName('P6').Value := Memo5.Text;
         frmRegistration.selq.ParamByName('P7').Value := Memo6.Text;
         frmRegistration.selq.ParamByName('P8').Value := edit2.text + '%' + combobox5.text + '%' + combobox6.text + '%' +
@@ -449,7 +476,12 @@ begin
     edit6.Clear;
 
     Memo3.Lines.Clear;
-    Memo4.Lines.Clear;
+    //Memo4.Lines.Clear;
+    edit3.Clear;
+    edit7.Clear;
+    edit8.Clear;
+    edit9.Clear;
+
     Memo5.Lines.Clear;
     Memo6.Lines.Clear;
 
@@ -539,9 +571,11 @@ end;
 
 // кнопка Копировать данные
 procedure TfrmEditRegistration.BitBtn4Click(Sender: TObject);
+ var ss:string;
 begin
   LabeledEdit10.Text := LabeledEdit2.Text;
-  memo4.Text := memo5.Text;
+  //memo5 НАДА ТАКЖЕ РАЗБИТЬ НА ЕДИТЫ КАК И ФАКТ,АДРЕС!!!!!!!!!!!!!!!!!!!
+  //memo4.Text := memo5.Text;
   memo3.Text := memo6.Text;
 end;
 
