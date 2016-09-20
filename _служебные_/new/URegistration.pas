@@ -12,7 +12,8 @@ uses
   ComCtrls, ExtCtrls, ActnList, frxBarcode, frxExportPDF, frxExportXLS,
   frxExportRTF, frxClass, frxExportHTML, frxChBox, ImgList, DBTables, frxDBSet,
   cxGridLevel, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
-  cxClasses, cxControls, cxGridCustomView, cxGrid, MemDS, DBAccess, Ora;
+  cxClasses, cxControls, cxGridCustomView, cxGrid, MemDS, DBAccess, Ora,
+  cxBlobEdit,ShellApi;
 
 type
   TfrmRegistration = class(TForm)
@@ -592,21 +593,41 @@ type
     Q_CLIENT_VIEWREGION_NAME: TStringField;
     Q_CLIENT_VIEWADVERT: TStringField;
     Q_CLIENT_VIEWCITY: TStringField;
+    dxBarSubItem1: TdxBarSubItem;
+    dxBarEdit1: TdxBarEdit;
+    cxBarEditItem5: TcxBarEditItem;
+    dxBarSubItem2: TdxBarSubItem;
+    dxBarSubItem3: TdxBarSubItem;
+    dxBarSubItem4: TdxBarSubItem;
+    dxBarSubItem5: TdxBarSubItem;
+    bbCopyToOld: TdxBarButton;
+    bbCopyClient: TdxBarButton;
+    btnFileExport: TdxBarButton;
+    bbSyncCLientsLoad: TdxBarButton;
+    bbSyncClients: TdxBarButton;
+    ds_adress: TOraDataSource;
+    cds_adress: TOraQuery;
+    cds_adressADDRESS: TStringField;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
-    procedure btnAddClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
     procedure imgOfficePropertiesChange(Sender: TObject);
     procedure RefreshExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Q_GROUPSAfterOpen(DataSet: TDataSet);
-    procedure btnDeleteClick(Sender: TObject);
-    procedure btnExitClick(Sender: TObject);
     procedure Q_REGIONSAfterOpen(DataSet: TDataSet);
     procedure Q_ADVERTAfterOpen(DataSet: TDataSet);
     procedure Q_TYPESAfterOpen(DataSet: TDataSet);
     procedure Q_TITLESAfterOpen(DataSet: TDataSet);
     procedure Q_DEPARTAfterOpen(DataSet: TDataSet);
+    procedure aExitExecute(Sender: TObject);
+    procedure AddNExecute(Sender: TObject);
+    procedure EditNExecute(Sender: TObject);
+    procedure DeleteNExecute(Sender: TObject);
+    procedure aCtrlEnterExecute(Sender: TObject);
+    procedure btnFileExportClick(Sender: TObject);
+    procedure btnHelpClick(Sender: TObject);
+    procedure btninfClick(Sender: TObject);
+    procedure BitBtn5Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -614,6 +635,7 @@ type
     id_office: integer;
    // print_, del_, ed_, addit_: boolean;  // это на потом
     corrector: string;
+    path: string;
     function MainFormShow : boolean;
     procedure RefreshAll;
   end;
@@ -804,8 +826,8 @@ begin
   selq.First;
   while not selq.Eof do
   begin
-      ComboBox12.Items.Add(selq.FieldByName('kkk').AsString);
-      selq.Next;
+    ComboBox12.Items.Add(selq.FieldByName('kkk').AsString);
+    selq.Next;
   end;
   selq.Close;
 end;
@@ -924,6 +946,7 @@ begin
   Q_TYPES.First;
 end;
 
+//обновить
 procedure TfrmRegistration.RefreshExecute(Sender: TObject);
 begin
   Q_CLIENTS.Refresh;
@@ -940,10 +963,21 @@ begin
   if Q_SEARCH.Active = true then Q_SEARCH.Refresh;
 end;
 
-//добавить
-procedure TfrmRegistration.btnAddClick(Sender: TObject);
+
+// Ctrl+Enter
+procedure TfrmRegistration.aCtrlEnterExecute(Sender: TObject);
 begin
-  try
+   {чо это за таблицы
+   if PageControl1.ActivePageIndex = 0 then CRDBGrid1DblClick(Sender);
+  if PageControl1.ActivePageIndex = 1 then cxGridDBTableView1DblClick(Sender);
+  if PageControl1.ActivePageIndex = 2 then CRDBGrid2DblClick(Sender);
+  if PageControl1.ActivePageIndex = 3 then CRDBGrid4DblClick(Sender);  }
+end;
+
+//добавить
+procedure TfrmRegistration.AddNExecute(Sender: TObject);
+begin
+try
  // frmEditRegistration := TfrmEditRegistration.Create(Application);
   // Добавление клиента
   if (PageControl1.TabIndex = 0) then
@@ -978,7 +1012,7 @@ begin
     frmEditRegistration.edit4.Clear;
     frmEditRegistration.edit5.Clear;
     frmEditRegistration.edit6.Clear;
-    
+
     frmEditRegistration.Memo3.Lines.Clear;
     //frmEditRegistration.Memo4.Lines.Clear;
     frmEditRegistration.edit3.Clear;
@@ -986,7 +1020,12 @@ begin
     frmEditRegistration.edit8.Clear;
     frmEditRegistration.edit9.Clear;
 
-    frmEditRegistration.Memo5.Lines.Clear;
+    //frmEditRegistration.Memo5.Lines.Clear;
+    frmEditRegistration.edit10.Clear;
+    frmEditRegistration.edit11.Clear;
+    frmEditRegistration.edit12.Clear;
+    frmEditRegistration.edit13.Clear;
+
     frmEditRegistration.Memo6.Lines.Clear;
     frmEditRegistration.Memo7.Lines.Clear;
     frmEditRegistration.Memo8.Lines.Clear;
@@ -1067,9 +1106,152 @@ begin
   end;
 end;
 
+//на выход
+procedure TfrmRegistration.aExitExecute(Sender: TObject);
+begin
+  if MessageDlg('Закрыть программу?',mtConfirmation,[mbYes, mbNo],0) = mrYes then Close;
+end;
+
+//укороч.печать
+procedure TfrmRegistration.BitBtn5Click(Sender: TObject);
+var str: string;
+begin
+try
+  path := ExtractFilePath(Application.ExeName);
+  if (Q_CLIENTS.FieldByName('ID_CLIENTS').AsInteger > 0) then
+  begin
+    Q_CLIENT_VIEW.Close;
+    Q_CLIENT_VIEW.SQL.Clear;
+    Q_CLIENT_VIEW.SQL.Add('SELECT C.*, case when c.id_office > 1 then o.OFFICE_NAME else case c.reg_type when 0 then ''Старлайт'' when 1 then ''Старлайт Кэш & Кэрри'' end end as reg_type_name, G.NAME AS GROUP_NAME, T.NAME AS TTYPE_NAME, R.NAME AS REGION_NAME, A.NAME AS ADVERT, s.city ');
+    Q_CLIENT_VIEW.SQL.Add(' FROM CLIENTS_GROUPS G, BOOKS_CLIENT_TYPES T, BOOKS_ADVERTISMENTS A, CLIENTS C, BOOKS_REGIONS R, offices o, books_cities s');
+    Q_CLIENT_VIEW.SQL.Add(' WHERE C.ID_CLIENTS_GROUPS = G.ID_CLIENTS_GROUPS AND C.TTYPE = T.ID_CLIENT_TYPES AND C.ADVERTISMENT = A.ID_ADVERTISMENTS AND C.REGION = R.ID_REGIONS AND ID_CLIENTS=:ID and c.id_office = o.ID_OFFICE and c.id_city = s.id_city(+)');
+    Q_CLIENT_VIEW.ParamByName('ID').Value := Q_CLIENTS.FieldByName('ID_CLIENTS').AsInteger;
+    Q_CLIENT_VIEW.Open;
+
+
+    {//нахрена это все - я хз.. коменчу
+    str := '';
+    if (Q_CLIENT_VIEW.FieldByName('PLANTS').AsInteger = 1) then str := str + 'Горшечные растения  ';
+    if (Q_CLIENT_VIEW.FieldByName('FLOWERS').AsInteger = 1) then str := str + 'Срезанные растения';
+    if str = '' then str := 'Нет';
+    frmEditRegistration.Label37.Caption := str;
+
+    frmEditRegistration.chbRuleSite.Checked  := (Q_CLIENT_VIEW.FieldByName('MARK').AsString[1] = '1');
+    frmEditRegistration.chbRulePics.Checked  := (Q_CLIENT_VIEW.FieldByName('MARK').AsString[3] = '1');
+    frmEditRegistration.chbRulePrice.Checked := (Q_CLIENT_VIEW.FieldByName('MARK').AsString[5] = '1');
+    frmEditRegistration.chbRuleOrder.Checked := (Q_CLIENT_VIEW.FieldByName('MARK').AsString[7] = '1');
+
+    if (Q_CLIENT_VIEW.FieldByName('BLOCK1').AsInteger = 1) then frmEditRegistration.Label10.Caption := 'Да' else frmEditRegistration.Label10.Caption := 'Нет';
+    if (Q_CLIENT_VIEW.FieldByName('BLOCK2').AsInteger = 1) then frmEditRegistration.Label12.Caption := 'Да' else frmEditRegistration.Label12.Caption := 'Нет';
+                }
+
+
+    cds_adress.Close;
+    cds_adress.ParamByName('p1').AsInteger := Q_CLIENTS.FieldByName('ID_CLIENTS').AsInteger;
+    cds_adress.Open;
+
+    frxReport1.LoadFromFile(path+'raports\clients_card_short.fr3');
+    frxReport1.ShowReport;
+    cds_adress.Close;
+  end
+  else ShowMessage('Нет данных для просмотра!');
+except
+    on E: Exception do ShowMessage('Ошибка при выводе на печать!'+#10#13+'Проверьте настройки принтера');
+End;
+end;
+
+//сформировать файл по клиентам
+procedure TfrmRegistration.btnFileExportClick(Sender: TObject);
+VAR
+  f: TextFile;
+begin
+  if (PageControl1.TabIndex > 0) then exit;
+  if not Q_CLIENTS.Active or Q_CLIENTS.IsEmpty then exit;
+
+  if MessageDlg('Будет сформирован CSV файл для экспорта в старую БД по выбранным клиентам?',mtConfirmation,[mbYes, mbNo],0) = mrYes then
+  begin
+    path := ExtractFilePath(Application.ExeName);
+
+    try
+      Q_CLIENTS.First;
+      Q_CLIENTS.DisableControls;
+      cursor := crHourGlass;
+      try
+        AssignFile(f,path+'docs\clients_'+DateToStr(Now)+'.csv');
+        Rewrite(f);
+
+        while not Q_CLIENTS.Eof do
+        begin
+          Writeln(f,Q_CLIENTSNICK.AsString+';'+Q_CLIENTSCCODE.AsString+';'+Q_CLIENTSFIO.AsString+';'+Q_CLIENTSMARK.AsString[1]+';');
+          Q_CLIENTS.Next;
+        end;
+      finally
+        CloseFile(f);
+        Q_CLIENTS.EnableControls;
+        cursor := crDefault;
+        ShellExecute(Handle, nil, PChar(path+'docs\'), nil, nil, SW_RESTORE);
+      end;
+    except on E: Exception do
+      ShowMessage(E.Message);
+    End;
+  end;
+end;
+
+//help
+procedure TfrmRegistration.btnHelpClick(Sender: TObject);
+begin
+  // help.showmodal;
+end;
+
+//полная печать
+procedure TfrmRegistration.btninfClick(Sender: TObject);
+var str: string;
+begin
+try
+  path := ExtractFilePath(Application.ExeName);
+  if (Q_CLIENTS.FieldByName('ID_CLIENTS').AsInteger > 0) then
+  begin
+    Q_CLIENT_VIEW.Close;
+    Q_CLIENT_VIEW.SQL.Clear;
+    Q_CLIENT_VIEW.SQL.Add('SELECT C.*, case when c.id_office > 1 then o.OFFICE_NAME else case c.reg_type when 0 then ''Старлайт'' when 1 then ''Старлайт Кэш & Кэрри'' end end as reg_type_name, G.NAME AS GROUP_NAME, T.NAME AS TTYPE_NAME, R.NAME AS REGION_NAME, A.NAME AS ADVERT, s.city ');
+    Q_CLIENT_VIEW.SQL.Add(' FROM CLIENTS_GROUPS G, BOOKS_CLIENT_TYPES T, BOOKS_ADVERTISMENTS A, CLIENTS C, BOOKS_REGIONS R, offices o, books_cities s');
+    Q_CLIENT_VIEW.SQL.Add(' WHERE C.ID_CLIENTS_GROUPS = G.ID_CLIENTS_GROUPS AND C.TTYPE = T.ID_CLIENT_TYPES AND C.ADVERTISMENT = A.ID_ADVERTISMENTS AND C.REGION = R.ID_REGIONS AND ID_CLIENTS=:ID and c.id_office = o.ID_OFFICE and c.id_city = s.id_city(+)');
+    Q_CLIENT_VIEW.ParamByName('ID').Value := Q_CLIENTS.FieldByName('ID_CLIENTS').AsInteger;
+    Q_CLIENT_VIEW.Open;
+
+
+    {//нахрена это все - я хз.. коменчу
+    str := '';
+    if (Q_CLIENT_VIEW.FieldByName('PLANTS').AsInteger = 1) then str := str + 'Горшечные растения  ';
+    if (Q_CLIENT_VIEW.FieldByName('FLOWERS').AsInteger = 1) then str := str + 'Срезанные растения';
+    if str = '' then str := 'Нет';
+    frmEditRegistration.Label37.Caption := str;
+
+    frmEditRegistration.chbRuleSite.Checked  := (Q_CLIENT_VIEW.FieldByName('MARK').AsString[1] = '1');
+    frmEditRegistration.chbRulePics.Checked  := (Q_CLIENT_VIEW.FieldByName('MARK').AsString[3] = '1');
+    frmEditRegistration.chbRulePrice.Checked := (Q_CLIENT_VIEW.FieldByName('MARK').AsString[5] = '1');
+    frmEditRegistration.chbRuleOrder.Checked := (Q_CLIENT_VIEW.FieldByName('MARK').AsString[7] = '1');
+
+    if (Q_CLIENT_VIEW.FieldByName('BLOCK1').AsInteger = 1) then frmEditRegistration.Label10.Caption := 'Да' else frmEditRegistration.Label10.Caption := 'Нет';
+    if (Q_CLIENT_VIEW.FieldByName('BLOCK2').AsInteger = 1) then frmEditRegistration.Label12.Caption := 'Да' else frmEditRegistration.Label12.Caption := 'Нет';
+                }
+    cds_adress.Close;
+    cds_adress.ParamByName('p1').AsInteger := Q_CLIENTS.FieldByName('ID_CLIENTS').AsInteger;
+    cds_adress.Open;
+
+    frxReport1.LoadFromFile(path+'raports\clients_card_long.fr3');
+    frxReport1.ShowReport;
+    cds_adress.Close;
+  end
+  else ShowMessage('Нет данных для просмотра!');
+except
+    on E: Exception do ShowMessage('Ошибка при выводе на печать!'+#10#13+'Проверьте настройки принтера');
+End;
+end;
+
 // удалить запись
-procedure TfrmRegistration.btnDeleteClick(Sender: TObject);
-var idd: integer;
+procedure TfrmRegistration.DeleteNExecute(Sender: TObject);
+ var idd:integer;
 begin
   // Удаление клиента
   if (PageControl1.TabIndex = 0) then
@@ -1221,10 +1403,9 @@ begin
   end;      }
 end;
 
-
 // изменить
-procedure TfrmRegistration.btnEditClick(Sender: TObject);
-var ind: integer;  ss:string;
+procedure TfrmRegistration.EditNExecute(Sender: TObject);
+ var ind:integer; ss:string;
 begin
  try
  //frmEditRegistration := TfrmEditRegistration.Create(Application);
@@ -1314,6 +1495,16 @@ begin
            frmEditRegistration.edit5.Text := copy(ss,1,pos('%',ss)-1);
            delete(ss,1,pos('%',ss));
            frmEditRegistration.edit6.Text := ss;
+        end else
+        begin
+           frmEditRegistration.edit2.Clear;
+           frmEditRegistration.combobox5.Clear;
+           frmEditRegistration.combobox6.Clear;
+           frmEditRegistration.combobox7.Clear;
+           frmEditRegistration.combobox8.Clear;
+           frmEditRegistration.edit4.Clear;
+           frmEditRegistration.edit5.Clear;
+           frmEditRegistration.edit6.Clear;
         end;
 
         frmEditRegistration.Memo3.Text := Q_CLIENT_VIEW.FieldByName('CONT_PHONE').AsString;
@@ -1327,9 +1518,32 @@ begin
            frmEditRegistration.edit8.Text := copy(ss,1,pos('%',ss)-1);
            delete(ss,1,pos('%',ss));
            frmEditRegistration.edit9.Text := ss;
+        end else
+        begin
+           frmEditRegistration.edit3.Clear;
+           frmEditRegistration.edit7.Clear;
+           frmEditRegistration.edit8.Clear;
+           frmEditRegistration.edit9.Clear;
         end;
 
-        frmEditRegistration.Memo5.Text := Q_CLIENT_VIEW.FieldByName('U_ADDRESS').AsString;
+        //frmEditRegistration.Memo5.Text := Q_CLIENT_VIEW.FieldByName('U_ADDRESS').AsString;
+        if pos('%',Q_CLIENT_VIEW.FieldByName('U_ADDRESS').AsString) <> 0 then begin
+           ss := Q_CLIENT_VIEW.FieldByName('U_ADDRESS').AsString;
+           frmEditRegistration.edit10.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmEditRegistration.edit11.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmEditRegistration.edit12.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmEditRegistration.edit13.Text := ss;
+        end else
+        begin
+           frmEditRegistration.edit10.Clear;
+           frmEditRegistration.edit11.Clear;
+           frmEditRegistration.edit12.Clear;
+           frmEditRegistration.edit13.Clear;
+        end;
+
         frmEditRegistration.Memo6.Text := Q_CLIENT_VIEW.FieldByName('PHONE').AsString;
         frmEditRegistration.Memo7.Text := Q_CLIENT_VIEW.FieldByName('INFO').AsString;
         frmEditRegistration.Memo8.Text := Q_CLIENT_VIEW.FieldByName('INTERES').AsString;
@@ -1362,6 +1576,8 @@ begin
         frmEditRegistration.btnClone.Enabled := false;
         frmEditRegistration.showmodal;
         frmEditRegistration.Q_ADDRESS.Close;
+
+        Q_CLIENT_VIEW.Close;
       end;
     end
     else ShowMessage('Нет данных для редактирования!');
@@ -1457,12 +1673,6 @@ begin
  finally
   //frmEditRegistration.Free;
  end;
-end;
-
-// выход из проги
-procedure TfrmRegistration.btnExitClick(Sender: TObject);
-begin
- if MessageDlg('Закрыть программу?',mtConfirmation,[mbYes, mbNo],0) = mrYes then Close;
 end;
 
 procedure TfrmRegistration.FormClose(Sender: TObject; var Action: TCloseAction);

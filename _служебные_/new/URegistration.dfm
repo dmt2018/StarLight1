@@ -878,8 +878,8 @@ object frmRegistration: TfrmRegistration
           Height = 30
           Cursor = crHandPoint
           Caption = #1055#1077#1095#1072#1090#1100' '#1082#1072#1088#1090#1086#1095#1082#1080
-          Enabled = False
           TabOrder = 1
+          OnClick = BitBtn5Click
           Glyph.Data = {
             CA030000424DCA030000000000008A0100002800000018000000180000000100
             08000000000040020000210B0000210B00005500000055000000111111001111
@@ -1004,8 +1004,8 @@ object frmRegistration: TfrmRegistration
           Height = 30
           Cursor = crHandPoint
           Caption = #1055#1077#1095#1072#1090#1100' '#1087#1086#1083#1085#1086#1081' '#1080#1085#1092#1086#1088#1084#1072#1094#1080#1080' '#1086' '#1082#1083#1080#1077#1085#1090#1077
-          Enabled = False
           TabOrder = 4
+          OnClick = btninfClick
           Glyph.Data = {
             CA030000424DCA030000000000008A0100002800000018000000180000000100
             08000000000040020000210B0000210B00005500000055000000111111001111
@@ -3738,32 +3738,20 @@ object frmRegistration: TfrmRegistration
       ImageIndex = 32
     end
     object btnAdd: TdxBarLargeButton
-      Caption = #1044#1086#1073#1072#1074#1080#1090#1100' (F4)'
+      Action = AddN
       Category = 0
-      Visible = ivAlways
-      LargeImageIndex = 4
-      ShortCut = 115
-      OnClick = btnAddClick
       AutoGrayScale = False
       SyncImageIndex = False
       ImageIndex = 4
     end
     object btnEdit: TdxBarLargeButton
-      Caption = #1048#1079#1084#1077#1085#1080#1090#1100' (F2)'
+      Action = EditN
       Category = 0
-      Visible = ivAlways
-      LargeImageIndex = 5
-      ShortCut = 113
-      OnClick = btnEditClick
       AutoGrayScale = False
     end
     object btnDelete: TdxBarLargeButton
-      Caption = #1059#1076#1072#1083#1080#1090#1100' (F3)'
+      Action = DeleteN
       Category = 0
-      Visible = ivAlways
-      LargeImageIndex = 6
-      ShortCut = 114
-      OnClick = btnDeleteClick
       AutoGrayScale = False
     end
     object imgOffice: TcxBarEditItem
@@ -3839,15 +3827,12 @@ object frmRegistration: TfrmRegistration
       Hint = #1055#1086#1084#1086#1097#1100
       Visible = ivAlways
       LargeImageIndex = 20
+      OnClick = btnHelpClick
       AutoGrayScale = False
     end
     object btnExit: TdxBarLargeButton
-      Caption = #1047#1072#1082#1088#1099#1090#1100
+      Action = aExit
       Category = 0
-      Hint = #1047#1072#1082#1088#1099#1090#1100
-      Visible = ivAlways
-      LargeImageIndex = 21
-      OnClick = btnExitClick
       AutoGrayScale = False
     end
     object cxBarEditItem3: TcxBarEditItem
@@ -3921,7 +3906,107 @@ object frmRegistration: TfrmRegistration
       Caption = #1057#1077#1088#1074#1080#1089
       Category = 0
       Visible = ivAlways
+      LargeImageIndex = 13
+      ItemLinks = <
+        item
+          Visible = True
+          ItemName = 'bbCopyToOld'
+        end
+        item
+          Visible = True
+          ItemName = 'bbCopyClient'
+        end
+        item
+          Visible = True
+          ItemName = 'btnFileExport'
+        end
+        item
+          Visible = True
+          ItemName = 'bbSyncCLientsLoad'
+        end
+        item
+          Visible = True
+          ItemName = 'bbSyncClients'
+        end>
+    end
+    object dxBarSubItem1: TdxBarSubItem
+      Caption = 'New SubItem'
+      Category = 0
+      Visible = ivAlways
       ItemLinks = <>
+    end
+    object dxBarEdit1: TdxBarEdit
+      Caption = 'New Item'
+      Category = 0
+      Hint = 'New Item'
+      Visible = ivAlways
+      Width = 100
+    end
+    object cxBarEditItem5: TcxBarEditItem
+      Caption = 'New Item'
+      Category = 0
+      Hint = 'New Item'
+      Visible = ivAlways
+      Width = 100
+      PropertiesClassName = 'TcxBlobEditProperties'
+      Properties.BlobEditKind = bekBlob
+    end
+    object dxBarSubItem2: TdxBarSubItem
+      Caption = 'New SubItem'
+      Category = 0
+      Visible = ivAlways
+      ItemLinks = <>
+    end
+    object dxBarSubItem3: TdxBarSubItem
+      Caption = 'New SubItem'
+      Category = 0
+      Visible = ivAlways
+      ItemLinks = <>
+    end
+    object dxBarSubItem4: TdxBarSubItem
+      Caption = 'New SubItem'
+      Category = 0
+      Visible = ivAlways
+      ItemLinks = <>
+    end
+    object dxBarSubItem5: TdxBarSubItem
+      Caption = 'New SubItem'
+      Category = 0
+      Visible = ivAlways
+      ItemLinks = <>
+    end
+    object bbCopyToOld: TdxBarButton
+      Caption = #1050#1086#1087#1080#1088#1086#1074#1072#1085#1080#1077' '#1074' '#1089#1090#1072#1088#1091#1102' '#1041#1044
+      Category = 0
+      Hint = #1050#1086#1087#1080#1088#1086#1074#1072#1085#1080#1077' '#1074' '#1089#1090#1072#1088#1091#1102' '#1041#1044
+      Visible = ivAlways
+    end
+    object bbCopyClient: TdxBarButton
+      Caption = #1050#1086#1087#1080#1088#1086#1074#1072#1090#1100' '#1082#1083#1080#1077#1085#1090#1072
+      Category = 0
+      Hint = #1050#1086#1087#1080#1088#1086#1074#1072#1090#1100' '#1082#1083#1080#1077#1085#1090#1072
+      Visible = ivAlways
+    end
+    object btnFileExport: TdxBarButton
+      Caption = #1057#1092#1086#1088#1084#1080#1088#1086#1074#1072#1090#1100' '#1092#1072#1081#1083' '#1087#1086' '#1082#1083#1080#1077#1085#1090#1072#1084
+      Category = 0
+      Hint = #1057#1092#1086#1088#1084#1080#1088#1086#1074#1072#1090#1100' '#1092#1072#1081#1083' '#1087#1086' '#1082#1083#1080#1077#1085#1090#1072#1084
+      Visible = ivAlways
+      OnClick = btnFileExportClick
+    end
+    object bbSyncCLientsLoad: TdxBarButton
+      Caption = #1047#1072#1075#1088#1091#1079#1080#1090#1100' '#1082#1083#1080#1077#1085#1090#1086#1074' '#1080#1079' '#1092#1072#1081#1083#1072
+      Category = 0
+      Enabled = False
+      Hint = #1047#1072#1075#1088#1091#1079#1080#1090#1100' '#1082#1083#1080#1077#1085#1090#1086#1074' '#1080#1079' '#1092#1072#1081#1083#1072
+      Visible = ivAlways
+    end
+    object bbSyncClients: TdxBarButton
+      Caption = #1042#1099#1075#1088#1091#1079#1080#1090#1100' '#1082#1083#1080#1077#1085#1090#1086#1074' '#1076#1083#1103' '#1086#1073#1085#1086#1074#1083#1077#1085#1080#1103
+      Category = 0
+      Enabled = False
+      Hint = #1042#1099#1075#1088#1091#1079#1080#1090#1100' '#1082#1083#1080#1077#1085#1090#1086#1074' '#1076#1083#1103' '#1086#1073#1085#1086#1074#1083#1077#1085#1080#1103
+      Visible = ivAlways
     end
   end
   object frxDBDataset1: TfrxDBDataset
@@ -4020,6 +4105,7 @@ object frmRegistration: TfrmRegistration
       'PREFIX=PREFIX'
       'ID_CITY=ID_CITY'
       'CITY=CITY')
+    DataSource = Q_CLIENT_VIEW_DS
     BCDToCurrency = False
     Left = 72
     Top = 352
@@ -4088,6 +4174,7 @@ object frmRegistration: TfrmRegistration
     CloseDataSource = True
     FieldAliases.Strings = (
       'ADDRESS=ADDRESS')
+    DataSource = ds_adress
     BCDToCurrency = False
     Left = 72
     Top = 448
@@ -4416,7 +4503,7 @@ object frmRegistration: TfrmRegistration
     Left = 820
     Top = 125
     Bitmap = {
-      494C010104000900480110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101040009004C0110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -4696,7 +4783,7 @@ object frmRegistration: TfrmRegistration
     PrintOptions.Printer = '\\Naydenovalv\HP CLJ 5550N PCL 6'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 37936.531508599500000000
-    ReportOptions.LastChange = 42580.483477430600000000
+    ReportOptions.LastChange = 42633.666780127300000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -4770,7 +4857,7 @@ object frmRegistration: TfrmRegistration
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           GapX = 4.000000000000000000
           Memo.UTF8 = (
-            '[DM.Q_CLIENT_VIEW."FIO"]')
+            '[frxClientsView."FIO"]')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -4797,7 +4884,7 @@ object frmRegistration: TfrmRegistration
           Align = baLeft
           Left = 151.181102360000000000
           Top = 66.708671180000000000
-          Width = 565.039370078740000000
+          Width = 565.039370080000000000
           Height = 18.897637800000000000
           ShowHint = False
           Font.Charset = DEFAULT_CHARSET
@@ -4808,7 +4895,7 @@ object frmRegistration: TfrmRegistration
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           GapX = 4.000000000000000000
           Memo.UTF8 = (
-            '[DM.Q_CLIENT_VIEW."NICK"]')
+            '[frxClientsView."NICK"]')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -4846,7 +4933,7 @@ object frmRegistration: TfrmRegistration
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           GapX = 4.000000000000000000
           Memo.UTF8 = (
-            '[DM.Q_CLIENT_VIEW."REGION_NAME"]')
+            '[frxClientsView."REGION_NAME"]')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -4884,7 +4971,7 @@ object frmRegistration: TfrmRegistration
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           GapX = 4.000000000000000000
           Memo.UTF8 = (
-            '[DM.Q_CLIENT_VIEW."TTYPE_NAME"]')
+            '[frxClientsView."TTYPE_NAME"]')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -4922,7 +5009,7 @@ object frmRegistration: TfrmRegistration
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           GapX = 4.000000000000000000
           Memo.UTF8 = (
-            '[DM.Q_CLIENT_VIEW."ADDRESS"]')
+            '[frxClientsView."ADDRESS"]')
           ParentFont = False
         end
         object Memo13: TfrxMemoView
@@ -4958,7 +5045,7 @@ object frmRegistration: TfrmRegistration
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           GapX = 4.000000000000000000
           Memo.UTF8 = (
-            '[DM.Q_CLIENT_VIEW."PHONE"]')
+            '[frxClientsView."PHONE"]')
           ParentFont = False
         end
         object Memo17: TfrxMemoView
@@ -4994,7 +5081,7 @@ object frmRegistration: TfrmRegistration
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           GapX = 4.000000000000000000
           Memo.UTF8 = (
-            '[DM.Q_CLIENT_VIEW."CONTACT"]')
+            '[frxClientsView."CONTACT"]')
           ParentFont = False
         end
         object Memo31: TfrxMemoView
@@ -5030,7 +5117,7 @@ object frmRegistration: TfrmRegistration
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           GapX = 4.000000000000000000
           Memo.UTF8 = (
-            '[DM.Q_CLIENT_VIEW."CONT_PHONE"]')
+            '[frxClientsView."CONT_PHONE"]')
           ParentFont = False
         end
         object Memo33: TfrxMemoView
@@ -5067,7 +5154,7 @@ object frmRegistration: TfrmRegistration
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           GapX = 4.000000000000000000
           Memo.UTF8 = (
-            '[DM.Q_CLIENT_VIEW."EMAIL"]')
+            '[frxClientsView."EMAIL"]')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -5105,7 +5192,7 @@ object frmRegistration: TfrmRegistration
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           GapX = 4.000000000000000000
           Memo.UTF8 = (
-            '[DM.Q_CLIENT_VIEW."WWW"]')
+            '[frxClientsView."WWW"]')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -5143,7 +5230,7 @@ object frmRegistration: TfrmRegistration
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           GapX = 4.000000000000000000
           Memo.UTF8 = (
-            '[DM.Q_CLIENT_VIEW."GROUP_NAME"]')
+            '[frxClientsView."GROUP_NAME"]')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -5181,7 +5268,7 @@ object frmRegistration: TfrmRegistration
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           GapX = 4.000000000000000000
           Memo.UTF8 = (
-            '[DM.Q_CLIENT_VIEW."U_ADDRESS"]')
+            '[frxClientsView."U_ADDRESS"]')
           ParentFont = False
         end
         object Memo45: TfrxMemoView
@@ -5217,7 +5304,7 @@ object frmRegistration: TfrmRegistration
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           GapX = 4.000000000000000000
           Memo.UTF8 = (
-            '[DM.Q_CLIENT_VIEW."INFO"]')
+            '[frxClientsView."INFO"]')
           ParentFont = False
         end
         object Memo48: TfrxMemoView
@@ -5545,7 +5632,7 @@ object frmRegistration: TfrmRegistration
     Left = 240
     Top = 328
     Bitmap = {
-      494C010127002C00380120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010127002C003C0120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004001000001002000000000000080
       0200000000000000000000000000000000000000000000000000000000000000
       000000000000000000000101011A0B0B0B743B3D3DB4777777D5838383DA5152
@@ -10839,24 +10926,25 @@ object frmRegistration: TfrmRegistration
     object aExit: TAction
       Caption = ' '#1042#1099#1093#1086#1076' '
       ImageIndex = 21
+      OnExecute = aExitExecute
     end
     object AddN: TAction
       Caption = #1044#1086#1073#1072#1074#1080#1090#1100' (F4)'
-      Enabled = False
       ImageIndex = 4
       ShortCut = 115
+      OnExecute = AddNExecute
     end
     object EditN: TAction
       Caption = #1056#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1090#1100' (F2)'
-      Enabled = False
       ImageIndex = 5
       ShortCut = 113
+      OnExecute = EditNExecute
     end
     object DeleteN: TAction
       Caption = #1059#1076#1072#1083#1080#1090#1100' (F3)'
-      Enabled = False
       ImageIndex = 6
       ShortCut = 114
+      OnExecute = DeleteNExecute
     end
     object Refresh: TAction
       Caption = #1054#1073#1085#1086#1074#1080#1090#1100' (F5)'
@@ -10867,6 +10955,7 @@ object frmRegistration: TfrmRegistration
     object aCtrlEnter: TAction
       Caption = 'aCtrlEnter'
       ShortCut = 16397
+      OnExecute = aCtrlEnterExecute
     end
   end
   object odInvoice: TOpenDialog
@@ -11997,5 +12086,27 @@ object frmRegistration: TfrmRegistration
     DataSet = Q_IDD
     Left = 720
     Top = 520
+  end
+  object ds_adress: TOraDataSource
+    DataSet = cds_adress
+    Left = 104
+    Top = 496
+  end
+  object cds_adress: TOraQuery
+    SQL.Strings = (
+      'SELECT a.address'
+      '  FROM client_address a'
+      '  where a.id_clients = :p1')
+    Left = 72
+    Top = 496
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'p1'
+      end>
+    object cds_adressADDRESS: TStringField
+      FieldName = 'ADDRESS'
+      Size = 1024
+    end
   end
 end

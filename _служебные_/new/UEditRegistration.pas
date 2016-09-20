@@ -57,7 +57,6 @@ type
     LabeledEdit6: TLabeledEdit;
     LabeledEdit7: TLabeledEdit;
     LabeledEdit8: TLabeledEdit;
-    Memo5: TMemo;
     Memo1: TMemo;
     DBComboBoxEh1: TDBComboBoxEh;
     CheckBox6: TCheckBox;
@@ -211,6 +210,14 @@ type
     Label49: TLabel;
     Label50: TLabel;
     CB1: TCheckBox;
+    Label51: TLabel;
+    Edit10: TEdit;
+    Label52: TLabel;
+    Edit11: TEdit;
+    Label53: TLabel;
+    Edit12: TEdit;
+    Label54: TLabel;
+    Edit13: TEdit;
     procedure SpeedButton1Click(Sender: TObject);
     procedure BitBtn3Click(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
@@ -261,8 +268,8 @@ begin
   //сначала думал через стринглист, но потом вспомнил про is_contractor...
    frmRegistration.selq.close;
    frmRegistration.selq.SQL.Clear;
-   frmRegistration.selq.SQL.Add('select IS_CONTRACTOR from BOOKS_CLIENT_TYPES where NAME = '+combobox3.text);
-   frmRegistration.selq.Open; //  но тут лажа какаято, разбираца нада
+   frmRegistration.selq.SQL.Add('select IS_CONTRACTOR from BOOKS_CLIENT_TYPES where NAME = '+#39+combobox3.text+#39);
+   frmRegistration.selq.Open; 
   if (frmRegistration.selq.FieldByName('IS_CONTRACTOR').AsInteger = 0)
   or ((LabeledEdit9.Text = 'Без договора') and (combobox3.Text ='Частное лицо'))
   or (((copy(LabeledEdit1.Text,1,1) = 'F') or (copy(LabeledEdit1.Text,1,1) = 'O')) and (combobox3.Text ='Предприниматель'))
@@ -376,8 +383,8 @@ begin
         frmRegistration.selq.ParamByName('P2').Value := trim(LabeledEdit1.Text);
         frmRegistration.selq.ParamByName('P3').Value := trim(Edit1.Text);
         frmRegistration.selq.ParamByName('P4').Value := region;
-        frmRegistration.selq.ParamByName('P5').Value := edit3.text + '%' + '%' + edit7.text + '%' + edit8.text + '%' + edit9.text;//Memo4.Text;
-        frmRegistration.selq.ParamByName('P6').Value := Memo5.Text;
+        frmRegistration.selq.ParamByName('P5').Value := edit3.text + '%' + edit7.text + '%' + edit8.text + '%' + edit9.text;//Memo4.Text;
+        frmRegistration.selq.ParamByName('P6').Value := edit10.text + '%' + edit11.text + '%' + edit12.text + '%' + edit13.text;//Memo5.Text;
         frmRegistration.selq.ParamByName('P7').Value := Memo6.Text;
         frmRegistration.selq.ParamByName('P8').Value := edit2.text + '%' + combobox5.text + '%' + combobox6.text + '%' +
         combobox7.text + '%' + combobox8.text + '%' + edit4.text + '%' + edit5.text + '%' + edit6.text;//Memo2.Text;
@@ -482,7 +489,12 @@ begin
     edit8.Clear;
     edit9.Clear;
 
-    Memo5.Lines.Clear;
+    //Memo5.Lines.Clear;
+    edit10.Clear;
+    edit11.Clear;
+    edit12.Clear;
+    edit13.Clear;
+
     Memo6.Lines.Clear;
 
     CheckBox1.Checked := false;
@@ -544,7 +556,18 @@ begin
   end;
 
     Memo3.Text := frmRegistration.Q_CLIENT_VIEW.FieldByName('CONT_PHONE').AsString;
-    Memo5.Text := frmRegistration.Q_CLIENT_VIEW.FieldByName('U_ADDRESS').AsString;
+    //Memo5.Text := frmRegistration.Q_CLIENT_VIEW.FieldByName('U_ADDRESS').AsString;
+    if pos('%',frmRegistration.Q_CLIENT_VIEW.FieldByName('U_ADDRESS').AsString) <> 0 then begin
+     ss := frmRegistration.Q_CLIENT_VIEW.FieldByName('U_ADDRESS').AsString;
+     edit10.Text := copy(ss,1,pos('%',ss)-1);
+     delete(ss,1,pos('%',ss));
+     edit11.Text := copy(ss,1,pos('%',ss)-1);
+     delete(ss,1,pos('%',ss));
+     edit12.Text := copy(ss,1,pos('%',ss)-1);
+     delete(ss,1,pos('%',ss));
+     edit13.Text := ss;
+    end;
+
     Memo6.Text := frmRegistration.Q_CLIENT_VIEW.FieldByName('PHONE').AsString;
 
     icbCity.EditValue := frmRegistration.Q_CLIENT_VIEW.FieldByName('ID_CITY').AsInteger;
@@ -574,8 +597,12 @@ procedure TfrmEditRegistration.BitBtn4Click(Sender: TObject);
  var ss:string;
 begin
   LabeledEdit10.Text := LabeledEdit2.Text;
-  //memo5 НАДА ТАКЖЕ РАЗБИТЬ НА ЕДИТЫ КАК И ФАКТ,АДРЕС!!!!!!!!!!!!!!!!!!!
-  //memo4.Text := memo5.Text;
+
+  edit3.Text:=edit10.Text;
+  edit7.Text:=edit11.Text;
+  edit8.Text:=edit12.Text;
+  edit9.Text:=edit13.Text;
+
   memo3.Text := memo6.Text;
 end;
 

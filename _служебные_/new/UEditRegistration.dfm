@@ -343,7 +343,7 @@ object frmEditRegistration: TfrmEditRegistration
         end
         object Label5: TLabel
           Left = 450
-          Top = 290
+          Top = 349
           Width = 187
           Height = 16
           Caption = #1048#1089#1090#1086#1095#1085#1080#1082' '#1080#1085#1092#1086#1088#1084#1072#1094#1080#1080' '#1086' '#1092#1080#1088#1084#1077
@@ -357,7 +357,7 @@ object frmEditRegistration: TfrmEditRegistration
         end
         object Label18: TLabel
           Left = 442
-          Top = 290
+          Top = 349
           Width = 5
           Height = 16
           Caption = '*'
@@ -516,7 +516,7 @@ object frmEditRegistration: TfrmEditRegistration
         end
         object Label25: TLabel
           Left = 552
-          Top = 368
+          Top = 427
           Width = 196
           Height = 13
           Caption = '- '#1055#1086#1083#1103', '#1086#1073#1103#1079#1072#1090#1077#1083#1100#1085#1099#1077' '#1076#1083#1103' '#1079#1072#1087#1086#1083#1085#1077#1085#1080#1103
@@ -718,7 +718,7 @@ object frmEditRegistration: TfrmEditRegistration
         end
         object Label22: TLabel
           Left = 450
-          Top = 88
+          Top = 147
           Width = 59
           Height = 16
           Caption = #1058#1077#1083#1077#1092#1086#1085#1099
@@ -746,7 +746,7 @@ object frmEditRegistration: TfrmEditRegistration
         end
         object Label1: TLabel
           Left = 450
-          Top = 175
+          Top = 234
           Width = 135
           Height = 16
           Caption = #1041#1072#1085#1082#1086#1074#1089#1082#1080#1077' '#1088#1077#1082#1074#1080#1079#1080#1090#1099
@@ -827,7 +827,7 @@ object frmEditRegistration: TfrmEditRegistration
         end
         object Label28: TLabel
           Left = 542
-          Top = 369
+          Top = 428
           Width = 5
           Height = 16
           Caption = '*'
@@ -898,6 +898,62 @@ object frmEditRegistration: TfrmEditRegistration
           ShowHint = True
           OnClick = btnAddCityClick
         end
+        object Label51: TLabel
+          Left = 451
+          Top = 40
+          Width = 38
+          Height = 14
+          Caption = #1048#1085#1076#1077#1082#1089
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Pitch = fpFixed
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label52: TLabel
+          Left = 451
+          Top = 66
+          Width = 29
+          Height = 14
+          Caption = #1043#1086#1088#1086#1076
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Pitch = fpFixed
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label53: TLabel
+          Left = 451
+          Top = 95
+          Width = 30
+          Height = 14
+          Caption = #1059#1083#1080#1094#1072
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Pitch = fpFixed
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label54: TLabel
+          Left = 451
+          Top = 123
+          Width = 22
+          Height = 14
+          Caption = #1044#1086#1084
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Pitch = fpFixed
+          Font.Style = []
+          ParentFont = False
+        end
         object LabeledEdit1: TLabeledEdit
           Left = 134
           Top = 95
@@ -945,7 +1001,7 @@ object frmEditRegistration: TfrmEditRegistration
         end
         object ComboBox2: TComboBox
           Left = 450
-          Top = 307
+          Top = 366
           Width = 305
           Height = 24
           Cursor = crHandPoint
@@ -956,7 +1012,7 @@ object frmEditRegistration: TfrmEditRegistration
           Ctl3D = False
           ItemHeight = 16
           ParentCtl3D = False
-          TabOrder = 17
+          TabOrder = 16
         end
         object ComboBox4: TComboBox
           Left = 134
@@ -1065,7 +1121,7 @@ object frmEditRegistration: TfrmEditRegistration
         end
         object Memo6: TMemo
           Left = 450
-          Top = 104
+          Top = 163
           Width = 305
           Height = 65
           Color = clCream
@@ -1078,7 +1134,7 @@ object frmEditRegistration: TfrmEditRegistration
           MaxLength = 1024
           ParentFont = False
           ScrollBars = ssVertical
-          TabOrder = 15
+          TabOrder = 14
         end
         object LabeledEdit4: TLabeledEdit
           Left = 134
@@ -1188,26 +1244,9 @@ object frmEditRegistration: TfrmEditRegistration
           ParentFont = False
           TabOrder = 12
         end
-        object Memo5: TMemo
-          Left = 450
-          Top = 24
-          Width = 305
-          Height = 57
-          Color = clCream
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Pitch = fpFixed
-          Font.Style = []
-          MaxLength = 1024
-          ParentFont = False
-          ScrollBars = ssVertical
-          TabOrder = 14
-        end
         object Memo1: TMemo
           Left = 450
-          Top = 191
+          Top = 250
           Width = 305
           Height = 90
           Hint = 
@@ -1225,7 +1264,7 @@ object frmEditRegistration: TfrmEditRegistration
           ParentShowHint = False
           ScrollBars = ssVertical
           ShowHint = True
-          TabOrder = 16
+          TabOrder = 15
         end
         object DBComboBoxEh1: TDBComboBoxEh
           Left = 134
@@ -1267,7 +1306,7 @@ object frmEditRegistration: TfrmEditRegistration
           Width = 249
           Height = 17
           Caption = #1076#1086#1089#1090#1072#1074#1082#1072' ('#1076#1083#1103' '#1080#1085#1086#1075#1086#1088#1086#1076#1085#1080#1093')'
-          TabOrder = 18
+          TabOrder = 17
         end
         object lePrefix: TLabeledEdit
           Left = 374
@@ -1313,6 +1352,38 @@ object frmEditRegistration: TfrmEditRegistration
           TabOrder = 2
           Width = 274
         end
+        object Edit10: TEdit
+          Left = 503
+          Top = 40
+          Width = 234
+          Height = 22
+          Color = clWhite
+          TabOrder = 18
+        end
+        object Edit11: TEdit
+          Left = 503
+          Top = 68
+          Width = 234
+          Height = 22
+          Color = clWhite
+          TabOrder = 19
+        end
+        object Edit12: TEdit
+          Left = 503
+          Top = 96
+          Width = 234
+          Height = 22
+          Color = clWhite
+          TabOrder = 20
+        end
+        object Edit13: TEdit
+          Left = 503
+          Top = 124
+          Width = 234
+          Height = 22
+          Color = clWhite
+          TabOrder = 21
+        end
       end
     end
     object TabSheet2: TTabSheet
@@ -1329,11 +1400,9 @@ object frmEditRegistration: TfrmEditRegistration
         Ctl3D = False
         ParentCtl3D = False
         TabOrder = 0
-        ExplicitLeft = -32
-        ExplicitTop = 2
         object Label4: TLabel
-          Left = 424
-          Top = 144
+          Left = 427
+          Top = 157
           Width = 130
           Height = 16
           Caption = #1050#1086#1085#1090#1072#1082#1090#1085#1099#1077' '#1090#1077#1083#1077#1092#1086#1085#1099
@@ -1472,8 +1541,8 @@ object frmEditRegistration: TfrmEditRegistration
           ParentFont = False
         end
         object Label38: TLabel
-          Left = 424
-          Top = 248
+          Left = 427
+          Top = 261
           Width = 122
           Height = 16
           Caption = #1050#1083#1102#1095#1077#1074#1099#1077' '#1080#1085#1090#1077#1088#1077#1089#1099
@@ -1487,7 +1556,7 @@ object frmEditRegistration: TfrmEditRegistration
         end
         object Label47: TLabel
           Left = 427
-          Top = 30
+          Top = 38
           Width = 38
           Height = 14
           Caption = #1048#1085#1076#1077#1082#1089
@@ -1501,7 +1570,7 @@ object frmEditRegistration: TfrmEditRegistration
         end
         object Label48: TLabel
           Left = 427
-          Top = 56
+          Top = 64
           Width = 29
           Height = 14
           Caption = #1043#1086#1088#1086#1076
@@ -1515,7 +1584,7 @@ object frmEditRegistration: TfrmEditRegistration
         end
         object Label49: TLabel
           Left = 427
-          Top = 86
+          Top = 93
           Width = 30
           Height = 14
           Caption = #1059#1083#1080#1094#1072
@@ -1528,8 +1597,8 @@ object frmEditRegistration: TfrmEditRegistration
           ParentFont = False
         end
         object Label50: TLabel
-          Left = 435
-          Top = 115
+          Left = 427
+          Top = 121
           Width = 22
           Height = 14
           Caption = #1044#1086#1084
@@ -1617,8 +1686,8 @@ object frmEditRegistration: TfrmEditRegistration
           TabOrder = 2
         end
         object Memo3: TMemo
-          Left = 424
-          Top = 162
+          Left = 427
+          Top = 175
           Width = 329
           Height = 80
           Font.Charset = DEFAULT_CHARSET
@@ -1819,8 +1888,8 @@ object frmEditRegistration: TfrmEditRegistration
           TabOrder = 12
         end
         object Memo8: TMemo
-          Left = 424
-          Top = 270
+          Left = 427
+          Top = 283
           Width = 329
           Height = 80
           Font.Charset = DEFAULT_CHARSET
@@ -1836,7 +1905,7 @@ object frmEditRegistration: TfrmEditRegistration
         end
         object Edit3: TEdit
           Left = 479
-          Top = 30
+          Top = 38
           Width = 258
           Height = 22
           Color = clWhite
@@ -1844,7 +1913,7 @@ object frmEditRegistration: TfrmEditRegistration
         end
         object Edit7: TEdit
           Left = 479
-          Top = 58
+          Top = 66
           Width = 258
           Height = 22
           Color = clWhite
@@ -1852,7 +1921,7 @@ object frmEditRegistration: TfrmEditRegistration
         end
         object Edit8: TEdit
           Left = 479
-          Top = 86
+          Top = 94
           Width = 258
           Height = 22
           Color = clWhite
@@ -1860,7 +1929,7 @@ object frmEditRegistration: TfrmEditRegistration
         end
         object Edit9: TEdit
           Left = 479
-          Top = 114
+          Top = 122
           Width = 258
           Height = 22
           Color = clWhite
@@ -2352,7 +2421,7 @@ object frmEditRegistration: TfrmEditRegistration
     Left = 532
     Top = 22
     Bitmap = {
-      494C010107000900B80010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010107000900BC0010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000084CA84FF54B757FF000000000000000000000000000000000000
