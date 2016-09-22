@@ -8,24 +8,25 @@ object dm: Tdm
     Options.Direct = True
     Username = 'creator'
     Password = '123456'
-    Server = 'ROZNICA:1521:orcl'
+    Server = 'KLEPOV:1521:STARNEW'
+    Connected = True
     LoginPrompt = False
     AfterConnect = OraSessionAfterConnect
     HomeName = 'OraClient11g_home1'
-    Left = 40
-    Top = 40
+    Left = 24
+    Top = 16
   end
   object cdsOffices: TOraQuery
     SQL.Strings = (
       'SELECT ID_OFFICE, OFFICE_NAME FROM OFFICES ORDER BY OFFICE_NAME')
     Left = 104
-    Top = 32
+    Top = 16
   end
   object cdsDeps: TOraQuery
     SQL.Strings = (
       'begin admins.get_deps_on_user(:login_, :cursor_); end;')
     Left = 176
-    Top = 32
+    Top = 16
     ParamData = <
       item
         DataType = ftString
@@ -39,13 +40,13 @@ object dm: Tdm
       end>
   end
   object cdsSQL: TOraQuery
-    Left = 256
-    Top = 32
+    Left = 240
+    Top = 16
   end
   object cdsSettings: TOraQuery
     SQL.Strings = (
       'begin '
-      'service_pkg.get_user_setting(:cursor_);'
+      'admins.get_user_setting(:cursor_);'
       'end;')
     Left = 104
     Top = 104
@@ -58,8 +59,8 @@ object dm: Tdm
   object ImgList_32: TcxImageList
     Height = 32
     Width = 32
-    Left = 176
-    Top = 104
+    Left = 24
+    Top = 112
     Bitmap = {
       494C010127002C00500020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004001000001002000000000000080
@@ -5351,8 +5352,8 @@ object dm: Tdm
   object ImgList_24: TImageList
     Height = 24
     Width = 24
-    Left = 176
-    Top = 161
+    Left = 24
+    Top = 169
     Bitmap = {
       494C01013C0048000C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000008001000001002000000000000040
@@ -10112,5 +10113,28 @@ object dm: Tdm
       F0000FF0000F800001800001F8001FF8001F800001800001FC003FFC003FC000
       03C00003FF00FFFF00FFE00007E0000700000000000000000000000000000000
       000000000000}
+  end
+  object cdsRules: TOraQuery
+    SQL.Strings = (
+      
+        'select nvl(d.id_dep,0) as id_dep, a.id_programs, max(a.c_start) ' +
+        'c_start, max(a.c_edit) c_edit, max(a.c_del) c_del, max(a.c_print' +
+        ') c_print, max(a.c_addit) c_addit'
+      
+        '            from ADMIN_PROGRAMS_ROLE_GROUPS a, ADMIN_EMPLOYEES_R' +
+        'OLE_GROUPS b, admin_role_groups d, CLIENTS c'
+      '            where a.id_role_groups = b.id_role_groups '
+      '                  and a.id_role_groups = d.id_role_groups '
+      
+        '                  and b.id_employees = c.id_clients and c.login ' +
+        '= :pLogin and c.active = 1 and c.id_office = const_office'
+      '                  group by nvl(d.id_dep,0), a.id_programs')
+    Left = 176
+    Top = 104
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'pLogin'
+      end>
   end
 end

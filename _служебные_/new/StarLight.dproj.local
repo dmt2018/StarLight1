@@ -35,13 +35,7 @@
     <Transaction>2016.07.29 17:40:05.682.dfm,C:\Users\Prg_10\Desktop\new\UAbout.dfm=C:\Users\Prg_10\Desktop\new\info_f.dfm</Transaction>
     <Transaction>2016.08.01 16:30:20.952.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\Ueditor.pas</Transaction>
     <Transaction>2016.08.01 16:30:20.952.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\Ueditor.dfm</Transaction>
-    <Transaction>2016.08.29 15:01:46.206.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\UClientTypes.pas</Transaction>
-    <Transaction>2016.08.29 15:01:46.206.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\UClientTypes.dfm</Transaction>
-    <Transaction>2016.08.29 18:00:44.100.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\UEditClientTypes.pas</Transaction>
-    <Transaction>2016.08.29 18:00:44.100.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\UEditClientTypes.dfm</Transaction>
-    <Transaction>2016.08.31 13:13:09.150.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\URegistration.pas</Transaction>
-    <Transaction>2016.08.31 13:13:09.150.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\URegistration.dfm</Transaction>
-    <Transaction>2016.08.31 14:56:28.795.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\UEditRegistration.pas</Transaction>
-    <Transaction>2016.08.31 14:56:28.795.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\UEditRegistration.dfm</Transaction>
+    <Transaction>2016.09.16 00:17:33.148.pas,C:\_work\delphi\StarLight\_Цветы регионы\new\Unit1.pas=C:\_work\delphi\StarLight\_Цветы регионы\new\UHotKeys.pas</Transaction>
+    <Transaction>2016.09.16 00:17:33.148.dfm,C:\_work\delphi\StarLight\_Цветы регионы\new\Unit1.dfm=C:\_work\delphi\StarLight\_Цветы регионы\new\UHotKeys.dfm</Transaction>
   </Transactions>
 </BorlandProject>

@@ -126,6 +126,9 @@ object frmMain: TfrmMain
       object mmiFito: TMenuItem
         Caption = #1060#1048#1058#1054
       end
+      object mmiSales: TMenuItem
+        Caption = #1055#1088#1086#1076#1072#1078#1080
+      end
     end
     object miClient: TMenuItem
       Caption = #1050#1083#1080#1077#1085#1090#1099

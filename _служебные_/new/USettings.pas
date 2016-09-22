@@ -20,8 +20,8 @@ type
     aClose: TAction;
     cbFont: TcxComboBox;
     pnlBottom: TPanel;
-    btnSav: TcxButton;
-    btnClos: TcxButton;
+    btnSave: TcxButton;
+    btnClose: TcxButton;
     Pnltop: TPanel;
     procedure aCloseExecute(Sender: TObject);
     procedure aEnterExecute(Sender: TObject);
@@ -77,7 +77,7 @@ begin
 
  dm.cdsSQL.Close;
  dm.cdsSQL.SQL.clear;
- dm.cdsSQL.SQL.Add('begin service_pkg.save_user_setting(:p_key, :p_val);end;');
+ dm.cdsSQL.SQL.Add('begin admins.save_user_setting(:p_key, :p_val);end;');
 
  //оказалось save_user_setting уже обрабатывает - что за юзер и т.д., поэтому лишнее убираю:
  for i := 1 to length(p_key) do begin
@@ -90,7 +90,7 @@ begin
 
   dm.OraSession.Commit; //сохран€ю в бд
   dm.cdsSQL.Close;
-  dm.cdssettings.close; 
+  DM.cdsSettings.Refresh;
 
   //переписываю знач.перем-х:
   intDefFont := cbFont.EditValue;

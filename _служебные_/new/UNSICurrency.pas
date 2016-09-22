@@ -64,6 +64,21 @@ type
     ClientDataSet2: TClientDataSet;
     aExit: TAction;
     btnHotKeys: TdxBarButton;
+    Q_CURRDDATE: TDateTimeField;
+    Q_CURRUSD: TFloatField;
+    Q_CURREUR: TFloatField;
+    Q_CURRUSD_EUR: TFloatField;
+    Q_CURREUR_USD: TFloatField;
+    Q_CURRSHEV_USD: TFloatField;
+    Q_CURRSHEV_EUR: TFloatField;
+    Q_CURRSHEV_USD_EUR: TFloatField;
+    Q_CURRSHEV_EUR_USD: TFloatField;
+    Q_CURRID_OFFICE: TIntegerField;
+    Q_CURRDATE_CHANGE: TDateTimeField;
+    Q_CURRID: TFloatField;
+    Q_CURRBRIEF: TStringField;
+    deCoursesBegin: TdxBarDateCombo;
+    deCoursesEnd: TdxBarDateCombo;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure aNewExecute(Sender: TObject);
     procedure aRefreshExecute(Sender: TObject);
@@ -74,8 +89,11 @@ type
     procedure aDeleteExecute(Sender: TObject);
     procedure aExitExecute(Sender: TObject);
     procedure btnHotKeysClick(Sender: TObject);
+    procedure deCoursesEndKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
     { Private declarations }
+    p_read, p_edit, p_delete, p_print: boolean;
   public
     { Public declarations }
     function MainFormShow : boolean;
@@ -127,10 +145,23 @@ end;
 
 // Действие на создание формы
 procedure TfrmNSICurreny.FormCreate(Sender: TObject);
- var i:integer;
+ var i : integer;
+     recUserRules : TUserRules;
 begin
   Application.CreateForm(Tfrmeditor, frmeditor);
   grCurrency.Font.Size := intDefFont;
+
+  // получение прав на программу
+  recUserRules  := getRules(DM.cdsRules,13);
+  p_read        := recUserRules.r_read;
+  p_edit        := recUserRules.r_edit;
+  p_delete      := recUserRules.r_delete;
+  p_print       := recUserRules.r_print;
+
+  aNew.Enabled    := p_edit;
+  aEdit.Enabled   := p_edit;
+  aDelete.Enabled := p_delete;
+  btnHelp.Enabled := getRight(DM.cdsSettings, 'загрузка курсов с ЦБ');
 end;
 
 // Действие на показ формы
@@ -138,10 +169,10 @@ end;
 procedure TfrmNSICurreny.FormShow(Sender: TObject);
 begin
   try
-    Q_CURR.Close;
-    Q_CURR.ParamByName('v_office').AsInteger := DM.id_office;
-    Q_CURR.Open;
-    grCurrency.SetFocus
+    deCoursesBegin.Text := DateToStr(Now - 14);
+    deCoursesEnd.Text   := DateToStr(Now);;
+    aRefresh.Execute;
+    grCurrency.SetFocus;
   except
     on E: Exception do ShowMessage(E.Message);
   end;
@@ -178,64 +209,47 @@ end;
 //изменить
 procedure TfrmNSICurreny.aEditExecute(Sender: TObject);
 begin
-    if (DM.id_office <> Q_CURR.FieldByName('ID_OFFICE').AsInteger) then
+  if (DM.id_office <> Q_CURR.FieldByName('ID_OFFICE').AsInteger) then
   begin
     MessageBox(Handle,'Данная запись не принадлежит главному офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
     exit;
   end;
-
-  frmeditor.cxDateEdit1.Date := Q_CURR.FieldByName('DDATE').AsDateTime;
-  frmeditor.Ed1.EditValue := Q_CURR.FieldByName('USD').AsFloat;
-  frmeditor.Ed2.EditValue := Q_CURR.FieldByName('EUR').AsFloat;
-  frmeditor.Ed3.EditValue := Q_CURR.FieldByName('USD_EUR').AsFloat;
-  frmeditor.Ed4.EditValue := Q_CURR.FieldByName('EUR_USD').AsFloat;
-  frmeditor.Ed5.EditValue := Q_CURR.FieldByName('SHEV_USD').AsFloat;
-  frmeditor.Ed6.EditValue := Q_CURR.FieldByName('SHEV_EUR').AsFloat;
-  frmeditor.Ed7.EditValue := Q_CURR.FieldByName('SHEV_USD_EUR').AsFloat;
-  frmeditor.Ed8.EditValue := Q_CURR.FieldByName('SHEV_EUR_USD').AsFloat;
-  frmeditor.Showmodal;
+  frmeditor.MainFormShow(Q_CURR);
+  Q_CURR.RefreshRecord;
   grCurrency.SetFocus;
 end;
 
 //добавить
 procedure TfrmNSICurreny.aNewExecute(Sender: TObject);
 begin
-  frmeditor.Ed1.Clear;
-  frmeditor.Ed2.Clear;
-  frmeditor.Ed3.Clear;
-  frmeditor.Ed4.Clear;
-  frmeditor.Ed5.Clear;
-  frmeditor.Ed6.Clear;
-  frmeditor.Ed7.Clear;
-  frmeditor.Ed8.Clear;
-
-  frmeditor.cxDateEdit1.Date := Now();
-  frmeditor.Showmodal;
+  frmeditor.MainFormShow(nil);
+  Q_CURR.Refresh;
   grCurrency.SetFocus;
 end;
 
 //обновить
 procedure TfrmNSICurreny.aRefreshExecute(Sender: TObject);
-var id: TDateTime;
+var bm: TBookMark;
+    cds: TDataSet;
 begin
+  cds := grCurrencyView.DataController.DataSet;
+  bm     := cds.GetBookmark;
 
-   // Q_CURR.ParamByName('V_OFFICE').Value :=  intDefOffice;
-   // Q_CURR.ParamByName('cursor_').AsCursor;
-   // Q_CURR.Open;
-
-  id := 01-02-2016;//now;//Q_CURRDDATE.AsDateTime;
-  Q_CURR.Refresh;
-  Q_CURR.Locate('DDATE',id,[]);
-  grCurrency.SetFocus;
-
-  { dm.cdsSQL.Close;
-   dm.cdsSQL.SQL.clear;
-   dm.cdsSQL.SQL.Add('begin DICTS.GET_CURSES(:V_OFFICE, :CURSOR_); end;');
-   dm.cdsSQL.ParamByName('V_OFFICE').asinteger := intDefOffice;
-   dm.cdsSQL.ParamByName('cursor_').AsCursor;
-   dm.cdsSQL.open;
-    grCurrency  := dm.cdsSQL.FieldByName('SHEV_USD').AsFloat;
-   dm.cdsSQL.Close;     }
+  try
+    Q_CURR.Close;
+    Q_CURR.ParamByName('v_office').AsInteger  := DM.id_office;
+    Q_CURR.ParamByName('date_begin').AsDate   := deCoursesBegin.CurDate; // deCoursesBegin.EditValue;
+    Q_CURR.ParamByName('date_end').AsDate     := deCoursesEnd.CurDate;
+    try
+      Q_CURR.Open;
+    except
+      on E: Exception do MessageBox(Handle, PChar(E.Message), 'Возникла ошибка', MB_ICONERROR);
+    end;
+  finally
+      cds.GotoBookmark(bm);
+      cds.FreeBookmark(bm);
+      grCurrency.SetFocus;
+  end;
 end;
 
 // Закрыть
@@ -314,6 +328,15 @@ end;
 procedure TfrmNSICurreny.btnHotKeysClick(Sender: TObject);
 begin
   frmHotKeys.MainFormShow;
+end;
+
+procedure TfrmNSICurreny.deCoursesEndKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_RETURN then
+  begin
+    aRefresh.Execute;
+  end;
 end;
 
 end.

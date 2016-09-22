@@ -93,6 +93,7 @@ type
     miClient_Deb: TMenuItem;
     mmiFito: TMenuItem;
     mmiSpez: TMenuItem;
+    mmiSales: TMenuItem;
     procedure actAboutExecute(Sender: TObject);
     procedure mnNSI_CurrencyClick(Sender: TObject);
     procedure mmiSettingsClick(Sender: TObject);
@@ -144,6 +145,7 @@ end;
 
 // вывод юзера в 2_статусбар:
 procedure TfrmMain.FormCreate(Sender: TObject);
+var  s1, s2, s3, s4: boolean;
 begin
   //porasessStarLight := @DM.OraSession;
   stbMain.Panels[0].Text := verApplication;
@@ -151,6 +153,36 @@ begin
   stbMain.Panels[2].Text := ' Пользователь: ['+strUserName+'] ';
   stbMain.Refresh;
   self.Caption := Application.Title;
+
+
+  // Установим доступность кнопок в меню для вызова основных форм
+  DM.cdsRules.first;
+  DM.cdsRules.FilterSQL := 'c_start=1';
+  DM.cdsRules.Filtered  := true;
+
+  mmiAdminTools.Enabled   := DM.cdsRules.Locate('ID_PROGRAMS',1,[]);
+  miNomen.Enabled         := DM.cdsRules.Locate('ID_PROGRAMS',2,[]);
+  mnNSI.Enabled           := DM.cdsRules.Locate('ID_PROGRAMS',4,[]);
+  mnNSI.Enabled           := DM.cdsRules.Locate('ID_PROGRAMS',4,[]);
+  miClient_Reg.Enabled    := DM.cdsRules.Locate('ID_PROGRAMS',5,[]);
+  miClient_Deb.Enabled    := DM.cdsRules.Locate('ID_PROGRAMS',17,[]);
+  mmiSklad.Enabled        := DM.cdsRules.Locate('ID_PROGRAMS',15,[]);
+  mmiInvoice.Enabled      := DM.cdsRules.Locate('ID_PROGRAMS',9,[]);
+  mmiZakaz.Enabled        := DM.cdsRules.Locate('ID_PROGRAMS',8,[]);
+  mmiRazZakaz.Enabled     := DM.cdsRules.Locate('ID_PROGRAMS',18,[]);
+  mmiFito.Enabled         := DM.cdsRules.Locate('ID_PROGRAMS',21,[]);
+  mmiKasses.Enabled       := DM.cdsRules.Locate('ID_PROGRAMS',11,[]);
+  mmiKasSvod.Enabled      := DM.cdsRules.Locate('ID_PROGRAMS',12,[]);
+  mmiByx.Enabled          := DM.cdsRules.Locate('ID_PROGRAMS',14,[]);
+  mmiPretenz.Enabled      := DM.cdsRules.Locate('ID_PROGRAMS',10,[]);
+  miZP.Enabled            := DM.cdsRules.Locate('ID_PROGRAMS',16,[]);
+  mmiSales.Enabled        := DM.cdsRules.Locate('ID_PROGRAMS',20,[]);
+  mnNSI_Currency.Enabled  := DM.cdsRules.Locate('ID_PROGRAMS',13,[]);
+  mmiStatis.Enabled       := DM.cdsRules.Locate('ID_PROGRAMS',19,[]);
+  mmiSec.Enabled          := DM.cdsRules.Locate('ID_PROGRAMS',10000204,[]);
+
+  DM.cdsRules.FilterSQL := '';
+  DM.cdsRules.Filtered  := false;
 end;
 
 

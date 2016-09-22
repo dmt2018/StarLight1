@@ -21,17 +21,21 @@ object frmSettings: TfrmSettings
   TextHeight = 13
   object pnlBottom: TPanel
     Left = 0
-    Top = 211
+    Top = 221
     Width = 628
-    Height = 50
+    Height = 40
     Align = alBottom
     TabOrder = 0
-    object btnSav: TcxButton
-      Left = 392
-      Top = 14
+    DesignSize = (
+      628
+      40)
+    object btnSave: TcxButton
+      Left = 397
+      Top = 7
       Width = 107
       Height = 25
       Action = aEnter
+      Anchors = [akTop, akRight]
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -41,12 +45,14 @@ object frmSettings: TfrmSettings
       TabOrder = 0
       Colors.Default = clActiveBorder
     end
-    object btnClos: TcxButton
+    object btnClose: TcxButton
       Left = 512
-      Top = 14
+      Top = 7
       Width = 107
       Height = 25
       Action = aClose
+      Anchors = [akTop, akRight]
+      Cancel = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -61,18 +67,18 @@ object frmSettings: TfrmSettings
     Left = 0
     Top = 0
     Width = 628
-    Height = 211
+    Height = 221
     Align = alClient
     TabOrder = 1
     object pcSettings: TcxPageControl
       Left = 1
       Top = 1
       Width = 626
-      Height = 209
+      Height = 219
       ActivePage = tshMain
       Align = alClient
       TabOrder = 0
-      ClientRectBottom = 209
+      ClientRectBottom = 219
       ClientRectRight = 626
       ClientRectTop = 24
       object tshMain: TcxTabSheet
@@ -155,6 +161,7 @@ object frmSettings: TfrmSettings
     Top = 64
     object aEnter: TAction
       Caption = #1047#1072#1087#1080#1089#1072#1090#1100
+      ShortCut = 16397
       OnExecute = aEnterExecute
     end
     object aClose: TAction

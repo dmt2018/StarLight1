@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.SERVICE_PKG
--- Generated 25.07.2016 1:25:11 from CREATOR@STAR_NEW
+-- Generated 23.09.2016 0:36:37 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE service_pkg
@@ -29,29 +29,6 @@ IS
   PROCEDURE list_nom_moving
   (
     in_nid  number,
-    cursor_ out ref_cursor
-  );
-
-
-  --
-  --  Сохранение пользовательских настроек
-  --
-  procedure save_user_setting (
-    p_key  in varchar2,
-    p_val  in varchar2
-  );
-
-
-  --
-  --  Удаление всех пользовательских настроек
-  --
-  procedure clear_user_setting;
-
-
-  --
-  --  Получение всех пользовательских настроек
-  --
-  procedure get_user_setting (
     cursor_ out ref_cursor
   );
 
@@ -241,62 +218,6 @@ IS
         LOG_ERR(SQLERRM, SQLCODE, 'service_pkg.list_nom_moving', in_nid);
         RAISE_APPLICATION_ERROR (-20904, 'Запрос не выполнился. ' || SQLERRM);
   end list_nom_moving;
-
-
-  --
-  --  Сохранение пользовательских настроек
-  --
-  procedure save_user_setting (
-    p_key  in varchar2,
-    p_val  in varchar2
-  ) as
-    cnt_ number(10);
-  begin
-
-    SELECT COUNT(*) INTO cnt_ FROM user_settings WHERE DB_USER = USER and stg_key = p_key;
-    IF cnt_ = 0
-      THEN INSERT INTO user_settings (DB_USER, stg_key, stg_value) VALUES(USER, p_key, p_val);
-      ELSE UPDATE user_settings SET stg_value = p_val WHERE DB_USER = USER and stg_key = p_key;
-    END IF;
-    commit;
-
-  EXCEPTION WHEN OTHERS THEN
-      LOG_ERR(SQLERRM, SQLCODE, 'service_pkg.save_user_setting', '');
-      RAISE_APPLICATION_ERROR (-20905, 'Запрос не выполнился. ' || SQLERRM || ' ' || DBMS_UTILITY.format_error_backtrace);
-  END save_user_setting;
-
-
-  --
-  --  Удаление всех пользовательских настроек
-  --
-  procedure clear_user_setting
-  as
-  begin
-
-    delete FROM user_settings WHERE DB_USER = USER;
-    commit;
-
-  EXCEPTION WHEN OTHERS THEN
-      LOG_ERR(SQLERRM, SQLCODE, 'service_pkg.clear_user_setting', '');
-      RAISE_APPLICATION_ERROR (-20906, 'Запрос не выполнился. ' || SQLERRM || ' ' || DBMS_UTILITY.format_error_backtrace);
-  END clear_user_setting;
-
-
-  --
-  --  Получение всех пользовательских настроек
-  --
-  procedure get_user_setting (
-    cursor_ out ref_cursor
-  ) as
-  begin
-
-    open cursor_ for
-      select db_user, stg_key, stg_value FROM user_settings WHERE DB_USER = USER;
-
-  EXCEPTION WHEN OTHERS THEN
-      LOG_ERR(SQLERRM, SQLCODE, 'service_pkg.get_user_setting', '');
-      RAISE_APPLICATION_ERROR (-20907, 'Запрос не выполнился. ' || SQLERRM || ' ' || DBMS_UTILITY.format_error_backtrace);
-  END get_user_setting;
 
 
 END;
