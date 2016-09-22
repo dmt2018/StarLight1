@@ -608,6 +608,8 @@ type
     ds_adress: TOraDataSource;
     cds_adress: TOraQuery;
     cds_adressADDRESS: TStringField;
+    cxGridDBColumn34: TcxGridDBColumn;
+    Q_CLIENTSD_CHECK: TFloatField;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure imgOfficePropertiesChange(Sender: TObject);
@@ -628,6 +630,7 @@ type
     procedure btnHelpClick(Sender: TObject);
     procedure btninfClick(Sender: TObject);
     procedure BitBtn5Click(Sender: TObject);
+    procedure cxGridDBColumn34HeaderClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -1114,20 +1117,28 @@ end;
 
 //укороч.печать
 procedure TfrmRegistration.BitBtn5Click(Sender: TObject);
-var str: string;
+var str: string;  i:integer;  id:string;
 begin
 try
   path := ExtractFilePath(Application.ExeName);
   if (Q_CLIENTS.FieldByName('ID_CLIENTS').AsInteger > 0) then
   begin
+   Q_CLIENTS.First;
+   with cxgriddbtableview1.dataController do
+   for I := 0 to FilteredRecordCount  - 1 do begin
+     id:=inttostr(Q_CLIENTS.FieldByName('ID_CLIENTS').AsInteger)+','+id;
+     Q_CLIENTS.Next;
+   end;
+    delete(id,length(id),1);
+    //Q_CLIENT_VIEW.ParamByName('ID').Value := Q_CLIENTS.FieldByName('ID_CLIENTS').AsInteger;
+
     Q_CLIENT_VIEW.Close;
     Q_CLIENT_VIEW.SQL.Clear;
     Q_CLIENT_VIEW.SQL.Add('SELECT C.*, case when c.id_office > 1 then o.OFFICE_NAME else case c.reg_type when 0 then ''Старлайт'' when 1 then ''Старлайт Кэш & Кэрри'' end end as reg_type_name, G.NAME AS GROUP_NAME, T.NAME AS TTYPE_NAME, R.NAME AS REGION_NAME, A.NAME AS ADVERT, s.city ');
     Q_CLIENT_VIEW.SQL.Add(' FROM CLIENTS_GROUPS G, BOOKS_CLIENT_TYPES T, BOOKS_ADVERTISMENTS A, CLIENTS C, BOOKS_REGIONS R, offices o, books_cities s');
-    Q_CLIENT_VIEW.SQL.Add(' WHERE C.ID_CLIENTS_GROUPS = G.ID_CLIENTS_GROUPS AND C.TTYPE = T.ID_CLIENT_TYPES AND C.ADVERTISMENT = A.ID_ADVERTISMENTS AND C.REGION = R.ID_REGIONS AND ID_CLIENTS=:ID and c.id_office = o.ID_OFFICE and c.id_city = s.id_city(+)');
-    Q_CLIENT_VIEW.ParamByName('ID').Value := Q_CLIENTS.FieldByName('ID_CLIENTS').AsInteger;
-    Q_CLIENT_VIEW.Open;
+    Q_CLIENT_VIEW.SQL.Add(' WHERE C.ID_CLIENTS_GROUPS = G.ID_CLIENTS_GROUPS AND C.TTYPE = T.ID_CLIENT_TYPES AND C.ADVERTISMENT = A.ID_ADVERTISMENTS AND C.REGION = R.ID_REGIONS AND ID_CLIENTS in ('+id+') and c.id_office = o.ID_OFFICE and c.id_city = s.id_city(+)');
 
+    Q_CLIENT_VIEW.Open;
 
     {//нахрена это все - я хз.. коменчу
     str := '';
@@ -1144,7 +1155,7 @@ try
     if (Q_CLIENT_VIEW.FieldByName('BLOCK1').AsInteger = 1) then frmEditRegistration.Label10.Caption := 'Да' else frmEditRegistration.Label10.Caption := 'Нет';
     if (Q_CLIENT_VIEW.FieldByName('BLOCK2').AsInteger = 1) then frmEditRegistration.Label12.Caption := 'Да' else frmEditRegistration.Label12.Caption := 'Нет';
                 }
-
+    //cxgriddbtableview1.ViewData.Rows;
 
     cds_adress.Close;
     cds_adress.ParamByName('p1').AsInteger := Q_CLIENTS.FieldByName('ID_CLIENTS').AsInteger;
@@ -1152,7 +1163,7 @@ try
 
     frxReport1.LoadFromFile(path+'raports\clients_card_short.fr3');
     frxReport1.ShowReport;
-    cds_adress.Close;
+    cds_adress.Close;  
   end
   else ShowMessage('Нет данных для просмотра!');
 except
@@ -1248,6 +1259,16 @@ except
     on E: Exception do ShowMessage('Ошибка при выводе на печать!'+#10#13+'Проверьте настройки принтера');
 End;
 end;
+
+
+ // фильтр
+procedure TfrmRegistration.cxGridDBColumn34HeaderClick(Sender: TObject);
+begin
+  Q_CLIENTS.Filter := 'D_CHECK = 1';
+  Q_CLIENTS.Filtered := true;
+end;
+
+
 
 // удалить запись
 procedure TfrmRegistration.DeleteNExecute(Sender: TObject);

@@ -3,7 +3,7 @@ object frmRegistration: TfrmRegistration
   Top = 0
   Caption = #1056#1077#1075#1080#1089#1090#1088#1072#1094#1080#1103' '#1082#1083#1080#1077#1085#1090#1086#1074
   ClientHeight = 630
-  ClientWidth = 1064
+  ClientWidth = 1078
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,7 +21,7 @@ object frmRegistration: TfrmRegistration
   object cxClient: TcxGrid
     Left = 0
     Top = 58
-    Width = 1064
+    Width = 1078
     Height = 546
     Align = alClient
     TabOrder = 0
@@ -268,7 +268,7 @@ object frmRegistration: TfrmRegistration
   object PageControl1: TPageControl
     Left = 0
     Top = 58
-    Width = 1064
+    Width = 1078
     Height = 546
     Cursor = crHandPoint
     ActivePage = TabSheet1
@@ -288,7 +288,7 @@ object frmRegistration: TfrmRegistration
       object Panel1: TPanel
         Left = 0
         Top = 0
-        Width = 1056
+        Width = 1070
         Height = 174
         Align = alTop
         BevelInner = bvRaised
@@ -1043,7 +1043,7 @@ object frmRegistration: TfrmRegistration
       object cxGrid1: TcxGrid
         Left = 0
         Top = 174
-        Width = 1056
+        Width = 1070
         Height = 339
         Align = alClient
         PopupMenu = PopupMenu2
@@ -1088,6 +1088,65 @@ object frmRegistration: TfrmRegistration
           Styles.Footer = style_bottom
           Styles.Group = style_group
           Styles.Header = style_top
+          object cxGridDBColumn34: TcxGridDBColumn
+            DataBinding.FieldName = 'D_CHECK'
+            PropertiesClassName = 'TcxCheckBoxProperties'
+            Properties.Alignment = taCenter
+            Properties.DisplayChecked = #1076#1072
+            Properties.DisplayUnchecked = #1085#1077#1090
+            Properties.NullStyle = nssUnchecked
+            Properties.ValueChecked = 1
+            Properties.ValueUnchecked = 0
+            HeaderAlignmentHorz = taCenter
+            HeaderGlyph.Data = {
+              36040000424D3604000000000000360000002800000010000000100000000100
+              2000000000000004000000000000000000000000000000000000000000000000
+              00000000000000000000175C160328A328912BA62FCD27A02760000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000029A5299652D47AFF72F4A5FF39B74CF8238C23240000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000002AA829894BCD6DFF74F097FF77F08DFF63E692FF28A229B10000
+              0000000000000000000000000000000000000000000000000000000000001658
+              16012BAB2A904ACC6BFF6FEB94FF76EE8AFF77F08CFF72F192FF44C561FF269B
+              2647000000000000000000000000000000000000000000000000175C17022CAE
+              2B9E4BCE6FFF69E48BFF70E785FF73F19CFF74F39CFF72EF88FF65EA94FF2DA9
+              32D81B6E1B0600000000000000000000000000000000000000002CB12C804ACE
+              6EFF61DA7FFF68DE7DFF68E897FF39BA48F342C55CFB70F194FF68E982FF4DD2
+              74FF29A3287B000000000000000000000000000000000000000031B736D45CD8
+              87FF5FD473FF62E391FF36B841EC2AA829342BAA2AA060E48EFF68E87DFF5FE6
+              86FF36B647F624902325000000000000000000000000000000002EB42D9F4ED2
+              75FF55D880FF34B83DE629A4282E00000000238D221F3ABC4BF767EC8FFF5BDF
+              6FFF53DC81FF2AA72DC3186318020000000000000000000000002080200B2DB3
+              2D792DB22C852699261B0000000000000000000000002BAB2A8252D87BFF5BE0
+              73FF51D96AFF44CA68FF29A52975000000000000000000000000000000000000
+              000000000000000000000000000000000000000000001D741D0830B136DA5BE3
+              89FF4ED55FFF4DD973FF36B748F8259825320000000000000000000000000000
+              000000000000000000000000000000000000000000000000000028A1283C3DC2
+              54FC53DC76FF44CE55FF4DD87AFF2DAB33DA1F7D1F0D00000000000000000000
+              0000000000000000000000000000000000000000000000000000000000002BAD
+              2B8649D16FFF47D15FFF44CE57FF49D274FF2AA62AA900000000000000000000
+              0000000000000000000000000000000000000000000000000000000000001C6F
+              1B042DAF2FC44DD87AFF43CD55FF47D262FF41C661FF29A5286A000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              00002490231A31B539E54DD97AFF42CC52FF4EDA79FF2DAC31D1000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              00000000000028A1273536BA44F34FDB7EFF49D374FF2AA92BA8000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              000000000000000000002AA6293F2BAD2BB32BAB2A9222892210}
+            HeaderGlyphAlignmentHorz = taCenter
+            MinWidth = 30
+            Options.Filtering = False
+            Options.FilteringFilteredItemsList = False
+            Options.FilteringMRUItemsList = False
+            Options.FilteringPopup = False
+            Options.FilteringPopupMultiSelect = False
+            Options.HorzSizing = False
+            Options.ShowCaption = False
+            Options.Sorting = False
+            Width = 30
+            OnHeaderClick = cxGridDBColumn34HeaderClick
+            IsCaptionAssigned = True
+          end
           object cxGridDBColumn1: TcxGridDBColumn
             Caption = #1054#1092#1080#1089
             DataBinding.FieldName = 'BRIEF'
@@ -1291,7 +1350,7 @@ object frmRegistration: TfrmRegistration
           object cxGridDBColumn33: TcxGridDBColumn
             Caption = #1048#1085#1090#1077#1088#1077#1089#1099
             DataBinding.FieldName = 'INTERES'
-            Width = 57
+            Width = 70
           end
         end
         object cxGridLevel1: TcxGridLevel
@@ -1305,7 +1364,7 @@ object frmRegistration: TfrmRegistration
       object Panel4: TPanel
         Left = 0
         Top = 0
-        Width = 1056
+        Width = 1070
         Height = 57
         Align = alTop
         BevelOuter = bvNone
@@ -1501,7 +1560,7 @@ object frmRegistration: TfrmRegistration
       object Panel5: TPanel
         Left = 0
         Top = 57
-        Width = 1056
+        Width = 1070
         Height = 184
         Align = alTop
         BevelOuter = bvNone
@@ -1511,7 +1570,7 @@ object frmRegistration: TfrmRegistration
         object DBGrid2: TDBGridEh
           Left = 0
           Top = 0
-          Width = 1056
+          Width = 1070
           Height = 184
           Align = alClient
           AllowedOperations = []
@@ -1583,7 +1642,7 @@ object frmRegistration: TfrmRegistration
       object Panel11: TPanel
         Left = 0
         Top = 249
-        Width = 1056
+        Width = 1070
         Height = 264
         Align = alClient
         BevelOuter = bvNone
@@ -1591,7 +1650,7 @@ object frmRegistration: TfrmRegistration
         object Panel6: TPanel
           Left = 0
           Top = 0
-          Width = 1056
+          Width = 1070
           Height = 25
           Align = alTop
           Alignment = taLeftJustify
@@ -1611,7 +1670,7 @@ object frmRegistration: TfrmRegistration
         object cxGrid2: TcxGrid
           Left = 0
           Top = 25
-          Width = 1056
+          Width = 1070
           Height = 239
           Align = alClient
           TabOrder = 1
@@ -1694,7 +1753,7 @@ object frmRegistration: TfrmRegistration
       object cxSplitter1: TcxSplitter
         Left = 0
         Top = 241
-        Width = 1056
+        Width = 1070
         Height = 8
         HotZoneClassName = 'TcxMediaPlayer9Style'
         AlignSplitter = salTop
@@ -1707,7 +1766,7 @@ object frmRegistration: TfrmRegistration
       object Panel7: TPanel
         Left = 0
         Top = 0
-        Width = 1056
+        Width = 1070
         Height = 145
         Align = alTop
         BevelOuter = bvNone
@@ -2279,7 +2338,7 @@ object frmRegistration: TfrmRegistration
       object Panel8: TPanel
         Left = 0
         Top = 145
-        Width = 1056
+        Width = 1070
         Height = 13
         Align = alTop
         BevelOuter = bvNone
@@ -2290,7 +2349,7 @@ object frmRegistration: TfrmRegistration
       object Panel12: TPanel
         Left = 0
         Top = 158
-        Width = 864
+        Width = 878
         Height = 355
         Align = alClient
         BevelOuter = bvNone
@@ -2300,7 +2359,7 @@ object frmRegistration: TfrmRegistration
         object gr_empl: TcxGrid
           Left = 1
           Top = 1
-          Width = 862
+          Width = 876
           Height = 353
           Align = alClient
           PopupMenu = PopupMenu3
@@ -2453,7 +2512,7 @@ object frmRegistration: TfrmRegistration
         end
       end
       object Panel13: TPanel
-        Left = 864
+        Left = 878
         Top = 158
         Width = 192
         Height = 355
@@ -2681,7 +2740,7 @@ object frmRegistration: TfrmRegistration
       object Panel9: TPanel
         Left = 0
         Top = 0
-        Width = 1056
+        Width = 1070
         Height = 193
         Align = alTop
         BevelOuter = bvNone
@@ -3256,7 +3315,7 @@ object frmRegistration: TfrmRegistration
       object Panel10: TPanel
         Left = 0
         Top = 193
-        Width = 1056
+        Width = 1070
         Height = 32
         Align = alTop
         BevelOuter = bvNone
@@ -3277,7 +3336,7 @@ object frmRegistration: TfrmRegistration
       object CRDBGrid4: TDBGridEh
         Left = 0
         Top = 225
-        Width = 1056
+        Width = 1070
         Height = 288
         Align = alClient
         AllowedOperations = []
@@ -4051,60 +4110,6 @@ object frmRegistration: TfrmRegistration
   object frxClientsView: TfrxDBDataset
     UserName = 'frxClientsView'
     CloseDataSource = False
-    FieldAliases.Strings = (
-      'ID_CLIENTS=ID_CLIENTS'
-      'FIO=FIO'
-      'NICK=NICK'
-      'CCODE=CCODE'
-      'REGION=REGION'
-      'ADDRESS=ADDRESS'
-      'U_ADDRESS=U_ADDRESS'
-      'PHONE=PHONE'
-      'PASSPORT=PASSPORT'
-      'CONTACT=CONTACT'
-      'CONT_PHONE=CONT_PHONE'
-      'EMAIL=EMAIL'
-      'WWW=WWW'
-      'INN=INN'
-      'REG_SVID=REG_SVID'
-      'KPP=KPP'
-      'OKATO=OKATO'
-      'BANK=BANK'
-      'AGREEMENT=AGREEMENT'
-      'ADVERTISMENT=ADVERTISMENT'
-      'DDATE=DDATE'
-      'BLOCK1=BLOCK1'
-      'BLOCK2=BLOCK2'
-      'FLOWERS=FLOWERS'
-      'PLANTS=PLANTS'
-      'MARK=MARK'
-      'TTYPE=TTYPE'
-      'ID_CLIENTS_GROUPS=ID_CLIENTS_GROUPS'
-      'CORRECTOR=CORRECTOR'
-      'DATE_COR=DATE_COR'
-      'CORRECTOR_COR=CORRECTOR_COR'
-      'DUTIES=DUTIES'
-      'INSURANCE=INSURANCE'
-      'DATE_IN=DATE_IN'
-      'DATE_OUT=DATE_OUT'
-      'L_SERVICE=L_SERVICE'
-      'STAFF=STAFF'
-      'ACTIVE=ACTIVE'
-      'LOGIN=LOGIN'
-      'INFO=INFO'
-      'REG_TYPE=REG_TYPE'
-      'COUNT=COUNT'
-      'REG_TYPE_NAME=REG_TYPE_NAME'
-      'GROUP_NAME=GROUP_NAME'
-      'TTYPE_NAME=TTYPE_NAME'
-      'REGION_NAME=REGION_NAME'
-      'ADVERT=ADVERT'
-      'DOSTAVKA=DOSTAVKA'
-      'ID_OFFICE=ID_OFFICE'
-      'DATE_CHANGE=DATE_CHANGE'
-      'PREFIX=PREFIX'
-      'ID_CITY=ID_CITY'
-      'CITY=CITY')
     DataSource = Q_CLIENT_VIEW_DS
     BCDToCurrency = False
     Left = 72
@@ -4503,7 +4508,7 @@ object frmRegistration: TfrmRegistration
     Left = 820
     Top = 125
     Bitmap = {
-      494C0101040009004C0110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010104000900600110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -4783,9 +4788,46 @@ object frmRegistration: TfrmRegistration
     PrintOptions.Printer = '\\Naydenovalv\HP CLJ 5550N PCL 6'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 37936.531508599500000000
-    ReportOptions.LastChange = 42633.666780127300000000
+    ReportOptions.LastChange = 42635.793144594910000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
+      'procedure Memo12OnBeforePrint(Sender: TfrxComponent);'
+      ' var i:integer;                                    '
+      'begin'
+      
+        'memo12.text:=<frxClientsView."ADDRESS">;                        ' +
+        '        '
+      'if pos('#39'%'#39',memo12.text)<>0 then '
+      'while pos('#39'%'#39',memo12.text)<>0 do begin'
+      '    i:= pos('#39'%'#39',memo12.text);'
+      '    delete(memo12.text,i,1);                      '
+      '    insert('#39', '#39',memo12.text,i);                        '
+      'end;              '
+      'end;'
+      ''
+      ''
+      ''
+      'procedure Memo44OnBeforePrint(Sender: TfrxComponent);'
+      ' var i:integer;                                    '
+      'begin'
+      
+        'memo44.text:=<frxClientsView."U_ADDRESS">;                      ' +
+        '          '
+      'if pos('#39'%'#39',memo44.text)<>0 then '
+      'while pos('#39'%'#39',memo44.text)<>0 do begin'
+      '    i:= pos('#39'%'#39',memo44.text);'
+      '    delete(memo44.text,i,1);                      '
+      '    insert('#39', '#39',memo44.text,i);                        '
+      'end;'
+      'end;'
+      ''
+      'procedure Memo4OnBeforePrint(Sender: TfrxComponent);'
+      'begin'
+      
+        '                                                                ' +
+        '      '
+      'end;'
+      ''
       'begin'
       ''
       'end.')
@@ -4814,6 +4856,7 @@ object frmRegistration: TfrmRegistration
       RightMargin = 10.000000000000000000
       TopMargin = 10.000000000000000000
       BottomMargin = 10.000000000000000000
+      OnBeforePrint = 'Page1OnBeforePrint'
       object ReportTitle1: TfrxReportTitle
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
@@ -4845,9 +4888,9 @@ object frmRegistration: TfrmRegistration
         object Memo2: TfrxMemoView
           Align = baLeft
           Left = 151.181102360000000000
-          Top = 44.031505830000000000
+          Top = 28.913385830000000000
           Width = 565.039370080000000000
-          Height = 22.677165350000000000
+          Height = 26.456695350000000000
           ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -4863,9 +4906,9 @@ object frmRegistration: TfrmRegistration
         end
         object Memo3: TfrxMemoView
           Align = baLeft
-          Top = 44.031505830000000000
+          Top = 28.913385830000000000
           Width = 151.181102360000000000
-          Height = 22.677165350000000000
+          Height = 26.456695350000000000
           ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -4883,9 +4926,10 @@ object frmRegistration: TfrmRegistration
         object Memo4: TfrxMemoView
           Align = baLeft
           Left = 151.181102360000000000
-          Top = 66.708671180000000000
+          Top = 55.370081180000000000
           Width = 565.039370080000000000
-          Height = 18.897637800000000000
+          Height = 30.236227800000000000
+          OnBeforePrint = 'Memo4OnBeforePrint'
           ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -4901,9 +4945,9 @@ object frmRegistration: TfrmRegistration
         end
         object Memo5: TfrxMemoView
           Align = baLeft
-          Top = 66.708671180000000000
+          Top = 55.370081180000000000
           Width = 151.181102360000000000
-          Height = 18.897637800000000000
+          Height = 30.236227800000000000
           ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -5000,6 +5044,8 @@ object frmRegistration: TfrmRegistration
           Top = 123.401577240000000000
           Width = 565.039370080000000000
           Height = 56.692913390000000000
+          OnAfterPrint = 'Memo12OnAfterPrint'
+          OnBeforePrint = 'Memo12OnBeforePrint'
           ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -5027,7 +5073,7 @@ object frmRegistration: TfrmRegistration
           GapX = 4.000000000000000000
           HAlign = haRight
           Memo.UTF8 = (
-            #1056#1106#1056#1169#1057#1026#1056#181#1057#1027)
+            #1056#164#1056#176#1056#1108#1057#8218#1056#1105#1057#8225#1056#181#1057#1027#1056#1108#1056#1105#1056#8470' '#1056#176#1056#1169#1057#1026#1056#181#1057#1027)
           ParentFont = False
         end
         object Memo16: TfrxMemoView
@@ -5259,6 +5305,7 @@ object frmRegistration: TfrmRegistration
           Top = 180.094490630000000000
           Width = 565.039370080000000000
           Height = 56.692913390000000000
+          OnBeforePrint = 'Memo44OnBeforePrint'
           ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -5632,7 +5679,7 @@ object frmRegistration: TfrmRegistration
     Left = 240
     Top = 328
     Bitmap = {
-      494C010127002C003C0120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010127002C00500120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004001000001002000000000000080
       0200000000000000000000000000000000000000000000000000000000000000
       000000000000000000000101011A0B0B0B743B3D3DB4777777D5838383DA5152
@@ -11185,6 +11232,9 @@ object frmRegistration: TfrmRegistration
       FieldName = 'INTERES'
       Size = 1024
     end
+    object Q_CLIENTSD_CHECK: TFloatField
+      FieldName = 'D_CHECK'
+    end
   end
   object Q_CLIENT_VIEW: TOraQuery
     Session = dm.OraSession
@@ -11194,6 +11244,7 @@ object frmRegistration: TfrmRegistration
         'case when c.id_office > 1 then o.OFFICE_NAME else case when c.re' +
         'g_type = 0 then '#39#1057#1090#1072#1088#1083#1072#1081#1090#39' else '#39#1057#1090#1072#1088#1083#1072#1081#1090' '#1050#1101#1096' & '#1050#1077#1088#1088#1080#39' end end a' +
         's reg_type_name,'
+      '--decode(c.address, '#39'%'#39', '#39', '#39', c.address) as address1,'
       
         'G.NAME AS GROUP_NAME, T.NAME AS TTYPE_NAME, R.NAME AS REGION_NAM' +
         'E, A.NAME AS ADVERT '
@@ -12103,6 +12154,7 @@ object frmRegistration: TfrmRegistration
       item
         DataType = ftUnknown
         Name = 'p1'
+        Value = Null
       end>
     object cds_adressADDRESS: TStringField
       FieldName = 'ADDRESS'
