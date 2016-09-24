@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.SYNC_LOCAL_DATA
--- Generated 1-апр-2016 20:45:02 from CREATOR@STAR2
+-- Generated 25.09.2016 1:18:04 from CREATOR@STAR2
 
 CREATE OR REPLACE 
 PACKAGE sync_local_data
@@ -266,6 +266,10 @@ is
   v_idd number;
 begin
    select const_office into v_idd from dual;
+
+   delete from SYNC_clients_groups@star WHERE id_office = v_idd;
+   delete from SYNC_clients@star WHERE id_office = v_idd;
+   commit;
 
    INSERT INTO SYNC_clients_groups@star ( select * from clients_groups WHERE id_office=v_idd and date_change > sysdate-1 );
    INSERT INTO SYNC_clients@star ( select * from clients WHERE id_office=v_idd and length(ccode)=13 and date_change > sysdate-1 );
