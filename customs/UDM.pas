@@ -145,6 +145,7 @@ type
     procedure raport_srez_phytoes_part2(id_inv: integer; truck: integer; report_type: integer);
     procedure raport_gtd(id_inv: integer; truck: integer; report_type: integer);
     procedure raport_totallist(id_inv: integer; truck: integer; report_type: integer);
+    procedure raport_fito_totallist(id_inv: integer; truck: integer);
     { Public declarations }
   end;
 
@@ -978,5 +979,102 @@ end;
 
 
 
+//
+// Формирование файла по группам фито (полный)
+// fito_tr%.xls
+// Код; Наименование; Стволов; Денег; Нетто; Брутто; Кор; Бак; Нетто за ствол; Вес коробки; Бака; Трол; Пал
+//
+procedure TDM.raport_fito_totallist(id_inv: integer; truck: integer);
+var XL, XArr, WorkBook, Sheet: OLEVariant;
+    j, total_packs: integer;
+    fileName: string;
+begin
+  try
+    with DM.SelQ do
+    begin
+      Close;
+      IndexFieldNames := '';
+      SQL.Clear;
+      SQL.Add('begin custom_pkg.get_fito_total_by_group(:V_ID_DEP, :v_inv_id, :v_truck, :CURSOR_); end;');
+      ParamByName('V_ID_DEP').Value := CUR_DEPT_ID;
+      ParamByName('v_inv_id').Value := id_inv;
+      ParamByName('v_truck').Value := truck;
+      ParamByName('cursor_').AsCursor;
+      Open;
+    end;
+
+    if DM.SelQ.RecordCount = 0 then exit;
+
+    fileName    := ProgPath+ '\OUT\'+IntToStr(id_inv)+'\fito_tr'+IntToStr(truck)+'.xls';
+    XArr := VarArrayCreate([1,13],varVariant);
+    XL   := CreateOLEObject('Excel.Application');     // Создание OLE объекта
+    XL.WorkBooks.Add;
+
+    //XL.Range['A1','A1'].Value := '№ п/п';
+    XL.Range['A1','A1'].Value := 'Код';
+    XL.Range['B1','B1'].Value := 'Наименование';
+    XL.Range['C1','C1'].Value := 'Стеблей';
+    XL.Range['D1','D1'].Value := 'Стоимость';
+    XL.Range['E1','E1'].Value := 'Вес нетто';
+    XL.Range['F1','F1'].Value := 'Вес брутто';
+    XL.Range['G1','G1'].Value := 'Коробки';
+    XL.Range['H1','H1'].Value := 'Баки';
+    XL.Range['I1','I1'].Value := 'Нетто за стебель';
+    XL.Range['J1','J1'].Value := 'Вес коробки';
+    XL.Range['K1','K1'].Value := 'Вес бака';
+    XL.Range['L1','L1'].Value := 'Телег';
+    XL.Range['M1','M1'].Value := 'Палет';
+    j := 2;
+
+    XL.Range['A1','M1'].select;
+    XL.Selection.Font.Bold := true;
+
+    with DM.SelQ do
+    begin
+      while not Eof do
+      begin
+        XArr[1] := FieldByName('CUST_REGN').AsString;
+        XArr[2] := FieldByName('NAME_CAT').AsString;
+        XArr[3] := FieldByName('units').Value;
+        XArr[4] := FieldByName('money').Value;
+        XArr[5] := FieldByName('netto').Value;
+        XArr[6] := FieldByName('brutto').Value;
+        XArr[7] := FieldByName('packs').Value;
+        XArr[8] := FieldByName('sideboards').Value;
+        XArr[9] := FieldByName('netto_by_unit').Value;
+        XArr[10] := FieldByName('weight_tank').Value;
+        XArr[11] := FieldByName('weight_pack').Value;
+        XArr[12] := FieldByName('telega').Value;
+        XArr[13] := FieldByName('poddon').Value;
+        XL.Range['A'+IntToStr(j),CHR(64+13)+IntToStr(j)].Value := XArr;
+        Next;
+        j := j + 1;
+      end;
+    end;
+
+    try
+      XL.Workbooks[1].SaveAs(filename);
+    except
+      XL.Quit;
+    end;
+    XL.Quit;
+
+    //////////////////////////////////////////////////////////////////////////
+
+
+
+    //////////////////////////////////////////////////////////////////////////
+    DM.SelQ.Close;
+    DM.SelQ.IndexFieldNames := '';
+
+  except
+    on E: Exception do
+    begin
+      ShowMessage(E.Message);
+      DM.SelQ.Close;
+      DM.SelQ.IndexFieldNames := '';
+    end;
+  end;
+end;
 
 end.

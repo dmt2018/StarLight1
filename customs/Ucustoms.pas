@@ -1064,6 +1064,12 @@ end;
       cxProgressBar1.Repaint;
       //make_out_file(idd, 6, 'raport_part2_totallist', VarToStr(grid_invoices_vS_NAME_RU.EditValue)+'_'+intToStr(i)+'.xls', i);
       //make_out_file(idd, 7, 'raport_part2_totallist_spec', VarToStr(grid_invoices_vS_NAME_RU.EditValue)+'_specification_'+intToStr(i)+'.xls', i);
+
+
+      // fito_tr%.xls
+      // Код; Наименование; Стволов; Денег; Нетто; Брутто; Кор; Бак; Нетто за ствол; Вес коробки; Бака; Трол; Пал
+      DM.raport_fito_totallist(idd,i);
+
     end;
 
     // Создадим файл по странам (в старом варианте так и было)
