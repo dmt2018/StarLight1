@@ -1,5 +1,563 @@
 -- Start of DDL Script for Package Body CREATOR.CUSTOM_PKG
--- Generated 25-сен-2016 1:34:14 from CREATOR@STAR_NEW
+-- Generated 01.10.2016 21:36:32 from CREATOR@STAR_NEW
+
+CREATE OR REPLACE 
+PACKAGE custom_pkg
+IS
+
+/* *************************************************************************** */
+/* Автор: Клепов А.В. */
+/* Создание: 2011-08-31 */
+/* Изменение: */
+/* Для работы с таблицами по инвойсам */
+/* *************************************************************************** */
+
+
+-- служебная переменная для подсчето
+tmp_cnt   NUMBER;
+-- служебная переменная для логов
+tmp_sql   varchar2(4000);
+-- курсор
+TYPE ref_cursor is REF CURSOR;
+
+
+--
+--  Запишем ФИТО название с переводом
+--
+PROCEDURE SAVE_FITO_NAMES
+(
+    v_ID_DEP         in number
+    , v_name         in VARCHAR2
+    , V_NAME_FITO    in VARCHAR2
+    , V_NAME_CODE    in varchar2
+    , v_fito_id      in out number
+    , out_errmsg     IN OUT varchar2
+);
+
+
+--
+--  Достанем фито перевод
+--
+PROCEDURE get_fito_names
+(
+    v_id_dep  in integer,
+    cursor_   out ref_cursor
+);
+
+
+--
+--  Удалим фито перевод
+--
+PROCEDURE del_fito_names
+(
+    v_fito_id        in number
+);
+
+
+--
+--  Достанем фито инвойсы
+--
+PROCEDURE get_custom_register
+(
+    ID_DEPARTMENTS_  in number,
+    cursor_          out ref_cursor
+);
+
+
+--
+--  Достанем сырой ФИТО
+--
+PROCEDURE get_custom_register_asis
+(
+    INV_ID_     in integer,
+    split_rose_ in integer,
+    cursor_     out ref_cursor
+);
+
+
+--
+--  Статистика по фито типам
+--
+PROCEDURE get_custom_register_pd_total
+(
+    INV_ID_  in integer,
+    param_   in integer,
+    cursor_  out ref_cursor
+);
+
+
+function get_spec(
+    INV_ID_  in integer,
+    PD_      in varchar2,
+    trucks_  in varchar2
+) return varchar2;
+
+
+--
+--  Стату для
+--
+PROCEDURE get_custom_register_asis_total
+(
+    INV_ID_  in integer,
+    param_   in integer,
+    cursor_  out ref_cursor
+);
+
+--
+--  Достанем сетку весов
+--
+PROCEDURE get_group_stat
+(
+    v_id_inv  in integer,
+    v_id_dep  in integer,
+    v_vid     in integer,
+    v_truck   in integer,
+    cursor_   out ref_cursor
+);
+
+
+--
+--  Достанем пачки таможенных инвойсов
+--
+PROCEDURE get_customs_ipp_list
+(
+    cursor_   in out ref_cursor
+);
+
+--
+--  Добавляем пачку для таможенных инвойсов
+--
+PROCEDURE ADD_CUSTOMS_PRICE_PACK
+(
+  IPP_COMMENT_        IN VARCHAR2,
+  in_id_              in out number
+);
+
+--
+--  Удаляем пачку для инвойсов
+--
+PROCEDURE DEL_CUSTOMS_PRICE_PACK
+(
+  IPP_ID_                    IN NUMBER
+);
+
+--
+--  Вставим пачку таможенным инвойсам
+--
+PROCEDURE SET_CUSTOMS_INV_TO_PACK
+(
+  V_IPP_ID      IN NUMBER
+  , V_PARAM     in number
+  , V_INV_ID    IN NUMBER
+);
+
+
+--
+--  Запишем ФИТО категории с переводом
+--
+PROCEDURE SAVE_FITO
+(
+    v_ID_DEP            in number
+    , v_name_eng        in VARCHAR2
+    , v_name_ru         in VARCHAR2
+    , v_name_eng_full   in VARCHAR2
+    , v_id              in out number
+);
+
+
+
+--
+--  Запишем формулу
+--
+PROCEDURE save_weight_formula
+(
+    V_ID_W          in number
+    , V_FO_NAME     in VARCHAR2
+    , v_FO_FIELD    in number
+    , v_FO_RULE     in number
+    , v_FO_VALUE    in VARCHAR2
+    , v_weight_     in number
+    , v_orderby     in number
+    , v_id          in out number
+);
+
+
+--
+--  Найдем значение формулы
+--
+function show_weight_formula
+(
+    V_ID_GROUP    in number
+    , V_NAME      in VARCHAR2
+    , v_LENGTH    in number
+    , v_only_LENGTH    in number
+) return varchar2;
+
+
+--
+--  Удалим формулу
+--
+PROCEDURE del_w_formula
+(
+    v_id              in out number
+);
+
+
+--
+--  Запишем вес
+--
+PROCEDURE save_weights
+(
+    v_ID_DEP         in number
+    , V_NAME_CAT     in VARCHAR2
+    , V_NAME_CAT_RU  in VARCHAR2
+    , v_weight       in number
+    , v_make_info    in number
+    , v_cust_regn    in VARCHAR2
+    , v_orderby      in number
+    , v_weight_pack  in number
+    , v_weight_tank  in number
+    , v_id           in out number
+);
+
+
+--
+--  Добавляем основную информацию о новом сыром инвойсе для таможни
+--
+PROCEDURE CUST_INV_REG_INSERT
+(
+  IN_INV_DATE            IN DATE,
+  IN_COMMENTS            IN VARCHAR2,
+  IN_SUP_INV_DATE        IN DATE,
+  IN_SUP_NUMBER          IN VARCHAR2,
+  IN_TRUCK_DATE          IN DATE,
+  IN_ID_DEPARTMENTS      IN INTEGER,
+  IN_S_ID                in number,
+  in_INV_ID              in out integer,
+  IN_FILE                in varchar2,
+  IN_COURCE              in number
+);
+
+
+--
+--  Добавляем данные нового сырого инвойса
+--
+PROCEDURE CUSTOMS_INV_REG_INSERT_DATA
+(
+    INV_ID_                     in number,
+    ORDER_NUMBER_               in number,
+    TRUCS_                      in varchar2,
+    PACKING_MARKS_              in varchar2,
+    PACKING_AMOUNT_             in number,
+    AMOUNT_PER_UNIT_            in number,
+    UNITS_                      in number,
+    PRICE_                      in number,
+    SUMM_                       in number,
+    TITLE_                      in varchar2,
+    DESCRIPTION_                in varchar2,
+    HOL_COUNTRY_                in varchar2,
+    HOL_SUB_TYPE_               in varchar2,
+    PD_                         in varchar2,
+    DIAMETR_                    in number,
+    HEIGHT_                     in number,
+    TROLLEY_                    in varchar2,
+    H_CODE_                     in varchar2,
+    UPACK_                      in varchar2,
+    SRC_NAME_                   in varchar2,
+    REMARK_                     in varchar2
+);
+
+
+--
+--  Удалим инвойсы
+--
+PROCEDURE del_custom_register
+(
+    v_id    in number
+);
+
+
+--
+--  Достанем сырой ФИТО PACK
+--
+PROCEDURE get_custom_register_asis_pack
+(
+    IPP_ID_     in integer,
+    split_rose_ in integer,
+    cursor_     out ref_cursor
+);
+
+
+function get_spec_pack(
+    IPP_ID_  in integer,
+    PD_      in varchar2,
+    trucks_  in varchar2
+) return varchar2;
+
+
+--
+--  Статистика по фито типам PACK
+--
+PROCEDURE get_custom_reg_pd_total_pack
+(
+    IPP_ID_  in integer,
+    param_   in integer,
+    cursor_  out ref_cursor
+);
+
+
+--
+--  Стату для
+--
+PROCEDURE get_custom_reg_asis_total_pack
+(
+    IPP_ID_  in integer,
+    param_   in integer,
+    cursor_  out ref_cursor
+);
+
+
+--
+--  Достанем сетку весов
+--
+PROCEDURE get_weights
+(
+    v_id_dep  in integer,
+    cursor_   out ref_cursor
+);
+
+
+--
+--  Достанем ФИТО категории с переводом
+--
+PROCEDURE GET_FITO
+(
+    ID_DEPARTMENTS_   in number,
+    cursor_           out ref_cursor
+);
+
+
+--
+--  Удалим ФИТО категории с переводом
+--
+PROCEDURE DEL_FITO
+(
+    v_id              in out number
+);
+
+
+--
+--  Удалим вес
+--
+PROCEDURE del_weights
+(
+    v_id              in out number
+);
+
+
+
+--
+--  Удалим упаковку
+--
+PROCEDURE del_packing
+(
+    v_id              in out number
+);
+
+
+--
+--  Запишем упаковку
+--
+PROCEDURE save_packing
+(
+    v_ID_DEP            in number
+    , V_packing         in VARCHAR2
+    , V_nullable        in number
+    , v_packing_weight  in number
+    , v_id              in out number
+);
+
+
+
+--
+--  Достанем тару инвойса
+--
+PROCEDURE get_inv_equipment
+(
+    v_id_inv  in integer,
+    v_id_dep  in integer,
+    cursor_   out ref_cursor
+)
+;
+
+
+--
+--  Устанавливаем тару инвойса
+--
+PROCEDURE set_inv_equipment
+(
+    v_id_inv  in integer,
+    v_id      in integer,
+    v_truck   in integer,
+    v_telega  in integer,
+    v_poddon  in integer
+);
+
+
+--
+--  Достаем данные для пояснений
+--
+PROCEDURE get_additional_information
+(
+    v_id_inv  in integer,
+    cursor_   out ref_cursor
+);
+
+
+--
+--  Таможенная сетка весов
+--
+PROCEDURE get_custcoef
+(
+    v_id_dep  in integer,
+    cursor_   out ref_cursor
+);
+
+
+--
+--  Запишем таможенную сетку весов
+--
+PROCEDURE save_custcoef
+(
+    v_id            in out number
+    , v_id_w        in number
+    , v_country_id  in number
+    , v_value       in number
+    , V_ID_DEP      in number
+);
+
+
+--
+--  Удалим таможенную сетку весов
+--
+PROCEDURE del_custcoef
+(
+    v_id              in out number
+);
+
+
+--
+--  Клонируем таможенную сетку весов
+--
+PROCEDURE copy_cust_coef
+(
+    V_ID_DEP         in number
+    , V_CUR_COUNTRY  in number
+    , V_SEL_COUNTRY  in number
+);
+
+
+
+--
+--  Для отчета по фито список групп с именами
+--
+PROCEDURE get_fito_raport_page2
+(
+    v_id_dep  in number,
+    v_inv_id  in number,
+    v_truck   in number,
+    cursor_   out ref_cursor
+);
+
+
+--
+--  Для отчета по фито список групп с коробками и баками
+--
+PROCEDURE get_fito_raport_page1
+(
+    v_id_dep  in number,
+    v_inv_id  in number,
+    v_truck   in number,
+    cursor_   out ref_cursor
+);
+
+--
+--  Для отчета по фито список групп с коробками и баками (часть 2)
+--
+PROCEDURE get_fito_raport_page1_1
+(
+    v_id_dep  in number,
+    v_inv_id  in number,
+    v_truck   in number,
+    cursor_   out ref_cursor
+);
+
+
+--
+--  Для отчета по фито список групп с ростами
+--
+PROCEDURE get_fito_raport_page3
+(
+    v_id_dep  in number,
+    v_inv_id  in number,
+    v_truck   in number,
+    cursor_   out ref_cursor
+);
+
+
+--
+--  Достанем список товара для второй части фито
+--
+PROCEDURE get_suplier_list
+(
+    INV_ID_     in integer,
+    v_truck     in integer,
+    cursor_     out ref_cursor
+);
+
+
+--
+--  Для отчета по фито список групп с коробками и баками
+--
+PROCEDURE get_suplier_list2
+(
+    v_id_dep  in number,
+    v_inv_id  in number,
+    v_truck   in number,
+    cursor_   out ref_cursor
+);
+
+
+--
+--  Для отчета по фито список групп с коробками и баками общий (новый от Насти)
+--
+PROCEDURE get_fito_total_by_group
+(
+    v_id_dep  in number,
+    v_inv_id  in number,
+    v_truck   in number,
+    cursor_   out ref_cursor
+);
+
+
+--
+--  Для отчета по фито список групп с коробками и баками
+--
+PROCEDURE get_total_list
+(
+    v_id_dep  in number,
+    v_inv_id  in number,
+    v_truck   in number,
+    cursor_   out ref_cursor
+);
+
+
+END;
+/
+
+-- Grants for Package
+GRANT EXECUTE ON custom_pkg TO new_role
+/
 
 CREATE OR REPLACE 
 PACKAGE BODY custom_pkg
@@ -1634,7 +2192,7 @@ begin
 
   open cursor_ for
     select CUST_REGN, TRUCKS, NAME_CAT_RU, NAME_CAT, fo_rule, hol_country, COUNTRY, orderby
-      , sum(units) as units, sum(netto) as netto, sum(brutto) as brutto, sum(summ) as summ, max(telega) as telega, max(poddon) as poddon, fo_rule_name, comp_name
+      , sum(units) as units, round(sum(netto),1) as netto, sum(brutto) as brutto, sum(summ) as summ, max(telega) as telega, max(poddon) as poddon, fo_rule_name, comp_name
       , sum(korobki) as packs
       , sum(baki) as sideboards
     from (
@@ -1657,7 +2215,7 @@ begin
                  , decode(a.hol_country,'','Holland',a.hol_country) as hol_country
                  , t.COUNTRY
                  , orderby
-                 , sum(round(STEM_WEIGHT*a.units)) as netto
+                 , sum(STEM_WEIGHT*a.units) as netto
                  , round(sum((case when UPACK = 'W' then weight_tank else weight_pack end)*PACKING_AMOUNT + STEM_WEIGHT*a.units) + nvl(max(e.telega)*const_customs_telega,0) + nvl(max(e.poddon)*const_customs_poddon,0)) as brutto
                  , sum(summ) as summ
                  , max(nvl(e.telega,0)) as telega, max(nvl(e.poddon,0)) as poddon
@@ -1760,7 +2318,7 @@ is
 begin
 
   open cursor_ for
-    select hol_country, sum(units) as units, /*case when round(sum(netto)) = 0 then 1 else round(sum(netto)) end netto,*/ sum(netto) as netto, round(sum(brutto)) as brutto from (
+    select hol_country, sum(units) as units, round(sum(netto),1) as netto, round(sum(brutto)) as brutto from (
     select CUST_REGN, TRUCKS, NAME_CAT_RU, NAME_CAT, fo_rule, hol_country, COUNTRY, orderby
       , sum(units) as units, sum(netto) as netto, sum(brutto) as brutto, sum(summ) as summ, max(telega) as telega, max(poddon) as poddon, fo_rule_name, comp_name
       , sum(korobki) as packs
@@ -1785,7 +2343,7 @@ begin
                  , decode(a.hol_country,'','Holland',a.hol_country) as hol_country
                  , t.COUNTRY
                  , orderby
-                 , sum(round(STEM_WEIGHT*a.units)) as netto
+                 , sum(STEM_WEIGHT*a.units) as netto
                  , round(sum((case when UPACK = 'W' then weight_tank else weight_pack end)*PACKING_AMOUNT + STEM_WEIGHT*a.units) + nvl(max(e.telega)*const_customs_telega,0) + nvl(max(e.poddon)*const_customs_poddon,0)) as brutto
                  , sum(summ) as summ
                  , max(nvl(e.telega,0)) as telega, max(nvl(e.poddon,0)) as poddon
@@ -1964,7 +2522,8 @@ begin
        , round(sum((case when UPACK = 'W' then weight_tank else weight_pack end)*PACKING_AMOUNT + STEM_WEIGHT*a.units) + nvl(max(e.telega)*const_customs_telega,0) + nvl(max(e.poddon)*const_customs_poddon,0)) as brutto
        , sum(summ) as summ
        , max(nvl(e.telega,0)) as telega, max(nvl(e.poddon,0)) as poddon
-       , decode(a.hol_country,'','Holland',a.hol_country) as MNEMO
+       --, decode(a.hol_country,'','Holland',a.hol_country) as MNEMO
+       , decode(t.mnemo,null,'NL',t.mnemo) as MNEMO
      FROM customs_inv_data_as_is a
        left outer join (
           select w.id, w.NAME_CAT, w.CUST_REGN, nvl(wf.V_WEIGHT, w.STEM_WEIGHT) as STEM_WEIGHT
@@ -1986,7 +2545,7 @@ begin
        left outer join customs_inv_equipment e on e.inv_id = a.inv_id and e.id = c.id and e.truck = to_number(a.TRUCKS)
 
      WHERE a.INV_ID = v_inv_id and to_number(a.TRUCKS) = v_truck
-     group by a.TRUCKS, CUST_REGN, orderby, NAME_CAT_RU, NAME_CAT, decode(a.hol_country,'','Holland',a.hol_country)
+     group by a.TRUCKS, CUST_REGN, orderby, NAME_CAT_RU, NAME_CAT, decode(t.mnemo,null,'NL',t.mnemo) --, decode(a.hol_country,'','Holland',a.hol_country)
      order by a.TRUCKS, orderby, NAME_CAT_RU
   ;
   EXCEPTION
@@ -2012,7 +2571,9 @@ is
 begin
   open cursor_ for
     select TRUCKS, CUST_REGN, NAME_CAT
-      , sum(units) as units, 0 as money, sum(netto) as netto, sum(brutto) as brutto
+      , sum(units) as units, 0 as money
+      , round(sum(netto),1) as netto
+      , sum(brutto) as brutto
       , sum(korobki) as packs
       , sum(baki) as sideboards
       , max(STEM_WEIGHT) as netto_by_unit
@@ -2038,7 +2599,7 @@ begin
                  , decode(a.hol_country,'','Holland',a.hol_country) as hol_country
                  , t.COUNTRY
                  , orderby
-                 , sum(round(STEM_WEIGHT*a.units)) as netto
+                 , sum(STEM_WEIGHT*a.units) as netto
                  , round(sum((case when UPACK = 'W' then weight_tank else weight_pack end)*PACKING_AMOUNT + STEM_WEIGHT*a.units) + nvl(max(e.telega)*const_customs_telega,0) + nvl(max(e.poddon)*const_customs_poddon,0)) as brutto
                  , sum(summ) as summ
                  , max(nvl(e.telega,0)) as telega, max(nvl(e.poddon,0)) as poddon
@@ -2094,7 +2655,7 @@ begin
 
   open cursor_ for
     select TRUCKS, CUST_REGN, NAME_CAT
-      , sum(units) as units, 0 as money, sum(netto) as netto, sum(brutto) as brutto
+      , sum(units) as units, 0 as money, round(sum(netto),1) as netto, sum(brutto) as brutto
       , sum(korobki) as packs
       , sum(baki) as sideboards
       , max(STEM_WEIGHT) as netto_by_unit
@@ -2120,7 +2681,7 @@ begin
                  , decode(a.hol_country,'','Holland',a.hol_country) as hol_country
                  , t.COUNTRY
                  , orderby
-                 , sum(round(STEM_WEIGHT*a.units)) as netto
+                 , sum(STEM_WEIGHT*a.units) as netto
                  , round(sum((case when UPACK = 'W' then weight_tank else weight_pack end)*PACKING_AMOUNT + STEM_WEIGHT*a.units) + nvl(max(e.telega)*const_customs_telega,0) + nvl(max(e.poddon)*const_customs_poddon,0)) as brutto
                  , sum(summ) as summ
                  , max(nvl(e.telega,0)) as telega, max(nvl(e.poddon,0)) as poddon
@@ -2161,10 +2722,6 @@ end get_fito_total_by_group;
 
 
 END;
-/
-
--- Grants for Package Body
-GRANT EXECUTE ON custom_pkg TO new_role
 /
 
 

@@ -486,7 +486,7 @@ begin
         sum_6  := sum_6 + FieldByName('packs').AsInteger;
         sum_7  := sum_7 + FieldByName('sideboards').AsInteger+FieldByName('packs').AsInteger;
         sum_8  := sum_8 + FieldByName('brutto').AsInteger;
-        sum_9  := sum_9 + FieldByName('netto').AsInteger;
+        sum_9  := sum_9 + FieldByName('netto').AsFloat;
         sum_10 := sum_10 + FieldByName('summ').AsInteger;
         sum_11 := sum_11 + FieldByName('telega').AsInteger;
         sum_12 := sum_12 + FieldByName('poddon').AsInteger;
@@ -1042,8 +1042,8 @@ begin
         XArr[7] := FieldByName('packs').Value;
         XArr[8] := FieldByName('sideboards').Value;
         XArr[9] := FieldByName('netto_by_unit').Value;
-        XArr[10] := FieldByName('weight_tank').Value;
-        XArr[11] := FieldByName('weight_pack').Value;
+        XArr[10] := FieldByName('weight_pack').Value;
+        XArr[11] := FieldByName('weight_tank').Value;
         XArr[12] := FieldByName('telega').Value;
         XArr[13] := FieldByName('poddon').Value;
         XL.Range['A'+IntToStr(j),CHR(64+13)+IntToStr(j)].Value := XArr;
