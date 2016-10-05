@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.STORE_PKG
--- Generated 07.07.2016 0:08:26 from CREATOR@STAR_NEW
+-- Generated 06.10.2016 1:27:40 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE store_pkg
@@ -2700,7 +2700,7 @@ BEGIN
                 and (a.id_office = v_office or v_office = 0)
                 and a.id_doc = e.id_doc(+)
                 and a.order_id = o.id_orders_clients(+)
-                and a.doc_number = t.invoice(+)
+                and a.doc_number = t.invoice(+) and t.R_PAYDESK(+) > 0
              ORDER BY DOC_DATE desc, DOC_DATE_real desc;
 
 EXCEPTION
