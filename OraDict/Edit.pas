@@ -1860,6 +1860,7 @@ var F_CSV: TextFile;
 begin
   if odInvoice.Execute then
   begin
+
     try
       screen.cursor := crHourGlass;
 
@@ -1902,15 +1903,16 @@ begin
       dm.SelQ.Execute;
       dm.SelQ.close;
 
-      aRefresh.Execute;
-      MessageBox (Handle,'Файл импортирован успешно.', 'Результат', MB_ICONINFORMATION);
-
     finally
       pnl_msg.Free;
       screen.cursor := crDefault;
       CloseFile(F_CSV);
       DM.SelectSession.Commit;
     end;
+
+    aRefresh.Execute;
+    MessageBox (Handle,'Файл импортирован успешно.', 'Результат', MB_ICONINFORMATION);
+
   end;
 end;
 
