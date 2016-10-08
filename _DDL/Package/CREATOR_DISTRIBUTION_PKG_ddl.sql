@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.DISTRIBUTION_PKG
--- Generated 13.08.2016 14:02:26 from CREATOR@STAR_NEW
+-- Generated 09.10.2016 0:29:23 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE distribution_pkg
@@ -405,6 +405,16 @@ procedure remove_order_from_distribution
   res               in out varchar2
 );
 
+
+--
+-- Ищем пропащие записи в инвойсе и добавим их в разнос
+--
+procedure check_missed_distributions
+(
+  IN_DIST_IND_ID    IN NUMBER,
+  in_inv_id         in number,
+  res               in out number
+);
 
 
 END; -- Package spec
@@ -2480,6 +2490,40 @@ EXCEPTION
         RAISE_APPLICATION_ERROR (-20526, 'Запрос не выполнился. ' || SQLERRM);
 end;
 
+
+--
+-- Ищем пропащие записи в инвойсе и добавим их в разнос
+--
+procedure check_missed_distributions
+(
+  IN_DIST_IND_ID    IN NUMBER,
+  in_inv_id         in number,
+  res               in out number
+)
+is
+begin
+  SELECT count(*) into res
+    FROM invoice_data a
+    where inv_id = in_inv_id
+      and not exists (select 1 from  prepare_distribution b , prepare_distribution_tree e where b.dist_ind_id = IN_DIST_IND_ID and b.prep_dist_id = e.prep_dist_id(+) and (b.invoice_data_id = a.invoice_data_id or e.invoice_data_id = a.invoice_data_id) )
+      and not exists (select 1 from  prepare_distribution c where c.dist_ind_id = IN_DIST_IND_ID and c.n_id = a.n_id)
+  ;
+
+  INSERT INTO PREPARE_DISTRIBUTION (
+    SELECT IN_DIST_IND_ID, a.n_id, a.invoice_data_id, null, a.units, 0, PREP_DIST_ID.nextval
+      FROM invoice_data a
+      where inv_id = in_inv_id
+        and not exists (select 1 from  prepare_distribution b , prepare_distribution_tree e where b.dist_ind_id = IN_DIST_IND_ID and b.prep_dist_id = e.prep_dist_id(+) and (b.invoice_data_id = a.invoice_data_id or e.invoice_data_id = a.invoice_data_id) )
+        and not exists (select 1 from  prepare_distribution c where c.dist_ind_id = IN_DIST_IND_ID and c.n_id = a.n_id)
+  )
+  ;
+  commit;
+
+EXCEPTION
+   WHEN OTHERS THEN
+        LOG_ERR(SQLERRM, SQLCODE, 'distribution_pkg.check_missed_distributions', '');
+        RAISE_APPLICATION_ERROR (-20527, 'Запрос не выполнился. ' || SQLERRM);
+end;
 
 END;
 /

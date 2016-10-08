@@ -1294,7 +1294,7 @@ object DistFormF: TDistFormF
     Left = 576
     Top = 488
     Bitmap = {
-      494C01010C00C800EC0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010C00C800F00010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000004000000001002000000000000040
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -2944,6 +2944,11 @@ object DistFormF: TDistFormF
         item
           Visible = True
           ItemName = 'btnUnloadStock'
+        end
+        item
+          BeginGroup = True
+          Visible = True
+          ItemName = 'mnCheckInvoices'
         end>
     end
     object dxBarButton6: TdxBarButton
@@ -3757,6 +3762,23 @@ object DistFormF: TDistFormF
     object tlb_print_ostatok_free_group_wp: TdxBarButton
       Action = aPrintSellByGroupWP
       Category = 0
+    end
+    object mnCheckInvoices: TdxBarSubItem
+      Caption = #1055#1088#1086#1074#1077#1088#1082#1072' '#1086#1090#1089#1091#1090#1089#1090#1074#1080#1103' '#1076#1072#1085#1085#1099#1093' '#1074' '#1080#1085#1074#1086#1081#1089#1072#1093' '
+      Category = 0
+      Visible = ivAlways
+      ItemLinks = <
+        item
+          Visible = True
+          ItemName = 'dxBarButton13'
+        end>
+    end
+    object dxBarButton13: TdxBarButton
+      Caption = 'New Button'
+      Category = 0
+      Hint = 'New Button'
+      Visible = ivAlways
+      OnClick = mnCheckInvoice
     end
   end
   object ppStok: TPopupMenu

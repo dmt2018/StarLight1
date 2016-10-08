@@ -341,6 +341,8 @@ type
     gr_goods_info_vPRIORITY: TcxGridDBColumn;
     tlb_print_ostatok_free_group_wp: TdxBarButton;
     aPrintSellByGroupWP: TAction;
+    mnCheckInvoices: TdxBarSubItem;
+    dxBarButton13: TdxBarButton;
     procedure AExitExecute(Sender: TObject);
     procedure AGetdeptExecute(Sender: TObject);
     procedure AChooseOrderExecute(Sender: TObject);
@@ -433,6 +435,7 @@ type
     procedure aLoadOrderExecute(Sender: TObject);
     procedure UnloadOrderClick(Sender: TObject);
     procedure aPrintSellByGroupWPExecute(Sender: TObject);
+    procedure mnCheckInvoice(Sender: TObject);
   private
     path: string;
     vSTOK: integer;
@@ -725,13 +728,14 @@ end;
 
 function TDistFormF.GetInvoices: string;
 var res: string;
+    ItemLink: TdxBarItemLink;
 begin
   if (CUR_DIST_IND_ID = NULL) then
   begin
     result := '';
     exit;
   end;
-
+  mnCheckInvoices.ItemLinks.Clear;
   with DM.SelQ do
   Begin
       Close;
@@ -745,6 +749,17 @@ begin
       begin
         while not Eof do
         begin
+
+            mnCheckInvoices.ItemLinks.BeginUpdate;
+            ItemLink := mnCheckInvoices.ItemLinks.Add;
+            ItemLink.Item := TdxBarButton.Create(mnCheckInvoices);
+            ItemLink.Item.Caption := 'ID '+FieldByName('INV_ID').AsString;
+            ItemLink.Item.Tag := FieldByName('INV_ID').AsInteger;
+            ItemLink.Item.OnClick := mnCheckInvoice;
+            ItemLink.BringToTopInRecentList(False);
+            mnCheckInvoices.ItemLinks.EndUpdate;
+
+
           if (res = '') then
             res := FieldByName('INV_ID').AsString
           else
@@ -1716,6 +1731,30 @@ begin
 end;
 
 
+
+procedure TDistFormF.mnCheckInvoice(Sender: TObject);
+var res: integer;
+begin
+  if (MessageDlg(PChar('Проверяем инвойс №'+(IntToStr((Sender as TdxBarButton).Tag))+'?'), mtConfirmation, [mbOk, mbNo], 0, mbOk) <> mrOk) then exit;
+
+  res := 0;
+  try
+    with DM.SelQ do
+    Begin
+      Close;
+      SQL.Clear;
+      SQL.Add('begin DISTRIBUTION_PKG.check_missed_distributions(:IN_DIST_IND_ID, :in_inv_id, :res); end;');
+      ParamByName('IN_DIST_IND_ID').AsInteger := CUR_DIST_IND_ID;
+      ParamByName('in_inv_id').AsInteger      := (Sender as TdxBarButton).Tag;
+      ParamByName('res').AsInteger            := res;
+      Execute;
+    End;
+    MessageBox(Handle, PChar('Всего добавлено позиций: '+DM.SelQ.ParamByName('res').AsString), 'Результат', MB_ICONINFORMATION);
+    tlb_refreshClick(nil);
+  except on E: Exception do
+       MessageBox(Handle, PChar(E.Message), 'Внимание', MB_ICONERROR);
+  end;
+end;
 
 //
 //  Печать кубиков
