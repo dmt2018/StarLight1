@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.CUSTOM_PKG
--- Generated 01.10.2016 21:36:32 from CREATOR@STAR_NEW
+-- Generated 09.10.2016 2:14:08 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE custom_pkg
@@ -2192,7 +2192,7 @@ begin
 
   open cursor_ for
     select CUST_REGN, TRUCKS, NAME_CAT_RU, NAME_CAT, fo_rule, hol_country, COUNTRY, orderby
-      , sum(units) as units, round(sum(netto),1) as netto, sum(brutto) as brutto, sum(summ) as summ, max(telega) as telega, max(poddon) as poddon, fo_rule_name, comp_name
+      , sum(units) as units, sum(netto) as netto, sum(brutto) as brutto, sum(summ) as summ, max(telega) as telega, max(poddon) as poddon, fo_rule_name, comp_name
       , sum(korobki) as packs
       , sum(baki) as sideboards
     from (
@@ -2215,7 +2215,7 @@ begin
                  , decode(a.hol_country,'','Holland',a.hol_country) as hol_country
                  , t.COUNTRY
                  , orderby
-                 , sum(STEM_WEIGHT*a.units) as netto
+                 , sum(round(STEM_WEIGHT*a.units)) as netto
                  , round(sum((case when UPACK = 'W' then weight_tank else weight_pack end)*PACKING_AMOUNT + STEM_WEIGHT*a.units) + nvl(max(e.telega)*const_customs_telega,0) + nvl(max(e.poddon)*const_customs_poddon,0)) as brutto
                  , sum(summ) as summ
                  , max(nvl(e.telega,0)) as telega, max(nvl(e.poddon,0)) as poddon
@@ -2318,7 +2318,7 @@ is
 begin
 
   open cursor_ for
-    select hol_country, sum(units) as units, round(sum(netto),1) as netto, round(sum(brutto)) as brutto from (
+    select hol_country, sum(units) as units, sum(netto) as netto, round(sum(brutto)) as brutto from (
     select CUST_REGN, TRUCKS, NAME_CAT_RU, NAME_CAT, fo_rule, hol_country, COUNTRY, orderby
       , sum(units) as units, sum(netto) as netto, sum(brutto) as brutto, sum(summ) as summ, max(telega) as telega, max(poddon) as poddon, fo_rule_name, comp_name
       , sum(korobki) as packs
@@ -2343,7 +2343,7 @@ begin
                  , decode(a.hol_country,'','Holland',a.hol_country) as hol_country
                  , t.COUNTRY
                  , orderby
-                 , sum(STEM_WEIGHT*a.units) as netto
+                 , sum(round(STEM_WEIGHT*a.units)) as netto
                  , round(sum((case when UPACK = 'W' then weight_tank else weight_pack end)*PACKING_AMOUNT + STEM_WEIGHT*a.units) + nvl(max(e.telega)*const_customs_telega,0) + nvl(max(e.poddon)*const_customs_poddon,0)) as brutto
                  , sum(summ) as summ
                  , max(nvl(e.telega,0)) as telega, max(nvl(e.poddon,0)) as poddon
@@ -2655,7 +2655,7 @@ begin
 
   open cursor_ for
     select TRUCKS, CUST_REGN, NAME_CAT
-      , sum(units) as units, 0 as money, round(sum(netto),1) as netto, sum(brutto) as brutto
+      , sum(units) as units, 0 as money, sum(netto) as netto, sum(brutto) as brutto
       , sum(korobki) as packs
       , sum(baki) as sideboards
       , max(STEM_WEIGHT) as netto_by_unit
@@ -2681,7 +2681,7 @@ begin
                  , decode(a.hol_country,'','Holland',a.hol_country) as hol_country
                  , t.COUNTRY
                  , orderby
-                 , sum(STEM_WEIGHT*a.units) as netto
+                 , sum(round(STEM_WEIGHT*a.units)) as netto
                  , round(sum((case when UPACK = 'W' then weight_tank else weight_pack end)*PACKING_AMOUNT + STEM_WEIGHT*a.units) + nvl(max(e.telega)*const_customs_telega,0) + nvl(max(e.poddon)*const_customs_poddon,0)) as brutto
                  , sum(summ) as summ
                  , max(nvl(e.telega,0)) as telega, max(nvl(e.poddon,0)) as poddon
