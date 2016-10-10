@@ -274,7 +274,7 @@ object frmEditRegistration: TfrmEditRegistration
     Width = 791
     Height = 505
     Cursor = crHandPoint
-    ActivePage = TabSheet1
+    ActivePage = TabSheet3
     Align = alTop
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack
@@ -1469,6 +1469,7 @@ object frmEditRegistration: TfrmEditRegistration
           Font.Pitch = fpFixed
           Font.Style = []
           ParentFont = False
+          Visible = False
         end
         object Label31: TLabel
           Left = 19
@@ -1483,6 +1484,7 @@ object frmEditRegistration: TfrmEditRegistration
           Font.Pitch = fpFixed
           Font.Style = []
           ParentFont = False
+          Visible = False
         end
         object Label32: TLabel
           Left = 19
@@ -1497,6 +1499,7 @@ object frmEditRegistration: TfrmEditRegistration
           Font.Pitch = fpFixed
           Font.Style = []
           ParentFont = False
+          Visible = False
         end
         object Label34: TLabel
           Left = 19
@@ -1511,6 +1514,7 @@ object frmEditRegistration: TfrmEditRegistration
           Font.Pitch = fpFixed
           Font.Style = []
           ParentFont = False
+          Visible = False
         end
         object Label35: TLabel
           Left = 19
@@ -1525,6 +1529,7 @@ object frmEditRegistration: TfrmEditRegistration
           Font.Pitch = fpFixed
           Font.Style = []
           ParentFont = False
+          Visible = False
         end
         object Label36: TLabel
           Left = 19
@@ -1539,6 +1544,7 @@ object frmEditRegistration: TfrmEditRegistration
           Font.Pitch = fpFixed
           Font.Style = []
           ParentFont = False
+          Visible = False
         end
         object Label38: TLabel
           Left = 427
@@ -1609,6 +1615,14 @@ object frmEditRegistration: TfrmEditRegistration
           Font.Pitch = fpFixed
           Font.Style = []
           ParentFont = False
+        end
+        object SpeedButton7: TSpeedButton
+          Left = 151
+          Top = 142
+          Width = 41
+          Height = 33
+          Cursor = crHandPoint
+          OnClick = SpeedButton7Click
         end
         object LabeledEdit10: TLabeledEdit
           Left = 16
@@ -1725,6 +1739,7 @@ object frmEditRegistration: TfrmEditRegistration
           Color = clSilver
           Enabled = False
           TabOrder = 5
+          Visible = False
         end
         object Edit4: TEdit
           Left = 151
@@ -1734,6 +1749,7 @@ object frmEditRegistration: TfrmEditRegistration
           Color = clSilver
           Enabled = False
           TabOrder = 6
+          Visible = False
         end
         object Edit5: TEdit
           Left = 151
@@ -1743,6 +1759,7 @@ object frmEditRegistration: TfrmEditRegistration
           Color = clSilver
           Enabled = False
           TabOrder = 7
+          Visible = False
         end
         object Edit6: TEdit
           Left = 151
@@ -1752,6 +1769,7 @@ object frmEditRegistration: TfrmEditRegistration
           Color = clSilver
           Enabled = False
           TabOrder = 8
+          Visible = False
         end
         object ComboBox5: TComboBox
           Left = 151
@@ -1762,6 +1780,7 @@ object frmEditRegistration: TfrmEditRegistration
           Enabled = False
           ItemHeight = 16
           TabOrder = 9
+          Visible = False
           Items.Strings = (
             '01'
             '02'
@@ -1804,6 +1823,7 @@ object frmEditRegistration: TfrmEditRegistration
           Enabled = False
           ItemHeight = 16
           TabOrder = 10
+          Visible = False
           Items.Strings = (
             #1103#1085#1074#1072#1088#1103
             #1092#1077#1074#1088#1072#1083#1103
@@ -1827,6 +1847,7 @@ object frmEditRegistration: TfrmEditRegistration
           Enabled = False
           ItemHeight = 16
           TabOrder = 11
+          Visible = False
           Items.Strings = (
             '1970'
             '1971'
@@ -1886,6 +1907,7 @@ object frmEditRegistration: TfrmEditRegistration
           Enabled = False
           ItemHeight = 16
           TabOrder = 12
+          Visible = False
         end
         object Memo8: TMemo
           Left = 427
@@ -1958,6 +1980,7 @@ object frmEditRegistration: TfrmEditRegistration
         LevelTabs.Style = 7
         LookAndFeel.Kind = lfOffice11
         LookAndFeel.NativeStyle = False
+        ExplicitTop = 2
         object gr_address_v: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
           NavigatorButtons.First.Visible = False
@@ -2421,7 +2444,7 @@ object frmEditRegistration: TfrmEditRegistration
     Left = 532
     Top = 22
     Bitmap = {
-      494C010107000900BC0010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010107000900C40010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000084CA84FF54B757FF000000000000000000000000000000000000
@@ -2929,8 +2952,8 @@ object frmEditRegistration: TfrmEditRegistration
     object Q_CLIENT_VIEWID_CITY: TIntegerField
       FieldName = 'ID_CITY'
     end
-    object Q_CLIENT_VIEWINTERES: TStringField
-      FieldName = 'INTERES'
+    object Q_CLIENT_VIEWKEY_INTERESTS: TStringField
+      FieldName = 'KEY_INTERESTS'
       Size = 1024
     end
     object Q_CLIENT_VIEWREG_TYPE_NAME: TStringField

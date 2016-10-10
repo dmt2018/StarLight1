@@ -1,11 +1,15 @@
-object frmNSICurreny: TfrmNSICurreny
+object frmTrans: TfrmTrans
   Left = 0
   Top = 0
-  Caption = ' '#1050#1091#1088#1089#1099' '#1074#1072#1083#1102#1090
-  ClientHeight = 482
-  ClientWidth = 773
+  Caption = #1058#1088#1072#1085#1089#1087#1086#1088#1090#1085#1099#1081' '#1086#1090#1076#1077#1083
+  ClientHeight = 387
+  ClientWidth = 1121
   Color = clBtnFace
-  ParentFont = True
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
   FormStyle = fsMDIChild
   OldCreateOrder = False
   Visible = True
@@ -14,14 +18,15 @@ object frmNSICurreny: TfrmNSICurreny
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
-  object grCurrency: TcxGrid
+  object grTrans: TcxGrid
     Left = 0
     Top = 58
-    Width = 773
-    Height = 398
+    Width = 1121
+    Height = 303
     Align = alClient
-    TabOrder = 4
-    object grCurrencyView: TcxGridDBTableView
+    TabOrder = 0
+    ExplicitWidth = 1038
+    object grTransView: TcxGridDBTableView
       NavigatorButtons.ConfirmDelete = False
       NavigatorButtons.First.Visible = True
       NavigatorButtons.PriorPage.Visible = True
@@ -39,17 +44,23 @@ object frmNSICurreny: TfrmNSICurreny
       NavigatorButtons.SaveBookmark.Visible = True
       NavigatorButtons.GotoBookmark.Visible = True
       NavigatorButtons.Filter.Visible = True
-      DataController.DataSource = Q_CURR_DS
+      OnCustomDrawCell = grTransViewCustomDrawCell
+      DataController.DataSource = Q_Trans_DS
       DataController.Summary.DefaultGroupSummaryItems = <>
       DataController.Summary.FooterSummaryItems = <>
       DataController.Summary.SummaryGroups = <>
+      FilterRow.Visible = True
       OptionsBehavior.CellHints = True
       OptionsCustomize.ColumnMoving = False
       OptionsData.CancelOnExit = False
       OptionsData.Deleting = False
       OptionsData.DeletingConfirmation = False
+      OptionsData.Editing = False
       OptionsData.Inserting = False
-      OptionsSelection.MultiSelect = True
+      OptionsSelection.CellSelect = False
+      OptionsSelection.HideFocusRectOnExit = False
+      OptionsSelection.InvertSelect = False
+      OptionsSelection.UnselectFocusedRecordOnExit = False
       OptionsView.CellEndEllipsis = True
       OptionsView.NoDataToDisplayInfoText = #1053#1077#1090' '#1076#1072#1085#1085#1099#1093' '#1076#1083#1103' '#1087#1088#1086#1089#1084#1086#1090#1088#1072
       OptionsView.Footer = True
@@ -57,104 +68,188 @@ object frmNSICurreny: TfrmNSICurreny
       OptionsView.GroupByBox = False
       OptionsView.GroupFooters = gfVisibleWhenExpanded
       OptionsView.HeaderEndEllipsis = True
-      object grCurrencyViewColumn1: TcxGridDBColumn
-        Caption = #1054#1092#1080#1089
-        DataBinding.FieldName = 'ID_OFFICE'
-        Visible = False
-      end
-      object grCurrencyViewColumn2: TcxGridDBColumn
-        Caption = #1044#1072#1090#1072
-        DataBinding.FieldName = 'DDATE'
-        PropertiesClassName = 'TcxDateEditProperties'
-        Properties.Alignment.Horz = taCenter
-        Properties.ReadOnly = True
-        Properties.SaveTime = False
-        Properties.ShowTime = False
-        HeaderAlignmentHorz = taCenter
-        Width = 100
-      end
-      object grCurrencyViewColumn3: TcxGridDBColumn
-        DataBinding.FieldName = 'USD'
-        PropertiesClassName = 'TcxCurrencyEditProperties'
-        Properties.Alignment.Horz = taRightJustify
-        Properties.DecimalPlaces = 5
-        Properties.DisplayFormat = ',0.00000;-,0.00000'
-        HeaderAlignmentHorz = taCenter
+      Styles.Selection = net
+      object grTransNN: TcxGridDBColumn
+        Caption = #1047#1072#1082#1072#1079' '#8470
+        DataBinding.FieldName = 'N_ID'
         Width = 80
       end
-      object grCurrencyViewColumn4: TcxGridDBColumn
-        DataBinding.FieldName = 'EUR'
-        PropertiesClassName = 'TcxCurrencyEditProperties'
-        Properties.Alignment.Horz = taRightJustify
-        Properties.DecimalPlaces = 5
-        Properties.DisplayFormat = ',0.00000;-,0.00000'
-        HeaderAlignmentHorz = taCenter
-        Width = 80
+      object grTransData: TcxGridDBColumn
+        Caption = #1053#1072' '#1076#1072#1090#1091
+        DataBinding.FieldName = 'ON_DATE'
+        Width = 103
       end
-      object grCurrencyViewColumn5: TcxGridDBColumn
-        Caption = '$ '#1082' '#8364
-        DataBinding.FieldName = 'USD_EUR'
-        PropertiesClassName = 'TcxCurrencyEditProperties'
-        Properties.Alignment.Horz = taRightJustify
-        Properties.DecimalPlaces = 5
-        Properties.DisplayFormat = ',0.00000;-,0.00000'
-        HeaderAlignmentHorz = taCenter
-        Width = 80
+      object grTransNick: TcxGridDBColumn
+        Caption = #1050#1083#1080#1077#1085#1090
+        DataBinding.FieldName = 'NICK_'
       end
-      object grCurrencyViewColumn6: TcxGridDBColumn
-        Caption = #8364' '#1082' $'
-        DataBinding.FieldName = 'EUR_USD'
-        PropertiesClassName = 'TcxCurrencyEditProperties'
-        Properties.Alignment.Horz = taRightJustify
-        Properties.DecimalPlaces = 5
-        Properties.DisplayFormat = ',0.00000;-,0.00000'
-        HeaderAlignmentHorz = taCenter
-        Width = 80
+      object grTransFioCl: TcxGridDBColumn
+        Caption = #1060#1048#1054
+        DataBinding.FieldName = 'FIO_CL'
+        Width = 180
       end
-      object grCurrencyViewColumn7: TcxGridDBColumn
-        Caption = #1044#1080#1088'. USD'
-        DataBinding.FieldName = 'SHEV_USD'
-        PropertiesClassName = 'TcxCurrencyEditProperties'
-        Properties.Alignment.Horz = taRightJustify
-        Properties.DecimalPlaces = 5
-        Properties.DisplayFormat = ',0.00000;-,0.00000'
-        HeaderAlignmentHorz = taCenter
-        Width = 80
+      object grTransFIOmen: TcxGridDBColumn
+        Caption = #1042#1099#1073#1080#1083' '#1085#1072#1082#1083#1072#1076#1085#1091#1102
+        DataBinding.FieldName = 'FIO_MEN'
+        Width = 180
       end
-      object grCurrencyViewColumn8: TcxGridDBColumn
-        Caption = #1044#1080#1088'. EUR'
-        DataBinding.FieldName = 'SHEV_EUR'
-        PropertiesClassName = 'TcxCurrencyEditProperties'
-        Properties.Alignment.Horz = taRightJustify
-        Properties.DecimalPlaces = 5
-        Properties.DisplayFormat = ',0.00000;-,0.00000'
-        HeaderAlignmentHorz = taCenter
-        Width = 80
+      object grTransFIOtaxi: TcxGridDBColumn
+        Caption = #1042#1086#1076#1080#1090#1077#1083#1100' ('#8470' '#1084#1072#1096#1080#1085#1099')'
+        DataBinding.FieldName = 'N_MASH'
+        Width = 180
       end
-      object grCurrencyViewColumn9: TcxGridDBColumn
-        Caption = #1044#1080#1088'. $ '#1082' '#8364
-        DataBinding.FieldName = 'SHEV_USD_EUR'
-        PropertiesClassName = 'TcxCurrencyEditProperties'
-        Properties.Alignment.Horz = taRightJustify
-        Properties.DecimalPlaces = 5
-        Properties.DisplayFormat = ',0.00000;-,0.00000'
-        HeaderAlignmentHorz = taCenter
-        Width = 80
+      object grTransAdres: TcxGridDBColumn
+        Caption = #1040#1076#1088#1077#1089
+        DataBinding.FieldName = 'ADR'
+        Width = 180
       end
-      object grCurrencyViewColumn10: TcxGridDBColumn
-        Caption = #1044#1080#1088'. '#8364' '#1082' $'
-        DataBinding.FieldName = 'SHEV_EUR_USD'
-        PropertiesClassName = 'TcxCurrencyEditProperties'
-        Properties.Alignment.Horz = taRightJustify
-        Properties.DecimalPlaces = 5
-        Properties.DisplayFormat = ',0.00000;-,0.00000'
-        HeaderAlignmentHorz = taCenter
-        Width = 80
+      object grTransDataDostav: TcxGridDBColumn
+        Caption = #1044#1072#1090#1072' '#1076#1086#1089#1090#1072#1074#1082#1080
+        DataBinding.FieldName = 'END_DATE'
+        Width = 180
+      end
+      object grTransKem: TcxGridDBColumn
+        Caption = #1050#1077#1084' '#1087#1077#1088#1077#1076#1072#1085
+        DataBinding.FieldName = 'FIO_KEM'
+        Width = 180
+      end
+      object grTransKomy: TcxGridDBColumn
+        Caption = #1050#1086#1084#1091' '#1087#1077#1088#1077#1076#1072#1085
+        DataBinding.FieldName = 'FIO_KOMY'
+        Width = 180
+      end
+      object grTransStat: TcxGridDBColumn
+        Caption = #1057#1090#1072#1090#1091#1089
+        DataBinding.FieldName = 'STAT'
+        PropertiesClassName = 'TcxCheckBoxProperties'
+        Properties.ValueChecked = '1'
+        Properties.ValueGrayed = '2'
+        Properties.ValueUnchecked = '0'
+        OnGetCellHint = grTransStatGetCellHint
+        Width = 73
       end
     end
-    object grCurrencyLevel: TcxGridLevel
-      GridView = grCurrencyView
+    object grTransLevel: TcxGridLevel
+      GridView = grTransView
     end
+  end
+  object Q_Trans: TOraQuery
+    SQL.Strings = (
+      'select * from status_z order by n_id'
+      '/*'
+      
+        'SELECT distinct a.doc_number, a.doc_date, a.nick, a.fio, a.opera' +
+        'tor_name, b.N_ID, b.N_MASH, b.STAT FROM store_doc_view2 a'
+      'left outer join status_z b on b.N_ID = a.doc_number'
+      '*/'
+      '/*'
+      
+        'SELECT distinct a.doc_number, to_char(a.doc_date), a.nick, a.fio' +
+        ', a.operator_name, '#39'taxi'#39', '#39'status'#39' FROM store_doc_view2 a'
+      'union all '
+      
+        'select  b.N_ID, b.on_date, b.nick_, b.fio_cl, b.fio_men, b.N_MAS' +
+        'H, b.STAT from status_z b'
+      '*/'
+      '/*'
+      
+        'SELECT distinct a.doc_number, a.doc_date, a.nick, a.fio, a.opera' +
+        'tor_name, b.N_ID, b.N_MASH, b.STAT FROM store_doc_view2 a'
+      'right outer join status_z b on b.N_ID = a.doc_number'
+      '*/'
+      '/*'
+      
+        'SELECT distinct  a.id_doc, a.doc_number, a.operator_name, a.doc_' +
+        'date, a.doc_date_real,'
+      'a.id_client, a.nick, a.fio, b.N_ID, b.N_MASH, b.STAT'
+      
+        'FROM store_doc_view2 a, (select distinct office, id_doc, id_invo' +
+        'ice from export_to_fillials) e, orders_clients o, cash_tmp t, st' +
+        'atus_z b       '
+      'where a.id_departments = 62'
+      
+        '               -- and (a.DOC_NUMBER = DOC_NUMBER_ or DOC_NUMBER_' +
+        ' is null)'
+      
+        '                --and trunc(a.doc_date) between trunc(DOC_DATE1_' +
+        ') and trunc(DOC_DATE2_)'
+      
+        '                and trunc(a.doc_date) between trunc(SYSDATE-194)' +
+        ' and trunc(SYSDATE)'
+      '                --AND UPPER(Nick) LIKE '#39'%'#39'|| upper(nick_) ||'#39'%'#39
+      '                --AND UPPER(FIO) LIKE '#39'%'#39'|| upper(fio_) ||'#39'%'#39
+      '                and a.ID_DOC_TYPE = 4'
+      '                and (a.id_office = 0 or 0 = 0)'
+      '                and a.id_doc = e.id_doc(+)'
+      '                and a.order_id = o.id_orders_clients(+)'
+      '                and a.doc_number = t.invoice(+)'
+      '                and a.doc_number = b.N_ID(+)   '
+      '             ORDER BY DOC_DATE desc--, DOC_DATE_real desc;'
+      '*/'
+      '/*'
+      
+        'SELECT distinct a.doc_number, a.doc_date, a.nick, a.fio, a.opera' +
+        'tor_name, b.N_ID, b.N_MASH, b.STAT --, b.on_date'
+      'FROM store_doc_view2 a       '
+      
+        'left outer join status_z b on b.N_ID = a.doc_number --and b.on_d' +
+        'ate = a.doc_date'
+      'where a.id_departments = 62 ORDER BY a.doc_number'
+      '--and (b.stat=1 or b.stat=2 or b.stat=0)'
+      '*/')
+    FetchAll = True
+    FilterOptions = [foCaseInsensitive]
+    Left = 512
+    Top = 192
+    object Q_TransN_ID: TFloatField
+      FieldName = 'N_ID'
+      Required = True
+    end
+    object Q_TransON_DATE: TStringField
+      FieldName = 'ON_DATE'
+      Size = 10
+    end
+    object Q_TransNICK_: TStringField
+      FieldName = 'NICK_'
+      Size = 10
+    end
+    object Q_TransFIO_CL: TStringField
+      FieldName = 'FIO_CL'
+      Size = 200
+    end
+    object Q_TransFIO_MEN: TStringField
+      FieldName = 'FIO_MEN'
+      Size = 200
+    end
+    object Q_TransN_MASH: TStringField
+      FieldName = 'N_MASH'
+      Size = 200
+    end
+    object Q_TransSTAT: TStringField
+      FieldName = 'STAT'
+      Size = 1
+    end
+    object Q_TransADR: TStringField
+      FieldName = 'ADR'
+      Size = 200
+    end
+    object Q_TransEND_DATE: TStringField
+      FieldName = 'END_DATE'
+      Size = 10
+    end
+    object Q_TransFIO_KEM: TStringField
+      FieldName = 'FIO_KEM'
+      Size = 200
+    end
+    object Q_TransFIO_KOMY: TStringField
+      FieldName = 'FIO_KOMY'
+      Size = 200
+    end
+  end
+  object Q_Trans_DS: TOraDataSource
+    DataSet = Q_Trans
+    Left = 560
+    Top = 192
   end
   object bmMain: TdxBarManager
     Font.Charset = DEFAULT_CHARSET
@@ -207,15 +302,6 @@ object frmNSICurreny: TfrmNSICurreny
         item
           Visible = True
           ItemName = 'btnRefresh'
-        end
-        item
-          BeginGroup = True
-          Visible = True
-          ItemName = 'deCoursesBegin'
-        end
-        item
-          Visible = True
-          ItemName = 'deCoursesEnd'
         end
         item
           BeginGroup = True
@@ -297,6 +383,7 @@ object frmNSICurreny: TfrmNSICurreny
     object btnDelete: TdxBarLargeButton
       Action = aDelete
       Category = 0
+      Enabled = False
       LargeImageIndex = 6
       AutoGrayScale = False
     end
@@ -367,12 +454,12 @@ object frmNSICurreny: TfrmNSICurreny
         end>
     end
     object btnHelp: TdxBarLargeButton
-      Caption = #1050#1091#1088#1089' '#1074#1072#1083#1102#1090' '#1074' '#1062#1041
+      Caption = #1055#1086#1084#1086#1097#1100
       Category = 0
-      Hint = #1050#1091#1088#1089' '#1074#1072#1083#1102#1090' '#1074' '#1062#1041
+      Enabled = False
+      Hint = #1055#1086#1084#1086#1097#1100
       Visible = ivAlways
-      LargeImageIndex = 13
-      OnClick = btnHelpClick
+      LargeImageIndex = 20
       AutoGrayScale = False
     end
     object btnExit: TdxBarLargeButton
@@ -457,44 +544,6 @@ object frmNSICurreny: TfrmNSICurreny
       ImageIndex = 36
       OnClick = btnHotKeysClick
     end
-    object deCoursesBegin: TdxBarDateCombo
-      Caption = #1089
-      Category = 0
-      Hint = #1089
-      Visible = ivAlways
-      OnKeyDown = deCoursesEndKeyDown
-      Glyph.Data = {
-        F6000000424DF600000000000000760000002800000010000000100000000100
-        0400000000008000000000000000000000001000000000000000000000000000
-        8000008000000080800080000000800080008080000080808000C0C0C0000000
-        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00DDDDDDDDDDDD
-        DDDDDDDD00000000000DDDDD0FFFFFFFFF0D00000F0000000F0D0FFF0FFFFFFF
-        FF0D0F000FFF11FFFF0D0FFF0FFF11FFFF0D0FF10FFFF11FFF0D0FF10FFFFF11
-        FF0D0FF10FF11111FF0D0FF10FFFFFFFFF0D0FF104444444440D0FFF04444444
-        440D044400000000000D04444444440DDDDD00000000000DDDDD}
-      ShowCaption = True
-      Width = 100
-      ShowDayText = False
-    end
-    object deCoursesEnd: TdxBarDateCombo
-      Caption = #1087#1086
-      Category = 0
-      Hint = #1087#1086
-      Visible = ivAlways
-      OnKeyDown = deCoursesEndKeyDown
-      Glyph.Data = {
-        F6000000424DF600000000000000760000002800000010000000100000000100
-        0400000000008000000000000000000000001000000000000000000000000000
-        8000008000000080800080000000800080008080000080808000C0C0C0000000
-        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00DDDDDDDDDDDD
-        DDDDDDDD00000000000DDDDD0FFFFFFFFF0D00000F0000000F0D0FFF0FFFFFFF
-        FF0D0F000FFF11FFFF0D0FFF0FFF11FFFF0D0FF10FFFF11FFF0D0FF10FFFFF11
-        FF0D0FF10FF11111FF0D0FF10FFFFFFFFF0D0FF104444444440D0FFF04444444
-        440D044400000000000D04444444440DDDDD00000000000DDDDD}
-      ShowCaption = True
-      Width = 100
-      ShowDayText = False
-    end
   end
   object AlMain: TActionList
     Left = 608
@@ -520,7 +569,6 @@ object frmNSICurreny: TfrmNSICurreny
     object aDelete: TAction
       Category = 'Main'
       Caption = #1059#1076#1072#1083#1080#1090#1100
-      ShortCut = 115
       OnExecute = aDeleteExecute
     end
     object aExit: TAction
@@ -530,131 +578,59 @@ object frmNSICurreny: TfrmNSICurreny
       OnExecute = aExitExecute
     end
   end
-  object Q_CURR_DS: TOraDataSource
-    DataSet = Q_CURR
-    Left = 560
-    Top = 192
-  end
-  object Q_CURR: TOraQuery
-    SQLRefresh.Strings = (
-      'SELECT a.* from CURRENCY a'
-      'where a.ID = :old_ID')
-    SQL.Strings = (
-      'begin'
-      
-        '  DICTS.LIST_OF_CURSES(:V_OFFICE, :DATE_BEGIN, :DATE_END, :CURSO' +
-        'R_);'
-      'end;')
-    Left = 512
-    Top = 192
-    ParamData = <
-      item
-        DataType = ftFloat
-        Name = 'V_OFFICE'
-        ParamType = ptInput
-      end
-      item
-        DataType = ftUnknown
-        Name = 'DATE_BEGIN'
-      end
-      item
-        DataType = ftUnknown
-        Name = 'DATE_END'
-      end
-      item
-        DataType = ftCursor
-        Name = 'CURSOR_'
-        Value = 'Object'
-      end>
-  end
   object SelQ: TOraQuery
     Left = 512
     Top = 232
   end
-  object OraSQL1: TOraSQL
-    SQL.Strings = (
-      'begin '
-      
-        '  dicts.save_curses(:P1, :P2, :P3, :P4, :P5, :P6, :P7, :P8, :P9 ' +
-        ');'
-      'end;')
-    Left = 560
-    Top = 232
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'P1'
-      end
-      item
-        DataType = ftUnknown
-        Name = 'P2'
-      end
-      item
-        DataType = ftUnknown
-        Name = 'P3'
-      end
-      item
-        DataType = ftUnknown
-        Name = 'P4'
-      end
-      item
-        DataType = ftUnknown
-        Name = 'P5'
-      end
-      item
-        DataType = ftUnknown
-        Name = 'P6'
-      end
-      item
-        DataType = ftUnknown
-        Name = 'P7'
-      end
-      item
-        DataType = ftUnknown
-        Name = 'P8'
-      end
-      item
-        DataType = ftUnknown
-        Name = 'P9'
-      end>
-  end
-  object OraSQL2: TOraSQL
-    SQL.Strings = (
-      'begin '
-      '  dicts.delete_curses(:P1);'
-      'end;')
-    Left = 560
-    Top = 280
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'P1'
-      end>
-  end
-  object XMLDoc: TXMLDocument
-    FileName = 'D:\Documents and Settings\Creator\Desktop\xml_daily.xml'
-    Left = 512
-    Top = 280
-    DOMVendorDesc = 'MSXML'
-  end
-  object XMLTrans: TXMLTransform
-    Left = 608
-    Top = 280
-  end
-  object XMLTransform1: TXMLTransform
-    Left = 504
-    Top = 320
-  end
-  object ClientDataSet1: TClientDataSet
-    Aggregates = <>
-    Params = <>
-    Left = 608
-    Top = 320
-  end
-  object ClientDataSet2: TClientDataSet
-    Aggregates = <>
-    Params = <>
-    Left = 552
-    Top = 320
+  object cxStyleRepository2: TcxStyleRepository
+    Left = 464
+    Top = 192
+    PixelsPerInch = 96
+    object gotovo: TcxStyle
+      AssignedValues = [svColor, svFont]
+      Color = clMoneyGreen
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clMoneyGreen
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+    end
+    object prinat: TcxStyle
+      AssignedValues = [svColor, svFont]
+      Color = clAppWorkSpace
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clScrollBar
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+    end
+    object vputi: TcxStyle
+      AssignedValues = [svColor, svFont]
+      Color = clSkyBlue
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clSkyBlue
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+    end
+    object net: TcxStyle
+      AssignedValues = [svColor, svFont, svTextColor]
+      Color = clCream
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      TextColor = clRed
+    end
+    object peredan: TcxStyle
+      AssignedValues = [svColor, svFont]
+      Color = clHighlight
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+    end
   end
 end

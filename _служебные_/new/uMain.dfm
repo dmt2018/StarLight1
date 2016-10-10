@@ -129,6 +129,10 @@ object frmMain: TfrmMain
       object mmiSales: TMenuItem
         Caption = #1055#1088#1086#1076#1072#1078#1080
       end
+      object mmiTrans: TMenuItem
+        Caption = #1058#1088#1072#1085#1089#1087#1086#1088#1090#1085#1099#1081
+        OnClick = mmiTransClick
+      end
     end
     object miClient: TMenuItem
       Caption = #1050#1083#1080#1077#1085#1090#1099
@@ -187,18 +191,23 @@ object frmMain: TfrmMain
       end
       object mnNSI_Dep: TMenuItem
         Caption = #1054#1090#1076#1077#1083#1099
+        OnClick = mnNSI_DepClick
       end
       object mnNSI_Job: TMenuItem
         Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1080
+        OnClick = mnNSI_JobClick
       end
       object mnNSI_Countries: TMenuItem
         Caption = #1057#1090#1088#1072#1085#1099
+        OnClick = mnNSI_CountriesClick
       end
       object mnNSI_Supplier: TMenuItem
         Caption = #1055#1086#1089#1090#1072#1074#1097#1080#1082#1080
+        OnClick = mnNSI_SupplierClick
       end
       object mnNSI_pcs: TMenuItem
         Caption = #1045#1076#1080#1085#1080#1094#1099' '#1080#1079#1084#1077#1088#1077#1085#1080#1103
+        OnClick = mnNSI_pcsClick
       end
     end
     object miTools: TMenuItem

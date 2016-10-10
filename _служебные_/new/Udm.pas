@@ -16,6 +16,14 @@ type
     cdsSettings: TOraQuery;
     ImgList_32: TcxImageList;
     ImgList_24: TImageList;
+    cdsRules: TOraQuery;
+    cdsRulesID_DEP: TFloatField;
+    cdsRulesID_PROGRAMS: TIntegerField;
+    cdsRulesC_START: TFloatField;
+    cdsRulesC_EDIT: TFloatField;
+    cdsRulesC_DEL: TFloatField;
+    cdsRulesC_PRINT: TFloatField;
+    cdsRulesC_ADDIT: TFloatField;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
     procedure OraSessionAfterConnect(Sender: TObject);
@@ -134,6 +142,8 @@ begin
   end;
   cdssettings.Next;
   end;
+  cdsRules.ParamByName('pLogin').AsString   := OraSession.Username;
+  cdsRules.Open;
 end;
 
 end.

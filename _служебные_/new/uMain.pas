@@ -94,6 +94,7 @@ type
     mmiFito: TMenuItem;
     mmiSpez: TMenuItem;
     mmiSales: TMenuItem;
+    mmiTrans: TMenuItem;
     procedure actAboutExecute(Sender: TObject);
     procedure mnNSI_CurrencyClick(Sender: TObject);
     procedure mmiSettingsClick(Sender: TObject);
@@ -114,6 +115,12 @@ type
     procedure mnNSI_AdverClick(Sender: TObject);
     procedure mnNSI_ClientsTypeClick(Sender: TObject);
     procedure miClient_RegClick(Sender: TObject);
+    procedure mnNSI_DepClick(Sender: TObject);
+    procedure mnNSI_JobClick(Sender: TObject);
+    procedure mnNSI_CountriesClick(Sender: TObject);
+    procedure mnNSI_SupplierClick(Sender: TObject);
+    procedure mnNSI_pcsClick(Sender: TObject);
+    procedure mmiTransClick(Sender: TObject);
   private
     { Private declarations }
     porasessStarLight: POraSession;
@@ -126,7 +133,8 @@ var
 
 implementation
 
-uses info_f, UNSICurrency, USettings, UAdmin, UReg, UCity, UPromo, UClientTypes, URegistration;
+uses info_f, UNSICurrency, USettings, UAdmin, URegions, UCity, UPromo, UClientTypes, URegistration, UDepartments,
+UPositions, UCountries, USuppliers, UUnits, UTrans;
 
 {$R *.dfm}
 
@@ -145,7 +153,7 @@ end;
 
 // вывод юзера в 2_статусбар:
 procedure TfrmMain.FormCreate(Sender: TObject);
-var  s1, s2, s3, s4: boolean;
+ //var  s1, s2, s3, s4: boolean;
 begin
   //porasessStarLight := @DM.OraSession;
   stbMain.Panels[0].Text := verApplication;
@@ -153,7 +161,6 @@ begin
   stbMain.Panels[2].Text := ' ѕользователь: ['+strUserName+'] ';
   stbMain.Refresh;
   self.Caption := Application.Title;
-
 
   // ”становим доступность кнопок в меню дл€ вызова основных форм
   DM.cdsRules.first;
@@ -241,7 +248,13 @@ begin
   frmSettings.MainFormShow;
 end;
 
- //форма реклама
+//форма транспортников
+procedure TfrmMain.mmiTransClick(Sender: TObject);
+begin
+  frmTrans.MainFormShow;
+end;
+
+//форма реклама
 procedure TfrmMain.mnNSI_AdverClick(Sender: TObject);
 begin
   frmPromo.MainFormShow;
@@ -259,16 +272,46 @@ begin
   frmClientTypes.MainFormShow;
 end;
 
+//форма стран
+procedure TfrmMain.mnNSI_CountriesClick(Sender: TObject);
+begin
+  frmCountries.MainFormShow;
+end;
+
 //форма курсы валют
 procedure TfrmMain.mnNSI_CurrencyClick(Sender: TObject);
 begin
   frmNSICurreny.MainFormShow;
 end;
 
+//форма отделы
+procedure TfrmMain.mnNSI_DepClick(Sender: TObject);
+begin
+  frmDepartments.MainFormShow;
+end;
+
+//форма должности
+procedure TfrmMain.mnNSI_JobClick(Sender: TObject);
+begin
+ frmPositions.MainFormShow;
+end;
+
+//форма ед.измер.
+procedure TfrmMain.mnNSI_pcsClick(Sender: TObject);
+begin
+  frmUnits.MainFormShow;
+end;
+
 //форма регионы
 procedure TfrmMain.mnNSI_RegionsClick(Sender: TObject);
 begin
-  frmReg.MainFormShow;
+  frmRegions.MainFormShow;
+end;
+
+//форма поставщики
+procedure TfrmMain.mnNSI_SupplierClick(Sender: TObject);
+begin
+  frmSuppliers.MainFormShow;
 end;
 
 //разворачиваю окна

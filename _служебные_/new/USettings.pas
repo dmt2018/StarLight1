@@ -90,7 +90,7 @@ begin
 
   dm.OraSession.Commit; //сохран€ю в бд
   dm.cdsSQL.Close;
-  DM.cdsSettings.Refresh;
+  dm.cdssettings.refresh; 
 
   //переписываю знач.перем-х:
   intDefFont := cbFont.EditValue;

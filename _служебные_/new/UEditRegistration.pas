@@ -139,6 +139,31 @@ type
     Label37: TLabel;
     Label38: TLabel;
     Memo8: TMemo;
+    Edit3: TEdit;
+    Edit7: TEdit;
+    Edit8: TEdit;
+    Edit9: TEdit;
+    Label39: TLabel;
+    Label40: TLabel;
+    Label41: TLabel;
+    Label42: TLabel;
+    Label43: TLabel;
+    Label44: TLabel;
+    Label45: TLabel;
+    Label46: TLabel;
+    Label47: TLabel;
+    Label48: TLabel;
+    Label49: TLabel;
+    Label50: TLabel;
+    CB1: TCheckBox;
+    Label51: TLabel;
+    Edit10: TEdit;
+    Label52: TLabel;
+    Edit11: TEdit;
+    Label53: TLabel;
+    Edit12: TEdit;
+    Label54: TLabel;
+    Edit13: TEdit;
     Q_CLIENT_VIEWID_CLIENTS: TIntegerField;
     Q_CLIENT_VIEWFIO: TStringField;
     Q_CLIENT_VIEWNICK: TStringField;
@@ -186,38 +211,14 @@ type
     Q_CLIENT_VIEWDATE_CHANGE: TDateTimeField;
     Q_CLIENT_VIEWPREFIX: TStringField;
     Q_CLIENT_VIEWID_CITY: TIntegerField;
-    Q_CLIENT_VIEWINTERES: TStringField;
+    Q_CLIENT_VIEWKEY_INTERESTS: TStringField;
     Q_CLIENT_VIEWREG_TYPE_NAME: TStringField;
     Q_CLIENT_VIEWGROUP_NAME: TStringField;
     Q_CLIENT_VIEWTTYPE_NAME: TStringField;
     Q_CLIENT_VIEWREGION_NAME: TStringField;
     Q_CLIENT_VIEWADVERT: TStringField;
     Q_CLIENT_VIEWCITY: TStringField;
-    Edit3: TEdit;
-    Edit7: TEdit;
-    Edit8: TEdit;
-    Edit9: TEdit;
-    Label39: TLabel;
-    Label40: TLabel;
-    Label41: TLabel;
-    Label42: TLabel;
-    Label43: TLabel;
-    Label44: TLabel;
-    Label45: TLabel;
-    Label46: TLabel;
-    Label47: TLabel;
-    Label48: TLabel;
-    Label49: TLabel;
-    Label50: TLabel;
-    CB1: TCheckBox;
-    Label51: TLabel;
-    Edit10: TEdit;
-    Label52: TLabel;
-    Edit11: TEdit;
-    Label53: TLabel;
-    Edit12: TEdit;
-    Label54: TLabel;
-    Edit13: TEdit;
+    SpeedButton7: TSpeedButton;
     procedure SpeedButton1Click(Sender: TObject);
     procedure BitBtn3Click(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
@@ -238,6 +239,7 @@ type
     procedure ComboBox3Change(Sender: TObject);
     procedure LabeledEdit9Change(Sender: TObject);
     procedure LabeledEdit1Change(Sender: TObject);
+    procedure SpeedButton7Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -253,7 +255,7 @@ implementation
 
 {$R *.dfm}
 
-uses URegistration, udm;
+uses URegistration, udm, uPassport;
 
 //новая логика
 procedure TfrmEditRegistration.TZ;
@@ -281,24 +283,24 @@ begin
 
    //Memo2.Color:=clwhite;
    //Memo2.Enabled:=true;
-   edit2.Enabled:=true;  edit2.Color:=clwhite;
-   edit4.Enabled:=true;  edit4.Color:=clwhite;
-   edit5.Enabled:=true;  edit5.Color:=clwhite;
-   edit6.Enabled:=true;  edit6.Color:=clwhite;
-   combobox5.Enabled:=true; combobox5.Color:=clwhite;
-   combobox6.Enabled:=true; combobox6.Color:=clwhite;
-   combobox7.Enabled:=true; combobox7.Color:=clwhite;
-   combobox8.Enabled:=true; combobox8.Color:=clwhite;
+   frmPassport.edit2.Enabled:=true;  frmPassport.edit2.Color:=clwhite;
+   frmPassport.edit4.Enabled:=true;  frmPassport.edit4.Color:=clwhite;
+   frmPassport.edit5.Enabled:=true;  frmPassport.edit5.Color:=clwhite;
+   frmPassport.edit6.Enabled:=true;  frmPassport.edit6.Color:=clwhite;
+   frmPassport.combobox5.Enabled:=true; frmPassport.combobox5.Color:=clwhite;
+   frmPassport.combobox6.Enabled:=true; frmPassport.combobox6.Color:=clwhite;
+   frmPassport.combobox7.Enabled:=true; frmPassport.combobox7.Color:=clwhite;
+   frmPassport.combobox8.Enabled:=true; frmPassport.combobox8.Color:=clwhite;
    //break;
   end else begin
-   edit2.Enabled:=false;  edit2.Color:=clsilver;
-   edit4.Enabled:=false;  edit4.Color:=clsilver;
-   edit5.Enabled:=false;  edit5.Color:=clsilver;
-   edit6.Enabled:=false;  edit6.Color:=clsilver;
-   combobox5.Enabled:=false; combobox5.Color:=clsilver;
-   combobox6.Enabled:=false; combobox6.Color:=clsilver;
-   combobox7.Enabled:=false; combobox7.Color:=clsilver;
-   combobox8.Enabled:=false; combobox8.Color:=clsilver;
+   frmPassport.edit2.Enabled:=false;  frmPassport.edit2.Color:=clsilver;
+   frmPassport.edit4.Enabled:=false;  frmPassport.edit4.Color:=clsilver;
+   frmPassport.edit5.Enabled:=false;  frmPassport.edit5.Color:=clsilver;
+   frmPassport.edit6.Enabled:=false;  frmPassport.edit6.Color:=clsilver;
+   frmPassport.combobox5.Enabled:=false; frmPassport.combobox5.Color:=clsilver;
+   frmPassport.combobox6.Enabled:=false; frmPassport.combobox6.Color:=clsilver;
+   frmPassport.combobox7.Enabled:=false; frmPassport.combobox7.Color:=clsilver;
+   frmPassport.combobox8.Enabled:=false; frmPassport.combobox8.Color:=clsilver;
    //Memo2.Color:=clsilver;
    //Memo2.Enabled:=false;
   end;
@@ -374,7 +376,7 @@ begin
         begin
           ind := frmRegistration.Q_CLIENTS.FieldByName('ID_CLIENTS').AsInteger;
           sql := 'UPDATE CLIENTS SET FIO=:P1,NICK=:P2,CCODE=:P3,REGION=:P4,ADDRESS=:P5,U_ADDRESS=:P6,PHONE=:P7,PASSPORT=:P8,CONTACT=:P9,CONT_PHONE=:P10,EMAIL=:P11,WWW=:P12,INN=:P13,REG_SVID=:P14,KPP=:P15,OKATO=:P16,BANK=:P17,DOSTAVKA=:P30, DATE_CHANGE=sysdate';
-          sql := sql + ',AGREEMENT=:P18,ADVERTISMENT=:P19,BLOCK1=:P20,BLOCK2=:P21,FLOWERS=:P22,PLANTS=:P23,MARK=:P24,TTYPE=:P25,ID_CLIENTS_GROUPS=:P26, INFO=:P27, REG_TYPE=:P28, DATE_COR=SYSDATE, CORRECTOR_COR='''+ frmRegistration.corrector +''', prefix=:prefix, id_city=:city, INTERES=:P31 WHERE ID_CLIENTS=:ID';
+          sql := sql + ',AGREEMENT=:P18,ADVERTISMENT=:P19,BLOCK1=:P20,BLOCK2=:P21,FLOWERS=:P22,PLANTS=:P23,MARK=:P24,TTYPE=:P25,ID_CLIENTS_GROUPS=:P26, INFO=:P27, REG_TYPE=:P28, DATE_COR=SYSDATE, CORRECTOR_COR='''+ frmRegistration.corrector +''', prefix=:prefix, id_city=:city, KEY_INTERESTS=:P31 WHERE ID_CLIENTS=:ID';
           frmRegistration.selq.SQL.Add(sql);
           frmRegistration.selq.ParamByName('ID').Value := ind;
         end;
@@ -386,8 +388,8 @@ begin
         frmRegistration.selq.ParamByName('P5').Value := edit3.text + '%' + edit7.text + '%' + edit8.text + '%' + edit9.text;//Memo4.Text;
         frmRegistration.selq.ParamByName('P6').Value := edit10.text + '%' + edit11.text + '%' + edit12.text + '%' + edit13.text;//Memo5.Text;
         frmRegistration.selq.ParamByName('P7').Value := Memo6.Text;
-        frmRegistration.selq.ParamByName('P8').Value := edit2.text + '%' + combobox5.text + '%' + combobox6.text + '%' +
-        combobox7.text + '%' + combobox8.text + '%' + edit4.text + '%' + edit5.text + '%' + edit6.text;//Memo2.Text;
+        frmRegistration.selq.ParamByName('P8').Value := frmPassport.edit2.text + '%' + frmPassport.combobox5.text + '%' + frmPassport.combobox6.text + '%' +
+        frmPassport.combobox7.text + '%' + frmPassport.combobox8.text + '%' + frmPassport.edit4.text + '%' + frmPassport.edit5.text + '%' + frmPassport.edit6.text;//Memo2.Text;
         frmRegistration.selq.ParamByName('P9').Value := trim(LabeledEdit10.Text);
         frmRegistration.selq.ParamByName('P10').Value := Memo3.Text;
         frmRegistration.selq.ParamByName('P11').Value := trim(LabeledEdit11.Text);
@@ -473,14 +475,14 @@ begin
     Memo1.Lines.Clear;
 
     //Memo2.Lines.Clear;
-    edit2.Clear;
-    combobox5.Clear;
-    combobox6.Clear;
-    combobox7.Clear;
-    combobox8.Clear;
-    edit4.Clear;
-    edit5.Clear;
-    edit6.Clear;
+    frmPassport.edit2.Clear;
+    frmPassport.combobox5.Clear;
+    frmPassport.combobox6.Clear;
+    frmPassport.combobox7.Clear;
+    frmPassport.combobox8.Clear;
+    frmPassport.edit4.Clear;
+    frmPassport.edit5.Clear;
+    frmPassport.edit6.Clear;
 
     Memo3.Lines.Clear;
     //Memo4.Lines.Clear;
@@ -538,21 +540,21 @@ begin
     //Memo2.Text := frmRegistration.Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString;
   if pos('%',frmRegistration.Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString) <> 0 then begin
     ss := frmRegistration.Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString;
-    edit2.Text := copy(ss,1,pos('%',ss)-1);
+    frmPassport.edit2.Text := copy(ss,1,pos('%',ss)-1);
     delete(ss,1,pos('%',ss));
-    combobox5.Text := copy(ss,1,pos('%',ss)-1);
+    frmPassport.combobox5.Text := copy(ss,1,pos('%',ss)-1);
     delete(ss,1,pos('%',ss));
-    combobox6.Text := copy(ss,1,pos('%',ss)-1);
+    frmPassport.combobox6.Text := copy(ss,1,pos('%',ss)-1);
     delete(ss,1,pos('%',ss));
-    combobox7.Text := copy(ss,1,pos('%',ss)-1);
+    frmPassport.combobox7.Text := copy(ss,1,pos('%',ss)-1);
     delete(ss,1,pos('%',ss));
-    combobox8.Text := copy(ss,1,pos('%',ss)-1);
+    frmPassport.combobox8.Text := copy(ss,1,pos('%',ss)-1);
     delete(ss,1,pos('%',ss));
-    edit4.Text := copy(ss,1,pos('%',ss)-1);
+    frmPassport.edit4.Text := copy(ss,1,pos('%',ss)-1);
     delete(ss,1,pos('%',ss));
-    edit5.Text := copy(ss,1,pos('%',ss)-1);
+    frmPassport.edit5.Text := copy(ss,1,pos('%',ss)-1);
     delete(ss,1,pos('%',ss));
-    edit6.Text := ss;
+    frmPassport.edit6.Text := ss;
   end;
 
     Memo3.Text := frmRegistration.Q_CLIENT_VIEW.FieldByName('CONT_PHONE').AsString;
@@ -814,7 +816,7 @@ begin
   else
   begin
     str := trim(copy(trim(labeledEdit1.text),2,length(trim(labeledEdit1.text))));
-    sql := 'SELECT ID_CLIENTS from CLIENTS_VIEW2 WHERE UPPER(NICK) LIKE trim(''%'+ UpperCase(str) +''') and id_office='+IntToStr(DM.id_office);
+    sql := 'SELECT ID_CLIENTS from CLIENTS_VIEW3 WHERE UPPER(NICK) LIKE trim(''%'+ UpperCase(str) +''') and id_office='+IntToStr(DM.id_office);
     // Генерация кода сотрудника
     frmRegistration.selq.Close;
     frmRegistration.selq.SQL.Clear;
@@ -838,7 +840,7 @@ end;
 procedure TfrmEditRegistration.SpeedButton4Click(Sender: TObject);
 var sql: string;
 begin
-  sql := 'SELECT ID_CLIENTS from CLIENTS_VIEW2 WHERE UPPER(FIO) LIKE ''%'+ UpperCase(trim(LabeledEdit2.Text)) +''' and id_office='+IntToStr(DM.id_office);
+  sql := 'SELECT ID_CLIENTS from CLIENTS_VIEW3 WHERE UPPER(FIO) LIKE ''%'+ UpperCase(trim(LabeledEdit2.Text)) +''' and id_office='+IntToStr(DM.id_office);
   // Генерация кода сотрудника
   frmRegistration.selq.Close;
   frmRegistration.selq.SQL.Clear;
@@ -866,5 +868,54 @@ begin
   editor.showmodal;       }
 end;
 
+
+procedure TfrmEditRegistration.SpeedButton7Click(Sender: TObject);
+  var ss:string;
+begin
+      {
+  IF frmRegistration.add_or_edit=1 THEN BEGIN
+  if pos('%',Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString) <> 0 then begin
+           ss := Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString;
+           frmPassport.edit2.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmPassport.combobox5.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmPassport.combobox6.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmPassport.combobox7.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmPassport.combobox8.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmPassport.edit4.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmPassport.edit5.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmPassport.edit6.Text := ss;
+        end else
+        begin
+           frmPassport.edit2.Clear;
+           frmPassport.combobox5.Clear;
+           frmPassport.combobox6.Clear;
+           frmPassport.combobox7.Clear;
+           frmPassport.combobox8.Clear;
+           frmPassport.edit4.Clear;
+           frmPassport.edit5.Clear;
+           frmPassport.edit6.Clear;
+        end;
+  END ELSE
+  IF frmRegistration.add_or_edit=0 THEN BEGIN
+           frmPassport.edit2.Clear;
+           frmPassport.combobox5.Clear;
+           frmPassport.combobox6.Clear;
+           frmPassport.combobox7.Clear;
+           frmPassport.combobox8.Clear;
+           frmPassport.edit4.Clear;
+           frmPassport.edit5.Clear;
+           frmPassport.edit6.Clear;
+  END;                   }
+
+
+  frmPassport.showmodal;
+end;
 
 end.

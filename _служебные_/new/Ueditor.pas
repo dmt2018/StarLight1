@@ -6,10 +6,18 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, Menus, cxLookAndFeelPainters, Buttons, ActnList, StdCtrls, cxButtons,
   cxCurrencyEdit, cxControls, cxContainer, cxEdit, cxTextEdit, cxMaskEdit,
-  cxDropDownEdit, cxCalendar;
+  cxDropDownEdit, cxCalendar, DBAccess, Ora, ExtCtrls;
 
 type
   Tfrmeditor = class(TForm)
+    OraSQL1: TOraSQL;
+    pnlBottom: TPanel;
+    btnSave: TcxButton;
+    btnClose: TcxButton;
+    alSettings: TActionList;
+    aEnter: TAction;
+    aClose: TAction;
+    pnlMain: TPanel;
     Lbl1: TLabel;
     Lbl2: TLabel;
     Lbl3: TLabel;
@@ -17,6 +25,10 @@ type
     Lbl5: TLabel;
     Lbl6: TLabel;
     Lbl7: TLabel;
+    sbtn1: TSpeedButton;
+    SBtn2: TSpeedButton;
+    SBtn3: TSpeedButton;
+    SBtn4: TSpeedButton;
     cxDateEdit1: TcxDateEdit;
     Ed1: TcxCurrencyEdit;
     Ed2: TcxCurrencyEdit;
@@ -26,26 +38,18 @@ type
     Ed6: TcxCurrencyEdit;
     Ed7: TcxCurrencyEdit;
     Ed8: TcxCurrencyEdit;
-    btnSav: TcxButton;
-    btnClos: TcxButton;
-    ActionList1: TActionList;
-    sbtn1: TSpeedButton;
-    SBtn2: TSpeedButton;
-    SBtn3: TSpeedButton;
-    SBtn4: TSpeedButton;
-    Action1: TAction;
     procedure FormShow(Sender: TObject);
-    procedure btnClosClick(Sender: TObject);
     procedure sbtn1Click(Sender: TObject);
     procedure SBtn2Click(Sender: TObject);
     procedure SBtn3Click(Sender: TObject);
     procedure SBtn4Click(Sender: TObject);
-    procedure Action1Execute(Sender: TObject);
+    procedure aEnterExecute(Sender: TObject);
+    procedure aCloseExecute(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
-    function MainFormShow : boolean;
+    function MainFormShow(cds: TOraQuery) : boolean;
   end;
 
 var
@@ -55,21 +59,49 @@ implementation
 
 {$R *.dfm}
 
-uses UNSICurrency;
+uses UNSICurrency, Udm;
 
 
-function tfrmeditor.MainFormShow : boolean;
+function tfrmeditor.MainFormShow(cds: TOraQuery) : boolean;
+ var ddd: TDate;
 Begin
   Application.CreateForm(Tfrmeditor, frmeditor);
   try
     with frmeditor do
     Begin
+      cxDateEdit1.Date := Now();
+      Font.Size := intDefFont;
+
+      if cds <> nil then
+      begin
+        cxDateEdit1.Date  := cds.FieldByName('DDATE').AsDateTime;
+        Ed1.EditValue     := cds.FieldByName('USD').AsFloat;
+        Ed2.EditValue     := cds.FieldByName('EUR').AsFloat;
+        Ed3.EditValue     := cds.FieldByName('USD_EUR').AsFloat;
+        Ed4.EditValue     := cds.FieldByName('EUR_USD').AsFloat;
+        Ed5.EditValue     := cds.FieldByName('SHEV_USD').AsFloat;
+        Ed6.EditValue     := cds.FieldByName('SHEV_EUR').AsFloat;
+        Ed7.EditValue     := cds.FieldByName('SHEV_USD_EUR').AsFloat;
+        Ed8.EditValue     := cds.FieldByName('SHEV_EUR_USD').AsFloat;
+      end
+      else
+      begin
+        cxDateEdit1.Date  := Now;
+        Ed1.EditValue     := 1;
+        Ed2.EditValue     := 1;
+        Ed3.EditValue     := 1;
+        Ed4.EditValue     := 1;
+        Ed5.EditValue     := 1;
+        Ed6.EditValue     := 1;
+        Ed7.EditValue     := 1;
+        Ed8.EditValue     := 1;
+      end;
+
       if ShowModal <> mrOk then
       begin
         result := false;
         Exit;
       end;
-      result := true;
     End;
   finally
     frmeditor.Free;
@@ -78,9 +110,15 @@ end;
 
 
 
+//закрыть
+procedure Tfrmeditor.aCloseExecute(Sender: TObject);
+begin
+  close;
+end;
+
+
 //запись
-procedure Tfrmeditor.Action1Execute(Sender: TObject);
- var ddd: TDate;
+procedure Tfrmeditor.aEnterExecute(Sender: TObject);
 begin
   Ed1.PostEditValue;
   Ed2.PostEditValue;
@@ -96,32 +134,23 @@ begin
   else
   begin
     // Редактирование курсов
-    frmNSICurreny.OraSQL1.ParamByName('P1').AsDate  := cxDateEdit1.Date;
-    frmNSICurreny.OraSQL1.ParamByName('P2').AsFloat := Ed1.EditValue;
-    frmNSICurreny.OraSQL1.ParamByName('P3').AsFloat := Ed2.EditValue;
-    frmNSICurreny.OraSQL1.ParamByName('P4').AsFloat := Ed3.EditValue;
-    frmNSICurreny.OraSQL1.ParamByName('P5').AsFloat := Ed4.EditValue;
-    frmNSICurreny.OraSQL1.ParamByName('P6').AsFloat := Ed5.EditValue;
-    frmNSICurreny.OraSQL1.ParamByName('P7').AsFloat := Ed6.EditValue;
-    frmNSICurreny.OraSQL1.ParamByName('P8').AsFloat := Ed7.EditValue;
-    frmNSICurreny.OraSQL1.ParamByName('P9').AsFloat := Ed8.EditValue;
+    OraSQL1.ParamByName('P1').AsDate  := cxDateEdit1.Date;
+    OraSQL1.ParamByName('P2').AsFloat := Ed1.EditValue;
+    OraSQL1.ParamByName('P3').AsFloat := Ed2.EditValue;
+    OraSQL1.ParamByName('P4').AsFloat := Ed3.EditValue;
+    OraSQL1.ParamByName('P5').AsFloat := Ed4.EditValue;
+    OraSQL1.ParamByName('P6').AsFloat := Ed5.EditValue;
+    OraSQL1.ParamByName('P7').AsFloat := Ed6.EditValue;
+    OraSQL1.ParamByName('P8').AsFloat := Ed7.EditValue;
+    OraSQL1.ParamByName('P9').AsFloat := Ed8.EditValue;
 
     try
-       frmNSICurreny.OraSQL1.Execute;
-       ddd := frmNSICurreny.OraSQL1.ParamByName('P1').AsDate;
-       frmNSICurreny.Q_CURR.Refresh;
-       frmNSICurreny.Q_CURR.Locate('DDATE',ddd,[]);
-       close;
+       OraSQL1.Execute;
+       ModalResult := mrOk;
     except
        on E: Exception do ShowMessage('Ошибка! ' + E.Message);
     end;
   end;
-end;
-
-//закрыть
-procedure Tfrmeditor.btnClosClick(Sender: TObject);
-begin
- close;
 end;
 
 procedure Tfrmeditor.FormShow(Sender: TObject);
@@ -154,7 +183,7 @@ procedure Tfrmeditor.SBtn4Click(Sender: TObject);
 begin
   Ed5.PostEditValue;
   Ed6.PostEditValue;
-  Ed7.EditValue := Ed5.EditValue / Ed6.EditValue;
+  Ed8.EditValue := Ed5.EditValue / Ed6.EditValue;
 end;
 
 end.

@@ -35,7 +35,35 @@
     <Transaction>2016.07.29 17:40:05.682.dfm,C:\Users\Prg_10\Desktop\new\UAbout.dfm=C:\Users\Prg_10\Desktop\new\info_f.dfm</Transaction>
     <Transaction>2016.08.01 16:30:20.952.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\Ueditor.pas</Transaction>
     <Transaction>2016.08.01 16:30:20.952.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\Ueditor.dfm</Transaction>
-    <Transaction>2016.09.16 00:17:33.148.pas,C:\_work\delphi\StarLight\_Цветы регионы\new\Unit1.pas=C:\_work\delphi\StarLight\_Цветы регионы\new\UHotKeys.pas</Transaction>
-    <Transaction>2016.09.16 00:17:33.148.dfm,C:\_work\delphi\StarLight\_Цветы регионы\new\Unit1.dfm=C:\_work\delphi\StarLight\_Цветы регионы\new\UHotKeys.dfm</Transaction>
+    <Transaction>2016.08.29 15:01:46.206.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\UClientTypes.pas</Transaction>
+    <Transaction>2016.08.29 15:01:46.206.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\UClientTypes.dfm</Transaction>
+    <Transaction>2016.08.29 18:00:44.100.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\UEditClientTypes.pas</Transaction>
+    <Transaction>2016.08.29 18:00:44.100.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\UEditClientTypes.dfm</Transaction>
+    <Transaction>2016.08.31 13:13:09.150.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\URegistration.pas</Transaction>
+    <Transaction>2016.08.31 13:13:09.150.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\URegistration.dfm</Transaction>
+    <Transaction>2016.08.31 14:56:28.795.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\UEditRegistration.pas</Transaction>
+    <Transaction>2016.08.31 14:56:28.795.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\UEditRegistration.dfm</Transaction>
+    <Transaction>2016.09.23 18:09:07.359.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\UPassport.pas</Transaction>
+    <Transaction>2016.09.23 18:09:07.359.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\UPassport.dfm</Transaction>
+    <Transaction>2016.09.27 11:03:45.463.pas,C:\Users\Prg_10\Desktop\new\UReg.pas=C:\Users\Prg_10\Desktop\new\URegions.pas</Transaction>
+    <Transaction>2016.09.27 11:03:45.463.dfm,C:\Users\Prg_10\Desktop\new\UReg.dfm=C:\Users\Prg_10\Desktop\new\URegions.dfm</Transaction>
+    <Transaction>2016.09.27 15:04:58.406.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\UDepartments.pas</Transaction>
+    <Transaction>2016.09.27 15:04:58.406.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\UDepartments.dfm</Transaction>
+    <Transaction>2016.09.27 15:46:50.797.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\UPositions.pas</Transaction>
+    <Transaction>2016.09.27 15:46:50.797.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\UPositions.dfm</Transaction>
+    <Transaction>2016.09.27 16:58:25.465.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\UCountries.pas</Transaction>
+    <Transaction>2016.09.27 16:58:25.465.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\UCountries.dfm</Transaction>
+    <Transaction>2016.09.27 17:04:14.091.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\USuppliers.pas</Transaction>
+    <Transaction>2016.09.27 17:04:14.091.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\USuppliers.dfm</Transaction>
+    <Transaction>2016.09.27 17:09:30.853.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\UUnits.pas</Transaction>
+    <Transaction>2016.09.27 17:09:30.853.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\UUnits.dfm</Transaction>
+    <Transaction>2016.09.28 16:16:56.194.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\UEditRegions.pas</Transaction>
+    <Transaction>2016.09.28 16:16:56.194.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\UEditRegions.dfm</Transaction>
+    <Transaction>2016.09.28 18:02:16.486.pas,C:\Users\Prg_10\Desktop\new\UEditClientTypes.pas=C:\Users\Prg_10\Desktop\new\UEditRefBook.pas</Transaction>
+    <Transaction>2016.09.28 18:02:16.486.dfm,C:\Users\Prg_10\Desktop\new\UEditClientTypes.dfm=C:\Users\Prg_10\Desktop\new\UEditRefBook.dfm</Transaction>
+    <Transaction>2016.10.06 10:54:51.258.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\UTrans.pas</Transaction>
+    <Transaction>2016.10.06 10:54:51.258.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\UTrans.dfm</Transaction>
+    <Transaction>2016.10.06 11:52:56.941.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\UEditTrans.pas</Transaction>
+    <Transaction>2016.10.06 11:52:56.941.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\UEditTrans.dfm</Transaction>
   </Transactions>
 </BorlandProject>
