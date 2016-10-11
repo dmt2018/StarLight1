@@ -50,6 +50,8 @@ type
     procedure Ed2KeyPress(Sender: TObject; var Key: Char);
     procedure Ed3KeyPress(Sender: TObject; var Key: Char);
     procedure Ed4KeyPress(Sender: TObject; var Key: Char);
+    procedure cxDateEdit1KeyPress(Sender: TObject; var Key: Char);
+    procedure cxTimeEdit1KeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -158,6 +160,16 @@ begin
    key:=chr(0);
 end;
 
+procedure TfrmEditTrans.cxDateEdit1KeyPress(Sender: TObject; var Key: Char);
+begin
+ key:=chr(0);
+end;
+
+procedure TfrmEditTrans.cxTimeEdit1KeyPress(Sender: TObject; var Key: Char);
+begin
+  key:=chr(0);
+end;
+
 procedure TfrmEditTrans.Ed2Click(Sender: TObject);
 var stroka: string;
 begin
@@ -191,7 +203,7 @@ end;
 
 procedure TfrmEditTrans.FormShow(Sender: TObject);
 begin
-  cxDateEdit1.SetFocus;
+  ed1.SetFocus;
 end;
 
 end.

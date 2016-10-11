@@ -25,7 +25,6 @@ object frmCountries: TfrmCountries
     Height = 336
     Align = alClient
     TabOrder = 0
-    ExplicitHeight = 339
     object grCountriesView: TcxGridDBTableView
       NavigatorButtons.ConfirmDelete = False
       NavigatorButtons.First.Visible = True

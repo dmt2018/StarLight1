@@ -27,7 +27,8 @@ uses
   USuppliers in 'USuppliers.pas' {frmSuppliers},
   UUnits in 'UUnits.pas' {frmUnits},
   UTrans in 'UTrans.pas' {frmTrans},
-  UEditTrans in 'UEditTrans.pas' {frmEditTrans};
+  UEditTrans in 'UEditTrans.pas' {frmEditTrans},
+  URefbooks in 'URefbooks.pas' {frmRefbooks};
 
 {$R *.res}
 

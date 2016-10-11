@@ -126,6 +126,7 @@ type
     porasessStarLight: POraSession;
   public
     { Public declarations }
+    page:integer;
   end;
 
 var
@@ -134,7 +135,7 @@ var
 implementation
 
 uses info_f, UNSICurrency, USettings, UAdmin, URegions, UCity, UPromo, UClientTypes, URegistration, UDepartments,
-UPositions, UCountries, USuppliers, UUnits, UTrans;
+UPositions, UCountries, USuppliers, UUnits, UTrans, Urefbooks;
 
 {$R *.dfm}
 
@@ -257,25 +258,33 @@ end;
 //форма реклама
 procedure TfrmMain.mnNSI_AdverClick(Sender: TObject);
 begin
-  frmPromo.MainFormShow;
+  page:=2;
+  //frmPromo.MainFormShow;
+  frmrefbooks.MainFormShow;
 end;
 
  //форма города
 procedure TfrmMain.mnNSI_CityesClick(Sender: TObject);
 begin
-  frmCity.MainFormShow;
+ page:=1;
+  //frmCity.MainFormShow;
+ frmrefbooks.MainFormShow;
 end;
 
  //форма типы клиентов
 procedure TfrmMain.mnNSI_ClientsTypeClick(Sender: TObject);
 begin
-  frmClientTypes.MainFormShow;
+  page:=3;
+  //frmClientTypes.MainFormShow;
+  frmrefbooks.MainFormShow;
 end;
 
 //форма стран
 procedure TfrmMain.mnNSI_CountriesClick(Sender: TObject);
 begin
-  frmCountries.MainFormShow;
+  page:=6;
+  //frmCountries.MainFormShow;
+  frmrefbooks.MainFormShow;
 end;
 
 //форма курсы валют
@@ -287,31 +296,41 @@ end;
 //форма отделы
 procedure TfrmMain.mnNSI_DepClick(Sender: TObject);
 begin
-  frmDepartments.MainFormShow;
+  page:=4;
+  //frmDepartments.MainFormShow;
+  frmrefbooks.MainFormShow;
 end;
 
 //форма должности
 procedure TfrmMain.mnNSI_JobClick(Sender: TObject);
 begin
- frmPositions.MainFormShow;
+ page:=5;
+ frmrefbooks.MainFormShow;
+ //frmPositions.MainFormShow;
 end;
 
 //форма ед.измер.
 procedure TfrmMain.mnNSI_pcsClick(Sender: TObject);
 begin
-  frmUnits.MainFormShow;
+  page:=8;
+  frmrefbooks.MainFormShow;
+  //frmUnits.MainFormShow;
 end;
 
 //форма регионы
 procedure TfrmMain.mnNSI_RegionsClick(Sender: TObject);
 begin
-  frmRegions.MainFormShow;
+ page:=0;
+//  frmRegions.MainFormShow;
+ frmrefbooks.MainFormShow;
 end;
 
 //форма поставщики
 procedure TfrmMain.mnNSI_SupplierClick(Sender: TObject);
 begin
-  frmSuppliers.MainFormShow;
+  page:=7;
+  frmrefbooks.MainFormShow;
+  //frmSuppliers.MainFormShow;
 end;
 
 //разворачиваю окна

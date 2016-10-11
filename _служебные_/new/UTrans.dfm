@@ -77,7 +77,7 @@ object frmTrans: TfrmTrans
       object grTransData: TcxGridDBColumn
         Caption = #1053#1072' '#1076#1072#1090#1091
         DataBinding.FieldName = 'ON_DATE'
-        Width = 103
+        Width = 160
       end
       object grTransNick: TcxGridDBColumn
         Caption = #1050#1083#1080#1077#1085#1090

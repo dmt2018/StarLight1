@@ -170,10 +170,12 @@ object frmEditTrans: TfrmEditTrans
     object cxDateEdit1: TcxDateEdit
       Left = 112
       Top = 12
+      Enabled = False
       Properties.ImmediatePost = True
       Properties.SaveTime = False
       Properties.ShowTime = False
       TabOrder = 0
+      OnKeyPress = cxDateEdit1KeyPress
       Width = 217
     end
     object cxComboBox1: TcxComboBox
@@ -260,7 +262,9 @@ object frmEditTrans: TfrmEditTrans
       Left = 113
       Top = 30
       EditValue = 0
+      Enabled = False
       TabOrder = 11
+      OnKeyPress = cxTimeEdit1KeyPress
       Width = 216
     end
   end
