@@ -28,7 +28,8 @@ uses
   UUnits in 'UUnits.pas' {frmUnits},
   UTrans in 'UTrans.pas' {frmTrans},
   UEditTrans in 'UEditTrans.pas' {frmEditTrans},
-  URefbooks in 'URefbooks.pas' {frmRefbooks};
+  URefbooks in 'URefbooks.pas' {frmRefbooks},
+  UEditRefBooks in 'UEditRefBooks.pas' {frmEditRefbooks};
 
 {$R *.res}
 

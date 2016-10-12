@@ -200,6 +200,10 @@ begin
       frmrefbooks.selq.Execute;
       Edit1.Tag := frmrefbooks.selq.ParamByName('in_id_').AsInteger;
     end;
+    if ((ttype = 17) or (ttype = 18)) then
+    begin
+
+    end;
 
 
     Close;

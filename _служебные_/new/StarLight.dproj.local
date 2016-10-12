@@ -67,5 +67,7 @@
     <Transaction>2016.10.06 11:52:56.941.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\UEditTrans.dfm</Transaction>
     <Transaction>2016.10.11 09:50:13.870.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\URefbooks.pas</Transaction>
     <Transaction>2016.10.11 09:50:13.870.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\URefbooks.dfm</Transaction>
+    <Transaction>2016.10.12 12:23:48.694.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\UEditRefBooks.pas</Transaction>
+    <Transaction>2016.10.12 12:23:48.694.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\UEditRefBooks.dfm</Transaction>
   </Transactions>
 </BorlandProject>

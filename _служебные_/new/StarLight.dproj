@@ -27,6 +27,36 @@
       
       
       
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       <Excluded_Packages Name="$(BDS)\bin\dclIntraweb_90_100.bpl">VCL for the Web 9.0 Design Package for CodeGear RAD Studio</Excluded_Packages>
       <Excluded_Packages Name="$(BDS)\bin\dcloffice2k100.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
       <Excluded_Packages Name="$(BDS)\bin\dclofficexp100.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
@@ -67,6 +97,9 @@
     </DCCReference>
     <DCCReference Include="UEditRefBook.pas">
       <Form>frmEditRefBook</Form>
+    </DCCReference>
+    <DCCReference Include="UEditRefBooks.pas">
+      <Form>frmEditRefbooks</Form>
     </DCCReference>
     <DCCReference Include="UEditRegions.pas">
       <Form>frmEditRegions</Form>

@@ -227,7 +227,7 @@ implementation
 
 {$R *.dfm}
 
-uses umain, UDM, UHotKeys, UEditRefBook;
+uses umain, UDM, UHotKeys, UEditRefBooks;
 
 function TfrmRefbooks.MainFormShow : boolean;
 Begin
@@ -281,8 +281,8 @@ begin
           selq.SQL.Clear;
           selq.SQL.Add('begin BOOKS.delete_record(:table_, :pk_, :id_); end;');
           selq.ParamByName('table_').AsString := 'BOOKS_REGIONS';
-          selq.ParamByName('pk_').AsString := 'ID_REGIONS';
-          selq.ParamByName('id_').AsInteger := Q_REGIONS.FieldByName('ID_REGIONS').Value;
+          selq.ParamByName('pk_').AsString    := 'ID_REGIONS';
+          selq.ParamByName('id_').AsInteger   := Q_REGIONS.FieldByName('ID_REGIONS').Value;
           Q_REGIONS.Next;
           idd := Q_REGIONS.FieldByName('ID_REGIONS').Value;
           selq.Execute;
@@ -296,8 +296,8 @@ begin
           selq.SQL.Clear;
           selq.SQL.Add('begin BOOKS.delete_record(:table_, :pk_, :id_); end;');
           selq.ParamByName('table_').AsString := 'books_cities';
-          selq.ParamByName('pk_').AsString := 'ID_CITY';
-          selq.ParamByName('id_').AsInteger := Q_CITIES.FieldByName('ID_CITY').Value;
+          selq.ParamByName('pk_').AsString    := 'ID_CITY';
+          selq.ParamByName('id_').AsInteger   := Q_CITIES.FieldByName('ID_CITY').Value;
           Q_CITIES.Next;
           idd := Q_CITIES.FieldByName('ID_CITY').Value;
           selq.Execute;
@@ -311,8 +311,8 @@ begin
           selq.SQL.Clear;
           selq.SQL.Add('begin BOOKS.delete_record(:table_, :pk_, :id_); end;');
           selq.ParamByName('table_').AsString := 'BOOKS_ADVERTISMENTS';
-          selq.ParamByName('pk_').AsString := 'ID_ADVERTISMENTS';
-          selq.ParamByName('id_').AsInteger := Q_promo.FieldByName('ID_ADVERTISMENTS').Value;
+          selq.ParamByName('pk_').AsString    := 'ID_ADVERTISMENTS';
+          selq.ParamByName('id_').AsInteger   := Q_promo.FieldByName('ID_ADVERTISMENTS').Value;
           Q_promo.Next;
           idd := Q_promo.FieldByName('ID_ADVERTISMENTS').Value;
           selq.Execute;
@@ -326,8 +326,8 @@ begin
          selq.SQL.Clear;
          selq.SQL.Add('begin BOOKS.delete_record(:table_, :pk_, :id_); end;');
          selq.ParamByName('table_').AsString := 'BOOKS_CLIENT_TYPES';
-         selq.ParamByName('pk_').AsString := 'ID_CLIENT_TYPES';
-         selq.ParamByName('id_').AsInteger := Q_CT.FieldByName('ID_CLIENT_TYPES').Value;
+         selq.ParamByName('pk_').AsString    := 'ID_CLIENT_TYPES';
+         selq.ParamByName('id_').AsInteger   := Q_CT.FieldByName('ID_CLIENT_TYPES').Value;
          Q_CT.Next;
          idd := Q_CT.FieldByName('ID_CLIENT_TYPES').Value;
          selq.Execute;
@@ -341,8 +341,8 @@ begin
           selq.SQL.Clear;
           selq.SQL.Add('begin BOOKS.delete_record(:table_, :pk_, :id_); end;');
           selq.ParamByName('table_').AsString := 'BOOKS_DEPARTMENTS';
-          selq.ParamByName('pk_').AsString := 'ID_DEPARTMENTS';
-          selq.ParamByName('id_').AsInteger := Q_DEPS.FieldByName('ID_DEPARTMENTS').Value;
+          selq.ParamByName('pk_').AsString    := 'ID_DEPARTMENTS';
+          selq.ParamByName('id_').AsInteger   := Q_DEPS.FieldByName('ID_DEPARTMENTS').Value;
           Q_DEPS.Next;
           idd := Q_DEPS.FieldByName('ID_DEPARTMENTS').Value;
           selq.Execute;
@@ -356,8 +356,8 @@ begin
           selq.SQL.Clear;
           selq.SQL.Add('begin BOOKS.delete_record(:table_, :pk_, :id_); end;');
           selq.ParamByName('table_').AsString := 'BOOKS_JOB_TITLES';
-          selq.ParamByName('pk_').AsString := 'ID_JOB_TITLES';
-          selq.ParamByName('id_').AsInteger := Q_POST.FieldByName('ID_JOB_TITLES').Value;
+          selq.ParamByName('pk_').AsString    := 'ID_JOB_TITLES';
+          selq.ParamByName('id_').AsInteger   := Q_POST.FieldByName('ID_JOB_TITLES').Value;
           Q_POST.Next;
           idd := Q_POST.FieldByName('ID_JOB_TITLES').Value;
           selq.Execute;
@@ -425,6 +425,7 @@ begin
  if ( (sss.ActiveView.DataController as TcxDBDataController).DataSet.RecordCount > 0 ) then
   begin
 
+  if (pcrefbooks.ActivePage.PageIndex  in [0..5]) then
   if (id_office <> (sss.ActiveView.DataController as TcxDBDataController).DataSet.FieldByName('ID_OFFICE').AsInteger) then
   begin
     MessageBox(Handle,'Данная запись не принадлежит главному офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
@@ -433,29 +434,134 @@ begin
   try
     if (pcrefbooks.ActivePage.PageIndex=0) and (Q_REGIONS.FieldByName('NAME').AsString <> '') then
     begin
-      frmEditRefBook.ttype := 2;
-      frmEditRefBook.Edit1.Tag := Q_REGIONS.FieldByName('ID_REGIONS').AsInteger;
-      frmEditRefBook.Edit1.Text := Q_REGIONS.FieldByName('NAME').AsString;
-      frmEditRefBook.MEMO1.Text := Q_REGIONS.FieldByName('INFO').AsString;
-      frmEditRefBook.Label6.Caption := 'Регионы :: редактирование';
-      frmEditRefBook.CheckBox1.Visible := false;
-      frmEditRefBook.Label7.Visible := false;
-      frmEditRefBook.Znak_EditPercent.Visible := false;
-      frmEditRefBook.DBNumberEditEh1.Visible := false;
-      frmEditRefBook.pnlCity.Visible    := true;
-      frmEditRefBook.Label8.Caption     := 'Код региона';
-      frmEditRefBook.Label9.Visible     := false;
-      frmEditRefBook.Label10.Visible    := false;
-      frmEditRefBook.imcbRegion.Visible := false;
-      frmEditRefBook.Edit2.Text := Q_REGIONS.FieldByName('KOD').AsString;
-      frmEditRefBook.Edit3.Text := Q_REGIONS.FieldByName('KLADR').AsString;
-      frmEditRefBook.ShowModal;
+      frmEditRefBooks.ttype := 2;
+      frmEditRefBooks.Ed1.Tag    := Q_REGIONS.FieldByName('ID_REGIONS').AsInteger;
+      frmEditRefBooks.Ed1.Text   := Q_REGIONS.FieldByName('NAME').AsString;
+      frmEditRefBooks.MEMO1.Text := Q_REGIONS.FieldByName('INFO').AsString;
+      frmEditRefBooks.Caption    := 'Регионы :: редактирование';
+      frmEditRefBooks.Ed2.Text   := Q_REGIONS.FieldByName('KOD').AsString;
+      frmEditRefBooks.Ed3.Text   := Q_REGIONS.FieldByName('KLADR').AsString;
+      frmEditRefBooks.ShowModal;
       Q_REGIONS.Refresh;
-      Q_REGIONS.Locate('id_regions', frmEditRefBook.Edit1.Tag, []);
+      Q_REGIONS.Locate('id_regions', frmEditRefBooks.Ed1.Tag, []);
       grRegions.SetFocus;
     end;
-
-
+    if (pcrefbooks.ActivePage.PageIndex=1) and (Q_CITIES.FieldByName('city').AsString <> '') then
+    begin
+      frmEditRefBooks.ttype           := 12;
+      frmEditRefBooks.Ed4.Tag         := Q_CITIES.FieldByName('ID_city').AsInteger;
+      frmEditRefBooks.Ed4.Text        := Q_CITIES.FieldByName('city').AsString;
+      frmEditRefBooks.Ed5.Text        := Q_CITIES.FieldByName('kod').AsString;
+      frmEditRefBooks.lcb_runames.Tag := Q_CITIES.FieldByName('id_region').AsInteger;
+      frmEditRefBooks.Caption         := 'Города :: редактирование';
+      frmEditRefBooks.ShowModal;
+      Q_CITIES.Refresh;
+      Q_CITIES.Locate('id_city', frmEditRefBooks.Ed4.Tag, []);
+      grCities.SetFocus;
+    end;
+    if (pcrefbooks.ActivePage.PageIndex=2) and (Q_PROMO.FieldByName('NAME').AsString <> '') then
+    begin
+      frmEditRefBooks.ttype      := 4;
+      frmEditRefBooks.Ed6.Tag    := Q_Promo.FieldByName('ID_ADVERTISMENTS').AsInteger;
+      frmEditRefBooks.Ed6.Text   := Q_Promo.FieldByName('NAME').AsString;
+      frmEditRefBooks.MEMO3.Text := Q_Promo.FieldByName('INFO').AsString;
+      frmEditRefBooks.Caption    := 'Источники рекламы :: редактирование';
+      frmEditRefBooks.ShowModal;
+      Q_Promo.Refresh;
+      Q_Promo.Locate('ID_ADVERTISMENTS', frmEditRefBooks.Ed6.Tag, []);
+      grPromo.SetFocus;
+    end;
+    if (pcrefbooks.ActivePage.PageIndex=3) and (Q_CT.FieldByName('NAME').AsString <> '') then
+    begin
+      frmEditRefBooks.ttype      := 6;
+      frmEditRefBooks.Ed7.Tag    := Q_CT.FieldByName('ID_CLIENT_TYPES').AsInteger;
+      frmEditRefBooks.Ed7.Text   := Q_CT.FieldByName('NAME').AsString;
+      frmEditRefBooks.MEMO4.Text := Q_CT.FieldByName('INFO').AsString;
+      frmEditRefBooks.Caption    := 'Типы клиентов :: редактирование';
+      if Q_CT.FieldByName('T_TYPE').AsInteger = 1 then frmEditRefBooks.checkbox1.checked := true else frmEditRefBooks.checkbox1.checked := false;
+      if Q_CT.FieldByName('is_contractor').AsInteger = 1 then frmEditRefBooks.checkbox2.checked := true else frmEditRefBooks.checkbox2.checked := false;
+      if (Q_CT.FieldByName('DISCOUNT').AsInteger>0) then frmEditRefBooks.Znak_EditPercent.ItemIndex:=1;
+      if (Q_CT.FieldByName('DISCOUNT').AsInteger<0) then frmEditRefBooks.Znak_EditPercent.ItemIndex:=0;
+      frmEditRefBooks.DBNumberEditEh1.Text:=inttostr(ABS(Q_CT.FieldByName('DISCOUNT').AsInteger));
+      frmEditRefBooks.ShowModal;
+      Q_CT.Refresh;
+      Q_CT.Locate('ID_CLIENT_TYPES', frmEditRefBooks.Ed7.Tag, []);
+      grClientTypes.SetFocus;
+    end;
+    if (pcrefbooks.ActivePage.PageIndex=4) and (Q_DEPS.FieldByName('NAME').AsString <> '') then
+    begin
+      frmEditRefBooks.ttype      := 8;
+      frmEditRefBooks.Ed8.Tag    := Q_DEPS.FieldByName('ID_DEPARTMENTS').AsInteger;
+      frmEditRefBooks.Ed8.Text   := Q_DEPS.FieldByName('NAME').AsString;
+      frmEditRefBooks.MEMO5.Text := Q_DEPS.FieldByName('INFO').AsString;
+      frmEditRefBooks.Caption    := 'Отделы :: редактирование';
+      if Q_DEPS.FieldByName('STATE').AsInteger = 1 then frmEditRefBooks.checkbox3.checked := true else frmEditRefBooks.checkbox3.checked := false;
+      frmEditRefBooks.ShowModal;
+      Q_DEPS.Refresh;
+      Q_DEPS.Locate('ID_DEPARTMENTS', frmEditRefBooks.Ed8.Tag, []);
+      grDeps.SetFocus;
+    end;
+    if (pcrefbooks.ActivePage.PageIndex=5) and (Q_POST.FieldByName('NAME').AsString <> '') then
+    begin
+      frmEditRefBooks.ttype      := 10;
+      frmEditRefBooks.Ed9.Tag    := Q_POST.FieldByName('ID_JOB_TITLES').AsInteger;
+      frmEditRefBooks.Ed9.Text   := Q_POST.FieldByName('NAME').AsString;
+      frmEditRefBooks.MEMO6.Text := Q_POST.FieldByName('INFO').AsString;
+      frmEditRefBooks.Caption    := 'Должности :: редактирование';
+      frmEditRefBooks.ShowModal;
+      Q_POST.Refresh;
+      Q_POST.Locate('ID_JOB_TITLES', frmEditRefBooks.Ed9.Tag, []);
+      grPost.SetFocus;
+    end;
+    if (pcrefbooks.ActivePage.PageIndex=6) and (Q_CTRS.FieldByName('COUNTRY').AsString <> '') then
+    begin
+      frmEditRefBooks.ttype                    := 14;
+      frmEditRefBooks.Znak_EditPercent.Visible := false;
+      frmEditRefBooks.DBNumberEditEh1.Visible  := false;
+      frmEditRefBooks.edit_country.Text        := Q_CTRS.FieldByName('COUNTRY').AsString;
+      frmEditRefBooks.edit_country.Tag         := Q_CTRS.FieldByName('C_ID').AsInteger;
+      frmEditRefBooks.edit_country_eng.Text    := Q_CTRS.FieldByName('COUNTRY_ENG').AsString;
+      frmEditRefBooks.edit_country_code.Text   := Q_CTRS.FieldByName('MNEMO').AsString;
+      frmEditRefBooks.ed10.Text                := Q_CTRS.FieldByName('BUH_CODE').AsString;
+      frmEditRefBooks.Caption                  := 'Страны :: редактирование';
+      frmEditRefBooks.ShowModal;
+      Q_CTRS.Refresh;
+      Q_CTRS.Locate('C_ID',frmEditRefBooks.edit_country.Tag,[]);
+      grCountries.SetFocus;
+    end;
+    if (pcrefbooks.ActivePage.PageIndex=7) and (Q_SUP.FieldByName('S_NAME_RU').AsString <> '') then
+    begin
+      frmEditRefBooks.ttype                  := 16;
+      frmEditRefBooks.edit_suplier.Tag       := Q_SUP.FieldByName('S_ID').AsInteger;
+      frmEditRefBooks.edit_suplier.Text      := Q_SUP.FieldByName('S_NAME_RU').AsString;
+      frmEditRefBooks.cb_suplier_c.EditValue := Q_SUP.FieldByName('C_ID').AsInteger;
+      frmEditRefBooks.Caption                := 'Поставщики :: редактирование';
+      if Q_SUP.FieldByName('NEED_CUST').AsString = '1' then frmEditRefBooks.cb_suplier.Checked := true;
+      if Q_SUP.FieldByName('NEED_CUST').AsString = '0' then frmEditRefBooks.cb_suplier.Checked := false;
+      if Q_SUP.FieldByName('IS_ACTIVE').AsString = '1' then frmEditRefBooks.CheckBox4.Checked := true;
+      if Q_SUP.FieldByName('IS_ACTIVE').AsString = '0' then frmEditRefBooks.CheckBox4.Checked := false;
+      frmEditRefBooks.cb_supplier_days.Text               := Q_SUP.FieldByName('ANALYZE_DAYS').AsString;
+      frmEditRefBooks.ShowModal;
+      Q_SUP.Refresh;
+      Q_SUP.Locate('S_ID',frmEditRefBooks.edit_suplier.Tag ,[]);
+      grSuppliers.SetFocus;
+    end;
+    if (pcrefbooks.ActivePage.PageIndex=8) and (Q_CDS.FieldByName('NSI_NAME').AsString <> '') then
+    begin
+     { frmEditRefBooks.ttype                  := 18;
+      frmEditRefBooks.edUnit_code.Tag        := Q_CDS.FieldByName('nsi_units_id').AsInteger;
+      frmEditRefBooks.edUnit_code.Text       := Q_CDS.FieldByName('unit_code').AsString;
+      frmEditRefBooks.edUnit_name.EditValue  := Q_CDS.FieldByName('nsi_name').AsString;
+      frmEditRefBooks.edUnit_znach_national.Text              := Q_CDS.FieldByName('symbol_national').AsString;
+      frmEditRefBooks.edUnit_znach_international.Text         := Q_CDS.FieldByName('symbol_international').AsString;
+      frmEditRefBooks.edUnit_code_litering_national.Text      := Q_CDS.FieldByName('code_lettering_national').AsString;
+      frmEditRefBooks.edUnit_code_litering_international.Text := Q_CDS.FieldByName('code_lettering_international').AsString;
+      frmEditRefBooks.Caption                := 'Единицы измерения :: редактирование';
+      frmEditRefBooks.ShowModal;
+      Q_CDS.Refresh;
+      Q_CDS.Locate('nsi_units_id',frmEditRefBooks.edUnit_code.Tag ,[]);
+      grUnits.SetFocus;    }
+    end;
   finally
   end;
   end;
@@ -476,162 +582,112 @@ begin
   end;
   try
   if pcrefbooks.ActivePage.PageIndex=0 then begin
-      frmEditRefBook.Znak_EditPercent.Visible := false;
-      frmEditRefBook.DBNumberEditEh1.Visible  := false;
-      frmEditRefBook.Edit1.Text               := '';
-      frmEditRefBook.Edit1.Tag                := 0;
-      frmEditRefBook.Memo1.Lines.Clear;
-      frmEditRefBook.ttype              := 1;
-      frmEditRefBook.Label6.Caption     := 'Регионы :: добавление';
-      frmEditRefBook.CheckBox1.Visible  := false;
-      frmEditRefBook.Label7.Visible     := false;
-      frmEditRefBook.pnlCity.Visible    := true;
-      frmEditRefBook.Label8.Caption     := 'Код региона';
-      frmEditRefBook.Label9.Visible     := false;
-      frmEditRefBook.Label10.Visible    := false;
-      frmEditRefBook.imcbRegion.Visible := false;
-      frmEditRefBook.ShowModal;
+      frmEditRefBooks.Ed1.Text := '';
+      frmEditRefBooks.Ed2.Text := '';
+      frmEditRefBooks.Ed3.Text := '';
+      frmEditRefBooks.Ed1.Tag  := 0;
+      frmEditRefBooks.Memo1.Lines.Clear;
+      frmEditRefBooks.ttype    := 1;
+      frmEditRefBooks.Caption  := 'Регионы :: добавление';
+      frmEditRefBooks.ShowModal;
       Q_REGIONS.Refresh;
-      Q_REGIONS.Locate('id_regions', frmEditRefBook.Edit1.Tag, []);
+      Q_REGIONS.Locate('id_regions', frmEditRefBooks.Ed1.Tag, []);
       grRegions.SetFocus;
   end;
   if pcrefbooks.ActivePage.PageIndex=1 then begin
-    frmEditRefBook.Znak_EditPercent.Visible := false;
-    frmEditRefBook.DBNumberEditEh1.Visible  := false;
-    frmEditRefBook.Edit1.Text               := '';
-    frmEditRefBook.Edit1.Tag                := 0;
-    frmEditRefBook.Memo1.Lines.Clear;
-    frmEditRefBook.ttype              := 11;
-    frmEditRefBook.Label6.Caption     := 'Города :: добавление';
-    frmEditRefBook.CheckBox1.Visible  := false;
-    frmEditRefBook.Label7.Visible     := false;
-    frmEditRefBook.pnlCity.Visible    := true;
-    frmEditRefBook.Label11.Visible    := false;
-    frmEditRefBook.Edit3.Visible      := false;
-    frmEditRefBook.ShowModal;
+    frmEditRefBooks.Ed4.Text := '';
+    frmEditRefBooks.Ed5.Text := '';
+    frmEditRefBooks.Ed4.Tag  := 0;
+    frmEditRefBooks.Memo2.Lines.Clear;
+    frmEditRefBooks.ttype    := 11;
+    frmEditRefBooks.Caption  := 'Города :: добавление';
+    frmEditRefBooks.ShowModal;
     Q_CITIES.Refresh;
-    Q_CITIES.Locate('id_city', frmEditRefBook.Edit1.Tag, []);
+    Q_CITIES.Locate('id_city', frmEditRefBooks.Ed4.Tag, []);
     grCities.SetFocus;
   end;
   if pcrefbooks.ActivePage.PageIndex=2 then begin
-    frmEditRefBook.Znak_EditPercent.Visible := false;
-    frmEditRefBook.DBNumberEditEh1.Visible  := false;
-    frmEditRefBook.Edit1.Text               := '';
-    frmEditRefBook.Edit1.Tag                := 0;
-    frmEditRefBook.Memo1.Lines.Clear;
-    frmEditRefBook.ttype              := 3;
-    frmEditRefBook.Label6.Caption     := 'Источники рекламы :: добавление';
-    frmEditRefBook.CheckBox1.Visible  := false;
-    frmEditRefBook.Label7.Visible     := false;
-    frmEditRefBook.ShowModal;
+    frmEditRefBooks.Ed6.Text := '';
+    frmEditRefBooks.Ed6.Tag  := 0;
+    frmEditRefBooks.Memo3.Lines.Clear;
+    frmEditRefBooks.ttype    := 3;
+    frmEditRefBooks.Caption  := 'Источники рекламы :: добавление';
+    frmEditRefBooks.ShowModal;
     Q_Promo.Refresh;
-    Q_Promo.Locate('ID_ADVERTISMENTS', frmEditRefBook.Edit1.Tag, []);
+    Q_Promo.Locate('ID_ADVERTISMENTS', frmEditRefBooks.Ed6.Tag, []);
     grPromo.SetFocus;
   end;
   if pcrefbooks.ActivePage.PageIndex=3 then begin
-    frmEditRefBook.CheckBox2.Visible:=true;
-    frmEditRefBook.Znak_EditPercent.Visible := false;
-    frmEditRefBook.DBNumberEditEh1.Visible  := false;
-    frmEditRefBook.Edit1.Text               := '';
-    frmEditRefBook.Edit1.Tag                := 0;
-    frmEditRefBook.Memo1.Lines.Clear;
-    frmEditRefBook.ttype                    := 5;
-    frmEditRefBook.Label6.Caption           := 'Типы клиентов :: добавление';
-    frmEditRefBook.CheckBox1.Visible        := true;
-    frmEditRefBook.CheckBox1.Caption        := ' печать № свидетельства о регистрации';
-    frmEditRefBook.Label7.Visible           := true;
-    frmEditRefBook.DBNumberEditEh1.Visible  := true;
-    frmEditRefBook.Znak_EditPercent.Visible := true;
-    frmEditRefBook.ShowModal;
+    frmEditRefBooks.Ed7.Text := '';
+    frmEditRefBooks.Ed7.Tag  := 0;
+    frmEditRefBooks.Memo4.Lines.Clear;
+    frmEditRefBooks.ttype    := 5;
+    frmEditRefBooks.Caption  := 'Типы клиентов :: добавление';
+    frmEditRefBooks.ShowModal;
     Q_CT.Refresh;
-    Q_CT.Locate('ID_CLIENT_TYPES', frmEditRefBook.Edit1.Tag, []);
+    Q_CT.Locate('ID_CLIENT_TYPES', frmEditRefBooks.Ed7.Tag, []);
     grClientTypes.SetFocus;
   end;
   if pcrefbooks.ActivePage.PageIndex=4 then begin
-    frmEditRefBook.Znak_EditPercent.Visible := false;
-    frmEditRefBook.DBNumberEditEh1.Visible  := false;
-    frmEditRefBook.Edit1.Text               := '';
-    frmEditRefBook.Edit1.Tag                := 0;
-    frmEditRefBook.Memo1.Lines.Clear;
-    frmEditRefBook.ttype             := 7;
-    frmEditRefBook.Label6.Caption    := 'Отделы :: добавление';
-    frmEditRefBook.CheckBox1.Visible := true;
-    frmEditRefBook.CheckBox1.Caption := ' является отделом продаж';
-    frmEditRefBook.Label7.Visible    := false;
-    frmEditRefBook.ShowModal;
+    frmEditRefBooks.Ed8.Text := '';
+    frmEditRefBooks.Ed8.Tag  := 0;
+    frmEditRefBooks.Memo5.Lines.Clear;
+    frmEditRefBooks.ttype    := 7;
+    frmEditRefBooks.Caption  := 'Отделы :: добавление';
+    frmEditRefBooks.ShowModal;
     Q_DEPS.Refresh;
-    Q_DEPS.Locate('ID_DEPARTMENTS', frmEditRefBook.Edit1.Tag, []);
+    Q_DEPS.Locate('ID_DEPARTMENTS', frmEditRefBooks.Ed8.Tag, []);
     grDeps.SetFocus;
   end;
   if pcrefbooks.ActivePage.PageIndex=5 then begin
-    frmEditRefBook.Znak_EditPercent.Visible := false;
-    frmEditRefBook.DBNumberEditEh1.Visible  := false;
-    frmEditRefBook.Edit1.Text               := '';
-    frmEditRefBook.Edit1.Tag                := 0;
-    frmEditRefBook.Memo1.Lines.Clear;
-    frmEditRefBook.ttype             := 9;
-    frmEditRefBook.Label6.Caption    := 'Должности :: добавление';
-    frmEditRefBook.CheckBox1.Visible := false;
-    frmEditRefBook.Label7.Visible    := false;
-    frmEditRefBook.ShowModal;
+    frmEditRefBooks.Ed9.Text := '';
+    frmEditRefBooks.Ed9.Tag  := 0;
+    frmEditRefBooks.Memo6.Lines.Clear;
+    frmEditRefBooks.ttype    := 9;
+    frmEditRefBooks.Caption  := 'Должности :: добавление';
+    frmEditRefBooks.ShowModal;
     Q_POST.Refresh;
-    Q_POST.Locate('ID_JOB_TITLES', frmEditRefBook.Edit1.Tag, []);
+    Q_POST.Locate('ID_JOB_TITLES', frmEditRefBooks.Ed9.Tag, []);
     grPost.SetFocus;
   end;
   if pcrefbooks.ActivePage.PageIndex=6 then begin
-    frmEditRefBook.Znak_EditPercent.Visible := false;
-    frmEditRefBook.DBNumberEditEh1.Visible  := false;
-    frmEditRefBook.Edit1.Text               := '';
-    frmEditRefBook.Edit1.Tag                := 0;
-    frmEditRefBook.Memo1.Lines.Clear;
-    frmEditRefBook.ttype                    := 13;
-    frmEditRefBook.Label6.Caption           := 'Страны :: добавление';
-    frmEditRefBook.Label8.Caption           := 'Код (буквы)';
-    frmEditRefBook.Label11.Caption          := 'Код (циф.)';
-    frmEditRefBook.Label2.Caption           := 'Страна (лат.)';
-    frmEditRefBook.imcbRegion.Visible := false;
-    frmEditRefBook.Label9.Visible     := false;
-    frmEditRefBook.CheckBox1.Visible  := false;
-    frmEditRefBook.Label7.Visible     := false;
-    frmEditRefBook.pnlCity.Visible    := true;
-    frmEditRefBook.Label10.Visible    := false;
-    frmEditRefBook.Label11.Visible    := true;
-    frmEditRefBook.Edit3.Visible      := true;
-    frmEditRefBook.ShowModal;
+    frmEditRefBooks.edit_country.Text      := '';
+    frmEditRefBooks.edit_country.Tag       := 0;
+    frmEditRefBooks.edit_country_eng.Text  := '';
+    frmEditRefBooks.edit_country_code.Text := '';
+    frmEditRefBooks.ed10.Text              := '';
+    frmEditRefBooks.ttype                  := 13;
+    frmEditRefBooks.Caption                := 'Страны :: добавление';
+    frmEditRefBooks.ShowModal;
     Q_CTRS.Refresh;
-    Q_CTRS.Locate('C_ID',ID,[]);
+    Q_CTRS.Locate('C_ID',frmEditRefBooks.edit_country.Tag,[]);
     grCountries.SetFocus;
   end;
-  if pcrefbooks.ActivePage.PageIndex=7 then begin  // пока не пашет
-    frmEditRefBook.Znak_EditPercent.Visible := false;
-    frmEditRefBook.DBNumberEditEh1.Visible  := false;
-    frmEditRefBook.Edit1.Text               := '';
-    frmEditRefBook.Edit2.Text               := '';
-    frmEditRefBook.Edit1.Tag                := 0;
-    frmEditRefBook.Memo1.Visible            := false;
-    frmEditRefBook.ttype                    := 15;
-    frmEditRefBook.Label6.Caption           := 'Поставщики :: добавление';
-    frmEditRefBook.Label8.Caption           := 'Кол-во дней';
-    frmEditRefBook.Label11.Visible          := false;
-    frmEditRefBook.Label9.Caption           := 'Страна';
-    frmEditRefBook.CheckBox1.Visible  := true;
-    frmEditRefBook.CheckBox2.Visible  := true;
-    frmEditRefBook.CheckBox1.Caption  := 'Таможня/ГТД';
-    frmEditRefBook.CheckBox2.Caption  := 'Неактивная номенклатура';
-    frmEditRefBook.Label7.Visible     := false;
-    frmEditRefBook.Label2.Visible     := false;
-    frmEditRefBook.Label8.Visible     := true;
-    frmEditRefBook.edit3.Visible      := false;
-    frmEditRefBook.pnlCity.Visible    := true;
-    frmEditRefBook.Label10.Visible    := false;
-    frmEditRefBook.imcbregion.Visible := true;
-    frmEditRefBook.ShowModal;
+  if pcrefbooks.ActivePage.PageIndex=7 then begin
+    frmEditRefBooks.edit_suplier.Text     := '';
+    frmEditRefBooks.cb_supplier_days.Text := '';
+    frmEditRefBooks.edit_suplier.Tag      := 0;
+    frmEditRefBooks.ttype                 := 15;
+    frmEditRefBooks.Caption               := 'Поставщики :: добавление';
+    frmEditRefBooks.ShowModal;
     Q_SUP.Refresh;
-    Q_SUP.Locate('S_ID',ID,[]);
+    Q_SUP.Locate('S_ID',frmEditRefBooks.edit_suplier.Tag ,[]);
     grSuppliers.SetFocus;
   end;
   if pcrefbooks.ActivePage.PageIndex=8 then begin
-    ///// не готово
+    frmEditRefBooks.edUnit_code.Text           := '';
+    frmEditRefBooks.edUnit_name.Text           := '';
+    frmEditRefBooks.edUnit_znach_national.Text := '';
+    frmEditRefBooks.edUnit_znach_international.Text    := '';
+    frmEditRefBooks.edUnit_code_litering_national.Text := '';
+    frmEditRefBooks.edUnit_code_litering_international.Text := '';
+    frmEditRefBooks.edUnit_code.Tag := 0;
+    frmEditRefBooks.ttype           := 17;
+    frmEditRefBooks.Caption         := 'Единицы измерения :: добавление';
+    frmEditRefBooks.ShowModal;
+    Q_CDS.Refresh;
+    Q_CDS.Locate('nsi_units_id',frmEditRefBooks.edUnit_code.Tag ,[]);
+    grUnits.SetFocus;
   end;
   finally
   end;
@@ -741,14 +797,12 @@ end;
 procedure TfrmRefbooks.FormCreate(Sender: TObject);
    var recUserRules : TUserRules; i:integer;
 begin
- Application.CreateForm(TfrmEditRefBook, frmEditRefBook);
+ Application.CreateForm(TfrmEditRefBooks, frmEditRefBooks);
 
  for i:=0 to ComponentCount-1 do
  if (Components[i] is TControl) and  (Components[i] is TcxGrid) then
  (Components[i] as TcxGrid).Font.Size := intDefFont;
  //grRegions.Font.Size := intDefFont;
- 
- frmEditRefBook.CheckBox2.Visible:=false;
 
    // получение прав на программу
   recUserRules  := getRules(DM.cdsRules,4);
