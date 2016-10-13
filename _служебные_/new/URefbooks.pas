@@ -173,15 +173,6 @@ type
     grSuppliersPassiv: TcxGridDBColumn;
     grSuppliersLevel: TcxGridLevel;
     Q_Sup: TOraQuery;
-    Q_SupS_ID: TFloatField;
-    Q_SupS_NAME_RU: TStringField;
-    Q_SupC_ID: TFloatField;
-    Q_SupNEED_CUST: TIntegerField;
-    Q_SupCOUNTRY: TStringField;
-    Q_SupNN: TFloatField;
-    Q_SupID_OFFICE: TIntegerField;
-    Q_SupANALYZE_DAYS: TIntegerField;
-    Q_SupIS_ACTIVE: TFloatField;
     Q_SUP_DS: TOraDataSource;
     grUnits: TcxGrid;
     grUnitsView: TcxGridDBTableView;
@@ -201,6 +192,15 @@ type
     Q_CDSCODE_LETTERING_NATIONAL: TStringField;
     Q_CDSCODE_LETTERING_INTERNATIONAL: TStringField;
     Q_CDS_DS: TOraDataSource;
+    Q_SupNN: TFloatField;
+    Q_SupS_ID: TFloatField;
+    Q_SupS_NAME_RU: TStringField;
+    Q_SupC_ID: TFloatField;
+    Q_SupCOUNTRY: TStringField;
+    Q_SupNEED_CUST: TIntegerField;
+    Q_SupID_OFFICE: TIntegerField;
+    Q_SupANALYZE_DAYS: TIntegerField;
+    Q_SupIS_ACTIVE: TFloatField;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -394,8 +394,8 @@ begin
           selq.Close;
           grSuppliers.SetFocus;
       end;
-      if (pcrefbooks.ActivePage.PageIndex=8) and (dm.id_office = 1) then begin
-         (grUnits.ActiveView.DataController as TcxDBDataController).DataSet.Delete;
+      if (pcrefbooks.ActivePage.PageIndex=8) and (id_office=1)  then begin
+          grUnitsView.DataController.DataSet.Delete;
       end;
       except
         on E: Exception do
@@ -495,7 +495,7 @@ begin
       frmEditRefBooks.Ed8.Text   := Q_DEPS.FieldByName('NAME').AsString;
       frmEditRefBooks.MEMO5.Text := Q_DEPS.FieldByName('INFO').AsString;
       frmEditRefBooks.Caption    := 'Отделы :: редактирование';
-      if Q_DEPS.FieldByName('STATE').AsInteger = 1 then frmEditRefBooks.checkbox3.checked := true else frmEditRefBooks.checkbox3.checked := false;
+      if Q_DEPS.FieldByName('STATE').AsInteger = 1 then frmEditRefBooks.chb3.checked := true else frmEditRefBooks.chb3.checked := false;
       frmEditRefBooks.ShowModal;
       Q_DEPS.Refresh;
       Q_DEPS.Locate('ID_DEPARTMENTS', frmEditRefBooks.Ed8.Tag, []);
@@ -534,13 +534,14 @@ begin
       frmEditRefBooks.ttype                  := 16;
       frmEditRefBooks.edit_suplier.Tag       := Q_SUP.FieldByName('S_ID').AsInteger;
       frmEditRefBooks.edit_suplier.Text      := Q_SUP.FieldByName('S_NAME_RU').AsString;
-      frmEditRefBooks.cb_suplier_c.EditValue := Q_SUP.FieldByName('C_ID').AsInteger;
+      //frmEditRefBooks.cb_suplier_c.EditValue := Q_SUP.FieldByName('C_ID').AsInteger;
+      frmEditRefBooks.cb_suplier_c.Tag       := Q_SUP.FieldByName('C_ID').AsInteger;
       frmEditRefBooks.Caption                := 'Поставщики :: редактирование';
       if Q_SUP.FieldByName('NEED_CUST').AsString = '1' then frmEditRefBooks.cb_suplier.Checked := true;
       if Q_SUP.FieldByName('NEED_CUST').AsString = '0' then frmEditRefBooks.cb_suplier.Checked := false;
-      if Q_SUP.FieldByName('IS_ACTIVE').AsString = '1' then frmEditRefBooks.CheckBox4.Checked := true;
-      if Q_SUP.FieldByName('IS_ACTIVE').AsString = '0' then frmEditRefBooks.CheckBox4.Checked := false;
-      frmEditRefBooks.cb_supplier_days.Text               := Q_SUP.FieldByName('ANALYZE_DAYS').AsString;
+      //if Q_SUP.FieldByName('IS_ACTIVE').AsString = '1' then frmEditRefBooks.CheckBox4.Checked := true;
+      //if Q_SUP.FieldByName('IS_ACTIVE').AsString = '0' then frmEditRefBooks.CheckBox4.Checked := false;
+      frmEditRefBooks.cb_supplier_days.Text  := Q_SUP.FieldByName('ANALYZE_DAYS').AsString;
       frmEditRefBooks.ShowModal;
       Q_SUP.Refresh;
       Q_SUP.Locate('S_ID',frmEditRefBooks.edit_suplier.Tag ,[]);
@@ -548,6 +549,7 @@ begin
     end;
     if (pcrefbooks.ActivePage.PageIndex=8) and (Q_CDS.FieldByName('NSI_NAME').AsString <> '') then
     begin
+    //не должно редактир-ся
      { frmEditRefBooks.ttype                  := 18;
       frmEditRefBooks.edUnit_code.Tag        := Q_CDS.FieldByName('nsi_units_id').AsInteger;
       frmEditRefBooks.edUnit_code.Text       := Q_CDS.FieldByName('unit_code').AsString;
@@ -598,7 +600,6 @@ begin
     frmEditRefBooks.Ed4.Text := '';
     frmEditRefBooks.Ed5.Text := '';
     frmEditRefBooks.Ed4.Tag  := 0;
-    frmEditRefBooks.Memo2.Lines.Clear;
     frmEditRefBooks.ttype    := 11;
     frmEditRefBooks.Caption  := 'Города :: добавление';
     frmEditRefBooks.ShowModal;
@@ -711,6 +712,9 @@ end;
 if pcrefbooks.ActivePage.PageIndex=1 then begin
  Caption := 'Cправочники :: города';
  pcrefbooks.Pages[1].TabVisible:=true;
+ Q_REGIONS.Close;  // чтоб был открыт датасет регионов для выбора в городах
+ Q_REGIONS.ParamByName('V_OFFICE').AsInteger :=  id_office;
+ Q_REGIONS.Open;
  Q_CITIES.Close;
  Q_CITIES.ParamByName('V_OFFICE').AsInteger :=  id_office;
  Q_CITIES.Open;
@@ -758,6 +762,8 @@ end;
 if pcrefbooks.ActivePage.PageIndex=7 then begin
  Caption := 'Cправочники :: поставщики';
  pcrefbooks.Pages[7].TabVisible:=true;
+ Q_CTRS.Close;
+ Q_CTRS.Open;
  Q_SUP.Close;
  Q_SUP.ParamByName('V_OFFICE').AsInteger :=  id_office;
  Q_SUP.Open;

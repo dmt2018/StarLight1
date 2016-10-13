@@ -23,7 +23,7 @@ object frmRefbooks: TfrmRefbooks
     Top = 58
     Width = 770
     Height = 479
-    ActivePage = tshUnits
+    ActivePage = tshRegions
     Align = alClient
     TabOrder = 0
     ClientRectBottom = 479
@@ -1418,18 +1418,21 @@ object frmRefbooks: TfrmRefbooks
   object Q_Sup: TOraQuery
     SQL.Strings = (
       'select rownum as nn, a.* '
-      ', case when nn = bb then 1 else 0 end is_active'
+      '  , case when nn = bb then 1 else 0 end is_active'
       'from ('
       
-        'SELECT S_ID, S_NAME_RU, C_ID, COUNTRY, NEED_CUST, id_office, ana' +
-        'lyze_days'
-      'FROM SUPPLIERS_VIEW '
-      'WHERE (NOT (S_ID = 0)) and id_office = :v_office'
-      'ORDER BY S_NAME_RU'
+        '  SELECT S_ID, S_NAME_RU, C_ID, COUNTRY, NEED_CUST, id_office, a' +
+        'nalyze_days'
+      '  FROM SUPPLIERS_VIEW '
+      '  WHERE (NOT (S_ID = 0)) and id_office = :v_office'
+      ') a'
       
-        ') a, (select count(*) as nn, sum(notuse) as bb, s_id from nomenc' +
-        'lature z group by s_id ) b'
-      'where a.s_id = b.s_id')
+        '  left outer join (select count(*) as nn, sum(notuse) as bb, s_i' +
+        'd from nomenclature_mat_view z '
+      
+        'where z.id_departments = :ID_DEPARTMENTS group by s_id ) b on b.' +
+        's_id = a.s_id'
+      'ORDER BY S_NAME_RU')
     FetchAll = True
     FilterOptions = [foCaseInsensitive]
     Left = 368
@@ -1440,30 +1443,30 @@ object frmRefbooks: TfrmRefbooks
         ParamType = ptInput
         Value = Null
         ExtDataType = 107
+      end
+      item
+        DataType = ftUnknown
+        Name = 'ID_DEPARTMENTS'
       end>
+    object Q_SupNN: TFloatField
+      FieldName = 'NN'
+    end
     object Q_SupS_ID: TFloatField
       FieldName = 'S_ID'
-      Required = True
     end
     object Q_SupS_NAME_RU: TStringField
       FieldName = 'S_NAME_RU'
-      Required = True
       Size = 150
     end
     object Q_SupC_ID: TFloatField
       FieldName = 'C_ID'
-      Required = True
-    end
-    object Q_SupNEED_CUST: TIntegerField
-      FieldName = 'NEED_CUST'
-      Required = True
     end
     object Q_SupCOUNTRY: TStringField
       FieldName = 'COUNTRY'
       Size = 50
     end
-    object Q_SupNN: TFloatField
-      FieldName = 'NN'
+    object Q_SupNEED_CUST: TIntegerField
+      FieldName = 'NEED_CUST'
     end
     object Q_SupID_OFFICE: TIntegerField
       FieldName = 'ID_OFFICE'

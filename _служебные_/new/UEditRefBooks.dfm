@@ -3,8 +3,8 @@ object frmEditRefbooks: TfrmEditRefbooks
   Top = 0
   BorderStyle = bsSingle
   Caption = #1056#1077#1076#1072#1082#1090#1086#1088' '#1089#1087#1088#1072#1074#1086#1095#1085#1080#1082#1086#1074
-  ClientHeight = 414
-  ClientWidth = 610
+  ClientHeight = 402
+  ClientWidth = 555
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,13 +18,11 @@ object frmEditRefbooks: TfrmEditRefbooks
   TextHeight = 13
   object Panel1: TPanel
     Left = 0
-    Top = 346
-    Width = 610
+    Top = 334
+    Width = 555
     Height = 27
     Align = alBottom
     TabOrder = 0
-    ExplicitTop = 282
-    ExplicitWidth = 442
     object Label4: TLabel
       Left = 35
       Top = 5
@@ -86,26 +84,24 @@ object frmEditRefbooks: TfrmEditRefbooks
   end
   object Panel2: TPanel
     Left = 0
-    Top = 373
-    Width = 610
+    Top = 361
+    Width = 555
     Height = 41
     Align = alBottom
     TabOrder = 1
-    ExplicitTop = 268
-    ExplicitWidth = 442
     object cxButton2: TcxButton
-      Left = 61
-      Top = 7
-      Width = 187
+      Left = 243
+      Top = 6
+      Width = 145
       Height = 25
       Cursor = crHandPoint
-      Caption = #1047#1072#1087#1080#1089#1100
+      Caption = #1047#1072#1087#1080#1089#1072#1090#1100
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack
       Font.Height = -13
       Font.Name = 'Arial'
       Font.Pitch = fpFixed
-      Font.Style = []
+      Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 0
       OnClick = cxButton2Click
@@ -147,8 +143,8 @@ object frmEditRefbooks: TfrmEditRefbooks
       LookAndFeel.Kind = lfOffice11
     end
     object btnClose: TcxButton
-      Left = 250
-      Top = 7
+      Left = 394
+      Top = 6
       Width = 145
       Height = 25
       Cursor = crHandPoint
@@ -205,25 +201,20 @@ object frmEditRefbooks: TfrmEditRefbooks
   object cxPageControl1: TcxPageControl
     Left = 0
     Top = 0
-    Width = 610
-    Height = 346
-    ActivePage = tsh_units
+    Width = 555
+    Height = 334
+    ActivePage = tsh_promo
     Align = alClient
     MultiLine = True
     Style = 7
     TabOrder = 2
-    ExplicitTop = 8
-    ExplicitWidth = 645
-    ClientRectBottom = 345
+    ClientRectBottom = 333
     ClientRectLeft = 1
-    ClientRectRight = 609
-    ClientRectTop = 21
+    ClientRectRight = 554
+    ClientRectTop = 39
     object tsh_regions: TcxTabSheet
       Caption = #1056#1077#1075#1080#1086#1085#1099
       ImageIndex = 0
-      ExplicitTop = 57
-      ExplicitWidth = 643
-      ExplicitHeight = 183
       object Label5: TLabel
         Left = 34
         Top = 128
@@ -321,7 +312,7 @@ object frmEditRefbooks: TfrmEditRefbooks
         ParentFont = False
       end
       object Ed1: TcxTextEdit
-        Left = 140
+        Left = 141
         Top = 21
         Style.BorderStyle = ebsOffice11
         Style.LookAndFeel.Kind = lfOffice11
@@ -379,9 +370,6 @@ object frmEditRefbooks: TfrmEditRefbooks
     object tsh_cityes: TcxTabSheet
       Caption = #1043#1086#1088#1086#1076#1072
       ImageIndex = 1
-      ExplicitTop = 57
-      ExplicitWidth = 643
-      ExplicitHeight = 288
       object Image2: TImage
         Left = 12
         Top = 22
@@ -465,19 +453,6 @@ object frmEditRefbooks: TfrmEditRefbooks
         Font.Style = []
         ParentFont = False
       end
-      object Label23: TLabel
-        Left = 34
-        Top = 128
-        Width = 220
-        Height = 19
-        Caption = #1044#1086#1087#1086#1083#1085#1080#1090#1077#1083#1100#1085#1072#1103' '#1080#1085#1092#1086#1088#1084#1072#1094#1080#1103
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-      end
       object Image8: TImage
         Left = 12
         Top = 95
@@ -522,33 +497,6 @@ object frmEditRefbooks: TfrmEditRefbooks
           0000}
         Transparent = True
       end
-      object lcb_runames: TcxLookupComboBox
-        Left = 140
-        Top = 95
-        Properties.ImmediatePost = True
-        Properties.KeyFieldNames = 'FN_ID'
-        Properties.ListColumns = <
-          item
-            Width = 200
-            FieldName = 'F_NAME_RU'
-          end>
-        Properties.ListOptions.AnsiSort = True
-        Properties.ListOptions.CaseInsensitive = True
-        Properties.ListOptions.ShowHeader = False
-        Properties.ListOptions.SyncMode = True
-        Style.BorderStyle = ebsOffice11
-        Style.LookAndFeel.Kind = lfOffice11
-        Style.LookAndFeel.NativeStyle = True
-        Style.ButtonStyle = btsOffice11
-        StyleDisabled.LookAndFeel.Kind = lfOffice11
-        StyleDisabled.LookAndFeel.NativeStyle = True
-        StyleFocused.LookAndFeel.Kind = lfOffice11
-        StyleFocused.LookAndFeel.NativeStyle = True
-        StyleHot.LookAndFeel.Kind = lfOffice11
-        StyleHot.LookAndFeel.NativeStyle = True
-        TabOrder = 0
-        Width = 397
-      end
       object ed4: TcxTextEdit
         Left = 140
         Top = 21
@@ -561,7 +509,7 @@ object frmEditRefbooks: TfrmEditRefbooks
         StyleFocused.LookAndFeel.NativeStyle = True
         StyleHot.LookAndFeel.Kind = lfOffice11
         StyleHot.LookAndFeel.NativeStyle = True
-        TabOrder = 1
+        TabOrder = 0
         Width = 397
       end
       object ed5: TcxTextEdit
@@ -576,25 +524,22 @@ object frmEditRefbooks: TfrmEditRefbooks
         StyleFocused.LookAndFeel.NativeStyle = True
         StyleHot.LookAndFeel.Kind = lfOffice11
         StyleHot.LookAndFeel.NativeStyle = True
-        TabOrder = 2
+        TabOrder = 1
         Width = 397
       end
-      object Memo2: TMemo
-        Left = 34
-        Top = 153
-        Width = 519
-        Height = 123
-        Ctl3D = False
-        ParentCtl3D = False
-        ScrollBars = ssVertical
-        TabOrder = 3
+      object lcb_runames: TcxImageComboBox
+        Left = 140
+        Top = 95
+        Cursor = crHandPoint
+        Properties.ImmediatePost = True
+        Properties.Items = <>
+        TabOrder = 2
+        Width = 397
       end
     end
     object tsh_promo: TcxTabSheet
       Caption = #1056#1077#1082#1083#1072#1084#1072
       ImageIndex = 2
-      ExplicitLeft = -15
-      ExplicitWidth = 643
       object Label10: TLabel
         Left = 34
         Top = 19
@@ -694,12 +639,6 @@ object frmEditRefbooks: TfrmEditRefbooks
     object tsh_clienttypes: TcxTabSheet
       Caption = #1058#1080#1087#1099' '#1082#1083#1080#1077#1085#1090#1086#1074
       ImageIndex = 3
-      ExplicitLeft = -39
-      ExplicitTop = 19
-      ExplicitWidth = 643
-      DesignSize = (
-        608
-        324)
       object Image10: TImage
         Left = 12
         Top = 21
@@ -771,11 +710,10 @@ object frmEditRefbooks: TfrmEditRefbooks
         ParentFont = False
       end
       object Label13: TLabel
-        Left = 418
-        Top = 224
+        Left = 402
+        Top = 235
         Width = 135
         Height = 16
-        Anchors = [akLeft]
         Caption = #1057#1050#1048#1044#1050#1040' / '#1053#1040#1044#1041#1040#1042#1050#1040
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -811,8 +749,8 @@ object frmEditRefbooks: TfrmEditRefbooks
         TabOrder = 1
       end
       object Znak_EditPercent: TComboBox
-        Left = 416
-        Top = 257
+        Left = 385
+        Top = 255
         Width = 49
         Height = 24
         Font.Charset = DEFAULT_CHARSET
@@ -831,8 +769,8 @@ object frmEditRefbooks: TfrmEditRefbooks
           '+')
       end
       object DBNumberEditEh1: TDBNumberEditEh
-        Left = 471
-        Top = 259
+        Left = 440
+        Top = 257
         Width = 97
         Height = 19
         AlwaysShowBorder = True
@@ -861,9 +799,6 @@ object frmEditRefbooks: TfrmEditRefbooks
     object tsh_departs: TcxTabSheet
       Caption = #1054#1090#1076#1077#1083#1099
       ImageIndex = 4
-      ExplicitTop = 57
-      ExplicitWidth = 643
-      ExplicitHeight = 288
       object Image11: TImage
         Left = 12
         Top = 21
@@ -959,21 +894,18 @@ object frmEditRefbooks: TfrmEditRefbooks
         ScrollBars = ssVertical
         TabOrder = 1
       end
-      object CheckBox3: TCheckBox
+      object ChB3: TCheckBox
         Left = 34
-        Top = 224
+        Top = 226
         Width = 177
         Height = 17
-        Caption = #1103#1074#1083#1103#1077#1090#1089#1103' '#1086#1090#1076#1077#1083#1086#1084' '#1087#1088#1086#1076#1072#1078
+        Caption = #1071#1074#1083#1103#1077#1090#1089#1103' '#1086#1090#1076#1077#1083#1086#1084' '#1087#1088#1086#1076#1072#1078
         TabOrder = 2
       end
     end
     object tsh_positions: TcxTabSheet
       Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1080
       ImageIndex = 5
-      ExplicitTop = 57
-      ExplicitWidth = 643
-      ExplicitHeight = 288
       object Image12: TImage
         Left = 12
         Top = 21
@@ -1073,8 +1005,6 @@ object frmEditRefbooks: TfrmEditRefbooks
     object tsh_countries: TcxTabSheet
       Caption = #1057#1090#1088#1072#1085#1072
       ImageIndex = 6
-      ExplicitLeft = 0
-      ExplicitTop = 37
       object Image5: TImage
         Left = 12
         Top = 19
@@ -1235,9 +1165,6 @@ object frmEditRefbooks: TfrmEditRefbooks
     object tsh_suppliers: TcxTabSheet
       Caption = #1055#1086#1089#1090#1072#1074#1097#1080#1082
       ImageIndex = 7
-      ExplicitTop = 57
-      ExplicitWidth = 643
-      ExplicitHeight = 288
       object Image6: TImage
         Left = 12
         Top = 16
@@ -1396,7 +1323,7 @@ object frmEditRefbooks: TfrmEditRefbooks
         StyleHot.LookAndFeel.Kind = lfOffice11
         StyleHot.LookAndFeel.NativeStyle = True
         TabOrder = 0
-        Width = 345
+        Width = 402
       end
       object cb_suplier: TcxCheckBox
         Left = 16
@@ -1415,34 +1342,8 @@ object frmEditRefbooks: TfrmEditRefbooks
         StyleFocused.LookAndFeel.NativeStyle = True
         StyleHot.LookAndFeel.Kind = lfOffice11
         StyleHot.LookAndFeel.NativeStyle = True
-        TabOrder = 3
+        TabOrder = 2
         Width = 213
-      end
-      object cb_suplier_c: TcxLookupComboBox
-        Left = 128
-        Top = 42
-        Properties.ImmediatePost = True
-        Properties.KeyFieldNames = 'C_ID'
-        Properties.ListColumns = <
-          item
-            FieldName = 'COUNTRY'
-          end>
-        Properties.ListOptions.AnsiSort = True
-        Properties.ListOptions.CaseInsensitive = True
-        Properties.ListOptions.ShowHeader = False
-        Properties.ListOptions.SyncMode = True
-        Style.BorderStyle = ebsOffice11
-        Style.LookAndFeel.Kind = lfOffice11
-        Style.LookAndFeel.NativeStyle = True
-        Style.ButtonStyle = btsOffice11
-        StyleDisabled.LookAndFeel.Kind = lfOffice11
-        StyleDisabled.LookAndFeel.NativeStyle = True
-        StyleFocused.LookAndFeel.Kind = lfOffice11
-        StyleFocused.LookAndFeel.NativeStyle = True
-        StyleHot.LookAndFeel.Kind = lfOffice11
-        StyleHot.LookAndFeel.NativeStyle = True
-        TabOrder = 1
-        Width = 345
       end
       object cb_supplier_days: TcxSpinEdit
         Left = 288
@@ -1460,24 +1361,22 @@ object frmEditRefbooks: TfrmEditRefbooks
         StyleFocused.LookAndFeel.NativeStyle = True
         StyleHot.LookAndFeel.Kind = lfOffice11
         StyleHot.LookAndFeel.NativeStyle = True
-        TabOrder = 2
+        TabOrder = 1
         Width = 73
       end
-      object CheckBox4: TCheckBox
-        Left = 16
-        Top = 225
-        Width = 353
-        Height = 17
-        Caption = #1085#1077#1072#1082#1090#1080#1074#1085#1072#1103' '#1085#1086#1084#1077#1085#1082#1083#1072#1090#1091#1088#1072
-        TabOrder = 4
+      object cb_suplier_c: TcxImageComboBox
+        Left = 128
+        Top = 50
+        Cursor = crHandPoint
+        Properties.ImmediatePost = True
+        Properties.Items = <>
+        TabOrder = 3
+        Width = 402
       end
     end
     object tsh_units: TcxTabSheet
       Caption = ' '#1045#1076#1080#1085#1080#1094#1099' '#1080#1079#1084#1077#1088#1077#1085#1080#1103' '
       ImageIndex = 8
-      ExplicitTop = 87
-      ExplicitWidth = 440
-      ExplicitHeight = 256
       object Image23: TImage
         Left = 12
         Top = 16
@@ -1657,7 +1556,7 @@ object frmEditRefbooks: TfrmEditRefbooks
         StyleHot.LookAndFeel.Kind = lfOffice11
         StyleHot.LookAndFeel.NativeStyle = True
         TabOrder = 1
-        Width = 224
+        Width = 301
       end
       object edUnit_znach_national: TcxTextEdit
         Left = 229
@@ -1672,7 +1571,7 @@ object frmEditRefbooks: TfrmEditRefbooks
         StyleHot.LookAndFeel.Kind = lfOffice11
         StyleHot.LookAndFeel.NativeStyle = True
         TabOrder = 2
-        Width = 224
+        Width = 301
       end
       object edUnit_znach_international: TcxTextEdit
         Left = 229
@@ -1687,7 +1586,7 @@ object frmEditRefbooks: TfrmEditRefbooks
         StyleHot.LookAndFeel.Kind = lfOffice11
         StyleHot.LookAndFeel.NativeStyle = True
         TabOrder = 3
-        Width = 224
+        Width = 301
       end
       object edUnit_code: TcxSpinEdit
         Left = 229
@@ -1706,7 +1605,7 @@ object frmEditRefbooks: TfrmEditRefbooks
         StyleHot.LookAndFeel.Kind = lfOffice11
         StyleHot.LookAndFeel.NativeStyle = True
         TabOrder = 0
-        Width = 224
+        Width = 301
       end
       object edUnit_code_litering_national: TcxTextEdit
         Left = 229
@@ -1721,7 +1620,7 @@ object frmEditRefbooks: TfrmEditRefbooks
         StyleHot.LookAndFeel.Kind = lfOffice11
         StyleHot.LookAndFeel.NativeStyle = True
         TabOrder = 4
-        Width = 224
+        Width = 301
       end
       object edUnit_code_litering_international: TcxTextEdit
         Left = 229
@@ -1736,7 +1635,7 @@ object frmEditRefbooks: TfrmEditRefbooks
         StyleHot.LookAndFeel.Kind = lfOffice11
         StyleHot.LookAndFeel.NativeStyle = True
         TabOrder = 5
-        Width = 224
+        Width = 301
       end
     end
   end

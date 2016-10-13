@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Menus, cxLookAndFeelPainters, cxGraphics, cxImageComboBox,
+  Dialogs, Menus, cxLookAndFeelPainters, cxGraphics, cxImageComboBox, star_lib,
   cxSpinEdit, cxCheckBox, cxMaskEdit, cxDropDownEdit, cxLookupEdit,
   cxDBLookupEdit, cxDBLookupComboBox, cxGroupBox, cxContainer, cxEdit,
   cxTextEdit, cxPC, cxControls, StdCtrls, cxButtons, ExtCtrls, Mask, DBCtrlsEh;
@@ -24,7 +24,6 @@ type
     Ed1: TcxTextEdit;
     tsh_cityes: TcxTabSheet;
     Image2: TImage;
-    lcb_runames: TcxLookupComboBox;
     tsh_countries: TcxTabSheet;
     Image5: TImage;
     Label7: TLabel;
@@ -42,7 +41,6 @@ type
     Label48: TLabel;
     edit_suplier: TcxTextEdit;
     cb_suplier: TcxCheckBox;
-    cb_suplier_c: TcxLookupComboBox;
     cb_supplier_days: TcxSpinEdit;
     tsh_promo: TcxTabSheet;
     tsh_clienttypes: TcxTabSheet;
@@ -77,8 +75,6 @@ type
     ed5: TcxTextEdit;
     Label21: TLabel;
     Label22: TLabel;
-    Label23: TLabel;
-    Memo2: TMemo;
     Label10: TLabel;
     ed6: TcxTextEdit;
     Memo3: TMemo;
@@ -103,9 +99,10 @@ type
     Memo6: TMemo;
     ed10: TcxTextEdit;
     Label19: TLabel;
-    CheckBox4: TCheckBox;
     Image8: TImage;
-    CheckBox3: TCheckBox;
+    ChB3: TCheckBox;
+    lcb_runames: TcxImageComboBox;
+    cb_suplier_c: TcxImageComboBox;
     procedure btnCloseClick(Sender: TObject);
     procedure cxButton2Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -202,7 +199,7 @@ begin
       frmrefbooks.selq.ParamByName('name_').AsString := trim(Ed8.Text);
       frmrefbooks.selq.ParamByName('info_').AsString := Memo5.Text;
       frmrefbooks.selq.ParamByName('id_').AsInteger := Ed8.Tag;
-      if checkBox3.Checked = true then frmrefbooks.selq.ParamByName('TTYPE_').Value := 1
+      if chb3.Checked = true then frmrefbooks.selq.ParamByName('TTYPE_').Value := 1
       else frmrefbooks.selq.ParamByName('TTYPE_').Value := 0;
       frmrefbooks.selq.Execute;
       Ed8.Tag := frmrefbooks.selq.ParamByName('id_').AsInteger;
@@ -277,12 +274,12 @@ begin
       frmrefbooks.selq.ParamByName('S_ID_').Value    := edit_suplier.Tag;
       end;
       frmrefbooks.selq.ParamByName('S_NAME_RU_').Value    := trim(edit_suplier.Text);
-      frmrefbooks.selq.ParamByName('C_ID_').value         := 1;//imcbregion.EditValue;  // страна
+      frmrefbooks.selq.ParamByName('C_ID_').value         := cb_suplier_c.EditValue;  // страна
       //таможня гтд:
-      if CheckBox1.Checked = true then frmrefbooks.selq.ParamByName('NEED_CUST_').AsString := '1';
-      if CheckBox1.Checked = false then frmrefbooks.selq.ParamByName('NEED_CUST_').AsString:= '0';
-      frmrefbooks.selq.ParamByName('ANALYZE_DAYS_').Value := trim(cb_suplier_c.Text);
-      frmrefbooks.selq.ParamByName('in_id_').Value        := 0;
+      if cb_suplier.Checked = true then frmrefbooks.selq.ParamByName('NEED_CUST_').AsString := '1';
+      if cb_suplier.Checked = false then frmrefbooks.selq.ParamByName('NEED_CUST_').AsString:= '0';
+      frmrefbooks.selq.ParamByName('ANALYZE_DAYS_').value := trim(cb_supplier_days.Text);
+      frmrefbooks.selq.ParamByName('in_id_').Value        := 0;  // на входе 0 на выходе id записи
       frmrefbooks.selq.Execute;
       edit_suplier.Tag := frmrefbooks.selq.ParamByName('in_id_').AsInteger;
       Close;
@@ -317,6 +314,19 @@ procedure TfrmEditRefbooks.FormShow(Sender: TObject);
 begin
 for i:=0 to cxPageControl1.PageCount-1 do cxPageControl1.Pages[i].TabVisible:=false;
 cxPageControl1.ActivePageIndex:=frmmain.page;
+
+//заполнение комбобоксов
+  if (ttype = 11) or (ttype = 12) then
+  begin
+    FillImgComboCx(frmRefbooks.Q_REGIONS,lcb_Runames,'Выберите...');
+    lcb_Runames.EditValue := lcb_Runames.Tag;
+  end;
+  if (ttype = 15) or (ttype = 16) then
+  begin
+    FillImgComboCx(frmRefbooks.Q_CTRS,cb_suplier_c,'Выберите...');
+    cb_suplier_c.EditValue := cb_suplier_c.Tag;
+  end;
+
 end;
 
 end.
