@@ -134,8 +134,7 @@ var
 
 implementation
 
-uses info_f, UNSICurrency, USettings, UAdmin, URegions, UCity, UPromo, UClientTypes, URegistration, UDepartments,
-UPositions, UCountries, USuppliers, UUnits, UTrans, Urefbooks;
+uses info_f, UNSICurrency, USettings, UAdmin,  URegistration, UTrans, Urefbooks;
 
 {$R *.dfm}
 

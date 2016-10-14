@@ -23,7 +23,6 @@ object frmEditTrans: TfrmEditTrans
     Height = 346
     Align = alClient
     TabOrder = 0
-    ExplicitTop = 1
     object Lbl1: TLabel
       Left = 12
       Top = 12
@@ -261,7 +260,7 @@ object frmEditTrans: TfrmEditTrans
     object cxTimeEdit1: TcxTimeEdit
       Left = 113
       Top = 30
-      EditValue = 0
+      EditValue = 0.000000000000000000
       Enabled = False
       TabOrder = 11
       OnKeyPress = cxTimeEdit1KeyPress
@@ -275,8 +274,6 @@ object frmEditTrans: TfrmEditTrans
     Height = 40
     Align = alBottom
     TabOrder = 1
-    ExplicitTop = 241
-    ExplicitWidth = 379
     DesignSize = (
       437
       40)
@@ -295,7 +292,6 @@ object frmEditTrans: TfrmEditTrans
       ParentFont = False
       TabOrder = 0
       Colors.Default = clActiveBorder
-      ExplicitLeft = 147
     end
     object btnClose: TcxButton
       Left = 320
@@ -313,7 +309,6 @@ object frmEditTrans: TfrmEditTrans
       ParentFont = False
       TabOrder = 1
       Colors.Default = clActiveBorder
-      ExplicitLeft = 262
     end
   end
   object OraSQL1: TOraSQL

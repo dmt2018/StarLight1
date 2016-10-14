@@ -25,7 +25,6 @@ object frmTrans: TfrmTrans
     Height = 303
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 1038
     object grTransView: TcxGridDBTableView
       NavigatorButtons.ConfirmDelete = False
       NavigatorButtons.First.Visible = True
@@ -121,12 +120,8 @@ object frmTrans: TfrmTrans
       object grTransStat: TcxGridDBColumn
         Caption = #1057#1090#1072#1090#1091#1089
         DataBinding.FieldName = 'STAT'
-        PropertiesClassName = 'TcxCheckBoxProperties'
-        Properties.ValueChecked = '1'
-        Properties.ValueGrayed = '2'
-        Properties.ValueUnchecked = '0'
         OnGetCellHint = grTransStatGetCellHint
-        Width = 73
+        Width = 103
       end
     end
     object grTransLevel: TcxGridLevel
@@ -135,7 +130,12 @@ object frmTrans: TfrmTrans
   end
   object Q_Trans: TOraQuery
     SQL.Strings = (
-      'select * from status_z order by n_id'
+      '--select * from status_z order by n_id '
+      ''
+      
+        'select * from status_z where to_date(substr(on_date,1,10),'#39'dd.mm' +
+        '.yyyy'#39') between :date_begin and :date_end order by n_id'
+      ''
       '/*'
       
         'SELECT distinct a.doc_number, a.doc_date, a.nick, a.fio, a.opera' +
@@ -201,13 +201,22 @@ object frmTrans: TfrmTrans
     FilterOptions = [foCaseInsensitive]
     Left = 512
     Top = 192
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'date_begin'
+      end
+      item
+        DataType = ftUnknown
+        Name = 'date_end'
+      end>
     object Q_TransN_ID: TFloatField
       FieldName = 'N_ID'
       Required = True
     end
     object Q_TransON_DATE: TStringField
       FieldName = 'ON_DATE'
-      Size = 10
+      Size = 100
     end
     object Q_TransNICK_: TStringField
       FieldName = 'NICK_'
@@ -306,6 +315,14 @@ object frmTrans: TfrmTrans
         item
           BeginGroup = True
           Visible = True
+          ItemName = 'deTransBegin'
+        end
+        item
+          Visible = True
+          ItemName = 'deTransEnd'
+        end
+        item
+          Visible = True
           ItemName = 'btnAdd'
         end
         item
@@ -354,6 +371,42 @@ object frmTrans: TfrmTrans
         item
           Visible = True
           ItemName = 'btnHotKeys'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarStatic5'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarStatic1'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarStatic2'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarStatic4'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarStatic3'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarStatic6'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarStatic7'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarStatic8'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarStatic9'
         end>
       OneOnRow = True
       Row = 0
@@ -537,12 +590,158 @@ object frmTrans: TfrmTrans
       PropertiesClassName = 'TcxLabelProperties'
     end
     object btnHotKeys: TdxBarButton
-      Caption = 'New Button'
+      Caption = #1075#1086#1088#1103#1095#1080#1077' '#1082#1083#1072#1074#1080#1096#1080
       Category = 0
-      Hint = 'New Button'
+      Hint = #1075#1086#1088#1103#1095#1080#1077' '#1082#1083#1072#1074#1080#1096#1080
       Visible = ivAlways
       ImageIndex = 36
       OnClick = btnHotKeysClick
+    end
+    object dxBarColorCombo1: TdxBarColorCombo
+      Caption = 'New Item'
+      Category = 0
+      Hint = 'New Item'
+      Visible = ivAlways
+      Glyph.Data = {
+        36050000424D3605000000000000360400002800000010000000100000000100
+        0800000000000001000000000000000000000001000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000C0DCC000F0CA
+        A6000020400000206000002080000020A0000020C0000020E000004000000040
+        20000040400000406000004080000040A0000040C0000040E000006000000060
+        20000060400000606000006080000060A0000060C0000060E000008000000080
+        20000080400000806000008080000080A0000080C0000080E00000A0000000A0
+        200000A0400000A0600000A0800000A0A00000A0C00000A0E00000C0000000C0
+        200000C0400000C0600000C0800000C0A00000C0C00000C0E00000E0000000E0
+        200000E0400000E0600000E0800000E0A00000E0C00000E0E000400000004000
+        20004000400040006000400080004000A0004000C0004000E000402000004020
+        20004020400040206000402080004020A0004020C0004020E000404000004040
+        20004040400040406000404080004040A0004040C0004040E000406000004060
+        20004060400040606000406080004060A0004060C0004060E000408000004080
+        20004080400040806000408080004080A0004080C0004080E00040A0000040A0
+        200040A0400040A0600040A0800040A0A00040A0C00040A0E00040C0000040C0
+        200040C0400040C0600040C0800040C0A00040C0C00040C0E00040E0000040E0
+        200040E0400040E0600040E0800040E0A00040E0C00040E0E000800000008000
+        20008000400080006000800080008000A0008000C0008000E000802000008020
+        20008020400080206000802080008020A0008020C0008020E000804000008040
+        20008040400080406000804080008040A0008040C0008040E000806000008060
+        20008060400080606000806080008060A0008060C0008060E000808000008080
+        20008080400080806000808080008080A0008080C0008080E00080A0000080A0
+        200080A0400080A0600080A0800080A0A00080A0C00080A0E00080C0000080C0
+        200080C0400080C0600080C0800080C0A00080C0C00080C0E00080E0000080E0
+        200080E0400080E0600080E0800080E0A00080E0C00080E0E000C0000000C000
+        2000C0004000C0006000C0008000C000A000C000C000C000E000C0200000C020
+        2000C0204000C0206000C0208000C020A000C020C000C020E000C0400000C040
+        2000C0404000C0406000C0408000C040A000C040C000C040E000C0600000C060
+        2000C0604000C0606000C0608000C060A000C060C000C060E000C0800000C080
+        2000C0804000C0806000C0808000C080A000C080C000C080E000C0A00000C0A0
+        2000C0A04000C0A06000C0A08000C0A0A000C0A0C000C0A0E000C0C00000C0C0
+        2000C0C04000C0C06000C0C08000C0C0A000F0FBFF00A4A0A000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00FFFF000101A6
+        000202B4000404E4FFFFFFFF000101A6000202B4000404E4FFFFFFFF000EF9A7
+        0030FABC00C0FCE4FFFFFFFF0000F9A70000FABC0000FCE4FFFFFFFF000001A7
+        000002BC000004E4FFFFFFFF000001A7000002BC000004E4FFFFFFFF000001A7
+        000002BC000004E4FFFFFFFF000001A7000002BC000004E4FFFFFFFF000001A7
+        000002BC000004E4FFFFFFFF0000F9A70000FABC0000FCE4FFFFFFFF000EF9A7
+        0030FABC00C0FCE4FFFFFFFF000101A6000202B4000404E4FFFFFFFF000101A6
+        000202B4000404E4FFFFFFFF5201F9075202FA075204FC07FFFFFFFF070056FF
+        070072FF0700D2FFFFFFFFFFFF5207FFFF5207FFFF5207FFFFFF}
+      Width = 100
+      Color = clBlack
+    end
+    object dxBarStatic1: TdxBarStatic
+      Category = 0
+      Style = prinat
+      Visible = ivAlways
+      Width = 50
+    end
+    object dxBarStatic2: TdxBarStatic
+      Caption = '- '#1087#1088#1080#1085#1103#1090
+      Category = 0
+      Hint = '- '#1087#1088#1080#1085#1103#1090
+      Visible = ivAlways
+      Width = 70
+    end
+    object dxBarStatic3: TdxBarStatic
+      Caption = '- '#1087#1077#1088#1077#1076#1072#1085
+      Category = 0
+      Hint = '- '#1087#1077#1088#1077#1076#1072#1085
+      Visible = ivAlways
+      Width = 70
+    end
+    object dxBarStatic4: TdxBarStatic
+      Category = 0
+      Style = peredan
+      Visible = ivAlways
+      Width = 50
+    end
+    object dxBarStatic5: TdxBarStatic
+      Category = 0
+      Visible = ivAlways
+      Width = 30
+    end
+    object dxBarStatic6: TdxBarStatic
+      Category = 0
+      Style = vputi
+      Visible = ivAlways
+      Width = 50
+    end
+    object dxBarStatic7: TdxBarStatic
+      Caption = '- '#1074' '#1087#1091#1090#1080
+      Category = 0
+      Hint = '- '#1074' '#1087#1091#1090#1080
+      Visible = ivAlways
+      Width = 70
+    end
+    object dxBarStatic8: TdxBarStatic
+      Category = 0
+      Style = gotovo
+      Visible = ivAlways
+      Width = 50
+    end
+    object dxBarStatic9: TdxBarStatic
+      Caption = '- '#1074#1099#1087#1086#1083#1085#1077#1085
+      Category = 0
+      Hint = '- '#1074#1099#1087#1086#1083#1085#1077#1085
+      Visible = ivAlways
+      Width = 80
+    end
+    object deTransBegin: TdxBarDateCombo
+      Caption = #1089' '
+      Category = 0
+      Hint = #1089' '
+      Visible = ivAlways
+      Glyph.Data = {
+        F6000000424DF600000000000000760000002800000010000000100000000100
+        0400000000008000000000000000000000001000000000000000000000000000
+        8000008000000080800080000000800080008080000080808000C0C0C0000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00DDDDDDDDDDDD
+        DDDDDDDD00000000000DDDDD0FFFFFFFFF0D00000F0000000F0D0FFF0FFFFFFF
+        FF0D0F000FFF11FFFF0D0FFF0FFF11FFFF0D0FF10FFFF11FFF0D0FF10FFFFF11
+        FF0D0FF10FF11111FF0D0FF10FFFFFFFFF0D0FF104444444440D0FFF04444444
+        440D044400000000000D04444444440DDDDD00000000000DDDDD}
+      ShowCaption = True
+      Width = 100
+      ShowEditor = False
+      ShowDayText = False
+    end
+    object deTransEnd: TdxBarDateCombo
+      Caption = #1087#1086
+      Category = 0
+      Hint = #1087#1086
+      Visible = ivAlways
+      Glyph.Data = {
+        F6000000424DF600000000000000760000002800000010000000100000000100
+        0400000000008000000000000000000000001000000000000000000000000000
+        8000008000000080800080000000800080008080000080808000C0C0C0000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00DDDDDDDDDDDD
+        DDDDDDDD00000000000DDDDD0FFFFFFFFF0D00000F0000000F0D0FFF0FFFFFFF
+        FF0D0F000FFF11FFFF0D0FFF0FFF11FFFF0D0FF10FFFF11FFF0D0FF10FFFFF11
+        FF0D0FF10FF11111FF0D0FF10FFFFFFFFF0D0FF104444444440D0FFF04444444
+        440D044400000000000D04444444440DDDDD00000000000DDDDD}
+      ShowCaption = True
+      Width = 100
+      ShowEditor = False
+      ShowDayText = False
     end
   end
   object AlMain: TActionList

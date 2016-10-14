@@ -23,7 +23,7 @@ object frmRefbooks: TfrmRefbooks
     Top = 58
     Width = 770
     Height = 479
-    ActivePage = tshRegions
+    ActivePage = tshUnits
     Align = alClient
     TabOrder = 0
     ClientRectBottom = 479
@@ -74,6 +74,7 @@ object frmRefbooks: TfrmRefbooks
           OptionsData.CancelOnExit = False
           OptionsData.Deleting = False
           OptionsData.DeletingConfirmation = False
+          OptionsData.Editing = False
           OptionsData.Inserting = False
           OptionsSelection.MultiSelect = True
           OptionsView.CellEndEllipsis = True
@@ -151,6 +152,7 @@ object frmRefbooks: TfrmRefbooks
           OptionsData.CancelOnExit = False
           OptionsData.Deleting = False
           OptionsData.DeletingConfirmation = False
+          OptionsData.Editing = False
           OptionsData.Inserting = False
           OptionsSelection.MultiSelect = True
           OptionsView.CellEndEllipsis = True
@@ -212,6 +214,7 @@ object frmRefbooks: TfrmRefbooks
           OptionsData.CancelOnExit = False
           OptionsData.Deleting = False
           OptionsData.DeletingConfirmation = False
+          OptionsData.Editing = False
           OptionsData.Inserting = False
           OptionsSelection.MultiSelect = True
           OptionsView.CellEndEllipsis = True
@@ -278,6 +281,7 @@ object frmRefbooks: TfrmRefbooks
           OptionsData.CancelOnExit = False
           OptionsData.Deleting = False
           OptionsData.DeletingConfirmation = False
+          OptionsData.Editing = False
           OptionsData.Inserting = False
           OptionsSelection.MultiSelect = True
           OptionsView.CellEndEllipsis = True
@@ -360,6 +364,7 @@ object frmRefbooks: TfrmRefbooks
           OptionsData.CancelOnExit = False
           OptionsData.Deleting = False
           OptionsData.DeletingConfirmation = False
+          OptionsData.Editing = False
           OptionsData.Inserting = False
           OptionsSelection.MultiSelect = True
           OptionsView.CellEndEllipsis = True
@@ -444,6 +449,7 @@ object frmRefbooks: TfrmRefbooks
           OptionsData.CancelOnExit = False
           OptionsData.Deleting = False
           OptionsData.DeletingConfirmation = False
+          OptionsData.Editing = False
           OptionsData.Inserting = False
           OptionsSelection.MultiSelect = True
           OptionsView.CellEndEllipsis = True
@@ -511,6 +517,7 @@ object frmRefbooks: TfrmRefbooks
           OptionsData.CancelOnExit = False
           OptionsData.Deleting = False
           OptionsData.DeletingConfirmation = False
+          OptionsData.Editing = False
           OptionsData.Inserting = False
           OptionsSelection.MultiSelect = True
           OptionsView.CellEndEllipsis = True
@@ -588,6 +595,7 @@ object frmRefbooks: TfrmRefbooks
           OptionsData.CancelOnExit = False
           OptionsData.Deleting = False
           OptionsData.DeletingConfirmation = False
+          OptionsData.Editing = False
           OptionsData.Inserting = False
           OptionsSelection.MultiSelect = True
           OptionsView.CellEndEllipsis = True
@@ -678,6 +686,7 @@ object frmRefbooks: TfrmRefbooks
           OptionsData.CancelOnExit = False
           OptionsData.Deleting = False
           OptionsData.DeletingConfirmation = False
+          OptionsData.Editing = False
           OptionsData.Inserting = False
           OptionsSelection.MultiSelect = True
           OptionsView.CellEndEllipsis = True

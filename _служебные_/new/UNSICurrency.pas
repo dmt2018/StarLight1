@@ -219,7 +219,7 @@ var bm: TBookMark;
     cds: TDataSet;
 begin
   cds := grCurrencyView.DataController.DataSet;
-  bm     := cds.GetBookmark;   // чтото типа application.processmess -  не понял смысла
+  bm  := cds.GetBookmark;   // чтото типа application.processmess -  не понял смысла
 
   try
     Q_CURR.Close;

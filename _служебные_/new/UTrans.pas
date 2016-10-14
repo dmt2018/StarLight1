@@ -61,6 +61,19 @@ type
     grTransDataDostav: TcxGridDBColumn;
     grTransKem: TcxGridDBColumn;
     grTransKomy: TcxGridDBColumn;
+    peredan: TcxStyle;
+    dxBarColorCombo1: TdxBarColorCombo;
+    dxBarStatic1: TdxBarStatic;
+    dxBarStatic2: TdxBarStatic;
+    dxBarStatic3: TdxBarStatic;
+    dxBarStatic4: TdxBarStatic;
+    dxBarStatic5: TdxBarStatic;
+    dxBarStatic6: TdxBarStatic;
+    dxBarStatic7: TdxBarStatic;
+    dxBarStatic8: TdxBarStatic;
+    dxBarStatic9: TdxBarStatic;
+    deTransBegin: TdxBarDateCombo;
+    deTransEnd: TdxBarDateCombo;
     Q_TransN_ID: TFloatField;
     Q_TransON_DATE: TStringField;
     Q_TransNICK_: TStringField;
@@ -72,7 +85,6 @@ type
     Q_TransEND_DATE: TStringField;
     Q_TransFIO_KEM: TStringField;
     Q_TransFIO_KOMY: TStringField;
-    peredan: TcxStyle;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -187,6 +199,7 @@ try
  frmEditTrans.ed7.Text := '';
  frmEditTrans.ed8.Text := '';
  frmEditTrans.ed9.Text := '';
+ frmEditTrans.cxComboBox1.Text:='принят';
  frmEditTrans.Showmodal;
  Q_TRANS.Refresh;
 finally
@@ -197,6 +210,8 @@ end;
 procedure TfrmTrans.aRefreshExecute(Sender: TObject);
 begin
   Q_TRANS.Close;
+  Q_TRANS.ParamByName('date_begin').asdate  := deTransBegin.curdate;
+  Q_TRANS.ParamByName('date_end').asdate    := deTransEnd.curdate;
   Q_TRANS.Open;
   grTrans.SetFocus;
 end;
@@ -241,6 +256,9 @@ begin
   if (imgOffice.Enabled) then
   begin
    try
+    deTransBegin.Text := DateToStr(Now - 14);
+    deTransEnd.Text   := DateToStr(Now);
+    
     id_office := GetOfficeID;
     imgOffice.Enabled := (id_office = 1);
 
@@ -270,10 +288,10 @@ begin
       str_tmp := grTransView.DataController.GetValue(
                 ACellViewInfo.GridRecord.RecordIndex, grTransView.GetColumnByFieldName('STAT').Index
                 );
-      if (str_tmp = 1) then str_text := str_text + 'выполнен' else
-      if (str_tmp = 2) then str_text := str_text + 'в пути'   else
-      if (str_tmp = 0) then str_text := str_text + 'принят к рассмотрению' else
-      if (str_tmp = 3) then str_text := str_text + 'передан';
+      if (str_tmp = 'выполнен') then str_text := str_text + 'выполнен' else
+      if (str_tmp = 'в пути') then str_text := str_text + 'в пути'   else
+      if (str_tmp = 'принят') then str_text := str_text + 'принят к рассмотрению' else
+      if (str_tmp = 'передан') then str_text := str_text + 'передан';
       //str_text := str_text + 'данные отсутствуют';
 
     AHintText := str_text;
@@ -290,10 +308,10 @@ begin
 val1  := grTransView.DataController.GetValue(
          AViewInfo.GridRecord.RecordIndex, grTransView.GetColumnByFieldName('STAT').Index
                 );
-if val1='1' then ACanvas.Brush.Color := gotovo.Color else
-if val1='2' then ACanvas.Brush.Color := vputi.Color else
-if val1='0' then ACanvas.Brush.Color := prinat.Color else
-if val1='3' then ACanvas.Brush.Color := peredan.Color;
+if val1='выполнен' then ACanvas.Brush.Color := gotovo.Color else
+if val1='в пути' then ACanvas.Brush.Color := vputi.Color else
+if val1='принят' then ACanvas.Brush.Color := prinat.Color else
+if val1='передан' then ACanvas.Brush.Color := peredan.Color;
  //ACanvas.Brush.Color := net.Color;
 end;
 

@@ -87,13 +87,19 @@ try
   fio_kem:=ed8.Text;
   fio_komy:=ed9.Text;
 
-  if cxComboBox1.Text='принят'   then stat := '0';
-  if cxComboBox1.Text='в пути'   then stat := '2';
-  if cxComboBox1.Text='выполнен' then stat := '1';
-  if cxComboBox1.Text='передан'  then stat := '3';
+  if cxComboBox1.Text='принят'   then stat := 'принят';
+  if cxComboBox1.Text='в пути'   then stat := 'в пути';
+  if cxComboBox1.Text='выполнен' then stat := 'выполнен';
+  if cxComboBox1.Text='передан'  then stat := 'передан';
 //1-ВСТАВКА
 if dr=1 then begin
-//!!! вопрос в том можно ли добавлять, ведь со срезки уже все готовое идет
+  frmtrans.selq.Close;
+  frmtrans.selq.SQL.Clear;
+  frmtrans.selq.SQL.add('select count(*) as p2 from status_z where n_id='+n_id);
+  frmtrans.selq.Open;
+//если записи нет - вставляем, если есть запрещаю дубликат
+  if frmtrans.selq.FieldByName('p2').AsInteger=0 then begin
+  frmtrans.selq.Close;
   frmtrans.selq.SQL.Clear;
   frmtrans.selq.SQL.add('insert into status_z values(:n_id, :on_date, :nick_, :fio_cl, :fio_men, :n_mash, :stat, :adr, :end_date, :fio_kem, :fio_komy)');
   frmtrans.selq.ParamByName('N_ID').value   := n_id;
@@ -108,6 +114,8 @@ if dr=1 then begin
   frmtrans.selq.ParamByName('fio_kem').value := fio_kem;
   frmtrans.selq.ParamByName('fio_komy').value:= fio_komy;
   frmtrans.selq.Execute;
+  close;
+  end else showmessage('Накладная с этим номером уже есть в списке');
 end;
 //2-РЕДАКТИРОВАНИЕ
 if dr=2 then begin
@@ -120,7 +128,7 @@ if dr=2 then begin
   //frmtrans.selq.SQL.add('select count(*) as p1 from status_z where n_id='+n_id+' and on_date='+#39+on_date+#39);
   frmtrans.selq.SQL.add('select count(*) as p1 from status_z where n_id='+n_id);
   frmtrans.selq.Open;
-//если запись найдена - вставляем
+//если запись не найдена - вставляем
   if frmtrans.selq.FieldByName('p1').AsInteger=0 then begin
   frmtrans.selq.Close;
   frmtrans.selq.SQL.Clear;
@@ -145,9 +153,10 @@ if dr=2 then begin
   //frmtrans.selq.SQL.add('where n_id='+n_id+' and on_date='+#39+on_date+#39);
   frmtrans.selq.SQL.add('where n_id='+n_id);
   frmtrans.selq.Execute;
+  close;
 end;
 
-  close;
+
 
 except
 on E: Exception do
@@ -180,7 +189,7 @@ begin
   frmtrans.selq.SQL.add('where doc_number='+ed1.Text+' and id_departments='+inttostr(intDefDept));
   frmtrans.selq.open;
 
-  cxdateedit1.Date:= strtodate(frmtrans.selq.fieldbyname('doc_date').AsString);
+  //cxdateedit1.Date:= strtodate(frmtrans.selq.fieldbyname('doc_date').AsString);
   ed2.Text := frmtrans.selq.fieldbyname('nick').AsString;
   ed3.Text := frmtrans.selq.fieldbyname('fio').AsString;
   ed4.Text := frmtrans.selq.fieldbyname('operator_name').AsString;
