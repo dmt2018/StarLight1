@@ -94,6 +94,7 @@ type
     mmiFito: TMenuItem;
     mmiSpez: TMenuItem;
     mmiSales: TMenuItem;
+    mmiTrans: TMenuItem;
     procedure actAboutExecute(Sender: TObject);
     procedure mnNSI_CurrencyClick(Sender: TObject);
     procedure mmiSettingsClick(Sender: TObject);
@@ -114,11 +115,18 @@ type
     procedure mnNSI_AdverClick(Sender: TObject);
     procedure mnNSI_ClientsTypeClick(Sender: TObject);
     procedure miClient_RegClick(Sender: TObject);
+    procedure mnNSI_DepClick(Sender: TObject);
+    procedure mnNSI_JobClick(Sender: TObject);
+    procedure mnNSI_CountriesClick(Sender: TObject);
+    procedure mnNSI_SupplierClick(Sender: TObject);
+    procedure mnNSI_pcsClick(Sender: TObject);
+    procedure mmiTransClick(Sender: TObject);
   private
     { Private declarations }
     porasessStarLight: POraSession;
   public
     { Public declarations }
+    page:integer;
   end;
 
 var
@@ -126,7 +134,7 @@ var
 
 implementation
 
-uses info_f, UNSICurrency, USettings, UAdmin, UReg, UCity, UPromo, UClientTypes, URegistration;
+uses info_f, UNSICurrency, USettings, UAdmin,  URegistration, UTrans, Urefbooks;
 
 {$R *.dfm}
 
@@ -145,7 +153,7 @@ end;
 
 // вывод юзера в 2_статусбар:
 procedure TfrmMain.FormCreate(Sender: TObject);
-var  s1, s2, s3, s4: boolean;
+ //var  s1, s2, s3, s4: boolean;
 begin
   //porasessStarLight := @DM.OraSession;
   stbMain.Panels[0].Text := verApplication;
@@ -153,7 +161,6 @@ begin
   stbMain.Panels[2].Text := ' ѕользователь: ['+strUserName+'] ';
   stbMain.Refresh;
   self.Caption := Application.Title;
-
 
   // ”становим доступность кнопок в меню дл€ вызова основных форм
   DM.cdsRules.first;
@@ -241,22 +248,42 @@ begin
   frmSettings.MainFormShow;
 end;
 
- //форма реклама
+//форма транспортников
+procedure TfrmMain.mmiTransClick(Sender: TObject);
+begin
+  frmTrans.MainFormShow;
+end;
+
+//форма реклама
 procedure TfrmMain.mnNSI_AdverClick(Sender: TObject);
 begin
-  frmPromo.MainFormShow;
+  page:=2;
+  //frmPromo.MainFormShow;
+  frmrefbooks.MainFormShow;
 end;
 
  //форма города
 procedure TfrmMain.mnNSI_CityesClick(Sender: TObject);
 begin
-  frmCity.MainFormShow;
+ page:=1;
+  //frmCity.MainFormShow;
+ frmrefbooks.MainFormShow;
 end;
 
  //форма типы клиентов
 procedure TfrmMain.mnNSI_ClientsTypeClick(Sender: TObject);
 begin
-  frmClientTypes.MainFormShow;
+  page:=3;
+  //frmClientTypes.MainFormShow;
+  frmrefbooks.MainFormShow;
+end;
+
+//форма стран
+procedure TfrmMain.mnNSI_CountriesClick(Sender: TObject);
+begin
+  page:=6;
+  //frmCountries.MainFormShow;
+  frmrefbooks.MainFormShow;
 end;
 
 //форма курсы валют
@@ -265,10 +292,44 @@ begin
   frmNSICurreny.MainFormShow;
 end;
 
+//форма отделы
+procedure TfrmMain.mnNSI_DepClick(Sender: TObject);
+begin
+  page:=4;
+  //frmDepartments.MainFormShow;
+  frmrefbooks.MainFormShow;
+end;
+
+//форма должности
+procedure TfrmMain.mnNSI_JobClick(Sender: TObject);
+begin
+ page:=5;
+ frmrefbooks.MainFormShow;
+ //frmPositions.MainFormShow;
+end;
+
+//форма ед.измер.
+procedure TfrmMain.mnNSI_pcsClick(Sender: TObject);
+begin
+  page:=8;
+  frmrefbooks.MainFormShow;
+  //frmUnits.MainFormShow;
+end;
+
 //форма регионы
 procedure TfrmMain.mnNSI_RegionsClick(Sender: TObject);
 begin
-  frmReg.MainFormShow;
+ page:=0;
+//  frmRegions.MainFormShow;
+ frmrefbooks.MainFormShow;
+end;
+
+//форма поставщики
+procedure TfrmMain.mnNSI_SupplierClick(Sender: TObject);
+begin
+  page:=7;
+  frmrefbooks.MainFormShow;
+  //frmSuppliers.MainFormShow;
 end;
 
 //разворачиваю окна

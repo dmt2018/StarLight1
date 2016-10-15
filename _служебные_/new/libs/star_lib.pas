@@ -24,6 +24,16 @@ type
      dwFileDateMS      : DWORD;
      dwFileDateLS      : DWORD;
   end; // TFixedFileInfo
+
+type
+  PUserRules = ^TUserRules;
+  TUserRules = record
+     r_read     : Boolean;  // Просмотр данных
+     r_edit     : Boolean;  // Редактирование данных
+     r_delete   : Boolean;  // Удаление данных
+     r_print    : Boolean;  // Печать данных
+  end; // TUserRules
+
 type
  PTOKEN_USER = ^TOKEN_USER;
  _TOKEN_USER = record
@@ -31,6 +41,10 @@ type
  end;
  TOKEN_USER = _TOKEN_USER;
 
+// Права на программу
+  function getRules( TheQuery : TOraQuery; pProgram : integer ) : TUserRules;
+// Проверка на право
+  function getRight( TheQuery : TOraQuery; pName : string ) : boolean;
 // Достанем ID офиса
   function GetOfficeID : integer;
 // Копирование данных ячейки футера в клипборд
@@ -197,6 +211,26 @@ Begin
 End;
 
 
+// Права на программу
+function getRules( TheQuery : TOraQuery; pProgram : integer ) : TUserRules;
+var
+  UserRules: TUserRules;
+begin
+   TheQuery.Locate('ID_PROGRAMS',pProgram,[]);
+   UserRules.r_read   := (TheQuery.FieldByName('c_start').AsInteger = 1);
+   UserRules.r_edit   := (TheQuery.FieldByName('c_edit').AsInteger  = 1);
+   UserRules.r_delete := (TheQuery.FieldByName('c_del').AsInteger   = 1);
+   UserRules.r_print  := (TheQuery.FieldByName('c_print').AsInteger = 1);
+
+   Result := UserRules;
+end;
+
+// Проверка на право
+function getRight( TheQuery : TOraQuery; pName : String ) : boolean;
+begin
+   Result := TheQuery.Locate('stg_key',pName,[loCaseInsensitive]);;
+end;
+
 //// Версия файла FIXEDFILEINFO
 function FileInfo( const FileName :String ) : TFixedFileInfo;
 var
@@ -267,46 +301,44 @@ end; // GetFileInformation
 
 
 //при закрытии форм  запоминаю координаты
- procedure SaveFormState(aForm: TForm);
-    var
-      ini: TIniFile;
-    begin
-      ini := TIniFile.Create(ChangeFileExt(Application.ExeName, '_forms.ini'));
-      with aForm do
-      begin
-        ini.WriteInteger(aForm.Name, 'WindowState', Integer(WindowState));
-        ini.WriteInteger(aForm.Name, 'Left',   Left);
-        ini.WriteInteger(aForm.Name, 'Top',    Top);
-        ini.WriteInteger(aForm.Name, 'Width',  Width);
-        ini.WriteInteger(aForm.Name, 'Height', Height);
-      end;
-      ini.Free;
-    end;
-
- //при открытии форм запоминаю координаты
- procedure LoadFormState(aForm: TForm);
-    var
-      ini: TIniFile;
-    begin
-      ini := TIniFile.Create(ChangeFileExt(Application.ExeName, '_forms.ini'));
-      with aForm do
-      begin
-        WindowState := TWindowState(ini.ReadInteger(aForm.Name, 'WindowState', Integer(WindowState)));
-        if Integer(WindowState) = 0 then
-        begin
-          Left  := ini.ReadInteger(aForm.Name, 'Left',   Left);
-          Top   := ini.ReadInteger(aForm.Name, 'Top',    Top);
-          Width := ini.ReadInteger(aForm.Name, 'Width',  Width);
-          Height:= ini.ReadInteger(aForm.Name, 'Height', Height);
-        end;
-      end;
-      ini.Free;
- end;
-
- // Для shellexecute
- procedure CheckShell(hand: Thandle; st: pchar);
+procedure SaveFormState(aForm: TForm);
+var ini: TIniFile;
+begin
+  ini := TIniFile.Create(ChangeFileExt(Application.ExeName, '_forms.ini'));
+  with aForm do
   begin
-     ShellExecute(hand, nil, st, nil, nil, SW_RESTORE);
+    ini.WriteInteger(aForm.Name, 'WindowState', Integer(WindowState));
+    ini.WriteInteger(aForm.Name, 'Left',   Left);
+    ini.WriteInteger(aForm.Name, 'Top',    Top);
+    ini.WriteInteger(aForm.Name, 'Width',  Width);
+    ini.WriteInteger(aForm.Name, 'Height', Height);
   end;
+  ini.Free;
+end;
+
+//при открытии форм запоминаю координаты
+procedure LoadFormState(aForm: TForm);
+var ini: TIniFile;
+begin
+  ini := TIniFile.Create(ChangeFileExt(Application.ExeName, '_forms.ini'));
+  with aForm do
+  begin
+    WindowState := TWindowState(ini.ReadInteger(aForm.Name, 'WindowState', Integer(WindowState)));
+    if Integer(WindowState) = 0 then
+    begin
+      Left  := ini.ReadInteger(aForm.Name, 'Left',   Left);
+      Top   := ini.ReadInteger(aForm.Name, 'Top',    Top);
+      Width := ini.ReadInteger(aForm.Name, 'Width',  Width);
+      Height:= ini.ReadInteger(aForm.Name, 'Height', Height);
+    end;
+  end;
+  ini.Free;
+end;
+
+// Для shellexecute
+procedure CheckShell(hand: Thandle; st: pchar);
+begin
+  ShellExecute(hand, nil, st, nil, nil, SW_RESTORE);
+end;
 
 end.

@@ -21,9 +21,6 @@ object frmNSICurreny: TfrmNSICurreny
     Height = 398
     Align = alClient
     TabOrder = 4
-    ExplicitTop = 46
-    ExplicitWidth = 663
-    ExplicitHeight = 410
     object grCurrencyView: TcxGridDBTableView
       NavigatorButtons.ConfirmDelete = False
       NavigatorButtons.First.Visible = True
@@ -210,6 +207,15 @@ object frmNSICurreny: TfrmNSICurreny
         item
           Visible = True
           ItemName = 'btnRefresh'
+        end
+        item
+          BeginGroup = True
+          Visible = True
+          ItemName = 'deCoursesBegin'
+        end
+        item
+          Visible = True
+          ItemName = 'deCoursesEnd'
         end
         item
           BeginGroup = True
@@ -451,6 +457,44 @@ object frmNSICurreny: TfrmNSICurreny
       ImageIndex = 36
       OnClick = btnHotKeysClick
     end
+    object deCoursesBegin: TdxBarDateCombo
+      Caption = #1089
+      Category = 0
+      Hint = #1089
+      Visible = ivAlways
+      OnKeyDown = deCoursesEndKeyDown
+      Glyph.Data = {
+        F6000000424DF600000000000000760000002800000010000000100000000100
+        0400000000008000000000000000000000001000000000000000000000000000
+        8000008000000080800080000000800080008080000080808000C0C0C0000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00DDDDDDDDDDDD
+        DDDDDDDD00000000000DDDDD0FFFFFFFFF0D00000F0000000F0D0FFF0FFFFFFF
+        FF0D0F000FFF11FFFF0D0FFF0FFF11FFFF0D0FF10FFFF11FFF0D0FF10FFFFF11
+        FF0D0FF10FF11111FF0D0FF10FFFFFFFFF0D0FF104444444440D0FFF04444444
+        440D044400000000000D04444444440DDDDD00000000000DDDDD}
+      ShowCaption = True
+      Width = 100
+      ShowDayText = False
+    end
+    object deCoursesEnd: TdxBarDateCombo
+      Caption = #1087#1086
+      Category = 0
+      Hint = #1087#1086
+      Visible = ivAlways
+      OnKeyDown = deCoursesEndKeyDown
+      Glyph.Data = {
+        F6000000424DF600000000000000760000002800000010000000100000000100
+        0400000000008000000000000000000000001000000000000000000000000000
+        8000008000000080800080000000800080008080000080808000C0C0C0000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00DDDDDDDDDDDD
+        DDDDDDDD00000000000DDDDD0FFFFFFFFF0D00000F0000000F0D0FFF0FFFFFFF
+        FF0D0F000FFF11FFFF0D0FFF0FFF11FFFF0D0FF10FFFF11FFF0D0FF10FFFFF11
+        FF0D0FF10FF11111FF0D0FF10FFFFFFFFF0D0FF104444444440D0FFF04444444
+        440D044400000000000D04444444440DDDDD00000000000DDDDD}
+      ShowCaption = True
+      Width = 100
+      ShowDayText = False
+    end
   end
   object AlMain: TActionList
     Left = 608
@@ -492,9 +536,14 @@ object frmNSICurreny: TfrmNSICurreny
     Top = 192
   end
   object Q_CURR: TOraQuery
+    SQLRefresh.Strings = (
+      'SELECT a.* from CURRENCY a'
+      'where a.ID = :old_ID')
     SQL.Strings = (
       'begin'
-      '  DICTS.GET_CURSES(:V_OFFICE, :CURSOR_);'
+      
+        '  DICTS.LIST_OF_CURSES(:V_OFFICE, :DATE_BEGIN, :DATE_END, :CURSO' +
+        'R_);'
       'end;')
     Left = 512
     Top = 192
@@ -503,6 +552,14 @@ object frmNSICurreny: TfrmNSICurreny
         DataType = ftFloat
         Name = 'V_OFFICE'
         ParamType = ptInput
+      end
+      item
+        DataType = ftUnknown
+        Name = 'DATE_BEGIN'
+      end
+      item
+        DataType = ftUnknown
+        Name = 'DATE_END'
       end
       item
         DataType = ftCursor

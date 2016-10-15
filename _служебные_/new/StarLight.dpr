@@ -11,15 +11,15 @@ uses
   UAdmin in 'UAdmin.pas' {frmAdmin},
   UAdminAccount in 'UAdminAccount.pas' {frmAdminAccount},
   Udm in 'Udm.pas' {dm: TDataModule},
-  UReg in 'UReg.pas' {frmReg},
-  UCity in 'UCity.pas' {frmCity},
-  UPromo in 'UPromo.pas' {frmPromo},
   Ueditor in 'Ueditor.pas' {frmeditor},
-  UClientTypes in 'UClientTypes.pas' {frmClientTypes},
-  UEditClientTypes in 'UEditClientTypes.pas' {frmEditClientTypes},
   URegistration in 'URegistration.pas' {frmRegistration},
   UEditRegistration in 'UEditRegistration.pas' {frmEditRegistration},
-  UHotKeys in 'UHotKeys.pas' {frmHotKeys};
+  UHotKeys in 'UHotKeys.pas' {frmHotKeys},
+  UPassport in 'UPassport.pas' {frmPassport},
+  UTrans in 'UTrans.pas' {frmTrans},
+  UEditTrans in 'UEditTrans.pas' {frmEditTrans},
+  URefbooks in 'URefbooks.pas' {frmRefbooks},
+  UEditRefBooks in 'UEditRefBooks.pas' {frmEditRefbooks};
 
 {$R *.res}
 

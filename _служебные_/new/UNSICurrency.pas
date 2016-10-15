@@ -64,19 +64,6 @@ type
     ClientDataSet2: TClientDataSet;
     aExit: TAction;
     btnHotKeys: TdxBarButton;
-    Q_CURRDDATE: TDateTimeField;
-    Q_CURRUSD: TFloatField;
-    Q_CURREUR: TFloatField;
-    Q_CURRUSD_EUR: TFloatField;
-    Q_CURREUR_USD: TFloatField;
-    Q_CURRSHEV_USD: TFloatField;
-    Q_CURRSHEV_EUR: TFloatField;
-    Q_CURRSHEV_USD_EUR: TFloatField;
-    Q_CURRSHEV_EUR_USD: TFloatField;
-    Q_CURRID_OFFICE: TIntegerField;
-    Q_CURRDATE_CHANGE: TDateTimeField;
-    Q_CURRID: TFloatField;
-    Q_CURRBRIEF: TStringField;
     deCoursesBegin: TdxBarDateCombo;
     deCoursesEnd: TdxBarDateCombo;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -145,8 +132,7 @@ end;
 
 // Действие на создание формы
 procedure TfrmNSICurreny.FormCreate(Sender: TObject);
- var i : integer;
-     recUserRules : TUserRules;
+ var recUserRules : TUserRules;
 begin
   Application.CreateForm(Tfrmeditor, frmeditor);
   grCurrency.Font.Size := intDefFont;
@@ -161,7 +147,7 @@ begin
   aNew.Enabled    := p_edit;
   aEdit.Enabled   := p_edit;
   aDelete.Enabled := p_delete;
-  btnHelp.Enabled := getRight(DM.cdsSettings, 'загрузка курсов с ЦБ');
+  btnHelp.Enabled := getRight(DM.cdsSettings, 'загрузка курсов с ЦБ');   
 end;
 
 // Действие на показ формы
@@ -233,7 +219,7 @@ var bm: TBookMark;
     cds: TDataSet;
 begin
   cds := grCurrencyView.DataController.DataSet;
-  bm     := cds.GetBookmark;
+  bm  := cds.GetBookmark;   // чтото типа application.processmess -  не понял смысла
 
   try
     Q_CURR.Close;
@@ -260,24 +246,6 @@ end;
 
 // EOF :: Основные кнопки управления -------------------------------------------
 // -----------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 procedure TfrmNSICurreny.btnHelpClick(Sender: TObject);
 var
@@ -329,6 +297,8 @@ procedure TfrmNSICurreny.btnHotKeysClick(Sender: TObject);
 begin
   frmHotKeys.MainFormShow;
 end;
+
+
 
 procedure TfrmNSICurreny.deCoursesEndKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);

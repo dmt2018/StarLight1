@@ -279,60 +279,6 @@ type
     cxGridDBColumn32: TcxGridDBColumn;
     cxGridLevel2: TcxGridLevel;
     cxSplitter1: TcxSplitter;
-    TabSheet3: TTabSheet;
-    Panel7: TPanel;
-    GroupBox5: TGroupBox;
-    Label13: TLabel;
-    Label14: TLabel;
-    Edit6: TEdit;
-    Edit7: TEdit;
-    GroupBox6: TGroupBox;
-    Label16: TLabel;
-    Label17: TLabel;
-    Label18: TLabel;
-    Label21: TLabel;
-    Label15: TLabel;
-    Label23: TLabel;
-    Label24: TLabel;
-    Label8: TLabel;
-    Edit9: TEdit;
-    ComboBox3: TComboBox;
-    ComboBox4: TComboBox;
-    ComboBox6: TComboBox;
-    ComboBox7: TComboBox;
-    ComboBox8: TComboBox;
-    ComboBox10: TComboBox;
-    Edit8: TEdit;
-    cxButton3: TcxButton;
-    cxButton4: TcxButton;
-    BitBtn20: TBitBtn;
-    BitBtn2: TBitBtn;
-    BitBtn1: TBitBtn;
-    Panel8: TPanel;
-    Panel12: TPanel;
-    gr_empl: TcxGrid;
-    gr_empl_v: TcxGridDBTableView;
-    gr_empl_vBRIEF: TcxGridDBColumn;
-    row_empl_NICK: TcxGridDBColumn;
-    row_empl_FIO: TcxGridDBColumn;
-    _row_empl_CCODE: TcxGridDBColumn;
-    _row_empl_NN: TcxGridDBColumn;
-    _row_empl_ID_CLIENTS: TcxGridDBColumn;
-    gr_empl_vACTIVE: TcxGridDBColumn;
-    gr_empl_vSTAFF: TcxGridDBColumn;
-    gr_empl_vLOGIN: TcxGridDBColumn;
-    gr_empl_vCOUNT: TcxGridDBColumn;
-    gr_empl_vID_OFFICE: TcxGridDBColumn;
-    gr_empl_l: TcxGridLevel;
-    Panel13: TPanel;
-    DBGrid6: TDBGrid;
-    ComboBox9: TComboBox;
-    BitBtn14: TBitBtn;
-    BitBtn17: TBitBtn;
-    DBGrid5: TDBGrid;
-    ComboBox5: TComboBox;
-    BitBtn18: TBitBtn;
-    BitBtn19: TBitBtn;
     TabSheet4: TTabSheet;
     Panel9: TPanel;
     Label26: TLabel;
@@ -497,6 +443,37 @@ type
     Q_IDD: TOraQuery;
     Q_IDD_DS: TOraDataSource;
     cxGridDBColumn33: TcxGridDBColumn;
+    Q_GROUPSID_CLIENTS_GROUPS: TIntegerField;
+    Q_GROUPSNAME: TStringField;
+    Q_GROUPSINFO: TStringField;
+    Q_GROUPSID_OFFICE: TIntegerField;
+    Q_GROUPSDATE_CHANGE: TDateTimeField;
+    Q_GROUPSBRIEF: TStringField;
+    Q_REGIONSID_REGIONS: TIntegerField;
+    Q_REGIONSNAME: TStringField;
+    Q_REGIONSID_OFFICE: TIntegerField;
+    Q_REGIONSBRIEF: TStringField;
+    Q_TYPESID_CLIENT_TYPES: TIntegerField;
+    Q_TYPESNAME: TStringField;
+    Q_TYPESID_OFFICE: TIntegerField;
+    Q_TYPESBRIEF: TStringField;
+    dxBarSubItem1: TdxBarSubItem;
+    dxBarEdit1: TdxBarEdit;
+    cxBarEditItem5: TcxBarEditItem;
+    dxBarSubItem2: TdxBarSubItem;
+    dxBarSubItem3: TdxBarSubItem;
+    dxBarSubItem4: TdxBarSubItem;
+    dxBarSubItem5: TdxBarSubItem;
+    bbCopyToOld: TdxBarButton;
+    bbCopyClient: TdxBarButton;
+    btnFileExport: TdxBarButton;
+    bbSyncCLientsLoad: TdxBarButton;
+    bbSyncClients: TdxBarButton;
+    ds_adress: TOraDataSource;
+    cds_adress: TOraQuery;
+    cds_adressADDRESS: TStringField;
+    cxGridDBColumn34: TcxGridDBColumn;
+    Q_CLIENTSD_CHECK: TFloatField;
     Q_CLIENTSID_CLIENTS: TIntegerField;
     Q_CLIENTSNICK: TStringField;
     Q_CLIENTSFIO: TStringField;
@@ -524,21 +501,7 @@ type
     Q_CLIENTSMARK: TStringField;
     Q_CLIENTSID_OFFICE_SRC: TIntegerField;
     Q_CLIENTSINN: TStringField;
-    Q_CLIENTSINTERES: TStringField;
-    Q_GROUPSID_CLIENTS_GROUPS: TIntegerField;
-    Q_GROUPSNAME: TStringField;
-    Q_GROUPSINFO: TStringField;
-    Q_GROUPSID_OFFICE: TIntegerField;
-    Q_GROUPSDATE_CHANGE: TDateTimeField;
-    Q_GROUPSBRIEF: TStringField;
-    Q_REGIONSID_REGIONS: TIntegerField;
-    Q_REGIONSNAME: TStringField;
-    Q_REGIONSID_OFFICE: TIntegerField;
-    Q_REGIONSBRIEF: TStringField;
-    Q_TYPESID_CLIENT_TYPES: TIntegerField;
-    Q_TYPESNAME: TStringField;
-    Q_TYPESID_OFFICE: TIntegerField;
-    Q_TYPESBRIEF: TStringField;
+    Q_CLIENTSKEY_INTERESTS: TStringField;
     Q_CLIENT_VIEWID_CLIENTS: TIntegerField;
     Q_CLIENT_VIEWFIO: TStringField;
     Q_CLIENT_VIEWNICK: TStringField;
@@ -586,30 +549,13 @@ type
     Q_CLIENT_VIEWDATE_CHANGE: TDateTimeField;
     Q_CLIENT_VIEWPREFIX: TStringField;
     Q_CLIENT_VIEWID_CITY: TIntegerField;
-    Q_CLIENT_VIEWINTERES: TStringField;
+    Q_CLIENT_VIEWKEY_INTERESTS: TStringField;
     Q_CLIENT_VIEWREG_TYPE_NAME: TStringField;
     Q_CLIENT_VIEWGROUP_NAME: TStringField;
     Q_CLIENT_VIEWTTYPE_NAME: TStringField;
     Q_CLIENT_VIEWREGION_NAME: TStringField;
     Q_CLIENT_VIEWADVERT: TStringField;
     Q_CLIENT_VIEWCITY: TStringField;
-    dxBarSubItem1: TdxBarSubItem;
-    dxBarEdit1: TdxBarEdit;
-    cxBarEditItem5: TcxBarEditItem;
-    dxBarSubItem2: TdxBarSubItem;
-    dxBarSubItem3: TdxBarSubItem;
-    dxBarSubItem4: TdxBarSubItem;
-    dxBarSubItem5: TdxBarSubItem;
-    bbCopyToOld: TdxBarButton;
-    bbCopyClient: TdxBarButton;
-    btnFileExport: TdxBarButton;
-    bbSyncCLientsLoad: TdxBarButton;
-    bbSyncClients: TdxBarButton;
-    ds_adress: TOraDataSource;
-    cds_adress: TOraQuery;
-    cds_adressADDRESS: TStringField;
-    cxGridDBColumn34: TcxGridDBColumn;
-    Q_CLIENTSD_CHECK: TFloatField;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure imgOfficePropertiesChange(Sender: TObject);
@@ -639,6 +585,7 @@ type
    // print_, del_, ed_, addit_: boolean;  // это на потом
     corrector: string;
     path: string;
+   // add_or_edit: integer;
     function MainFormShow : boolean;
     procedure RefreshAll;
   end;
@@ -650,7 +597,7 @@ implementation
 
 {$R *.dfm}
 
-uses umain, UDM, uEditRegistration;
+uses umain, UDM, uEditRegistration, upassport;
 
 
 procedure TfrmRegistration.RefreshAll;
@@ -680,7 +627,7 @@ begin
     // Открытие клиентов
     Q_CLIENTS.Close;
     Q_CLIENTS.SQL.Clear;
-    Q_CLIENTS.SQL.Add('SELECT * from CLIENTS_VIEW2 where (ID_OFFICE='+IntToStr(id_office)+' or '+IntToStr(id_office)+'=0)');
+    Q_CLIENTS.SQL.Add('SELECT * from CLIENTS_VIEW3 where (ID_OFFICE='+IntToStr(id_office)+' or '+IntToStr(id_office)+'=0)');
     Q_CLIENTS.Open;
 
     // Открытие клиентов по группам
@@ -875,7 +822,7 @@ end;
 
 procedure TfrmRegistration.Q_DEPARTAfterOpen(DataSet: TDataSet);
 begin
-  ComboBox7.Items.Clear;
+ { ComboBox7.Items.Clear;
   ComboBox7.Items.Add('');
   ComboBox9.Items.Clear;
   ComboBox9.Items.Add('');
@@ -886,7 +833,7 @@ begin
     ComboBox9.Items.Add(Q_DEPART.FieldValues['NAME']);
     Q_DEPART.Next;
   end;
-  Q_DEPART.First;
+  Q_DEPART.First;   }
 end;
 
 
@@ -923,7 +870,7 @@ end;
 
 procedure TfrmRegistration.Q_TITLESAfterOpen(DataSet: TDataSet);
 begin
-  ComboBox3.Items.Clear;
+  {ComboBox3.Items.Clear;
   ComboBox3.Items.Add('');
   ComboBox5.Items.Clear;
   ComboBox5.Items.Add('');
@@ -934,7 +881,7 @@ begin
     ComboBox5.Items.Add(Q_TITLES.FieldValues['NAME']);
   Q_TITLES.Next;
   end;
-  Q_TITLES.First;   
+  Q_TITLES.First; }
 end;
 
 procedure TfrmRegistration.Q_TYPESAfterOpen(DataSet: TDataSet);
@@ -981,6 +928,7 @@ end;
 procedure TfrmRegistration.AddNExecute(Sender: TObject);
 begin
 try
+  // add_or_edit:=0;
  // frmEditRegistration := TfrmEditRegistration.Create(Application);
   // Добавление клиента
   if (PageControl1.TabIndex = 0) then
@@ -1007,14 +955,14 @@ try
 
     frmEditRegistration.Memo1.Lines.Clear;
     //frmEditRegistration.Memo2.Lines.Clear;
-    frmEditRegistration.edit2.Clear;
-    frmEditRegistration.combobox5.Clear;
-    frmEditRegistration.combobox6.Clear;
-    frmEditRegistration.combobox7.Clear;
-    frmEditRegistration.combobox8.Clear;
-    frmEditRegistration.edit4.Clear;
-    frmEditRegistration.edit5.Clear;
-    frmEditRegistration.edit6.Clear;
+    frmpassport.edit2.Clear;
+    frmpassport.combobox5.Clear;
+    frmpassport.combobox6.Clear;
+    frmpassport.combobox7.Clear;
+    frmpassport.combobox8.Clear;
+    frmpassport.edit4.Clear;
+    frmpassport.edit5.Clear;
+    frmpassport.edit6.Clear;
 
     frmEditRegistration.Memo3.Lines.Clear;
     //frmEditRegistration.Memo4.Lines.Clear;
@@ -1123,6 +1071,8 @@ try
   path := ExtractFilePath(Application.ExeName);
   if (Q_CLIENTS.FieldByName('ID_CLIENTS').AsInteger > 0) then
   begin
+  if Q_CLIENTS.Filtered = true then begin
+
    Q_CLIENTS.First;
    with cxgriddbtableview1.dataController do
    for I := 0 to FilteredRecordCount  - 1 do begin
@@ -1130,37 +1080,31 @@ try
      Q_CLIENTS.Next;
    end;
     delete(id,length(id),1);
-    //Q_CLIENT_VIEW.ParamByName('ID').Value := Q_CLIENTS.FieldByName('ID_CLIENTS').AsInteger;
 
+    Q_CLIENT_VIEW.Close;
+    Q_CLIENT_VIEW.SQL.Clear;
+    Q_CLIENT_VIEW.SQL.Add('SELECT C.*, case when c.id_office > 1 then o.OFFICE_NAME else case c.reg_type when 0 then ''Старлайт'' when 1 then ''Старлайт Кэш & Кэрри'' end end as reg_type_name, G.NAME AS GROUP_NAME, T.NAME AS TTYPE_NAME, R.NAME AS REGION_NAME, A.NAME AS ADVERT, s.city');
+    Q_CLIENT_VIEW.SQL.Add(' FROM CLIENTS_GROUPS G, BOOKS_CLIENT_TYPES T, BOOKS_ADVERTISMENTS A, CLIENTS C, BOOKS_REGIONS R, offices o, books_cities s');
+    Q_CLIENT_VIEW.SQL.Add(' WHERE C.ID_CLIENTS_GROUPS = G.ID_CLIENTS_GROUPS AND C.TTYPE = T.ID_CLIENT_TYPES AND C.ADVERTISMENT = A.ID_ADVERTISMENTS AND C.REGION = R.ID_REGIONS AND ID_CLIENTS in ('+id+') and c.id_office = o.ID_OFFICE and c.id_city = s.id_city(+)');
+    Q_CLIENT_VIEW.Open;
+
+    cds_adress.Close;
+    cds_adress.SQL.Clear;
+    cds_adress.SQL.Add('SELECT a.address FROM client_address a where a.ID_CLIENTS in ('+id+')');
+    cds_adress.Open;
+  end else begin
     Q_CLIENT_VIEW.Close;
     Q_CLIENT_VIEW.SQL.Clear;
     Q_CLIENT_VIEW.SQL.Add('SELECT C.*, case when c.id_office > 1 then o.OFFICE_NAME else case c.reg_type when 0 then ''Старлайт'' when 1 then ''Старлайт Кэш & Кэрри'' end end as reg_type_name, G.NAME AS GROUP_NAME, T.NAME AS TTYPE_NAME, R.NAME AS REGION_NAME, A.NAME AS ADVERT, s.city ');
     Q_CLIENT_VIEW.SQL.Add(' FROM CLIENTS_GROUPS G, BOOKS_CLIENT_TYPES T, BOOKS_ADVERTISMENTS A, CLIENTS C, BOOKS_REGIONS R, offices o, books_cities s');
-    Q_CLIENT_VIEW.SQL.Add(' WHERE C.ID_CLIENTS_GROUPS = G.ID_CLIENTS_GROUPS AND C.TTYPE = T.ID_CLIENT_TYPES AND C.ADVERTISMENT = A.ID_ADVERTISMENTS AND C.REGION = R.ID_REGIONS AND ID_CLIENTS in ('+id+') and c.id_office = o.ID_OFFICE and c.id_city = s.id_city(+)');
-
+    Q_CLIENT_VIEW.SQL.Add(' WHERE C.ID_CLIENTS_GROUPS = G.ID_CLIENTS_GROUPS AND C.TTYPE = T.ID_CLIENT_TYPES AND C.ADVERTISMENT = A.ID_ADVERTISMENTS AND C.REGION = R.ID_REGIONS AND ID_CLIENTS =:ID and c.id_office = o.ID_OFFICE and c.id_city = s.id_city(+)');
+    Q_CLIENT_VIEW.ParamByName('ID').Value := Q_CLIENTS.FieldByName('ID_CLIENTS').AsInteger;
     Q_CLIENT_VIEW.Open;
-
-    {//нахрена это все - я хз.. коменчу
-    str := '';
-    if (Q_CLIENT_VIEW.FieldByName('PLANTS').AsInteger = 1) then str := str + 'Горшечные растения  ';
-    if (Q_CLIENT_VIEW.FieldByName('FLOWERS').AsInteger = 1) then str := str + 'Срезанные растения';
-    if str = '' then str := 'Нет';
-    frmEditRegistration.Label37.Caption := str;
-
-    frmEditRegistration.chbRuleSite.Checked  := (Q_CLIENT_VIEW.FieldByName('MARK').AsString[1] = '1');
-    frmEditRegistration.chbRulePics.Checked  := (Q_CLIENT_VIEW.FieldByName('MARK').AsString[3] = '1');
-    frmEditRegistration.chbRulePrice.Checked := (Q_CLIENT_VIEW.FieldByName('MARK').AsString[5] = '1');
-    frmEditRegistration.chbRuleOrder.Checked := (Q_CLIENT_VIEW.FieldByName('MARK').AsString[7] = '1');
-
-    if (Q_CLIENT_VIEW.FieldByName('BLOCK1').AsInteger = 1) then frmEditRegistration.Label10.Caption := 'Да' else frmEditRegistration.Label10.Caption := 'Нет';
-    if (Q_CLIENT_VIEW.FieldByName('BLOCK2').AsInteger = 1) then frmEditRegistration.Label12.Caption := 'Да' else frmEditRegistration.Label12.Caption := 'Нет';
-                }
-    //cxgriddbtableview1.ViewData.Rows;
 
     cds_adress.Close;
     cds_adress.ParamByName('p1').AsInteger := Q_CLIENTS.FieldByName('ID_CLIENTS').AsInteger;
     cds_adress.Open;
-
+  end;
     frxReport1.LoadFromFile(path+'raports\clients_card_short.fr3');
     frxReport1.ShowReport;
     cds_adress.Close;  
@@ -1261,11 +1205,20 @@ End;
 end;
 
 
- // фильтр
+ // фильтр  - снять/поставить
 procedure TfrmRegistration.cxGridDBColumn34HeaderClick(Sender: TObject);
 begin
-  Q_CLIENTS.Filter := 'D_CHECK = 1';
-  Q_CLIENTS.Filtered := true;
+  if Q_CLIENTS.Filter = 'D_CHECK = 0' then begin
+   Q_CLIENTS.Filter := 'D_CHECK = 1';
+   Q_CLIENTS.Filtered := true;
+  end else
+  if Q_CLIENTS.Filter = 'D_CHECK = 1' then begin
+   Q_CLIENTS.Filter := 'D_CHECK = 0';
+   Q_CLIENTS.Filtered := false;
+  end else begin
+   Q_CLIENTS.Filter := 'D_CHECK = 1';
+   Q_CLIENTS.Filtered := true;
+  end;
 end;
 
 
@@ -1429,6 +1382,7 @@ procedure TfrmRegistration.EditNExecute(Sender: TObject);
  var ind:integer; ss:string;
 begin
  try
+ //add_or_edit:=1;
  //frmEditRegistration := TfrmEditRegistration.Create(Application);
   // Редактирование клиента
   if (PageControl1.TabIndex = 0) then
@@ -1501,31 +1455,31 @@ begin
         //frmEditRegistration.Memo2.Text := Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString;
         if pos('%',Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString) <> 0 then begin
            ss := Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString;
-           frmEditRegistration.edit2.Text := copy(ss,1,pos('%',ss)-1);
+           frmPassport.edit2.Text := copy(ss,1,pos('%',ss)-1);
            delete(ss,1,pos('%',ss));
-           frmEditRegistration.combobox5.Text := copy(ss,1,pos('%',ss)-1);
+           frmPassport.combobox5.Text := copy(ss,1,pos('%',ss)-1);
            delete(ss,1,pos('%',ss));
-           frmEditRegistration.combobox6.Text := copy(ss,1,pos('%',ss)-1);
+           frmPassport.combobox6.Text := copy(ss,1,pos('%',ss)-1);
            delete(ss,1,pos('%',ss));
-           frmEditRegistration.combobox7.Text := copy(ss,1,pos('%',ss)-1);
+           frmPassport.combobox7.Text := copy(ss,1,pos('%',ss)-1);
            delete(ss,1,pos('%',ss));
-           frmEditRegistration.combobox8.Text := copy(ss,1,pos('%',ss)-1);
+           frmPassport.combobox8.Text := copy(ss,1,pos('%',ss)-1);
            delete(ss,1,pos('%',ss));
-           frmEditRegistration.edit4.Text := copy(ss,1,pos('%',ss)-1);
+           frmPassport.edit4.Text := copy(ss,1,pos('%',ss)-1);
            delete(ss,1,pos('%',ss));
-           frmEditRegistration.edit5.Text := copy(ss,1,pos('%',ss)-1);
+           frmPassport.edit5.Text := copy(ss,1,pos('%',ss)-1);
            delete(ss,1,pos('%',ss));
-           frmEditRegistration.edit6.Text := ss;
+           frmPassport.edit6.Text := ss;
         end else
         begin
-           frmEditRegistration.edit2.Clear;
-           frmEditRegistration.combobox5.Clear;
-           frmEditRegistration.combobox6.Clear;
-           frmEditRegistration.combobox7.Clear;
-           frmEditRegistration.combobox8.Clear;
-           frmEditRegistration.edit4.Clear;
-           frmEditRegistration.edit5.Clear;
-           frmEditRegistration.edit6.Clear;
+           frmPassport.edit2.Clear;
+           frmPassport.combobox5.Clear;
+           frmPassport.combobox6.Clear;
+           frmPassport.combobox7.Clear;
+           frmPassport.combobox8.Clear;
+           frmPassport.edit4.Clear;
+           frmPassport.edit5.Clear;
+           frmPassport.edit6.Clear;
         end;
 
         frmEditRegistration.Memo3.Text := Q_CLIENT_VIEW.FieldByName('CONT_PHONE').AsString;
@@ -1567,7 +1521,7 @@ begin
 
         frmEditRegistration.Memo6.Text := Q_CLIENT_VIEW.FieldByName('PHONE').AsString;
         frmEditRegistration.Memo7.Text := Q_CLIENT_VIEW.FieldByName('INFO').AsString;
-        frmEditRegistration.Memo8.Text := Q_CLIENT_VIEW.FieldByName('INTERES').AsString;
+        frmEditRegistration.Memo8.Text := Q_CLIENT_VIEW.FieldByName('KEY_INTERESTS').AsString;
 
         if (Q_CLIENT_VIEW.FieldByName('PLANTS').AsInteger = 1) then frmEditRegistration.CheckBox1.Checked := true else frmEditRegistration.CheckBox1.Checked := false;
         if (Q_CLIENT_VIEW.FieldByName('FLOWERS').AsInteger = 1) then frmEditRegistration.CheckBox2.Checked := true else frmEditRegistration.CheckBox2.Checked := false;
@@ -1703,6 +1657,7 @@ begin
  Action := caFree;
 
  frmEditRegistration.Free;
+ frmpassport.Free;
 end;
 
 
@@ -1721,6 +1676,7 @@ begin
   DateTimePicker4.Checked := false;
 
   frmEditRegistration := TfrmEditRegistration.Create(Application);
+  frmpassport:= Tfrmpassport.Create(Application);
 end;
 
 end.

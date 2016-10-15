@@ -2,31 +2,30 @@ object dm: Tdm
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   OnDestroy = DataModuleDestroy
-  Height = 353
-  Width = 339
+  Height = 220
+  Width = 326
   object OraSession: TOraSession
     Options.Direct = True
     Username = 'creator'
     Password = '123456'
-    Server = 'KLEPOV:1521:STARNEW'
-    Connected = True
+    Server = 'ROZNICA:1521:orcl'
     LoginPrompt = False
     AfterConnect = OraSessionAfterConnect
     HomeName = 'OraClient11g_home1'
-    Left = 24
-    Top = 16
+    Left = 40
+    Top = 32
   end
   object cdsOffices: TOraQuery
     SQL.Strings = (
       'SELECT ID_OFFICE, OFFICE_NAME FROM OFFICES ORDER BY OFFICE_NAME')
     Left = 104
-    Top = 16
+    Top = 32
   end
   object cdsDeps: TOraQuery
     SQL.Strings = (
       'begin admins.get_deps_on_user(:login_, :cursor_); end;')
     Left = 176
-    Top = 16
+    Top = 32
     ParamData = <
       item
         DataType = ftString
@@ -40,8 +39,8 @@ object dm: Tdm
       end>
   end
   object cdsSQL: TOraQuery
-    Left = 240
-    Top = 16
+    Left = 256
+    Top = 32
   end
   object cdsSettings: TOraQuery
     SQL.Strings = (
@@ -49,7 +48,7 @@ object dm: Tdm
       'admins.get_user_setting(:cursor_);'
       'end;')
     Left = 104
-    Top = 104
+    Top = 96
     ParamData = <
       item
         DataType = ftUnknown
@@ -59,10 +58,10 @@ object dm: Tdm
   object ImgList_32: TcxImageList
     Height = 32
     Width = 32
-    Left = 24
-    Top = 112
+    Left = 40
+    Top = 96
     Bitmap = {
-      494C010127002C00500020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010127002C007C0020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004001000001002000000000000080
       0200000000000000000000000000000000000000000000000000000000000000
       000000000000000000000101011A0B0B0B743B3D3DB4777777D5838383DA5152
@@ -5352,10 +5351,10 @@ object dm: Tdm
   object ImgList_24: TImageList
     Height = 24
     Width = 24
-    Left = 24
-    Top = 169
+    Left = 40
+    Top = 153
     Bitmap = {
-      494C01013C0048000C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01013C004800380018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000008001000001002000000000000040
       0200000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -10130,11 +10129,34 @@ object dm: Tdm
         '= :pLogin and c.active = 1 and c.id_office = const_office'
       '                  group by nvl(d.id_dep,0), a.id_programs')
     Left = 176
-    Top = 104
+    Top = 96
     ParamData = <
       item
-        DataType = ftUnknown
+        DataType = ftString
         Name = 'pLogin'
+        ParamType = ptInput
       end>
+    object cdsRulesID_DEP: TFloatField
+      FieldName = 'ID_DEP'
+    end
+    object cdsRulesID_PROGRAMS: TIntegerField
+      FieldName = 'ID_PROGRAMS'
+      Required = True
+    end
+    object cdsRulesC_START: TFloatField
+      FieldName = 'C_START'
+    end
+    object cdsRulesC_EDIT: TFloatField
+      FieldName = 'C_EDIT'
+    end
+    object cdsRulesC_DEL: TFloatField
+      FieldName = 'C_DEL'
+    end
+    object cdsRulesC_PRINT: TFloatField
+      FieldName = 'C_PRINT'
+    end
+    object cdsRulesC_ADDIT: TFloatField
+      FieldName = 'C_ADDIT'
+    end
   end
 end

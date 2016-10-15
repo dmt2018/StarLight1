@@ -1349,7 +1349,7 @@ object frmRegistration: TfrmRegistration
           end
           object cxGridDBColumn33: TcxGridDBColumn
             Caption = #1048#1085#1090#1077#1088#1077#1089#1099
-            DataBinding.FieldName = 'INTERES'
+            DataBinding.FieldName = 'KEY_INTERESTS'
             Width = 70
           end
         end
@@ -1758,980 +1758,6 @@ object frmRegistration: TfrmRegistration
         HotZoneClassName = 'TcxMediaPlayer9Style'
         AlignSplitter = salTop
         Control = Panel5
-      end
-    end
-    object TabSheet3: TTabSheet
-      Caption = ' '#1057#1055#1048#1057#1054#1050' '#1057#1054#1058#1056#1059#1044#1053#1048#1050#1054#1042' '
-      ImageIndex = 2
-      object Panel7: TPanel
-        Left = 0
-        Top = 0
-        Width = 1070
-        Height = 145
-        Align = alTop
-        BevelOuter = bvNone
-        BorderStyle = bsSingle
-        Color = clCream
-        Ctl3D = False
-        ParentBackground = False
-        ParentCtl3D = False
-        TabOrder = 0
-        object GroupBox5: TGroupBox
-          Left = 8
-          Top = 64
-          Width = 259
-          Height = 72
-          Caption = ' '#1041#1099#1089#1090#1088#1099#1081' '#1087#1086#1080#1089#1082' '#1087#1086' '
-          Ctl3D = False
-          ParentCtl3D = False
-          TabOrder = 2
-          object Label13: TLabel
-            Left = 8
-            Top = 24
-            Width = 80
-            Height = 15
-            Caption = #1050#1086#1076#1091'  (Ctrl+F2)'
-          end
-          object Label14: TLabel
-            Left = 6
-            Top = 48
-            Width = 107
-            Height = 15
-            Caption = #1060#1072#1084#1080#1083#1080#1080'  (Ctrl+F3)'
-          end
-          object Edit6: TEdit
-            Left = 120
-            Top = 20
-            Width = 129
-            Height = 21
-            MaxLength = 20
-            TabOrder = 0
-          end
-          object Edit7: TEdit
-            Left = 120
-            Top = 44
-            Width = 129
-            Height = 21
-            MaxLength = 100
-            TabOrder = 1
-          end
-        end
-        object GroupBox6: TGroupBox
-          Left = 280
-          Top = 4
-          Width = 481
-          Height = 136
-          Caption = ' '#1060#1080#1083#1100#1090#1088#1072#1094#1080#1103' '
-          Ctl3D = False
-          ParentCtl3D = False
-          TabOrder = 3
-          object Label16: TLabel
-            Left = 8
-            Top = 19
-            Width = 27
-            Height = 15
-            Caption = #1060#1048#1054
-          end
-          object Label17: TLabel
-            Left = 8
-            Top = 87
-            Width = 35
-            Height = 15
-            Caption = #1054#1090#1076#1077#1083
-          end
-          object Label18: TLabel
-            Left = 312
-            Top = 18
-            Width = 45
-            Height = 15
-            Caption = #1040#1082#1090#1080#1074#1077#1085
-          end
-          object Label21: TLabel
-            Left = 311
-            Top = 41
-            Width = 68
-            Height = 15
-            Caption = #1044#1086#1089#1090#1091#1087' '#1074' '#1048#1057
-          end
-          object Label15: TLabel
-            Left = 140
-            Top = 64
-            Width = 58
-            Height = 15
-            Caption = #1064#1090#1088#1080#1093' '#1082#1086#1076
-            Color = clCream
-            ParentColor = False
-            Visible = False
-          end
-          object Label23: TLabel
-            Left = 8
-            Top = 111
-            Width = 63
-            Height = 15
-            Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
-          end
-          object Label24: TLabel
-            Left = 8
-            Top = 63
-            Width = 28
-            Height = 15
-            Caption = #1064#1090#1072#1090
-          end
-          object Label8: TLabel
-            Left = 8
-            Top = 41
-            Width = 21
-            Height = 15
-            Caption = #1050#1086#1076
-          end
-          object Edit9: TEdit
-            Left = 80
-            Top = 15
-            Width = 177
-            Height = 21
-            MaxLength = 100
-            TabOrder = 0
-          end
-          object ComboBox3: TComboBox
-            Left = 80
-            Top = 107
-            Width = 177
-            Height = 23
-            Cursor = crHandPoint
-            BevelInner = bvNone
-            BevelKind = bkFlat
-            Style = csDropDownList
-            ItemHeight = 15
-            TabOrder = 5
-          end
-          object ComboBox4: TComboBox
-            Left = 384
-            Top = 14
-            Width = 81
-            Height = 23
-            Cursor = crHandPoint
-            BevelInner = bvNone
-            BevelKind = bkFlat
-            Style = csDropDownList
-            ItemHeight = 15
-            TabOrder = 6
-            Items.Strings = (
-              ''
-              #1076#1072
-              #1085#1077#1090)
-          end
-          object ComboBox6: TComboBox
-            Left = 384
-            Top = 39
-            Width = 81
-            Height = 23
-            Cursor = crHandPoint
-            BevelInner = bvNone
-            BevelKind = bkFlat
-            Style = csDropDownList
-            ItemHeight = 15
-            TabOrder = 7
-            Items.Strings = (
-              ''
-              #1076#1072
-              #1085#1077#1090)
-          end
-          object ComboBox7: TComboBox
-            Left = 80
-            Top = 83
-            Width = 177
-            Height = 23
-            Cursor = crHandPoint
-            BevelInner = bvNone
-            BevelKind = bkFlat
-            Style = csDropDownList
-            ItemHeight = 15
-            TabOrder = 4
-          end
-          object ComboBox8: TComboBox
-            Left = 80
-            Top = 59
-            Width = 49
-            Height = 23
-            Cursor = crHandPoint
-            BevelInner = bvNone
-            BevelKind = bkFlat
-            Style = csDropDownList
-            ItemHeight = 15
-            TabOrder = 3
-            Items.Strings = (
-              ''
-              #1076#1072
-              #1085#1077#1090)
-          end
-          object ComboBox10: TComboBox
-            Left = 204
-            Top = 59
-            Width = 53
-            Height = 23
-            Cursor = crHandPoint
-            BevelInner = bvNone
-            BevelKind = bkFlat
-            Style = csDropDownList
-            ItemHeight = 15
-            TabOrder = 2
-            Visible = False
-            Items.Strings = (
-              ''
-              #1076#1072
-              #1085#1077#1090)
-          end
-          object Edit8: TEdit
-            Left = 80
-            Top = 37
-            Width = 177
-            Height = 21
-            MaxLength = 100
-            TabOrder = 1
-          end
-          object cxButton3: TcxButton
-            Left = 264
-            Top = 75
-            Width = 105
-            Height = 55
-            Cursor = crHandPoint
-            Action = filtr_on
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Pitch = fpFixed
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 8
-            Colors.Default = clBtnFace
-            Colors.Normal = clBtnFace
-            Colors.Hot = clCream
-            Colors.Pressed = clCream
-            Glyph.Data = {
-              B60D0000424DB60D000000000000360000002800000030000000180000000100
-              180000000000800D0000C40E0000C40E00000000000000000000FF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FF006600FF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF656565FF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF00
-              660021A335006600FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FF656565949494656565FF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FF00660024A53912A92028B040006600FF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF6565659696968F8F8F9E9E9E
-              656565FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF00660027A73E1E
-              B43218AE2913AB2227AF3E006600FF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FF6565659999999B9B9B9595959191919D9D9D656565FF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FF0066001F99312EC04A26BA3E1FB53419AF2B13AB2325AE3C0066
-              00FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FF6565658E8E8EA9A9A9A2A2A29C9C9C969696
-              9191919B9B9B656565FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF0066001D952E3FCE6337C8572F
-              C14C25A63B00660029B14114AC2524AD3A006600FF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF6565658B8B
-              8BB8B8B8B1B1B1AAAAAA9797976565659F9F9F9292929A9A9A656565FF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              0066001A902A4FDA7948D56F40CF642FB34A006600FF00FF0066001CB22F15AC
-              2622AC38006600FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FF656565878787C6C6C6C0C0C0B9B9B9A3A3A3656565FF00FF
-              656565999999929292999999656565FF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FF00660059E28955E08250DB7B36BC5500
-              6600FF00FFFF00FFFF00FF006600148D2117AE2721AB36006600FF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF656565CFCFCFCCCC
-              CCC7C7C7ABABAB656565FF00FFFF00FFFF00FF65656582828294949498989865
-              6565FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              00660031B04D5BE48A3ABF5B006600FF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FF00660018AE2920AA34006600FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FF656565A2A2A2D1D1D1AEAEAE656565FF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FF656565959595979797656565FF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF00660047CF6D006600FF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF00660019AF2B14AB23006600
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF656565BDBD
-              BD656565FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF65656596
-              9696919191656565FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FF006600FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FF0066000B7E1314AB24006600FF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FF656565FF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FF656565767676919191656565FF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF006600
-              118D1D006600FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FF656565818181656565FF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FF00660008790F006600FF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF6565657272726565
-              65FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FF006600006600FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FF656565656565FF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF006600FF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FF656565FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF}
-            Layout = blGlyphTop
-            LookAndFeel.Kind = lfFlat
-            LookAndFeel.NativeStyle = True
-            NumGlyphs = 2
-            Spacing = 6
-          end
-          object cxButton4: TcxButton
-            Left = 371
-            Top = 75
-            Width = 105
-            Height = 55
-            Cursor = crHandPoint
-            Action = filtr_off
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Pitch = fpFixed
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 9
-            Colors.Default = clBtnFace
-            Colors.Normal = clBtnFace
-            Colors.Hot = clCream
-            Colors.Pressed = clCream
-            Glyph.Data = {
-              B60D0000424DB60D000000000000360000002800000030000000180000000100
-              180000000000800D0000C40E0000C40E00000000000000000000FF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF00009A00009AFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF00009A
-              00009AFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FF6B6B6B6B6B6BFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FF6B6B6B6B6B6BFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FF00009A1244FF0C30E600009AFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FF00009A0028F2002CF900009AFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FF6B6B6BA6A6A69797976B6B6BFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FF6B6B6B9797979A9A9A6B6B6BFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF00009A1A4BFF1645FF1444FF0D
-              2FE500009AFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF00009A0027F00030FF
-              0030FF002EFD00009AFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF6B6B6BAAAA
-              AAA8A8A8A7A7A79797976B6B6BFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF6B
-              6B6B9696969D9D9D9D9D9D9C9C9C6B6B6BFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FF00009A1740F11A4BFF1746FF1646FF0E30E400009AFF00FFFF00FFFF00
-              FFFF00FF00009A0129EF0030FF002EFF0030FF0023E700009AFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FF6B6B6BA2A2A2AAAAAAA9A9A9A8A8A89797976B6B6B
-              FF00FFFF00FFFF00FFFF00FF6B6B6B9696969D9D9D9D9D9D9D9D9D9191916B6B
-              6BFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF00009A1940F01C4CFF18
-              47FF1646FF0F32E700009AFF00FFFF00FF00009A002BF70232FF0331FF0131FF
-              0023E400009AFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF6B6B
-              6BA2A2A2ABABABA9A9A9A8A8A89999996B6B6BFF00FFFF00FF6B6B6B9999999E
-              9E9E9F9F9F9E9E9E9090906B6B6BFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FF00009A1A40EF1D4DFF1948FF1848FF1238EF00009A0000
-              9A002BF8002FFF002EFF0232FF0324E500009AFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FF6B6B6BA2A2A2ACACACAAAAAAA9A9A9
-              9E9E9E6B6B6B6B6B6B9A9A9A9D9D9D9D9D9D9E9E9E9292926B6B6BFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF00009A1B
-              42F01E4EFF1B4AFF1949FF0E38F60431FD0131FF002EFF0030FF0027F100009A
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FF6B6B6BA3A3A3ACACACABABABAAAAAAA0A0A09E9E9E9E9E9E9D9D9D9D
-              9D9D9696966B6B6BFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FF00009A1B42EF1F4FFF1745FF0E3DFF0939
-              FF0634FF0333FF0128F000009AFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF6B6B6BA3A3A3ADADAD
-              A9A9A9A4A4A4A2A2A2A0A0A09F9F9F9696966B6B6BFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FF00009A1B45F51747FF1342FF0F3EFF0C3CFF0830F000009AFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FF6B6B6BA6A6A6A9A9A9A7A7A7A5A5A5A3A3A39A9A9A6B
-              6B6BFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FF00009A1F4DFC1D4CFF1A48FF1544
-              FF1443FF143CF000009AFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF6B6B6BABABAB
-              ACACACAAAAAAA8A8A8A7A7A7A0A0A06B6B6BFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF00
-              009A2A58FC2756FF2251FF204FFF1D4DFF1D4CFF1E4EFF173EEF00009AFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FF6B6B6BB1B1B1B1B1B1AEAEAEADADADACACACACACACACACACA1
-              A1A16B6B6BFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FF00009A2C56F43160FF2B5AFF295AFF2047F11F46
-              F12454FF204FFF1F4FFF183FF000009AFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF6B6B6BAEAEAEB6B6B6B3B3B3
-              B2B2B2A6A6A6A6A6A6AFAFAFADADADADADADA2A2A26B6B6BFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF00009A325EF736
-              66FF3361FF3365FF274FF000009A00009A2047EF2656FF2251FF2151FF1840EF
-              00009AFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FF6B6B6BB2B2B2B8B8B8B7B7B7B7B7B7A9A9A96B6B6B6B6B6BA5A5A5B0B0B0AE
-              AEAEAEAEAEA1A1A16B6B6BFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FF00009A3865F73C6DFF3867FF3869FF284DE700009AFF00FFFF00
-              FF00009A1E41E72757FF2352FF2252FF1A42F000009AFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FF6B6B6BB5B5B5BBBBBBB9B9B9B9B9B9A5A5A5
-              6B6B6BFF00FFFF00FF6B6B6BA0A0A0B1B1B1AFAFAFAEAEAEA3A3A36B6B6BFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF00009A406EFB4172FF3E6DFF3E
-              6FFF2A4CE400009AFF00FFFF00FFFF00FFFF00FF00009A1D40E42859FF2452FF
-              2353FF1C45F300009AFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF6B6B6BBBBB
-              BBBEBEBEBCBCBCBCBCBCA5A5A56B6B6BFF00FFFF00FFFF00FFFF00FF6B6B6B9E
-              9E9EB1B1B1AFAFAFAFAFAFA5A5A56B6B6BFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FF00009A4676FD4576FF4475FF2E51E500009AFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FF00009A1E41E5295AFF2758FF1E48F300009AFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FF6B6B6BBFBFBFC0C0C0BFBFBFA7A7A76B6B6BFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FF6B6B6B9F9F9FB2B2B2B1B1B1A6A6A66B6B
-              6BFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF00009A4471F83356E500
-              009AFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF00009A2144E8
-              244DF100009AFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF6B6B
-              6BBCBCBCAAAAAA6B6B6BFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FF6B6B6BA2A2A2A8A8A86B6B6BFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FF00009A00009AFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FF00009A00009AFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FF6B6B6B6B6B6BFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF6B6B6B6B6B6BFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF}
-            Layout = blGlyphTop
-            LookAndFeel.Kind = lfFlat
-            LookAndFeel.NativeStyle = True
-            NumGlyphs = 2
-            Spacing = 6
-          end
-        end
-        object BitBtn20: TBitBtn
-          Left = 8
-          Top = 8
-          Width = 130
-          Height = 25
-          Cursor = crHandPoint
-          Caption = #1057#1087#1080#1089#1086#1082' '#1096#1090#1072#1090#1072
-          Enabled = False
-          TabOrder = 4
-          Glyph.Data = {
-            76010000424D7601000000000000760000002800000020000000100000000100
-            04000000000000010000130B0000130B00001000000000000000000000000000
-            800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
-            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00300000000000
-            00033FFFFFFFFFFFFFFF0888888888888880777777777777777F088888888888
-            8880777777777777777F0000000000000000FFFFFFFFFFFFFFFF0F8F8F8F8F8F
-            8F80777777777777777F08F8F8F8F8F8F9F0777777777777777F0F8F8F8F8F8F
-            8F807777777777777F7F0000000000000000777777777777777F3330FFFFFFFF
-            03333337F3FFFF3F7F333330F0000F0F03333337F77773737F333330FFFFFFFF
-            03333337F3FF3FFF7F333330F00F000003333337F773777773333330FFFF0FF0
-            33333337F3FF7F3733333330F08F0F0333333337F7737F7333333330FFFF0033
-            33333337FFFF7733333333300000033333333337777773333333}
-          NumGlyphs = 2
-        end
-        object BitBtn2: TBitBtn
-          Left = 137
-          Top = 8
-          Width = 130
-          Height = 25
-          Cursor = crHandPoint
-          Caption = #1055#1077#1095#1072#1090#1100' '#1082#1072#1088#1090#1086#1095#1082#1080
-          Enabled = False
-          TabOrder = 1
-          Glyph.Data = {
-            76010000424D7601000000000000760000002800000020000000100000000100
-            04000000000000010000130B0000130B00001000000000000000000000000000
-            800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
-            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00300000000000
-            00033FFFFFFFFFFFFFFF0888888888888880777777777777777F088888888888
-            8880777777777777777F0000000000000000FFFFFFFFFFFFFFFF0F8F8F8F8F8F
-            8F80777777777777777F08F8F8F8F8F8F9F0777777777777777F0F8F8F8F8F8F
-            8F807777777777777F7F0000000000000000777777777777777F3330FFFFFFFF
-            03333337F3FFFF3F7F333330F0000F0F03333337F77773737F333330FFFFFFFF
-            03333337F3FF3FFF7F333330F00F000003333337F773777773333330FFFF0FF0
-            33333337F3FF7F3733333330F08F0F0333333337F7737F7333333330FFFF0033
-            33333337FFFF7733333333300000033333333337777773333333}
-          NumGlyphs = 2
-        end
-        object BitBtn1: TBitBtn
-          Left = 8
-          Top = 32
-          Width = 259
-          Height = 25
-          Cursor = crHandPoint
-          Caption = #1055#1077#1095#1072#1090#1100' '#1096#1090#1088#1080#1093'-'#1082#1086#1076#1072
-          Enabled = False
-          TabOrder = 0
-          Glyph.Data = {
-            76010000424D7601000000000000760000002800000020000000100000000100
-            04000000000000010000130B0000130B00001000000000000000000000000000
-            800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
-            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00300000000000
-            00033FFFFFFFFFFFFFFF0888888888888880777777777777777F088888888888
-            8880777777777777777F0000000000000000FFFFFFFFFFFFFFFF0F8F8F8F8F8F
-            8F80777777777777777F08F8F8F8F8F8F9F0777777777777777F0F8F8F8F8F8F
-            8F807777777777777F7F0000000000000000777777777777777F3330FFFFFFFF
-            03333337F3FFFF3F7F333330F0000F0F03333337F77773737F333330FFFFFFFF
-            03333337F3FF3FFF7F333330F00F000003333337F773777773333330FFFF0FF0
-            33333337F3FF7F3733333330F08F0F0333333337F7737F7333333330FFFF0033
-            33333337FFFF7733333333300000033333333337777773333333}
-          NumGlyphs = 2
-        end
-      end
-      object Panel8: TPanel
-        Left = 0
-        Top = 145
-        Width = 1070
-        Height = 13
-        Align = alTop
-        BevelOuter = bvNone
-        Ctl3D = False
-        ParentCtl3D = False
-        TabOrder = 1
-      end
-      object Panel12: TPanel
-        Left = 0
-        Top = 158
-        Width = 878
-        Height = 355
-        Align = alClient
-        BevelOuter = bvNone
-        BorderWidth = 1
-        Caption = 'Panel12'
-        TabOrder = 2
-        object gr_empl: TcxGrid
-          Left = 1
-          Top = 1
-          Width = 876
-          Height = 353
-          Align = alClient
-          PopupMenu = PopupMenu3
-          TabOrder = 0
-          LevelTabs.Style = 7
-          LookAndFeel.Kind = lfOffice11
-          LookAndFeel.NativeStyle = False
-          object gr_empl_v: TcxGridDBTableView
-            NavigatorButtons.ConfirmDelete = False
-            FilterBox.Position = fpTop
-            DataController.DataSource = Q_EMPL_DS
-            DataController.Filter.Options = [fcoCaseInsensitive]
-            DataController.Filter.AutoDataSetFilter = True
-            DataController.Options = [dcoAnsiSort, dcoAssignGroupingValues, dcoAssignMasterDetailKeys, dcoSaveExpanding]
-            DataController.Summary.DefaultGroupSummaryItems = <>
-            DataController.Summary.FooterSummaryItems = <
-              item
-                Format = '0'
-                Kind = skSum
-              end
-              item
-                Kind = skCount
-                Column = row_empl_NICK
-              end
-              item
-                Format = '0'
-                Kind = skSum
-                Column = gr_empl_vACTIVE
-              end
-              item
-                Format = '0'
-                Kind = skSum
-                Column = gr_empl_vSTAFF
-              end>
-            DataController.Summary.SummaryGroups = <>
-            FilterRow.InfoText = #1055#1086#1083#1077' '#1076#1083#1103' '#1092#1080#1083#1100#1090#1088#1086#1074
-            FilterRow.Visible = True
-            OptionsCustomize.ColumnMoving = False
-            OptionsSelection.HideFocusRectOnExit = False
-            OptionsView.CellEndEllipsis = True
-            OptionsView.NoDataToDisplayInfoText = #1053#1077#1090' '#1076#1072#1085#1085#1099#1093
-            OptionsView.ColumnAutoWidth = True
-            OptionsView.Footer = True
-            OptionsView.GroupByBox = False
-            Styles.Selection = style_selected
-            Styles.Footer = style_bottom
-            Styles.Group = style_group
-            Styles.Header = style_top
-            object gr_empl_vBRIEF: TcxGridDBColumn
-              Caption = #1054#1092#1080#1089
-              DataBinding.FieldName = 'BRIEF'
-              PropertiesClassName = 'TcxTextEditProperties'
-              Properties.Alignment.Horz = taCenter
-              HeaderAlignmentHorz = taCenter
-              MinWidth = 60
-              Options.Editing = False
-              Options.HorzSizing = False
-              Width = 60
-            end
-            object row_empl_NICK: TcxGridDBColumn
-              Caption = #1050#1086#1076
-              DataBinding.FieldName = 'NICK'
-              BestFitMaxWidth = 100
-              Options.Editing = False
-              Options.Moving = False
-              Width = 70
-            end
-            object row_empl_FIO: TcxGridDBColumn
-              Caption = #1060#1048#1054
-              DataBinding.FieldName = 'FIO'
-              PropertiesClassName = 'TcxButtonEditProperties'
-              Properties.Buttons = <
-                item
-                  Default = True
-                  Kind = bkEllipsis
-                end>
-              Properties.CaseInsensitive = False
-              Options.Editing = False
-              Options.Moving = False
-              Width = 200
-            end
-            object _row_empl_CCODE: TcxGridDBColumn
-              Caption = #1064#1090#1088#1080#1093'-'#1082#1086#1076
-              DataBinding.FieldName = 'CCODE'
-              Visible = False
-              Options.Editing = False
-              Width = 90
-            end
-            object _row_empl_NN: TcxGridDBColumn
-              DataBinding.FieldName = 'NN'
-              Visible = False
-            end
-            object _row_empl_ID_CLIENTS: TcxGridDBColumn
-              DataBinding.FieldName = 'ID_CLIENTS'
-              Visible = False
-            end
-            object gr_empl_vACTIVE: TcxGridDBColumn
-              Caption = #1040#1082#1090#1080#1074#1077#1085
-              DataBinding.FieldName = 'ACTIVE'
-              PropertiesClassName = 'TcxCheckBoxProperties'
-              Properties.DisplayChecked = #1044#1072
-              Properties.DisplayUnchecked = #1053#1077#1090
-              Properties.ImmediatePost = True
-              Properties.ValueChecked = 1
-              Properties.ValueUnchecked = 0
-              FooterAlignmentHorz = taCenter
-              HeaderAlignmentHorz = taCenter
-              MinWidth = 70
-              Options.HorzSizing = False
-              Options.Moving = False
-              Width = 70
-            end
-            object gr_empl_vSTAFF: TcxGridDBColumn
-              Caption = #1064#1090#1072#1090
-              DataBinding.FieldName = 'STAFF'
-              PropertiesClassName = 'TcxCheckBoxProperties'
-              Properties.DisplayChecked = #1044#1072
-              Properties.DisplayUnchecked = #1053#1077#1090
-              Properties.ImmediatePost = True
-              Properties.ValueChecked = 1
-              Properties.ValueUnchecked = 0
-              FooterAlignmentHorz = taCenter
-              HeaderAlignmentHorz = taCenter
-              MinWidth = 60
-              Options.HorzSizing = False
-              Options.Moving = False
-              Width = 60
-            end
-            object gr_empl_vLOGIN: TcxGridDBColumn
-              Caption = #1051#1086#1075#1080#1085
-              DataBinding.FieldName = 'LOGIN'
-              MinWidth = 120
-              Options.Editing = False
-              Options.HorzSizing = False
-              Options.Moving = False
-              Width = 120
-            end
-            object gr_empl_vCOUNT: TcxGridDBColumn
-              DataBinding.FieldName = 'COUNT'
-              Visible = False
-            end
-            object gr_empl_vID_OFFICE: TcxGridDBColumn
-              DataBinding.FieldName = 'ID_OFFICE'
-              Visible = False
-            end
-          end
-          object gr_empl_l: TcxGridLevel
-            GridView = gr_empl_v
-          end
-        end
-      end
-      object Panel13: TPanel
-        Left = 878
-        Top = 158
-        Width = 192
-        Height = 355
-        Align = alRight
-        BevelOuter = bvNone
-        BorderWidth = 1
-        TabOrder = 3
-        object DBGrid6: TDBGrid
-          Left = 6
-          Top = 1
-          Width = 178
-          Height = 97
-          Ctl3D = False
-          Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
-          ParentCtl3D = False
-          TabOrder = 0
-          TitleFont.Charset = DEFAULT_CHARSET
-          TitleFont.Color = clBlack
-          TitleFont.Height = -12
-          TitleFont.Name = 'Arial'
-          TitleFont.Pitch = fpFixed
-          TitleFont.Style = []
-          Columns = <
-            item
-              Expanded = False
-              FieldName = 'NAME'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Height = -11
-              Font.Name = 'Tahoma'
-              Font.Pitch = fpFixed
-              Font.Style = []
-              Title.Caption = #1054#1090#1076#1077#1083
-              Title.Font.Charset = DEFAULT_CHARSET
-              Title.Font.Color = clBlack
-              Title.Font.Height = -12
-              Title.Font.Name = 'Arial'
-              Title.Font.Pitch = fpFixed
-              Title.Font.Style = [fsBold]
-              Width = 140
-              Visible = True
-            end>
-        end
-        object ComboBox9: TComboBox
-          Left = 6
-          Top = 100
-          Width = 178
-          Height = 21
-          Cursor = crHandPoint
-          BevelInner = bvSpace
-          BevelKind = bkSoft
-          BevelOuter = bvRaised
-          Style = csDropDownList
-          Ctl3D = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Pitch = fpFixed
-          Font.Style = []
-          ItemHeight = 13
-          ParentCtl3D = False
-          ParentFont = False
-          TabOrder = 1
-        end
-        object BitBtn14: TBitBtn
-          Left = 6
-          Top = 125
-          Width = 88
-          Height = 22
-          Cursor = crHandPoint
-          Caption = #1044#1086#1073#1072#1074#1080#1090#1100
-          Enabled = False
-          TabOrder = 2
-          Glyph.Data = {
-            76010000424D7601000000000000760000002800000020000000100000000100
-            04000000000000010000130B0000130B00001000000000000000000000000000
-            800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
-            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF0033333333B333
-            333B33FF33337F3333F73BB3777BB7777BB3377FFFF77FFFF77333B000000000
-            0B3333777777777777333330FFFFFFFF07333337F33333337F333330FFFFFFFF
-            07333337F33333337F333330FFFFFFFF07333337F33333337F333330FFFFFFFF
-            07333FF7F33333337FFFBBB0FFFFFFFF0BB37777F3333333777F3BB0FFFFFFFF
-            0BBB3777F3333FFF77773330FFFF000003333337F333777773333330FFFF0FF0
-            33333337F3337F37F3333330FFFF0F0B33333337F3337F77FF333330FFFF003B
-            B3333337FFFF77377FF333B000000333BB33337777777F3377FF3BB3333BB333
-            3BB33773333773333773B333333B3333333B7333333733333337}
-          NumGlyphs = 2
-        end
-        object BitBtn17: TBitBtn
-          Left = 93
-          Top = 125
-          Width = 91
-          Height = 22
-          Cursor = crHandPoint
-          Caption = #1059#1076#1072#1083#1080#1090#1100
-          Enabled = False
-          TabOrder = 3
-          Glyph.Data = {
-            76010000424D7601000000000000760000002800000020000000100000000100
-            04000000000000010000120B0000120B00001000000000000000000000000000
-            800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
-            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00500005000555
-            555557777F777555F55500000000555055557777777755F75555005500055055
-            555577F5777F57555555005550055555555577FF577F5FF55555500550050055
-            5555577FF77577FF555555005050110555555577F757777FF555555505099910
-            555555FF75777777FF555005550999910555577F5F77777775F5500505509990
-            3055577F75F77777575F55005055090B030555775755777575755555555550B0
-            B03055555F555757575755550555550B0B335555755555757555555555555550
-            BBB35555F55555575F555550555555550BBB55575555555575F5555555555555
-            50BB555555555555575F555555555555550B5555555555555575}
-          NumGlyphs = 2
-        end
-        object DBGrid5: TDBGrid
-          Left = 6
-          Top = 152
-          Width = 178
-          Height = 97
-          Ctl3D = False
-          Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
-          ParentCtl3D = False
-          TabOrder = 4
-          TitleFont.Charset = DEFAULT_CHARSET
-          TitleFont.Color = clBlack
-          TitleFont.Height = -12
-          TitleFont.Name = 'Arial'
-          TitleFont.Pitch = fpFixed
-          TitleFont.Style = []
-          Columns = <
-            item
-              Expanded = False
-              FieldName = 'NAME'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Height = -11
-              Font.Name = 'Tahoma'
-              Font.Pitch = fpFixed
-              Font.Style = []
-              Title.Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
-              Title.Font.Charset = DEFAULT_CHARSET
-              Title.Font.Color = clBlack
-              Title.Font.Height = -12
-              Title.Font.Name = 'Arial'
-              Title.Font.Pitch = fpFixed
-              Title.Font.Style = [fsBold]
-              Width = 140
-              Visible = True
-            end>
-        end
-        object ComboBox5: TComboBox
-          Left = 6
-          Top = 251
-          Width = 178
-          Height = 21
-          Cursor = crHandPoint
-          BevelInner = bvSpace
-          BevelKind = bkSoft
-          BevelOuter = bvRaised
-          Style = csDropDownList
-          Ctl3D = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Pitch = fpFixed
-          Font.Style = []
-          ItemHeight = 13
-          ParentCtl3D = False
-          ParentFont = False
-          TabOrder = 5
-        end
-        object BitBtn18: TBitBtn
-          Left = 6
-          Top = 276
-          Width = 88
-          Height = 22
-          Cursor = crHandPoint
-          Caption = #1044#1086#1073#1072#1074#1080#1090#1100
-          Enabled = False
-          TabOrder = 6
-          Glyph.Data = {
-            76010000424D7601000000000000760000002800000020000000100000000100
-            04000000000000010000130B0000130B00001000000000000000000000000000
-            800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
-            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF0033333333B333
-            333B33FF33337F3333F73BB3777BB7777BB3377FFFF77FFFF77333B000000000
-            0B3333777777777777333330FFFFFFFF07333337F33333337F333330FFFFFFFF
-            07333337F33333337F333330FFFFFFFF07333337F33333337F333330FFFFFFFF
-            07333FF7F33333337FFFBBB0FFFFFFFF0BB37777F3333333777F3BB0FFFFFFFF
-            0BBB3777F3333FFF77773330FFFF000003333337F333777773333330FFFF0FF0
-            33333337F3337F37F3333330FFFF0F0B33333337F3337F77FF333330FFFF003B
-            B3333337FFFF77377FF333B000000333BB33337777777F3377FF3BB3333BB333
-            3BB33773333773333773B333333B3333333B7333333733333337}
-          NumGlyphs = 2
-        end
-        object BitBtn19: TBitBtn
-          Left = 93
-          Top = 276
-          Width = 91
-          Height = 22
-          Cursor = crHandPoint
-          Caption = #1059#1076#1072#1083#1080#1090#1100
-          Enabled = False
-          TabOrder = 7
-          Glyph.Data = {
-            76010000424D7601000000000000760000002800000020000000100000000100
-            04000000000000010000120B0000120B00001000000000000000000000000000
-            800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
-            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00500005000555
-            555557777F777555F55500000000555055557777777755F75555005500055055
-            555577F5777F57555555005550055555555577FF577F5FF55555500550050055
-            5555577FF77577FF555555005050110555555577F757777FF555555505099910
-            555555FF75777777FF555005550999910555577F5F77777775F5500505509990
-            3055577F75F77777575F55005055090B030555775755777575755555555550B0
-            B03055555F555757575755550555550B0B335555755555757555555555555550
-            BBB35555F55555575F555550555555550BBB55575555555575F5555555555555
-            50BB555555555555575F555555555555550B5555555555555575}
-          NumGlyphs = 2
-        end
       end
     end
     object TabSheet4: TTabSheet
@@ -3679,7 +2705,6 @@ object frmRegistration: TfrmRegistration
       2)
     Categories.Visibles = (
       True)
-    ImageOptions.Images = dm.ImgList_24
     ImageOptions.LargeImages = dm.ImgList_32
     ImageOptions.SmoothGlyphs = True
     ImageOptions.StretchGlyphs = False
@@ -3736,12 +2761,6 @@ object frmRegistration: TfrmRegistration
           BeginGroup = True
           Visible = True
           ItemName = 'btnDelete'
-        end
-        item
-          UserDefine = [udWidth]
-          UserWidth = 94
-          Visible = True
-          ItemName = 'imgOffice'
         end
         item
           BeginGroup = True
@@ -4508,7 +3527,7 @@ object frmRegistration: TfrmRegistration
     Left = 820
     Top = 125
     Bitmap = {
-      494C010104000900600110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010104000900780110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -4788,49 +3807,44 @@ object frmRegistration: TfrmRegistration
     PrintOptions.Printer = '\\Naydenovalv\HP CLJ 5550N PCL 6'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 37936.531508599500000000
-    ReportOptions.LastChange = 42635.793144594910000000
+    ReportOptions.LastChange = 42639.699983773150000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
-      'procedure Memo12OnBeforePrint(Sender: TfrxComponent);'
+      'procedure Memo22OnBeforePrint(Sender: TfrxComponent);'
       ' var i:integer;                                    '
       'begin'
       
-        'memo12.text:=<frxClientsView."ADDRESS">;                        ' +
+        'memo22.text:=<frxClientsView."ADDRESS">;                        ' +
         '        '
-      'if pos('#39'%'#39',memo12.text)<>0 then '
-      'while pos('#39'%'#39',memo12.text)<>0 do begin'
-      '    i:= pos('#39'%'#39',memo12.text);'
-      '    delete(memo12.text,i,1);                      '
-      '    insert('#39', '#39',memo12.text,i);                        '
+      'if pos('#39'%'#39',memo22.text)<>0 then '
+      'while pos('#39'%'#39',memo22.text)<>0 do begin'
+      '    i:= pos('#39'%'#39',memo22.text);'
+      '    delete(memo22.text,i,1);                      '
+      '    insert('#39', '#39',memo22.text,i);                        '
       'end;              '
       'end;'
       ''
       ''
       ''
-      'procedure Memo44OnBeforePrint(Sender: TfrxComponent);'
+      'procedure Memo51OnBeforePrint(Sender: TfrxComponent);'
       ' var i:integer;                                    '
       'begin'
       
-        'memo44.text:=<frxClientsView."U_ADDRESS">;                      ' +
+        'memo51.text:=<frxClientsView."U_ADDRESS">;                      ' +
         '          '
-      'if pos('#39'%'#39',memo44.text)<>0 then '
-      'while pos('#39'%'#39',memo44.text)<>0 do begin'
-      '    i:= pos('#39'%'#39',memo44.text);'
-      '    delete(memo44.text,i,1);                      '
-      '    insert('#39', '#39',memo44.text,i);                        '
+      'if pos('#39'%'#39',memo51.text)<>0 then '
+      'while pos('#39'%'#39',memo51.text)<>0 do begin'
+      '    i:= pos('#39'%'#39',memo51.text);'
+      '    delete(memo51.text,i,1);                      '
+      '    insert('#39', '#39',memo51.text,i);                        '
       'end;'
       'end;'
       ''
-      'procedure Memo4OnBeforePrint(Sender: TfrxComponent);'
-      'begin'
-      
-        '                                                                ' +
-        '      '
-      'end;'
+      ''
       ''
       'begin'
       ''
-      'end.')
+      'end.           ')
     Left = 32
     Top = 288
     Datasets = <
@@ -4863,7 +3877,7 @@ object frmRegistration: TfrmRegistration
         Font.Height = -12
         Font.Name = 'Arial'
         Font.Style = []
-        Height = 502.677490000000000000
+        Height = 28.220470000000000000
         ParentFont = False
         Top = 18.897650000000000000
         Width = 718.110700000000000000
@@ -4885,10 +3899,17 @@ object frmRegistration: TfrmRegistration
           ParentFont = False
           VAlign = vaCenter
         end
-        object Memo2: TfrxMemoView
+      end
+      object MasterData1: TfrxMasterData
+        Height = 453.543600000000000000
+        Top = 109.606370000000000000
+        Width = 718.110700000000000000
+        DataSet = frxClientsView
+        DataSetName = 'frxClientsView'
+        RowCount = 0
+        object Memo6: TfrxMemoView
           Align = baLeft
           Left = 151.181102360000000000
-          Top = 28.913385830000000000
           Width = 565.039370080000000000
           Height = 26.456695350000000000
           ShowHint = False
@@ -4904,9 +3925,8 @@ object frmRegistration: TfrmRegistration
           ParentFont = False
           VAlign = vaCenter
         end
-        object Memo3: TfrxMemoView
+        object Memo7: TfrxMemoView
           Align = baLeft
-          Top = 28.913385830000000000
           Width = 151.181102360000000000
           Height = 26.456695350000000000
           ShowHint = False
@@ -4923,13 +3943,12 @@ object frmRegistration: TfrmRegistration
           ParentFont = False
           VAlign = vaCenter
         end
-        object Memo4: TfrxMemoView
+        object Memo14: TfrxMemoView
           Align = baLeft
           Left = 151.181102360000000000
-          Top = 55.370081180000000000
+          Top = 26.456695350000000000
           Width = 565.039370080000000000
           Height = 30.236227800000000000
-          OnBeforePrint = 'Memo4OnBeforePrint'
           ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -4943,9 +3962,9 @@ object frmRegistration: TfrmRegistration
           ParentFont = False
           VAlign = vaCenter
         end
-        object Memo5: TfrxMemoView
+        object Memo15: TfrxMemoView
           Align = baLeft
-          Top = 55.370081180000000000
+          Top = 26.456695350000000000
           Width = 151.181102360000000000
           Height = 30.236227800000000000
           ShowHint = False
@@ -4962,10 +3981,10 @@ object frmRegistration: TfrmRegistration
           ParentFont = False
           VAlign = vaCenter
         end
-        object Memo8: TfrxMemoView
+        object Memo18: TfrxMemoView
           Align = baLeft
           Left = 151.181102360000000000
-          Top = 104.503941890000000000
+          Top = 75.590556060000000000
           Width = 565.039370080000000000
           Height = 18.897637800000000000
           ShowHint = False
@@ -4981,9 +4000,9 @@ object frmRegistration: TfrmRegistration
           ParentFont = False
           VAlign = vaCenter
         end
-        object Memo9: TfrxMemoView
+        object Memo19: TfrxMemoView
           Align = baLeft
-          Top = 85.606306540000000000
+          Top = 56.692920710000000000
           Width = 151.181102360000000000
           Height = 18.897637800000000000
           ShowHint = False
@@ -5000,10 +4019,10 @@ object frmRegistration: TfrmRegistration
           ParentFont = False
           VAlign = vaCenter
         end
-        object Memo10: TfrxMemoView
+        object Memo20: TfrxMemoView
           Align = baLeft
           Left = 151.181102360000000000
-          Top = 85.606306540000000000
+          Top = 56.692920710000000000
           Width = 565.039370080000000000
           Height = 18.897637800000000000
           ShowHint = False
@@ -5019,9 +4038,9 @@ object frmRegistration: TfrmRegistration
           ParentFont = False
           VAlign = vaCenter
         end
-        object Memo11: TfrxMemoView
+        object Memo21: TfrxMemoView
           Align = baLeft
-          Top = 104.503941890000000000
+          Top = 75.590556060000000000
           Width = 151.181102360000000000
           Height = 18.897637800000000000
           ShowHint = False
@@ -5038,14 +4057,13 @@ object frmRegistration: TfrmRegistration
           ParentFont = False
           VAlign = vaCenter
         end
-        object Memo12: TfrxMemoView
+        object Memo22: TfrxMemoView
           Align = baLeft
           Left = 151.181102360000000000
-          Top = 123.401577240000000000
+          Top = 94.488191410000000000
           Width = 565.039370080000000000
           Height = 56.692913390000000000
-          OnAfterPrint = 'Memo12OnAfterPrint'
-          OnBeforePrint = 'Memo12OnBeforePrint'
+          OnBeforePrint = 'Memo22OnBeforePrint'
           ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -5058,9 +4076,9 @@ object frmRegistration: TfrmRegistration
             '[frxClientsView."ADDRESS"]')
           ParentFont = False
         end
-        object Memo13: TfrxMemoView
+        object Memo23: TfrxMemoView
           Align = baLeft
-          Top = 123.401577240000000000
+          Top = 94.488191410000000000
           Width = 151.181102360000000000
           Height = 56.692913390000000000
           ShowHint = False
@@ -5076,10 +4094,10 @@ object frmRegistration: TfrmRegistration
             #1056#164#1056#176#1056#1108#1057#8218#1056#1105#1057#8225#1056#181#1057#1027#1056#1108#1056#1105#1056#8470' '#1056#176#1056#1169#1057#1026#1056#181#1057#1027)
           ParentFont = False
         end
-        object Memo16: TfrxMemoView
+        object Memo24: TfrxMemoView
           Align = baLeft
           Left = 151.181102360000000000
-          Top = 236.787347870000000000
+          Top = 207.873962040000000000
           Width = 565.039370080000000000
           Height = 18.897637800000000000
           ShowHint = False
@@ -5094,9 +4112,9 @@ object frmRegistration: TfrmRegistration
             '[frxClientsView."PHONE"]')
           ParentFont = False
         end
-        object Memo17: TfrxMemoView
+        object Memo25: TfrxMemoView
           Align = baLeft
-          Top = 236.787347870000000000
+          Top = 207.873962040000000000
           Width = 151.181102360000000000
           Height = 18.897637800000000000
           ShowHint = False
@@ -5112,10 +4130,10 @@ object frmRegistration: TfrmRegistration
             #1056#1118#1056#181#1056#187#1056#181#1057#8222#1056#1109#1056#1029)
           ParentFont = False
         end
-        object Memo30: TfrxMemoView
+        object Memo26: TfrxMemoView
           Align = baLeft
           Left = 151.181102360000000000
-          Top = 259.464383860000000000
+          Top = 230.550998030000000000
           Width = 565.039370080000000000
           Height = 18.897637800000000000
           ShowHint = False
@@ -5130,9 +4148,9 @@ object frmRegistration: TfrmRegistration
             '[frxClientsView."CONTACT"]')
           ParentFont = False
         end
-        object Memo31: TfrxMemoView
+        object Memo27: TfrxMemoView
           Align = baLeft
-          Top = 259.464383860000000000
+          Top = 230.550998030000000000
           Width = 151.181102360000000000
           Height = 18.897637800000000000
           ShowHint = False
@@ -5148,10 +4166,10 @@ object frmRegistration: TfrmRegistration
             #1056#1113#1056#1109#1056#1029#1057#8218#1056#176#1056#1108#1057#8218#1056#1029#1056#1109#1056#181' '#1056#187#1056#1105#1057#8224#1056#1109)
           ParentFont = False
         end
-        object Memo32: TfrxMemoView
+        object Memo28: TfrxMemoView
           Align = baLeft
           Left = 151.181102360000000000
-          Top = 278.362019210000000000
+          Top = 249.448633380000000000
           Width = 565.039370080000000000
           Height = 86.929133860000000000
           ShowHint = False
@@ -5166,9 +4184,9 @@ object frmRegistration: TfrmRegistration
             '[frxClientsView."CONT_PHONE"]')
           ParentFont = False
         end
-        object Memo33: TfrxMemoView
+        object Memo29: TfrxMemoView
           Align = baLeft
-          Top = 278.362019210000000000
+          Top = 249.448633380000000000
           Width = 151.181102360000000000
           Height = 86.929133860000000000
           ShowHint = False
@@ -5185,10 +4203,10 @@ object frmRegistration: TfrmRegistration
             #1057#8218#1056#181#1056#187#1056#181#1057#8222#1056#1109#1056#1029#1057#8249)
           ParentFont = False
         end
-        object Memo34: TfrxMemoView
+        object Memo38: TfrxMemoView
           Align = baLeft
           Left = 151.181102360000000000
-          Top = 365.291153070000000000
+          Top = 336.377767240000000000
           Width = 565.039370080000000000
           Height = 18.897637800000000000
           ShowHint = False
@@ -5204,9 +4222,9 @@ object frmRegistration: TfrmRegistration
           ParentFont = False
           VAlign = vaCenter
         end
-        object Memo35: TfrxMemoView
+        object Memo39: TfrxMemoView
           Align = baLeft
-          Top = 365.291153070000000000
+          Top = 336.377767240000000000
           Width = 151.181102360000000000
           Height = 18.897637800000000000
           ShowHint = False
@@ -5223,10 +4241,10 @@ object frmRegistration: TfrmRegistration
           ParentFont = False
           VAlign = vaCenter
         end
-        object Memo36: TfrxMemoView
+        object Memo42: TfrxMemoView
           Align = baLeft
           Left = 151.181102360000000000
-          Top = 384.188795750000000000
+          Top = 355.275409920000000000
           Width = 565.039370080000000000
           Height = 18.897637800000000000
           ShowHint = False
@@ -5242,9 +4260,9 @@ object frmRegistration: TfrmRegistration
           ParentFont = False
           VAlign = vaCenter
         end
-        object Memo37: TfrxMemoView
+        object Memo46: TfrxMemoView
           Align = baLeft
-          Top = 384.188795750000000000
+          Top = 355.275409920000000000
           Width = 151.181102360000000000
           Height = 18.897637800000000000
           ShowHint = False
@@ -5261,10 +4279,10 @@ object frmRegistration: TfrmRegistration
           ParentFont = False
           VAlign = vaCenter
         end
-        object Memo40: TfrxMemoView
+        object Memo49: TfrxMemoView
           Align = baLeft
           Left = 151.181102360000000000
-          Top = 403.086409130000000000
+          Top = 374.173023300000000000
           Width = 565.039370080000000000
           Height = 18.897637800000000000
           ShowHint = False
@@ -5280,9 +4298,9 @@ object frmRegistration: TfrmRegistration
           ParentFont = False
           VAlign = vaCenter
         end
-        object Memo41: TfrxMemoView
+        object Memo50: TfrxMemoView
           Align = baLeft
-          Top = 403.086409130000000000
+          Top = 374.173023300000000000
           Width = 151.181102360000000000
           Height = 18.897637800000000000
           ShowHint = False
@@ -5299,13 +4317,13 @@ object frmRegistration: TfrmRegistration
           ParentFont = False
           VAlign = vaCenter
         end
-        object Memo44: TfrxMemoView
+        object Memo51: TfrxMemoView
           Align = baLeft
           Left = 151.181102360000000000
-          Top = 180.094490630000000000
+          Top = 151.181104800000000000
           Width = 565.039370080000000000
           Height = 56.692913390000000000
-          OnBeforePrint = 'Memo44OnBeforePrint'
+          OnBeforePrint = 'Memo51OnBeforePrint'
           ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -5318,9 +4336,9 @@ object frmRegistration: TfrmRegistration
             '[frxClientsView."U_ADDRESS"]')
           ParentFont = False
         end
-        object Memo45: TfrxMemoView
+        object Memo52: TfrxMemoView
           Align = baLeft
-          Top = 180.094490630000000000
+          Top = 151.181104800000000000
           Width = 151.181102360000000000
           Height = 56.692913390000000000
           ShowHint = False
@@ -5336,10 +4354,10 @@ object frmRegistration: TfrmRegistration
             #1056#174#1057#1026#1056#1105#1056#1169#1056#1105#1057#8225#1056#181#1057#1027#1056#1108#1056#1105#1056#8470' '#1056#176#1056#1169#1057#1026#1056#181#1057#1027)
           ParentFont = False
         end
-        object Memo47: TfrxMemoView
+        object Memo53: TfrxMemoView
           Align = baLeft
           Left = 151.181102360000000000
-          Top = 421.984044490000000000
+          Top = 393.070658660000000000
           Width = 565.039370080000000000
           Height = 56.692913390000000000
           ShowHint = False
@@ -5354,9 +4372,9 @@ object frmRegistration: TfrmRegistration
             '[frxClientsView."INFO"]')
           ParentFont = False
         end
-        object Memo48: TfrxMemoView
+        object Memo54: TfrxMemoView
           Align = baLeft
-          Top = 421.984044490000000000
+          Top = 393.070658660000000000
           Width = 151.181102360000000000
           Height = 56.692913390000000000
           ShowHint = False
@@ -5372,9 +4390,16 @@ object frmRegistration: TfrmRegistration
             #1056#8221#1056#1109#1056#1111'. '#1056#1105#1056#1029#1057#8222#1056#1109#1057#1026#1056#1112#1056#176#1057#8224#1056#1105#1057#1039)
           ParentFont = False
         end
+      end
+      object MasterData2: TfrxMasterData
+        Height = 45.354360000000000000
+        Top = 585.827150000000000000
+        Width = 718.110700000000000000
+        DataSet = frxAdresses
+        DataSetName = 'frxAdresses'
+        RowCount = 0
         object Memo43: TfrxMemoView
           Align = baWidth
-          Top = 480.000310000000000000
           Width = 718.110700000000000000
           Height = 22.677180000000000000
           ShowHint = False
@@ -5383,25 +4408,17 @@ object frmRegistration: TfrmRegistration
           Font.Height = -13
           Font.Name = 'Arial'
           Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           HAlign = haCenter
           Memo.UTF8 = (
             #1056#1106#1056#1169#1057#1026#1056#181#1057#1027#1056#176' '#1056#1169#1056#1109#1057#1027#1057#8218#1056#176#1056#1030#1056#1108#1056#1105)
           ParentFont = False
         end
-      end
-      object MasterData2: TfrxMasterData
-        Height = 37.795300000000000000
-        Top = 582.047620000000000000
-        Width = 718.110700000000000000
-        DataSet = frxAdresses
-        DataSetName = 'frxAdresses'
-        RowCount = 0
-        object Memo42: TfrxMemoView
-          Align = baWidth
+        object Memo2: TfrxMemoView
+          Top = 22.677180000000000000
           Width = 718.110700000000000000
-          Height = 37.795300000000000000
+          Height = 22.677180000000000000
           ShowHint = False
-          StretchMode = smMaxHeight
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -5679,7 +4696,7 @@ object frmRegistration: TfrmRegistration
     Left = 240
     Top = 328
     Bitmap = {
-      494C010127002C00500120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010127002C00680120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004001000001002000000000000080
       0200000000000000000000000000000000000000000000000000000000000000
       000000000000000000000101011A0B0B0B743B3D3DB4777777D5838383DA5152
@@ -11115,11 +10132,14 @@ object frmRegistration: TfrmRegistration
       'where id_clients=:id_clients')
     Session = dm.OraSession
     SQL.Strings = (
-      'SELECT * from CLIENTS_VIEW2')
+      'SELECT * from CLIENTS_VIEW3')
     FetchAll = True
     FilterOptions = [foCaseInsensitive]
     Left = 680
     Top = 312
+    object Q_CLIENTSD_CHECK: TFloatField
+      FieldName = 'D_CHECK'
+    end
     object Q_CLIENTSID_CLIENTS: TIntegerField
       FieldName = 'ID_CLIENTS'
       Required = True
@@ -11228,12 +10248,9 @@ object frmRegistration: TfrmRegistration
       FieldName = 'INN'
       Size = 50
     end
-    object Q_CLIENTSINTERES: TStringField
-      FieldName = 'INTERES'
+    object Q_CLIENTSKEY_INTERESTS: TStringField
+      FieldName = 'KEY_INTERESTS'
       Size = 1024
-    end
-    object Q_CLIENTSD_CHECK: TFloatField
-      FieldName = 'D_CHECK'
     end
   end
   object Q_CLIENT_VIEW: TOraQuery
@@ -11262,6 +10279,7 @@ object frmRegistration: TfrmRegistration
       '   AND C.REGION = R.ID_REGIONS'
       '   and c.id_office = o.ID_OFFICE'
       '   and c.id_city = s.id_city(+)')
+    Active = True
     Left = 680
     Top = 352
     object Q_CLIENT_VIEWID_CLIENTS: TIntegerField
@@ -11425,8 +10443,8 @@ object frmRegistration: TfrmRegistration
     object Q_CLIENT_VIEWID_CITY: TIntegerField
       FieldName = 'ID_CITY'
     end
-    object Q_CLIENT_VIEWINTERES: TStringField
-      FieldName = 'INTERES'
+    object Q_CLIENT_VIEWKEY_INTERESTS: TStringField
+      FieldName = 'KEY_INTERESTS'
       Size = 1024
     end
     object Q_CLIENT_VIEWREG_TYPE_NAME: TStringField
