@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.INVOICE_PKG
--- Generated 15.07.2016 21:26:34 from CREATOR@STAR_NEW
+-- Generated 16.10.2016 2:10:34 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE invoice_pkg
@@ -1925,9 +1925,9 @@ begin
        a.inv_id, a.order_number, a.order_markname, a.packing_marks,
        a.packing_code, a.description, a.units, -- a.sku,
         -- гол. упаковка
-       --nvl(a.sku, a.short_code||'.'||a.hol_colour||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK_HOL||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks) as sku,
+       nvl(a.sku, a.short_code||'.'||a.hol_colour||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK_HOL||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks) as sku,
         -- наша упаковка
-       nvl(a.sku, a.short_code||'.'||a.hol_colour||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks) as sku,
+       --nvl(a.sku, a.short_code||'.'||a.hol_colour||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks) as sku,
        a.amount_in_the_pack, a.invoice_data_as_is_id, a.hol_colour,
        a.hol_sub_type, a.marks_content, a.marks_names, a.short_code,
        a.short_name, a.recognised, a.bar_code, a.translation,
@@ -1973,9 +1973,13 @@ begin
         left outer join nomenclature_mat_view n on n.n_id = map.n_id
         -- гол. упаковка
         --left outer join nomenclature_mat_view nom on nom.notuse = 0 and upper(nom.H_CODE) = upper(a.short_code||'.'||a.hol_colour||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK_HOL||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks)
+        left outer join (select distinct AS_IS_HCODE, n_id as AS_IS_N_ID from INVOICE_DATA_AS_IS_MAP c where c.replacement = 1) repl on repl.AS_IS_HCODE = a.short_code||'.'||a.hol_colour||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK_HOL||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks
         -- наша упаковка
-        left outer join (select distinct AS_IS_HCODE, n_id as AS_IS_N_ID from INVOICE_DATA_AS_IS_MAP c where c.replacement = 1) repl on repl.AS_IS_HCODE = a.short_code||'.'||a.hol_colour||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks
-        left outer join nomenclature_mat_view nom on nom.notuse = 0 and upper(nom.H_CODE) = upper(a.short_code||'.'||a.hol_colour||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks)
+        --left outer join (select distinct AS_IS_HCODE, n_id as AS_IS_N_ID from INVOICE_DATA_AS_IS_MAP c where c.replacement = 1) repl on repl.AS_IS_HCODE = a.short_code||'.'||a.hol_colour||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks
+
+        --left outer join nomenclature_mat_view nom on nom.notuse = 0 and upper(nom.H_CODE) = upper(a.short_code||'.'||a.hol_colour||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks)
+        left outer join nomenclature_mat_view nom on nom.notuse = 0 and upper(nom.H_CODE) = upper(a.short_code||'.'||a.hol_colour||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK_HOL||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks)
+
         left outer join import_flowers_kov kov on kov.nom_code = nom.code and kov.checked = 0
         left outer join nomenclature_mat_view nom2 on nom2.notuse = 0 and nom2.n_id = repl.AS_IS_N_ID
 

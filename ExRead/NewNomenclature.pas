@@ -1722,7 +1722,7 @@ begin
 // Если гол.упакова
     if Length(ed_kolvo_hol.Text) > 0 then ed_art.Text := ed_art.Text + ed_kolvo_hol.Text +'.' else ed_art.Text := ed_art.Text+'.';
 // Если наша упаковка
-//  if Length(ed_kolvo.Text) > 0 then ed_art.Text := ed_art.Text + ed_kolvo.Text +'.' else ed_art.Text := ed_art.Text+'.';
+//    if Length(ed_kolvo.Text) > 0 then ed_art.Text := ed_art.Text + ed_kolvo.Text +'.' else ed_art.Text := ed_art.Text+'.';
 
     if MarksVals.Strings.Count > 1 then
     begin

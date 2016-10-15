@@ -259,21 +259,29 @@ object frmMapping: TfrmMapping
       object grid_mapping_vN_ID: TcxGridDBColumn
         Caption = 'ID'
         DataBinding.FieldName = 'N_ID'
-        Visible = False
+        MinWidth = 80
+        Options.HorzSizing = False
+        Width = 80
+      end
+      object grid_mapping_vSKU: TcxGridDBColumn
+        Caption = #1050#1086#1076' '#1074' '#1080#1085#1074#1086#1081#1089#1077
+        DataBinding.FieldName = 'SKU'
+        MinWidth = 120
+        Width = 120
       end
       object grid_mapping_vREPLACEMENT: TcxGridDBColumn
         DataBinding.FieldName = 'REPLACEMENT'
         Visible = False
       end
       object grid_mapping_vAS_IS_HCODE: TcxGridDBColumn
-        Caption = #1050#1086#1076' '#1080#1085#1074#1086#1081#1089#1072
+        Caption = #1050#1086#1076' '#1085#1072#1079#1085#1072#1095#1077#1085#1080#1103
         DataBinding.FieldName = 'AS_IS_HCODE'
         MinWidth = 120
         Styles.Content = cxStyle1
         Width = 120
       end
       object grid_mapping_vH_CODE: TcxGridDBColumn
-        Caption = #1050#1086#1076
+        Caption = #1050#1086#1076' '#1085#1086#1084#1077#1085#1082#1083#1072#1090#1091#1088#1099
         DataBinding.FieldName = 'H_CODE'
         MinWidth = 120
         Width = 120
@@ -305,10 +313,17 @@ object frmMapping: TfrmMapping
   end
   object cdsMapping: TOraQuery
     SQL.Strings = (
+      'select distinct '
       
-        'select distinct a.n_id, a.as_is_hcode, a.replacement, n.h_code, ' +
-        'n.h_name, n.compiled_name_otdel, n.remarks, n.colour'
-      'from INVOICE_DATA_AS_IS_MAP a, nomenclature_mat_view n '
+        'nvl(d.sku, d.short_code||'#39'.'#39'||d.hol_colour||'#39'.'#39'||nvl(d.spec_leng' +
+        'th,0)||'#39'.'#39'||d.NOM_PACK_HOL||'#39'.'#39'||d.SPEC_HEADS||'#39'.'#39'||d.SPEC_HEADS' +
+        '_SHRUB||'#39'.'#39'||d.SPEC_VD2||'#39'.'#39'||d.remarks) sku,'
+      
+        'a.n_id, a.as_is_hcode, a.replacement, n.h_code, n.h_name, n.comp' +
+        'iled_name_otdel, n.remarks, n.colour'
+      
+        'from INVOICE_DATA_AS_IS_MAP a, nomenclature_mat_view n, invoice_' +
+        'data_as_is d '
       'where a.as_is_hcode in ('
       '  select as_is_hcode from ('
       
@@ -318,7 +333,8 @@ object frmMapping: TfrmMapping
       '    group by c.as_is_hcode'
       '  ) where n_id > 1'
       ') '
-      'and a.n_id = n.n_id'
+      'and a.n_id = n.n_id and a.replacement = 1'
+      'and a.invoice_data_as_is_id = d.invoice_data_as_is_id'
       'order by a.as_is_hcode, a.n_id')
     ReadOnly = True
     Left = 128
@@ -352,6 +368,10 @@ object frmMapping: TfrmMapping
     object cdsMappingCOLOUR: TStringField
       FieldName = 'COLOUR'
       Size = 50
+    end
+    object cdsMappingSKU: TStringField
+      FieldName = 'SKU'
+      Size = 503
     end
   end
   object dsMapping: TOraDataSource

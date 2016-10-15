@@ -7,7 +7,7 @@ object DM: TDM
     Options.Direct = True
     Username = 'creator'
     Password = '123456'
-    Server = 'roznica:1521:orcl'
+    Server = 'KLEPOV:1521:STARNEW'
     BeforeConnect = STAR_DBBeforeConnect
     HomeName = 'OraHome92'
     Left = 24

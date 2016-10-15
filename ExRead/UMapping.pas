@@ -38,6 +38,8 @@ type
     cxStyleRepository1: TcxStyleRepository;
     cxStyle1: TcxStyle;
     BitBtn2: TcxButton;
+    cdsMappingSKU: TStringField;
+    grid_mapping_vSKU: TcxGridDBColumn;
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnDeleteClick(Sender: TObject);
