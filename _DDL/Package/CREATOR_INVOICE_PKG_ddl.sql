@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.INVOICE_PKG
--- Generated 16.10.2016 2:10:34 from CREATOR@STAR_NEW
+-- Generated 18.10.2016 2:00:48 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE invoice_pkg
@@ -1978,7 +1978,7 @@ begin
         --left outer join (select distinct AS_IS_HCODE, n_id as AS_IS_N_ID from INVOICE_DATA_AS_IS_MAP c where c.replacement = 1) repl on repl.AS_IS_HCODE = a.short_code||'.'||a.hol_colour||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks
 
         --left outer join nomenclature_mat_view nom on nom.notuse = 0 and upper(nom.H_CODE) = upper(a.short_code||'.'||a.hol_colour||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks)
-        left outer join nomenclature_mat_view nom on nom.notuse = 0 and upper(nom.H_CODE) = upper(a.short_code||'.'||a.hol_colour||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK_HOL||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks)
+        left outer join nomenclature_mat_view nom on nom.notuse = 0 and upper(replace(nom.H_CODE,'NA','')) = upper(a.short_code||'.'||decode(a.hol_colour,'NA','',a.hol_colour)||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK_HOL||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks)
 
         left outer join import_flowers_kov kov on kov.nom_code = nom.code and kov.checked = 0
         left outer join nomenclature_mat_view nom2 on nom2.notuse = 0 and nom2.n_id = repl.AS_IS_N_ID
