@@ -300,7 +300,7 @@ object frmStore: TfrmStore
     Top = 127
     Width = 986
     Height = 445
-    ActivePage = tch_nakls
+    ActivePage = tch_main
     Align = alClient
     LookAndFeel.Kind = lfOffice11
     LookAndFeel.NativeStyle = True
@@ -314,10 +314,6 @@ object frmStore: TfrmStore
     object tch_main: TcxTabSheet
       Caption = ' '#1058#1077#1082#1091#1097#1080#1081' '#1089#1082#1083#1072#1076' (Ctrl+1) '
       ImageIndex = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object gr_main: TDBGridEh
         Left = 0
         Top = 0
@@ -2857,7 +2853,7 @@ object frmStore: TfrmStore
   end
   object doc_data: TOraQuery
     SQL.Strings = (
-      'SELECT '
+      'SELECT distinct'
       
         'a.ID_DOC, a.N_ID, a.CODE, a.H_CODE, a.F_TYPE, a.F_SUB_TYPE, a.FU' +
         'LL_NAME, a.country, a.colour,'
@@ -2867,9 +2863,12 @@ object frmStore: TfrmStore
       
         'a.QUANTITY_PRICE, a.PRICE_PERCENT, a.PRICE, a.GTD, a.SPESIFICATI' +
         'ON, a.compiled_name_otdel'
-      ', b.quantity as store, a.notuse, a.ID_DOC_DATA'
+      ', b.quantity as store, a.notuse, a.ID_DOC_DATA, bb.spec_price'
       'from'
-      'store_docdata_view a,'
+      'store_docdata_view a'
+      
+        'left outer join prepare_price_list bb ON a.n_id=bb.n_id and bb.s' +
+        'pec_price=1,'
       'store_main b'
       'where'
       'a.ID_DOC=:ID_DOC '
@@ -2903,7 +2902,7 @@ object frmStore: TfrmStore
     end
     object doc_dataH_CODE: TStringField
       FieldName = 'H_CODE'
-      Size = 50
+      Size = 80
     end
     object doc_dataF_TYPE: TStringField
       FieldName = 'F_TYPE'
@@ -2970,7 +2969,7 @@ object frmStore: TfrmStore
     end
     object doc_dataCOMPILED_NAME_OTDEL: TStringField
       FieldName = 'COMPILED_NAME_OTDEL'
-      Size = 350
+      Size = 500
     end
     object doc_dataSTORE: TFloatField
       FieldName = 'STORE'
@@ -2981,6 +2980,9 @@ object frmStore: TfrmStore
     object doc_dataID_DOC_DATA: TFloatField
       FieldName = 'ID_DOC_DATA'
       Required = True
+    end
+    object doc_dataSPEC_PRICE: TIntegerField
+      FieldName = 'SPEC_PRICE'
     end
   end
   object doc_data_ds: TOraDataSource

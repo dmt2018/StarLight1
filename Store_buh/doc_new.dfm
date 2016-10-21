@@ -1273,6 +1273,10 @@ object DocNewForm: TDocNewForm
         DataBinding.FieldName = 'START_PRICE'
         Visible = False
       end
+      object priznak: TcxGridDBColumn
+        Caption = #1089#1087#1077#1094
+        DataBinding.FieldName = 'SPEC_PRICE'
+      end
     end
     object grid_buh_view_l: TcxGridLevel
       GridView = grid_buh_view_v
@@ -1443,7 +1447,7 @@ object DocNewForm: TDocNewForm
       'WHERE ID_DOC_DATA = :ID_DOC_DATA')
     Session = DM.OraSession
     SQL.Strings = (
-      'SELECT ID_DOC_TYPE, ID_DOC_DATA, ID_DOC, QUANTITY, '
+      '/*SELECT ID_DOC_TYPE, ID_DOC_DATA, ID_DOC, QUANTITY, '
       
         '  --case when a.BEZNDSMINUS=1 and a.ID_DOC_TYPE > 1 then round((' +
         'a.PRICE/118*100),2) else a.PRICE end price, '
@@ -1469,6 +1473,66 @@ object DocNewForm: TDocNewForm
       'BUH_DOCDATA_VIEW a'
       'where'
       'ID_DOC=:ID_DOC'
+      'order by compiled_name_otdel'
+      '*/'
+      ''
+      '/*'
+      'SELECT distinct ID_DOC_TYPE, ID_DOC_DATA, ID_DOC, QUANTITY, '
+      
+        '  --case when a.BEZNDSMINUS=1 and a.ID_DOC_TYPE > 1 then round((' +
+        'a.PRICE/118*100),2) else a.PRICE end price, '
+      '  a.PRICE,'
+      '  a.price as src_price,'
+      
+        '  case when a.BEZNDSMINUS=1 and a.ID_DOC_TYPE > 1 then round((a.' +
+        'PRICE/(100+NDS)*100),2) else a.PRICE end start_price, '
+      '  PRICE_OLD, GTD, F_NAME_RU, '
+      
+        '  a.N_ID, LEN, PACK, COL_ID, COLOUR, F_TYPE, F_SUB_TYPE, FT_ID, ' +
+        'FST_ID, COUNTRY, '
+      '  C_ID, H_CODE, SPESIFICATION, CODE, PRICE_DIFFERENCE, '
+      
+        '  a.PRICE_BEZ_NDS, a.SUMM_BEZ_NDS, a.SUMM_NDS, a.FULL_NAME, a.PR' +
+        'ICE_QUANTITY,'
+      '  buh_code, compiled_name_otdel, country_gtd'
+      '  , NSI_NAME, UNIT_CODE, SYMBOL_NATIONAL'
+      '  , count(*) over(PARTITION by a.n_id) as nn'
+      '  , to_number(BEZNDSMINUS) as ppp'
+      ', a.BEZNDSMINUS, a.NDS, a.BEZNDS, b.spec_price'
+      'from'
+      'BUH_DOCDATA_VIEW a, prepare_price_list b'
+      'where'
+      'ID_DOC=:ID_DOC'
+      'and a.n_id=b.n_id'
+      'order by compiled_name_otdel'
+      '*/'
+      ''
+      'SELECT distinct ID_DOC_TYPE, ID_DOC_DATA, ID_DOC, QUANTITY, '
+      '  a.PRICE,'
+      '  a.price as src_price,'
+      
+        '  case when a.BEZNDSMINUS=1 and a.ID_DOC_TYPE > 1 then round((a.' +
+        'PRICE/(100+NDS)*100),2) else a.PRICE end start_price, '
+      '  PRICE_OLD, GTD, F_NAME_RU, '
+      
+        '  a.N_ID, LEN, PACK, COL_ID, COLOUR, F_TYPE, F_SUB_TYPE, FT_ID, ' +
+        'FST_ID, COUNTRY, '
+      '  C_ID, H_CODE, SPESIFICATION, CODE, PRICE_DIFFERENCE, '
+      
+        '  a.PRICE_BEZ_NDS, a.SUMM_BEZ_NDS, a.SUMM_NDS, a.FULL_NAME, a.PR' +
+        'ICE_QUANTITY,'
+      '  buh_code, compiled_name_otdel, country_gtd'
+      '  , NSI_NAME, UNIT_CODE, SYMBOL_NATIONAL'
+      '  , count(*) over(PARTITION by a.n_id) as nn'
+      '  , to_number(BEZNDSMINUS) as ppp'
+      ', a.BEZNDSMINUS, a.NDS, a.BEZNDS, b.spec_price'
+      'from'
+      'BUH_DOCDATA_VIEW a'
+      
+        'left outer join prepare_price_list b ON a.n_id=b.n_id and b.spec' +
+        '_price=1'
+      'where'
+      'ID_DOC=:ID_DOC'
       'order by compiled_name_otdel')
     MasterSource = DOC_DS
     FetchAll = True
@@ -1480,9 +1544,8 @@ object DocNewForm: TDocNewForm
     Top = 38
     ParamData = <
       item
-        DataType = ftFloat
+        DataType = ftUnknown
         Name = 'ID_DOC'
-        ParamType = ptInput
       end>
     object DOC_DATAID_DOC_TYPE: TFloatField
       FieldName = 'ID_DOC_TYPE'
@@ -1501,6 +1564,12 @@ object DocNewForm: TDocNewForm
     end
     object DOC_DATAPRICE: TFloatField
       FieldName = 'PRICE'
+    end
+    object DOC_DATASRC_PRICE: TFloatField
+      FieldName = 'SRC_PRICE'
+    end
+    object DOC_DATASTART_PRICE: TFloatField
+      FieldName = 'START_PRICE'
     end
     object DOC_DATAPRICE_OLD: TFloatField
       FieldName = 'PRICE_OLD'
@@ -1553,7 +1622,6 @@ object DocNewForm: TDocNewForm
     end
     object DOC_DATACOUNTRY: TStringField
       FieldName = 'COUNTRY'
-      Required = True
       Size = 50
     end
     object DOC_DATAC_ID: TFloatField
@@ -1562,7 +1630,7 @@ object DocNewForm: TDocNewForm
     end
     object DOC_DATAH_CODE: TStringField
       FieldName = 'H_CODE'
-      Size = 50
+      Size = 80
     end
     object DOC_DATASPESIFICATION: TStringField
       FieldName = 'SPESIFICATION'
@@ -1591,9 +1659,13 @@ object DocNewForm: TDocNewForm
     object DOC_DATAPRICE_QUANTITY: TFloatField
       FieldName = 'PRICE_QUANTITY'
     end
+    object DOC_DATABUH_CODE: TStringField
+      FieldName = 'BUH_CODE'
+      Size = 10
+    end
     object DOC_DATACOMPILED_NAME_OTDEL: TStringField
       FieldName = 'COMPILED_NAME_OTDEL'
-      Size = 400
+      Size = 500
     end
     object DOC_DATACOUNTRY_GTD: TStringField
       FieldName = 'COUNTRY_GTD'
@@ -1613,14 +1685,8 @@ object DocNewForm: TDocNewForm
     object DOC_DATANN: TFloatField
       FieldName = 'NN'
     end
-    object DOC_DATASRC_PRICE: TFloatField
-      FieldName = 'SRC_PRICE'
-    end
     object DOC_DATAPPP: TFloatField
       FieldName = 'PPP'
-    end
-    object DOC_DATASTART_PRICE: TFloatField
-      FieldName = 'START_PRICE'
     end
     object DOC_DATABEZNDSMINUS: TIntegerField
       FieldName = 'BEZNDSMINUS'
@@ -1631,9 +1697,8 @@ object DocNewForm: TDocNewForm
     object DOC_DATABEZNDS: TIntegerField
       FieldName = 'BEZNDS'
     end
-    object DOC_DATABUH_CODE: TStringField
-      FieldName = 'BUH_CODE'
-      Size = 10
+    object DOC_DATASPEC_PRICE: TIntegerField
+      FieldName = 'SPEC_PRICE'
     end
   end
   object DOC_DS: TOraDataSource

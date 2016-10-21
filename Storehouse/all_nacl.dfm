@@ -675,7 +675,7 @@ object all_nacl_Form: Tall_nacl_Form
       Top = 11
       Width = 1063
       Height = 430
-      ActivePage = TabSheet2
+      ActivePage = TabSheet1
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -2564,13 +2564,18 @@ object all_nacl_Form: Tall_nacl_Form
   end
   object doc_data: TOraQuery
     SQL.Strings = (
-      'SELECT '
-      'ID_DOC, N_ID, CODE, H_CODE, F_TYPE, F_SUB_TYPE, FULL_NAME,'
+      'SELECT distinct'
+      
+        'a.ID_DOC, a.N_ID, a.CODE, a.H_CODE, F_TYPE, F_SUB_TYPE, FULL_NAM' +
+        'E,'
       'QUANTITY, QUANTITY_NOW, STORE_TYPE_NAME, STORE_TYPE, PRICE_LIST,'
       'QUANTITY_PRICE, PRICE_PERCENT, PRICE, GTD, SPESIFICATION,'
-      'S_NAME_RU, COMPILED_NAME_OTDEL, COLOUR, COUNTRY'
+      'S_NAME_RU, COMPILED_NAME_OTDEL, COLOUR, COUNTRY, bb.spec_price'
       'from'
-      'store_docdata_view'
+      'store_docdata_view a'
+      
+        'left outer join prepare_price_list bb ON a.n_id=bb.n_id and bb.s' +
+        'pec_price=1'
       'where'
       'ID_DOC=:ID_DOC'
       'order by compiled_name_otdel')
@@ -2586,6 +2591,93 @@ object all_nacl_Form: Tall_nacl_Form
         Name = 'ID_DOC'
         ParamType = ptInput
       end>
+    object doc_dataID_DOC: TFloatField
+      FieldName = 'ID_DOC'
+      Required = True
+    end
+    object doc_dataN_ID: TFloatField
+      FieldName = 'N_ID'
+      Required = True
+    end
+    object doc_dataCODE: TStringField
+      FieldName = 'CODE'
+      Size = 40
+    end
+    object doc_dataH_CODE: TStringField
+      FieldName = 'H_CODE'
+      Size = 80
+    end
+    object doc_dataF_TYPE: TStringField
+      FieldName = 'F_TYPE'
+      Required = True
+      Size = 50
+    end
+    object doc_dataF_SUB_TYPE: TStringField
+      FieldName = 'F_SUB_TYPE'
+      Required = True
+      Size = 50
+    end
+    object doc_dataFULL_NAME: TStringField
+      FieldName = 'FULL_NAME'
+      Size = 372
+    end
+    object doc_dataQUANTITY: TIntegerField
+      FieldName = 'QUANTITY'
+      Required = True
+    end
+    object doc_dataQUANTITY_NOW: TFloatField
+      FieldName = 'QUANTITY_NOW'
+    end
+    object doc_dataSTORE_TYPE_NAME: TStringField
+      FieldName = 'STORE_TYPE_NAME'
+      Required = True
+      Size = 30
+    end
+    object doc_dataSTORE_TYPE: TIntegerField
+      FieldName = 'STORE_TYPE'
+    end
+    object doc_dataPRICE_LIST: TFloatField
+      FieldName = 'PRICE_LIST'
+    end
+    object doc_dataQUANTITY_PRICE: TFloatField
+      FieldName = 'QUANTITY_PRICE'
+    end
+    object doc_dataPRICE_PERCENT: TFloatField
+      FieldName = 'PRICE_PERCENT'
+    end
+    object doc_dataPRICE: TFloatField
+      FieldName = 'PRICE'
+    end
+    object doc_dataGTD: TStringField
+      FieldName = 'GTD'
+      Size = 50
+    end
+    object doc_dataSPESIFICATION: TStringField
+      FieldName = 'SPESIFICATION'
+      Size = 4000
+    end
+    object doc_dataS_NAME_RU: TStringField
+      FieldName = 'S_NAME_RU'
+      Required = True
+      Size = 150
+    end
+    object doc_dataCOMPILED_NAME_OTDEL: TStringField
+      FieldName = 'COMPILED_NAME_OTDEL'
+      Size = 500
+    end
+    object doc_dataCOLOUR: TStringField
+      FieldName = 'COLOUR'
+      Required = True
+      Size = 50
+    end
+    object doc_dataCOUNTRY: TStringField
+      FieldName = 'COUNTRY'
+      Required = True
+      Size = 50
+    end
+    object doc_dataSPEC_PRICE: TIntegerField
+      FieldName = 'SPEC_PRICE'
+    end
   end
   object doc_data_ds: TOraDataSource
     DataSet = doc_data
@@ -2806,9 +2898,43 @@ object all_nacl_Form: Tall_nacl_Form
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 39796.688377118100000000
-    ReportOptions.LastChange = 42025.011789907410000000
+    ReportOptions.LastChange = 42664.577127777800000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
+      'procedure DMPMemo17OnBeforePrint(Sender: TfrxComponent);'
+      'begin'
+      ''
+      'end;'
+      ''
+      'procedure MasterData1OnBeforePrint(Sender: TfrxComponent);'
+      'begin'
+      
+        '  TfrxBand(Sender).Visible := <fr_doc_data_ds."spec_price"><>1; ' +
+        ' '
+      'end;'
+      ''
+      'procedure MasterData2OnBeforePrint(Sender: TfrxComponent);'
+      'begin'
+      '  TfrxBand(Sender).Visible := <fr_doc_data_ds."spec_price">=1;  '
+      'end;'
+      ''
+      'procedure Footer2OnBeforePrint(Sender: TfrxComponent);'
+      'begin'
+      
+        ' //if MasterData2.rowcount<>0 then TfrxBand(Sender).Visible:=tru' +
+        'e else TfrxBand(Sender).Visible:=false;  '
+      'end;'
+      ''
+      'procedure Footer1OnBeforePrint(Sender: TfrxComponent);'
+      'begin'
+      '  '
+      'end;'
+      ''
+      'procedure Footer3OnBeforePrint(Sender: TfrxComponent);'
+      'begin'
+      ''
+      'end;'
+      ''
       'begin'
       ''
       'end.')
@@ -2845,7 +2971,7 @@ object all_nacl_Form: Tall_nacl_Form
         Font.Height = -16
         Font.Name = 'Courier New'
         Font.Style = []
-        Height = 153.000000000000000000
+        Height = 170.000000000000000000
         ParentFont = False
         Top = 17.000000000000000000
         Width = 758.400000000000000000
@@ -2943,24 +3069,10 @@ object all_nacl_Form: Tall_nacl_Form
           TruncOutboundText = False
           VAlign = vaCenter
         end
-        object DMPMemo10: TfrxDMPMemoView
-          Align = baLeft
-          Top = 119.000000000000000000
-          Width = 153.600000000000000000
-          Height = 17.000000000000000000
-          ShowHint = False
-          DisplayFormat.DecimalSeparator = ','
-          Frame.Typ = [ftBottom]
-          Memo.UTF8 = (
-            #1056#1113#1056#1109#1056#1169)
-          TruncOutboundText = False
-          VAlign = vaCenter
-        end
         object DMPMemo11: TfrxDMPMemoView
           Align = baLeft
-          Left = 153.600000000000000000
-          Top = 119.000000000000000000
-          Width = 364.800000000000000000
+          Top = 136.000000000000000000
+          Width = 518.400000000000000000
           Height = 17.000000000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
@@ -2973,7 +3085,7 @@ object all_nacl_Form: Tall_nacl_Form
         object DMPMemo12: TfrxDMPMemoView
           Align = baLeft
           Left = 662.400000000000000000
-          Top = 119.000000000000000000
+          Top = 136.000000000000000000
           Width = 96.000000000000000000
           Height = 17.000000000000000000
           ShowHint = False
@@ -2988,7 +3100,7 @@ object all_nacl_Form: Tall_nacl_Form
         object DMPMemo13: TfrxDMPMemoView
           Align = baLeft
           Left = 585.600000000000000000
-          Top = 119.000000000000000000
+          Top = 136.000000000000000000
           Width = 76.800000000000000000
           Height = 17.000000000000000000
           ShowHint = False
@@ -3003,7 +3115,7 @@ object all_nacl_Form: Tall_nacl_Form
         object DMPMemo14: TfrxDMPMemoView
           Align = baLeft
           Left = 518.400000000000000000
-          Top = 119.000000000000000000
+          Top = 136.000000000000000000
           Width = 67.200000000000000000
           Height = 17.000000000000000000
           ShowHint = False
@@ -3012,6 +3124,29 @@ object all_nacl_Form: Tall_nacl_Form
           HAlign = haCenter
           Memo.UTF8 = (
             #1056#1113#1056#1109#1056#187'-'#1056#1030#1056#1109)
+          TruncOutboundText = False
+          VAlign = vaCenter
+        end
+        object DMPMemo37: TfrxDMPMemoView
+          Top = 102.000000000000000000
+          Width = 144.000000000000000000
+          Height = 17.000000000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Memo.UTF8 = (
+            #1056#152#1056#1029#1057#8222#1056#1109#1057#1026#1056#1112#1056#176#1057#8224#1056#1105#1057#1039':')
+          TruncOutboundText = False
+          VAlign = vaCenter
+        end
+        object DMPMemo38: TfrxDMPMemoView
+          Left = 153.600000000000000000
+          Top = 102.000000000000000000
+          Width = 595.200000000000000000
+          Height = 17.000000000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Memo.UTF8 = (
+            '[fr_DOC_DS."COMMENTS"]')
           TruncOutboundText = False
           VAlign = vaCenter
         end
@@ -3024,29 +3159,18 @@ object all_nacl_Form: Tall_nacl_Form
         Font.Style = []
         Height = 17.000000000000000000
         ParentFont = False
-        Top = 204.000000000000000000
+        Top = 221.000000000000000000
         Width = 758.400000000000000000
+        OnBeforePrint = 'MasterData1OnBeforePrint'
         DataSet = fr_doc_data_ds
         DataSetName = 'fr_doc_data_ds'
         RowCount = 0
         Stretched = True
-        object DMPMemo16: TfrxDMPMemoView
-          Align = baLeft
-          Width = 153.600000000000000000
-          Height = 17.000000000000000000
-          ShowHint = False
-          StretchMode = smMaxHeight
-          DisplayFormat.DecimalSeparator = ','
-          Memo.UTF8 = (
-            '[fr_doc_data_ds."CODE"]')
-          TruncOutboundText = False
-          VAlign = vaCenter
-        end
         object DMPMemo17: TfrxDMPMemoView
           Align = baLeft
-          Left = 153.600000000000000000
-          Width = 364.800000000000000000
+          Width = 518.400000000000000000
           Height = 17.000000000000000000
+          OnBeforePrint = 'DMPMemo17OnBeforePrint'
           ShowHint = False
           StretchMode = smMaxHeight
           DisplayFormat.DecimalSeparator = ','
@@ -3108,142 +3232,64 @@ object all_nacl_Form: Tall_nacl_Form
         Font.Height = -16
         Font.Name = 'Courier New'
         Font.Style = []
-        Height = 119.000000000000000000
+        Height = 102.000000000000000000
         ParentFont = False
-        Top = 238.000000000000000000
+        Top = 255.000000000000000000
         Width = 758.400000000000000000
+        OnBeforePrint = 'Footer1OnBeforePrint'
         object DMPMemo9: TfrxDMPMemoView
           Top = 17.000000000000000000
-          Width = 153.600000000000000000
+          Width = 230.400000000000000000
           Height = 17.000000000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
-          Frame.Typ = [ftTop]
+          Frame.Typ = [ftTop, ftBottom]
           Memo.UTF8 = (
-            #1056#1119#1056#1109#1056#183#1056#1105#1057#8224#1056#1105#1056#8470'/'#1056#1108#1056#1109#1056#187'-'#1056#1030#1056#1109':')
-          TruncOutboundText = False
-          VAlign = vaCenter
-        end
-        object DMPMemo15: TfrxDMPMemoView
-          Left = 374.400000000000000000
-          Top = 17.000000000000000000
-          Width = 96.000000000000000000
-          Height = 17.000000000000000000
-          ShowHint = False
-          DisplayFormat.DecimalSeparator = ','
-          Frame.Typ = [ftTop]
-          HAlign = haRight
-          Memo.UTF8 = (
-            #1056#1115#1057#8218#1056#1111#1057#1107#1057#1027#1057#8218#1056#1105#1056#187': ')
-          TruncOutboundText = False
-          VAlign = vaCenter
-        end
-        object DMPMemo21: TfrxDMPMemoView
-          Left = 374.400000000000000000
-          Top = 51.000000000000000000
-          Width = 96.000000000000000000
-          Height = 17.000000000000000000
-          ShowHint = False
-          DisplayFormat.DecimalSeparator = ','
-          HAlign = haRight
-          Memo.UTF8 = (
-            #1056#1119#1056#1109#1056#187#1057#1107#1057#8225#1056#1105#1056#187': ')
+            #1056#1119#1056#1109#1056#183#1056#1105#1057#8224#1056#1105#1056#8470'/'#1056#1113#1056#1109#1056#187'-'#1056#1030#1056#1109'/'#1056#1119#1056#1109#1056#1169#1057#8249#1057#8218#1056#1109#1056#1110':')
           TruncOutboundText = False
           VAlign = vaCenter
         end
         object DMPMemo22: TfrxDMPMemoView
-          Left = 153.600000000000000000
+          Left = 240.000000000000000000
           Top = 17.000000000000000000
-          Width = 220.800000000000000000
+          Width = 76.800000000000000000
           Height = 17.000000000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
-          Frame.Typ = [ftTop]
+          Frame.Typ = [ftTop, ftBottom]
+          HAlign = haRight
           Memo.UTF8 = (
             
-              '[fr_DOC_DS."QUANTITY_ALL"] / [SUM(<fr_doc_data_ds."QUANTITY">,Ma' +
-              'sterData1)]')
+              '[COUNT(MasterData1)] / [SUM(<fr_doc_data_ds."QUANTITY">,MasterDa' +
+              'ta1)] /')
           TruncOutboundText = False
           VAlign = vaCenter
         end
         object DMPMemo23: TfrxDMPMemoView
-          Left = 470.400000000000000000
+          Left = 508.800000000000000000
           Top = 17.000000000000000000
-          Width = 288.000000000000000000
+          Width = 249.600000000000000000
           Height = 17.000000000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
-          Frame.Typ = [ftTop]
-          Memo.UTF8 = (
-            '[fr_DOC_DS."OPERATOR_NAME"]')
-          TruncOutboundText = False
-          VAlign = vaCenter
-        end
-        object DMPMemo24: TfrxDMPMemoView
-          Left = 470.400000000000000000
-          Top = 51.000000000000000000
-          Width = 288.000000000000000000
-          Height = 34.000000000000000000
-          ShowHint = False
-          DisplayFormat.DecimalSeparator = ','
-          Memo.UTF8 = (
-            '[fr_DOC_DS."FIO"]')
-          TruncOutboundText = False
-        end
-        object DMPMemo25: TfrxDMPMemoView
-          Top = 51.000000000000000000
-          Width = 153.600000000000000000
-          Height = 17.000000000000000000
-          ShowHint = False
-          DisplayFormat.DecimalSeparator = ','
-          Frame.Typ = [ftBottom]
-          Memo.UTF8 = (
-            #1056#8217#1056#1038#1056#8226#1056#8220#1056#1115' '#1056#1113' '#1056#1115#1056#1119#1056#8250#1056#1106#1056#1118#1056#8226':')
-          TruncOutboundText = False
-          VAlign = vaCenter
-        end
-        object DMPMemo26: TfrxDMPMemoView
-          Left = 153.600000000000000000
-          Top = 51.000000000000000000
-          Width = 220.800000000000000000
-          Height = 17.000000000000000000
-          ShowHint = False
-          DisplayFormat.DecimalSeparator = ','
-          DisplayFormat.FormatStr = '%2.2f'
-          DisplayFormat.Kind = fkNumeric
-          Frame.Typ = [ftBottom]
-          Memo.UTF8 = (
-            '[fr_DOC_DS."PRICE_ALL"]')
+          Frame.Typ = [ftTop, ftBottom]
           TruncOutboundText = False
           VAlign = vaCenter
         end
         object DMPMemo27: TfrxDMPMemoView
-          Left = 163.200000000000000000
-          Top = 85.000000000000000000
-          Width = 595.200000000000000000
-          Height = 34.000000000000000000
-          ShowHint = False
-          DisplayFormat.DecimalSeparator = ','
-          Memo.UTF8 = (
-            
-              '[Uppercase(Copy(Propis(<fr_DOC_DS."PRICE_ALL">),1,1))][Copy(Prop' +
-              'is(<fr_DOC_DS."PRICE_ALL">),2,Length(Propis(<fr_DOC_DS."PRICE_AL' +
-              'L">)))] [Ruble(<fr_DOC_DS."PRICE_ALL">,'#39#1057#1026#1057#1107#1056#177#1056#187#1057#1034';'#1057#1026#1057#1107#1056#177#1056#187#1057#1039';'#1057#1026 +
-              #1057#1107#1056#177#1056#187#1056#181#1056#8470#39')] [ROUND(FRAC(<fr_DOC_DS."PRICE_ALL">)*100)] [Kopeik' +
-              'a(ROUND(FRAC(<fr_DOC_DS."PRICE_ALL">)*100),'#39#1056#1109#1056#1111#1056#181#1056#8470#1056#1108#1056#176';'#1056#1108#1056#1109#1056#1111#1056 +
-              #181#1056#8470#1056#1108#1056#1105';'#1056#1108#1056#1109#1056#1111#1056#181#1056#181#1056#1108#39')]')
-          TruncOutboundText = False
-        end
-        object DMPMemo36: TfrxDMPMemoView
-          Top = 34.000000000000000000
-          Width = 758.400000000000000000
+          Left = 326.400000000000000000
+          Top = 17.000000000000000000
+          Width = 172.800000000000000000
           Height = 17.000000000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
-          HAlign = haRight
+          DisplayFormat.FormatStr = '%2.2n'
+          DisplayFormat.Kind = fkNumeric
+          Frame.Typ = [ftTop, ftBottom]
           Memo.UTF8 = (
-            #1056#1119#1057#1026#1056#181#1057#8218#1056#181#1056#1029#1056#183#1056#1105#1056#8470' '#1056#1111#1056#1109' '#1056#1108#1056#176#1057#8225#1056#181#1057#1027#1057#8218#1056#1030#1057#1107' '#1056#1029#1056#181' '#1056#1105#1056#1112#1056#181#1057#1035)
+            '[SUM(<fr_doc_data_ds."QUANTITY_PRICE">,MasterData1)]')
           TruncOutboundText = False
+          VAlign = vaCenter
         end
       end
       object ReportSummary1: TfrxReportSummary
@@ -3254,11 +3300,12 @@ object all_nacl_Form: Tall_nacl_Form
         Font.Style = []
         Height = 85.000000000000000000
         ParentFont = False
-        Top = 391.000000000000000000
+        Top = 697.000000000000000000
         Width = 758.400000000000000000
         object DMPMemo28: TfrxDMPMemoView
           Width = 758.400000000000000000
           Height = 17.000000000000000000
+          Visible = False
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
           Memo.UTF8 = (
@@ -3272,6 +3319,7 @@ object all_nacl_Form: Tall_nacl_Form
           Top = 17.000000000000000000
           Width = 499.200000000000000000
           Height = 17.000000000000000000
+          Visible = False
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
           Memo.UTF8 = (
@@ -3283,6 +3331,7 @@ object all_nacl_Form: Tall_nacl_Form
           Top = 17.000000000000000000
           Width = 259.200000000000000000
           Height = 17.000000000000000000
+          Visible = False
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
           TruncOutboundText = False
@@ -3291,6 +3340,7 @@ object all_nacl_Form: Tall_nacl_Form
           Top = 34.000000000000000000
           Width = 758.400000000000000000
           Height = 17.000000000000000000
+          Visible = False
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
           Memo.UTF8 = (
@@ -3304,6 +3354,7 @@ object all_nacl_Form: Tall_nacl_Form
           Top = 51.000000000000000000
           Width = 758.400000000000000000
           Height = 17.000000000000000000
+          Visible = False
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
           Memo.UTF8 = (
@@ -3315,8 +3366,9 @@ object all_nacl_Form: Tall_nacl_Form
         end
         object DMPMemo33: TfrxDMPMemoView
           Top = 68.000000000000000000
-          Width = 163.200000000000000000
+          Width = 153.600000000000000000
           Height = 17.000000000000000000
+          Visible = False
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
           Memo.UTF8 = (
@@ -3328,6 +3380,7 @@ object all_nacl_Form: Tall_nacl_Form
           Top = 68.000000000000000000
           Width = 364.800000000000000000
           Height = 17.000000000000000000
+          Visible = False
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
           Memo.UTF8 = (
@@ -3337,13 +3390,303 @@ object all_nacl_Form: Tall_nacl_Form
           TruncOutboundText = False
         end
         object DMPMemo35: TfrxDMPMemoView
-          Left = 163.200000000000000000
+          Left = 153.600000000000000000
           Top = 68.000000000000000000
+          Width = 240.000000000000000000
+          Height = 17.000000000000000000
+          Visible = False
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          TruncOutboundText = False
+        end
+      end
+      object MasterData2: TfrxMasterData
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'Courier New'
+        Font.Style = []
+        Height = 17.000000000000000000
+        ParentFont = False
+        Top = 374.000000000000000000
+        Width = 758.400000000000000000
+        OnBeforePrint = 'MasterData2OnBeforePrint'
+        DataSet = fr_doc_data_ds
+        DataSetName = 'fr_doc_data_ds'
+        RowCount = 0
+        Stretched = True
+        object DMPMemo10: TfrxDMPMemoView
+          Align = baLeft
+          Width = 518.400000000000000000
+          Height = 17.000000000000000000
+          ShowHint = False
+          StretchMode = smMaxHeight
+          DisplayFormat.DecimalSeparator = ','
+          Frame.Typ = [ftLeft, ftTop]
+          Memo.UTF8 = (
+            '[fr_doc_data_ds."COMPILED_NAME_OTDEL"]')
+          TruncOutboundText = False
+          VAlign = vaCenter
+        end
+        object DMPMemo16: TfrxDMPMemoView
+          Align = baLeft
+          Left = 662.400000000000000000
+          Width = 96.000000000000000000
+          Height = 17.000000000000000000
+          ShowHint = False
+          StretchMode = smMaxHeight
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Frame.Typ = [ftRight, ftTop]
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[fr_doc_data_ds."QUANTITY_PRICE"]')
+          TruncOutboundText = False
+          VAlign = vaCenter
+        end
+        object DMPMemo40: TfrxDMPMemoView
+          Align = baLeft
+          Left = 585.600000000000000000
+          Width = 76.800000000000000000
+          Height = 17.000000000000000000
+          ShowHint = False
+          StretchMode = smMaxHeight
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Frame.Typ = [ftTop]
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[fr_doc_data_ds."PRICE"]')
+          TruncOutboundText = False
+          VAlign = vaCenter
+        end
+        object DMPMemo41: TfrxDMPMemoView
+          Align = baLeft
+          Left = 518.400000000000000000
+          Width = 67.200000000000000000
+          Height = 17.000000000000000000
+          ShowHint = False
+          StretchMode = smMaxHeight
+          DisplayFormat.DecimalSeparator = ','
+          Frame.Typ = [ftTop]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[fr_doc_data_ds."QUANTITY"]')
+          TruncOutboundText = False
+          VAlign = vaCenter
+        end
+      end
+      object Footer2: TfrxFooter
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'Courier New'
+        Font.Style = []
+        Height = 51.000000000000000000
+        ParentFont = False
+        Top = 408.000000000000000000
+        Width = 758.400000000000000000
+        OnBeforePrint = 'Footer2OnBeforePrint'
+        object DMPMemo42: TfrxDMPMemoView
+          Top = 17.000000000000000000
           Width = 230.400000000000000000
           Height = 17.000000000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
+          Frame.Typ = [ftLeft, ftTop, ftBottom]
+          Memo.UTF8 = (
+            #1056#1119#1056#1109#1056#183#1056#1105#1057#8224#1056#1105#1056#8470'/'#1056#1113#1056#1109#1056#187'-'#1056#1030#1056#1109'/'#1056#1119#1056#1109#1056#1169#1057#8249#1057#8218#1056#1109#1056#1110':')
           TruncOutboundText = False
+          VAlign = vaCenter
+        end
+        object DMPMemo45: TfrxDMPMemoView
+          Left = 240.000000000000000000
+          Top = 17.000000000000000000
+          Width = 76.800000000000000000
+          Height = 17.000000000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Frame.Typ = [ftTop, ftBottom]
+          HAlign = haRight
+          Memo.UTF8 = (
+            
+              '[COUNT(MasterData2)] / [SUM(<fr_doc_data_ds."QUANTITY">,MasterDa' +
+              'ta2)] /')
+          TruncOutboundText = False
+          VAlign = vaCenter
+        end
+        object DMPMemo15: TfrxDMPMemoView
+          Left = 508.800000000000000000
+          Top = 17.000000000000000000
+          Width = 249.600000000000000000
+          Height = 17.000000000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Frame.Typ = [ftRight, ftTop, ftBottom]
+          HAlign = haRight
+          TruncOutboundText = False
+          VAlign = vaCenter
+        end
+        object DMPMemo39: TfrxDMPMemoView
+          Left = 326.400000000000000000
+          Top = 17.000000000000000000
+          Width = 172.800000000000000000
+          Height = 17.000000000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2n'
+          DisplayFormat.Kind = fkNumeric
+          Frame.Typ = [ftTop, ftBottom]
+          Memo.UTF8 = (
+            '[SUM(<fr_doc_data_ds."QUANTITY_PRICE">,MasterData2)]')
+          TruncOutboundText = False
+          VAlign = vaCenter
+        end
+      end
+      object MasterData3: TfrxMasterData
+        Top = 476.000000000000000000
+        Width = 758.400000000000000000
+        DataSet = fr_doc_data_ds
+        DataSetName = 'fr_doc_data_ds'
+        RowCount = 0
+      end
+      object Footer3: TfrxFooter
+        Height = 170.000000000000000000
+        Top = 493.000000000000000000
+        Width = 758.400000000000000000
+        object DMPMemo36: TfrxDMPMemoView
+          Top = 102.000000000000000000
+          Width = 758.400000000000000000
+          Height = 34.000000000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Memo.UTF8 = (
+            
+              #1056#1119#1056#1109#1056#1169#1057#8218#1056#1030#1056#181#1057#1026#1056#182#1056#1169#1056#176#1057#1035', '#1057#8225#1057#8218#1056#1109' '#1057#8218#1056#1109#1056#1030#1056#176#1057#1026' '#1056#1112#1056#1029#1056#1109#1056#8470' '#1056#1111#1057#1026#1056#1109#1056#1030#1056#181#1057#1026#1056 +
+              #181#1056#1029', '#1056#1030#1057#1027#1056#181' '#1056#1111#1056#1109#1056#183#1056#1105#1057#8224#1056#1105#1056#1105' '#1056#1029#1056#176#1056#1169#1056#187#1056#181#1056#182#1056#176#1057#8240#1056#181#1056#1110#1056#1109' '#1056#1108#1056#176#1057#8225#1056#181#1057#1027#1057#8218#1056#1030 +
+              #1056#176' '#1056#1105' '#1056#1111#1057#1026#1056#181#1056#1169#1056#1109#1057#1027#1057#8218#1056#176#1056#1030#1056#187#1056#181#1056#1029#1057#8249' '#1056#1030' '#1056#1111#1056#1109#1056#187#1056#1029#1056#1109#1056#1112' '#1056#1109#1056#177#1057#1033#1057#8216#1056#1112#1056#181'___' +
+              '_________')
+          TruncOutboundText = False
+        end
+        object DMPMemo43: TfrxDMPMemoView
+          Left = 374.400000000000000000
+          Top = 51.000000000000000000
+          Width = 96.000000000000000000
+          Height = 17.000000000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          HAlign = haRight
+          Memo.UTF8 = (
+            #1056#1115#1057#8218#1056#1111#1057#1107#1057#1027#1057#8218#1056#1105#1056#187': ')
+          TruncOutboundText = False
+          VAlign = vaCenter
+        end
+        object DMPMemo44: TfrxDMPMemoView
+          Left = 374.400000000000000000
+          Top = 68.000000000000000000
+          Width = 96.000000000000000000
+          Height = 17.000000000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Frame.Typ = [ftBottom]
+          HAlign = haRight
+          Memo.UTF8 = (
+            #1056#1119#1056#1109#1056#187#1057#1107#1057#8225#1056#1105#1056#187': ')
+          TruncOutboundText = False
+          VAlign = vaCenter
+        end
+        object DMPMemo46: TfrxDMPMemoView
+          Left = 470.400000000000000000
+          Top = 51.000000000000000000
+          Width = 288.000000000000000000
+          Height = 17.000000000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Memo.UTF8 = (
+            '[fr_DOC_DS."OPERATOR_NAME"]')
+          TruncOutboundText = False
+          VAlign = vaCenter
+        end
+        object DMPMemo47: TfrxDMPMemoView
+          Left = 470.400000000000000000
+          Top = 68.000000000000000000
+          Width = 288.000000000000000000
+          Height = 17.000000000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Frame.Typ = [ftBottom]
+          Memo.UTF8 = (
+            '[fr_DOC_DS."FIO"]')
+          TruncOutboundText = False
+        end
+        object DMPMemo50: TfrxDMPMemoView
+          Left = 268.800000000000000000
+          Top = 17.000000000000000000
+          Width = 489.600000000000000000
+          Height = 17.000000000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Memo.UTF8 = (
+            
+              '[Uppercase(Copy(Propis(<fr_DOC_DS."PRICE_ALL">),1,1))][Copy(Prop' +
+              'is(<fr_DOC_DS."PRICE_ALL">),2,Length(Propis(<fr_DOC_DS."PRICE_AL' +
+              'L">)))] [Ruble(<fr_DOC_DS."PRICE_ALL">,'#39#1057#1026#1057#1107#1056#177#1056#187#1057#1034';'#1057#1026#1057#1107#1056#177#1056#187#1057#1039';'#1057#1026 +
+              #1057#1107#1056#177#1056#187#1056#181#1056#8470#39')] [ROUND(FRAC(<fr_DOC_DS."PRICE_ALL">)*100)] [Kopeik' +
+              'a(ROUND(FRAC(<fr_DOC_DS."PRICE_ALL">)*100),'#39#1056#1109#1056#1111#1056#181#1056#8470#1056#1108#1056#176';'#1056#1108#1056#1109#1056#1111#1056 +
+              #181#1056#8470#1056#1108#1056#1105';'#1056#1108#1056#1109#1056#1111#1056#181#1056#181#1056#1108#39')]')
+          TruncOutboundText = False
+        end
+        object DMPMemo21: TfrxDMPMemoView
+          Left = 9.600000000000000000
+          Top = 17.000000000000000000
+          Width = 144.000000000000000000
+          Height = 17.000000000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Memo.UTF8 = (
+            #1056#8217#1057#1027#1056#181#1056#1110#1056#1109' '#1056#1108' '#1056#1109#1056#1111#1056#187#1056#176#1057#8218#1056#181':')
+          TruncOutboundText = False
+          VAlign = vaCenter
+        end
+        object DMPMemo24: TfrxDMPMemoView
+          Left = 163.200000000000000000
+          Width = 105.600000000000000000
+          Height = 17.000000000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Memo.UTF8 = (
+            
+              '[fr_DOC_DS."QUANTITY_ALL"] / [SUM(<fr_doc_data_ds."QUANTITY">,Ma' +
+              'sterData1)+SUM(<fr_doc_data_ds."QUANTITY">,MasterData2)]')
+          TruncOutboundText = False
+          VAlign = vaCenter
+        end
+        object DMPMemo25: TfrxDMPMemoView
+          Left = 9.600000000000000000
+          Width = 144.000000000000000000
+          Height = 17.000000000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Memo.UTF8 = (
+            #1056#1119#1056#1109#1056#183#1056#1105#1057#8224#1056#1105#1056#8470'/'#1056#1113#1056#1109#1056#187'-'#1056#1030#1056#1109':')
+          TruncOutboundText = False
+          VAlign = vaCenter
+        end
+        object DMPMemo26: TfrxDMPMemoView
+          Left = 163.200000000000000000
+          Top = 17.000000000000000000
+          Width = 105.600000000000000000
+          Height = 17.000000000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2n'
+          DisplayFormat.Kind = fkNumeric
+          Memo.UTF8 = (
+            '[fr_DOC_DS."PRICE_ALL"]')
+          TruncOutboundText = False
+          VAlign = vaCenter
         end
       end
     end
@@ -3802,7 +4145,8 @@ object all_nacl_Form: Tall_nacl_Form
       'S_NAME_RU=S_NAME_RU'
       'COMPILED_NAME_OTDEL=COMPILED_NAME_OTDEL'
       'COLOUR=COLOUR'
-      'COUNTRY=COUNTRY')
+      'COUNTRY=COUNTRY'
+      'SPEC_PRICE=SPEC_PRICE')
     DataSource = doc_data_ds
     BCDToCurrency = False
     Left = 706

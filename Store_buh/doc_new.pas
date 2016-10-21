@@ -140,11 +140,28 @@ type
     grid_buh_view_vFULL_NAME: TcxGridDBColumn;
     grid_buh_view_vBUH_CODE: TcxGridDBColumn;
     rp_COUNTRY_GTD: TcxGridDBColumn;
+    grid_buh_view_vNSI_NAME: TcxGridDBColumn;
+    grid_buh_view_vUNIT_CODE: TcxGridDBColumn;
+    grid_buh_view_vSYMBOL_NATIONAL: TcxGridDBColumn;
+    chbSetOldNumber: TCheckBox;
+    tbb_cargo: TToolButton;
+    ToolButton9: TToolButton;
+    ToolButton6: TToolButton;
+    stCargo: TcxStyle;
+    stEqNoms: TcxStyle;
+    grid_buh_view_vNN: TcxGridDBColumn;
+    grid_buh_view_vSRC_PRICE: TcxGridDBColumn;
+    grid_buh_view_vPPP: TcxGridDBColumn;
+    grid_buh_view_vSTART_PRICE: TcxGridDBColumn;
+    chbMinusNDS: TCheckBox;
+    chbWithoutNDS: TCheckBox;
     DOC_DATAID_DOC_TYPE: TFloatField;
     DOC_DATAID_DOC_DATA: TFloatField;
     DOC_DATAID_DOC: TFloatField;
     DOC_DATAQUANTITY: TFloatField;
     DOC_DATAPRICE: TFloatField;
+    DOC_DATASRC_PRICE: TFloatField;
+    DOC_DATASTART_PRICE: TFloatField;
     DOC_DATAPRICE_OLD: TFloatField;
     DOC_DATAGTD: TStringField;
     DOC_DATAF_NAME_RU: TStringField;
@@ -168,34 +185,19 @@ type
     DOC_DATASUMM_NDS: TFloatField;
     DOC_DATAFULL_NAME: TStringField;
     DOC_DATAPRICE_QUANTITY: TFloatField;
+    DOC_DATABUH_CODE: TStringField;
     DOC_DATACOMPILED_NAME_OTDEL: TStringField;
     DOC_DATACOUNTRY_GTD: TStringField;
     DOC_DATANSI_NAME: TStringField;
     DOC_DATAUNIT_CODE: TIntegerField;
     DOC_DATASYMBOL_NATIONAL: TStringField;
-    grid_buh_view_vNSI_NAME: TcxGridDBColumn;
-    grid_buh_view_vUNIT_CODE: TcxGridDBColumn;
-    grid_buh_view_vSYMBOL_NATIONAL: TcxGridDBColumn;
-    chbSetOldNumber: TCheckBox;
-    tbb_cargo: TToolButton;
-    ToolButton9: TToolButton;
-    ToolButton6: TToolButton;
-    stCargo: TcxStyle;
-    stEqNoms: TcxStyle;
     DOC_DATANN: TFloatField;
-    grid_buh_view_vNN: TcxGridDBColumn;
-    DOC_DATASRC_PRICE: TFloatField;
     DOC_DATAPPP: TFloatField;
-    grid_buh_view_vSRC_PRICE: TcxGridDBColumn;
-    grid_buh_view_vPPP: TcxGridDBColumn;
-    DOC_DATASTART_PRICE: TFloatField;
-    grid_buh_view_vSTART_PRICE: TcxGridDBColumn;
-    chbMinusNDS: TCheckBox;
-    chbWithoutNDS: TCheckBox;
     DOC_DATABEZNDSMINUS: TIntegerField;
     DOC_DATANDS: TIntegerField;
     DOC_DATABEZNDS: TIntegerField;
-    DOC_DATABUH_CODE: TStringField;
+    DOC_DATASPEC_PRICE: TIntegerField;
+    priznak: TcxGridDBColumn;
     procedure ClientChoosClick(Sender: TObject);
     procedure NDSEditKeyPress(Sender: TObject; var Key: Char);
     procedure FormShow(Sender: TObject);
@@ -398,7 +400,7 @@ end;
 //  Открытие формы
 //
 procedure TDocNewForm.FormShow(Sender: TObject);
-VAR Ini : TIniFile;
+VAR Ini : TIniFile;  i: integer;
 begin
   cargo_default := 0;
   path := ExtractFilePath(Application.ExeName);
@@ -410,6 +412,14 @@ begin
   end;
 
   Initialize();
+
+  DOC_DATA.first;
+  for I := DOC_DATA.RecNo to DOC_DATA.RecordCount - 1 do
+  begin
+   if doc_data.FieldByName('spec_price').AsString='1' then
+   showmessage('спецпредложение в строке '+inttostr(i));
+   DOC_DATA.Next;
+  end;
 
   DOC_DATE.EditValue     := doc.FieldByName('DOC_DATE').AsDateTime;
   NDSEdit.Text          := doc.FieldByName('NDS').AsString;
@@ -572,7 +582,7 @@ end;
 //  Проца изменения
 //
 procedure Change(DBGridEh2:TcxGridDBTableView; ChangeAll:Boolean; ChangeWhat:string; NewValue:integer);
-var i, j: integer;
+var i, ii, j: integer;
 begin
 
   if (DBGridEh2.DataController.DataSet.Active) then
@@ -586,6 +596,8 @@ begin
 
       if (DBGridEh2.Controller.SelectedRowCount > 0) then
       begin
+
+          DBGridEh2.DataController.DataSet.first;
 //          for i := 0 to DBGridEh2.ViewData.RowCount-1 do
           for i := 0 to DBGridEh2.Controller.SelectedRowCount-1 do
           begin
@@ -593,13 +605,16 @@ begin
 //            DBGridEh2.DataController.LocateByKey(DBGridEh2.ViewData.DataController.Values[j, DBGridEh2.GetColumnByFieldName('N_ID').Index]);
             //DBGridEh2.DataController.LocateByKey(DBGridEh2.GetColumnByFieldName('N_ID').EditValue);
 
-
             j :=  DBGridEh2.Controller.SelectedRows[i].RecordIndex;
+           // showmessage(DBGridEh2.ViewData.DataController.Values[j, DBGridEh2.GetColumnByFieldName('code').Index]);
+
+            if DBGridEh2.ViewData.DataController.Values[j, DBGridEh2.GetColumnByFieldName('spec_price').Index]<>1 then begin
             DBGridEh2.DataController.DataSet.Locate('ID_DOC_DATA',DBGridEh2.ViewData.DataController.Values[j, DBGridEh2.GetColumnByFieldName('ID_DOC_DATA').Index],[]);
 //            DBGridEh2.DataController.DataSet.Locate('N_ID',DBGridEh2.ViewData.DataController.Values[j, DBGridEh2.GetColumnByFieldName('N_ID').Index],[]);
             DBGridEh2.DataController.DataSet.Edit;
             DBGridEh2.DataController.DataSet.FieldByName('PRICE').AsFloat := DBGridEh2.DataController.DataSet.FieldByName('PRICE').AsFloat+(NewValue/100)*DBGridEh2.DataController.DataSet.FieldByName('PRICE').AsFloat;
             DBGridEh2.DataController.DataSet.Post;
+            end;
           end;
       end;
 
