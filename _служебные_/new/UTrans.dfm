@@ -100,7 +100,7 @@ object frmTrans: TfrmTrans
       object grTransAdres: TcxGridDBColumn
         Caption = #1040#1076#1088#1077#1089
         DataBinding.FieldName = 'ADR'
-        Width = 180
+        Width = 249
       end
       object grTransDataDostav: TcxGridDBColumn
         Caption = #1044#1072#1090#1072' '#1076#1086#1089#1090#1072#1074#1082#1080

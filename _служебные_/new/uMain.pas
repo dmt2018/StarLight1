@@ -121,6 +121,7 @@ type
     procedure mnNSI_SupplierClick(Sender: TObject);
     procedure mnNSI_pcsClick(Sender: TObject);
     procedure mmiTransClick(Sender: TObject);
+    procedure mmiUndoClick(Sender: TObject);
   private
     { Private declarations }
     porasessStarLight: POraSession;
@@ -162,14 +163,14 @@ begin
   stbMain.Refresh;
   self.Caption := Application.Title;
 
-  // Установим доступность кнопок в меню для вызова основных форм
+  // Установим доступность вкладок в меню для вызова основных форм
   DM.cdsRules.first;
-  DM.cdsRules.FilterSQL := 'c_start=1';
+  DM.cdsRules.FilterSQL := 'c_start=1';// временно 0
   DM.cdsRules.Filtered  := true;
 
   mmiAdminTools.Enabled   := DM.cdsRules.Locate('ID_PROGRAMS',1,[]);
   miNomen.Enabled         := DM.cdsRules.Locate('ID_PROGRAMS',2,[]);
-  mnNSI.Enabled           := DM.cdsRules.Locate('ID_PROGRAMS',4,[]);
+  micom.Enabled           := DM.cdsRules.Locate('ID_PROGRAMS',13,[]);
   mnNSI.Enabled           := DM.cdsRules.Locate('ID_PROGRAMS',4,[]);
   miClient_Reg.Enabled    := DM.cdsRules.Locate('ID_PROGRAMS',5,[]);
   miClient_Deb.Enabled    := DM.cdsRules.Locate('ID_PROGRAMS',17,[]);
@@ -180,7 +181,7 @@ begin
   mmiFito.Enabled         := DM.cdsRules.Locate('ID_PROGRAMS',21,[]);
   mmiKasses.Enabled       := DM.cdsRules.Locate('ID_PROGRAMS',11,[]);
   mmiKasSvod.Enabled      := DM.cdsRules.Locate('ID_PROGRAMS',12,[]);
-  mmiByx.Enabled          := DM.cdsRules.Locate('ID_PROGRAMS',14,[]);
+  miByx.Enabled           := DM.cdsRules.Locate('ID_PROGRAMS',14,[]);
   mmiPretenz.Enabled      := DM.cdsRules.Locate('ID_PROGRAMS',10,[]);
   miZP.Enabled            := DM.cdsRules.Locate('ID_PROGRAMS',16,[]);
   mmiSales.Enabled        := DM.cdsRules.Locate('ID_PROGRAMS',20,[]);
@@ -252,6 +253,11 @@ end;
 procedure TfrmMain.mmiTransClick(Sender: TObject);
 begin
   frmTrans.MainFormShow;
+end;
+
+procedure TfrmMain.mmiUndoClick(Sender: TObject);
+begin
+
 end;
 
 //форма реклама

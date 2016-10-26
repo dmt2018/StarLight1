@@ -3008,6 +3008,7 @@ object frmLogin: TfrmLogin
       Top = 64
       Width = 121
       Height = 27
+      CharCase = ecUpperCase
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -3015,7 +3016,6 @@ object frmLogin: TfrmLogin
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      Text = 'EVA'
       OnChange = edLoginChange
     end
     object edPass: TMaskEdit
@@ -3032,7 +3032,6 @@ object frmLogin: TfrmLogin
       ParentFont = False
       PasswordChar = '*'
       TabOrder = 1
-      Text = '123'
       OnChange = edPassChange
     end
     object btnOk: TcxButton

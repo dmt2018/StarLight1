@@ -239,8 +239,8 @@ begin
  Application.CreateForm(TfrmEditTrans, frmEditTrans);
  grTrans.Font.Size := intDefFont;
 
-  // получение прав на программу
-  recUserRules  := getRules(DM.cdsRules,4);
+  // получение прав на программу  -- временно уберу
+ { recUserRules  := getRules(DM.cdsRules,4);
   p_read        := recUserRules.r_read;
   p_edit        := recUserRules.r_edit;
   p_delete      := recUserRules.r_delete;
@@ -248,7 +248,7 @@ begin
 
   aNew.Enabled    := p_edit;
   aEdit.Enabled   := p_edit;
-  aDelete.Enabled := p_delete;
+  aDelete.Enabled := p_delete;  }
 end;
 
 procedure TfrmTrans.FormShow(Sender: TObject);

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TfrxReport Version="4.6.5" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="3581" PreviewOptions.Zoom="1" PrintOptions.Printer="Phaser 4400B" PrintOptions.PrintOnSheet="0" ReportOptions.CreateDate="37936.5626925926" ReportOptions.Description.Text="" ReportOptions.LastChange="41067.9928135417" ScriptLanguage="PascalScript" ScriptText.Text="begin&#13;&#10;&#13;&#10;end." PropData="044C656674022003546F7003200108446174617365747301010C2E00000020446174615365743D22667278436C69656E74732220446174615365744E616D653D22667278436C69656E7473220000095661726961626C65730100055374796C650100">
+  <TfrxDataPage Name="Data" Height="1000" Left="0" Top="0" Width="1000"/>
+  <TfrxReportPage Name="Page1" PaperWidth="210" PaperHeight="297" PaperSize="256" LeftMargin="10" RightMargin="7" TopMargin="20" BottomMargin="20" Columns="1" ColumnWidth="210" ColumnPositions.Text="0" HGuides.Text="" VGuides.Text="">
+    <TfrxMasterData Name="MasterData1" Height="96" Left="0" Top="18.89765" Width="729.44929" Columns="4" ColumnWidth="181.417322834646" ColumnGap="0" DataSet="frxClients" DataSetName="frxClients" RowCount="0">
+      <TfrxBarCodeView Name="Bar1" Left="3.77952756" Top="46" Width="95" Height="44.44094" ShowHint="False" BarType="bcCodeEAN13" DataSet="frxClients" DataSetName="frxClients" Expression="&#60;frxClients.&#34;CCODE&#34;&#62;" Rotation="0" Text="12345678" WideBarRatio="2" Zoom="1"/>
+      <TfrxMemoView Name="Memo6" Left="101.54329" Top="50" Width="71.81102362" Height="20" ShowHint="False" DataField="NICK" DataSet="frxClients" DataSetName="frxClients" Font.Charset="1" Font.Color="32768" Font.Height="-11" Font.Name="Arial" Font.Style="1" ParentFont="False" Text="[frxClients.&#34;NICK&#34;]"/>
+      <TfrxMemoView Name="Memo1" Left="0" Top="10" Width="173.85838" Height="32" ShowHint="False" DataSet="frxClients" DataSetName="frxClients" Font.Charset="1" Font.Color="33023" Font.Height="-11" Font.Name="Arial" Font.Style="1" ParentFont="False" Text="[frxClients.&#34;FIO&#34;] [frxClients.&#34;PREFIX&#34;]"/>
+    </TfrxMasterData>
+  </TfrxReportPage>
+</TfrxReport>

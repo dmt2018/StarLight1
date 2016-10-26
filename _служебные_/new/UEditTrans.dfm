@@ -4,8 +4,8 @@ object frmEditTrans: TfrmEditTrans
   Anchors = [akTop, akRight]
   BorderStyle = bsSingle
   Caption = #1056#1077#1076#1072#1082#1090#1086#1088' '#1089#1090#1072#1090#1091#1089#1072' '#1079#1072#1082#1072#1079#1072
-  ClientHeight = 386
-  ClientWidth = 437
+  ClientHeight = 384
+  ClientWidth = 442
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,10 +19,13 @@ object frmEditTrans: TfrmEditTrans
   object pnlMain: TPanel
     Left = 0
     Top = 0
-    Width = 437
-    Height = 346
+    Width = 442
+    Height = 344
     Align = alClient
     TabOrder = 0
+    ExplicitLeft = 24
+    ExplicitTop = 1
+    ExplicitHeight = 445
     object Lbl1: TLabel
       Left = 12
       Top = 12
@@ -269,16 +272,18 @@ object frmEditTrans: TfrmEditTrans
   end
   object pnlBottom: TPanel
     Left = 0
-    Top = 346
-    Width = 437
+    Top = 344
+    Width = 442
     Height = 40
     Align = alBottom
     TabOrder = 1
+    ExplicitTop = 346
+    ExplicitWidth = 437
     DesignSize = (
-      437
+      442
       40)
     object btnSave: TcxButton
-      Left = 205
+      Left = 210
       Top = 7
       Width = 107
       Height = 25
@@ -292,9 +297,10 @@ object frmEditTrans: TfrmEditTrans
       ParentFont = False
       TabOrder = 0
       Colors.Default = clActiveBorder
+      ExplicitLeft = 205
     end
     object btnClose: TcxButton
-      Left = 320
+      Left = 325
       Top = 7
       Width = 107
       Height = 25
@@ -309,6 +315,7 @@ object frmEditTrans: TfrmEditTrans
       ParentFont = False
       TabOrder = 1
       Colors.Default = clActiveBorder
+      ExplicitLeft = 320
     end
   end
   object OraSQL1: TOraSQL

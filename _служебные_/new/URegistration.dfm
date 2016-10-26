@@ -314,6 +314,7 @@ object frmRegistration: TfrmRegistration
           Caption = #1055#1077#1095#1072#1090#1100' '#1089#1087#1080#1089#1082#1072
           Enabled = False
           TabOrder = 0
+          OnClick = BitBtn6Click
           Glyph.Data = {
             CA030000424DCA030000000000008A0100002800000018000000180000000100
             08000000000040020000210B0000210B00005500000055000000111111001111
@@ -507,6 +508,7 @@ object frmRegistration: TfrmRegistration
             Font.Style = []
             ParentFont = False
             TabOrder = 6
+            OnClick = cxButton1Click
             Colors.Default = clBtnFace
             Colors.Normal = clBtnFace
             Colors.Hot = clCream
@@ -821,6 +823,7 @@ object frmRegistration: TfrmRegistration
             Caption = #1057#1090#1072#1090#1080#1089#1090#1080#1082#1072
             TabOrder = 3
             WordWrap = True
+            OnClick = BitBtn7Click
             Glyph.Data = {
               76010000424D7601000000000000760000002800000020000000100000000100
               04000000000000010000120B0000120B00001000000000000000000000000000
@@ -878,6 +881,7 @@ object frmRegistration: TfrmRegistration
           Height = 30
           Cursor = crHandPoint
           Caption = #1055#1077#1095#1072#1090#1100' '#1082#1072#1088#1090#1086#1095#1082#1080
+          Enabled = False
           TabOrder = 1
           OnClick = BitBtn5Click
           Glyph.Data = {
@@ -922,6 +926,7 @@ object frmRegistration: TfrmRegistration
           Caption = #1055#1077#1095#1072#1090#1100' '#1096#1090#1088#1080#1093'-'#1082#1086#1076#1072
           Enabled = False
           TabOrder = 2
+          OnClick = BitBtn4Click
           Glyph.Data = {
             CA030000424DCA030000000000008A0100002800000018000000180000000100
             08000000000040020000210B0000210B00005500000055000000111111001111
@@ -964,6 +969,7 @@ object frmRegistration: TfrmRegistration
           Caption = #1055#1077#1095#1072#1090#1100' '#1082#1086#1085#1090#1072#1082#1090#1086#1074
           Enabled = False
           TabOrder = 3
+          OnClick = btn_conctactClick
           Glyph.Data = {
             CA030000424DCA030000000000008A0100002800000018000000180000000100
             08000000000040020000210B0000210B00005500000055000000111111001111
@@ -1004,6 +1010,7 @@ object frmRegistration: TfrmRegistration
           Height = 30
           Cursor = crHandPoint
           Caption = #1055#1077#1095#1072#1090#1100' '#1087#1086#1083#1085#1086#1081' '#1080#1085#1092#1086#1088#1084#1072#1094#1080#1080' '#1086' '#1082#1083#1080#1077#1085#1090#1077
+          Enabled = False
           TabOrder = 4
           OnClick = btninfClick
           Glyph.Data = {
@@ -2705,6 +2712,7 @@ object frmRegistration: TfrmRegistration
       2)
     Categories.Visibles = (
       True)
+    ImageOptions.Images = dm.ImgList_24
     ImageOptions.LargeImages = dm.ImgList_32
     ImageOptions.SmoothGlyphs = True
     ImageOptions.StretchGlyphs = False
@@ -2800,7 +2808,11 @@ object frmRegistration: TfrmRegistration
       FloatTop = 8
       FloatClientWidth = 0
       FloatClientHeight = 0
-      ItemLinks = <>
+      ItemLinks = <
+        item
+          Visible = True
+          ItemName = 'btnHotKeys'
+        end>
       OneOnRow = True
       Row = 0
       UseOwnFont = False
@@ -2810,6 +2822,7 @@ object frmRegistration: TfrmRegistration
     end
     object btnRefresh: TdxBarLargeButton
       Action = Refresh
+      Caption = #1054#1073#1085#1086#1074#1080#1090#1100
       Category = 0
       AutoGrayScale = False
       SyncImageIndex = False
@@ -2817,6 +2830,7 @@ object frmRegistration: TfrmRegistration
     end
     object btnAdd: TdxBarLargeButton
       Action = AddN
+      Caption = #1044#1086#1073#1072#1074#1080#1090#1100
       Category = 0
       AutoGrayScale = False
       SyncImageIndex = False
@@ -2824,11 +2838,13 @@ object frmRegistration: TfrmRegistration
     end
     object btnEdit: TdxBarLargeButton
       Action = EditN
+      Caption = #1048#1079#1084#1077#1085#1080#1090#1100
       Category = 0
       AutoGrayScale = False
     end
     object btnDelete: TdxBarLargeButton
       Action = DeleteN
+      Caption = #1059#1076#1072#1083#1080#1090#1100
       Category = 0
       AutoGrayScale = False
     end
@@ -2868,7 +2884,6 @@ object frmRegistration: TfrmRegistration
           Description = #1045#1082#1072#1090#1077#1088#1080#1085#1073#1091#1088#1075
           Value = '8'
         end>
-      Properties.OnChange = imgOfficePropertiesChange
     end
     object imgOtdel: TcxBarEditItem
       Caption = #1054#1090#1076#1077#1083':'
@@ -2910,6 +2925,8 @@ object frmRegistration: TfrmRegistration
     end
     object btnExit: TdxBarLargeButton
       Action = aExit
+      Align = iaRight
+      Caption = #1047#1072#1082#1088#1099#1090#1100
       Category = 0
       AutoGrayScale = False
     end
@@ -3058,12 +3075,14 @@ object frmRegistration: TfrmRegistration
       Category = 0
       Hint = #1050#1086#1087#1080#1088#1086#1074#1072#1085#1080#1077' '#1074' '#1089#1090#1072#1088#1091#1102' '#1041#1044
       Visible = ivAlways
+      OnClick = bbCopyToOldClick
     end
     object bbCopyClient: TdxBarButton
       Caption = #1050#1086#1087#1080#1088#1086#1074#1072#1090#1100' '#1082#1083#1080#1077#1085#1090#1072
       Category = 0
       Hint = #1050#1086#1087#1080#1088#1086#1074#1072#1090#1100' '#1082#1083#1080#1077#1085#1090#1072
       Visible = ivAlways
+      OnClick = bbCopyClientClick
     end
     object btnFileExport: TdxBarButton
       Caption = #1057#1092#1086#1088#1084#1080#1088#1086#1074#1072#1090#1100' '#1092#1072#1081#1083' '#1087#1086' '#1082#1083#1080#1077#1085#1090#1072#1084
@@ -3078,6 +3097,7 @@ object frmRegistration: TfrmRegistration
       Enabled = False
       Hint = #1047#1072#1075#1088#1091#1079#1080#1090#1100' '#1082#1083#1080#1077#1085#1090#1086#1074' '#1080#1079' '#1092#1072#1081#1083#1072
       Visible = ivAlways
+      OnClick = bbSyncCLientsLoadClick
     end
     object bbSyncClients: TdxBarButton
       Caption = #1042#1099#1075#1088#1091#1079#1080#1090#1100' '#1082#1083#1080#1077#1085#1090#1086#1074' '#1076#1083#1103' '#1086#1073#1085#1086#1074#1083#1077#1085#1080#1103
@@ -3085,6 +3105,14 @@ object frmRegistration: TfrmRegistration
       Enabled = False
       Hint = #1042#1099#1075#1088#1091#1079#1080#1090#1100' '#1082#1083#1080#1077#1085#1090#1086#1074' '#1076#1083#1103' '#1086#1073#1085#1086#1074#1083#1077#1085#1080#1103
       Visible = ivAlways
+    end
+    object btnHotKeys: TdxBarButton
+      Caption = 'New Button'
+      Category = 0
+      Hint = 'New Button'
+      Visible = ivAlways
+      ImageIndex = 36
+      OnClick = btnHotKeysClick
     end
   end
   object frxDBDataset1: TfrxDBDataset
@@ -3122,6 +3150,7 @@ object frmRegistration: TfrmRegistration
       'BRIEF=BRIEF'
       'PREFIX=PREFIX'
       'CITY=CITY')
+    DataSource = Q_CLIENTS_DS
     BCDToCurrency = False
     Left = 72
     Top = 320
@@ -3527,7 +3556,7 @@ object frmRegistration: TfrmRegistration
     Left = 820
     Top = 125
     Bitmap = {
-      494C010104000900780110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101040009007C0110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -3804,57 +3833,21 @@ object frmRegistration: TfrmRegistration
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbNavigator, pbExportQuick]
     PreviewOptions.Zoom = 1.000000000000000000
-    PrintOptions.Printer = '\\Naydenovalv\HP CLJ 5550N PCL 6'
+    PrintOptions.Printer = 'Fax'
     PrintOptions.PrintOnSheet = 0
-    ReportOptions.CreateDate = 37936.531508599500000000
-    ReportOptions.LastChange = 42639.699983773150000000
+    ReportOptions.CreateDate = 37936.562692592600000000
+    ReportOptions.LastChange = 41402.544834236100000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
-      'procedure Memo22OnBeforePrint(Sender: TfrxComponent);'
-      ' var i:integer;                                    '
-      'begin'
-      
-        'memo22.text:=<frxClientsView."ADDRESS">;                        ' +
-        '        '
-      'if pos('#39'%'#39',memo22.text)<>0 then '
-      'while pos('#39'%'#39',memo22.text)<>0 do begin'
-      '    i:= pos('#39'%'#39',memo22.text);'
-      '    delete(memo22.text,i,1);                      '
-      '    insert('#39', '#39',memo22.text,i);                        '
-      'end;              '
-      'end;'
-      ''
-      ''
-      ''
-      'procedure Memo51OnBeforePrint(Sender: TfrxComponent);'
-      ' var i:integer;                                    '
-      'begin'
-      
-        'memo51.text:=<frxClientsView."U_ADDRESS">;                      ' +
-        '          '
-      'if pos('#39'%'#39',memo51.text)<>0 then '
-      'while pos('#39'%'#39',memo51.text)<>0 do begin'
-      '    i:= pos('#39'%'#39',memo51.text);'
-      '    delete(memo51.text,i,1);                      '
-      '    insert('#39', '#39',memo51.text,i);                        '
-      'end;'
-      'end;'
-      ''
-      ''
-      ''
       'begin'
       ''
-      'end.           ')
+      'end.')
     Left = 32
     Top = 288
     Datasets = <
       item
-        DataSet = frxAdresses
-        DataSetName = 'frxAdresses'
-      end
-      item
-        DataSet = frxClientsView
-        DataSetName = 'frxClientsView'
+        DataSet = frxClients
+        DataSetName = 'frxClients'
       end>
     Variables = <>
     Style = <>
@@ -3863,570 +3856,414 @@ object frmRegistration: TfrmRegistration
       Width = 1000.000000000000000000
     end
     object Page1: TfrxReportPage
-      PaperWidth = 210.000000000000000000
-      PaperHeight = 297.000000000000000000
-      PaperSize = 9
+      Orientation = poLandscape
+      PaperWidth = 297.100000000000000000
+      PaperHeight = 210.100000000000000000
+      PaperSize = 256
       LeftMargin = 10.000000000000000000
       RightMargin = 10.000000000000000000
       TopMargin = 10.000000000000000000
       BottomMargin = 10.000000000000000000
-      OnBeforePrint = 'Page1OnBeforePrint'
       object ReportTitle1: TfrxReportTitle
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -12
         Font.Name = 'Arial'
         Font.Style = []
-        Height = 28.220470000000000000
+        Height = 66.000000000000000000
         ParentFont = False
         Top = 18.897650000000000000
-        Width = 718.110700000000000000
+        Width = 1047.307763000000000000
         object Memo1: TfrxMemoView
           Align = baWidth
-          Width = 718.110700000000000000
-          Height = 28.220470000000000000
+          Top = 0.440940000000000000
+          Width = 1047.307763000000000000
+          Height = 28.000000000000000000
           ShowHint = False
-          AutoWidth = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -21
+          Font.Height = -16
           Font.Name = 'Arial'
           Font.Style = [fsBold]
-          Frame.Typ = [ftBottom]
           HAlign = haCenter
           Memo.UTF8 = (
-            #1056#1113#1056#176#1057#1026#1057#8218#1056#1109#1057#8225#1056#1108#1056#176' '#1056#1108#1056#187#1056#1105#1056#181#1056#1029#1057#8218#1056#176)
+            #1056#1038#1056#1111#1056#1105#1057#1027#1056#1109#1056#1108' '#1056#1108#1056#187#1056#1105#1056#1029#1056#181#1057#8218#1056#1109#1056#1030)
           ParentFont = False
-          VAlign = vaCenter
         end
-      end
-      object MasterData1: TfrxMasterData
-        Height = 453.543600000000000000
-        Top = 109.606370000000000000
-        Width = 718.110700000000000000
-        DataSet = frxClientsView
-        DataSetName = 'frxClientsView'
-        RowCount = 0
-        object Memo6: TfrxMemoView
+        object Memo2: TfrxMemoView
           Align = baLeft
-          Left = 151.181102360000000000
-          Width = 565.039370080000000000
-          Height = 26.456695350000000000
+          Top = 45.354330710000000000
+          Width = 71.811023620000000000
+          Height = 20.000000000000000000
           ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          GapX = 4.000000000000000000
-          Memo.UTF8 = (
-            '[frxClientsView."FIO"]')
-          ParentFont = False
-          VAlign = vaCenter
-        end
-        object Memo7: TfrxMemoView
-          Align = baLeft
-          Width = 151.181102360000000000
-          Height = 26.456695350000000000
-          ShowHint = False
+          Color = 16639106
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -12
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          GapX = 4.000000000000000000
-          HAlign = haRight
-          Memo.UTF8 = (
-            #1056#164#1056#152#1056#1115' / '#1056#1029#1056#176#1056#183#1056#1030#1056#176#1056#1029#1056#1105#1056#181)
-          ParentFont = False
-          VAlign = vaCenter
-        end
-        object Memo14: TfrxMemoView
-          Align = baLeft
-          Left = 151.181102360000000000
-          Top = 26.456695350000000000
-          Width = 565.039370080000000000
-          Height = 30.236227800000000000
-          ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          GapX = 4.000000000000000000
-          Memo.UTF8 = (
-            '[frxClientsView."NICK"]')
-          ParentFont = False
-          VAlign = vaCenter
-        end
-        object Memo15: TfrxMemoView
-          Align = baLeft
-          Top = 26.456695350000000000
-          Width = 151.181102360000000000
-          Height = 30.236227800000000000
-          ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          GapX = 4.000000000000000000
-          HAlign = haRight
           Memo.UTF8 = (
             #1056#1113#1056#1109#1056#1169)
           ParentFont = False
           VAlign = vaCenter
         end
-        object Memo18: TfrxMemoView
-          Align = baLeft
-          Left = 151.181102360000000000
-          Top = 75.590556060000000000
-          Width = 565.039370080000000000
-          Height = 18.897637800000000000
+        object Memo3: TfrxMemoView
+          Align = baWidth
+          Left = 136.062992120000000000
+          Top = 45.354330710000000000
+          Width = 306.551877020000000000
+          Height = 20.000000000000000000
           ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          GapX = 4.000000000000000000
-          Memo.UTF8 = (
-            '[frxClientsView."REGION_NAME"]')
-          ParentFont = False
-          VAlign = vaCenter
-        end
-        object Memo19: TfrxMemoView
-          Align = baLeft
-          Top = 56.692920710000000000
-          Width = 151.181102360000000000
-          Height = 18.897637800000000000
-          ShowHint = False
+          Color = 16639106
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -12
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          GapX = 4.000000000000000000
-          HAlign = haRight
           Memo.UTF8 = (
-            #1056#1118#1056#1105#1056#1111' '#1056#1108#1056#187#1056#1105#1056#181#1056#1029#1057#8218#1056#176)
+            #1056#164#1056#152#1056#1115' / '#1056#1029#1056#176#1056#183#1056#1030#1056#176#1056#1029#1056#1105#1056#181)
           ParentFont = False
           VAlign = vaCenter
         end
-        object Memo20: TfrxMemoView
-          Align = baLeft
-          Left = 151.181102360000000000
-          Top = 56.692920710000000000
-          Width = 565.039370080000000000
-          Height = 18.897637800000000000
+        object Memo4: TfrxMemoView
+          Align = baRight
+          Left = 442.614869140000000000
+          Top = 45.354330710000000000
+          Width = 105.826759450000000000
+          Height = 20.000000000000000000
           ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          GapX = 4.000000000000000000
-          Memo.UTF8 = (
-            '[frxClientsView."TTYPE_NAME"]')
-          ParentFont = False
-          VAlign = vaCenter
-        end
-        object Memo21: TfrxMemoView
-          Align = baLeft
-          Top = 75.590556060000000000
-          Width = 151.181102360000000000
-          Height = 18.897637800000000000
-          ShowHint = False
+          Color = 16639106
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -12
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          GapX = 4.000000000000000000
-          HAlign = haRight
+          Memo.UTF8 = (
+            #1056#1118#1056#1105#1056#1111)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo5: TfrxMemoView
+          Align = baRight
+          Left = 695.843218040000000000
+          Top = 45.354330710000000000
+          Width = 143.622037480000000000
+          Height = 20.000000000000000000
+          ShowHint = False
+          Color = 16639106
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           Memo.UTF8 = (
             #1056#160#1056#181#1056#1110#1056#1105#1056#1109#1056#1029)
           ParentFont = False
           VAlign = vaCenter
         end
-        object Memo22: TfrxMemoView
-          Align = baLeft
-          Left = 151.181102360000000000
-          Top = 94.488191410000000000
-          Width = 565.039370080000000000
-          Height = 56.692913390000000000
-          OnBeforePrint = 'Memo22OnBeforePrint'
+        object Memo11: TfrxMemoView
+          Align = baRight
+          Left = 967.969173000000000000
+          Top = 45.354330710000000000
+          Width = 79.338590000000000000
+          Height = 20.000000000000000000
           ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          GapX = 4.000000000000000000
-          Memo.UTF8 = (
-            '[frxClientsView."ADDRESS"]')
-          ParentFont = False
-        end
-        object Memo23: TfrxMemoView
-          Align = baLeft
-          Top = 94.488191410000000000
-          Width = 151.181102360000000000
-          Height = 56.692913390000000000
-          ShowHint = False
+          Color = 16639106
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -12
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          GapX = 4.000000000000000000
-          HAlign = haRight
           Memo.UTF8 = (
-            #1056#164#1056#176#1056#1108#1057#8218#1056#1105#1057#8225#1056#181#1057#1027#1056#1108#1056#1105#1056#8470' '#1056#176#1056#1169#1057#1026#1056#181#1057#1027)
-          ParentFont = False
-        end
-        object Memo24: TfrxMemoView
-          Align = baLeft
-          Left = 151.181102360000000000
-          Top = 207.873962040000000000
-          Width = 565.039370080000000000
-          Height = 18.897637800000000000
-          ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          GapX = 4.000000000000000000
-          Memo.UTF8 = (
-            '[frxClientsView."PHONE"]')
-          ParentFont = False
-        end
-        object Memo25: TfrxMemoView
-          Align = baLeft
-          Top = 207.873962040000000000
-          Width = 151.181102360000000000
-          Height = 18.897637800000000000
-          ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          GapX = 4.000000000000000000
-          HAlign = haRight
-          Memo.UTF8 = (
-            #1056#1118#1056#181#1056#187#1056#181#1057#8222#1056#1109#1056#1029)
-          ParentFont = False
-        end
-        object Memo26: TfrxMemoView
-          Align = baLeft
-          Left = 151.181102360000000000
-          Top = 230.550998030000000000
-          Width = 565.039370080000000000
-          Height = 18.897637800000000000
-          ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          GapX = 4.000000000000000000
-          Memo.UTF8 = (
-            '[frxClientsView."CONTACT"]')
-          ParentFont = False
-        end
-        object Memo27: TfrxMemoView
-          Align = baLeft
-          Top = 230.550998030000000000
-          Width = 151.181102360000000000
-          Height = 18.897637800000000000
-          ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          GapX = 4.000000000000000000
-          HAlign = haRight
-          Memo.UTF8 = (
-            #1056#1113#1056#1109#1056#1029#1057#8218#1056#176#1056#1108#1057#8218#1056#1029#1056#1109#1056#181' '#1056#187#1056#1105#1057#8224#1056#1109)
-          ParentFont = False
-        end
-        object Memo28: TfrxMemoView
-          Align = baLeft
-          Left = 151.181102360000000000
-          Top = 249.448633380000000000
-          Width = 565.039370080000000000
-          Height = 86.929133860000000000
-          ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          GapX = 4.000000000000000000
-          Memo.UTF8 = (
-            '[frxClientsView."CONT_PHONE"]')
-          ParentFont = False
-        end
-        object Memo29: TfrxMemoView
-          Align = baLeft
-          Top = 249.448633380000000000
-          Width = 151.181102360000000000
-          Height = 86.929133860000000000
-          ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          GapX = 4.000000000000000000
-          HAlign = haRight
-          Memo.UTF8 = (
-            #1056#1113#1056#1109#1056#1029#1057#8218#1056#176#1056#1108#1057#8218#1056#1029#1057#8249#1056#181
-            #1057#8218#1056#181#1056#187#1056#181#1057#8222#1056#1109#1056#1029#1057#8249)
-          ParentFont = False
-        end
-        object Memo38: TfrxMemoView
-          Align = baLeft
-          Left = 151.181102360000000000
-          Top = 336.377767240000000000
-          Width = 565.039370080000000000
-          Height = 18.897637800000000000
-          ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          GapX = 4.000000000000000000
-          Memo.UTF8 = (
-            '[frxClientsView."EMAIL"]')
+            #1056#160#1056#181#1056#1110'. '#1056#1108#1056#181#1056#1112)
           ParentFont = False
           VAlign = vaCenter
         end
-        object Memo39: TfrxMemoView
+        object Memo14: TfrxMemoView
           Align = baLeft
-          Top = 336.377767240000000000
-          Width = 151.181102360000000000
-          Height = 18.897637800000000000
+          Left = 71.811023620000000000
+          Top = 45.354330710000000000
+          Width = 64.251968500000000000
+          Height = 20.000000000000000000
           ShowHint = False
+          Color = 16639106
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          GapX = 4.000000000000000000
-          HAlign = haRight
-          Memo.UTF8 = (
-            'E-Mail')
-          ParentFont = False
-          VAlign = vaCenter
-        end
-        object Memo42: TfrxMemoView
-          Align = baLeft
-          Left = 151.181102360000000000
-          Top = 355.275409920000000000
-          Width = 565.039370080000000000
-          Height = 18.897637800000000000
-          ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          GapX = 4.000000000000000000
-          Memo.UTF8 = (
-            '[frxClientsView."WWW"]')
-          ParentFont = False
-          VAlign = vaCenter
-        end
-        object Memo46: TfrxMemoView
-          Align = baLeft
-          Top = 355.275409920000000000
-          Width = 151.181102360000000000
-          Height = 18.897637800000000000
-          ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          GapX = 4.000000000000000000
-          HAlign = haRight
-          Memo.UTF8 = (
-            'WWW')
-          ParentFont = False
-          VAlign = vaCenter
-        end
-        object Memo49: TfrxMemoView
-          Align = baLeft
-          Left = 151.181102360000000000
-          Top = 374.173023300000000000
-          Width = 565.039370080000000000
-          Height = 18.897637800000000000
-          ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          GapX = 4.000000000000000000
-          Memo.UTF8 = (
-            '[frxClientsView."GROUP_NAME"]')
-          ParentFont = False
-          VAlign = vaCenter
-        end
-        object Memo50: TfrxMemoView
-          Align = baLeft
-          Top = 374.173023300000000000
-          Width = 151.181102360000000000
-          Height = 18.897637800000000000
-          ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          GapX = 4.000000000000000000
-          HAlign = haRight
-          Memo.UTF8 = (
-            #1056#8220#1057#1026#1057#1107#1056#1111#1056#1111#1056#176)
-          ParentFont = False
-          VAlign = vaCenter
-        end
-        object Memo51: TfrxMemoView
-          Align = baLeft
-          Left = 151.181102360000000000
-          Top = 151.181104800000000000
-          Width = 565.039370080000000000
-          Height = 56.692913390000000000
-          OnBeforePrint = 'Memo51OnBeforePrint'
-          ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          GapX = 4.000000000000000000
-          Memo.UTF8 = (
-            '[frxClientsView."U_ADDRESS"]')
-          ParentFont = False
-        end
-        object Memo52: TfrxMemoView
-          Align = baLeft
-          Top = 151.181104800000000000
-          Width = 151.181102360000000000
-          Height = 56.692913390000000000
-          ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          GapX = 4.000000000000000000
-          HAlign = haRight
-          Memo.UTF8 = (
-            #1056#174#1057#1026#1056#1105#1056#1169#1056#1105#1057#8225#1056#181#1057#1027#1056#1108#1056#1105#1056#8470' '#1056#176#1056#1169#1057#1026#1056#181#1057#1027)
-          ParentFont = False
-        end
-        object Memo53: TfrxMemoView
-          Align = baLeft
-          Left = 151.181102360000000000
-          Top = 393.070658660000000000
-          Width = 565.039370080000000000
-          Height = 56.692913390000000000
-          ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          GapX = 4.000000000000000000
-          Memo.UTF8 = (
-            '[frxClientsView."INFO"]')
-          ParentFont = False
-        end
-        object Memo54: TfrxMemoView
-          Align = baLeft
-          Top = 393.070658660000000000
-          Width = 151.181102360000000000
-          Height = 56.692913390000000000
-          ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          GapX = 4.000000000000000000
-          HAlign = haRight
-          Memo.UTF8 = (
-            #1056#8221#1056#1109#1056#1111'. '#1056#1105#1056#1029#1057#8222#1056#1109#1057#1026#1056#1112#1056#176#1057#8224#1056#1105#1057#1039)
-          ParentFont = False
-        end
-      end
-      object MasterData2: TfrxMasterData
-        Height = 45.354360000000000000
-        Top = 585.827150000000000000
-        Width = 718.110700000000000000
-        DataSet = frxAdresses
-        DataSetName = 'frxAdresses'
-        RowCount = 0
-        object Memo43: TfrxMemoView
-          Align = baWidth
-          Width = 718.110700000000000000
-          Height = 22.677180000000000000
-          ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           HAlign = haCenter
           Memo.UTF8 = (
-            #1056#1106#1056#1169#1057#1026#1056#181#1057#1027#1056#176' '#1056#1169#1056#1109#1057#1027#1057#8218#1056#176#1056#1030#1056#1108#1056#1105)
+            #1056#1119#1057#1026#1056#181#1057#8222#1056#1105#1056#1108#1057#1027)
           ParentFont = False
+          VAlign = vaCenter
         end
-        object Memo2: TfrxMemoView
-          Top = 22.677180000000000000
-          Width = 718.110700000000000000
-          Height = 22.677180000000000000
+        object Memo16: TfrxMemoView
+          Align = baRight
+          Left = 839.465255520000000000
+          Top = 45.354360000000000000
+          Width = 128.503917480000000000
+          Height = 20.000000000000000000
           ShowHint = False
+          Color = 16639106
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -13
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8 = (
+            #1056#8220#1056#1109#1057#1026#1056#1109#1056#1169)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo18: TfrxMemoView
+          Align = baRight
+          Left = 548.441628590000000000
+          Top = 45.354360000000000000
+          Width = 147.401589450000000000
+          Height = 20.000000000000000000
+          ShowHint = False
+          Color = 16639106
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8 = (
+            #1056#1118#1056#181#1056#187#1056#181#1057#8222#1056#1109#1056#1029)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+      end
+      object MasterData1: TfrxMasterData
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = []
+        Height = 18.897637800000000000
+        ParentFont = False
+        Top = 147.401670000000000000
+        Width = 1047.307763000000000000
+        Columns = 1
+        ColumnWidth = 200.000000000000000000
+        ColumnGap = 20.000000000000000000
+        DataSet = frxClients
+        DataSetName = 'frxClients'
+        RowCount = 0
+        Stretched = True
+        object Memo6: TfrxMemoView
+          Align = baLeft
+          Width = 71.811023620000000000
+          Height = 18.897637800000000000
+          ShowHint = False
+          StretchMode = smMaxHeight
+          DataField = 'NICK'
+          DataSet = frxClients
+          DataSetName = 'frxClients'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = []
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           Memo.UTF8 = (
-            '[frxAdresses."ADDRESS"]')
+            '[frxClients."NICK"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo7: TfrxMemoView
+          Align = baWidth
+          Left = 136.062992120000000000
+          Width = 306.520407810000000000
+          Height = 18.897637800000000000
+          ShowHint = False
+          StretchMode = smMaxHeight
+          DataField = 'FIO'
+          DataSet = frxClients
+          DataSetName = 'frxClients'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8 = (
+            '[frxClients."FIO"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo8: TfrxMemoView
+          Align = baRight
+          Left = 442.583399930000000000
+          Width = 105.826759450000000000
+          Height = 18.897637800000000000
+          ShowHint = False
+          StretchMode = smMaxHeight
+          DataField = 'TTYPE_NAME'
+          DataSet = frxClients
+          DataSetName = 'frxClients'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8 = (
+            '[frxClients."TTYPE_NAME"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo9: TfrxMemoView
+          Align = baRight
+          Left = 695.811748830000000000
+          Width = 143.622037480000000000
+          Height = 18.897637800000000000
+          ShowHint = False
+          StretchMode = smMaxHeight
+          DataField = 'REGIONS_NAME'
+          DataSet = frxClients
+          DataSetName = 'frxClients'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8 = (
+            '[frxClients."REGIONS_NAME"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo12: TfrxMemoView
+          Align = baRight
+          Left = 967.937703790000000000
+          Width = 79.370059210000000000
+          Height = 18.897637800000000000
+          ShowHint = False
+          StretchMode = smMaxHeight
+          DataField = 'CORRECTOR'
+          DataSet = frxClients
+          DataSetName = 'frxClients'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8 = (
+            '[frxClients."CORRECTOR"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo15: TfrxMemoView
+          Align = baLeft
+          Left = 71.811023620000000000
+          Width = 64.251968500000000000
+          Height = 18.897637800000000000
+          ShowHint = False
+          StretchMode = smMaxHeight
+          DataField = 'PREFIX'
+          DataSet = frxClients
+          DataSetName = 'frxClients'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxClients."PREFIX"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo17: TfrxMemoView
+          Align = baRight
+          Left = 839.433786310000000000
+          Width = 128.503917480000000000
+          Height = 18.897637800000000000
+          ShowHint = False
+          StretchMode = smMaxHeight
+          DataField = 'CITY'
+          DataSet = frxClients
+          DataSetName = 'frxClients'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8 = (
+            '[frxClients."CITY"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo19: TfrxMemoView
+          Align = baRight
+          Left = 548.410159380000000000
+          Width = 147.401589450000000000
+          Height = 18.897637800000000000
+          ShowHint = False
+          StretchMode = smMaxHeight
+          DataField = 'PHONE'
+          DataSet = frxClients
+          DataSetName = 'frxClients'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8 = (
+            '[frxClients."PHONE"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+      end
+      object PageFooter1: TfrxPageFooter
+        Height = 20.000000000000000000
+        Top = 226.771800000000000000
+        Width = 1047.307763000000000000
+        object Memo10: TfrxMemoView
+          Align = baRight
+          Left = 951.307763000000000000
+          Top = 2.000000000000000000
+          Width = 96.000000000000000000
+          Height = 16.000000000000000000
+          ShowHint = False
+          AutoWidth = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[PAGE#]')
+          ParentFont = False
+        end
+        object Memo13: TfrxMemoView
+          Left = 1.322820000000000000
+          Top = 2.000000000000000000
+          Width = 116.000000000000000000
+          Height = 17.000000000000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8 = (
+            '[<Date>] [<Time>]')
           ParentFont = False
         end
       end
@@ -4696,7 +4533,7 @@ object frmRegistration: TfrmRegistration
     Left = 240
     Top = 328
     Bitmap = {
-      494C010127002C00680120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010127002C006C0120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004001000001002000000000000080
       0200000000000000000000000000000000000000000000000000000000000000
       000000000000000000000101011A0B0B0B743B3D3DB4777777D5838383DA5152
@@ -10279,7 +10116,6 @@ object frmRegistration: TfrmRegistration
       '   AND C.REGION = R.ID_REGIONS'
       '   and c.id_office = o.ID_OFFICE'
       '   and c.id_city = s.id_city(+)')
-    Active = True
     Left = 680
     Top = 352
     object Q_CLIENT_VIEWID_CLIENTS: TIntegerField

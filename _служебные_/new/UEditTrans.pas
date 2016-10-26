@@ -7,7 +7,7 @@ uses
   Dialogs, Menus, cxLookAndFeelPainters, ActnList, DBAccess, Ora, StdCtrls,
   cxButtons, cxCurrencyEdit, cxControls, cxContainer, cxEdit, cxTextEdit,
   cxMaskEdit, cxDropDownEdit, cxCalendar, Buttons, ExtCtrls, cxGraphics,
-  cxSpinEdit, cxTimeEdit;
+  cxSpinEdit, cxTimeEdit, DB, MemDS;
 
 type
   TfrmEditTrans = class(TForm)
@@ -193,6 +193,16 @@ begin
   ed2.Text := frmtrans.selq.fieldbyname('nick').AsString;
   ed3.Text := frmtrans.selq.fieldbyname('fio').AsString;
   ed4.Text := frmtrans.selq.fieldbyname('operator_name').AsString;
+
+  frmtrans.selq.Close;
+  frmtrans.selq.SQL.Clear;
+  frmtrans.selq.SQL.add('SELECT ID_CLIENTS, nick, fio, ADDRESS, u_address FROM CLIENTS ');
+  frmtrans.selq.SQL.add('where nick=upper('''+ed2.Text+''')');
+  frmtrans.selq.open;
+  if (frmtrans.selq.FieldByName(uppercase('nick')).AsString<>'R CHL') then
+  if (frmtrans.selq.FieldByName('ADDRESS').AsString<>'') and (frmtrans.selq.FieldByName('ADDRESS').AsString<>'нет') then
+  ed6.Text := frmtrans.selq.fieldbyname('ADDRESS').AsString else
+  ed6.Text := frmtrans.selq.fieldbyname('U_ADDRESS').AsString;
 end;
 
 procedure TfrmEditTrans.Ed2KeyPress(Sender: TObject; var Key: Char);

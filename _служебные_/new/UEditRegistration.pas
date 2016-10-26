@@ -65,7 +65,6 @@ type
     TabSheet2: TTabSheet;
     Panel3: TPanel;
     Label4: TLabel;
-    Label3: TLabel;
     Label20: TLabel;
     Label24: TLabel;
     LabeledEdit10: TLabeledEdit;
@@ -122,20 +121,6 @@ type
     BitBtn3: TBitBtn;
     BitBtn4: TBitBtn;
     btnClone: TBitBtn;
-    Edit2: TEdit;
-    Edit4: TEdit;
-    Edit5: TEdit;
-    Edit6: TEdit;
-    Label30: TLabel;
-    Label31: TLabel;
-    Label32: TLabel;
-    Label34: TLabel;
-    Label35: TLabel;
-    Label36: TLabel;
-    ComboBox5: TComboBox;
-    ComboBox6: TComboBox;
-    ComboBox7: TComboBox;
-    ComboBox8: TComboBox;
     Label37: TLabel;
     Label38: TLabel;
     Memo8: TMemo;
@@ -259,15 +244,8 @@ uses URegistration, udm, uPassport;
 
 //новая логика
 procedure TfrmEditRegistration.TZ;
- var tip: tstringlist; i:integer;
+ var i:integer;
 begin
-  //tip := TStringList.Create;
-  //tip.add('ИП');
-  /////tip.add('Частное лицо');    // здесь более широкое условие
-  /////tip.add('Предприниматель'); // здесь более широкое условие
-  //tip.add('СОТРУДНИК ФИРМЫ');
-
-  //сначала думал через стринглист, но потом вспомнил про is_contractor...
    frmRegistration.selq.close;
    frmRegistration.selq.SQL.Clear;
    frmRegistration.selq.SQL.Add('select IS_CONTRACTOR from BOOKS_CLIENT_TYPES where NAME = '+#39+combobox3.text+#39);
@@ -277,34 +255,10 @@ begin
   or (((copy(LabeledEdit1.Text,1,1) = 'F') or (copy(LabeledEdit1.Text,1,1) = 'O')) and (combobox3.Text ='Предприниматель'))
   then
   begin
-  //for i := 0 to tip.Count - 1 do
-  //If (combobox3.Text = tip[i]) or ((LabeledEdit9.Text = 'Без договора') and (combobox3.Text ='Частное лицо'))
-  //or (((copy(LabeledEdit1.Text,1,1) = 'F') or (copy(LabeledEdit1.Text,1,1) = 'O')) and (combobox3.Text ='Предприниматель'))  then begin
-
-   //Memo2.Color:=clwhite;
-   //Memo2.Enabled:=true;
-   frmPassport.edit2.Enabled:=true;  frmPassport.edit2.Color:=clwhite;
-   frmPassport.edit4.Enabled:=true;  frmPassport.edit4.Color:=clwhite;
-   frmPassport.edit5.Enabled:=true;  frmPassport.edit5.Color:=clwhite;
-   frmPassport.edit6.Enabled:=true;  frmPassport.edit6.Color:=clwhite;
-   frmPassport.combobox5.Enabled:=true; frmPassport.combobox5.Color:=clwhite;
-   frmPassport.combobox6.Enabled:=true; frmPassport.combobox6.Color:=clwhite;
-   frmPassport.combobox7.Enabled:=true; frmPassport.combobox7.Color:=clwhite;
-   frmPassport.combobox8.Enabled:=true; frmPassport.combobox8.Color:=clwhite;
-   //break;
+   speedbutton7.Enabled:=true;
   end else begin
-   frmPassport.edit2.Enabled:=false;  frmPassport.edit2.Color:=clsilver;
-   frmPassport.edit4.Enabled:=false;  frmPassport.edit4.Color:=clsilver;
-   frmPassport.edit5.Enabled:=false;  frmPassport.edit5.Color:=clsilver;
-   frmPassport.edit6.Enabled:=false;  frmPassport.edit6.Color:=clsilver;
-   frmPassport.combobox5.Enabled:=false; frmPassport.combobox5.Color:=clsilver;
-   frmPassport.combobox6.Enabled:=false; frmPassport.combobox6.Color:=clsilver;
-   frmPassport.combobox7.Enabled:=false; frmPassport.combobox7.Color:=clsilver;
-   frmPassport.combobox8.Enabled:=false; frmPassport.combobox8.Color:=clsilver;
-   //Memo2.Color:=clsilver;
-   //Memo2.Enabled:=false;
+   speedbutton7.Enabled:=false;
   end;
-  //tip.Free;
   frmRegistration.selq.close;
 end;
 
@@ -388,8 +342,8 @@ begin
         frmRegistration.selq.ParamByName('P5').Value := edit3.text + '%' + edit7.text + '%' + edit8.text + '%' + edit9.text;//Memo4.Text;
         frmRegistration.selq.ParamByName('P6').Value := edit10.text + '%' + edit11.text + '%' + edit12.text + '%' + edit13.text;//Memo5.Text;
         frmRegistration.selq.ParamByName('P7').Value := Memo6.Text;
-        frmRegistration.selq.ParamByName('P8').Value := frmPassport.edit2.text + '%' + frmPassport.combobox5.text + '%' + frmPassport.combobox6.text + '%' +
-        frmPassport.combobox7.text + '%' + frmPassport.combobox8.text + '%' + frmPassport.edit4.text + '%' + frmPassport.edit5.text + '%' + frmPassport.edit6.text;//Memo2.Text;
+        frmRegistration.selq.ParamByName('P8').Value := frmPassport.edit2.text + '%' + datetostr(frmPassport.datetimepicker1.date) + '%'
+        + frmPassport.combobox8.text + '%' + frmPassport.edit4.text + '%' + frmPassport.edit5.text + '%' + frmPassport.edit6.text;
         frmRegistration.selq.ParamByName('P9').Value := trim(LabeledEdit10.Text);
         frmRegistration.selq.ParamByName('P10').Value := Memo3.Text;
         frmRegistration.selq.ParamByName('P11').Value := trim(LabeledEdit11.Text);
@@ -474,24 +428,19 @@ begin
 
     Memo1.Lines.Clear;
 
-    //Memo2.Lines.Clear;
     frmPassport.edit2.Clear;
-    frmPassport.combobox5.Clear;
-    frmPassport.combobox6.Clear;
-    frmPassport.combobox7.Clear;
+    frmPassport.DateTimePicker1.Date:=now;
     frmPassport.combobox8.Clear;
     frmPassport.edit4.Clear;
     frmPassport.edit5.Clear;
     frmPassport.edit6.Clear;
 
     Memo3.Lines.Clear;
-    //Memo4.Lines.Clear;
     edit3.Clear;
     edit7.Clear;
     edit8.Clear;
     edit9.Clear;
 
-    //Memo5.Lines.Clear;
     edit10.Clear;
     edit11.Clear;
     edit12.Clear;
@@ -537,16 +486,11 @@ begin
     Edit1.Text := frmRegistration.Q_CLIENT_VIEW.FieldByName('CCODE').AsString;
 
     Memo1.Text := frmRegistration.Q_CLIENT_VIEW.FieldByName('BANK').AsString;
-    //Memo2.Text := frmRegistration.Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString;
   if pos('%',frmRegistration.Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString) <> 0 then begin
     ss := frmRegistration.Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString;
     frmPassport.edit2.Text := copy(ss,1,pos('%',ss)-1);
     delete(ss,1,pos('%',ss));
-    frmPassport.combobox5.Text := copy(ss,1,pos('%',ss)-1);
-    delete(ss,1,pos('%',ss));
-    frmPassport.combobox6.Text := copy(ss,1,pos('%',ss)-1);
-    delete(ss,1,pos('%',ss));
-    frmPassport.combobox7.Text := copy(ss,1,pos('%',ss)-1);
+    frmPassport.DateTimePicker1.Date := strtodate(copy(ss,1,pos('%',ss)-1));
     delete(ss,1,pos('%',ss));
     frmPassport.combobox8.Text := copy(ss,1,pos('%',ss)-1);
     delete(ss,1,pos('%',ss));
@@ -558,7 +502,6 @@ begin
   end;
 
     Memo3.Text := frmRegistration.Q_CLIENT_VIEW.FieldByName('CONT_PHONE').AsString;
-    //Memo5.Text := frmRegistration.Q_CLIENT_VIEW.FieldByName('U_ADDRESS').AsString;
     if pos('%',frmRegistration.Q_CLIENT_VIEW.FieldByName('U_ADDRESS').AsString) <> 0 then begin
      ss := frmRegistration.Q_CLIENT_VIEW.FieldByName('U_ADDRESS').AsString;
      edit10.Text := copy(ss,1,pos('%',ss)-1);
