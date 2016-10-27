@@ -29,7 +29,6 @@ type
     Label7: TLabel;
     SpeedButton1: TSpeedButton;
     Label25: TLabel;
-    Label26: TLabel;
     Label6: TLabel;
     Label9: TLabel;
     Label10: TLabel;
@@ -342,7 +341,11 @@ begin
         frmRegistration.selq.ParamByName('P5').Value := edit3.text + '%' + edit7.text + '%' + edit8.text + '%' + edit9.text;//Memo4.Text;
         frmRegistration.selq.ParamByName('P6').Value := edit10.text + '%' + edit11.text + '%' + edit12.text + '%' + edit13.text;//Memo5.Text;
         frmRegistration.selq.ParamByName('P7').Value := Memo6.Text;
+        //условие чтоб не попала дата, ибо хз как в  datetimepicker1 засунуть пустоту:
+        if speedbutton7.Enabled=true then
         frmRegistration.selq.ParamByName('P8').Value := frmPassport.edit2.text + '%' + datetostr(frmPassport.datetimepicker1.date) + '%'
+        + frmPassport.combobox8.text + '%' + frmPassport.edit4.text + '%' + frmPassport.edit5.text + '%' + frmPassport.edit6.text else
+        frmRegistration.selq.ParamByName('P8').Value := frmPassport.edit2.text + '%' + '' + '%'
         + frmPassport.combobox8.text + '%' + frmPassport.edit4.text + '%' + frmPassport.edit5.text + '%' + frmPassport.edit6.text;
         frmRegistration.selq.ParamByName('P9').Value := trim(LabeledEdit10.Text);
         frmRegistration.selq.ParamByName('P10').Value := Memo3.Text;
@@ -490,6 +493,7 @@ begin
     ss := frmRegistration.Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString;
     frmPassport.edit2.Text := copy(ss,1,pos('%',ss)-1);
     delete(ss,1,pos('%',ss));
+    if copy(ss,1,pos('%',ss)-1)<>'' then
     frmPassport.DateTimePicker1.Date := strtodate(copy(ss,1,pos('%',ss)-1));
     delete(ss,1,pos('%',ss));
     frmPassport.combobox8.Text := copy(ss,1,pos('%',ss)-1);
@@ -783,7 +787,7 @@ end;
 procedure TfrmEditRegistration.SpeedButton4Click(Sender: TObject);
 var sql: string;
 begin
-  sql := 'SELECT ID_CLIENTS from CLIENTS_VIEW3 WHERE UPPER(FIO) LIKE ''%'+ UpperCase(trim(LabeledEdit2.Text)) +''' and id_office='+IntToStr(DM.id_office);
+  sql := 'SELECT ID_CLIENTS from CLIENTS_VIEW3 WHERE UPPER(FIO) LIKE ''%'+ UpperCase(trim(LabeledEdit2.Text)) +''' and id_office='+IntToStr(frmRegistration.id_office);
   // Генерация кода сотрудника
   frmRegistration.selq.Close;
   frmRegistration.selq.SQL.Clear;
@@ -805,10 +809,11 @@ end;
 // (НЕ РЕАЛИЗОВАНА ФОРМА) Вызываем форму для добавления группы
 procedure TfrmEditRegistration.SpeedButton6Click(Sender: TObject);
 begin
- { editor.Edit1.Text := '';
-  editor.Memo1.Lines.Clear;
-  editor.ttype := 1;
-  editor.showmodal;       }
+// Вызываем форму для добавления группы
+ { frmEditSubReg.Edit1.Text := '';
+  frmEditSubReg.Memo1.Lines.Clear;
+  frmEditSubReg.ttype := 1;
+  frmEditSubReg.showmodal;       }
 end;
 
 

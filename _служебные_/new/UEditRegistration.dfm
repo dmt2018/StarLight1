@@ -274,7 +274,7 @@ object frmEditRegistration: TfrmEditRegistration
     Width = 791
     Height = 505
     Cursor = crHandPoint
-    ActivePage = TabSheet2
+    ActivePage = TabSheet1
     Align = alTop
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack
@@ -526,20 +526,6 @@ object frmEditRegistration: TfrmEditRegistration
           Font.Name = 'Tahoma'
           Font.Pitch = fpFixed
           Font.Style = []
-          ParentFont = False
-        end
-        object Label26: TLabel
-          Left = 374
-          Top = 376
-          Width = 5
-          Height = 16
-          Caption = '*'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clRed
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Pitch = fpFixed
-          Font.Style = [fsBold]
           ParentFont = False
         end
         object Label6: TLabel
@@ -2170,7 +2156,7 @@ object frmEditRegistration: TfrmEditRegistration
     Left = 532
     Top = 22
     Bitmap = {
-      494C010107000900C80010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010107000900D00010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000084CA84FF54B757FF000000000000000000000000000000000000

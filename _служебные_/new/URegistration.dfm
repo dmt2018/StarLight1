@@ -508,7 +508,6 @@ object frmRegistration: TfrmRegistration
             Font.Style = []
             ParentFont = False
             TabOrder = 6
-            OnClick = cxButton1Click
             Colors.Default = clBtnFace
             Colors.Normal = clBtnFace
             Colors.Hot = clCream
@@ -3105,6 +3104,7 @@ object frmRegistration: TfrmRegistration
       Enabled = False
       Hint = #1042#1099#1075#1088#1091#1079#1080#1090#1100' '#1082#1083#1080#1077#1085#1090#1086#1074' '#1076#1083#1103' '#1086#1073#1085#1086#1074#1083#1077#1085#1080#1103
       Visible = ivAlways
+      OnClick = bbSyncClientsClick
     end
     object btnHotKeys: TdxBarButton
       Caption = 'New Button'
@@ -3556,7 +3556,7 @@ object frmRegistration: TfrmRegistration
     Left = 820
     Top = 125
     Bitmap = {
-      494C0101040009007C0110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010104000900840110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -4533,7 +4533,7 @@ object frmRegistration: TfrmRegistration
     Left = 240
     Top = 328
     Bitmap = {
-      494C010127002C006C0120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010127002C00740120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004001000001002000000000000080
       0200000000000000000000000000000000000000000000000000000000000000
       000000000000000000000101011A0B0B0B743B3D3DB4777777D5838383DA5152
@@ -11014,5 +11014,22 @@ object frmRegistration: TfrmRegistration
       FieldName = 'ADDRESS'
       Size = 1024
     end
+  end
+  object selq2: TOraQuery
+    SQL.Strings = (
+      'begin'
+      '  BOOKS.GET_CLIENT_TYPES(:V_OFFICE, :CURSOR_);'
+      'end;')
+    Left = 720
+    Top = 392
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'V_OFFICE'
+      end
+      item
+        DataType = ftUnknown
+        Name = 'CURSOR_'
+      end>
   end
 end

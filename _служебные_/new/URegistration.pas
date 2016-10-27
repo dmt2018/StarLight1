@@ -557,6 +557,7 @@ type
     Q_CLIENT_VIEWADVERT: TStringField;
     Q_CLIENT_VIEWCITY: TStringField;
     btnHotKeys: TdxBarButton;
+    selq2: TOraQuery;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure RefreshExecute(Sender: TObject);
@@ -586,11 +587,13 @@ type
     procedure cxButton1Click(Sender: TObject);
     procedure bbCopyToOldClick(Sender: TObject);
     procedure bbCopyClientClick(Sender: TObject);
+    procedure bbSyncClientsClick(Sender: TObject);
   private
     { Private declarations }
     p_read, p_edit, p_delete, p_print: boolean;
   public
     { Public declarations }
+    pnl_msg : TPanel;
     id_office: integer;
     progas: string;
     corrector: string;
@@ -600,6 +603,7 @@ type
    // add_or_edit: integer;
     function MainFormShow : boolean;
     procedure RefreshAll;
+    procedure ins_to_file(cds: TOraQuery; var f: TextFile; sql_str: string; old_id: integer);
   end;
 
 var
@@ -609,7 +613,7 @@ implementation
 
 {$R *.dfm}
 
-uses umain, UDM, uEditRegistration, upassport, uHotKeys;
+uses umain, UDM, uEditRegistration, upassport, uHotKeys, ueditsubreg;
 
 
 procedure TfrmRegistration.RefreshAll;
@@ -726,6 +730,23 @@ begin
         on E: Exception do ShowMessage(E.Message);
       end;
   end;
+
+  cxClientViewSALES.Visible := p_read;
+  export_search.Enabled     := p_edit;
+
+ //кнопкa сервис
+  bbCopyToOld.Enabled       := p_edit;
+  bbCopyClient.Enabled      := p_edit;
+  btnFileExport.Enabled     := p_print;
+  bbSyncCLientsLoad.Enabled := (p_edit and (id_office = 1));
+  bbSyncClients.Enabled     := (p_edit and (id_office > 1));
+
+  BitBtn4.Enabled  := p_print;
+  BitBtn5.Enabled  := p_print;
+  BitBtn6.Enabled  := p_print;
+  BitBtn3.Enabled  := p_print;
+  btn_conctact.Enabled := p_print;
+  btninf.Enabled   :=  p_print;
 
   DBComboBoxEh2.Value := 1;
   PageControl1.ActivePageIndex := 0;
@@ -913,7 +934,7 @@ try
     frmEditRegistration.Memo1.Lines.Clear;
     //frmEditRegistration.Memo2.Lines.Clear;
     frmpassport.edit2.Clear;
-    frmpassport.DateTimePicker1.Date:=now;
+    //frmpassport.DateTimePicker1.Date:=now;
     frmpassport.combobox8.Clear;
     frmpassport.edit4.Clear;
     frmpassport.edit5.Clear;
@@ -992,7 +1013,7 @@ end;
 
 // Копирование клиента
 procedure TfrmRegistration.bbCopyClientClick(Sender: TObject);
-var ind: integer;
+var ind: integer; ss: string;
 begin
   if (PageControl1.TabIndex = 0) then
   begin
@@ -1036,6 +1057,62 @@ begin
         {frmEditRegistration.Memo2.Text := Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString;
         frmEditRegistration.Memo4.Text := Q_CLIENT_VIEW.FieldByName('ADDRESS').AsString;
         frmEditRegistration.Memo5.Text := Q_CLIENT_VIEW.FieldByName('U_ADDRESS').AsString;  }
+        if pos('%',Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString) <> 0 then begin
+           ss := Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString;
+           frmPassport.edit2.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           if copy(ss,1,pos('%',ss)-1)<>'' then
+           frmPassport.DateTimePicker1.date:= strtodate(copy(ss,1,pos('%',ss)-1));
+           delete(ss,1,pos('%',ss));
+           frmPassport.combobox8.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmPassport.edit4.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmPassport.edit5.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmPassport.edit6.Text := ss;
+        end else
+        begin
+           frmPassport.edit2.Clear;
+           frmPassport.DateTimePicker1.date:=now;
+           frmPassport.combobox8.Clear;
+           frmPassport.edit4.Clear;
+           frmPassport.edit5.Clear;
+           frmPassport.edit6.Clear;
+        end;
+        if pos('%',Q_CLIENT_VIEW.FieldByName('ADDRESS').AsString) <> 0 then begin
+           ss := Q_CLIENT_VIEW.FieldByName('ADDRESS').AsString;
+           frmEditRegistration.edit3.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmEditRegistration.edit7.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmEditRegistration.edit8.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmEditRegistration.edit9.Text := ss;
+        end else
+        begin
+           frmEditRegistration.edit3.Clear;
+           frmEditRegistration.edit7.Clear;
+           frmEditRegistration.edit8.Clear;
+           frmEditRegistration.edit9.Clear;
+        end;
+        if pos('%',Q_CLIENT_VIEW.FieldByName('U_ADDRESS').AsString) <> 0 then begin
+           ss := Q_CLIENT_VIEW.FieldByName('U_ADDRESS').AsString;
+           frmEditRegistration.edit10.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmEditRegistration.edit11.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmEditRegistration.edit12.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmEditRegistration.edit13.Text := ss;
+        end else
+        begin
+           frmEditRegistration.edit10.Clear;
+           frmEditRegistration.edit11.Clear;
+           frmEditRegistration.edit12.Clear;
+           frmEditRegistration.edit13.Clear;
+        end;
+
         frmEditRegistration.Memo6.Text := Q_CLIENT_VIEW.FieldByName('PHONE').AsString;
 
         if (Q_CLIENT_VIEW.FieldByName('PLANTS').AsInteger = 1) then frmEditRegistration.CheckBox1.Checked := true else frmEditRegistration.CheckBox1.Checked := false;
@@ -1103,6 +1180,62 @@ begin
         {frmEditRegistration.Memo2.Text := Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString;
         frmEditRegistration.Memo4.Text := Q_CLIENT_VIEW.FieldByName('ADDRESS').AsString;
         frmEditRegistration.Memo5.Text := Q_CLIENT_VIEW.FieldByName('U_ADDRESS').AsString;   }
+        if pos('%',Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString) <> 0 then begin
+           ss := Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString;
+           frmPassport.edit2.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           if copy(ss,1,pos('%',ss)-1)<>'' then
+           frmPassport.DateTimePicker1.date:= strtodate(copy(ss,1,pos('%',ss)-1));
+           delete(ss,1,pos('%',ss));
+           frmPassport.combobox8.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmPassport.edit4.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmPassport.edit5.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmPassport.edit6.Text := ss;
+        end else
+        begin
+           frmPassport.edit2.Clear;
+           frmPassport.DateTimePicker1.date:=now;
+           frmPassport.combobox8.Clear;
+           frmPassport.edit4.Clear;
+           frmPassport.edit5.Clear;
+           frmPassport.edit6.Clear;
+        end;
+        if pos('%',Q_CLIENT_VIEW.FieldByName('ADDRESS').AsString) <> 0 then begin
+           ss := Q_CLIENT_VIEW.FieldByName('ADDRESS').AsString;
+           frmEditRegistration.edit3.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmEditRegistration.edit7.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmEditRegistration.edit8.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmEditRegistration.edit9.Text := ss;
+        end else
+        begin
+           frmEditRegistration.edit3.Clear;
+           frmEditRegistration.edit7.Clear;
+           frmEditRegistration.edit8.Clear;
+           frmEditRegistration.edit9.Clear;
+        end;
+        if pos('%',Q_CLIENT_VIEW.FieldByName('U_ADDRESS').AsString) <> 0 then begin
+           ss := Q_CLIENT_VIEW.FieldByName('U_ADDRESS').AsString;
+           frmEditRegistration.edit10.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmEditRegistration.edit11.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmEditRegistration.edit12.Text := copy(ss,1,pos('%',ss)-1);
+           delete(ss,1,pos('%',ss));
+           frmEditRegistration.edit13.Text := ss;
+        end else
+        begin
+           frmEditRegistration.edit10.Clear;
+           frmEditRegistration.edit11.Clear;
+           frmEditRegistration.edit12.Clear;
+           frmEditRegistration.edit13.Clear;
+        end;
+
         frmEditRegistration.Memo6.Text := Q_CLIENT_VIEW.FieldByName('PHONE').AsString;
 
         if (Q_CLIENT_VIEW.FieldByName('PLANTS').AsInteger = 1) then frmEditRegistration.CheckBox1.Checked := true else frmEditRegistration.CheckBox1.Checked := false;
@@ -1124,7 +1257,7 @@ begin
 end;
 
 
-// Копирование клиента в старую БД
+// Копирование клиента в старую БД - НЕТУ ПУТИ client_path - ГДЕ ЕГО ЛУЧШЕ ХРАНИТЬ?
 procedure TfrmRegistration.bbCopyToOldClick(Sender: TObject);
 begin
   if (PageControl1.TabIndex = 0) then
@@ -1188,9 +1321,118 @@ begin
 end;
 end;
 
-procedure TfrmRegistration.bbSyncCLientsLoadClick(Sender: TObject);
-begin
 
+//выгр клиентов из файла
+procedure TfrmRegistration.bbSyncClientsClick(Sender: TObject);
+var sql_str: string;
+    res,ResText : Variant;
+    new_id, old_id, param_, s_id_, p_price: integer;
+    F_CSV: TextFile;
+begin
+  if MessageDlg('Создать экспортный файл клиентов для Москвы?',  mtConfirmation, [mbOk, mbNo], 0) <> mrOk then
+  Exit;
+
+  if not DirectoryExists(path+'\OUT') then
+  if not CreateDir(path+'\OUT') then
+  begin
+    MessageBox (Handle,'Ошибка при создании директории.', 'Ошибка!', MB_ICONERROR);
+    exit;
+  end;
+
+  try
+    screen.cursor := crHourGlass;
+
+    //pnl_msg := TPanel(MakePanelLabel(Panel1,300,100,'Идет обработка запроса'));
+    //pnl_msg.Repaint;
+
+    AssignFile(F_CSV, path+ '\OUT\'+IntToStr(DM.id_office)+'_export_clients.sql');
+    Rewrite(F_CSV);
+
+    sql_str := 'Alter session set NLS_NUMERIC_CHARACTERS=''.,''';
+    selq.close;
+    selq.sql.Clear;
+    selq.sql.Add(sql_str);
+    selq.Execute;
+
+    sql_str := 'begin sync_pkg.make_clients_groups(:p_cursor); end;';
+    ins_to_file(selq, F_CSV, sql_str, 0);
+
+    sql_str := 'begin sync_pkg.make_clients_list(:p_cursor); end;';
+    ins_to_file(selq, F_CSV, sql_str, 0);
+
+    MessageBox (Handle,'Файл сформирован успешно.', 'Результат', MB_ICONINFORMATION);
+
+  finally
+    screen.cursor := crDefault;
+    CloseFile(F_CSV);
+    pnl_msg.free;
+    ShellExecute(Handle, nil, PChar(path+'\OUT'), nil, nil, SW_RESTORE);
+  end;
+end;
+
+//загр клиентов из файла
+procedure TfrmRegistration.bbSyncCLientsLoadClick(Sender: TObject);
+var F_CSV: TextFile;
+    proc_text: string;
+    rc: integer;
+begin
+  if odInvoice.Execute then
+  begin
+    try
+      screen.cursor := crHourGlass;
+     //чето   не пойму зачем это:
+    //  pnl_msg := TPanel(MakePanelLabel(Panel1,300,100,'Идет обработка запроса'));
+    //  pnl_msg.Repaint;
+
+      AssignFile(F_CSV, odInvoice.FileName);
+      Reset(F_CSV);
+      DecimalSeparator := '.';
+      selq.close;
+      selq.sql.Clear;
+      selq.sql.Add('Alter session set NLS_NUMERIC_CHARACTERS=''.,''');
+      selq.Execute;
+
+
+      rc := 0;
+      try
+        while not Eof(F_CSV) do
+        begin
+          ReadLn(F_CSV, proc_text);
+          rc := rc + 1;
+          if (trim(proc_text) <> '') then
+          begin
+            with selq do
+            begin
+              close;
+              sql.Clear;
+              sql.Add(proc_text);
+              Execute;
+            end;
+          end;
+        end;
+      except
+        on E: Exception do
+        begin
+          ShowMessage('Ошибка выполнения запроса в строке '+IntToStr(rc));
+        end;
+      End;
+
+      selq.close;
+      selq.sql.Clear;
+      selq.sql.Add('begin creator.sync_local_data.SYNC_CLIENTS_save; end;');
+      selq.Execute;
+      selq.close;
+
+      Refresh.Execute;
+      MessageBox (Handle,'Файл импортирован успешно.', 'Результат', MB_ICONINFORMATION);
+
+    finally
+      pnl_msg.Free;
+      screen.cursor := crDefault;
+      CloseFile(F_CSV);
+      DM.OraSession.Commit;
+    end;
+  end;
 end;
 
 //печать шк
@@ -1471,12 +1713,12 @@ try
     if (Q_CLIENT_VIEW.FieldByName('PLANTS').AsInteger = 1) then str := str + 'Горшечные растения  ';
     if (Q_CLIENT_VIEW.FieldByName('FLOWERS').AsInteger = 1) then str := str + 'Срезанные растения';
     if str = '' then str := 'Нет';
-    frmEditRegistration.Label37.Caption := str;
+    u_info.Label37.Caption := str;
 
-    frmEditRegistration.chbRuleSite.Checked  := (Q_CLIENT_VIEW.FieldByName('MARK').AsString[1] = '1');
-    frmEditRegistration.chbRulePics.Checked  := (Q_CLIENT_VIEW.FieldByName('MARK').AsString[3] = '1');
-    frmEditRegistration.chbRulePrice.Checked := (Q_CLIENT_VIEW.FieldByName('MARK').AsString[5] = '1');
-    frmEditRegistration.chbRuleOrder.Checked := (Q_CLIENT_VIEW.FieldByName('MARK').AsString[7] = '1');
+    u_info.chbRuleSite.Checked  := (Q_CLIENT_VIEW.FieldByName('MARK').AsString[1] = '1');
+    u_info.chbRulePics.Checked  := (Q_CLIENT_VIEW.FieldByName('MARK').AsString[3] = '1');
+    u_info.chbRulePrice.Checked := (Q_CLIENT_VIEW.FieldByName('MARK').AsString[5] = '1');
+    u_info.chbRuleOrder.Checked := (Q_CLIENT_VIEW.FieldByName('MARK').AsString[7] = '1');
 
     if (Q_CLIENT_VIEW.FieldByName('BLOCK1').AsInteger = 1) then frmEditRegistration.Label10.Caption := 'Да' else frmEditRegistration.Label10.Caption := 'Нет';
     if (Q_CLIENT_VIEW.FieldByName('BLOCK2').AsInteger = 1) then frmEditRegistration.Label12.Caption := 'Да' else frmEditRegistration.Label12.Caption := 'Нет';
@@ -1720,6 +1962,7 @@ begin
            ss := Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString;
            frmPassport.edit2.Text := copy(ss,1,pos('%',ss)-1);
            delete(ss,1,pos('%',ss));
+           if copy(ss,1,pos('%',ss)-1)<>'' then
            frmPassport.DateTimePicker1.date:= strtodate(copy(ss,1,pos('%',ss)-1));
            delete(ss,1,pos('%',ss));
            frmPassport.combobox8.Text := copy(ss,1,pos('%',ss)-1);
@@ -1860,6 +2103,7 @@ procedure TfrmRegistration.FormCreate(Sender: TObject);
 begin
   Application.CreateForm(TfrmEditRegistration, frmEditRegistration);
   Application.CreateForm(Tfrmpassport, frmpassport);
+  Application.CreateForm(Tfrmeditsubreg, frmeditsubreg);
   cxgrid1.Font.Size := intDefFont;
 
   DateTimePicker1.Date    := Date;
@@ -1883,23 +2127,30 @@ begin
   Editn.Enabled   := p_edit;
   Deleten.Enabled := p_delete;
   //------------------------------
-
-  cxClientViewSALES.Visible := p_read;
-  export_search.Enabled     := p_edit;
-
- //кнопкa сервис
-  bbCopyToOld.Enabled       := p_edit;
-  bbCopyClient.Enabled      := p_edit;
-  btnFileExport.Enabled     := p_print;
-  bbSyncCLientsLoad.Enabled := (p_edit and (id_office = 1));
-  bbSyncClients.Enabled     := (p_edit and (id_office > 1));
-
-  BitBtn4.Enabled  := p_print;
-  BitBtn5.Enabled  := p_print;
-  BitBtn6.Enabled  := p_print;
-  BitBtn3.Enabled  := p_print;
-  btn_conctact.Enabled := p_print;
-  btninf.Enabled   :=  p_print;
 end;
+
+// Импорт / экспорт номенклатуры
+    procedure TfrmRegistration.ins_to_file(cds: TOraQuery; var f: TextFile; sql_str: string; old_id: integer);
+    begin
+      with cds do
+      begin
+        close;
+        sql.Clear;
+        sql.Add(sql_str);
+        ParamByName('p_cursor').AsCursor;
+        Open;
+
+        if not IsEmpty then
+        begin
+          First;
+          while not eof do
+          begin
+            WriteLn(f, Fields[0].AsString);
+            Next;
+          end;
+        end;
+        Close;
+      end;
+    end;
 
 end.

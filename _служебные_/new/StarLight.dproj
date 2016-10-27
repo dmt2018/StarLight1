@@ -86,6 +86,9 @@
     <DCCReference Include="UEditRegistration.pas">
       <Form>frmEditRegistration</Form>
     </DCCReference>
+    <DCCReference Include="UEditSubReg.pas">
+      <Form>frmEditSubReg</Form>
+    </DCCReference>
     <DCCReference Include="UEditTrans.pas">
       <Form>frmEditTrans</Form>
     </DCCReference>
