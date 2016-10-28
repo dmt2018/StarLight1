@@ -274,7 +274,7 @@ object frmEditRegistration: TfrmEditRegistration
     Width = 791
     Height = 505
     Cursor = crHandPoint
-    ActivePage = TabSheet1
+    ActivePage = TabSheet2
     Align = alTop
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack
@@ -1335,6 +1335,7 @@ object frmEditRegistration: TfrmEditRegistration
           Properties.ListOptions.AnsiSort = True
           Properties.ListOptions.ShowHeader = False
           Properties.ListOptions.SyncMode = True
+          Properties.ListSource = dsCity
           TabOrder = 2
           Width = 274
         end
@@ -2156,7 +2157,7 @@ object frmEditRegistration: TfrmEditRegistration
     Left = 532
     Top = 22
     Bitmap = {
-      494C010107000900D00010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010107000900DC0010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000084CA84FF54B757FF000000000000000000000000000000000000

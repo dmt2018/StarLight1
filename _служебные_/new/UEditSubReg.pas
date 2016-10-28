@@ -59,6 +59,7 @@ type
     { Private declarations }
   public
     { Public declarations }
+    ttype:integer;//добавить 1, измен 2
   end;
 
 var
@@ -68,17 +69,17 @@ implementation
 
 {$R *.dfm}
 
-uses uregistration, uEditRegistration, udm;
+uses uregistration, udm, ueditregistration;
 
 procedure TfrmEditSubReg.BitBtn5Click(Sender: TObject);
 begin
-  if (frmeditregistration.ttype = 1) then
+  if (ttype = 1) then
   begin
     Edit1.Text := '';
     Memo1.Lines.Clear;
   end;
 
-  if (frmeditregistration.ttype = 2) then
+  if (ttype = 2) then
   begin
     Edit1.Text := frmregistration.Q_GROUPS.FieldByName('NAME').AsString;
     MEMO1.Text := frmregistration.Q_GROUPS.FieldByName('INFO').AsString;
@@ -102,12 +103,12 @@ if (cxPageControl1.ActivePage.PageIndex=0) then begin
 
     frmregistration.SelQ.Close;
     frmregistration.SelQ.SQL.Clear;
-    if (frmEditRegistration.ttype = 1) then
+    if (ttype = 1) then
     begin
       frmregistration.SelQ.SQL.Add('select count(1) as nn from CLIENTS_GROUPS where upper(name)=:NAME and ID_CLIENTS_GROUPS <> :id and id_office='+IntToStr(DM.id_office));
       frmregistration.SelQ.ParamByName('ID').Value := 0;
     end;
-    if (frmEditRegistration.ttype = 2) then
+    if (ttype = 2) then
     begin
       frmregistration.SelQ.SQL.Add('select count(1) as nn from CLIENTS_GROUPS where upper(name)=:NAME and ID_CLIENTS_GROUPS <> :id and id_office='+IntToStr(DM.id_office));
       frmregistration.SelQ.ParamByName('ID').Value := ind;
@@ -123,13 +124,13 @@ if (cxPageControl1.ActivePage.PageIndex=0) then begin
     frmregistration.selq2.SQL.Clear;
 
     // SQL запросы для источников рекламы
-    if (frmEditRegistration.ttype = 1) then
+    if (ttype = 1) then
     begin
       frmregistration.SelQ2.SQL.Add('INSERT INTO CLIENTS_GROUPS VALUES(get_office_unique(''CLIENTS_ID_GROUPS''),:NAME,:INFO,CONST_OFFICE, sysdate)');
       //DM.Ora_SQL.ParamByName('ID').Value := 0;
     end;
 
-    if (frmEditRegistration.ttype = 2) then
+    if (ttype = 2) then
     begin
       frmregistration.SelQ2.SQL.Add('UPDATE CLIENTS_GROUPS SET NAME=:NAME, INFO=:INFO, DATE_CHANGE = sysdate WHERE ID_CLIENTS_GROUPS=:ID');
       frmregistration.SelQ2.ParamByName('ID').Value := ind;
@@ -142,7 +143,7 @@ if (cxPageControl1.ActivePage.PageIndex=0) then begin
     try
       frmregistration.SelQ2.Execute;
 
-      if (frmEditRegistration.ttype = 1) then
+      if (ttype = 1) then
       begin
         frmregistration.Q_IDD.SQL.Clear;
 //        DM.Q_IDD.SQL.Add('SELECT CLIENTS_ID_GROUPS.currval from DUAL');
@@ -172,7 +173,7 @@ end;
 
 // город
 if (cxPageControl1.ActivePage.PageIndex=1) then begin
-  if (trim(Edit1.Text) = '') then
+  if (trim(Edit2.Text) = '') then
   begin
      Application.MessageBox('Вы не заполнили обязательные поля','Внимание',MB_ICONWARNING);
      exit;
@@ -188,12 +189,12 @@ if (cxPageControl1.ActivePage.PageIndex=1) then begin
 
     frmregistration.SelQ.SQL.Clear;
     frmregistration.SelQ.SQL.Add('begin BOOKS.save_city(:v_city, :v_kod, :v_id_region, :id_); end;');
-    frmregistration.SelQ.ParamByName('v_city').AsString := trim(Edit1.Text);
-    frmregistration.SelQ.ParamByName('v_kod').AsString  := trim(Edit2.Text);
+    frmregistration.SelQ.ParamByName('v_city').AsString := trim(Edit2.Text);
+    frmregistration.SelQ.ParamByName('v_kod').AsString  := trim(Edit3.Text);
     frmregistration.SelQ.ParamByName('v_id_region').AsInteger := imcbRegion.EditValue;
-    frmregistration.SelQ.ParamByName('id_').AsInteger := Edit1.Tag;
+    frmregistration.SelQ.ParamByName('id_').AsInteger := Edit2.Tag;
     frmregistration.SelQ.Execute;
-    Edit1.Tag := frmregistration.SelQ.ParamByName('id_').AsInteger;
+    Edit2.Tag := frmregistration.SelQ.ParamByName('id_').AsInteger;
 
     ModalResult := mrOk;
 
@@ -211,10 +212,16 @@ end;
 end;
 
 procedure TfrmEditSubReg.FormShow(Sender: TObject);
+ var i:integer;
 begin
+    for i:=0 to cxPageControl1.PageCount-1 do cxPageControl1.Pages[i].TabVisible:=false;
+    cxPageControl1.ActivePageIndex:=frmeditregistration.page;
+
+    if ( cxPageControl1.ActivePageIndex=1) then begin
     FillImgComboCx(frmregistration.Q_REGIONS,imcbRegion,'Выберите...');
     imcbRegion.EditValue := imcbRegion.Tag;
     imcbRegion.Properties.ReadOnly := true;
+    end;
 end;
 
 end.

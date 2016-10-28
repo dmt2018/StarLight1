@@ -24,7 +24,6 @@ object frmEditSubReg: TfrmEditSubReg
     Height = 27
     Align = alBottom
     TabOrder = 0
-    ExplicitWidth = 548
     object Label4: TLabel
       Left = 35
       Top = 5
@@ -61,7 +60,6 @@ object frmEditSubReg: TfrmEditSubReg
     Height = 41
     Align = alBottom
     TabOrder = 1
-    ExplicitWidth = 548
     object cxButton2: TcxButton
       Left = 106
       Top = 6
@@ -181,7 +179,6 @@ object frmEditSubReg: TfrmEditSubReg
     MultiLine = True
     Style = 7
     TabOrder = 2
-    ExplicitWidth = 548
     ClientRectBottom = 265
     ClientRectLeft = 1
     ClientRectRight = 411
@@ -189,7 +186,6 @@ object frmEditSubReg: TfrmEditSubReg
     object tsh_regions: TcxTabSheet
       Caption = #1043#1088#1091#1087#1087#1072
       ImageIndex = 0
-      ExplicitWidth = 546
       object Label3: TLabel
         Left = 12
         Top = 16
@@ -287,7 +283,6 @@ object frmEditSubReg: TfrmEditSubReg
     object tsh_cityes: TcxTabSheet
       Caption = #1043#1086#1088#1086#1076
       ImageIndex = 1
-      ExplicitWidth = 546
       object Label6: TLabel
         Left = 27
         Top = 13
@@ -420,7 +415,6 @@ object frmEditSubReg: TfrmEditSubReg
     object tsh_promo: TcxTabSheet
       Caption = #1055#1072#1089#1089#1087#1086#1088#1090
       ImageIndex = 2
-      ExplicitWidth = 546
       object gbInfoProg: TcxGroupBox
         Left = 15
         Top = 16

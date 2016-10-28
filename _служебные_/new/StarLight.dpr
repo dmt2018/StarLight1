@@ -15,7 +15,6 @@ uses
   URegistration in 'URegistration.pas' {frmRegistration},
   UEditRegistration in 'UEditRegistration.pas' {frmEditRegistration},
   UHotKeys in 'UHotKeys.pas' {frmHotKeys},
-  UPassport in 'UPassport.pas' {frmPassport},
   UTrans in 'UTrans.pas' {frmTrans},
   UEditTrans in 'UEditTrans.pas' {frmEditTrans},
   URefbooks in 'URefbooks.pas' {frmRefbooks},

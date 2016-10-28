@@ -228,7 +228,7 @@ type
     { Private declarations }
   public
     { Public declarations }
-    ttype: integer;
+    ttype, page: integer;
     procedure TZ;
   end;
 
@@ -239,7 +239,7 @@ implementation
 
 {$R *.dfm}
 
-uses URegistration, udm, uPassport;
+uses URegistration, udm, ueditsubreg;
 
 //новая логика
 procedure TfrmEditRegistration.TZ;
@@ -281,7 +281,7 @@ begin
     if flag = 1 then
     begin
       icbCity.PostEditValue;
-      
+
       frmRegistration.Q_GROUPS.Locate('NAME',ComboBox4.Text,[]);
       id_group := frmRegistration.Q_GROUPS.FieldByName('ID_CLIENTS_GROUPS').AsString;
 
@@ -343,10 +343,10 @@ begin
         frmRegistration.selq.ParamByName('P7').Value := Memo6.Text;
         //условие чтоб не попала дата, ибо хз как в  datetimepicker1 засунуть пустоту:
         if speedbutton7.Enabled=true then
-        frmRegistration.selq.ParamByName('P8').Value := frmPassport.edit2.text + '%' + datetostr(frmPassport.datetimepicker1.date) + '%'
-        + frmPassport.combobox8.text + '%' + frmPassport.edit4.text + '%' + frmPassport.edit5.text + '%' + frmPassport.edit6.text else
-        frmRegistration.selq.ParamByName('P8').Value := frmPassport.edit2.text + '%' + '' + '%'
-        + frmPassport.combobox8.text + '%' + frmPassport.edit4.text + '%' + frmPassport.edit5.text + '%' + frmPassport.edit6.text;
+        frmRegistration.selq.ParamByName('P8').Value := frmeditsubreg.edit4.text + '%' + datetostr(frmeditsubreg.datetimepicker1.date) + '%'
+        + frmeditsubreg.combobox8.text + '%' + frmeditsubreg.edit5.text + '%' + frmeditsubreg.edit6.text + '%' + frmeditsubreg.edit7.text else
+        frmRegistration.selq.ParamByName('P8').Value := frmeditsubreg.edit4.text + '%' + '' + '%'
+        + frmeditsubreg.combobox8.text + '%' + frmeditsubreg.edit5.text + '%' + frmeditsubreg.edit6.text + '%' + frmeditsubreg.edit7.text;
         frmRegistration.selq.ParamByName('P9').Value := trim(LabeledEdit10.Text);
         frmRegistration.selq.ParamByName('P10').Value := Memo3.Text;
         frmRegistration.selq.ParamByName('P11').Value := trim(LabeledEdit11.Text);
@@ -431,12 +431,12 @@ begin
 
     Memo1.Lines.Clear;
 
-    frmPassport.edit2.Clear;
-    frmPassport.DateTimePicker1.Date:=now;
-    frmPassport.combobox8.Clear;
-    frmPassport.edit4.Clear;
-    frmPassport.edit5.Clear;
-    frmPassport.edit6.Clear;
+    frmeditsubreg.edit4.Clear;
+    frmeditsubreg.DateTimePicker1.Date:=now;
+    frmeditsubreg.combobox8.Clear;
+    frmeditsubreg.edit5.Clear;
+    frmeditsubreg.edit6.Clear;
+    frmeditsubreg.edit7.Clear;
 
     Memo3.Lines.Clear;
     edit3.Clear;
@@ -491,18 +491,18 @@ begin
     Memo1.Text := frmRegistration.Q_CLIENT_VIEW.FieldByName('BANK').AsString;
   if pos('%',frmRegistration.Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString) <> 0 then begin
     ss := frmRegistration.Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString;
-    frmPassport.edit2.Text := copy(ss,1,pos('%',ss)-1);
+    frmeditsubreg.edit4.Text := copy(ss,1,pos('%',ss)-1);
     delete(ss,1,pos('%',ss));
     if copy(ss,1,pos('%',ss)-1)<>'' then
-    frmPassport.DateTimePicker1.Date := strtodate(copy(ss,1,pos('%',ss)-1));
+    frmeditsubreg.DateTimePicker1.Date := strtodate(copy(ss,1,pos('%',ss)-1));
     delete(ss,1,pos('%',ss));
-    frmPassport.combobox8.Text := copy(ss,1,pos('%',ss)-1);
+    frmeditsubreg.combobox8.Text := copy(ss,1,pos('%',ss)-1);
     delete(ss,1,pos('%',ss));
-    frmPassport.edit4.Text := copy(ss,1,pos('%',ss)-1);
+    frmeditsubreg.edit5.Text := copy(ss,1,pos('%',ss)-1);
     delete(ss,1,pos('%',ss));
-    frmPassport.edit5.Text := copy(ss,1,pos('%',ss)-1);
+    frmeditsubreg.edit6.Text := copy(ss,1,pos('%',ss)-1);
     delete(ss,1,pos('%',ss));
-    frmPassport.edit6.Text := ss;
+    frmeditsubreg.edit7.Text := ss;
   end;
 
     Memo3.Text := frmRegistration.Q_CLIENT_VIEW.FieldByName('CONT_PHONE').AsString;
@@ -560,27 +560,28 @@ begin
 
 end;
 
-// НЕ РЕАЛИЗОВАНА ФОРМА
+// город
 procedure TfrmEditRegistration.btnAddCityClick(Sender: TObject);
 var region: integer;
 begin
- { frmCityEditor := TfrmCityEditor.Create(Application);
+page:=1;
   try
     frmRegistration.Q_REGIONS.Locate('NAME',ComboBox1.Text,[]);
     region := frmRegistration.Q_REGIONS.FieldByName('ID_REGIONS').AsInteger;
-
-    frmCityEditor.Edit1.Text               := '';
-    frmCityEditor.Edit1.Tag                := 0;
-    frmCityEditor.Memo1.Lines.Clear;
-    frmCityEditor.imcbRegion.Tag           := region;
-    if frmCityEditor.ShowModal = mrOk then
+    frmeditsubreg.Caption  := 'Редактор :: город';
+    frmEditSubReg.Edit2.Text               := '';
+    frmEditSubReg.Edit2.Tag                := 0;
+    frmEditSubReg.Memo2.Lines.Clear;
+    frmEditSubReg.imcbRegion.Tag           := region;
+    if frmEditSubReg.ShowModal = mrOk then
     begin
       cdsCity.Refresh;
-      cdsCity.Locate('city', frmCityEditor.Edit1.Text, []);
+      cdsCity.Locate('city', frmEditSubReg.Edit2.Text, []);
     end;
   finally
-    frmCityEditor.Free;
-  end;    }
+  end;
+
+ // frmeditsubreg.showmodal;
 end;
 
 // Клонирование данных о клиенте (НЕ РЕАЛИЗОВАНА ФОРМА)
@@ -806,64 +807,24 @@ begin
    ShowMessage('Для навигации по полям ввода вниз импользуйте "TAB"'+#10+#13+'Для навигации по полям ввода вверх импользуйте "SHIFT+TAB"'+#10+#13+'Для перехода на новую строку в полях типа Адрес используйте "SHIFT+ENTER"'+#10+#13+'Для записи данных используйте "ENTER"'+#10+#13+'Для выхода из формы используйте "ESC"');
 end;
 
-// (НЕ РЕАЛИЗОВАНА ФОРМА) Вызываем форму для добавления группы
+//Вызываем форму для добавления группы
 procedure TfrmEditRegistration.SpeedButton6Click(Sender: TObject);
 begin
-// Вызываем форму для добавления группы
- { frmEditSubReg.Edit1.Text := '';
+page:=0; // 0 - это вкладка "группа"
+  frmEditSubReg.Edit1.Text := '';
   frmEditSubReg.Memo1.Lines.Clear;
-  frmEditSubReg.ttype := 1;
-  frmEditSubReg.showmodal;       }
+  frmEditSubReg.ttype := 1; //1- добавление
+  frmeditsubreg.Caption  := 'Редактор :: группа';
+  frmeditsubreg.showmodal;
 end;
 
 
 procedure TfrmEditRegistration.SpeedButton7Click(Sender: TObject);
   var ss:string;
 begin
-      {
-  IF frmRegistration.add_or_edit=1 THEN BEGIN
-  if pos('%',Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString) <> 0 then begin
-           ss := Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString;
-           frmPassport.edit2.Text := copy(ss,1,pos('%',ss)-1);
-           delete(ss,1,pos('%',ss));
-           frmPassport.combobox5.Text := copy(ss,1,pos('%',ss)-1);
-           delete(ss,1,pos('%',ss));
-           frmPassport.combobox6.Text := copy(ss,1,pos('%',ss)-1);
-           delete(ss,1,pos('%',ss));
-           frmPassport.combobox7.Text := copy(ss,1,pos('%',ss)-1);
-           delete(ss,1,pos('%',ss));
-           frmPassport.combobox8.Text := copy(ss,1,pos('%',ss)-1);
-           delete(ss,1,pos('%',ss));
-           frmPassport.edit4.Text := copy(ss,1,pos('%',ss)-1);
-           delete(ss,1,pos('%',ss));
-           frmPassport.edit5.Text := copy(ss,1,pos('%',ss)-1);
-           delete(ss,1,pos('%',ss));
-           frmPassport.edit6.Text := ss;
-        end else
-        begin
-           frmPassport.edit2.Clear;
-           frmPassport.combobox5.Clear;
-           frmPassport.combobox6.Clear;
-           frmPassport.combobox7.Clear;
-           frmPassport.combobox8.Clear;
-           frmPassport.edit4.Clear;
-           frmPassport.edit5.Clear;
-           frmPassport.edit6.Clear;
-        end;
-  END ELSE
-  IF frmRegistration.add_or_edit=0 THEN BEGIN
-           frmPassport.edit2.Clear;
-           frmPassport.combobox5.Clear;
-           frmPassport.combobox6.Clear;
-           frmPassport.combobox7.Clear;
-           frmPassport.combobox8.Clear;
-           frmPassport.edit4.Clear;
-           frmPassport.edit5.Clear;
-           frmPassport.edit6.Clear;
-  END;                   }
-
-
-  frmPassport.showmodal;
+  page:=2; // 2 - это вкладка "паспорт"
+  frmeditsubreg.Caption  := 'Редактор :: паспорт';
+  frmeditsubreg.showmodal;
 end;
 
 end.

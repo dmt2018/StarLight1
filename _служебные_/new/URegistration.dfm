@@ -271,7 +271,7 @@ object frmRegistration: TfrmRegistration
     Width = 1078
     Height = 546
     Cursor = crHandPoint
-    ActivePage = TabSheet1
+    ActivePage = TabSheet2
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack
@@ -814,8 +814,8 @@ object frmRegistration: TfrmRegistration
             TabOrder = 2
           end
           object BitBtn7: TBitBtn
-            Left = 8
-            Top = 129
+            Left = 3
+            Top = 133
             Width = 121
             Height = 27
             Cursor = crHandPoint
@@ -1453,6 +1453,7 @@ object frmRegistration: TfrmRegistration
             9A9494FBFDFD48484848484848489A98941229FD484848484848}
           ParentShowHint = False
           ShowHint = True
+          OnClick = SpeedButton4Click
         end
         object SpeedButton5: TSpeedButton
           Left = 481
@@ -1506,6 +1507,7 @@ object frmRegistration: TfrmRegistration
             E0BEA4ACB0AFB6C5E0E0E0E0E0E0E0E0E0E0C7C6BFBFE0E0E0E0}
           ParentShowHint = False
           ShowHint = True
+          OnClick = SpeedButton5Click
         end
         object BitBtn3: TBitBtn
           Left = 460
@@ -1611,6 +1613,7 @@ object frmRegistration: TfrmRegistration
           TitleFont.Name = 'Arial'
           TitleFont.Pitch = fpFixed
           TitleFont.Style = [fsBold]
+          OnCellClick = DBGrid2CellClick
           Columns = <
             item
               Alignment = taCenter
@@ -1684,9 +1687,10 @@ object frmRegistration: TfrmRegistration
           LookAndFeel.Kind = lfOffice11
           LookAndFeel.NativeStyle = False
           object cxGridDBTableView2: TcxGridDBTableView
+            OnDblClick = cxGridDBTableView2DblClick
             NavigatorButtons.ConfirmDelete = False
             FilterBox.Position = fpTop
-            DataController.DataSource = Q_CLIENTS_DS
+            DataController.DataSource = Q_G_CL_DS
             DataController.Filter.Options = [fcoCaseInsensitive]
             DataController.Filter.AutoDataSetFilter = True
             DataController.Options = [dcoAnsiSort, dcoAssignGroupingValues, dcoAssignMasterDetailKeys, dcoSaveExpanding]
@@ -3556,7 +3560,7 @@ object frmRegistration: TfrmRegistration
     Left = 820
     Top = 125
     Bitmap = {
-      494C010104000900840110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010104000900A40110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -4533,7 +4537,7 @@ object frmRegistration: TfrmRegistration
     Left = 240
     Top = 328
     Bitmap = {
-      494C010127002C00740120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010127002C00940120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004001000001002000000000000080
       0200000000000000000000000000000000000000000000000000000000000000
       000000000000000000000101011A0B0B0B743B3D3DB4777777D5838383DA5152
@@ -10430,7 +10434,7 @@ object frmRegistration: TfrmRegistration
       
         'SELECT C.ID_CLIENTS, C.FIO, C.NICK, G.NAME AS GROUP_NAME, T.NAME' +
         ' AS TTYPE_NAME FROM CLIENTS_GROUPS G, BOOKS_CLIENT_TYPES T, CLIE' +
-        'NTS_VIEW C '
+        'NTS_VIEW2 C '
       
         'WHERE C.ID_CLIENTS_GROUPS = G.ID_CLIENTS_GROUPS AND C.TTYPE = T.' +
         'ID_CLIENT_TYPES AND C.ID_CLIENTS_GROUPS=:ID_CLIENTS_GROUPS ORDER' +
@@ -10446,7 +10450,6 @@ object frmRegistration: TfrmRegistration
       end>
     object Q_G_CLID_CLIENTS: TIntegerField
       FieldName = 'ID_CLIENTS'
-      Required = True
     end
     object Q_G_CLFIO: TStringField
       FieldName = 'FIO'
@@ -10462,7 +10465,6 @@ object frmRegistration: TfrmRegistration
     end
     object Q_G_CLTTYPE_NAME: TStringField
       FieldName = 'TTYPE_NAME'
-      Required = True
       Size = 50
     end
   end

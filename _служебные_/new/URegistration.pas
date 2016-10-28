@@ -335,11 +335,6 @@ type
     Q_REGIONS: TOraQuery;
     Q_REGIONS_DS: TOraDataSource;
     Q_G_CL: TOraQuery;
-    Q_G_CLID_CLIENTS: TIntegerField;
-    Q_G_CLFIO: TStringField;
-    Q_G_CLNICK: TStringField;
-    Q_G_CLGROUP_NAME: TStringField;
-    Q_G_CLTTYPE_NAME: TStringField;
     Q_G_CL_DS: TOraDataSource;
     Q_GROUPS: TOraQuery;
     Q_GROUPS_DS: TOraDataSource;
@@ -558,6 +553,11 @@ type
     Q_CLIENT_VIEWCITY: TStringField;
     btnHotKeys: TdxBarButton;
     selq2: TOraQuery;
+    Q_G_CLID_CLIENTS: TIntegerField;
+    Q_G_CLFIO: TStringField;
+    Q_G_CLNICK: TStringField;
+    Q_G_CLGROUP_NAME: TStringField;
+    Q_G_CLTTYPE_NAME: TStringField;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure RefreshExecute(Sender: TObject);
@@ -588,6 +588,11 @@ type
     procedure bbCopyToOldClick(Sender: TObject);
     procedure bbCopyClientClick(Sender: TObject);
     procedure bbSyncClientsClick(Sender: TObject);
+    procedure cxGridDBTableView2DblClick(Sender: TObject);
+    procedure SpeedButton4Click(Sender: TObject);
+    procedure SpeedButton5Click(Sender: TObject);
+    procedure DBGrid2CellClick(Column: TColumnEh);
+
   private
     { Private declarations }
     p_read, p_edit, p_delete, p_print: boolean;
@@ -613,7 +618,7 @@ implementation
 
 {$R *.dfm}
 
-uses umain, UDM, uEditRegistration, upassport, uHotKeys, ueditsubreg;
+uses umain, UDM, uEditRegistration, uHotKeys, ueditsubreg;
 
 
 procedure TfrmRegistration.RefreshAll;
@@ -652,6 +657,7 @@ begin
     Q_G_CL.SQL.Add('FROM CLIENTS_GROUPS G, BOOKS_CLIENT_TYPES T, CLIENTS C ');
     Q_G_CL.SQL.Add('where C.ID_CLIENTS_GROUPS = G.ID_CLIENTS_GROUPS AND C.TTYPE = T.ID_CLIENT_TYPES AND C.ID_CLIENTS_GROUPS=:ID_CLIENTS_GROUPS ');
     Q_G_CL.SQL.Add('ORDER BY C.NICK');
+    //Q_G_CL.ParamByName('ID_CLIENTS_GROUPS').AsInteger:=Q_GROUPS.FieldByName('ID_CLIENTS_GROUPS').AsInteger;
     Q_G_CL.Open;
 
     // Открытие групп
@@ -818,7 +824,7 @@ end;
 procedure TfrmRegistration.Q_GROUPSAfterOpen(DataSet: TDataSet);
 begin
   Q_G_CL.Close;
-  //DBGrid2.DataSource.DataSet.DisableControls;
+  DBGrid2.DataSource.DataSet.DisableControls;
   Q_GROUPS.last;
   Q_GROUPS.First;
   frmEditRegistration.ComboBox4.Items.Clear;
@@ -829,7 +835,7 @@ begin
     Q_GROUPS.Next;
   end;
   Q_GROUPS.First;
-  //DBGrid2.DataSource.DataSet.EnableControls;
+  DBGrid2.DataSource.DataSet.EnableControls;
   Q_G_CL.Open;
 end;
 
@@ -877,7 +883,7 @@ end;
 //обновить
 procedure TfrmRegistration.RefreshExecute(Sender: TObject);
 begin
-{  Q_CLIENTS.Refresh;
+ { Q_CLIENTS.Refresh;
   Q_GROUPS.Refresh;
   Q_G_CL.Refresh;
   Q_EMPL.Refresh;
@@ -887,11 +893,40 @@ begin
   Q_TYPES.Refresh;
   Q_REGIONS.Refresh;
   Q_TITLES.Refresh;
-  Q_DEPART.Refresh;     }
+  Q_DEPART.Refresh; }
   refreshall;
   if Q_SEARCH.Active = true then Q_SEARCH.Refresh;
 end;
 
+
+//поиск клиента
+procedure TfrmRegistration.SpeedButton4Click(Sender: TObject);
+var sql: string;
+begin
+  Q_GROUPS.Close;
+  Q_GROUPS.SQL.Clear;
+  sql := 'SELECT a.*, o.BRIEF FROM CLIENTS_GROUPS a, offices o where (a.ID_OFFICE='+IntToStr(dm.id_office)+' or 0='+IntToStr(dm.id_office)+') and a.id_office = o.id_office and a.ID_CLIENTS_GROUPS in (select ID_CLIENTS_GROUPS from clients where (ID_OFFICE='+IntToStr(dm.id_office)+' or '+IntToStr(dm.id_office)+'=0) ';
+  if ( Trim(Edit25.Text) <> '' ) then sql := sql + ' and UPPER(NICK) LIKE UPPER(''%'+Edit25.Text+'%'')';
+  if ( Trim(Edit26.Text) <> '' ) then sql := sql + ' and UPPER(FIO) LIKE UPPER(''%'+Edit26.Text+'%'')';
+  sql := sql + ' ) ORDER BY a.NAME';
+  Q_GROUPS.SQL.Add(sql);
+  Q_GROUPS.Open;
+  if ( Trim(Edit25.Text) <> '' ) then Q_G_CL.Locate('NICK',Edit25.Text,[loCaseInsensitive, loPartialKey]);
+  if ( Trim(Edit26.Text) <> '' ) then Q_G_CL.Locate('FIO',Edit26.Text,[loCaseInsensitive, loPartialKey]);
+end;
+
+//  Показ всех групп без фильтров
+procedure TfrmRegistration.SpeedButton5Click(Sender: TObject);
+var sql: string;
+begin
+  Q_GROUPS.Close;
+  Q_GROUPS.SQL.Clear;
+  sql := 'SELECT a.*, o.BRIEF FROM CLIENTS_GROUPS a, offices o where (a.ID_OFFICE='+IntToStr(dm.id_office)+' or '+IntToStr(dm.id_office)+'=0) and a.id_office = o.id_office ORDER BY a.NAME';
+  Q_GROUPS.SQL.Add(sql);
+  Q_GROUPS.Open;
+  Edit25.Text := '';
+  Edit26.Text := '';
+end;
 
 // Ctrl+Enter
 procedure TfrmRegistration.aCtrlEnterExecute(Sender: TObject);
@@ -933,12 +968,12 @@ try
 
     frmEditRegistration.Memo1.Lines.Clear;
     //frmEditRegistration.Memo2.Lines.Clear;
-    frmpassport.edit2.Clear;
-    //frmpassport.DateTimePicker1.Date:=now;
-    frmpassport.combobox8.Clear;
-    frmpassport.edit4.Clear;
-    frmpassport.edit5.Clear;
-    frmpassport.edit6.Clear;
+    frmeditsubreg.edit4.Clear;
+    //frmeditsubreg.DateTimePicker1.Date:=now;
+    frmeditsubreg.combobox8.Clear;
+    frmeditsubreg.edit5.Clear;
+    frmeditsubreg.edit6.Clear;
+    frmeditsubreg.edit7.Clear;
 
     frmEditRegistration.Memo3.Lines.Clear;
     //frmEditRegistration.Memo4.Lines.Clear;
@@ -987,17 +1022,16 @@ try
 
 
   end;
- {
+
   // Добавление группы
   if (PageControl1.TabIndex = 1) then
   begin
-    frmEditRegistration.Edit1.Text := '';
-    frmEditRegistration.Memo1.Lines.Clear;
-
-    frmEditRegistration.ttype := 1;
-    frmEditRegistration.showmodal;
+    frmEditSubReg.Edit1.Text := '';
+    frmEditSubReg.Memo1.Lines.Clear;
+    frmEditSubReg.ttype := 1;
+    frmEditSubReg.showmodal;
   end;
-           }
+
 
   finally
   //frmEditRegistration.Free;
@@ -1059,26 +1093,26 @@ begin
         frmEditRegistration.Memo5.Text := Q_CLIENT_VIEW.FieldByName('U_ADDRESS').AsString;  }
         if pos('%',Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString) <> 0 then begin
            ss := Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString;
-           frmPassport.edit2.Text := copy(ss,1,pos('%',ss)-1);
+           frmeditsubreg.edit4.Text := copy(ss,1,pos('%',ss)-1);
            delete(ss,1,pos('%',ss));
            if copy(ss,1,pos('%',ss)-1)<>'' then
-           frmPassport.DateTimePicker1.date:= strtodate(copy(ss,1,pos('%',ss)-1));
+           frmeditsubreg.DateTimePicker1.date:= strtodate(copy(ss,1,pos('%',ss)-1));
            delete(ss,1,pos('%',ss));
-           frmPassport.combobox8.Text := copy(ss,1,pos('%',ss)-1);
+           frmeditsubreg.combobox8.Text := copy(ss,1,pos('%',ss)-1);
            delete(ss,1,pos('%',ss));
-           frmPassport.edit4.Text := copy(ss,1,pos('%',ss)-1);
+           frmeditsubreg.edit5.Text := copy(ss,1,pos('%',ss)-1);
            delete(ss,1,pos('%',ss));
-           frmPassport.edit5.Text := copy(ss,1,pos('%',ss)-1);
+           frmeditsubreg.edit6.Text := copy(ss,1,pos('%',ss)-1);
            delete(ss,1,pos('%',ss));
-           frmPassport.edit6.Text := ss;
+           frmeditsubreg.edit7.Text := ss;
         end else
         begin
-           frmPassport.edit2.Clear;
-           frmPassport.DateTimePicker1.date:=now;
-           frmPassport.combobox8.Clear;
-           frmPassport.edit4.Clear;
-           frmPassport.edit5.Clear;
-           frmPassport.edit6.Clear;
+           frmeditsubreg.edit4.Clear;
+           frmeditsubreg.DateTimePicker1.date:=now;
+           frmeditsubreg.combobox8.Clear;
+           frmeditsubreg.edit5.Clear;
+           frmeditsubreg.edit6.Clear;
+           frmeditsubreg.edit7.Clear;
         end;
         if pos('%',Q_CLIENT_VIEW.FieldByName('ADDRESS').AsString) <> 0 then begin
            ss := Q_CLIENT_VIEW.FieldByName('ADDRESS').AsString;
@@ -1182,26 +1216,26 @@ begin
         frmEditRegistration.Memo5.Text := Q_CLIENT_VIEW.FieldByName('U_ADDRESS').AsString;   }
         if pos('%',Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString) <> 0 then begin
            ss := Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString;
-           frmPassport.edit2.Text := copy(ss,1,pos('%',ss)-1);
+           frmeditsubreg.edit4.Text := copy(ss,1,pos('%',ss)-1);
            delete(ss,1,pos('%',ss));
            if copy(ss,1,pos('%',ss)-1)<>'' then
-           frmPassport.DateTimePicker1.date:= strtodate(copy(ss,1,pos('%',ss)-1));
+           frmeditsubreg.DateTimePicker1.date:= strtodate(copy(ss,1,pos('%',ss)-1));
            delete(ss,1,pos('%',ss));
-           frmPassport.combobox8.Text := copy(ss,1,pos('%',ss)-1);
+           frmeditsubreg.combobox8.Text := copy(ss,1,pos('%',ss)-1);
            delete(ss,1,pos('%',ss));
-           frmPassport.edit4.Text := copy(ss,1,pos('%',ss)-1);
+           frmeditsubreg.edit5.Text := copy(ss,1,pos('%',ss)-1);
            delete(ss,1,pos('%',ss));
-           frmPassport.edit5.Text := copy(ss,1,pos('%',ss)-1);
+           frmeditsubreg.edit6.Text := copy(ss,1,pos('%',ss)-1);
            delete(ss,1,pos('%',ss));
-           frmPassport.edit6.Text := ss;
+           frmeditsubreg.edit7.Text := ss;
         end else
         begin
-           frmPassport.edit2.Clear;
-           frmPassport.DateTimePicker1.date:=now;
-           frmPassport.combobox8.Clear;
-           frmPassport.edit4.Clear;
-           frmPassport.edit5.Clear;
-           frmPassport.edit6.Clear;
+           frmeditsubreg.edit4.Clear;
+           frmeditsubreg.DateTimePicker1.date:=now;
+           frmeditsubreg.combobox8.Clear;
+           frmeditsubreg.edit5.Clear;
+           frmeditsubreg.edit6.Clear;
+           frmeditsubreg.edit7.Clear;
         end;
         if pos('%',Q_CLIENT_VIEW.FieldByName('ADDRESS').AsString) <> 0 then begin
            ss := Q_CLIENT_VIEW.FieldByName('ADDRESS').AsString;
@@ -1780,6 +1814,56 @@ end;
 
 
 
+procedure TfrmRegistration.cxGridDBTableView2DblClick(Sender: TObject);
+var str: string;
+begin
+  if (Q_G_CL.RecordCount > 0) then
+  begin
+      Q_CLIENT_VIEW.Close;
+      Q_CLIENT_VIEW.SQL.Clear;
+      Q_CLIENT_VIEW.SQL.Add('SELECT C.*, case when c.id_office > 1 then o.OFFICE_NAME else case c.reg_type when 0 then ''Старлайт'' when 1 then ''Старлайт Кэш & Кэрри'' end end as reg_type_name, G.NAME AS GROUP_NAME, T.NAME AS TTYPE_NAME, R.NAME AS REGION_NAME, A.NAME AS ADVERT, s.city');
+      Q_CLIENT_VIEW.SQL.Add(' FROM CLIENTS_GROUPS G, BOOKS_CLIENT_TYPES T, BOOKS_ADVERTISMENTS A, CLIENTS C, BOOKS_REGIONS R, offices o, books_cities s');
+      Q_CLIENT_VIEW.SQL.Add(' WHERE C.ID_CLIENTS_GROUPS = G.ID_CLIENTS_GROUPS(+) AND C.TTYPE = T.ID_CLIENT_TYPES(+) AND C.ADVERTISMENT = A.ID_ADVERTISMENTS(+) AND C.REGION = R.ID_REGIONS(+) AND ID_CLIENTS=:ID and c.id_office = o.ID_OFFICE and c.id_city = s.id_city(+)');
+      Q_CLIENT_VIEW.ParamByName('ID').Value := Q_G_CL.FieldByName('ID_CLIENTS').AsInteger;
+      Q_CLIENT_VIEW.Open;
+
+     { u_info.Q_ADDRESS.Close;
+      u_info.Q_ADDRESS.ParamByName('ID_CLIENTS').AsInteger := DM.Q_G_CL.FieldByName('ID_CLIENTS').AsInteger;
+      u_info.Q_ADDRESS.Open;
+                            }
+      str := '';
+      if (Q_CLIENT_VIEW.FieldByName('PLANTS').AsInteger = 1) then str := str + 'Горшечные растения  ';
+      if (Q_CLIENT_VIEW.FieldByName('FLOWERS').AsInteger = 1) then str := str + 'Срезанные растения';
+      if str = '' then str := 'Нет';
+     { u_info.Label4.Caption := str;
+      u_info.chbRuleSite.Checked  := (Q_CLIENT_VIEW.FieldByName('MARK').AsString[1] = '1');
+      u_info.chbRulePics.Checked  := (Q_CLIENT_VIEW.FieldByName('MARK').AsString[3] = '1');
+      u_info.chbRulePrice.Checked := (Q_CLIENT_VIEW.FieldByName('MARK').AsString[5] = '1');
+      u_info.chbRuleOrder.Checked := (Q_CLIENT_VIEW.FieldByName('MARK').AsString[7] = '1');
+               }
+     { if (Q_CLIENT_VIEW.FieldByName('BLOCK1').AsInteger = 1) then begin u_info.Label10.Caption := 'Да'; u_info.Label10.Font.Color := clRed; end else begin u_info.Label10.Caption := 'Нет'; u_info.Label10.Font.Color := clBlack; end;
+      if (Q_CLIENT_VIEW.FieldByName('BLOCK2').AsInteger = 1) then begin u_info.Label12.Caption := 'Да'; u_info.Label12.Font.Color := clRed; end else begin u_info.Label12.Caption := 'Нет'; u_info.Label12.Font.Color := clBlack; end;
+      u_info.ShowModal;
+      u_info.Q_ADDRESS.Close;  }
+  end
+  else ShowMessage('Нет данных для просмотра!');
+end;
+
+
+procedure TfrmRegistration.DBGrid2CellClick(Column: TColumnEh);
+begin
+  // Открытие клиентов по группам
+    Q_G_CL.SQL.Clear;
+    Q_G_CL.SQL.Add('SELECT C.ID_CLIENTS, C.FIO, C.NICK, G.NAME AS GROUP_NAME, T.NAME AS TTYPE_NAME ');
+    Q_G_CL.SQL.Add('FROM CLIENTS_GROUPS G, BOOKS_CLIENT_TYPES T, CLIENTS C ');
+    Q_G_CL.SQL.Add('where C.ID_CLIENTS_GROUPS = G.ID_CLIENTS_GROUPS AND C.TTYPE = T.ID_CLIENT_TYPES AND C.ID_CLIENTS_GROUPS=:ID_CLIENTS_GROUPS ');
+    Q_G_CL.SQL.Add('ORDER BY C.NICK');
+    Q_G_CL.ParamByName('ID_CLIENTS_GROUPS').AsInteger:=Q_GROUPS.FieldByName('ID_CLIENTS_GROUPS').AsInteger;
+    Q_G_CL.Open;     
+end;
+
+
+
 // удалить запись
 procedure TfrmRegistration.DeleteNExecute(Sender: TObject);
  var idd:integer;
@@ -1830,15 +1914,15 @@ begin
     else ShowMessage('Нет данных для удаления!');
   end;
 
-{  // Удаление группы
+  // Удаление группы
   if (PageControl1.TabIndex = 1) then
   begin
-    if (DM.Q_GROUPS.FieldByName('ID_CLIENTS_GROUPS').AsInteger > 0) then
+    if (Q_GROUPS.FieldByName('ID_CLIENTS_GROUPS').AsInteger > 0) then
     begin
-    if ((DM.Q_GROUPS.FieldByName('ID_CLIENTS_GROUPS').AsInteger = 1) or (DM.Q_GROUPS.FieldByName('ID_CLIENTS_GROUPS').AsInteger = 2)) then ShowMessage('Данную группу нельзя удалить!')
+    if ((Q_GROUPS.FieldByName('ID_CLIENTS_GROUPS').AsInteger = 1) or (Q_GROUPS.FieldByName('ID_CLIENTS_GROUPS').AsInteger = 2)) then ShowMessage('Данную группу нельзя удалить!')
     else
     begin
-      if (DM.id_office <> DM.Q_GROUPS.FieldByName('ID_OFFICE').AsInteger) then
+      if (id_office <> Q_GROUPS.FieldByName('ID_OFFICE').AsInteger) then
       begin
         MessageBox(Handle,'Данная запись не принадлежит главному офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
         exit;
@@ -1846,26 +1930,26 @@ begin
 
       if MessageDlg('Вы действительно хотите удалить группу?',mtConfirmation,[mbYes, mbNo],0) = mrYes then
       begin
-        if (DM.Q_G_CL.FieldByName('ID_CLIENTS').AsInteger > 0) then ShowMessage('Удаление невозможно!'+#10#13+'В стираемой группе есть клиенты!'+#10#13+'Можно удалять только пустую группу!')
+        if (Q_G_CL.FieldByName('ID_CLIENTS').AsInteger > 0) then ShowMessage('Удаление невозможно!'+#10#13+'В стираемой группе есть клиенты!'+#10#13+'Можно удалять только пустую группу!')
         else
         begin
-          DM.Ora_SQL.SQL.Clear;
+          selq.SQL.Clear;
 
-          DM.Ora_SQL.SQL.Add('DELETE FROM CLIENTS_GROUPS WHERE ID_CLIENTS_GROUPS = :ID');
-          DM.Ora_SQL.ParamByName('ID').Value := DM.Q_GROUPS.FieldByName('ID_CLIENTS_GROUPS').AsInteger;
+          selq.SQL.Add('DELETE FROM CLIENTS_GROUPS WHERE ID_CLIENTS_GROUPS = :ID');
+          selq.ParamByName('ID').Value := Q_GROUPS.FieldByName('ID_CLIENTS_GROUPS').AsInteger;
 
-          DM.Q_GROUPS.Next;
-          idd := DM.Q_GROUPSID_CLIENTS_GROUPS.AsInteger;
+          Q_GROUPS.Next;
+          idd := Q_GROUPSID_CLIENTS_GROUPS.AsInteger;
 
           // Пытаемся выполнить SQL запрос на удаление
           try
-            DM.Ora_SQL.Execute;
-            DM.OraSession1.Commit;
+            selq.Execute;
+            DM.OraSession.Commit;
 
             // Перепрыгиваем на следующую, после удаления запись
-            DM.Q_GROUPS.Refresh;
-            DM.Q_G_CL.Refresh;
-            DM.Q_GROUPS.Locate('ID_CLIENTS_GROUPS',idd,[]);
+            Q_GROUPS.Refresh;
+            Q_G_CL.Refresh;
+            Q_GROUPS.Locate('ID_CLIENTS_GROUPS',idd,[]);
 
             //ShowMessage('Удаление прошло успешно.');
           except
@@ -1881,7 +1965,6 @@ begin
     end
     else ShowMessage('Нет данных для удаления!');
   end;
- }
 end;
 
 // изменить
@@ -1960,26 +2043,26 @@ begin
         //frmEditRegistration.Memo2.Text := Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString;
         if pos('%',Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString) <> 0 then begin
            ss := Q_CLIENT_VIEW.FieldByName('PASSPORT').AsString;
-           frmPassport.edit2.Text := copy(ss,1,pos('%',ss)-1);
+           frmeditsubreg.edit4.Text := copy(ss,1,pos('%',ss)-1);
            delete(ss,1,pos('%',ss));
            if copy(ss,1,pos('%',ss)-1)<>'' then
-           frmPassport.DateTimePicker1.date:= strtodate(copy(ss,1,pos('%',ss)-1));
+           frmeditsubreg.DateTimePicker1.date:= strtodate(copy(ss,1,pos('%',ss)-1));
            delete(ss,1,pos('%',ss));
-           frmPassport.combobox8.Text := copy(ss,1,pos('%',ss)-1);
+           frmeditsubreg.combobox8.Text := copy(ss,1,pos('%',ss)-1);
            delete(ss,1,pos('%',ss));
-           frmPassport.edit4.Text := copy(ss,1,pos('%',ss)-1);
+           frmeditsubreg.edit5.Text := copy(ss,1,pos('%',ss)-1);
            delete(ss,1,pos('%',ss));
-           frmPassport.edit5.Text := copy(ss,1,pos('%',ss)-1);
+           frmeditsubreg.edit6.Text := copy(ss,1,pos('%',ss)-1);
            delete(ss,1,pos('%',ss));
-           frmPassport.edit6.Text := ss;
+           frmeditsubreg.edit7.Text := ss;
         end else
         begin
-           frmPassport.edit2.Clear;
-           frmPassport.DateTimePicker1.date:=now;
-           frmPassport.combobox8.Clear;
-           frmPassport.edit4.Clear;
-           frmPassport.edit5.Clear;
-           frmPassport.edit6.Clear;
+           frmeditsubreg.edit4.Clear;
+           frmeditsubreg.DateTimePicker1.date:=now;
+           frmeditsubreg.combobox8.Clear;
+           frmeditsubreg.edit5.Clear;
+           frmeditsubreg.edit6.Clear;
+           frmeditsubreg.edit7.Clear;
         end;
 
         frmEditRegistration.Memo3.Text := Q_CLIENT_VIEW.FieldByName('CONT_PHONE').AsString;
@@ -2059,25 +2142,25 @@ begin
   end;
 
   // Редактирование группы
- { if (PageControl1.TabIndex = 1) then
+  if (PageControl1.TabIndex = 1) then
   begin
-    if (DM.id_office <> DM.Q_GROUPS.FieldByName('ID_OFFICE').AsInteger) then
+    if (id_office <> Q_GROUPS.FieldByName('ID_OFFICE').AsInteger) then
     begin
       MessageBox(Handle,'Данная запись не принадлежит главному офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
       Exit;
     end;
 
-    if (DM.Q_GROUPS.FieldByName('ID_CLIENTS_GROUPS').AsInteger > 0) then
+    if (Q_GROUPS.FieldByName('ID_CLIENTS_GROUPS').AsInteger > 0) then
     begin
-      editor.Edit1.Text := DM.Q_GROUPS.FieldByName('NAME').AsString;
-      editor.MEMO1.Text := DM.Q_GROUPS.FieldByName('INFO').AsString;
+      frmEditSubReg.Edit1.Text := Q_GROUPS.FieldByName('NAME').AsString;
+      frmEditSubReg.MEMO1.Text := Q_GROUPS.FieldByName('INFO').AsString;
 
-      editor.ttype := 2;
-      editor.showmodal;
+      frmEditSubReg.ttype := 2; //2- редакт
+      frmEditSubReg.showmodal;
     end
     else ShowMessage('Нет данных для редактирования!');
   end;
-}
+
  finally
   //frmEditRegistration.Free;
  end;
@@ -2102,7 +2185,6 @@ procedure TfrmRegistration.FormCreate(Sender: TObject);
   var recUserRules : TUserRules;
 begin
   Application.CreateForm(TfrmEditRegistration, frmEditRegistration);
-  Application.CreateForm(Tfrmpassport, frmpassport);
   Application.CreateForm(Tfrmeditsubreg, frmeditsubreg);
   cxgrid1.Font.Size := intDefFont;
 
