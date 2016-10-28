@@ -2208,7 +2208,7 @@ object frmReader: TfrmReader
     Left = 832
     Top = 216
     Bitmap = {
-      494C010127002C00500120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010127002C00580120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004001000001002000000000000080
       0200000000000000000000000000000000000000000000000000000000000000
       000000000000000000000101011A0B0B0B743B3D3DB4777777D5838383DA5152
@@ -7643,8 +7643,8 @@ object frmReader: TfrmReader
       '       a.packing_code, a.description, a.units, --a.sku,'
       
         '       nvl(a.sku, a.short_code||'#39'.'#39'||a.hol_colour||'#39'.'#39'||nvl(a.sp' +
-        'ec_length,0)||'#39'.'#39'||a.nom_pack||'#39'.'#39'||a.SPEC_HEADS||'#39'.'#39'||a.SPEC_HE' +
-        'ADS_SHRUB||'#39'.'#39'||a.SPEC_VD2||'#39'.'#39'||a.remarks) as sku,'
+        'ec_length,0)||'#39'.'#39'||a.NOM_PACK_HOL||'#39'.'#39'||a.SPEC_HEADS||'#39'.'#39'||a.SPE' +
+        'C_HEADS_SHRUB||'#39'.'#39'||a.SPEC_VD2||'#39'.'#39'||a.remarks) as sku,'
       
         '       a.amount_in_the_pack, a.invoice_data_as_is_id, a.hol_colo' +
         'ur,'
@@ -7696,9 +7696,14 @@ object frmReader: TfrmReader
       '       , nvl(n.VBN, nom.VBN) as VBN'
       '       , nvl(n.H_NAME, nom.H_NAME) as H_NAME'
       '       , nvl(n.TNVED, nom.TNVED) as TNVED'
-      '       , nvl(n.HOL_TYPE, nom.HOL_TYPE) as HOL_TYPE'
-      '       , nom.n_id as n_id_desc'
+      '       , nvl(n.HOL_TYPE, nom.HOL_TYPE) as HOL_TYPE      '
+      
+        '       , nvl(n.IS_PHOTO, nvl(nom.IS_PHOTO,nom2.IS_PHOTO)) as IS_' +
+        'PHOTO'
+      '       , nvl(n.PHOTO, nvl(nom.PHOTO,nom2.PHOTO)) as PHOTO'
+      '       , nvl(nom.n_id, repl.AS_IS_N_ID) as n_id_desc'
       '       , kov.checked'
+      ''
       '      FROM invoice_data_as_is a'
       
         '        left outer join invoice_data_as_is_map map on map.invoic' +
@@ -7708,12 +7713,22 @@ object frmReader: TfrmReader
         'n_id'
       
         '        left outer join nomenclature_mat_view nom on nom.notuse ' +
-        '= 0 and upper(nom.H_CODE) = upper(a.short_code||'#39'.'#39'||a.hol_colou' +
-        'r||'#39'.'#39'||nvl(a.spec_length,0)||'#39'.'#39'||a.nom_pack||'#39'.'#39'||a.SPEC_HEADS' +
-        '||'#39'.'#39'||a.SPEC_HEADS_SHRUB||'#39'.'#39'||a.SPEC_VD2||'#39'.'#39'||a.remarks)'
+        '= 0 and upper(replace(nom.H_CODE,'#39'NA'#39','#39#39')) = upper(a.short_code|' +
+        '|'#39'.'#39'||decode(a.hol_colour,'#39'NA'#39','#39#39',a.hol_colour)||'#39'.'#39'||nvl(a.spec' +
+        '_length,0)||'#39'.'#39'||a.NOM_PACK_HOL||'#39'.'#39'||a.SPEC_HEADS||'#39'.'#39'||a.SPEC_' +
+        'HEADS_SHRUB||'#39'.'#39'||a.SPEC_VD2||'#39'.'#39'||a.remarks)'
       
         '        left outer join import_flowers_kov kov on kov.nom_code =' +
         ' nom.code and kov.checked = 0'
+      
+        '        left outer join (select distinct AS_IS_HCODE, n_id as AS' +
+        '_IS_N_ID from INVOICE_DATA_AS_IS_MAP c where c.replacement = 1) ' +
+        'repl on repl.AS_IS_HCODE = a.short_code||'#39'.'#39'||a.hol_colour||'#39'.'#39'|' +
+        '|nvl(a.spec_length,0)||'#39'.'#39'||a.NOM_PACK_HOL||'#39'.'#39'||a.SPEC_HEADS||'#39 +
+        '.'#39'||a.SPEC_HEADS_SHRUB||'#39'.'#39'||a.SPEC_VD2||'#39'.'#39'||a.remarks'
+      
+        '        left outer join nomenclature_mat_view nom2 on nom2.notus' +
+        'e = 0 and nom2.n_id = repl.AS_IS_N_ID'
       '      where a.invoice_data_as_is_id = :invoice_data_as_is_id')
     Session = DM.STAR_DB
     SQL.Strings = (

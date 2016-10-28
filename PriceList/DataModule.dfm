@@ -851,6 +851,9 @@ object DM: TDM
     object PPLLAST_PRICE: TFloatField
       FieldName = 'LAST_PRICE'
     end
+    object PPLEXTRA_GROSS: TFloatField
+      FieldName = 'EXTRA_GROSS'
+    end
     object PPLPRICE_PCC: TFloatField
       FieldName = 'PRICE_PCC'
     end
@@ -980,11 +983,13 @@ object DM: TDM
     object PPLEQ_PRICE: TFloatField
       FieldName = 'EQ_PRICE'
     end
-    object PPLID_CLIENTS: TFloatField
+    object PPLID_CLIENTS: TStringField
       FieldName = 'ID_CLIENTS'
+      Size = 1
     end
-    object PPLCLIENT_PRICE: TFloatField
+    object PPLCLIENT_PRICE: TStringField
       FieldName = 'CLIENT_PRICE'
+      Size = 1
     end
     object PPLNICK: TStringField
       FieldName = 'NICK'
@@ -1005,14 +1010,14 @@ object DM: TDM
     object PPLPROFIT_COEFFITIENT: TFloatField
       FieldName = 'PROFIT_COEFFITIENT'
     end
-    object PPLEXTRA_GROSS: TFloatField
-      FieldName = 'EXTRA_GROSS'
-    end
     object PPLNOM_NEW: TIntegerField
       FieldName = 'NOM_NEW'
     end
     object PPLMDL_PRICE: TFloatField
       FieldName = 'MDL_PRICE'
+    end
+    object PPLHAS_PRICE: TFloatField
+      FieldName = 'HAS_PRICE'
     end
     object PPLSTAT_LAST_PRICE: TStringField
       FieldName = 'STAT_LAST_PRICE'

@@ -1577,6 +1577,7 @@ end;
 
 // ѕросмотр похожей номенклатуры
 procedure TfrmReader.aShowNomExecute(Sender: TObject);
+var res: integer;
 begin
   frmNomenclature := TfrmNomenclature.Create(Application);
   try
@@ -1593,15 +1594,20 @@ begin
       frmNomenclature.aFilterByCode.Execute;
       frmNomenclature.aFilterByRemarks.Execute;
     end;
-    if (frmNomenclature.ShowModal = mrOk) and cdsTranslateN_ID.IsNull then
+    res := frmNomenclature.ShowModal;
+//    ShowMessage(IntToStr(res));
+//    ShowMessage(BoolToStr(cdsTranslateN_ID.IsNull));
+    if (res = mrOk) and cdsTranslateN_ID.IsNull then
     begin
-      if MessageDlg( PChar('”становить дл€ позиции "'+cdsTranslateDESCRIPTION.AsString+'" выбранную номенклатуру "'+DM.NomenclatureCOMPILED_NAME_OTDEL.AsString+'"'), mtConfirmation,[mbOk, mbNo],0) = mrOk then
-      begin
+//      ShowMessage('Q');
+//      if MessageDlg( PChar('”становить дл€ позиции "'+cdsTranslateDESCRIPTION.AsString+'" выбранную номенклатуру "'+DM.NomenclatureCOMPILED_NAME_OTDEL.AsString+'"'), mtConfirmation,[mbOk, mbNo],0) = mrOk then
+//      begin
         if DM.NomenclatureH_CODE.AsString <> cdsTranslatesku.AsString then
           executeSQL('insert into invoice_data_as_is_map values('+cdsTranslateINVOICE_DATA_AS_IS_ID.AsString+', '+DM.NomenclatureN_ID.AsString+','''+StringReplace(cdsTranslatesku.AsString,'''','''''', [rfReplaceAll])+''',1)')
         else
           executeSQL('insert into invoice_data_as_is_map values('+cdsTranslateINVOICE_DATA_AS_IS_ID.AsString+', '+DM.NomenclatureN_ID.AsString+','''+StringReplace(cdsTranslatesku.AsString,'''','''''', [rfReplaceAll])+''',null)');
-      end;
+//      end;
+        DM.STAR_DB.Commit;
     end;
   finally
     frmNomenclature.Free;

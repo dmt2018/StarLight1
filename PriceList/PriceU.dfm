@@ -712,6 +712,11 @@ object PriceF: TPriceF
           HeaderAlignmentHorz = taCenter
           Width = 100
         end
+        object grid_pplView1HAS_PRICE: TcxGridDBColumn
+          Caption = #1082#1083#1080#1077#1085#1090#1089#1082#1080#1077' '#1094#1077#1085#1099
+          DataBinding.FieldName = 'HAS_PRICE'
+          Visible = False
+        end
       end
       object grid_ppl_Level1: TcxGridLevel
         GridView = grid_pplView1
@@ -2754,6 +2759,14 @@ object PriceF: TPriceF
           ItemName = 'dxBarStatic14'
         end
         item
+          Visible = True
+          ItemName = 'bsHASPRICE'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarStatic12'
+        end
+        item
           BeginGroup = True
           Visible = True
           ItemName = 'dxBarStatic3'
@@ -2969,6 +2982,21 @@ object PriceF: TPriceF
       Hint = '- double price'
       Visible = ivAlways
     end
+    object bsHASPRICE: TdxBarStatic
+      Category = 0
+      Style = st_hasprice
+      Visible = ivAlways
+      AllowClick = True
+      BorderStyle = sbsEtched
+      Width = 40
+      OnClick = bsHASPRICEClick
+    end
+    object dxBarStatic12: TdxBarStatic
+      Caption = ' - '#1082#1083#1080#1077#1085#1090#1089#1082#1080#1081' '#1094#1077#1085#1099
+      Category = 0
+      Hint = ' - '#1082#1083#1080#1077#1085#1090#1089#1082#1080#1081' '#1094#1077#1085#1099
+      Visible = ivAlways
+    end
   end
   object cxStyleRepository1: TcxStyleRepository
     Left = 8
@@ -3023,6 +3051,10 @@ object PriceF: TPriceF
       AssignedValues = [svColor, svTextColor]
       Color = 16742762
       TextColor = clWhite
+    end
+    object st_hasprice: TcxStyle
+      AssignedValues = [svColor]
+      Color = 16744448
     end
   end
   object cds_types: TOraQuery

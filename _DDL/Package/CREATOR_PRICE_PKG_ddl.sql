@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.PRICE_PKG
--- Generated 05.08.2016 0:21:37 from CREATOR@STAR_NEW
+-- Generated 29.10.2016 1:26:26 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE price_pkg
@@ -2198,13 +2198,31 @@ from (
        , case when a.INVOICE_DATA_ID is null then null else PROFIT_COEFFITIENT end PROFIT_COEFFITIENT
        , NOM_NEW
        , mdl.mdl_price
+       , a.has_price
     from (
         SELECT a.ppli_id, ppl_id, coming_date, invoice_amount, case when STOCK_AMOUNT < 0 then 0 else stock_amount end STOCK_AMOUNT, left_amount, given_amount, hol_price, ruble_price, last_price
           , price_pcc, price_pcc_pc, a.n_id, final_price, inv_total_sum, stok_total_sum
-          --, inv_total_profit
+          , (final_price - price_pcc * curr_cust_coef) * invoice_amount as inv_total_profit
+          , stok_total_profit
+          , compiled_name_otdel, total_sum, cust_coef, h_code, nvl(COL,0) as col
+          , rus_marks, INVOICE_DATA_ID, compiled_name_pot, f_type, hol_type, f_sub_type
+          , case when INVOICE_DATA_ID is null then 'Склад' else 'Инвойсы' end came_type
+          , row_number() over(partition by a.n_id order by ppl_id) as nid_rownum
+          , country, colour, bar_code, code, ft_id, fst_id, col_id, len, type_subtype, a.spec_price, best_price, discount
+          , inv_id, inv_id2, inv_id3, inv_id4
+          , null id_clients, null client_price, null as client_quantity, null as total_client_quantity
+          , instr(remarks,'"!"') as spec
+          , a.PROFIT_COEFFITIENT, a.NOM_NEW,
+          decode(c.n_id,null,0,1) as has_price
+        FROM ppl_view a
+          left outer join (select b.n_id from ppl_client_price b where b.PPLI_ID = v_PPLI_ID and SPEC_PRICE is not null group by b.n_id) c on c.n_id = a.n_id
+          WHERE a.PPLI_ID = v_PPLI_ID
+
+/*
+        SELECT a.ppli_id, ppl_id, coming_date, invoice_amount, case when STOCK_AMOUNT < 0 then 0 else stock_amount end STOCK_AMOUNT, left_amount, given_amount, hol_price, ruble_price, last_price
+          , price_pcc, price_pcc_pc, a.n_id, final_price, inv_total_sum, stok_total_sum
           , (final_price - price_pcc * curr_cust_coef) * (invoice_amount - nvl(c.total_client_quantity,0)) as inv_total_profit
           , stok_total_profit
-          --, total_profit
           , compiled_name_otdel, (total_sum - nvl(final_price*c.total_client_quantity,0)) as total_sum, cust_coef, h_code, nvl(COL,0) as col
           , rus_marks, INVOICE_DATA_ID, compiled_name_pot, f_type, hol_type, f_sub_type
           , case when INVOICE_DATA_ID is null then 'Склад' else 'Инвойсы' end came_type
@@ -2223,10 +2241,8 @@ from (
 
         SELECT a.ppli_id, ppl_id, coming_date, invoice_amount, 0 as stock_amount, left_amount, given_amount, hol_price, ruble_price, last_price
           , price_pcc, price_pcc_pc, a.n_id, b.spec_price as final_price, inv_total_sum, stok_total_sum
-          --, inv_total_profit
           , (b.spec_price - price_pcc * curr_cust_coef) * b.quantity as inv_total_profit
           , 0 as stok_total_profit
-          --, total_profit
           , compiled_name_otdel, nvl(b.spec_price*b.quantity, total_sum) as total_sum
           , cust_coef, h_code, nvl(COL,0) as col
           , rus_marks, a.INVOICE_DATA_ID, compiled_name_pot, f_type, hol_type, f_sub_type
@@ -2240,6 +2256,7 @@ from (
         FROM ppl_view a
         inner join ppl_client_price b on b.PPLI_ID = a.PPLI_ID and b.n_id = a.n_id and b.INVOICE_DATA_ID = a.INVOICE_DATA_ID
           WHERE a.PPLI_ID = v_PPLI_ID
+*/
     ) a
 
     left outer join
@@ -2327,18 +2344,28 @@ IS
   p_Order number;
 BEGIN
 
+  open cursor_ for
+    SELECT distinct a.n_id, a.quantity, s.nick, s.fio, p.PPLI_ID, i.DIST_IND_ID, pl.SPEC_PRICE, pl.PPLCP_ID, s.ID_CLIENTS, a.PREP_DIST_ID, pd.left_quantity, a.id_orders_list
+--      , (select sum(left_quantity) from prepare_distribution pd where pd.DIST_IND_ID = a.DIST_IND_ID and pd.n_id = a.n_id ) left_quantity
+    FROM distributions a
+      inner join distributions_invoices i on i.DIST_IND_ID = a.DIST_IND_ID
+      inner join invoice_register r on r.inv_id = i.inv_id
+      inner join PREPARE_PRICE_LIST_INDEX p on p.PPLI_ID = v_PPLI_ID and (p.PACK_ID = r.IPP_ID or p.inv_id = r.inv_id)
+      inner join orders_list l on l.id_orders_list = a.id_orders_list
+      inner join orders_clients c on c.ID_ORDERS_CLIENTS = l.ID_ORDERS_CLIENTS
+      inner join clients s on s.id_clients = c.id_clients
+      left outer join PPL_CLIENT_PRICE pl on pl.ppli_id = v_PPLI_ID and pl.n_id = a.N_ID and pl.ID_CLIENTS = s.id_clients
+      inner join prepare_distribution pd on pd.DIST_IND_ID = a.DIST_IND_ID and pd.PREP_DIST_ID = a.PREP_DIST_ID
+    where a.N_ID = v_N_ID
+    ;
+
+/*
   select count(d.id_orders) into CNT
     from distributions_invoices i, distributions_index d, PREPARE_PRICE_LIST_INDEX p
     where i.dist_ind_id = d.dist_ind_id and p.ppli_id = v_PPLI_ID and (i.inv_id = p.inv_id or i.inv_id = p.inv_id2 or i.inv_id = p.inv_id3 or i.inv_id = p.inv_id4)
   ;
 
   if CNT > 0 then
-/*
-    select d.id_orders into p_Order
-      from distributions_invoices i, distributions_index d, PREPARE_PRICE_LIST_INDEX p
-      where i.dist_ind_id = d.dist_ind_id and p.ppli_id = v_PPLI_ID and (i.inv_id = p.inv_id or i.inv_id = p.inv_id2 or i.inv_id = p.inv_id3 or i.inv_id = p.inv_id4)
-    ;
-*/
     open cursor_ for
       select a.*, v_PPLI_ID as p_v_PPLI_ID, v_N_ID as p_v_N_ID
       from (
@@ -2364,7 +2391,7 @@ BEGIN
   else
     p_Order := 0;
   end if;
-
+*/
 EXCEPTION
    WHEN OTHERS
    THEN

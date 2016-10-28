@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.DISTRIBUTION_PKG
--- Generated 09.10.2016 0:29:23 from CREATOR@STAR_NEW
+-- Generated 29.10.2016 1:26:48 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE distribution_pkg
@@ -1934,8 +1934,9 @@ IS
 
   vComments  varchar2(1000);
 
+  vPPLI_ID   number;
+
   cursor c_list is
-        --SELECT a.id_orders_clients, b.id_clients, b.NICK || ' ' || a.alpha as NICK, b.FIO, DATE_TRUCK, ID_DEPARTMENTS, nvl(s.outer_id, O.ID_ORDERS) as order_seq
         SELECT distinct b.id_clients, b.NICK, b.FIO, max(DATE_TRUCK) as DATE_TRUCK, ID_DEPARTMENTS
         FROM ORDERS_CLIENTS a
           inner join CLIENTS b on b.ID_CLIENTS = a.ID_CLIENTS
@@ -1954,8 +1955,8 @@ IS
   CURSOR data_temp IS
     select a.n_id, sum(a.quantity) as quantity, sum(a.OQ) as OQ, a.price
     from (
-        SELECT e.D_N_ID as n_id, e.dq as quantity, e.OQ, p.price
-        FROM ORDERS_CLIENTS a, CLIENTS b, orders_list c, DISTRIBUTION_VIEW e, price_list p, DISTRIBUTIONS_ORDERS d
+        SELECT e.D_N_ID as n_id, e.dq as quantity, e.OQ, nvl(pc.spec_price,p.price) as price
+        FROM ORDERS_CLIENTS a, CLIENTS b, orders_list c, DISTRIBUTION_VIEW e, price_list p, DISTRIBUTIONS_ORDERS d, ppl_client_price pc
         WHERE --a.id_orders = id_order_ and
               a.active = 1
               and a.ID_CLIENTS = b.ID_CLIENTS
@@ -1966,11 +1967,10 @@ IS
               and e.D_N_ID = p.n_id(+)
               and a.id_clients not in (const_dir,const_main)
               and d.order_id = a.id_orders and d.DIST_IND_ID = e.dist_ind_id
+              and e.D_N_ID = pc.n_id(+) and e.id_clients = pc.id_clients(+) and vPPLI_ID = pc.ppli_id(+)
     ) a
     group by a.n_id, a.price
     ;
-
-
 
 
   cursor c_list_packed is
@@ -2008,6 +2008,19 @@ IS
 
 
 begin
+  begin
+    -- найдем прайс по инвосам разноса для добычи клиентских отдельных цен
+    select ppli_id into vPPLI_ID from (
+      select distinct p.ppli_id
+      from distributions_invoices a, prepare_price_list_index p, invoice_register r
+      where a.dist_ind_id = dist_ind_id_ and a.inv_id = r.inv_id and (r.inv_id = p.inv_id or r.ipp_id = p.pack_id)
+    ) where rownum = 1
+    ;
+  EXCEPTION
+    WHEN no_data_found THEN
+      vPPLI_ID := 0;
+  end;
+
   -- 2015-06-17 Удалим предыдущие брони
 /* old version
 2016-06-13
@@ -2060,7 +2073,7 @@ begin
         1, 0,
         c_list_cursor.ID_DEPARTMENTS
     );
-    update ORDERS_CLIENTS set info = vComments --'По заказу №'||c_list_cursor.order_seq||' от '||c_list_cursor.DATE_TRUCK
+    update ORDERS_CLIENTS set info = vComments, in_file = dist_ind_id_ --'По заказу №'||c_list_cursor.order_seq||' от '||c_list_cursor.DATE_TRUCK
     where ID_ORDERS_CLIENTS = vNewReserv;
 
     vCurClient := c_list_cursor.id_clients;

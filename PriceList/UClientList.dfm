@@ -96,9 +96,9 @@ object frmClientList: TfrmClientList
   end
   object grReg: TcxGrid
     Left = 0
-    Top = 33
+    Top = 81
     Width = 496
-    Height = 355
+    Height = 307
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -108,7 +108,10 @@ object frmClientList: TfrmClientList
     ParentFont = False
     TabOrder = 0
     LookAndFeel.Kind = lfOffice11
+    ExplicitTop = 33
+    ExplicitHeight = 355
     object grRegV: TcxGridDBTableView
+      OnKeyDown = grRegVKeyDown
       NavigatorButtons.ConfirmDelete = False
       DataController.DataSource = DS_CLIENT_LIST
       DataController.Options = [dcoAnsiSort, dcoCaseInsensitive, dcoAssignGroupingValues, dcoAssignMasterDetailKeys, dcoSaveExpanding, dcoGroupsAlwaysExpanded]
@@ -139,23 +142,6 @@ object frmClientList: TfrmClientList
       OptionsView.ColumnAutoWidth = True
       OptionsView.Footer = True
       OptionsView.GroupByBox = False
-      object grRegVPACK_: TcxGridDBColumn
-        Caption = #1055#1072#1082'.'
-        DataBinding.FieldName = 'PACK_'
-        PropertiesClassName = 'TcxCheckBoxProperties'
-        Properties.Alignment = taCenter
-        Properties.NullStyle = nssUnchecked
-        Properties.ReadOnly = True
-        Properties.ValueChecked = '1'
-        Properties.ValueUnchecked = '0'
-        FooterAlignmentHorz = taCenter
-        HeaderAlignmentHorz = taCenter
-        MinWidth = 50
-        Options.Editing = False
-        Options.HorzSizing = False
-        Options.Moving = False
-        Width = 50
-      end
       object cxGridDBColumn1: TcxGridDBColumn
         Caption = #1050#1083#1080#1077#1085#1090
         DataBinding.FieldName = 'NICK'
@@ -176,14 +162,6 @@ object frmClientList: TfrmClientList
         Options.Moving = False
         Options.Sorting = False
         Width = 100
-      end
-      object grRegVSRC_NICK: TcxGridDBColumn
-        DataBinding.FieldName = 'SRC_NICK'
-        Visible = False
-      end
-      object grRegVSRC_ALPHA: TcxGridDBColumn
-        DataBinding.FieldName = 'SRC_ALPHA'
-        Visible = False
       end
       object grRegVID_ORDERS_CLIENTS: TcxGridDBColumn
         DataBinding.FieldName = 'ID_ORDERS_CLIENTS'
@@ -211,11 +189,31 @@ object frmClientList: TfrmClientList
         Visible = False
       end
       object grRegVP_V_PPLI_ID: TcxGridDBColumn
-        DataBinding.FieldName = 'P_V_PPLI_ID'
+        DataBinding.FieldName = 'PPLI_ID'
         Visible = False
       end
       object grRegVP_V_N_ID: TcxGridDBColumn
-        DataBinding.FieldName = 'P_V_N_ID'
+        DataBinding.FieldName = 'N_ID'
+        Visible = False
+      end
+      object grRegVFIO: TcxGridDBColumn
+        DataBinding.FieldName = 'FIO'
+        Visible = False
+      end
+      object grRegVDIST_IND_ID: TcxGridDBColumn
+        DataBinding.FieldName = 'DIST_IND_ID'
+        Visible = False
+      end
+      object grRegVLEFT_QUANTITY: TcxGridDBColumn
+        DataBinding.FieldName = 'LEFT_QUANTITY'
+        Visible = False
+      end
+      object grRegVID_ORDERS_LIST: TcxGridDBColumn
+        DataBinding.FieldName = 'ID_ORDERS_LIST'
+        Visible = False
+      end
+      object grRegVPREP_DIST_ID: TcxGridDBColumn
+        DataBinding.FieldName = 'PREP_DIST_ID'
         Visible = False
       end
     end
@@ -227,7 +225,7 @@ object frmClientList: TfrmClientList
     Left = 0
     Top = 0
     Width = 496
-    Height = 33
+    Height = 81
     Align = alTop
     Alignment = taLeftJustify
     BevelOuter = bvNone
@@ -240,23 +238,104 @@ object frmClientList: TfrmClientList
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 2
+    VerticalAlignment = taAlignTop
+    ExplicitTop = -6
     object lblPrice: TLabel
-      Left = 442
+      Left = 424
       Top = 8
-      Width = 46
-      Height = 17
+      Width = 64
+      Height = 65
       Align = alRight
       Alignment = taRightJustify
       Caption = 'lblPrice'
-      ExplicitHeight = 16
+    end
+    object edNick: TcxTextEdit
+      Left = 8
+      Top = 51
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clBlack
+      Style.Font.Height = -13
+      Style.Font.Name = 'Tahoma'
+      Style.Font.Style = []
+      Style.TextColor = clBlack
+      Style.TextStyle = []
+      Style.IsFontAssigned = True
+      TabOrder = 0
+      Visible = False
+      Width = 126
+    end
+    object cxLabel1: TcxLabel
+      Left = 8
+      Top = 32
+      Caption = #1044#1086#1073#1072#1074#1080#1090#1100' '#1082#1083#1080#1077#1085#1090#1072
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clBlack
+      Style.Font.Height = -13
+      Style.Font.Name = 'Tahoma'
+      Style.Font.Style = [fsBold]
+      Style.IsFontAssigned = True
+      Visible = False
+    end
+    object edQnt: TcxCurrencyEdit
+      Left = 199
+      Top = 51
+      Properties.DecimalPlaces = 0
+      Properties.DisplayFormat = ',0;-,0'
+      TabOrder = 2
+      Visible = False
+      Width = 81
+    end
+    object btnFind: TcxButton
+      Left = 140
+      Top = 50
+      Width = 53
+      Height = 25
+      Caption = #1053#1072#1081#1090#1080
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 3
+      Visible = False
+      OnClick = btnFindClick
+    end
+    object edPrice: TcxCurrencyEdit
+      Left = 286
+      Top = 51
+      Properties.DecimalPlaces = 1
+      Properties.DisplayFormat = ',0.0;-,0.0'
+      TabOrder = 4
+      Visible = False
+      Width = 81
+    end
+    object btnAdd: TcxButton
+      Left = 373
+      Top = 50
+      Width = 92
+      Height = 25
+      Caption = #1044#1086#1073#1072#1074#1080#1090#1100
+      Enabled = False
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 5
+      Visible = False
+      OnClick = btnAddClick
     end
   end
   object CDS_CLIENT_LIST: TOraQuery
     SQLUpdate.Strings = (
       'begin'
       
-        '  price_pkg.set_special_price(:P_V_PPLI_ID, :P_V_N_ID, :PPLCP_ID' +
-        ', :SPEC_PRICE, :QUANTITY, :ID_CLIENTS);'
+        '  price_pkg.set_special_price(:PPLI_ID, :N_ID, :PPLCP_ID, :SPEC_' +
+        'PRICE, :QUANTITY, :ID_CLIENTS);'
       'end;')
     SQL.Strings = (
       'begin'
@@ -281,25 +360,24 @@ object frmClientList: TfrmClientList
         ParamType = ptInputOutput
         Value = 'Object'
       end>
-    object CDS_CLIENT_LISTNICK: TStringField
-      FieldName = 'NICK'
-      Size = 23
+    object CDS_CLIENT_LISTN_ID: TFloatField
+      FieldName = 'N_ID'
     end
     object CDS_CLIENT_LISTQUANTITY: TFloatField
       FieldName = 'QUANTITY'
     end
-    object CDS_CLIENT_LISTSRC_NICK: TStringField
-      FieldName = 'SRC_NICK'
+    object CDS_CLIENT_LISTNICK: TStringField
+      FieldName = 'NICK'
     end
-    object CDS_CLIENT_LISTSRC_ALPHA: TStringField
-      FieldName = 'SRC_ALPHA'
-      Size = 2
+    object CDS_CLIENT_LISTFIO: TStringField
+      FieldName = 'FIO'
+      Size = 255
     end
-    object CDS_CLIENT_LISTID_ORDERS_CLIENTS: TFloatField
-      FieldName = 'ID_ORDERS_CLIENTS'
+    object CDS_CLIENT_LISTPPLI_ID: TFloatField
+      FieldName = 'PPLI_ID'
     end
-    object CDS_CLIENT_LISTPACK_: TIntegerField
-      FieldName = 'PACK_'
+    object CDS_CLIENT_LISTDIST_IND_ID: TFloatField
+      FieldName = 'DIST_IND_ID'
     end
     object CDS_CLIENT_LISTSPEC_PRICE: TFloatField
       FieldName = 'SPEC_PRICE'
@@ -310,11 +388,14 @@ object frmClientList: TfrmClientList
     object CDS_CLIENT_LISTID_CLIENTS: TIntegerField
       FieldName = 'ID_CLIENTS'
     end
-    object CDS_CLIENT_LISTP_V_PPLI_ID: TFloatField
-      FieldName = 'P_V_PPLI_ID'
+    object CDS_CLIENT_LISTLEFT_QUANTITY: TFloatField
+      FieldName = 'LEFT_QUANTITY'
     end
-    object CDS_CLIENT_LISTP_V_N_ID: TFloatField
-      FieldName = 'P_V_N_ID'
+    object CDS_CLIENT_LISTID_ORDERS_LIST: TFloatField
+      FieldName = 'ID_ORDERS_LIST'
+    end
+    object CDS_CLIENT_LISTPREP_DIST_ID: TFloatField
+      FieldName = 'PREP_DIST_ID'
     end
   end
   object DS_CLIENT_LIST: TOraDataSource
@@ -330,5 +411,76 @@ object frmClientList: TfrmClientList
       AssignedValues = [svColor]
       Color = 12189695
     end
+  end
+  object Q_CLIENTS: TOraQuery
+    SQL.Strings = (
+      'SELECT C.ID_CLIENTS, C.NICK, C.FIO, C.CCODE,'
+      '    C.TTYPE, C.ID_CLIENTS_GROUPS, C.BLOCK1, C.BLOCK2'
+      ', c.GROUP_NAME, c.TTYPE_NAME, c.PREFIX'
+      '    FROM CLIENTS_VIEW2 C '
+      ' where id_office = :v_office'
+      ' ORDER BY C.FIO')
+    FetchAll = True
+    FilterOptions = [foCaseInsensitive]
+    Left = 232
+    Top = 96
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'v_office'
+      end>
+    object Q_CLIENTSID_CLIENTS: TIntegerField
+      FieldName = 'ID_CLIENTS'
+      Required = True
+    end
+    object Q_CLIENTSNICK: TStringField
+      FieldName = 'NICK'
+      Required = True
+    end
+    object Q_CLIENTSFIO: TStringField
+      FieldName = 'FIO'
+      Required = True
+      Size = 255
+    end
+    object Q_CLIENTSCCODE: TStringField
+      FieldName = 'CCODE'
+      Required = True
+      Size = 13
+    end
+    object Q_CLIENTSTTYPE: TIntegerField
+      FieldName = 'TTYPE'
+      Required = True
+    end
+    object Q_CLIENTSID_CLIENTS_GROUPS: TIntegerField
+      FieldName = 'ID_CLIENTS_GROUPS'
+      Required = True
+    end
+    object Q_CLIENTSBLOCK1: TIntegerField
+      FieldName = 'BLOCK1'
+      Required = True
+    end
+    object Q_CLIENTSBLOCK2: TIntegerField
+      FieldName = 'BLOCK2'
+      Required = True
+    end
+    object Q_CLIENTSGROUP_NAME: TStringField
+      FieldName = 'GROUP_NAME'
+      Required = True
+      Size = 255
+    end
+    object Q_CLIENTSTTYPE_NAME: TStringField
+      FieldName = 'TTYPE_NAME'
+      Required = True
+      Size = 50
+    end
+    object Q_CLIENTSPREFIX: TStringField
+      FieldName = 'PREFIX'
+      Size = 5
+    end
+  end
+  object Q_CLIENTS_DS: TOraDataSource
+    DataSet = Q_CLIENTS
+    Left = 232
+    Top = 128
   end
 end

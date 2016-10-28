@@ -250,6 +250,10 @@ type
     grid_pplView1STAT_LAST_PRICE: TcxGridDBColumn;
     N16: TMenuItem;
     N17: TMenuItem;
+    grid_pplView1HAS_PRICE: TcxGridDBColumn;
+    bsHASPRICE: TdxBarStatic;
+    st_hasprice: TcxStyle;
+    dxBarStatic12: TdxBarStatic;
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn4Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
@@ -337,6 +341,7 @@ type
     procedure bsExtraGrossClick(Sender: TObject);
     procedure aClearNewMarkExecute(Sender: TObject);
     procedure N16Click(Sender: TObject);
+    procedure bsHASPRICEClick(Sender: TObject);
   private
     path: string;
     is_sync: boolean;
@@ -1006,6 +1011,18 @@ begin
     end;
 
 
+    if (grid_pplView1.Columns[AViewInfo.Item.Index].DataBinding.FieldName = 'COMPILED_NAME_POT') then
+    begin
+      Col := grid_pplView1.DataController.GetValue(
+                  AViewInfo.GridRecord.RecordIndex, grid_pplView1.GetColumnByFieldName('HAS_PRICE').Index
+                  );
+      if (Col = 1) then
+          ACanvas.Brush.Color := st_hasprice.Color;
+    end;
+
+
+
+
     // Красим новинку
     Col := grid_pplView1.DataController.GetValue(
                 AViewInfo.GridRecord.RecordIndex, grid_pplView1.GetColumnByFieldName('NOM_NEW').Index
@@ -1615,6 +1632,11 @@ begin
   sort_table((Sender as TdxBarStatic).Name);
 end;
 
+procedure TPriceF.bsHASPRICEClick(Sender: TObject);
+begin
+  sort_table((Sender as TdxBarStatic).Name);
+end;
+
 procedure TPriceF.bsProfitClick(Sender: TObject);
 begin
   sort_table((Sender as TdxBarStatic).Name);
@@ -1666,6 +1688,8 @@ begin
     if filter_param = 'bsLoss' then grid_pplView1LOSS_PROFIT.DataBinding.AddToFilter(nil, foEqual, 0,'НЕТ', true);
     if filter_param = 'bsEqlPrice' then grid_pplView1EQ_PRICE.DataBinding.AddToFilter(nil, foEqual, 1);
     if filter_param = 'bsSPEC' then grid_pplView1SPEC.DataBinding.AddToFilter(nil, foGreater, 0);
+
+    if filter_param = 'bsHASPRICE' then grid_pplView1HAS_PRICE.DataBinding.AddToFilter(nil, foEqual, 1);
 
     if filter_param = 'bsExtraGross' then grid_pplView1EXTRA_GROSS.DataBinding.AddToFilter(nil, foGreater, 1);
 

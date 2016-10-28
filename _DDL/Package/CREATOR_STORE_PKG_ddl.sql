@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.STORE_PKG
--- Generated 06.10.2016 1:27:40 from CREATOR@STAR_NEW
+-- Generated 29.10.2016 1:27:30 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE store_pkg
@@ -2959,23 +2959,51 @@ procedure data_from_order
   p_discount in number
 )
 as
+  vPPLI_ID  number;
+
   CURSOR data_temp IS
     select n_id, QUANTITY, store_type, price
     from ORDERS_LIST
     where ID_ORDERS_CLIENTS = oder_num and active = 1;
 begin
 
+  begin
+    -- найдем прайс по инвосам разноса для добычи клиентских отдельных цен
+    select ppli_id into vPPLI_ID from (
+      select distinct p.ppli_id
+      from distributions_invoices a, prepare_price_list_index p, invoice_register r, orders_clients c
+      where a.dist_ind_id = to_number(c.in_file) and a.inv_id = r.inv_id and (r.inv_id = p.inv_id or r.ipp_id = p.pack_id) and c.id_orders_clients = oder_num
+    ) where rownum = 1
+    ;
+  EXCEPTION
+    WHEN no_data_found THEN
+      vPPLI_ID := 0;
+  end;
+
+
     insert into STORE_DOC_DATA_TEMP (ID_DOC_DATA, N_ID, QUANTITY, store_type, price, price_list, gtd)
     (
       select STORE_DOC_DATA_TEMP_SET_ID.NEXTVAL, z.n_id, z.QUANTITY, z.store_type, case when p_discount = 0 then z.pr else (z.pr + round(z.pr/100*p_discount,2)) end price, z.price as price_list, z.gtd
       from (
-        select a.n_id, a.QUANTITY, a.store_type, case when fix_price=1 then a.price else b.price end pr, b.price
+        select a.n_id, a.QUANTITY, a.store_type, case when fix_price=1 then nvl(pc.SPEC_PRICE,a.price) else nvl(pc.SPEC_PRICE,b.price) end pr, b.price
+          , store_pkg.get_gtd(a.n_id, const_office) as gtd
+        from ORDERS_LIST a
+          inner join store_view_null b on a.n_id = b.n_id and a.store_type = b.store_type
+          inner join orders_clients o on a.id_orders_clients = o.id_orders_clients
+          left outer join ppl_client_price pc on pc.n_id = a.N_ID and pc.id_clients = o.id_clients and pc.ppli_id = vPPLI_ID
+        where a.ID_ORDERS_CLIENTS = oder_num and a.active = 1
+
+
+      ) z
+    );
+
+/*
+       select a.n_id, a.QUANTITY, a.store_type, case when fix_price=1 then a.price else b.price end pr, b.price
           , get_gtd(a.n_id, const_office) as gtd
         from ORDERS_LIST a, store_view_null b
         where a.ID_ORDERS_CLIENTS = oder_num and a.active = 1
             and a.n_id = b.n_id and a.store_type = b.store_type
-      ) z
-    );
+*/
 
 
   FOR data_temp_cursor IN data_temp LOOP
