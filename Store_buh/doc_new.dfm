@@ -1274,8 +1274,19 @@ object DocNewForm: TDocNewForm
         Visible = False
       end
       object priznak: TcxGridDBColumn
-        Caption = #1089#1087#1077#1094
+        Caption = #1057#1087#1077#1094'.'
         DataBinding.FieldName = 'SPEC_PRICE'
+        PropertiesClassName = 'TcxCheckBoxProperties'
+        Properties.Alignment = taCenter
+        Properties.NullStyle = nssUnchecked
+        Properties.ReadOnly = True
+        Properties.ValueChecked = '1'
+        Properties.ValueUnchecked = '0'
+        HeaderAlignmentHorz = taCenter
+        MinWidth = 50
+        Options.Editing = False
+        Options.HorzSizing = False
+        Width = 50
       end
     end
     object grid_buh_view_l: TcxGridLevel
@@ -1476,38 +1487,7 @@ object DocNewForm: TDocNewForm
       'order by compiled_name_otdel'
       '*/'
       ''
-      '/*'
-      'SELECT distinct ID_DOC_TYPE, ID_DOC_DATA, ID_DOC, QUANTITY, '
-      
-        '  --case when a.BEZNDSMINUS=1 and a.ID_DOC_TYPE > 1 then round((' +
-        'a.PRICE/118*100),2) else a.PRICE end price, '
-      '  a.PRICE,'
-      '  a.price as src_price,'
-      
-        '  case when a.BEZNDSMINUS=1 and a.ID_DOC_TYPE > 1 then round((a.' +
-        'PRICE/(100+NDS)*100),2) else a.PRICE end start_price, '
-      '  PRICE_OLD, GTD, F_NAME_RU, '
-      
-        '  a.N_ID, LEN, PACK, COL_ID, COLOUR, F_TYPE, F_SUB_TYPE, FT_ID, ' +
-        'FST_ID, COUNTRY, '
-      '  C_ID, H_CODE, SPESIFICATION, CODE, PRICE_DIFFERENCE, '
-      
-        '  a.PRICE_BEZ_NDS, a.SUMM_BEZ_NDS, a.SUMM_NDS, a.FULL_NAME, a.PR' +
-        'ICE_QUANTITY,'
-      '  buh_code, compiled_name_otdel, country_gtd'
-      '  , NSI_NAME, UNIT_CODE, SYMBOL_NATIONAL'
-      '  , count(*) over(PARTITION by a.n_id) as nn'
-      '  , to_number(BEZNDSMINUS) as ppp'
-      ', a.BEZNDSMINUS, a.NDS, a.BEZNDS, b.spec_price'
-      'from'
-      'BUH_DOCDATA_VIEW a, prepare_price_list b'
-      'where'
-      'ID_DOC=:ID_DOC'
-      'and a.n_id=b.n_id'
-      'order by compiled_name_otdel'
-      '*/'
-      ''
-      'SELECT distinct ID_DOC_TYPE, ID_DOC_DATA, ID_DOC, QUANTITY, '
+      'SELECT ID_DOC_TYPE, ID_DOC_DATA, ID_DOC, QUANTITY, '
       '  a.PRICE,'
       '  a.price as src_price,'
       
@@ -1528,12 +1508,10 @@ object DocNewForm: TDocNewForm
       ', a.BEZNDSMINUS, a.NDS, a.BEZNDS, b.spec_price'
       'from'
       'BUH_DOCDATA_VIEW a'
-      
-        'left outer join prepare_price_list b ON a.n_id=b.n_id and b.spec' +
-        '_price=1'
+      'inner join price_list b ON a.n_id = b.n_id'
       'where'
       'ID_DOC=:ID_DOC'
-      'order by compiled_name_otdel')
+      'order by nvl(b.spec_price,0) desc, compiled_name_otdel')
     MasterSource = DOC_DS
     FetchAll = True
     AutoCommit = False
@@ -1863,6 +1841,14 @@ object DocNewForm: TDocNewForm
     object stEqNoms: TcxStyle
       AssignedValues = [svColor]
       Color = 8421631
+    end
+    object stSpec: TcxStyle
+      AssignedValues = [svFont]
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
     end
   end
   object frxReportNakl: TfrxReport

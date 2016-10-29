@@ -1309,16 +1309,10 @@ object naclnewForm: TnaclnewForm
         Font.Pitch = fpFixed
         Font.Style = []
         ParentFont = False
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
       end
       object Store_TS_3: TTabSheet
         Caption = #1057#1082#1083#1072#1076' 0-'#1074#1099#1093' (Ctrl+3) '
         ImageIndex = 2
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
       end
     end
     object Panel10: TPanel
@@ -1841,23 +1835,29 @@ object naclnewForm: TnaclnewForm
   object DOCNEW1_DATA: TOraQuery
     SQLUpdate.Strings = (
       'begin'
-      'if :price_percent=0 or :price_percent is NULL THEN '
-      '  :PRICE := :PRICE;'
-      'else'
+      '  if :price_percent=0 or :price_percent is NULL THEN '
+      '    :PRICE := :PRICE;'
+      '  else'
       
-        '  :PRICE := :price_list + round((:price_list*:price_percent/100)' +
-        ',2);'
-      'end if; '
-      'delete from STORE_DOC_DATA_TEMP where n_id = :n_id;'
-      'if (:QUANTITY <> 0) then'
+        '    :PRICE := :price_list + round((:price_list*:price_percent/10' +
+        '0),2);'
+      '  end if; '
+      ''
+      '  if :SPEC_PRICE = 1 then'
+      '    :PRICE := :price_list;'
+      '    :price_percent := NULL;'
+      '  end if;'
+      ''
+      '  delete from STORE_DOC_DATA_TEMP where n_id = :n_id;'
+      '  if (:QUANTITY <> 0) then'
       
-        '  INSERT INTO STORE_DOC_DATA_TEMP (ID_DOC_DATA, N_ID, QUANTITY, ' +
-        'store_type, PRICE, PRICE_LIST) '
+        '    INSERT INTO STORE_DOC_DATA_TEMP (ID_DOC_DATA, N_ID, QUANTITY' +
+        ', store_type, PRICE, PRICE_LIST) '
       
-        '  VALUES (STORE_DOC_DATA_TEMP_SET_ID.NEXTVAL, :N_ID,:QUANTITY,:S' +
-        'TORE_TYPE, :PRICE, :PRICE_LIST)'
-      '  RETURNING ID_DOC_DATA INTO :added;'
-      'end if;'
+        '    VALUES (STORE_DOC_DATA_TEMP_SET_ID.NEXTVAL, :N_ID,:QUANTITY,' +
+        ':STORE_TYPE, :PRICE, :PRICE_LIST)'
+      '    RETURNING ID_DOC_DATA INTO :added;'
+      '  end if;'
       'end;')
     SQLRefresh.Strings = (
       

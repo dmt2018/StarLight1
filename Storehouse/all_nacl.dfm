@@ -675,7 +675,7 @@ object all_nacl_Form: Tall_nacl_Form
       Top = 11
       Width = 1063
       Height = 430
-      ActivePage = TabSheet1
+      ActivePage = TabSheet3
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -2564,18 +2564,21 @@ object all_nacl_Form: Tall_nacl_Form
   end
   object doc_data: TOraQuery
     SQL.Strings = (
-      'SELECT distinct'
       
-        'a.ID_DOC, a.N_ID, a.CODE, a.H_CODE, F_TYPE, F_SUB_TYPE, FULL_NAM' +
-        'E,'
-      'QUANTITY, QUANTITY_NOW, STORE_TYPE_NAME, STORE_TYPE, PRICE_LIST,'
-      'QUANTITY_PRICE, PRICE_PERCENT, PRICE, GTD, SPESIFICATION,'
-      'S_NAME_RU, COMPILED_NAME_OTDEL, COLOUR, COUNTRY, bb.spec_price'
+        'SELECT a.ID_DOC, a.N_ID, a.CODE, a.H_CODE, a.F_TYPE, a.F_SUB_TYP' +
+        'E, a.FULL_NAME,'
+      
+        'a.QUANTITY, a.QUANTITY_NOW, a.STORE_TYPE_NAME, a.STORE_TYPE, a.P' +
+        'RICE_LIST,'
+      
+        'a.QUANTITY_PRICE, a.PRICE_PERCENT, a.PRICE, a.GTD, a.SPESIFICATI' +
+        'ON,'
+      
+        'a.S_NAME_RU, a.COMPILED_NAME_OTDEL, a.COLOUR, a.COUNTRY, bb.spec' +
+        '_price'
       'from'
       'store_docdata_view a'
-      
-        'left outer join prepare_price_list bb ON a.n_id=bb.n_id and bb.s' +
-        'pec_price=1'
+      'inner join price_list bb ON a.n_id = bb.n_id'
       'where'
       'ID_DOC=:ID_DOC'
       'order by compiled_name_otdel')
@@ -2898,7 +2901,7 @@ object all_nacl_Form: Tall_nacl_Form
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 39796.688377118100000000
-    ReportOptions.LastChange = 42664.577127777800000000
+    ReportOptions.LastChange = 42672.960758553240000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'procedure DMPMemo17OnBeforePrint(Sender: TfrxComponent);'
@@ -2921,13 +2924,15 @@ object all_nacl_Form: Tall_nacl_Form
       'procedure Footer2OnBeforePrint(Sender: TfrxComponent);'
       'begin'
       
-        ' //if MasterData2.rowcount<>0 then TfrxBand(Sender).Visible:=tru' +
-        'e else TfrxBand(Sender).Visible:=false;  '
+        ' if count(masterdata2)<>0 then Footer2.Visible := true else Foot' +
+        'er2.Visible := false;  '
       'end;'
       ''
       'procedure Footer1OnBeforePrint(Sender: TfrxComponent);'
       'begin'
-      '  '
+      
+        ' if count(masterdata1)<>0 then Footer1.Visible := true else Foot' +
+        'er1.Visible := false;    '
       'end;'
       ''
       'procedure Footer3OnBeforePrint(Sender: TfrxComponent);'
@@ -2936,7 +2941,12 @@ object all_nacl_Form: Tall_nacl_Form
       'end;'
       ''
       'begin'
-      ''
+      
+        ' if count(masterdata1)<>0 then Footer1.Visible := true else Foot' +
+        'er1.Visible := false;'
+      
+        ' if count(masterdata2)<>0 then Footer2.Visible := true else Foot' +
+        'er2.Visible := false;  '
       'end.')
     OnUserFunction = frxReport1UserFunction
     Left = 674
@@ -3625,7 +3635,7 @@ object all_nacl_Form: Tall_nacl_Form
           Left = 268.800000000000000000
           Top = 17.000000000000000000
           Width = 489.600000000000000000
-          Height = 17.000000000000000000
+          Height = 34.000000000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
           Memo.UTF8 = (

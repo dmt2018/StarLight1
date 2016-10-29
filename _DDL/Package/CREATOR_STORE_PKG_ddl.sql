@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.STORE_PKG
--- Generated 29.10.2016 1:27:30 from CREATOR@STAR_NEW
+-- Generated 30.10.2016 2:04:30 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE store_pkg
@@ -826,7 +826,7 @@ if id_dep_ = 62 then
   open cursor_ for
     select a.N_ID, a.CODE, a.H_CODE, a.F_TYPE, a.F_SUB_TYPE, a.FT_ID, a.FST_ID, a.full_name, a.QUANTITY_NOW, a.S_NAME_RU,
            a.store_type_name, a.STORE_TYPE, a.price_list, a.colour, a.country,
-           case WHEN a.added = 0 or a.added is null THEN (a.price_list + round((a.price_list*price_part/100),2)) ELSE price END price,
+           case WHEN a.added = 0 or a.added is null THEN (a.price_list + round((a.price_list*price_part/100),2)) ELSE a.price END price,
            a.QUANTITY, a.added,
            case WHEN a.added = 0 or a.added is null THEN (a.price_list + round((a.price_list*price_part/100),2)) * QUANTITY ELSE QUANTITY_PRICE END QUANTITY_PRICE,
            a.id_departments,
@@ -844,19 +844,22 @@ if id_dep_ = 62 then
            , null as GTD
            , a.COMPILED_NAME_OTDEL
            , a.id_office, a.brief
+           , p.SPEC_PRICE
       from store_docdatatemp_view a
            , (SELECT a.fst_id, a.nbutton, a.f_char FROM buttons_set a where id_dep = id_dep_) b
+           , PRICE_LIST p
         where STORE_TYPE = store_
               and ID_DEPARTMENTS = id_dep_  and (a.id_office = v_office or v_office = 0)
               and ((QUANTITY_NOW <> 0 and quant_p_ = 0) or (quant_p_ = 999 and QUANTITY_NOW=0))
-                and (a.fst_id = b.fst_id(+) and (b.nbutton = button_ or button_ = 0))
-                    ORDER BY b.nbutton, /* a.f_sub_type ,*/ a.full_name;
+              and (a.fst_id = b.fst_id(+) and (b.nbutton = button_ or button_ = 0))
+              and a.N_ID = p.N_ID
+        ORDER BY b.nbutton, /* a.f_sub_type ,*/ a.full_name;
 
 else
   open cursor_ for
     select a.N_ID, a.CODE, a.H_CODE, a.F_TYPE, a.F_SUB_TYPE, a.FT_ID, a.FST_ID, a.full_name, a.QUANTITY_NOW, a.S_NAME_RU,
            a.store_type_name, a.STORE_TYPE, a.price_list, a.colour, a.country,
-           case WHEN a.added = 0 or a.added is null THEN (a.price_list + round((a.price_list*price_part/100),2)) ELSE price END price,
+           case WHEN a.added = 0 or a.added is null THEN (a.price_list + round((a.price_list*price_part/100),2)) ELSE a.price END price,
            a.QUANTITY, a.added,
            case WHEN a.added = 0 or a.added is null THEN (a.price_list + round((a.price_list*price_part/100),2)) * QUANTITY ELSE QUANTITY_PRICE END QUANTITY_PRICE,
            a.id_departments,
@@ -866,11 +869,14 @@ else
            , null as GTD
            , a.COMPILED_NAME_OTDEL
            , a.id_office, a.brief
+           , p.SPEC_PRICE
       from store_docdatatemp_view a
+           , PRICE_LIST p
         where STORE_TYPE = store_
              and ID_DEPARTMENTS = id_dep_  and (a.id_office = v_office or v_office = 0)
-              and ((QUANTITY_NOW <> 0 and quant_p_ = 0) or (quant_p_ = 999 and QUANTITY_NOW=0))
-           order by a.F_TYPE, a.f_sub_type, a.full_name;
+             and ((QUANTITY_NOW <> 0 and quant_p_ = 0) or (quant_p_ = 999 and QUANTITY_NOW=0))
+             and a.N_ID = p.N_ID
+        order by a.F_TYPE, a.f_sub_type, a.full_name;
 end if;
 
 EXCEPTION
@@ -2423,8 +2429,9 @@ begin
 --select sum(PRICE), sum(price_list) into p1,p2 from STORE_DOC_DATA_TEMP;
 --      LOG_ERR('price_percent='||price_percent, 1, 'store_pkg.set_price_part', 'p1='||p1||' p2='||p2);
 
-    UPDATE STORE_DOC_DATA_TEMP
+    UPDATE STORE_DOC_DATA_TEMP a
       set PRICE = price_list+round((price_list*price_percent/100),2)
+    where exists (select 1 from price_list p where p.n_id = a.n_id and nvl(p.SPEC_PRICE,0) = 0)
     ;
     --commit;
 

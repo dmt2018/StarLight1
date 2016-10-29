@@ -504,7 +504,7 @@ object frmSales: TfrmSales
     Top = 130
     Width = 1052
     Height = 369
-    ActivePage = tch_ucenka
+    ActivePage = tch_main
     Align = alClient
     LookAndFeel.Kind = lfOffice11
     LookAndFeel.NativeStyle = True

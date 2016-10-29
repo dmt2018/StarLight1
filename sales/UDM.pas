@@ -351,6 +351,11 @@ type
     doc_dataSPESIFICATION: TStringField;
     doc_dataCOMPILED_NAME_OTDEL: TStringField;
     doc_dataSPEC_PRICE: TIntegerField;
+    CDS_MSTORESPEC_PRICE: TIntegerField;
+    CDS_USTORESPEC_PRICE: TIntegerField;
+    CDS_NULLSTORESPEC_PRICE: TIntegerField;
+    CDS_SALESNOTUSE: TIntegerField;
+    CDS_SALESSPEC_PRICE: TIntegerField;
     function frxReport1UserFunction(const MethodName: string;
       var Params: Variant): Variant;
     procedure DataModuleCreate(Sender: TObject);

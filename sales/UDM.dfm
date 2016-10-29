@@ -8,7 +8,7 @@ object DM: TDM
     Options.Direct = True
     Username = 'CREATOR'
     Password = '123456'
-    Server = 'ROZNICA:1521:orcl'
+    Server = 'KLEPOV:1521:STARNEW'
     AutoCommit = False
     AfterConnect = sale_sessionAfterConnect
     Left = 32
@@ -116,6 +116,11 @@ object DM: TDM
       
         '  select price into pp from price_list where n_id = :N_ID and id' +
         '_office=const_office;'
+      ''
+      '  if :SPEC_PRICE = 1 then'
+      '    :PRICE := pp;'
+      '    :price_percent := NULL;'
+      '  end if;'
       ''
       '  delete from STORE_DOC_DATA_TEMP where n_id = :n_id;'
       
@@ -342,6 +347,9 @@ object DM: TDM
     end
     object CDS_MSTORECUR_CLIENT: TFloatField
       FieldName = 'CUR_CLIENT'
+    end
+    object CDS_MSTORESPEC_PRICE: TIntegerField
+      FieldName = 'SPEC_PRICE'
     end
   end
   object DS_MSTORE: TOraDataSource
@@ -574,6 +582,9 @@ object DM: TDM
     object CDS_USTORECUR_CLIENT: TFloatField
       FieldName = 'CUR_CLIENT'
     end
+    object CDS_USTORESPEC_PRICE: TIntegerField
+      FieldName = 'SPEC_PRICE'
+    end
   end
   object DS_USTORE: TOraDataSource
     DataSet = CDS_USTORE
@@ -595,6 +606,11 @@ object DM: TDM
       
         '  select price into pp from price_list where n_id = :N_ID and id' +
         '_office=const_office;'
+      ''
+      '  if :SPEC_PRICE = 1 then'
+      '    :PRICE := pp;'
+      '    :price_percent := NULL;'
+      '  end if;'
       ''
       '  delete from STORE_DOC_DATA_TEMP where n_id = :n_id;'
       '  if (:QUANTITY <> 0 and :PRICE <> 0 and :price_list <> 0) then'
@@ -804,6 +820,9 @@ object DM: TDM
     end
     object CDS_NULLSTORECUR_CLIENT: TFloatField
       FieldName = 'CUR_CLIENT'
+    end
+    object CDS_NULLSTORESPEC_PRICE: TIntegerField
+      FieldName = 'SPEC_PRICE'
     end
   end
   object DS_NULLSTORE: TOraDataSource
@@ -1128,19 +1147,16 @@ object DM: TDM
   object doc_data: TOraQuery
     Session = sale_session
     SQL.Strings = (
-      'SELECT distinct'
       
-        'a.ID_DOC, a.N_ID, a.CODE, a.H_CODE, F_TYPE, F_SUB_TYPE, FULL_NAM' +
-        'E,'
+        'SELECT a.ID_DOC, a.N_ID, a.CODE, a.H_CODE, F_TYPE, F_SUB_TYPE, F' +
+        'ULL_NAME,'
       'QUANTITY, QUANTITY_NOW, STORE_TYPE_NAME, STORE_TYPE, PRICE_LIST,'
       
         'QUANTITY_PRICE, PRICE_PERCENT, PRICE, GTD, SPESIFICATION, compil' +
         'ed_name_otdel, bb.spec_price'
       'from'
       'store_docdata_view a'
-      
-        'left outer join prepare_price_list bb ON a.n_id=bb.n_id and bb.s' +
-        'pec_price=1'
+      'inner join price_list bb ON a.n_id = bb.n_id '
       'where'
       'ID_DOC=:ID_DOC'
       'order by compiled_name_otdel')
@@ -1240,7 +1256,7 @@ object DM: TDM
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 39796.688377118100000000
-    ReportOptions.LastChange = 42664.769263287040000000
+    ReportOptions.LastChange = 42672.961699930560000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'procedure DMPMemo17OnBeforePrint(Sender: TfrxComponent);'
@@ -1269,12 +1285,17 @@ object DM: TDM
       'begin'
       
         ' //if MasterData2.rowcount<>0 then TfrxBand(Sender).Visible:=tru' +
-        'e else TfrxBand(Sender).Visible:=false;  '
+        'e else TfrxBand(Sender).Visible:=false;'
+      
+        ' if count(masterdata2)<>0 then Footer2.Visible := true else Foot' +
+        'er2.Visible := false;     '
       'end;'
       ''
       'procedure Footer1OnBeforePrint(Sender: TfrxComponent);'
       'begin'
-      '  '
+      
+        ' if count(masterdata1)<>0 then Footer1.Visible := true else Foot' +
+        'er1.Visible := false;    '
       'end;'
       ''
       'procedure Footer3OnBeforePrint(Sender: TfrxComponent);'
@@ -1290,7 +1311,14 @@ object DM: TDM
       'end;'
       ''
       'begin'
-      ''
+      '// Footer2.Visible := masterdata2.visible;'
+      '// footer1.visible := masterdata1.visible;'
+      
+        'if count(masterdata1)<>0 then Footer1.Visible := true else Foote' +
+        'r1.Visible := false;'
+      
+        'if count(masterdata2)<>0 then Footer2.Visible := true else Foote' +
+        'r2.Visible := false;    '
       'end.')
     OnUserFunction = frxReport1UserFunction
     Left = 434
@@ -1980,7 +2008,7 @@ object DM: TDM
           Left = 268.800000000000000000
           Top = 17.000000000000000000
           Width = 489.600000000000000000
-          Height = 17.000000000000000000
+          Height = 34.000000000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
           Memo.UTF8 = (
@@ -2842,6 +2870,11 @@ object DM: TDM
         '/ 100),2);'
       '  end if; '
       ''
+      '  if :SPEC_PRICE = 1 then'
+      '    :PRICE := :price_list;'
+      '    :price_percent := NULL;'
+      '  end if;'
+      ''
       '  delete from STORE_DOC_DATA_TEMP where n_id = :n_id;'
       '  if (:QUANTITY <> 0 and :PRICE <> 0 and :price_list <> 0) then'
       
@@ -3024,6 +3057,12 @@ object DM: TDM
     object CDS_SALESBRIEF: TStringField
       FieldName = 'BRIEF'
       Size = 10
+    end
+    object CDS_SALESNOTUSE: TIntegerField
+      FieldName = 'NOTUSE'
+    end
+    object CDS_SALESSPEC_PRICE: TIntegerField
+      FieldName = 'SPEC_PRICE'
     end
   end
   object DS_SALES: TOraDataSource

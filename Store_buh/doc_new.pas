@@ -13,7 +13,8 @@ uses
   cxLookAndFeelPainters, cxButtons, cxGridExportLink, dxBar, dxBarExtItems,
   cxTextEdit, ShellApi, cxContainer, cxLabel, frxExportPDF, frxExportXLS,
   frxExportText, frxExportMail, frxExportCSV, frxExportRTF, frxClass,
-  frxExportHTML, frxDBSet, cxMaskEdit, cxDropDownEdit, cxCalendar, IniFiles;
+  frxExportHTML, frxDBSet, cxMaskEdit, cxDropDownEdit, cxCalendar, IniFiles,
+  cxCheckBox;
 
 type
   TDocNewForm = class(TForm)
@@ -198,6 +199,7 @@ type
     DOC_DATABEZNDS: TIntegerField;
     DOC_DATASPEC_PRICE: TIntegerField;
     priznak: TcxGridDBColumn;
+    stSpec: TcxStyle;
     procedure ClientChoosClick(Sender: TObject);
     procedure NDSEditKeyPress(Sender: TObject; var Key: Char);
     procedure FormShow(Sender: TObject);
@@ -413,6 +415,7 @@ begin
 
   Initialize();
 
+{
   DOC_DATA.first;
   for I := DOC_DATA.RecNo to DOC_DATA.RecordCount - 1 do
   begin
@@ -420,6 +423,7 @@ begin
    showmessage('спецпредложение в строке '+inttostr(i));
    DOC_DATA.Next;
   end;
+}
 
   DOC_DATE.EditValue     := doc.FieldByName('DOC_DATE').AsDateTime;
   NDSEdit.Text          := doc.FieldByName('NDS').AsString;
@@ -531,6 +535,11 @@ begin
     if (val1 > 1) then
          ACanvas.Brush.Color := stEqNoms.Color;
 
+    val1  := grid_buh_view_v.DataController.GetValue(
+                AViewInfo.GridRecord.RecordIndex, grid_buh_view_v.GetColumnByFieldName('SPEC_PRICE').Index
+                );
+    if (val1 = 1) then
+         ACanvas.Font.Style := stSpec.Font.Style;
   end;
 
 
