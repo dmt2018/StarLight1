@@ -8,7 +8,7 @@ object DM: TDM
     Options.Direct = True
     Username = 'CREATOR'
     Password = '123456'
-    Server = 'KLEPOV:1521:STARNEW'
+    Server = 'ROZNICA:1521:orcl'
     AutoCommit = False
     AfterConnect = sale_sessionAfterConnect
     Left = 32
@@ -1148,12 +1148,14 @@ object DM: TDM
     Session = sale_session
     SQL.Strings = (
       
-        'SELECT a.ID_DOC, a.N_ID, a.CODE, a.H_CODE, F_TYPE, F_SUB_TYPE, F' +
-        'ULL_NAME,'
-      'QUANTITY, QUANTITY_NOW, STORE_TYPE_NAME, STORE_TYPE, PRICE_LIST,'
+        'SELECT a.ID_DOC, a.N_ID, a.CODE, a.H_CODE, a.F_TYPE, a.F_SUB_TYP' +
+        'E, a.FULL_NAME,'
       
-        'QUANTITY_PRICE, PRICE_PERCENT, PRICE, GTD, SPESIFICATION, compil' +
-        'ed_name_otdel, bb.spec_price'
+        'a.QUANTITY, a.QUANTITY_NOW, a.STORE_TYPE_NAME, a.STORE_TYPE, a.P' +
+        'RICE_LIST,'
+      
+        'a.QUANTITY_PRICE, a.PRICE_PERCENT, a.PRICE, a.GTD, a.SPESIFICATI' +
+        'ON, a.compiled_name_otdel, bb.spec_price'
       'from'
       'store_docdata_view a'
       'inner join price_list bb ON a.n_id = bb.n_id '
@@ -1256,7 +1258,7 @@ object DM: TDM
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 39796.688377118100000000
-    ReportOptions.LastChange = 42672.961699930560000000
+    ReportOptions.LastChange = 42674.517662743100000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'procedure DMPMemo17OnBeforePrint(Sender: TfrxComponent);'
@@ -1804,7 +1806,7 @@ object DM: TDM
           ShowHint = False
           StretchMode = smMaxHeight
           DisplayFormat.DecimalSeparator = ','
-          Frame.Typ = [ftLeft, ftTop]
+          Frame.Typ = [ftLeft]
           Memo.UTF8 = (
             '[fr_doc_data_ds."COMPILED_NAME_OTDEL"]')
           TruncOutboundText = False
@@ -1820,7 +1822,7 @@ object DM: TDM
           DisplayFormat.DecimalSeparator = ','
           DisplayFormat.FormatStr = '%2.2f'
           DisplayFormat.Kind = fkNumeric
-          Frame.Typ = [ftRight, ftTop]
+          Frame.Typ = [ftRight]
           HAlign = haRight
           Memo.UTF8 = (
             '[fr_doc_data_ds."QUANTITY_PRICE"]')
@@ -1837,7 +1839,6 @@ object DM: TDM
           DisplayFormat.DecimalSeparator = ','
           DisplayFormat.FormatStr = '%2.2f'
           DisplayFormat.Kind = fkNumeric
-          Frame.Typ = [ftTop]
           HAlign = haRight
           Memo.UTF8 = (
             '[fr_doc_data_ds."PRICE"]')
@@ -1852,7 +1853,6 @@ object DM: TDM
           ShowHint = False
           StretchMode = smMaxHeight
           DisplayFormat.DecimalSeparator = ','
-          Frame.Typ = [ftTop]
           HAlign = haCenter
           Memo.UTF8 = (
             '[fr_doc_data_ds."QUANTITY"]')

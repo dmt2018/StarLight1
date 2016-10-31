@@ -437,7 +437,7 @@ begin
     grid_allnakl_vBRIEF.Visible                 := gr_main.FieldColumns['BRIEF'].Visible;
     grid_allreserv_vBRIEF.Visible               := gr_main.FieldColumns['BRIEF'].Visible;
 
-    grid_allnakl_v.OptionsView.Footer:=false;
+    grid_allnakl_v.OptionsView.Footer:=true;
 
   finally
     RegIni.Free;
