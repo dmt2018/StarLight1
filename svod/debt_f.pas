@@ -900,7 +900,7 @@ begin
 //         import_debet.cu_discount.EditValue      := DM.Q_SQL.ParamByName('discount_').Value;
          with import_debet do
          begin
-           if ( DM.Q_CASH_SOPERATION.AsInteger = 3 ) then
+           if ( DM.Q_CASH_SOPERATION.AsInteger = 3 ) or ( DM.Q_CASH_SOPERATION.AsInteger = 18 ) then
            begin
              debet := RoundTo(
               (
@@ -1068,7 +1068,7 @@ begin
         DM.Q_SQL.ParamByName('id_debetor_').Value     := ind2; // P1
 
 
-        if (operation_ = 3) then
+        if (operation_ = 3) or (operation_ = 18) then
         begin
            debet := RoundTo(
             (
