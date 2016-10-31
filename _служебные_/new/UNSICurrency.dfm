@@ -41,7 +41,12 @@ object frmNSICurreny: TfrmNSICurreny
       NavigatorButtons.Filter.Visible = True
       DataController.DataSource = Q_CURR_DS
       DataController.Summary.DefaultGroupSummaryItems = <>
-      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <
+        item
+          Format = '0'
+          Kind = skCount
+          Column = grCurrencyViewColumn2
+        end>
       DataController.Summary.SummaryGroups = <>
       OptionsBehavior.CellHints = True
       OptionsCustomize.ColumnMoving = False
@@ -70,6 +75,7 @@ object frmNSICurreny: TfrmNSICurreny
         Properties.ReadOnly = True
         Properties.SaveTime = False
         Properties.ShowTime = False
+        FooterAlignmentHorz = taRightJustify
         HeaderAlignmentHorz = taCenter
         Width = 100
       end

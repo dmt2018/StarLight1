@@ -8,7 +8,8 @@ uses
   cxData, cxDataStorage, cxEdit, DB, cxDBData, cxCheckBox, cxImageComboBox,
   cxLabel, cxButtonEdit, ActnList, dxBar, cxBarEditItem, dxBarExtItems,
   cxClasses, DBAccess, Ora, MemDS, cxGridLevel, cxGridCustomTableView,
-  cxGridTableView, cxGridDBTableView, cxGridCustomView, cxGrid, star_lib;
+  cxGridTableView, cxGridDBTableView, cxGridCustomView, cxGrid, star_lib,
+  cxTextEdit, cxCurrencyEdit;
 
 type
   TfrmRefbooks = class(TForm)
@@ -203,7 +204,6 @@ type
     Q_SupIS_ACTIVE: TFloatField;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
-    procedure FormShow(Sender: TObject);
     procedure aExitExecute(Sender: TObject);
     procedure btnHotKeysClick(Sender: TObject);
     procedure aRefreshExecute(Sender: TObject);
@@ -216,34 +216,45 @@ type
     p_read, p_edit, p_delete, p_print: boolean;
   public
     { Public declarations }
-    id_office: integer;
-    function MainFormShow : boolean;
+    page: integer;
+    frmDesc: TfrmRefbooks;
+    function MainFormShow(v_page: integer) : boolean;
   end;
 
 var
   frmRefbooks: TfrmRefbooks;
+  frmRefbooks_0: TfrmRefbooks;
 
 implementation
 
 {$R *.dfm}
 
-uses umain, UDM, UHotKeys, UEditRefBooks;
+uses UDM, UHotKeys, UEditRefBooks;
 
-function TfrmRefbooks.MainFormShow : boolean;
+function TfrmRefbooks.MainFormShow(v_page: integer) : boolean;
+var newDesc: TfrmRefbooks;
 Begin
- if not Assigned(frmRefbooks) then
+  newDesc := frmRefbooks_0;
+
+ if not Assigned(newDesc) then
   begin
-    frmRefbooks := TfrmRefbooks.Create(Application);
+    newDesc := TfrmRefbooks.Create(Application);
     try
-      frmRefbooks.Show;
-      LoadFormState(frmRefbooks); //полож.окна
+      newDesc.page := v_page;
+      newDesc.frmDesc := newDesc;
+      newDesc.Show;
+      newDesc.aRefresh.Execute;
+      LoadFormState(newDesc); //полож.окна
     finally
       null;
     end;
   end
   else
-    if (frmRefbooks.WindowState = wsMinimized) then frmRefbooks.WindowState := wsNormal;
+    if (newDesc.WindowState = wsMinimized) then newDesc.WindowState := wsNormal;
 end;
+
+
+
 
 procedure TfrmRefbooks.aDeleteExecute(Sender: TObject);
 var idd, i: integer;
@@ -261,7 +272,7 @@ begin
   begin
 
   if (pcrefbooks.ActivePage.PageIndex  in [0..5]) then
-  if (id_office <> (sss.ActiveView.DataController as TcxDBDataController).DataSet.FieldByName('ID_OFFICE').AsInteger) then
+  if (DM.id_office <> (sss.ActiveView.DataController as TcxDBDataController).DataSet.FieldByName('ID_OFFICE').AsInteger) then
   begin
     MessageBox(Handle,'Данная запись не принадлежит главному офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
     exit;
@@ -394,7 +405,7 @@ begin
           selq.Close;
           grSuppliers.SetFocus;
       end;
-      if (pcrefbooks.ActivePage.PageIndex=8) and (id_office=1)  then begin
+      if (pcrefbooks.ActivePage.PageIndex=8) and (DM.id_office=1)  then begin
           grUnitsView.DataController.DataSet.Delete;
       end;
       except
@@ -426,7 +437,7 @@ begin
   begin
 
   if (pcrefbooks.ActivePage.PageIndex  in [0..5]) then
-  if (id_office <> (sss.ActiveView.DataController as TcxDBDataController).DataSet.FieldByName('ID_OFFICE').AsInteger) then
+  if (DM.id_office <> (sss.ActiveView.DataController as TcxDBDataController).DataSet.FieldByName('ID_OFFICE').AsInteger) then
   begin
     MessageBox(Handle,'Данная запись не принадлежит главному офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
     exit;
@@ -569,15 +580,10 @@ begin
   end;
 end;
 
-procedure TfrmRefbooks.aExitExecute(Sender: TObject);
-begin
-  Close;
-end;
-
 procedure TfrmRefbooks.aNewExecute(Sender: TObject);
  var id : variant;
 begin
-  if (pcrefbooks.ActivePage.PageIndex<4) and (id_office > 1) then
+  if (pcrefbooks.ActivePage.PageIndex<4) and (DM.id_office > 1) then
   begin
     MessageBox(Handle,'Вид данных добавляется только через главный офис компании.','Внимание!',MB_ICONERROR);
     exit;
@@ -694,89 +700,100 @@ begin
   end;
 end;
 
+
+
+
 procedure TfrmRefbooks.aRefreshExecute(Sender: TObject);
- var i:integer;
 begin
+  pcrefbooks.ActivePageIndex := page;
 
-for i:=0 to pcrefbooks.PageCount-1 do pcrefbooks.Pages[i].TabVisible:=false;
-pcrefbooks.ActivePageIndex:=frmmain.page;
+  if pcrefbooks.ActivePage.PageIndex = 0 then
+  begin
+    Caption := 'Cправочники :: регионы';
+    Q_REGIONS.Close;
+    Q_REGIONS.ParamByName('V_OFFICE').AsInteger :=  DM.id_office;
+    Q_REGIONS.Open;
+    grRegions.SetFocus;
+  end;
 
-if pcrefbooks.ActivePage.PageIndex=0 then begin
- Caption := 'Cправочники :: регионы';
- pcrefbooks.Pages[0].TabVisible:=true;
- Q_REGIONS.Close;
- Q_REGIONS.ParamByName('V_OFFICE').AsInteger :=  id_office;
- Q_REGIONS.Open;
- grRegions.SetFocus;
+  if pcrefbooks.ActivePage.PageIndex = 1 then
+  begin
+    Caption := 'Cправочники :: города';
+    Q_REGIONS.Close;  // чтоб был открыт датасет регионов для выбора в городах
+    Q_REGIONS.ParamByName('V_OFFICE').AsInteger := DM.id_office;
+    Q_REGIONS.Open;
+    Q_CITIES.Close;
+    Q_CITIES.ParamByName('V_OFFICE').AsInteger := DM.id_office;
+    Q_CITIES.Open;
+    grCities.SetFocus;
+  end;
+
+  if pcrefbooks.ActivePage.PageIndex = 2 then
+  begin
+    Caption := 'Cправочники :: реклама';
+    Q_Promo.Close;
+    Q_Promo.ParamByName('V_OFFICE').AsInteger := DM.id_office;
+    Q_Promo.Open;
+    grPromo.SetFocus;
+  end;
+
+  if pcrefbooks.ActivePage.PageIndex = 3 then
+  begin
+    Caption := 'Cправочники :: типы клиентов';
+    Q_CT.Close;
+    Q_CT.ParamByName('V_OFFICE').AsInteger := DM.id_office;
+    Q_CT.Open;
+    grClientTypes.SetFocus;
+  end;
+
+  if pcrefbooks.ActivePage.PageIndex = 4 then
+  begin
+    Caption := 'Cправочники :: отделы';
+    Q_DEPS.Close;
+    Q_DEPS.ParamByName('V_OFFICE').AsInteger := DM.id_office;
+    Q_DEPS.Open;
+    grDeps.SetFocus;
+  end;
+
+  if pcrefbooks.ActivePage.PageIndex = 5 then
+  begin
+    Caption := 'Cправочники :: должности';
+    Q_POST.Close;
+    Q_POST.ParamByName('V_OFFICE').AsInteger := DM.id_office;
+    Q_POST.Open;
+    grPost.SetFocus;
+  end;
+
+  if pcrefbooks.ActivePage.PageIndex = 6 then
+  begin
+    Caption := 'Cправочники :: страны';
+    Q_CTRS.Close;
+    Q_CTRS.Open;
+    grCountries.SetFocus;
+  end;
+
+  if pcrefbooks.ActivePage.PageIndex=7 then
+  begin
+    Caption := 'Cправочники :: поставщики';
+    Q_CTRS.Close;
+    Q_CTRS.Open;
+    Q_SUP.Close;
+    Q_SUP.ParamByName('V_OFFICE').AsInteger := DM.id_office;
+    Q_SUP.Open;
+    grSuppliers.SetFocus;
+  end;
+
+  if pcrefbooks.ActivePage.PageIndex = 8 then
+  begin
+    Caption := 'Cправочники :: единицы измерения';
+    Q_CDS.Close;
+    Q_CDS.Open;
+    grUnits.SetFocus;
+  end;
 end;
-if pcrefbooks.ActivePage.PageIndex=1 then begin
- Caption := 'Cправочники :: города';
- pcrefbooks.Pages[1].TabVisible:=true;
- Q_REGIONS.Close;  // чтоб был открыт датасет регионов для выбора в городах
- Q_REGIONS.ParamByName('V_OFFICE').AsInteger :=  id_office;
- Q_REGIONS.Open;
- Q_CITIES.Close;
- Q_CITIES.ParamByName('V_OFFICE').AsInteger :=  id_office;
- Q_CITIES.Open;
- grCities.SetFocus;
-end;
-if pcrefbooks.ActivePage.PageIndex=2 then begin
- Caption := 'Cправочники :: реклама';
- pcrefbooks.Pages[2].TabVisible:=true;
- Q_Promo.Close;
- Q_Promo.ParamByName('V_OFFICE').AsInteger :=  id_office;
- Q_Promo.Open;
- grPromo.SetFocus;
-end;
-if pcrefbooks.ActivePage.PageIndex=3 then begin
- Caption := 'Cправочники :: типы клиентов';
- pcrefbooks.Pages[3].TabVisible:=true;
- Q_CT.Close;
- Q_CT.ParamByName('V_OFFICE').AsInteger :=  id_office;
- Q_CT.Open;
- grClientTypes.SetFocus;
-end;
-if pcrefbooks.ActivePage.PageIndex=4 then begin
- Caption := 'Cправочники :: отделы';
- pcrefbooks.Pages[4].TabVisible:=true;
- Q_DEPS.Close;
- Q_DEPS.ParamByName('V_OFFICE').AsInteger :=  id_office;
- Q_DEPS.Open;
- grDeps.SetFocus;
-end;
-if pcrefbooks.ActivePage.PageIndex=5 then begin
- Caption := 'Cправочники :: должности';
- pcrefbooks.Pages[5].TabVisible:=true;
- Q_POST.Close;
- Q_POST.ParamByName('V_OFFICE').AsInteger :=  id_office;
- Q_POST.Open;
- grPost.SetFocus;
-end;
-if pcrefbooks.ActivePage.PageIndex=6 then begin
- Caption := 'Cправочники :: страны';
- pcrefbooks.Pages[6].TabVisible:=true;
- Q_CTRS.Close;
- Q_CTRS.Open;
- grCountries.SetFocus;
-end;
-if pcrefbooks.ActivePage.PageIndex=7 then begin
- Caption := 'Cправочники :: поставщики';
- pcrefbooks.Pages[7].TabVisible:=true;
- Q_CTRS.Close;
- Q_CTRS.Open;
- Q_SUP.Close;
- Q_SUP.ParamByName('V_OFFICE').AsInteger :=  id_office;
- Q_SUP.Open;
- grSuppliers.SetFocus;
-end;
-if pcrefbooks.ActivePage.PageIndex=8 then begin
- Caption := 'Cправочники :: единицы измерения';
- pcrefbooks.Pages[8].TabVisible:=true;
- Q_CDS.Close;
- Q_CDS.Open;
- grUnits.SetFocus;
-end;
-end;
+
+
+
 
 procedure TfrmRefbooks.btnHelpClick(Sender: TObject);
 begin
@@ -790,27 +807,32 @@ end;
 
 procedure TfrmRefbooks.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  if MessageDlg('Закрыть программу?',mtConfirmation,[mbYes, mbNo],0) <> mrYes then
+  if MessageDlg('Закрыть форму?',mtConfirmation,[mbYes, mbNo],0) <> mrYes then
     Action := caNone
   else
   begin
-    SaveFormState(frmRefbooks); //полож.окна
-    frmRefbooks := nil;
+    //SaveFormState(frmDesc); //полож.окна
+    SaveFormState(frmDesc); //полож.окна
+    //frmRefbooks := nil;
+    frmDesc := nil;
     Action := caFree;
   end;
 end;
 
+
+
 procedure TfrmRefbooks.FormCreate(Sender: TObject);
    var recUserRules : TUserRules; i:integer;
 begin
- Application.CreateForm(TfrmEditRefBooks, frmEditRefBooks);
+  //Application.CreateForm(TfrmEditRefBooks, frmEditRefBooks);
 
- for i:=0 to ComponentCount-1 do
- if (Components[i] is TControl) and  (Components[i] is TcxGrid) then
- (Components[i] as TcxGrid).Font.Size := intDefFont;
- //grRegions.Font.Size := intDefFont;
+  for i := 0 to ComponentCount-1 do
+    if (Components[i] is TControl) and  (Components[i] is TcxGrid) then
+      (Components[i] as TcxGrid).Font.Size := intDefFont;
 
-   // получение прав на программу
+  for i := 0 to pcrefbooks.PageCount-1 do pcrefbooks.Pages[i].TabVisible := false;
+
+  // получение прав на программу
   recUserRules  := getRules(DM.cdsRules,4);
   p_read        := recUserRules.r_read;
   p_edit        := recUserRules.r_edit;
@@ -822,27 +844,9 @@ begin
   aDelete.Enabled := p_delete;
 end;
 
-procedure TfrmRefbooks.FormShow(Sender: TObject);
+procedure TfrmRefbooks.aExitExecute(Sender: TObject);
 begin
- if (imgOffice.Enabled) then
-  begin
-   try
-    id_office := GetOfficeID;
-    imgOffice.Enabled := (id_office = 1);
-
-    imgOffice.Properties.OnChange := nil;
-    SelQ.Close;
-    SelQ.SQL.Clear;
-    SelQ.SQL.Add('SELECT ID_OFFICE, OFFICE_NAME FROM OFFICES ORDER BY OFFICE_NAME');
-    SelQ.Open;
-    SelQ.Close;
-    imgOffice.EditValue := id_office;
-
-    aRefresh.Execute;
-   except
-    on E: Exception do ShowMessage(E.Message);
-   end;
-  end;
+  Close;
 end;
 
 end.

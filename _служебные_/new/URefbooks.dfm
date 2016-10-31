@@ -15,7 +15,6 @@ object frmRefbooks: TfrmRefbooks
   Visible = True
   OnClose = FormClose
   OnCreate = FormCreate
-  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object pcrefbooks: TcxPageControl
@@ -23,9 +22,10 @@ object frmRefbooks: TfrmRefbooks
     Top = 58
     Width = 770
     Height = 479
-    ActivePage = tshPromo
+    ActivePage = tshCityes
     Align = alClient
     TabOrder = 0
+    ExplicitTop = 66
     ClientRectBottom = 479
     ClientRectRight = 770
     ClientRectTop = 24
@@ -46,6 +46,12 @@ object frmRefbooks: TfrmRefbooks
         Width = 770
         Height = 455
         Align = alClient
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 0
         object grRegionsView: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
@@ -65,10 +71,18 @@ object frmRefbooks: TfrmRefbooks
           NavigatorButtons.SaveBookmark.Visible = True
           NavigatorButtons.GotoBookmark.Visible = True
           NavigatorButtons.Filter.Visible = True
+          FilterBox.Position = fpTop
           DataController.DataSource = Q_REGIONS_DS
           DataController.Summary.DefaultGroupSummaryItems = <>
-          DataController.Summary.FooterSummaryItems = <>
+          DataController.Summary.FooterSummaryItems = <
+            item
+              Format = '0'
+              Kind = skCount
+              Column = grRegionsName
+            end>
           DataController.Summary.SummaryGroups = <>
+          FilterRow.InfoText = #1055#1086#1083#1077' '#1076#1083#1103' '#1092#1080#1083#1100#1090#1088#1086#1074
+          FilterRow.Visible = True
           OptionsBehavior.CellHints = True
           OptionsCustomize.ColumnMoving = False
           OptionsData.CancelOnExit = False
@@ -87,11 +101,13 @@ object frmRefbooks: TfrmRefbooks
           object grRegionsNN: TcxGridDBColumn
             Caption = #8470
             DataBinding.FieldName = 'NN'
+            Visible = False
             Width = 40
           end
           object grRegionsName: TcxGridDBColumn
             Caption = #1053#1072#1079#1074#1072#1085#1080#1077
             DataBinding.FieldName = 'NAME'
+            FooterAlignmentHorz = taRightJustify
             Width = 200
           end
           object grRegionsInfo: TcxGridDBColumn
@@ -107,7 +123,10 @@ object frmRefbooks: TfrmRefbooks
           object grRegionsKod: TcxGridDBColumn
             Caption = #1050#1086#1076
             DataBinding.FieldName = 'KOD'
-            Width = 50
+            PropertiesClassName = 'TcxTextEditProperties'
+            Properties.Alignment.Horz = taCenter
+            HeaderAlignmentHorz = taCenter
+            Width = 60
           end
         end
         object grRegionsLevel: TcxGridLevel
@@ -143,10 +162,18 @@ object frmRefbooks: TfrmRefbooks
           NavigatorButtons.SaveBookmark.Visible = True
           NavigatorButtons.GotoBookmark.Visible = True
           NavigatorButtons.Filter.Visible = True
+          FilterBox.Position = fpTop
           DataController.DataSource = Q_CITIES_DS
           DataController.Summary.DefaultGroupSummaryItems = <>
-          DataController.Summary.FooterSummaryItems = <>
+          DataController.Summary.FooterSummaryItems = <
+            item
+              Format = '0'
+              Kind = skCount
+              Column = grCitiesCity
+            end>
           DataController.Summary.SummaryGroups = <>
+          FilterRow.InfoText = #1055#1086#1083#1077' '#1076#1083#1103' '#1092#1080#1083#1100#1090#1088#1086#1074
+          FilterRow.Visible = True
           OptionsBehavior.CellHints = True
           OptionsCustomize.ColumnMoving = False
           OptionsData.CancelOnExit = False
@@ -165,11 +192,16 @@ object frmRefbooks: TfrmRefbooks
           object grCitiesCity: TcxGridDBColumn
             Caption = #1043#1086#1088#1086#1076
             DataBinding.FieldName = 'CITY'
+            FooterAlignmentHorz = taRightJustify
             Width = 200
           end
           object grCitiesKod: TcxGridDBColumn
             Caption = #1050#1086#1076' '#1075#1086#1088#1086#1076#1072
             DataBinding.FieldName = 'KOD'
+            PropertiesClassName = 'TcxTextEditProperties'
+            Properties.Alignment.Horz = taCenter
+            HeaderAlignmentHorz = taCenter
+            Width = 100
           end
         end
         object grCitiesLevel: TcxGridLevel
@@ -205,10 +237,18 @@ object frmRefbooks: TfrmRefbooks
           NavigatorButtons.SaveBookmark.Visible = True
           NavigatorButtons.GotoBookmark.Visible = True
           NavigatorButtons.Filter.Visible = True
+          FilterBox.Position = fpTop
           DataController.DataSource = Q_Promo_DS
           DataController.Summary.DefaultGroupSummaryItems = <>
-          DataController.Summary.FooterSummaryItems = <>
+          DataController.Summary.FooterSummaryItems = <
+            item
+              Format = '0'
+              Kind = skCount
+              Column = grPromoName
+            end>
           DataController.Summary.SummaryGroups = <>
+          FilterRow.InfoText = #1055#1086#1083#1077' '#1076#1083#1103' '#1092#1080#1083#1100#1090#1088#1086#1074
+          FilterRow.Visible = True
           OptionsBehavior.CellHints = True
           OptionsCustomize.ColumnMoving = False
           OptionsData.CancelOnExit = False
@@ -227,10 +267,12 @@ object frmRefbooks: TfrmRefbooks
           object grPromoNN: TcxGridDBColumn
             Caption = #8470
             DataBinding.FieldName = 'NN'
+            Visible = False
           end
           object grPromoName: TcxGridDBColumn
             Caption = #1053#1072#1079#1074#1072#1085#1080#1077
             DataBinding.FieldName = 'NAME'
+            FooterAlignmentHorz = taRightJustify
             Width = 200
           end
           object grPromoInfo: TcxGridDBColumn
@@ -272,10 +314,18 @@ object frmRefbooks: TfrmRefbooks
           NavigatorButtons.SaveBookmark.Visible = True
           NavigatorButtons.GotoBookmark.Visible = True
           NavigatorButtons.Filter.Visible = True
+          FilterBox.Position = fpTop
           DataController.DataSource = Q_CT_DS
           DataController.Summary.DefaultGroupSummaryItems = <>
-          DataController.Summary.FooterSummaryItems = <>
+          DataController.Summary.FooterSummaryItems = <
+            item
+              Format = '0'
+              Kind = skCount
+              Column = tview_TYPESBRIEF
+            end>
           DataController.Summary.SummaryGroups = <>
+          FilterRow.InfoText = #1055#1086#1083#1077' '#1076#1083#1103' '#1092#1080#1083#1100#1090#1088#1086#1074
+          FilterRow.Visible = True
           OptionsBehavior.CellHints = True
           OptionsCustomize.ColumnMoving = False
           OptionsData.CancelOnExit = False
@@ -294,10 +344,15 @@ object frmRefbooks: TfrmRefbooks
           object tview_TYPESnn: TcxGridDBColumn
             Caption = #8470':'
             DataBinding.FieldName = 'nn'
+            Visible = False
           end
           object tview_TYPESBRIEF: TcxGridDBColumn
             Caption = #1054#1092#1080#1089
             DataBinding.FieldName = 'BRIEF'
+            PropertiesClassName = 'TcxTextEditProperties'
+            Properties.Alignment.Horz = taCenter
+            FooterAlignmentHorz = taRightJustify
+            HeaderAlignmentHorz = taCenter
           end
           object tview_TYPESNAME: TcxGridDBColumn
             Caption = #1053#1072#1079#1074#1072#1085#1080#1077
@@ -307,10 +362,23 @@ object frmRefbooks: TfrmRefbooks
           object tview_TYPEST_TYPE: TcxGridDBColumn
             Caption = #1055#1077#1095#1072#1090#1100
             DataBinding.FieldName = 'T_TYPE'
+            PropertiesClassName = 'TcxCheckBoxProperties'
+            Properties.Alignment = taCenter
+            Properties.NullStyle = nssUnchecked
+            Properties.ReadOnly = True
+            Properties.ValueChecked = '1'
+            Properties.ValueUnchecked = '0'
+            HeaderAlignmentHorz = taCenter
           end
           object tview_TYPESDISCOUNT: TcxGridDBColumn
             Caption = #1057#1082#1080#1076#1082#1072', %'
             DataBinding.FieldName = 'DISCOUNT'
+            PropertiesClassName = 'TcxCurrencyEditProperties'
+            Properties.Alignment.Horz = taCenter
+            Properties.DecimalPlaces = 0
+            Properties.DisplayFormat = ',0;-,0'
+            HeaderAlignmentHorz = taCenter
+            Width = 80
           end
           object tview_TYPESINFO: TcxGridDBColumn
             Caption = #1048#1085#1092#1086#1088#1084#1072#1094#1080#1103
@@ -320,6 +388,14 @@ object frmRefbooks: TfrmRefbooks
           object tview_TYPESCONTRACTOR: TcxGridDBColumn
             Caption = #1050#1086#1085#1090#1088#1072#1075#1077#1085#1090
             DataBinding.FieldName = 'IS_CONTRACTOR'
+            PropertiesClassName = 'TcxCheckBoxProperties'
+            Properties.Alignment = taCenter
+            Properties.NullStyle = nssUnchecked
+            Properties.ReadOnly = True
+            Properties.ValueChecked = '1'
+            Properties.ValueUnchecked = '0'
+            HeaderAlignmentHorz = taCenter
+            Width = 80
           end
         end
         object grClientTypesLevel: TcxGridLevel
@@ -355,10 +431,18 @@ object frmRefbooks: TfrmRefbooks
           NavigatorButtons.SaveBookmark.Visible = True
           NavigatorButtons.GotoBookmark.Visible = True
           NavigatorButtons.Filter.Visible = True
+          FilterBox.Position = fpTop
           DataController.DataSource = Q_DEPS_DS
           DataController.Summary.DefaultGroupSummaryItems = <>
-          DataController.Summary.FooterSummaryItems = <>
+          DataController.Summary.FooterSummaryItems = <
+            item
+              Format = '0'
+              Kind = skCount
+              Column = grDepsName
+            end>
           DataController.Summary.SummaryGroups = <>
+          FilterRow.InfoText = #1055#1086#1083#1077' '#1076#1083#1103' '#1092#1080#1083#1100#1090#1088#1086#1074
+          FilterRow.Visible = True
           OptionsBehavior.CellHints = True
           OptionsCustomize.ColumnMoving = False
           OptionsData.CancelOnExit = False
@@ -377,11 +461,13 @@ object frmRefbooks: TfrmRefbooks
           object grDepsNN: TcxGridDBColumn
             Caption = #8470
             DataBinding.FieldName = 'NN'
+            Visible = False
             Width = 51
           end
           object grDepsName: TcxGridDBColumn
             Caption = #1053#1072#1079#1074#1072#1085#1080#1077
             DataBinding.FieldName = 'NAME'
+            FooterAlignmentHorz = taRightJustify
             Width = 220
           end
           object grDepsSTATE: TcxGridDBColumn
@@ -399,7 +485,7 @@ object frmRefbooks: TfrmRefbooks
             HeaderAlignmentHorz = taCenter
             HeaderAlignmentVert = vaCenter
             MinWidth = 110
-            Width = 110
+            Width = 160
           end
           object grDepsINFO: TcxGridDBColumn
             Caption = #1048#1085#1092#1086#1088#1084#1072#1094#1080#1103
@@ -440,10 +526,18 @@ object frmRefbooks: TfrmRefbooks
           NavigatorButtons.SaveBookmark.Visible = True
           NavigatorButtons.GotoBookmark.Visible = True
           NavigatorButtons.Filter.Visible = True
+          FilterBox.Position = fpTop
           DataController.DataSource = Q_POST_DS
           DataController.Summary.DefaultGroupSummaryItems = <>
-          DataController.Summary.FooterSummaryItems = <>
+          DataController.Summary.FooterSummaryItems = <
+            item
+              Format = '0'
+              Kind = skCount
+              Column = grPostName
+            end>
           DataController.Summary.SummaryGroups = <>
+          FilterRow.InfoText = #1055#1086#1083#1077' '#1076#1083#1103' '#1092#1080#1083#1100#1090#1088#1086#1074
+          FilterRow.Visible = True
           OptionsBehavior.CellHints = True
           OptionsCustomize.ColumnMoving = False
           OptionsData.CancelOnExit = False
@@ -462,11 +556,13 @@ object frmRefbooks: TfrmRefbooks
           object grPostNN: TcxGridDBColumn
             Caption = #8470
             DataBinding.FieldName = 'NN'
+            Visible = False
             Width = 49
           end
           object grPostName: TcxGridDBColumn
             Caption = #1053#1072#1079#1074#1072#1085#1080#1077
             DataBinding.FieldName = 'NAME'
+            FooterAlignmentHorz = taRightJustify
             Width = 272
           end
           object grPostInfo: TcxGridDBColumn
@@ -508,10 +604,18 @@ object frmRefbooks: TfrmRefbooks
           NavigatorButtons.SaveBookmark.Visible = True
           NavigatorButtons.GotoBookmark.Visible = True
           NavigatorButtons.Filter.Visible = True
+          FilterBox.Position = fpTop
           DataController.DataSource = Q_CTRS_DS
           DataController.Summary.DefaultGroupSummaryItems = <>
-          DataController.Summary.FooterSummaryItems = <>
+          DataController.Summary.FooterSummaryItems = <
+            item
+              Format = '0'
+              Kind = skCount
+              Column = grCountriesCTRS
+            end>
           DataController.Summary.SummaryGroups = <>
+          FilterRow.InfoText = #1055#1086#1083#1077' '#1076#1083#1103' '#1092#1080#1083#1100#1090#1088#1086#1074
+          FilterRow.Visible = True
           OptionsBehavior.CellHints = True
           OptionsCustomize.ColumnMoving = False
           OptionsData.CancelOnExit = False
@@ -530,11 +634,13 @@ object frmRefbooks: TfrmRefbooks
           object grCountriesNN: TcxGridDBColumn
             Caption = #8470
             DataBinding.FieldName = 'NN'
+            Visible = False
             Width = 48
           end
           object grCountriesCTRS: TcxGridDBColumn
             Caption = #1057#1090#1088#1072#1085#1072
             DataBinding.FieldName = 'COUNTRY'
+            FooterAlignmentHorz = taRightJustify
             Width = 249
           end
           object grCountriesCTRSLAT: TcxGridDBColumn
@@ -545,11 +651,17 @@ object frmRefbooks: TfrmRefbooks
           object grCountriesKODC: TcxGridDBColumn
             Caption = #1050#1086#1076' ('#1073#1091#1082#1074'.)'
             DataBinding.FieldName = 'MNEMO'
+            PropertiesClassName = 'TcxTextEditProperties'
+            Properties.Alignment.Horz = taCenter
+            HeaderAlignmentHorz = taCenter
             Width = 90
           end
           object grCountriesKOD: TcxGridDBColumn
             Caption = #1050#1086#1076' ('#1094#1080#1092'.)'
             DataBinding.FieldName = 'BUH_CODE'
+            PropertiesClassName = 'TcxTextEditProperties'
+            Properties.Alignment.Horz = taCenter
+            HeaderAlignmentHorz = taCenter
             Width = 85
           end
         end
@@ -586,10 +698,18 @@ object frmRefbooks: TfrmRefbooks
           NavigatorButtons.SaveBookmark.Visible = True
           NavigatorButtons.GotoBookmark.Visible = True
           NavigatorButtons.Filter.Visible = True
+          FilterBox.Position = fpTop
           DataController.DataSource = Q_SUP_DS
           DataController.Summary.DefaultGroupSummaryItems = <>
-          DataController.Summary.FooterSummaryItems = <>
+          DataController.Summary.FooterSummaryItems = <
+            item
+              Format = '0'
+              Kind = skCount
+              Column = grSuppliersName
+            end>
           DataController.Summary.SummaryGroups = <>
+          FilterRow.InfoText = #1055#1086#1083#1077' '#1076#1083#1103' '#1092#1080#1083#1100#1090#1088#1086#1074
+          FilterRow.Visible = True
           OptionsBehavior.CellHints = True
           OptionsCustomize.ColumnMoving = False
           OptionsData.CancelOnExit = False
@@ -604,15 +724,18 @@ object frmRefbooks: TfrmRefbooks
           OptionsView.FooterMultiSummaries = True
           OptionsView.GroupByBox = False
           OptionsView.GroupFooters = gfVisibleWhenExpanded
+          OptionsView.HeaderAutoHeight = True
           OptionsView.HeaderEndEllipsis = True
           object grSuppliersNN: TcxGridDBColumn
             Caption = #8470
             DataBinding.FieldName = 'NN'
+            Visible = False
             Width = 49
           end
           object grSuppliersName: TcxGridDBColumn
             Caption = #1055#1086#1089#1090#1072#1074#1097#1080#1082
             DataBinding.FieldName = 'S_NAME_RU'
+            FooterAlignmentHorz = taRightJustify
             Width = 200
           end
           object grSuppliersCountry: TcxGridDBColumn
@@ -624,24 +747,33 @@ object frmRefbooks: TfrmRefbooks
             Caption = #1058#1072#1084#1086#1078#1085#1103'/'#1043#1058#1044
             DataBinding.FieldName = 'NEED_CUST'
             PropertiesClassName = 'TcxCheckBoxProperties'
+            Properties.Alignment = taCenter
             Properties.DisplayChecked = #1076#1072
             Properties.DisplayUnchecked = #1085#1077#1090
             Properties.ValueChecked = 1
             Properties.ValueUnchecked = 0
-            Width = 78
+            HeaderAlignmentHorz = taCenter
+            Width = 90
           end
           object grSuppliersDays: TcxGridDBColumn
             Caption = #1050'-'#1074#1086' '#1076#1085#1077#1081' '#1076#1083#1103' '#1072#1085#1072#1083#1080#1079#1072' '#1074' '#1079#1072#1082#1072#1079#1077
             DataBinding.FieldName = 'ANALYZE_DAYS'
+            PropertiesClassName = 'TcxTextEditProperties'
+            Properties.Alignment.Horz = taCenter
+            HeaderAlignmentHorz = taCenter
+            Width = 110
           end
           object grSuppliersPassiv: TcxGridDBColumn
             Caption = #1053#1077#1072#1082#1090#1080#1074#1085#1072#1103' '#1085#1086#1084#1077#1085#1082#1083#1072#1090#1091#1088#1072
             DataBinding.FieldName = 'IS_ACTIVE'
             PropertiesClassName = 'TcxCheckBoxProperties'
+            Properties.Alignment = taCenter
             Properties.DisplayChecked = #1076#1072
             Properties.DisplayUnchecked = #1085#1077#1090
             Properties.ValueChecked = '1'
             Properties.ValueUnchecked = '0'
+            HeaderAlignmentHorz = taCenter
+            Width = 100
           end
         end
         object grSuppliersLevel: TcxGridLevel
@@ -677,10 +809,18 @@ object frmRefbooks: TfrmRefbooks
           NavigatorButtons.SaveBookmark.Visible = True
           NavigatorButtons.GotoBookmark.Visible = True
           NavigatorButtons.Filter.Visible = True
+          FilterBox.Position = fpTop
           DataController.DataSource = Q_CDS_DS
           DataController.Summary.DefaultGroupSummaryItems = <>
-          DataController.Summary.FooterSummaryItems = <>
+          DataController.Summary.FooterSummaryItems = <
+            item
+              Format = '0'
+              Kind = skCount
+              Column = grUnitsKod
+            end>
           DataController.Summary.SummaryGroups = <>
+          FilterRow.InfoText = #1055#1086#1083#1077' '#1076#1083#1103' '#1092#1080#1083#1100#1090#1088#1086#1074
+          FilterRow.Visible = True
           OptionsBehavior.CellHints = True
           OptionsCustomize.ColumnMoving = False
           OptionsData.CancelOnExit = False
@@ -699,6 +839,10 @@ object frmRefbooks: TfrmRefbooks
           object grUnitsKod: TcxGridDBColumn
             Caption = #1050#1086#1076
             DataBinding.FieldName = 'UNIT_CODE'
+            PropertiesClassName = 'TcxTextEditProperties'
+            Properties.Alignment.Horz = taCenter
+            FooterAlignmentHorz = taRightJustify
+            HeaderAlignmentHorz = taCenter
           end
           object grUnitsName: TcxGridDBColumn
             Caption = #1045#1076#1080#1085#1080#1094#1072' '#1080#1079#1084#1077#1088#1077#1085#1080#1103
@@ -986,6 +1130,7 @@ object frmRefbooks: TfrmRefbooks
     object btnHelp: TdxBarLargeButton
       Caption = #1055#1086#1084#1086#1097#1100
       Category = 0
+      Enabled = False
       Hint = #1055#1086#1084#1086#1097#1100
       Visible = ivAlways
       LargeImageIndex = 20

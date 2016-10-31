@@ -130,6 +130,7 @@ end;
 procedure TfrmEditRefbooks.cxButton2Click(Sender: TObject);
 var ind, flag, price_part: integer; 
 begin
+{
     // Пытаемся выполнить SQL запрос
     try
 
@@ -307,15 +308,17 @@ begin
       on E: Exception do
         MessageBox(Handle, PChar(E.Message), 'Не удалось выполнить операцию!', MB_ICONERROR);
     End;
+}    
 end;
 
 procedure TfrmEditRefbooks.FormShow(Sender: TObject);
  var i:integer;
 begin
-for i:=0 to cxPageControl1.PageCount-1 do cxPageControl1.Pages[i].TabVisible:=false;
-cxPageControl1.ActivePageIndex:=frmmain.page;
+{
+  for i:=0 to cxPageControl1.PageCount-1 do cxPageControl1.Pages[i].TabVisible:=false;
+//  cxPageControl1.ActivePageIndex := page;
 
-//заполнение комбобоксов
+  //заполнение комбобоксов
   if (ttype = 11) or (ttype = 12) then
   begin
     FillImgComboCx(frmRefbooks.Q_REGIONS,lcb_Runames,'Выберите...');
@@ -326,7 +329,7 @@ cxPageControl1.ActivePageIndex:=frmmain.page;
     FillImgComboCx(frmRefbooks.Q_CTRS,cb_suplier_c,'Выберите...');
     cb_suplier_c.EditValue := cb_suplier_c.Tag;
   end;
-
+}
 end;
 
 end.

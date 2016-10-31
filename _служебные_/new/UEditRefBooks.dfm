@@ -215,6 +215,10 @@ object frmEditRefbooks: TfrmEditRefbooks
     object tsh_regions: TcxTabSheet
       Caption = #1056#1077#1075#1080#1086#1085#1099
       ImageIndex = 0
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Label5: TLabel
         Left = 34
         Top = 128
@@ -370,6 +374,10 @@ object frmEditRefbooks: TfrmEditRefbooks
     object tsh_cityes: TcxTabSheet
       Caption = #1043#1086#1088#1086#1076#1072
       ImageIndex = 1
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Image2: TImage
         Left = 12
         Top = 22
@@ -799,6 +807,10 @@ object frmEditRefbooks: TfrmEditRefbooks
     object tsh_departs: TcxTabSheet
       Caption = #1054#1090#1076#1077#1083#1099
       ImageIndex = 4
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Image11: TImage
         Left = 12
         Top = 21
@@ -906,6 +918,10 @@ object frmEditRefbooks: TfrmEditRefbooks
     object tsh_positions: TcxTabSheet
       Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1080
       ImageIndex = 5
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Image12: TImage
         Left = 12
         Top = 21
@@ -1005,6 +1021,10 @@ object frmEditRefbooks: TfrmEditRefbooks
     object tsh_countries: TcxTabSheet
       Caption = #1057#1090#1088#1072#1085#1072
       ImageIndex = 6
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Image5: TImage
         Left = 12
         Top = 19
@@ -1165,6 +1185,10 @@ object frmEditRefbooks: TfrmEditRefbooks
     object tsh_suppliers: TcxTabSheet
       Caption = #1055#1086#1089#1090#1072#1074#1097#1080#1082
       ImageIndex = 7
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Image6: TImage
         Left = 12
         Top = 16
@@ -1377,6 +1401,10 @@ object frmEditRefbooks: TfrmEditRefbooks
     object tsh_units: TcxTabSheet
       Caption = ' '#1045#1076#1080#1085#1080#1094#1099' '#1080#1079#1084#1077#1088#1077#1085#1080#1103' '
       ImageIndex = 8
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Image23: TImage
         Left = 12
         Top = 16

@@ -127,7 +127,6 @@ type
     porasessStarLight: POraSession;
   public
     { Public declarations }
-    page:integer;
   end;
 
 var
@@ -231,7 +230,7 @@ begin
   frmRegistration.MainFormShow;
 end;
 
-  //кнопка выход mainmenu
+//кнопка выход mainmenu
 procedure TfrmMain.miExitClick(Sender: TObject);
 begin
   close;
@@ -255,88 +254,87 @@ begin
   frmTrans.MainFormShow;
 end;
 
-procedure TfrmMain.mmiUndoClick(Sender: TObject);
-begin
-
-end;
-
-//форма реклама
-procedure TfrmMain.mnNSI_AdverClick(Sender: TObject);
-begin
-  page:=2;
-  //frmPromo.MainFormShow;
-  frmrefbooks.MainFormShow;
-end;
-
- //форма города
-procedure TfrmMain.mnNSI_CityesClick(Sender: TObject);
-begin
- page:=1;
-  //frmCity.MainFormShow;
- frmrefbooks.MainFormShow;
-end;
-
- //форма типы клиентов
-procedure TfrmMain.mnNSI_ClientsTypeClick(Sender: TObject);
-begin
-  page:=3;
-  //frmClientTypes.MainFormShow;
-  frmrefbooks.MainFormShow;
-end;
-
-//форма стран
-procedure TfrmMain.mnNSI_CountriesClick(Sender: TObject);
-begin
-  page:=6;
-  //frmCountries.MainFormShow;
-  frmrefbooks.MainFormShow;
-end;
-
 //форма курсы валют
 procedure TfrmMain.mnNSI_CurrencyClick(Sender: TObject);
 begin
   frmNSICurreny.MainFormShow;
 end;
 
-//форма отделы
-procedure TfrmMain.mnNSI_DepClick(Sender: TObject);
+procedure TfrmMain.mmiUndoClick(Sender: TObject);
 begin
-  page:=4;
-  //frmDepartments.MainFormShow;
-  frmrefbooks.MainFormShow;
+
 end;
 
-//форма должности
-procedure TfrmMain.mnNSI_JobClick(Sender: TObject);
-begin
- page:=5;
- frmrefbooks.MainFormShow;
- //frmPositions.MainFormShow;
-end;
 
-//форма ед.измер.
-procedure TfrmMain.mnNSI_pcsClick(Sender: TObject);
-begin
-  page:=8;
-  frmrefbooks.MainFormShow;
-  //frmUnits.MainFormShow;
-end;
 
-//форма регионы
+
+////////////////////////////////////////////////////////////////////////////////
+// BOF - Справочники
+////////////////////////////////////////////////////////////////////////////////
+
+// регионы
 procedure TfrmMain.mnNSI_RegionsClick(Sender: TObject);
 begin
- page:=0;
-//  frmRegions.MainFormShow;
- frmrefbooks.MainFormShow;
+ frmrefbooks.MainFormShow( (Sender as TMenuItem).Tag );
 end;
 
-//форма поставщики
+// города
+procedure TfrmMain.mnNSI_CityesClick(Sender: TObject);
+begin
+ frmrefbooks.MainFormShow( (Sender as TMenuItem).Tag );
+end;
+
+// реклама
+procedure TfrmMain.mnNSI_AdverClick(Sender: TObject);
+begin
+  frmrefbooks.MainFormShow( (Sender as TMenuItem).Tag );
+end;
+
+// типы клиентов
+procedure TfrmMain.mnNSI_ClientsTypeClick(Sender: TObject);
+begin
+  frmrefbooks.MainFormShow( (Sender as TMenuItem).Tag );
+end;
+
+// отделы
+procedure TfrmMain.mnNSI_DepClick(Sender: TObject);
+begin
+  frmrefbooks.MainFormShow( (Sender as TMenuItem).Tag );
+end;
+
+// должности
+procedure TfrmMain.mnNSI_JobClick(Sender: TObject);
+begin
+ frmrefbooks.MainFormShow( (Sender as TMenuItem).Tag );
+end;
+
+// страны
+procedure TfrmMain.mnNSI_CountriesClick(Sender: TObject);
+begin
+  frmrefbooks.MainFormShow( (Sender as TMenuItem).Tag );
+end;
+
+// поставщики
 procedure TfrmMain.mnNSI_SupplierClick(Sender: TObject);
 begin
-  page:=7;
-  frmrefbooks.MainFormShow;
-  //frmSuppliers.MainFormShow;
+  frmrefbooks.MainFormShow( (Sender as TMenuItem).Tag );
 end;
+
+// ед.измер.
+procedure TfrmMain.mnNSI_pcsClick(Sender: TObject);
+begin
+  frmrefbooks.MainFormShow( (Sender as TMenuItem).Tag );
+end;
+
+////////////////////////////////////////////////////////////////////////////////
+// EOF - Справочники
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
 
 //разворачиваю окна
 procedure TfrmMain.WindowArrangeAllExecute(Sender: TObject);

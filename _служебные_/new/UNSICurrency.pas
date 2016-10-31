@@ -120,7 +120,7 @@ end;
 // Действие на закрытие формы
 procedure TfrmNSICurreny.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  if MessageDlg('Закрыть программу?',mtConfirmation,[mbYes, mbNo],0) <> mrYes then
+  if MessageDlg('Закрыть форму?',mtConfirmation,[mbYes, mbNo],0) <> mrYes then
     Action := caNone
   else
   begin
@@ -173,12 +173,13 @@ end;
 //удалить
 procedure TfrmNSICurreny.aDeleteExecute(Sender: TObject);
 begin
+  if Q_CURR.RecordCount = 0 then exit;
+
   if (DM.id_office <> Q_CURR.FieldByName('ID_OFFICE').AsInteger) then
   begin
     MessageBox(Handle,'Данная запись не принадлежит главному офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
     exit;
   end;
-
 
   if MessageDlg('Вы действительно хотите удалить курсы?',mtConfirmation,[mbYes, mbNo],0) = mrYes then
   begin
@@ -195,6 +196,8 @@ end;
 //изменить
 procedure TfrmNSICurreny.aEditExecute(Sender: TObject);
 begin
+  if Q_CURR.RecordCount = 0 then exit;
+
   if (DM.id_office <> Q_CURR.FieldByName('ID_OFFICE').AsInteger) then
   begin
     MessageBox(Handle,'Данная запись не принадлежит главному офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);

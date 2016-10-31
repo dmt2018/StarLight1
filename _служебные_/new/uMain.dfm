@@ -178,34 +178,42 @@ object frmMain: TfrmMain
         OnClick = mnNSI_RegionsClick
       end
       object mnNSI_Cityes: TMenuItem
+        Tag = 1
         Caption = #1043#1086#1088#1086#1076#1072
         OnClick = mnNSI_CityesClick
       end
       object mnNSI_Adver: TMenuItem
+        Tag = 2
         Caption = #1056#1077#1082#1083#1072#1084#1072
         OnClick = mnNSI_AdverClick
       end
       object mnNSI_ClientsType: TMenuItem
+        Tag = 3
         Caption = #1058#1080#1087#1099' '#1082#1083#1080#1077#1085#1090#1086#1074
         OnClick = mnNSI_ClientsTypeClick
       end
       object mnNSI_Dep: TMenuItem
+        Tag = 4
         Caption = #1054#1090#1076#1077#1083#1099
         OnClick = mnNSI_DepClick
       end
       object mnNSI_Job: TMenuItem
+        Tag = 5
         Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1080
         OnClick = mnNSI_JobClick
       end
       object mnNSI_Countries: TMenuItem
+        Tag = 6
         Caption = #1057#1090#1088#1072#1085#1099
         OnClick = mnNSI_CountriesClick
       end
       object mnNSI_Supplier: TMenuItem
+        Tag = 7
         Caption = #1055#1086#1089#1090#1072#1074#1097#1080#1082#1080
         OnClick = mnNSI_SupplierClick
       end
       object mnNSI_pcs: TMenuItem
+        Tag = 8
         Caption = #1045#1076#1080#1085#1080#1094#1099' '#1080#1079#1084#1077#1088#1077#1085#1080#1103
         OnClick = mnNSI_pcsClick
       end
