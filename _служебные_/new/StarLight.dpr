@@ -19,7 +19,8 @@ uses
   UEditTrans in 'UEditTrans.pas' {frmEditTrans},
   URefbooks in 'URefbooks.pas' {frmRefbooks},
   UEditRefBooks in 'UEditRefBooks.pas' {frmEditRefbooks},
-  UEditSubReg in 'UEditSubReg.pas' {frmEditSubReg};
+  UEditSubReg in 'UEditSubReg.pas' {frmEditSubReg},
+  UEditAdmins in 'UEditAdmins.pas' {frmEditAdmins};
 
 {$R *.res}
 

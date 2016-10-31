@@ -23,7 +23,7 @@ object frmRefbooks: TfrmRefbooks
     Top = 58
     Width = 770
     Height = 479
-    ActivePage = tshClientTypes
+    ActivePage = tshPromo
     Align = alClient
     TabOrder = 0
     ClientRectBottom = 479
