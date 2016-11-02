@@ -1258,7 +1258,7 @@ object DM: TDM
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 39796.688377118100000000
-    ReportOptions.LastChange = 42674.517662743100000000
+    ReportOptions.LastChange = 42675.700087928240000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'procedure DMPMemo17OnBeforePrint(Sender: TfrxComponent);'
@@ -1636,7 +1636,7 @@ object DM: TDM
         object DMPMemo22: TfrxDMPMemoView
           Left = 240.000000000000000000
           Top = 17.000000000000000000
-          Width = 76.800000000000000000
+          Width = 124.800000000000000000
           Height = 17.000000000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
@@ -1650,9 +1650,9 @@ object DM: TDM
           VAlign = vaCenter
         end
         object DMPMemo23: TfrxDMPMemoView
-          Left = 508.800000000000000000
+          Left = 374.400000000000000000
           Top = 17.000000000000000000
-          Width = 249.600000000000000000
+          Width = 201.600000000000000000
           Height = 17.000000000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
@@ -1661,7 +1661,7 @@ object DM: TDM
           VAlign = vaCenter
         end
         object DMPMemo27: TfrxDMPMemoView
-          Left = 326.400000000000000000
+          Left = 585.600000000000000000
           Top = 17.000000000000000000
           Width = 172.800000000000000000
           Height = 17.000000000000000000
@@ -1670,8 +1670,22 @@ object DM: TDM
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
           Frame.Typ = [ftTop, ftBottom]
+          HAlign = haRight
           Memo.UTF8 = (
             '[SUM(<fr_doc_data_ds."QUANTITY_PRICE">,MasterData1)]')
+          TruncOutboundText = False
+          VAlign = vaCenter
+        end
+        object DMPMemo48: TfrxDMPMemoView
+          Top = 68.000000000000000000
+          Width = 758.400000000000000000
+          Height = 17.000000000000000000
+          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
+          Memo.UTF8 = (
+            
+              '[IIF(count(masterdata2)<>0,'#39#1056#164#1056#152#1056#1113#1056#1038#1056#152#1056#160#1056#1115#1056#8217#1056#1106#1056#1116#1056#1116#1056#1106#1056#1031' '#1056#166#1056#8226#1056#1116#1056#1106#39 +
+              ','#39#39')]')
           TruncOutboundText = False
           VAlign = vaCenter
         end
@@ -1887,7 +1901,7 @@ object DM: TDM
         object DMPMemo45: TfrxDMPMemoView
           Left = 240.000000000000000000
           Top = 17.000000000000000000
-          Width = 76.800000000000000000
+          Width = 124.800000000000000000
           Height = 17.000000000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
@@ -1901,19 +1915,19 @@ object DM: TDM
           VAlign = vaCenter
         end
         object DMPMemo15: TfrxDMPMemoView
-          Left = 508.800000000000000000
+          Left = 374.400000000000000000
           Top = 17.000000000000000000
-          Width = 249.600000000000000000
+          Width = 201.600000000000000000
           Height = 17.000000000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
-          Frame.Typ = [ftRight, ftTop, ftBottom]
+          Frame.Typ = [ftTop, ftBottom]
           HAlign = haRight
           TruncOutboundText = False
           VAlign = vaCenter
         end
         object DMPMemo39: TfrxDMPMemoView
-          Left = 326.400000000000000000
+          Left = 585.600000000000000000
           Top = 17.000000000000000000
           Width = 172.800000000000000000
           Height = 17.000000000000000000
@@ -1921,7 +1935,8 @@ object DM: TDM
           DisplayFormat.DecimalSeparator = ','
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
-          Frame.Typ = [ftTop, ftBottom]
+          Frame.Typ = [ftRight, ftTop, ftBottom]
+          HAlign = haRight
           Memo.UTF8 = (
             '[SUM(<fr_doc_data_ds."QUANTITY_PRICE">,MasterData2)]')
           TruncOutboundText = False
@@ -1954,7 +1969,7 @@ object DM: TDM
           TruncOutboundText = False
         end
         object DMPMemo43: TfrxDMPMemoView
-          Left = 374.400000000000000000
+          Left = 297.600000000000000000
           Top = 51.000000000000000000
           Width = 96.000000000000000000
           Height = 17.000000000000000000
@@ -1967,7 +1982,7 @@ object DM: TDM
           VAlign = vaCenter
         end
         object DMPMemo44: TfrxDMPMemoView
-          Left = 374.400000000000000000
+          Left = 297.600000000000000000
           Top = 68.000000000000000000
           Width = 96.000000000000000000
           Height = 17.000000000000000000
@@ -1981,9 +1996,9 @@ object DM: TDM
           VAlign = vaCenter
         end
         object DMPMemo46: TfrxDMPMemoView
-          Left = 470.400000000000000000
+          Left = 403.200000000000000000
           Top = 51.000000000000000000
-          Width = 288.000000000000000000
+          Width = 355.200000000000000000
           Height = 17.000000000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
@@ -1993,9 +2008,9 @@ object DM: TDM
           VAlign = vaCenter
         end
         object DMPMemo47: TfrxDMPMemoView
-          Left = 470.400000000000000000
+          Left = 403.200000000000000000
           Top = 68.000000000000000000
-          Width = 288.000000000000000000
+          Width = 355.200000000000000000
           Height = 17.000000000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','

@@ -2854,6 +2854,7 @@ object frmStore: TfrmStore
   end
   object doc_data: TOraQuery
     SQL.Strings = (
+      '/*'
       'SELECT distinct'
       
         'a.ID_DOC, a.N_ID, a.CODE, a.H_CODE, a.F_TYPE, a.F_SUB_TYPE, a.FU' +
@@ -2876,6 +2877,54 @@ object frmStore: TfrmStore
       
         'and a.n_id = b.n_id and a.STORE_TYPE = b.STORE_TYPE and a.id_off' +
         'ice = b.id_office'
+      'order by compiled_name_otdel'
+      '*/'
+      ''
+      '/*'
+      'SELECT '
+      
+        'a.ID_DOC, a.N_ID, a.CODE, a.H_CODE, a.F_TYPE, a.F_SUB_TYPE, a.FU' +
+        'LL_NAME, a.country, a.colour,'
+      
+        'a.QUANTITY, a.QUANTITY_NOW, a.STORE_TYPE_NAME, a.STORE_TYPE, a.P' +
+        'RICE_LIST, a.OUR_CODE,'
+      
+        'a.QUANTITY_PRICE, a.PRICE_PERCENT, a.PRICE, a.GTD, a.SPESIFICATI' +
+        'ON, a.compiled_name_otdel'
+      ', b.quantity as store, a.notuse, a.ID_DOC_DATA, bb.spec_price'
+      'from'
+      'store_docdata_view a'
+      'inner join price_list bb ON a.n_id = bb.n_id, '
+      'store_main b'
+      'where'
+      'a.ID_DOC=:ID_DOC '
+      
+        'and a.n_id = b.n_id and a.STORE_TYPE = b.STORE_TYPE and a.id_off' +
+        'ice = b.id_office'
+      'order by compiled_name_otdel'
+      '*/'
+      ''
+      'SELECT '
+      
+        'a.ID_DOC, a.N_ID, a.CODE, a.H_CODE, a.F_TYPE, a.F_SUB_TYPE, a.FU' +
+        'LL_NAME, a.country, a.colour,'
+      
+        'a.QUANTITY, a.QUANTITY_NOW, a.STORE_TYPE_NAME, a.STORE_TYPE, a.P' +
+        'RICE_LIST, a.OUR_CODE,'
+      
+        'a.QUANTITY_PRICE, a.PRICE_PERCENT, a.PRICE, a.GTD, a.SPESIFICATI' +
+        'ON, a.compiled_name_otdel'
+      ', b.quantity as store, a.notuse, a.ID_DOC_DATA, bb.spec_price'
+      'from'
+      'store_docdata_view a,'
+      'price_list bb, '
+      'store_main b'
+      'where'
+      'a.ID_DOC=:ID_DOC '
+      
+        'and a.n_id = b.n_id and a.STORE_TYPE = b.STORE_TYPE and a.id_off' +
+        'ice = b.id_office'
+      'and a.n_id = bb.n_id'
       'order by compiled_name_otdel')
     MasterSource = DOC_DS
     FetchRows = 20
