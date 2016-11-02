@@ -195,11 +195,11 @@ object frmExport: TfrmExport
     Width = 65
     Height = 21
     TabOrder = 5
-    Text = '14'
+    Text = '7'
   end
   object TimerStore: TTimer
     Enabled = False
-    Interval = 500
+    Interval = 200
     OnTimer = TimerStoreTimer
     Left = 392
     Top = 8
@@ -208,7 +208,7 @@ object frmExport: TfrmExport
     AutoLogin = True
     Host = 'home.starlight.ru'
     Passive = True
-    Password = '26gjbcdH'
+    Password = 'J5neDrOqEh'
     Username = 'starlight'
     ProxySettings.ProxyType = fpcmNone
     ProxySettings.Port = 0
@@ -319,9 +319,8 @@ object frmExport: TfrmExport
     Options.Direct = True
     Username = 'creator'
     Password = '123456'
-    Server = 'KLEPOV:1521:STARNEW'
+    Server = 'roznica:1521:orcl'
     AutoCommit = False
-    ConnectDialog = cdExport
     LoginPrompt = False
     Left = 328
     Top = 8
@@ -405,7 +404,7 @@ object frmExport: TfrmExport
   end
   object TimerClients: TTimer
     Enabled = False
-    Interval = 500
+    Interval = 200
     OnTimer = TimerClientsTimer
     Left = 392
     Top = 40

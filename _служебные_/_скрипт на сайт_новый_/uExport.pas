@@ -128,19 +128,29 @@ begin
     ExportGridToText( file_clients, cxGrid2, True, True, ';', '', '', 'csv');
     qClients.Close;
 
+    IdFTP1.Connect;
+    IdFTP1.ChangeDir('starlight.ru/exchange');
+    IdFTP1.Put(file_clients,file_clients,false);
+    IdFTP1.Disconnect;
+
     OraQuery1.ParamByName('QDAYS').AsInteger := StrToInt(edQDays.Text);
     OraQuery1.Open;
     file_str := 'all_store.csv';
     ExportGridToText( file_str, cxGrid1, True, True, ';', '', '', 'csv');
     OraQuery1.Close;
+
+    IdFTP1.Connect;
+    IdFTP1.ChangeDir('starlight.ru/exchange');
+    IdFTP1.Put(file_str,file_str,false);
+    IdFTP1.Disconnect;
 end;
 
 
 procedure TfrmExport.btnStartTimerClick(Sender: TObject);
 begin
-  TimerStore.Interval := 1000*60*60*timer_store;
+ // TimerStore.Interval := 1000*60*60*timer_store;  //потом вернуть и в компоненте интервал = 500
   TimerStore.Enabled  := true;
-  TimerClients.Interval := 1000*60*60*timer_clients;
+ // TimerClients.Interval := 1000*60*60*timer_clients;  //потом вернуть и в компоненте интервал = 500
   TimerClients.Enabled  := true;
 end;
 
@@ -167,7 +177,7 @@ begin
     timer_clients := RegIni.ReadInteger('TIME_CLIEMTS', 'value', 1);
     autoran       := RegIni.ReadBool('AUTORAN', 'value', false);
 
-    if cdExport.Execute then
+   // if cdExport.Execute then  //потом возможно вернуть
     begin
       SelectSession.Connect;
       if autoran then btnStartTimer.Click;
@@ -180,6 +190,7 @@ end;
 procedure TfrmExport.TimerClientsTimer(Sender: TObject);
 var file_clients: string;
 begin
+if abs(time - strtotime('00:00:00')) <    strtotime('00:00:02') then begin  //в 12 ночи   - потом убрать
     Memo1.Lines.Add('Start clients ' + DateTimeToStr(Now));
 
     qClients.Open;
@@ -192,10 +203,12 @@ begin
     IdFTP1.Put(file_clients,file_clients,false);
     IdFTP1.Disconnect;
 end;
+end;
 
 procedure TfrmExport.TimerStoreTimer(Sender: TObject);
 var file_str: string;
 begin
+if abs(time - strtotime('00:05:00')) <    strtotime('00:00:02') then begin  //в 12:05 ночи   - потом убрать
     Memo1.Lines.Add('Start store ' + DateTimeToStr(Now));
 
     OraQuery1.Open;
@@ -207,6 +220,7 @@ begin
     IdFTP1.ChangeDir('starlight.ru/exchange');
     IdFTP1.Put(file_str,file_str,false);
     IdFTP1.Disconnect;
+end;
 end;
 
 end.
