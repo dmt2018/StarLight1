@@ -1430,7 +1430,9 @@ object DocNewForm: TDocNewForm
         '  --PRICE    = (case when :PRICE = :start_price then :src_price ' +
         'else case when :ppp=1 and :ID_DOC_TYPE > 1 then round((:price*1.' +
         '18),2) else :PRICE end end),'
-      '  PRICE    = :PRICE,'
+      
+        '  PRICE    = case when :spec_price=1 then :OLD_PRICE else :PRICE' +
+        ' end,'
       '  C_ID     = :C_ID,'
       '  GTD      = :GTD,'
       '  compiled_name_otdel = :compiled_name_otdel,'

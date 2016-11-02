@@ -607,22 +607,17 @@ begin
       begin
 
           DBGridEh2.DataController.DataSet.first;
-//          for i := 0 to DBGridEh2.ViewData.RowCount-1 do
           for i := 0 to DBGridEh2.Controller.SelectedRowCount-1 do
           begin
-//            j := DBGridEh2.ViewData.Rows[i].RecordIndex;
-//            DBGridEh2.DataController.LocateByKey(DBGridEh2.ViewData.DataController.Values[j, DBGridEh2.GetColumnByFieldName('N_ID').Index]);
-            //DBGridEh2.DataController.LocateByKey(DBGridEh2.GetColumnByFieldName('N_ID').EditValue);
-
             j :=  DBGridEh2.Controller.SelectedRows[i].RecordIndex;
-           // showmessage(DBGridEh2.ViewData.DataController.Values[j, DBGridEh2.GetColumnByFieldName('code').Index]);
+            showmessage(VarToStr(DBGridEh2.ViewData.DataController.Values[j, DBGridEh2.GetColumnByFieldName('spec_price').Index]));
 
-            if DBGridEh2.ViewData.DataController.Values[j, DBGridEh2.GetColumnByFieldName('spec_price').Index]<>1 then begin
-            DBGridEh2.DataController.DataSet.Locate('ID_DOC_DATA',DBGridEh2.ViewData.DataController.Values[j, DBGridEh2.GetColumnByFieldName('ID_DOC_DATA').Index],[]);
-//            DBGridEh2.DataController.DataSet.Locate('N_ID',DBGridEh2.ViewData.DataController.Values[j, DBGridEh2.GetColumnByFieldName('N_ID').Index],[]);
-            DBGridEh2.DataController.DataSet.Edit;
-            DBGridEh2.DataController.DataSet.FieldByName('PRICE').AsFloat := DBGridEh2.DataController.DataSet.FieldByName('PRICE').AsFloat+(NewValue/100)*DBGridEh2.DataController.DataSet.FieldByName('PRICE').AsFloat;
-            DBGridEh2.DataController.DataSet.Post;
+            if DBGridEh2.ViewData.DataController.Values[j, DBGridEh2.GetColumnByFieldName('spec_price').Index] <> 1 then
+            begin
+              DBGridEh2.DataController.DataSet.Locate('ID_DOC_DATA',DBGridEh2.ViewData.DataController.Values[j, DBGridEh2.GetColumnByFieldName('ID_DOC_DATA').Index],[]);
+              DBGridEh2.DataController.DataSet.Edit;
+              DBGridEh2.DataController.DataSet.FieldByName('PRICE').AsFloat := DBGridEh2.DataController.DataSet.FieldByName('PRICE').AsFloat+(NewValue/100)*DBGridEh2.DataController.DataSet.FieldByName('PRICE').AsFloat;
+              DBGridEh2.DataController.DataSet.Post;
             end;
           end;
       end;
