@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.INVOICE_PKG
--- Generated 02.11.2016 17:10:50 from CREATOR@STAR2
+-- Generated 02.11.2016 22:03:45 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE invoice_pkg
@@ -1968,6 +1968,7 @@ begin
        , nvl(n.IS_PHOTO, nvl(nom.IS_PHOTO,nom2.IS_PHOTO)) as IS_PHOTO
        , nvl(n.PHOTO, nvl(nom.PHOTO,nom2.PHOTO)) as PHOTO
 --       , nom.n_id as n_id_desc
+--       , nvl(nom.n_id, repl.AS_IS_N_ID) as n_id_desc
        , nvl(nvl(nom.n_id,nomm.n_id), repl.AS_IS_N_ID) as n_id_desc
        , d.INVOICE_DATA_ID
        , kov.checked
@@ -1982,6 +1983,7 @@ begin
         --left outer join (select distinct AS_IS_HCODE, n_id as AS_IS_N_ID from INVOICE_DATA_AS_IS_MAP c where c.replacement = 1) repl on repl.AS_IS_HCODE = a.short_code||'.'||a.hol_colour||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks
 
         --left outer join nomenclature_mat_view nom on nom.notuse = 0 and upper(nom.H_CODE) = upper(a.short_code||'.'||a.hol_colour||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks)
+        --left outer join nomenclature_mat_view nom on nom.notuse = 0 and upper(replace(nom.H_CODE,'NA','')) = upper(a.short_code||'.'||decode(a.hol_colour,'NA','',a.hol_colour)||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK_HOL||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks)
         left outer join nomenclature_mat_view nom on nom.notuse = 0 and upper(replace(nom.H_CODE,'NA','')) = upper(a.short_code||'.'||decode(a.hol_colour,'NA','',a.hol_colour)||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks)
         left outer join nomenclature_mat_view nomm on nomm.notuse = 0 and upper(replace(nomm.H_CODE,'NA','')) = upper(a.short_code||'.'||decode(a.hol_colour,'NA','',a.hol_colour)||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK_HOL||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks)
 
