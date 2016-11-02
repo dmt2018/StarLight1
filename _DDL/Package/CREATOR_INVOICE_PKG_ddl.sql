@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.INVOICE_PKG
--- Generated 29.10.2016 1:27:07 from CREATOR@STAR_NEW
+-- Generated 02.11.2016 17:10:50 from CREATOR@STAR2
 
 CREATE OR REPLACE 
 PACKAGE invoice_pkg
@@ -1555,6 +1555,10 @@ as
 begin
     v_id_claim := 0;
 
+    /* проверим не послан ли родительский инвойс на склад */
+    select a.sended_to_warehouse, a.s_id_default into v_sended, v_s_id
+    from invoice_register a where a.inv_id = in_INV_PRIME;
+
     /* проверим есть ли цены и завершены ли они на родительский инвойс */
     --select count(1) into cnt_ from PREPARE_PRICE_LIST_INDEX where INV_ID = in_INV_PRIME;
     select count(1) into cnt_
@@ -1964,7 +1968,7 @@ begin
        , nvl(n.IS_PHOTO, nvl(nom.IS_PHOTO,nom2.IS_PHOTO)) as IS_PHOTO
        , nvl(n.PHOTO, nvl(nom.PHOTO,nom2.PHOTO)) as PHOTO
 --       , nom.n_id as n_id_desc
-       , nvl(nom.n_id, repl.AS_IS_N_ID) as n_id_desc
+       , nvl(nvl(nom.n_id,nomm.n_id), repl.AS_IS_N_ID) as n_id_desc
        , d.INVOICE_DATA_ID
        , kov.checked
       FROM invoice_data_as_is a
@@ -1978,7 +1982,8 @@ begin
         --left outer join (select distinct AS_IS_HCODE, n_id as AS_IS_N_ID from INVOICE_DATA_AS_IS_MAP c where c.replacement = 1) repl on repl.AS_IS_HCODE = a.short_code||'.'||a.hol_colour||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks
 
         --left outer join nomenclature_mat_view nom on nom.notuse = 0 and upper(nom.H_CODE) = upper(a.short_code||'.'||a.hol_colour||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks)
-        left outer join nomenclature_mat_view nom on nom.notuse = 0 and upper(replace(nom.H_CODE,'NA','')) = upper(a.short_code||'.'||decode(a.hol_colour,'NA','',a.hol_colour)||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK_HOL||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks)
+        left outer join nomenclature_mat_view nom on nom.notuse = 0 and upper(replace(nom.H_CODE,'NA','')) = upper(a.short_code||'.'||decode(a.hol_colour,'NA','',a.hol_colour)||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks)
+        left outer join nomenclature_mat_view nomm on nomm.notuse = 0 and upper(replace(nomm.H_CODE,'NA','')) = upper(a.short_code||'.'||decode(a.hol_colour,'NA','',a.hol_colour)||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK_HOL||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks)
 
         left outer join import_flowers_kov kov on kov.nom_code = nom.code and kov.checked = 0
         left outer join nomenclature_mat_view nom2 on nom2.notuse = 0 and nom2.n_id = repl.AS_IS_N_ID
