@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.INVOICE_PKG
--- Generated 02.11.2016 22:03:45 from CREATOR@STAR_NEW
+-- Generated 04.11.2016 0:05:59 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE invoice_pkg
@@ -1943,33 +1943,33 @@ begin
        a.nom_pack, a.nom_pack_hol, a.replacement
        , case when a.replacement is null then 0 else ( select count(*) from nomenclature z where z.H_NAME = a.replacement ) end replacement_is_find
        , n.n_id
-       , nvl(n.COMPILED_NAME_OTDEL, nvl(nom.COMPILED_NAME_OTDEL,nom2.COMPILED_NAME_OTDEL)) as COMPILED_NAME_OTDEL
-       , nvl(n.code, nvl(nom.code,nom2.code)) as code
-       , nvl(n.h_code, nvl(nom.h_code,nom2.h_code)) as h_code
-       , nvl(n.remarks, nvl(nom.remarks,nom2.remarks)) as nom_remarks
-       , nvl(n.ID_OFFICE, nvl(nom.ID_OFFICE,nom2.ID_OFFICE)) as ID_OFFICE
-       , nvl(n.FN_ID, nvl(nom.FN_ID,nom2.FN_ID)) as FN_ID
-       , nvl(n.FT_ID, nvl(nom.FT_ID,nom2.FT_ID)) as FT_ID
-       , nvl(n.FST_ID, nvl(nom.FST_ID,nom2.FST_ID)) as FST_ID
-       , nvl(n.C_ID, nvl(nom.C_ID,nom2.C_ID)) as C_ID
-       , nvl(n.S_ID, nvl(nom.S_ID,nom2.S_ID)) as S_ID
-       , nvl(n.COL_ID, nvl(nom.COL_ID,nom2.COL_ID)) as COL_ID
-       , nvl(n.LEN, nvl(nom.LEN,nom2.LEN)) as LEN
-       , nvl(n.PACK, nvl(nom.PACK,nom2.PACK)) as PACK
-       , nvl(n.HT_ID, nvl(nom.HT_ID,nom2.HT_ID)) as HT_ID
-       , nvl(n.DIAMETER, nvl(nom.DIAMETER,nom2.DIAMETER)) as DIAMETER
-       , nvl(n.WEIGHT, nvl(nom.WEIGHT,nom2.WEIGHT)) as WEIGHT
-       , nvl(n.WEIGHTDRY, nvl(nom.WEIGHTDRY,nom2.WEIGHTDRY)) as WEIGHTDRY
-       , nvl(n.CUST_COEF, nvl(nom.CUST_COEF,nom2.CUST_COEF)) as CUST_COEF
-       , nvl(n.VBN, nvl(nom.VBN,nom2.VBN)) as VBN
-       , nvl(n.H_NAME, nvl(nom.H_NAME,nom2.H_NAME)) as H_NAME
-       , nvl(n.TNVED, nvl(nom.TNVED,nom2.TNVED)) as TNVED
-       , nvl(n.HOL_TYPE, nvl(nom.HOL_TYPE,nom2.HOL_TYPE)) as HOL_TYPE
-       , nvl(n.IS_PHOTO, nvl(nom.IS_PHOTO,nom2.IS_PHOTO)) as IS_PHOTO
-       , nvl(n.PHOTO, nvl(nom.PHOTO,nom2.PHOTO)) as PHOTO
+       , nvl(n.COMPILED_NAME_OTDEL, nvl(nvl(nomm.COMPILED_NAME_OTDEL,nom.COMPILED_NAME_OTDEL),nom2.COMPILED_NAME_OTDEL)) as COMPILED_NAME_OTDEL
+       , nvl(n.code, nvl(nvl(nomm.code,nom.code),nom2.code)) as code
+       , nvl(n.h_code, nvl(nvl(nomm.h_code,nom.h_code),nom2.h_code)) as h_code
+       , nvl(n.remarks, nvl(nvl(nomm.remarks,nom.remarks),nom2.remarks)) as nom_remarks
+       , nvl(n.ID_OFFICE, nvl(nvl(nomm.ID_OFFICE,nom.ID_OFFICE),nom2.ID_OFFICE)) as ID_OFFICE
+       , nvl(n.FN_ID, nvl(nvl(nomm.FN_ID,nom.FN_ID),nom2.FN_ID)) as FN_ID
+       , nvl(n.FT_ID, nvl(nvl(nomm.FT_ID,nom.FT_ID),nom2.FT_ID)) as FT_ID
+       , nvl(n.FST_ID, nvl(nvl(nomm.FST_ID,nom.FST_ID),nom2.FST_ID)) as FST_ID
+       , nvl(n.C_ID, nvl(nvl(nomm.C_ID,nom.C_ID),nom2.C_ID)) as C_ID
+       , nvl(n.S_ID, nvl(nvl(nomm.S_ID,nom.S_ID),nom2.S_ID)) as S_ID
+       , nvl(n.COL_ID, nvl(nvl(nomm.COL_ID,nom.COL_ID),nom2.COL_ID)) as COL_ID
+       , nvl(n.LEN, nvl(nvl(nomm.LEN,nom.LEN),nom2.LEN)) as LEN
+       , nvl(n.PACK, nvl(nvl(nomm.PACK,nom.PACK),nom2.PACK)) as PACK
+       , nvl(n.HT_ID, nvl(nvl(nomm.HT_ID,nom.HT_ID),nom2.HT_ID)) as HT_ID
+       , nvl(n.DIAMETER, nvl(nvl(nomm.DIAMETER,nom.DIAMETER),nom2.DIAMETER)) as DIAMETER
+       , nvl(n.WEIGHT, nvl(nvl(nomm.WEIGHT,nom.WEIGHT),nom2.WEIGHT)) as WEIGHT
+       , nvl(n.WEIGHTDRY, nvl(nvl(nomm.WEIGHTDRY,nom.WEIGHTDRY),nom2.WEIGHTDRY)) as WEIGHTDRY
+       , nvl(n.CUST_COEF, nvl(nvl(nomm.CUST_COEF,nom.CUST_COEF),nom2.CUST_COEF)) as CUST_COEF
+       , nvl(n.VBN, nvl(nvl(nomm.VBN,nom.VBN),nom2.VBN)) as VBN
+       , nvl(n.H_NAME, nvl(nvl(nomm.H_NAME,nom.H_NAME),nom2.H_NAME)) as H_NAME
+       , nvl(n.TNVED, nvl(nvl(nomm.TNVED,nom.TNVED),nom2.TNVED)) as TNVED
+       , nvl(n.HOL_TYPE, nvl(nvl(nomm.HOL_TYPE,nom.HOL_TYPE),nom2.HOL_TYPE)) as HOL_TYPE
+       , nvl(n.IS_PHOTO, nvl(nvl(nomm.IS_PHOTO,nom.IS_PHOTO),nom2.IS_PHOTO)) as IS_PHOTO
+       , nvl(n.PHOTO, nvl(nvl(nomm.PHOTO,nom.PHOTO),nom2.PHOTO)) as PHOTO
 --       , nom.n_id as n_id_desc
 --       , nvl(nom.n_id, repl.AS_IS_N_ID) as n_id_desc
-       , nvl(nvl(nom.n_id,nomm.n_id), repl.AS_IS_N_ID) as n_id_desc
+       , nvl(nvl(nomm.n_id,nom.n_id), repl.AS_IS_N_ID) as n_id_desc
        , d.INVOICE_DATA_ID
        , kov.checked
       FROM invoice_data_as_is a
@@ -1984,8 +1984,8 @@ begin
 
         --left outer join nomenclature_mat_view nom on nom.notuse = 0 and upper(nom.H_CODE) = upper(a.short_code||'.'||a.hol_colour||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks)
         --left outer join nomenclature_mat_view nom on nom.notuse = 0 and upper(replace(nom.H_CODE,'NA','')) = upper(a.short_code||'.'||decode(a.hol_colour,'NA','',a.hol_colour)||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK_HOL||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks)
-        left outer join nomenclature_mat_view nom on nom.notuse = 0 and upper(replace(nom.H_CODE,'NA','')) = upper(a.short_code||'.'||decode(a.hol_colour,'NA','',a.hol_colour)||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks)
-        left outer join nomenclature_mat_view nomm on nomm.notuse = 0 and upper(replace(nomm.H_CODE,'NA','')) = upper(a.short_code||'.'||decode(a.hol_colour,'NA','',a.hol_colour)||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK_HOL||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks)
+        left outer join nomenclature_mat_view nom on nom.notuse = 0 and upper(replace(nom.H_CODE,'.NA.','..')) = upper(a.short_code||'.'||decode(a.hol_colour,'NA','',a.hol_colour)||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks)
+        left outer join nomenclature_mat_view nomm on nomm.notuse = 0 and upper(replace(nomm.H_CODE,'.NA.','..')) = upper(a.short_code||'.'||decode(a.hol_colour,'NA','',a.hol_colour)||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK_HOL||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks)
 
         left outer join import_flowers_kov kov on kov.nom_code = nom.code and kov.checked = 0
         left outer join nomenclature_mat_view nom2 on nom2.notuse = 0 and nom2.n_id = repl.AS_IS_N_ID
