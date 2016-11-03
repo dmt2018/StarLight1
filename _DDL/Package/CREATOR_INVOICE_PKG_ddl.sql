@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.INVOICE_PKG
--- Generated 04.11.2016 0:05:59 from CREATOR@STAR_NEW
+-- Generated 04.11.2016 1:25:33 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE invoice_pkg
@@ -1978,7 +1978,7 @@ begin
         left outer join nomenclature_mat_view n on n.n_id = map.n_id
         -- гол. упаковка
         --left outer join nomenclature_mat_view nom on nom.notuse = 0 and upper(nom.H_CODE) = upper(a.short_code||'.'||a.hol_colour||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK_HOL||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks)
-        left outer join (select distinct AS_IS_HCODE, n_id as AS_IS_N_ID from INVOICE_DATA_AS_IS_MAP c where c.replacement = 1) repl on repl.AS_IS_HCODE = a.short_code||'.'||a.hol_colour||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK_HOL||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks
+        left outer join (select distinct upper(AS_IS_HCODE) as AS_IS_HCODE, n_id as AS_IS_N_ID from INVOICE_DATA_AS_IS_MAP c where c.replacement = 1) repl on upper(repl.AS_IS_HCODE) = upper(a.short_code||'.'||a.hol_colour||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK_HOL||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks)
         -- наша упаковка
         --left outer join (select distinct AS_IS_HCODE, n_id as AS_IS_N_ID from INVOICE_DATA_AS_IS_MAP c where c.replacement = 1) repl on repl.AS_IS_HCODE = a.short_code||'.'||a.hol_colour||'.'||nvl(a.spec_length,0)||'.'||a.NOM_PACK||'.'||a.SPEC_HEADS||'.'||a.SPEC_HEADS_SHRUB||'.'||a.SPEC_VD2||'.'||a.remarks
 
