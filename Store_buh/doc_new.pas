@@ -610,7 +610,6 @@ begin
           for i := 0 to DBGridEh2.Controller.SelectedRowCount-1 do
           begin
             j :=  DBGridEh2.Controller.SelectedRows[i].RecordIndex;
-            //showmessage(VarToStr(DBGridEh2.ViewData.DataController.Values[j, DBGridEh2.GetColumnByFieldName('spec_price').Index]));
 
             if DBGridEh2.ViewData.DataController.Values[j, DBGridEh2.GetColumnByFieldName('spec_price').Index] <> 1 then
             begin
@@ -1182,7 +1181,8 @@ begin
 
 
 // Копия
-        if (Datam.print_copy = 1) then
+        //if (Datam.print_copy = 1) then
+        if MessageDlg('Печатать сопутствующий документ?',mtConfirmation,[mbYes, mbNo],0) = mrYes then
         begin
           frxReportNakl.Clear;
 

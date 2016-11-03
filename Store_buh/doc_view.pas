@@ -1116,17 +1116,13 @@ end;
 //  Печать документа
 //
 procedure TdocsviewForm.DocPrint_ActionExecute(Sender: TObject);
-//label l1;
 var theForm: TForm;
     ID_company, ID_BANC:integer;
     Memo1, Memo2: TfrxMemoView;
     dog_num, dog_date: string;
     mOKUD, mOKPO, mOKDP, mNDS, mSumNDS, mNDSMinus, mSumNDS2: TfrxMemoView;
     summ: TfrxReportSummary;
-//    flag:integer;
 begin
-//flag:=0;
-//l1:
     DM.cdsClients.Close;
     DM.cdsClients.ParamByName('group_id').AsInteger := 0;
 
@@ -1234,7 +1230,7 @@ begin
         // Счет фактура
         if (documenttype_id = 2) then
         begin
-           if (doc.FieldByName('DOC_DATE').AsDateTime < StrToDate('09.06.2009')) then
+            if (doc.FieldByName('DOC_DATE').AsDateTime < StrToDate('09.06.2009')) then
               frxReportNakl.LoadFromFile(path+'raports\doc_faktura_old.fr3')
             else
             begin
@@ -1253,7 +1249,6 @@ begin
         // товарная накладная
         if (documenttype_id = 3) then
         begin
-          //flag:=1;
           if (TPrintTypeSelectForm(theForm).NaKladCB.Checked = true) then
           begin
             frxReportNakl.LoadFromFile(path+'raports\doc_nakladnaya.fr3');
@@ -1451,7 +1446,8 @@ begin
 
 
 // Копия
-        if (Datam.print_copy = 1) then
+//        if (Datam.print_copy = 1) then
+        if MessageDlg('Печатать сопутствующий документ?',mtConfirmation,[mbYes, mbNo],0) = mrYes then
         begin
           frxReportNakl.Clear;
 
@@ -1563,9 +1559,6 @@ begin
     dm.banc.Close;
     dm.company.Close;
     OraQuery.Close;
-
-    //if documenttype_id = 3 then begin documenttype_id:=2; goto l1; end;
-    //if flag=1 then begin documenttype_id:=3; flag:=0; end;
 end;
 
 
