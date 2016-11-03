@@ -3,7 +3,7 @@ object SelectDocDataForm: TSelectDocDataForm
   Top = 261
   Caption = #1053#1072#1082#1083#1072#1076#1085#1072#1103' '#1087#1088#1086#1076#1072#1078#1080
   ClientHeight = 512
-  ClientWidth = 807
+  ClientWidth = 873
   Color = clWhite
   Constraints.MinHeight = 550
   Constraints.MinWidth = 750
@@ -115,7 +115,7 @@ object SelectDocDataForm: TSelectDocDataForm
   object Panel2: TPanel
     Left = 0
     Top = 89
-    Width = 807
+    Width = 873
     Height = 376
     Align = alClient
     BevelOuter = bvNone
@@ -123,10 +123,11 @@ object SelectDocDataForm: TSelectDocDataForm
     Ctl3D = False
     ParentCtl3D = False
     TabOrder = 2
+    ExplicitWidth = 807
     object grid_naklad: TcxGrid
       Left = 0
       Top = 0
-      Width = 807
+      Width = 873
       Height = 376
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
@@ -138,6 +139,7 @@ object SelectDocDataForm: TSelectDocDataForm
       ParentFont = False
       TabOrder = 0
       LookAndFeel.Kind = lfOffice11
+      ExplicitWidth = 807
       object grid_naklad_v: TcxGridDBTableView
         NavigatorButtons.ConfirmDelete = False
         FilterBox.Position = fpTop
@@ -328,6 +330,15 @@ object SelectDocDataForm: TSelectDocDataForm
           Options.Moving = False
           Width = 70
         end
+        object priznak: TcxGridDBColumn
+          Caption = #1057#1087#1077#1094'.'
+          DataBinding.FieldName = 'SPEC_PRICE'
+          PropertiesClassName = 'TcxCheckBoxProperties'
+          Properties.NullStyle = nssUnchecked
+          Properties.ReadOnly = True
+          Properties.ValueChecked = '1'
+          Properties.ValueUnchecked = '0'
+        end
       end
       object grid_naklad_l: TcxGridLevel
         GridView = grid_naklad_v
@@ -337,15 +348,16 @@ object SelectDocDataForm: TSelectDocDataForm
   object Panel1: TPanel
     Left = 0
     Top = 465
-    Width = 807
+    Width = 873
     Height = 47
     Align = alBottom
     BevelInner = bvRaised
     BevelOuter = bvLowered
     Color = clBtnShadow
     TabOrder = 3
+    ExplicitWidth = 807
     DesignSize = (
-      807
+      873
       47)
     object Label8: TLabel
       Left = 6
@@ -406,7 +418,7 @@ object SelectDocDataForm: TSelectDocDataForm
       ParentFont = False
     end
     object BitBtnSave: TcxButton
-      Left = 657
+      Left = 723
       Top = 8
       Width = 145
       Height = 30
@@ -482,12 +494,13 @@ object SelectDocDataForm: TSelectDocDataForm
       LookAndFeel.Kind = lfFlat
       LookAndFeel.NativeStyle = True
       Spacing = 6
+      ExplicitLeft = 657
     end
   end
   object Panel3: TPanel
     Left = 0
     Top = 30
-    Width = 807
+    Width = 873
     Height = 59
     Align = alTop
     BevelInner = bvRaised
@@ -495,8 +508,9 @@ object SelectDocDataForm: TSelectDocDataForm
     Ctl3D = False
     ParentCtl3D = False
     TabOrder = 1
+    ExplicitWidth = 807
     DesignSize = (
-      807
+      873
       59)
     object DB_NICK: TDBText
       Left = 44
@@ -516,7 +530,7 @@ object SelectDocDataForm: TSelectDocDataForm
     object DB_FIO: TDBText
       Left = 134
       Top = 4
-      Width = 662
+      Width = 728
       Height = 20
       Anchors = [akLeft, akTop, akRight]
       DataField = 'FIO'
@@ -528,6 +542,7 @@ object SelectDocDataForm: TSelectDocDataForm
       Font.Pitch = fpFixed
       Font.Style = [fsBold]
       ParentFont = False
+      ExplicitWidth = 662
     end
     object Image1: TImage
       Left = 12
@@ -672,7 +687,7 @@ object SelectDocDataForm: TSelectDocDataForm
     object DB_Comments: TDBText
       Left = 134
       Top = 24
-      Width = 651
+      Width = 717
       Height = 30
       Anchors = [akLeft, akTop, akRight]
       DataField = 'COMMENTS'
@@ -685,6 +700,7 @@ object SelectDocDataForm: TSelectDocDataForm
       Font.Style = []
       ParentFont = False
       WordWrap = True
+      ExplicitWidth = 651
     end
     object DBText1: TDBText
       Left = 44
@@ -705,7 +721,7 @@ object SelectDocDataForm: TSelectDocDataForm
   object Panel7: TPanel
     Left = 0
     Top = 0
-    Width = 807
+    Width = 873
     Height = 30
     Align = alTop
     BevelInner = bvRaised
@@ -714,8 +730,9 @@ object SelectDocDataForm: TSelectDocDataForm
     Ctl3D = False
     ParentCtl3D = False
     TabOrder = 0
+    ExplicitWidth = 807
     DesignSize = (
-      807
+      873
       30)
     object Label1: TLabel
       Left = 6
@@ -733,7 +750,7 @@ object SelectDocDataForm: TSelectDocDataForm
       ParentFont = False
     end
     object DB_DOC_DATE: TDBText
-      Left = 528
+      Left = 594
       Top = 6
       Width = 275
       Height = 17
@@ -748,6 +765,7 @@ object SelectDocDataForm: TSelectDocDataForm
       Font.Pitch = fpFixed
       Font.Style = [fsBold]
       ParentFont = False
+      ExplicitLeft = 528
     end
   end
   object doc_store: TOraQuery
@@ -812,6 +830,7 @@ object SelectDocDataForm: TSelectDocDataForm
       'ID_DOC_DATA = :ID_DOC_DATA')
     Session = DM.OraSession
     SQL.Strings = (
+      '/*'
       'SELECT '
       
         'ID_DOC_TYPE, ID_DOC_DATA, ID_DOC, QUANTITY, PRICE, PRICE_OLD, GT' +
@@ -826,7 +845,27 @@ object SelectDocDataForm: TSelectDocDataForm
       'from'
       'buh_docdata_view'
       'where'
-      'ID_DOC = :ID_DOC')
+      'ID_DOC = :ID_DOC'
+      '*/'
+      ''
+      'SELECT '
+      
+        'a.ID_DOC_TYPE, a.ID_DOC_DATA, a.ID_DOC, a.QUANTITY, a.PRICE, a.P' +
+        'RICE_OLD, a.GTD, a.F_NAME_RU, '
+      
+        'a.N_ID, a.LEN, a.PACK, a.COL_ID, a.COLOUR, a.F_TYPE, a.F_SUB_TYP' +
+        'E, a.FT_ID, a.FST_ID, a.COUNTRY, '
+      
+        'a.C_ID, a.H_CODE, a.SPESIFICATION, a.CODE, a.PRICE_DIFFERENCE, a' +
+        '.PRICE_BEZ_NDS, a.SUMM_BEZ_NDS, '
+      
+        'a.SUMM_NDS, a.FULL_NAME, a.PRICE_QUANTITY, a.compiled_name_otdel' +
+        ', b.spec_price'
+      'from'
+      'buh_docdata_view a'
+      'inner join price_list b ON a.n_id = b.n_id'
+      'where'
+      'a.ID_DOC = :ID_DOC')
     MasterSource = doc_store_DS
     FetchAll = True
     AutoCommit = False
@@ -841,6 +880,119 @@ object SelectDocDataForm: TSelectDocDataForm
         Name = 'ID_DOC'
         ParamType = ptInput
       end>
+    object doc_store_dataID_DOC_TYPE: TFloatField
+      FieldName = 'ID_DOC_TYPE'
+      Required = True
+    end
+    object doc_store_dataID_DOC_DATA: TFloatField
+      FieldName = 'ID_DOC_DATA'
+      Required = True
+    end
+    object doc_store_dataID_DOC: TFloatField
+      FieldName = 'ID_DOC'
+    end
+    object doc_store_dataQUANTITY: TFloatField
+      FieldName = 'QUANTITY'
+      Required = True
+    end
+    object doc_store_dataPRICE: TFloatField
+      FieldName = 'PRICE'
+    end
+    object doc_store_dataPRICE_OLD: TFloatField
+      FieldName = 'PRICE_OLD'
+    end
+    object doc_store_dataGTD: TStringField
+      FieldName = 'GTD'
+      Size = 50
+    end
+    object doc_store_dataF_NAME_RU: TStringField
+      FieldName = 'F_NAME_RU'
+      Required = True
+      Size = 256
+    end
+    object doc_store_dataN_ID: TFloatField
+      FieldName = 'N_ID'
+      Required = True
+    end
+    object doc_store_dataLEN: TIntegerField
+      FieldName = 'LEN'
+    end
+    object doc_store_dataPACK: TIntegerField
+      FieldName = 'PACK'
+    end
+    object doc_store_dataCOL_ID: TFloatField
+      FieldName = 'COL_ID'
+      Required = True
+    end
+    object doc_store_dataCOLOUR: TStringField
+      FieldName = 'COLOUR'
+      Required = True
+      Size = 50
+    end
+    object doc_store_dataF_TYPE: TStringField
+      FieldName = 'F_TYPE'
+      Required = True
+      Size = 50
+    end
+    object doc_store_dataF_SUB_TYPE: TStringField
+      FieldName = 'F_SUB_TYPE'
+      Required = True
+      Size = 50
+    end
+    object doc_store_dataFT_ID: TFloatField
+      FieldName = 'FT_ID'
+      Required = True
+    end
+    object doc_store_dataFST_ID: TFloatField
+      FieldName = 'FST_ID'
+      Required = True
+    end
+    object doc_store_dataCOUNTRY: TStringField
+      FieldName = 'COUNTRY'
+      Size = 50
+    end
+    object doc_store_dataC_ID: TFloatField
+      FieldName = 'C_ID'
+      Required = True
+    end
+    object doc_store_dataH_CODE: TStringField
+      FieldName = 'H_CODE'
+      Size = 80
+    end
+    object doc_store_dataSPESIFICATION: TStringField
+      FieldName = 'SPESIFICATION'
+      Size = 4000
+    end
+    object doc_store_dataCODE: TStringField
+      FieldName = 'CODE'
+      Size = 40
+    end
+    object doc_store_dataPRICE_DIFFERENCE: TFloatField
+      FieldName = 'PRICE_DIFFERENCE'
+    end
+    object doc_store_dataPRICE_BEZ_NDS: TFloatField
+      FieldName = 'PRICE_BEZ_NDS'
+    end
+    object doc_store_dataSUMM_BEZ_NDS: TFloatField
+      FieldName = 'SUMM_BEZ_NDS'
+    end
+    object doc_store_dataSUMM_NDS: TFloatField
+      FieldName = 'SUMM_NDS'
+    end
+    object doc_store_dataFULL_NAME: TStringField
+      FieldName = 'FULL_NAME'
+      Size = 4000
+    end
+    object doc_store_dataPRICE_QUANTITY: TFloatField
+      FieldName = 'PRICE_QUANTITY'
+    end
+    object doc_store_dataCOMPILED_NAME_OTDEL: TStringField
+      FieldName = 'COMPILED_NAME_OTDEL'
+      Size = 500
+    end
+    object doc_store_dataSPEC_PRICE: TIntegerField
+      FieldName = 'SPEC_PRICE'
+    end
   end
   object doc_store_data_DS: TOraDataSource
     DataSet = doc_store_data

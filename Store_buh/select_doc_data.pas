@@ -9,7 +9,7 @@ uses
   cxButtons, cxStyles, cxCustomData, cxGraphics, cxFilter, cxData,
   cxDataStorage, cxEdit, cxDBData, cxSpinEdit, cxCurrencyEdit, cxGridLevel,
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxClasses,
-  cxControls, cxGridCustomView, cxGrid, cxTextEdit;
+  cxControls, cxGridCustomView, cxGrid, cxTextEdit, cxCheckBox;
 
 type
   TSelectDocDataForm = class(TForm)
@@ -52,6 +52,37 @@ type
     DBText1: TDBText;
     strNakls: TcxStyleRepository;
     stEditable: TcxStyle;
+    doc_store_dataID_DOC_TYPE: TFloatField;
+    doc_store_dataID_DOC_DATA: TFloatField;
+    doc_store_dataID_DOC: TFloatField;
+    doc_store_dataQUANTITY: TFloatField;
+    doc_store_dataPRICE: TFloatField;
+    doc_store_dataPRICE_OLD: TFloatField;
+    doc_store_dataGTD: TStringField;
+    doc_store_dataF_NAME_RU: TStringField;
+    doc_store_dataN_ID: TFloatField;
+    doc_store_dataLEN: TIntegerField;
+    doc_store_dataPACK: TIntegerField;
+    doc_store_dataCOL_ID: TFloatField;
+    doc_store_dataCOLOUR: TStringField;
+    doc_store_dataF_TYPE: TStringField;
+    doc_store_dataF_SUB_TYPE: TStringField;
+    doc_store_dataFT_ID: TFloatField;
+    doc_store_dataFST_ID: TFloatField;
+    doc_store_dataCOUNTRY: TStringField;
+    doc_store_dataC_ID: TFloatField;
+    doc_store_dataH_CODE: TStringField;
+    doc_store_dataSPESIFICATION: TStringField;
+    doc_store_dataCODE: TStringField;
+    doc_store_dataPRICE_DIFFERENCE: TFloatField;
+    doc_store_dataPRICE_BEZ_NDS: TFloatField;
+    doc_store_dataSUMM_BEZ_NDS: TFloatField;
+    doc_store_dataSUMM_NDS: TFloatField;
+    doc_store_dataFULL_NAME: TStringField;
+    doc_store_dataPRICE_QUANTITY: TFloatField;
+    doc_store_dataCOMPILED_NAME_OTDEL: TStringField;
+    doc_store_dataSPEC_PRICE: TIntegerField;
+    priznak: TcxGridDBColumn;
     procedure doc_storeAfterOpen(DataSet: TDataSet);
     procedure FormShow(Sender: TObject);
     procedure aEnterExecute(Sender: TObject);
