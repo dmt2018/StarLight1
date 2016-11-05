@@ -102,6 +102,7 @@ var
   nds_default: integer;
   bez_nds_default: integer;
   bez_nds_minus: integer;
+  spec_discont: integer;
   okpo_default:string;
   okud_default:string;
   okdp_default:string;
@@ -160,15 +161,30 @@ var
 begin
   path         := ExtractFilePath(Application.ExeName);
   RegIni       := TIniFile.Create(path+'store_buh.ini');
-  v61_service  := RegIni.ReadInteger('61_service', 'Value', 0);
-  v62_service  := RegIni.ReadInteger('62_service', 'Value', 0);
-  v121_service := RegIni.ReadInteger('121_service', 'Value', 0);
-  title_name   := RegIni.ReadString('title', 'value', '');
+  try
+    v61_service  := RegIni.ReadInteger('61_service', 'Value', 0);
+    v62_service  := RegIni.ReadInteger('62_service', 'Value', 0);
+    v121_service := RegIni.ReadInteger('121_service', 'Value', 0);
+    title_name   := RegIni.ReadString('title', 'value', '');
+  finally
+    RegIni.Free;
+  end;
 end;
 
 procedure TDM.OraSessionAfterConnect(Sender: TObject);
+var
+  RegIni : TIniFile;
+  path: string;
 begin
   id_office := GetOfficeID;
+
+  path         := ExtractFilePath(Application.ExeName);
+  RegIni := TIniFile.Create(path + '\ini\'+Operator_username+'_setting.ini' );
+  try
+    spec_discont := RegIni.ReadInteger('spec_discont','value',0);
+  finally
+    RegIni.Free;
+  end;
 end;
 
 procedure TDM.Ora_SQLPostError(DataSet: TDataSet; E: EDatabaseError;

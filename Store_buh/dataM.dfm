@@ -7,7 +7,7 @@ object DM: TDM
     Options.Direct = True
     Username = 'CREATOR'
     Password = '123456'
-    Server = 'ROZNICA:1521:orcl'
+    Server = 'KLEPOV:1521:STARNEW'
     AutoCommit = False
     LoginPrompt = False
     AfterConnect = OraSessionAfterConnect

@@ -1431,8 +1431,8 @@ object DocNewForm: TDocNewForm
         'else case when :ppp=1 and :ID_DOC_TYPE > 1 then round((:price*1.' +
         '18),2) else :PRICE end end),'
       
-        '  PRICE    = case when :spec_price=1 then :OLD_PRICE else :PRICE' +
-        ' end,'
+        '  PRICE    = case when :spec_price=1 and :OLD_p2 = '#39'0'#39' then :OLD' +
+        '_PRICE else :PRICE end,'
       '  C_ID     = :C_ID,'
       '  GTD      = :GTD,'
       '  compiled_name_otdel = :compiled_name_otdel,'
@@ -1460,35 +1460,6 @@ object DocNewForm: TDocNewForm
       'WHERE ID_DOC_DATA = :ID_DOC_DATA')
     Session = DM.OraSession
     SQL.Strings = (
-      '/*SELECT ID_DOC_TYPE, ID_DOC_DATA, ID_DOC, QUANTITY, '
-      
-        '  --case when a.BEZNDSMINUS=1 and a.ID_DOC_TYPE > 1 then round((' +
-        'a.PRICE/118*100),2) else a.PRICE end price, '
-      '  a.PRICE,'
-      '  a.price as src_price,'
-      
-        '  case when a.BEZNDSMINUS=1 and a.ID_DOC_TYPE > 1 then round((a.' +
-        'PRICE/(100+NDS)*100),2) else a.PRICE end start_price, '
-      '  PRICE_OLD, GTD, F_NAME_RU, '
-      
-        '  N_ID, LEN, PACK, COL_ID, COLOUR, F_TYPE, F_SUB_TYPE, FT_ID, FS' +
-        'T_ID, COUNTRY, '
-      '  C_ID, H_CODE, SPESIFICATION, CODE, PRICE_DIFFERENCE, '
-      
-        '  a.PRICE_BEZ_NDS, a.SUMM_BEZ_NDS, a.SUMM_NDS, a.FULL_NAME, a.PR' +
-        'ICE_QUANTITY,'
-      '  buh_code, compiled_name_otdel, country_gtd'
-      '  , NSI_NAME, UNIT_CODE, SYMBOL_NATIONAL'
-      '  , count(*) over(PARTITION by n_id) as nn'
-      '  , to_number(BEZNDSMINUS) as ppp'
-      ', a.BEZNDSMINUS, a.NDS, a.BEZNDS'
-      'from'
-      'BUH_DOCDATA_VIEW a'
-      'where'
-      'ID_DOC=:ID_DOC'
-      'order by compiled_name_otdel'
-      '*/'
-      ''
       'SELECT ID_DOC_TYPE, ID_DOC_DATA, ID_DOC, QUANTITY, '
       '  a.PRICE,'
       '  a.price as src_price,'
@@ -1508,11 +1479,11 @@ object DocNewForm: TDocNewForm
       '  , count(*) over(PARTITION by a.n_id) as nn'
       '  , to_number(BEZNDSMINUS) as ppp'
       ', a.BEZNDSMINUS, a.NDS, a.BEZNDS, b.spec_price'
+      ', :p1 as p2'
       'from'
       'BUH_DOCDATA_VIEW a'
       'inner join price_list b ON a.n_id = b.n_id'
-      'where'
-      'ID_DOC=:ID_DOC'
+      'where ID_DOC=:ID_DOC'
       'order by nvl(b.spec_price,0) desc, compiled_name_otdel')
     MasterSource = DOC_DS
     FetchAll = True
@@ -1523,6 +1494,12 @@ object DocNewForm: TDocNewForm
     Left = 360
     Top = 38
     ParamData = <
+      item
+        DataType = ftString
+        Name = 'p1'
+        ParamType = ptInput
+        Value = ''
+      end
       item
         DataType = ftUnknown
         Name = 'ID_DOC'
@@ -1679,6 +1656,10 @@ object DocNewForm: TDocNewForm
     end
     object DOC_DATASPEC_PRICE: TIntegerField
       FieldName = 'SPEC_PRICE'
+    end
+    object DOC_DATAP2: TStringField
+      FieldName = 'P2'
+      Size = 2000
     end
   end
   object DOC_DS: TOraDataSource

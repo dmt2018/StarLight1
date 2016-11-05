@@ -200,6 +200,7 @@ type
     DOC_DATASPEC_PRICE: TIntegerField;
     priznak: TcxGridDBColumn;
     stSpec: TcxStyle;
+    DOC_DATAP2: TStringField;
     procedure ClientChoosClick(Sender: TObject);
     procedure NDSEditKeyPress(Sender: TObject; var Key: Char);
     procedure FormShow(Sender: TObject);
@@ -315,7 +316,7 @@ begin
       chbWithoutNDS.Checked := (DOC.FieldByName('BEZNDS').AsInteger = 1);
       chbWithoutNDS.Enabled := false;
 
-      //DOC_DATA.ParamByName('p1').AsInteger := DOC.FieldByName('BEZNDSMINUS').AsInteger ; // DataM.bez_nds_minus;
+      DOC_DATA.ParamByName('p1').AsString := IntToStr(datam.spec_discont);
       doc_data.Open;
     except on E: Exception do
       MessageBox(Handle, PChar(E.Message), 'Ошибка в запросе!', MB_ICONERROR);
@@ -357,6 +358,7 @@ begin
       chbWithoutNDS.Checked := (DOC.FieldByName('BEZNDS').AsInteger = 1);
       chbWithoutNDS.Enabled := DataM.Operator_edit;
 
+      DOC_DATA.ParamByName('p1').AsString := IntToStr(datam.spec_discont);
       doc_data.Open;
     except on E: Exception do
       MessageBox(Handle, PChar(E.Message), 'Ошибка в запросе!', MB_ICONERROR);
@@ -611,7 +613,7 @@ begin
           begin
             j :=  DBGridEh2.Controller.SelectedRows[i].RecordIndex;
 
-            if DBGridEh2.ViewData.DataController.Values[j, DBGridEh2.GetColumnByFieldName('spec_price').Index] <> 1 then
+            if ( (DataM.spec_discont = 1) or ( (DataM.spec_discont = 0) and (DBGridEh2.ViewData.DataController.Values[j, DBGridEh2.GetColumnByFieldName('spec_price').Index] <> 1) ) ) then
             begin
               DBGridEh2.DataController.DataSet.Locate('ID_DOC_DATA',DBGridEh2.ViewData.DataController.Values[j, DBGridEh2.GetColumnByFieldName('ID_DOC_DATA').Index],[]);
               DBGridEh2.DataController.DataSet.Edit;

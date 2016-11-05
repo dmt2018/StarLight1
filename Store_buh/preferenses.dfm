@@ -5,7 +5,7 @@ object preferensesForm: TpreferensesForm
   BorderStyle = bsSingle
   BorderWidth = 5
   Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080
-  ClientHeight = 524
+  ClientHeight = 556
   ClientWidth = 404
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -103,7 +103,7 @@ object preferensesForm: TpreferensesForm
   TextHeight = 16
   object bv_main: TBevel
     Left = 0
-    Top = 487
+    Top = 519
     Width = 404
     Height = 2
     Align = alBottom
@@ -112,7 +112,7 @@ object preferensesForm: TpreferensesForm
   end
   object Panel2: TPanel
     Left = 0
-    Top = 489
+    Top = 521
     Width = 404
     Height = 35
     Align = alBottom
@@ -120,6 +120,7 @@ object preferensesForm: TpreferensesForm
     Ctl3D = False
     ParentCtl3D = False
     TabOrder = 3
+    ExplicitTop = 489
     DesignSize = (
       404
       35)
@@ -265,9 +266,9 @@ object preferensesForm: TpreferensesForm
   end
   object PageControl1: TPageControl
     Left = 0
-    Top = 376
+    Top = 394
     Width = 404
-    Height = 105
+    Height = 119
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -278,6 +279,8 @@ object preferensesForm: TpreferensesForm
     ParentFont = False
     Style = tsFlatButtons
     TabOrder = 2
+    ExplicitTop = 376
+    ExplicitHeight = 105
   end
   object GroupBox2: TGroupBox
     Left = 0
@@ -367,7 +370,7 @@ object preferensesForm: TpreferensesForm
     Left = 0
     Top = 127
     Width = 404
-    Height = 104
+    Height = 122
     Align = alTop
     Caption = #1044#1088#1091#1075#1080#1077' '#1085#1072#1089#1090#1088#1086#1081#1082#1080
     Font.Charset = DEFAULT_CHARSET
@@ -535,6 +538,22 @@ object preferensesForm: TpreferensesForm
       ParentFont = False
       TabOrder = 6
     end
+    object chbSpecDiscont: TCheckBox
+      Left = 12
+      Top = 98
+      Width = 270
+      Height = 17
+      Alignment = taLeftJustify
+      Caption = #1055#1088#1080#1084#1077#1085#1103#1090#1100' '#1089#1082#1080#1076#1082#1091' '#1076#1083#1103' '#1089#1087#1077#1094'.'#1087#1088#1077#1076#1083#1086#1078#1077#1085#1080#1103
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 7
+    end
   end
   object Panel4: TPanel
     Left = 0
@@ -558,7 +577,7 @@ object preferensesForm: TpreferensesForm
   end
   object Panel1: TPanel
     Left = 0
-    Top = 243
+    Top = 261
     Width = 404
     Height = 25
     Align = alTop
@@ -575,6 +594,7 @@ object preferensesForm: TpreferensesForm
     ParentBackground = False
     ParentFont = False
     TabOrder = 5
+    ExplicitTop = 243
   end
   object Panel3: TPanel
     Left = 0
@@ -587,12 +607,13 @@ object preferensesForm: TpreferensesForm
   end
   object Panel5: TPanel
     Left = 0
-    Top = 231
+    Top = 249
     Width = 404
     Height = 12
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 7
+    ExplicitTop = 231
   end
   object Panel6: TPanel
     Left = 0
@@ -605,7 +626,7 @@ object preferensesForm: TpreferensesForm
   end
   object DBGridEh2: TDBGridEh
     Left = 0
-    Top = 274
+    Top = 292
     Width = 404
     Height = 96
     Align = alTop
@@ -670,27 +691,29 @@ object preferensesForm: TpreferensesForm
   end
   object Panel7: TPanel
     Left = 0
-    Top = 268
+    Top = 286
     Width = 404
     Height = 6
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 10
+    ExplicitTop = 268
   end
   object Panel8: TPanel
     Left = 0
-    Top = 370
+    Top = 388
     Width = 404
     Height = 6
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 11
+    ExplicitTop = 370
   end
   object DBGridEh1: TDBGridEh
     Left = 0
-    Top = 376
+    Top = 394
     Width = 404
-    Height = 105
+    Height = 119
     Align = alClient
     AllowedOperations = [alopInsertEh, alopUpdateEh, alopDeleteEh]
     AllowedSelections = [gstRecordBookmarks, gstAll]
@@ -760,12 +783,13 @@ object preferensesForm: TpreferensesForm
   end
   object Panel9: TPanel
     Left = 0
-    Top = 481
+    Top = 513
     Width = 404
     Height = 6
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 13
+    ExplicitTop = 481
   end
   object banc: TOraQuery
     Session = DM.OraSession
@@ -851,8 +875,8 @@ object preferensesForm: TpreferensesForm
     RefreshOptions = [roAfterInsert, roAfterUpdate, roBeforeEdit]
     Options.ReturnParams = True
     FilterOptions = [foCaseInsensitive]
-    Left = 8
-    Top = 230
+    Left = 32
+    Top = 262
   end
   object company_DS: TOraDataSource
     DataSet = company

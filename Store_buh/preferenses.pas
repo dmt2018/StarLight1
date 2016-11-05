@@ -69,6 +69,7 @@ type
     lbOKUD: TLabel;
     lbOKDP: TLabel;
     chbNDSMinus: TCheckBox;
+    chbSpecDiscont: TCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure BitBtnFilterOnClick(Sender: TObject);
     procedure DBComboBoxEh1Change(Sender: TObject);
@@ -125,6 +126,7 @@ begin
   edOKPO.EditValue    := datam.okpo_default;
   edOKUD.EditValue    := datam.okud_default;
   edOKDP.EditValue    := datam.okdp_default;
+  chbSpecDiscont.Checked := (datam.spec_discont = 1);
 end;
 
 
@@ -240,6 +242,8 @@ begin
   Ini := TIniFile.Create(path + '\ini\'+Operator_username+'_setting.ini' );
   try
     Ini.WriteInteger('id_company','value',ID_COMPANY);
+    Ini.WriteInteger('spec_discont','value',BoolToInt(chbSpecDiscont.Checked));
+    DataM.spec_discont := BoolToInt(chbSpecDiscont.Checked);
   finally
     Ini.Free;
   end;
