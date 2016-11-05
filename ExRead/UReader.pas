@@ -1605,8 +1605,17 @@ begin
         if DM.NomenclatureH_CODE.AsString <> cdsTranslatesku.AsString then
           executeSQL('insert into invoice_data_as_is_map values('+cdsTranslateINVOICE_DATA_AS_IS_ID.AsString+', '+DM.NomenclatureN_ID.AsString+','''+StringReplace(cdsTranslatesku.AsString,'''','''''', [rfReplaceAll])+''',1)')
         else
-          executeSQL('insert into invoice_data_as_is_map values('+cdsTranslateINVOICE_DATA_AS_IS_ID.AsString+', '+DM.NomenclatureN_ID.AsString+','''+StringReplace(cdsTranslatesku.AsString,'''','''''', [rfReplaceAll])+''',null)');
-//      end;
+        begin
+          DM.SelQ.Close;
+          DM.SelQ.SQL.Clear;
+          DM.SelQ.SQL.Add('SELECT * FROM invoice_data_as_is_map where n_id = '+DM.NomenclatureN_ID.AsString);
+          DM.SelQ.Open;
+          if DM.SelQ.RecordCount = 0 then
+            executeSQL('insert into invoice_data_as_is_map values('+cdsTranslateINVOICE_DATA_AS_IS_ID.AsString+', '+DM.NomenclatureN_ID.AsString+','''+StringReplace(cdsTranslatesku.AsString,'''','''''', [rfReplaceAll])+''',1)')
+          else
+            executeSQL('insert into invoice_data_as_is_map values('+cdsTranslateINVOICE_DATA_AS_IS_ID.AsString+', '+DM.NomenclatureN_ID.AsString+','''+StringReplace(cdsTranslatesku.AsString,'''','''''', [rfReplaceAll])+''',null)');
+          DM.SelQ.Close;
+        end;
         DM.STAR_DB.Commit;
     end;
   finally
