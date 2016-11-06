@@ -1029,6 +1029,9 @@ end;
     // Бегаем по машинам
     for i := 1 to trucks do
     begin
+      // Узнаем правильный НЕТТО для машины, чтобы подогнать результат
+      DM.get_fito_netto(idd, i);
+
       // part1_tr%_Phytoes_for_cut_flowers.xls
       // Страна	Подтип	Количество
       DM.raport_srez_phytoes(idd,i,4);
@@ -1068,7 +1071,7 @@ end;
 
       // fito_tr%.xls
       // Код; Наименование; Стволов; Денег; Нетто; Брутто; Кор; Бак; Нетто за ствол; Вес коробки; Бака; Трол; Пал
-      DM.raport_fito_totallist(idd,i);
+      DM.raport_fito_totallist(idd, i);
 
     end;
 

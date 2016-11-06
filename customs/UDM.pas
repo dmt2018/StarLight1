@@ -140,12 +140,14 @@ type
     cds_custcoefID_DEPARTMENTS: TIntegerField;
   private
     { Private declarations }
+    cur_netto: integer;
   public
     procedure raport_srez_phytoes(id_inv: integer; truck: integer; report_type: integer);
     procedure raport_srez_phytoes_part2(id_inv: integer; truck: integer; report_type: integer);
     procedure raport_gtd(id_inv: integer; truck: integer; report_type: integer);
     procedure raport_totallist(id_inv: integer; truck: integer; report_type: integer);
     procedure raport_fito_totallist(id_inv: integer; truck: integer);
+    procedure get_fito_netto(id_inv: integer; truck: integer);
     { Public declarations }
   end;
 
@@ -169,6 +171,7 @@ var XL, XArr, WorkBook, Sheet: OLEVariant;
     j,j1,j2: integer;
     fileName: string;
     sum_u, sum_n, sum_b: real;
+    summ, res: integer;
 begin
   try
     with DM.SelQ do
@@ -226,7 +229,7 @@ begin
     j := j + 1;
 
     XL.Range['B'+IntToStr(j),'B'+IntToStr(j)].Value := 'Total netto:';
-    XL.Range['C'+IntToStr(j),'C'+IntToStr(j)].Value := sum_n;
+    XL.Range['C'+IntToStr(j),'C'+IntToStr(j)].Value := round(sum_n);
     j2:=j; //запомнил номер ячейки
 
     XL.Range['A'+IntToStr(j-2),'C'+IntToStr(j)].select;
@@ -263,7 +266,19 @@ begin
       begin
         XArr[1] := FieldByName('hol_country').Value;
         XArr[2] := FieldByName('units').Value;
-        XArr[3] := FieldByName('netto').Value;
+
+        if (Frac(FieldByName('netto').Value) > 0.4) and (Frac(FieldByName('netto').Value) < 0.5) then
+          res := round(FieldByName('netto').Value)+1
+        else
+          res := round(FieldByName('netto').Value);
+
+        summ := summ + res;
+        if summ > cur_netto then
+        begin
+          res := res - (summ - cur_netto);
+        end;
+        XArr[3] := res;
+
         XL.Range['A'+IntToStr(j),CHR(64+3)+IntToStr(j)].Value := XArr;
         sum_u := sum_u + FieldByName('units').AsInteger;
         sum_n := sum_n + FieldByName('netto').AsFloat;
@@ -274,9 +289,10 @@ begin
     end;
 
     XL.Range['A'+IntToStr(j),'A'+IntToStr(j)].Value := 'Total:';
+    summ := round(sum_n);
     XL.Range['B'+IntToStr(j),'B'+IntToStr(j)].Value := sum_u;
-    XL.Range['C'+IntToStr(j),'C'+IntToStr(j)].Value := sum_n;
-    XL.Range['C'+IntToStr(j2),'C'+IntToStr(j2)].Value := sum_n;//перепишу нетто из верхней таблицы
+    XL.Range['C'+IntToStr(j),'C'+IntToStr(j)].Value := summ;
+    XL.Range['C'+IntToStr(j2),'C'+IntToStr(j2)].Value := summ;//перепишу нетто из верхней таблицы
     XL.Range['C'+IntToStr(j1),'C'+IntToStr(j1)].Value := sum_b; //перепишу брутто из верхней таблицы
     XL.Range['A'+IntToStr(j),'C'+IntToStr(j)].select;
     XL.Selection.Font.Bold := true;
@@ -409,9 +425,9 @@ procedure TDM.raport_gtd(id_inv: integer; truck: integer; report_type: integer);
 var XL, XL2, XArr, WorkBook, Sheet: OLEVariant;
     j, k: integer;
     fileName, cur_rule_name, ss: string;
-    sum_4, sum_5, sum_6, sum_7, sum_8, sum_9, sum_10, sum_11, sum_12: real;
+    sum_4, sum_5, sum_6, sum_7, sum_8, sum_9, sum_10, sum_11, sum_12, summ: real;
     S : TStringlist;
-    i, i1, i2, suma, j1 :integer;
+    i, i1, i2, suma, j1, res :integer;
 begin
   try
     with DM.SelQ do
@@ -476,7 +492,19 @@ begin
         XArr[6] := FieldByName('packs').Value;
         XArr[7] := FieldByName('sideboards').Value + FieldByName('packs').Value;
         XArr[8] := FieldByName('brutto').Value;
-        XArr[9] := FieldByName('netto').Value;
+
+        if (Frac(FieldByName('netto').Value) > 0.45) and (Frac(FieldByName('netto').Value) < 0.5) then
+          res := round(FieldByName('netto').Value)+1
+        else
+          res := round(FieldByName('netto').Value);
+
+        summ := summ + res;
+        if round(summ) > cur_netto then
+        begin
+          res := res - (round(summ) - cur_netto);
+        end;
+        XArr[9] := res;
+
         XArr[10] := FieldByName('summ').Value;
         XArr[11] := FieldByName('telega').Value;
         XArr[12] := FieldByName('poddon').Value;
@@ -503,7 +531,8 @@ begin
     XL.Range['F'+IntToStr(j),'F'+IntToStr(j)].Value := sum_6;
     XL.Range['G'+IntToStr(j),'G'+IntToStr(j)].Value := sum_7;
     XL.Range['H'+IntToStr(j),'H'+IntToStr(j)].Value := sum_8;
-    XL.Range['I'+IntToStr(j),'I'+IntToStr(j)].Value := sum_9;
+    res := round(sum_9);
+    XL.Range['I'+IntToStr(j),'I'+IntToStr(j)].Value := cur_netto;
     XL.Range['J'+IntToStr(j),'J'+IntToStr(j)].Value := sum_10;
     XL.Range['K'+IntToStr(j),'K'+IntToStr(j)].Value := sum_11;
     XL.Range['L'+IntToStr(j),'L'+IntToStr(j)].Value := sum_12;
@@ -520,7 +549,11 @@ begin
     try
       XL.Workbooks[1].SaveAs(filename);
     except
-      XL.Quit;
+      on E: Exception do
+      begin
+        ShowMessage(E.Message);
+        XL.Quit;
+      end;
     end;
     XL.Quit;
 
@@ -686,9 +719,10 @@ end;
 //
 procedure TDM.raport_totallist(id_inv: integer; truck: integer; report_type: integer);
 var XL, XArr, WorkBook, Sheet: OLEVariant;
-    j, total_packs: integer;
+    j, total_packs, res, summ: integer;
     fileName: string;
-    sum_u,sum_u1, sum_n,sum_n1, sum_b,sum_b1, sum_a,sum_a1: real;    st:tstringlist;
+    sum_u, sum_u1, sum_n, sum_n1, sum_b, sum_b1, sum_a, sum_a1: real;
+    st:tstringlist;
     dub2,dub1:string;
 begin
   try
@@ -832,22 +866,31 @@ begin
         sum_u1 := sum_u1 + FieldByName('units').asinteger;
        // sum_a1 := sum_a1 + simpleroundto((FieldByName('SUMM').value/FieldByName('netto').value)*1.13,-2);
         sum_a1 := sum_a1 + FieldByName('SUMM').ascurrency;
-        sum_n1 := sum_n1 + FieldByName('netto').asinteger;
+        sum_n1 := sum_n1 + FieldByName('netto').ascurrency;
         sum_b1 := sum_b1 + FieldByName('brutto').asinteger;
+
 
         XArr[1] := FieldByName('NAME_CAT').Value;
         XArr[2] := FieldByName('CUST_REGN').Value;
         XArr[3] := sum_u1;//FieldByName('units').Value;
         XArr[4] := sum_a1;//FieldByName('SUMM').Value;
-        XArr[5] := sum_n1; //FieldByName('netto').Value;
+
+        //XArr[5] := sum_n1; //FieldByName('netto').Value;
+        if (Frac(sum_n1) > 0.46) and (Frac(sum_n1) < 0.5) then
+          XArr[5] := round(sum_n1) + 1
+        else
+          XArr[5] := round(sum_n1);
+
         XArr[6] := sum_b1;//FieldByName('brutto').Value;
 
         XL.Range['A'+IntToStr(j),CHR(64+6)+IntToStr(j)].Value := XArr;
 
         sum_u := sum_u + FieldByName('units').asinteger;
         sum_a := sum_a + FieldByName('SUMM').ascurrency;
-        sum_n := sum_n + FieldByName('netto').asinteger;
+        sum_n := sum_n + FieldByName('netto').ascurrency;
+
         sum_b := sum_b + FieldByName('brutto').asinteger;
+
 
         dub1:= FieldByName('NAME_CAT').Value;
         Next;
@@ -861,11 +904,11 @@ begin
         if eof then j := j + 1;
       end;
     end;
-
+    res := round(sum_n);
     XL.Range['B'+IntToStr(j),'B'+IntToStr(j)].Value := 'Total cut flowers: ';
     XL.Range['C'+IntToStr(j),'C'+IntToStr(j)].Value := sum_u;
     XL.Range['D'+IntToStr(j),'D'+IntToStr(j)].Value := sum_a;
-    XL.Range['E'+IntToStr(j),'E'+IntToStr(j)].Value := sum_n;
+    XL.Range['E'+IntToStr(j),'E'+IntToStr(j)].Value := res;
     XL.Range['F'+IntToStr(j),'F'+IntToStr(j)].Value := sum_b;
     XL.Range['A'+IntToStr(j),'F'+IntToStr(j)].select;
     XL.Selection.Font.Bold := true;
@@ -986,7 +1029,7 @@ end;
 //
 procedure TDM.raport_fito_totallist(id_inv: integer; truck: integer);
 var XL, XArr, WorkBook, Sheet: OLEVariant;
-    j, total_packs: integer;
+    j, total_packs, res, summ: integer;
     fileName: string;
 begin
   try
@@ -1005,6 +1048,7 @@ begin
 
     if DM.SelQ.RecordCount = 0 then exit;
 
+    summ := 0;
     fileName    := ProgPath+ '\OUT\'+IntToStr(id_inv)+'\fito_tr'+IntToStr(truck)+'.xls';
     XArr := VarArrayCreate([1,13],varVariant);
     XL   := CreateOLEObject('Excel.Application');     // Создание OLE объекта
@@ -1037,7 +1081,20 @@ begin
         XArr[2] := FieldByName('NAME_CAT').AsString;
         XArr[3] := FieldByName('units').Value;
         XArr[4] := FieldByName('money').Value;
-        XArr[5] := FieldByName('netto').Value;
+
+        if (Frac(FieldByName('netto').Value) > 0.4) and (Frac(FieldByName('netto').Value) < 0.5) then
+          res := round(FieldByName('netto').Value) + 1
+        else
+          res := round(FieldByName('netto').Value);
+
+        summ := summ + res;
+        if summ > cur_netto then
+        begin
+          res := res - (summ - cur_netto);
+        end;
+        
+        XArr[5] := res;
+
         XArr[6] := FieldByName('brutto').Value;
         XArr[7] := FieldByName('packs').Value;
         XArr[8] := FieldByName('sideboards').Value;
@@ -1066,6 +1123,38 @@ begin
     //////////////////////////////////////////////////////////////////////////
     DM.SelQ.Close;
     DM.SelQ.IndexFieldNames := '';
+
+  except
+    on E: Exception do
+    begin
+      ShowMessage(E.Message);
+      DM.SelQ.Close;
+      DM.SelQ.IndexFieldNames := '';
+    end;
+  end;
+end;
+
+
+//
+// Узнаем правильный НЕТТО для машины, чтобы подогнать результат
+//
+procedure TDM.get_fito_netto(id_inv: integer; truck: integer);
+begin
+  try
+    with DM.SelQ do
+    begin
+      Close;
+      IndexFieldNames := '';
+      SQL.Clear;
+      SQL.Add('begin custom_pkg.get_inv_netto(:V_ID_DEP, :v_inv_id, :v_truck, :CURSOR_); end;');
+      ParamByName('V_ID_DEP').Value := CUR_DEPT_ID;
+      ParamByName('v_inv_id').Value := id_inv;
+      ParamByName('v_truck').Value := truck;
+      ParamByName('cursor_').AsCursor;
+      Open;
+      cur_netto := FieldByName('netto').AsInteger;
+      Close;
+    end;
 
   except
     on E: Exception do
