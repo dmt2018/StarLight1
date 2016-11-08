@@ -223,34 +223,47 @@ type
 
 var
   frmRefbooks: TfrmRefbooks;
-  frmRefbooks_0: TfrmRefbooks;
-
+  newDesc: TfrmRefbooks;
+  mas : array [0..8] of string;
 implementation
 
 {$R *.dfm}
 
 uses UDM, UHotKeys, UEditRefBooks;
 
-function TfrmRefbooks.MainFormShow(v_page: integer) : boolean;
-var newDesc: TfrmRefbooks;
-Begin
-  newDesc := frmRefbooks_0;
 
- if not Assigned(newDesc) then
-  begin
+function TfrmRefbooks.MainFormShow(v_page: integer) : boolean;
+var i,j:integer;
+Begin
+//проверю, есть ли в массиве v_page, если да- справочник открыт уж
+  for i:=0 to length(mas)-1 do
+  if (mas[i]=inttostr(v_page)) then begin
+   //выбор текущей формы из имеющихся
+   for j := 0 to Screen.FormCount-1 do
+   if Screen.Forms[j].FormStyle=fsmdichild then
+   if Screen.Forms[j].tag=v_page then
+   if (Screen.Forms[j].WindowState = wsMinimized) then Screen.Forms[j].WindowState := wsNormal;
+  exit; // на выход из функции - больше тут делать нечего
+  end;
+
+//заполню вакантное место массивa номером справочника
+  for i:=0 to length(mas)-1 do
+  if (mas[i]='') then begin
+    mas[i]:=inttostr(v_page);
     newDesc := TfrmRefbooks.Create(Application);
     try
       newDesc.page := v_page;
-      newDesc.frmDesc := newDesc;
+      newDesc.tag := v_page;
+      newDesc.frmDesc:=newDesc;
       newDesc.Show;
       newDesc.aRefresh.Execute;
+      newDesc.Name:= 'frmRefbooks'+inttostr(newDesc.Tag); //!!! чтоб [имя] соотв. тому что за скобками (см onclose)
       LoadFormState(newDesc); //полож.окна
     finally
       null;
     end;
-  end
-  else
-    if (newDesc.WindowState = wsMinimized) then newDesc.WindowState := wsNormal;
+    break; // и сразу ухожу из цикла чтоб 9 одинак.справочников не открылось сразу
+  end;
 end;
 
 
@@ -806,14 +819,28 @@ begin
 end;
 
 procedure TfrmRefbooks.FormClose(Sender: TObject; var Action: TCloseAction);
+ var i: integer;
 begin
   if MessageDlg('Закрыть форму?',mtConfirmation,[mbYes, mbNo],0) <> mrYes then
     Action := caNone
-  else
+  else    
   begin
-    //SaveFormState(frmDesc); //полож.окна
+
+    for i:=0 to length(mas)-1 do  begin
+     //showmessage('element '+mas[i]+' forma.tag= '+inttostr(frmDesc.tag));
+    if (mas[i]=inttostr(frmDesc.tag)) then begin
+     mas[i]:='';
+     break;
+    end;
+    end;
+
+    frmDesc.Name:= 'frmRefbooks'+inttostr(frmDesc.Tag); //во избежание нижеследущего:
+    //при новом открытии справочников имена форм формируются автоматом: имя_формы_1, имя_формы_2 и тд
+    //а потом уже из ini подгруж-ся координаты к этим формам
+    //а при закрытии справочников в ini имена пишутся начиная со справочника который закрыт 1м,
+    //к примеру 1м попал имя_формы_3. => и если я его впоследствии открою 1м, то ему присвоятся коор-ты имя_формы_1
+
     SaveFormState(frmDesc); //полож.окна
-    //frmRefbooks := nil;
     frmDesc := nil;
     Action := caFree;
   end;

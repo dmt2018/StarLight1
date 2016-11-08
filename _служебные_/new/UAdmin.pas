@@ -7,7 +7,8 @@ uses
   Dialogs, StdCtrls, star_lib, Menus, cxLookAndFeelPainters, DBGridEhGrouping,
   ImgList, ActnList, ExtCtrls, GridsEh, DBGridEh, cxButtons, Mask, DBCtrlsEh,
   ComCtrls, DB, MemDS, DBAccess, Ora, cxGraphics, cxControls, cxContainer,
-  cxEdit, cxTextEdit, cxMaskEdit, cxDropDownEdit, cxImageComboBox, PI_Library_reg;
+  cxEdit, cxTextEdit, cxMaskEdit, cxDropDownEdit, cxImageComboBox, PI_Library_reg,
+  cxLabel, cxButtonEdit, dxBar, cxBarEditItem, dxBarExtItems, cxClasses;
 
 type
   TfrmAdmin = class(TForm)
@@ -79,15 +80,8 @@ type
     btnAddPermission: TcxButton;
     btnDelPermission: TcxButton;
     EhDebitors: TDBGridEh;
-    ActionList1: TActionList;
-    ctrl_a: TAction;
     ImageList1: TImageList;
     SelQ: TOraQuery;
-    Panel3: TPanel;
-    Label2: TLabel;
-    BitBtn13: TcxButton;
-    cxButton1: TcxButton;
-    imgOffice: TcxImageComboBox;
     Q_EMPL: TOraQuery;
     Q_EMPLNN: TFloatField;
     Q_EMPLACTIVE: TIntegerField;
@@ -151,6 +145,38 @@ type
     Q_GR_PRNAME: TStringField;
     Q_GR_PR_DS: TOraDataSource;
     Ora_SQL: TOraSQL;
+    bmMain: TdxBarManager;
+    bmToolBar: TdxBar;
+    bmFooter: TdxBar;
+    btnRefresh: TdxBarLargeButton;
+    btnAdd: TdxBarLargeButton;
+    btnEdit: TdxBarLargeButton;
+    btnDelete: TdxBarLargeButton;
+    cxBarEditItem1: TcxBarEditItem;
+    imgOtdel: TcxBarEditItem;
+    btnHelp: TdxBarLargeButton;
+    btnExit: TdxBarLargeButton;
+    cxBarEditItem3: TcxBarEditItem;
+    cxBarEditItem4: TcxBarEditItem;
+    cxBarEditItem2: TcxBarEditItem;
+    dxBarButton1: TdxBarButton;
+    dxBarButton2: TdxBarButton;
+    dxBarButton3: TdxBarButton;
+    dxBarButton4: TdxBarButton;
+    dxBarButton5: TdxBarButton;
+    cxBarEditItem5: TcxBarEditItem;
+    btnHotKeys: TdxBarButton;
+    AlMain: TActionList;
+    aRefresh: TAction;
+    aNew: TAction;
+    aEdit: TAction;
+    aDelete: TAction;
+    aExit: TAction;
+    ctrl_a: TAction;
+    imgoffice: TcxImageComboBox;
+    TabSheet5: TTabSheet;
+    dxBarEdit1: TdxBarEdit;
+    cxBarEditItem6: TcxBarEditItem;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -161,7 +187,6 @@ type
     procedure BitBtn2Click(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn13Click(Sender: TObject);
-    procedure cxButton1Click(Sender: TObject);
     procedure BitBtn14Click(Sender: TObject);
     procedure BitBtn16Click(Sender: TObject);
     procedure BitBtn15Click(Sender: TObject);
@@ -181,6 +206,9 @@ type
     procedure btnAddPermissionClick(Sender: TObject);
     procedure btnDelPermissionClick(Sender: TObject);
     procedure Q_PROGSAfterOpen(DataSet: TDataSet);
+    procedure Action1Execute(Sender: TObject);
+    procedure aExitExecute(Sender: TObject);
+    procedure aRefreshExecute(Sender: TObject);
   private
     { Private declarations }
     p_read, p_edit, p_delete, p_print: boolean;
@@ -358,6 +386,45 @@ begin
 end;
 
 // Добавление логина в ИС
+procedure TfrmAdmin.Action1Execute(Sender: TObject);
+begin
+  if Q_GR_PR_DS.State = dsEdit then Q_GR_PR.Post;
+end;
+
+procedure TfrmAdmin.aExitExecute(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TfrmAdmin.aRefreshExecute(Sender: TObject);
+var idd: integer;
+begin
+if (pageControl1.ActivePageIndex = 0) then
+begin
+  idd := Q_EMPLID_CLIENTS.AsInteger;
+  Q_EMPL.Refresh;
+  Q_EMPL.Locate('ID_CLIENTS',idd,[]);
+  DBGridEh2.SetFocus;
+end;
+if (pageControl1.ActivePageIndex = 1) then
+begin
+  idd := Q_GROUPSID_ROLE_GROUPS.AsInteger;
+  Q_GROUPS.Refresh;
+  Q_GROUPS.Locate('ID_ROLE_GROUPS',idd,[]);
+  DBGrid4.SetFocus;
+end;
+if (pageControl1.ActivePageIndex = 2) then
+begin
+  Q_PROGS.Refresh;
+  DBGrid2.SetFocus;
+end;
+if (pageControl1.ActivePageIndex = 3) then
+begin
+  Q_SET_CASH.Refresh;
+  DBGridEh1.SetFocus;
+end;
+end;
+
 procedure TfrmAdmin.BitBtn10Click(Sender: TObject);
 begin
 if (Q_EMPL.FieldByName('ID_CLIENTS').AsInteger > 0) then
@@ -432,7 +499,7 @@ end;
 
 procedure TfrmAdmin.BitBtn13Click(Sender: TObject);
 begin
-  Close;
+
 end;
 
 // Добавление сотруднику группы
@@ -848,39 +915,10 @@ end;
 
 procedure TfrmAdmin.ctrl_aExecute(Sender: TObject);
 begin
-  if Q_GR_PR_DS.State = dsEdit then Q_GR_PR.Post;
+
 end;
 
 //  Обновление данных
-procedure TfrmAdmin.cxButton1Click(Sender: TObject);
-var idd: integer;
-begin
-if (pageControl1.ActivePageIndex = 0) then
-begin
-  idd := Q_EMPLID_CLIENTS.AsInteger;
-  Q_EMPL.Refresh;
-  Q_EMPL.Locate('ID_CLIENTS',idd,[]);
-  DBGridEh2.SetFocus;
-end;
-if (pageControl1.ActivePageIndex = 1) then
-begin
-  idd := Q_GROUPSID_ROLE_GROUPS.AsInteger;
-  Q_GROUPS.Refresh;
-  Q_GROUPS.Locate('ID_ROLE_GROUPS',idd,[]);
-  DBGrid4.SetFocus;
-end;
-if (pageControl1.ActivePageIndex = 2) then
-begin
-  Q_PROGS.Refresh;
-  DBGrid2.SetFocus;
-end;
-if (pageControl1.ActivePageIndex = 3) then
-begin
-  Q_SET_CASH.Refresh;
-  DBGridEh1.SetFocus;
-end;
-end;
-
 procedure TfrmAdmin.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   if MessageDlg('Закрыть программу?',mtConfirmation,[mbYes, mbNo],0) <> mrYes then
