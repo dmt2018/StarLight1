@@ -203,7 +203,7 @@ object frmEditRefbooks: TfrmEditRefbooks
     Top = 0
     Width = 555
     Height = 334
-    ActivePage = tsh_promo
+    ActivePage = tsh_clienttypes
     Align = alClient
     MultiLine = True
     Style = 7

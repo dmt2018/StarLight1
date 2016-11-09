@@ -12,6 +12,7 @@ object frmEditAdmins: TfrmEditAdmins
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object cxPageControl1: TcxPageControl
@@ -24,9 +25,6 @@ object frmEditAdmins: TfrmEditAdmins
     MultiLine = True
     Style = 7
     TabOrder = 0
-    ExplicitTop = -35
-    ExplicitWidth = 555
-    ExplicitHeight = 334
     ClientRectBottom = 448
     ClientRectLeft = 1
     ClientRectRight = 661
@@ -34,8 +32,6 @@ object frmEditAdmins: TfrmEditAdmins
     object tsh_regions: TcxTabSheet
       Caption = #1059#1095#1077#1090#1085#1099#1077' '#1079#1072#1087#1080#1089#1080
       ImageIndex = 0
-      ExplicitWidth = 633
-      ExplicitHeight = 209
       object GroupBox7: TGroupBox
         Left = 9
         Top = 14
@@ -165,9 +161,6 @@ object frmEditAdmins: TfrmEditAdmins
     object tsh_cityes: TcxTabSheet
       Caption = #1055#1088#1080#1074#1080#1083#1077#1075#1080#1080' '#1082' '#1087#1088#1086#1075#1088#1072#1084#1084#1072#1084
       ImageIndex = 1
-      ExplicitTop = 39
-      ExplicitWidth = 556
-      ExplicitHeight = 295
       object Label3: TLabel
         Left = 18
         Top = 10
@@ -327,9 +320,6 @@ object frmEditAdmins: TfrmEditAdmins
     object tsh_promo: TcxTabSheet
       Caption = #1056#1077#1076#1072#1082#1090#1086#1088
       ImageIndex = 2
-      ExplicitTop = 39
-      ExplicitWidth = 556
-      ExplicitHeight = 295
       object Panel3: TPanel
         Left = 0
         Top = 0
@@ -342,7 +332,6 @@ object frmEditAdmins: TfrmEditAdmins
         Ctl3D = False
         ParentCtl3D = False
         TabOrder = 0
-        ExplicitWidth = 592
         object Label6: TLabel
           Left = 18
           Top = 4
@@ -387,8 +376,6 @@ object frmEditAdmins: TfrmEditAdmins
         BevelInner = bvRaised
         BevelOuter = bvLowered
         TabOrder = 1
-        ExplicitWidth = 592
-        ExplicitHeight = 368
         object Label10: TLabel
           Left = 26
           Top = 10
@@ -461,7 +448,7 @@ object frmEditAdmins: TfrmEditAdmins
         end
         object Label24: TLabel
           Left = 16
-          Top = 60
+          Top = 57
           Width = 204
           Height = 16
           Caption = #1044#1086#1087#1086#1083#1085#1080#1090#1077#1083#1100#1085#1072#1103' '#1080#1085#1092#1086#1088#1084#1072#1094#1080#1103':'
@@ -516,10 +503,6 @@ object frmEditAdmins: TfrmEditAdmins
     object tsh_clienttypes: TcxTabSheet
       Caption = #1057#1087#1080#1089#1086#1082' '#1082#1083#1080#1077#1085#1090#1086#1074' '#1076#1083#1103' '#1075#1088#1091#1087#1087#1099
       ImageIndex = 3
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object pnlTop: TPanel
         Left = 0
         Top = 0
@@ -536,7 +519,6 @@ object frmEditAdmins: TfrmEditAdmins
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 601
       end
       object grClients: TcxGrid
         Left = 0
@@ -551,10 +533,6 @@ object frmEditAdmins: TfrmEditAdmins
         Font.Style = []
         ParentFont = False
         TabOrder = 1
-        ExplicitLeft = 6
-        ExplicitTop = 6
-        ExplicitWidth = 589
-        ExplicitHeight = 285
         object grClientsV: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
           DataController.DataSource = dsQuery
@@ -618,9 +596,6 @@ object frmEditAdmins: TfrmEditAdmins
     object tsh_departs: TcxTabSheet
       Caption = #1044#1086#1089#1090#1091#1087' '#1076#1083#1103' '#1076#1077#1073#1080#1090#1086#1088#1086#1074
       ImageIndex = 4
-      ExplicitTop = 39
-      ExplicitWidth = 556
-      ExplicitHeight = 295
       object Panel6: TPanel
         Left = 0
         Top = 0
@@ -636,7 +611,6 @@ object frmEditAdmins: TfrmEditAdmins
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 727
         object Label12: TLabel
           Left = 6
           Top = 12
@@ -677,10 +651,6 @@ object frmEditAdmins: TfrmEditAdmins
         Font.Style = []
         ParentFont = False
         TabOrder = 1
-        ExplicitLeft = 6
-        ExplicitTop = 6
-        ExplicitWidth = 715
-        ExplicitHeight = 317
         object cxGridDBTableView1: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
           DataController.DataSource = dsQuery
@@ -898,8 +868,6 @@ object frmEditAdmins: TfrmEditAdmins
     Height = 27
     Align = alBottom
     TabOrder = 1
-    ExplicitTop = 272
-    ExplicitWidth = 555
     object Label4: TLabel
       Left = 35
       Top = 5
@@ -966,8 +934,6 @@ object frmEditAdmins: TfrmEditAdmins
     Height = 41
     Align = alBottom
     TabOrder = 2
-    ExplicitTop = 258
-    ExplicitWidth = 555
     object cxButton1: TcxButton
       Left = 8
       Top = 5
@@ -984,6 +950,7 @@ object frmEditAdmins: TfrmEditAdmins
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      OnClick = cxButton1Click
       Colors.Default = clBtnFace
       Colors.Normal = clBtnFace
       Colors.Hot = clSkyBlue
@@ -1060,6 +1027,7 @@ object frmEditAdmins: TfrmEditAdmins
       Font.Style = []
       ParentFont = False
       TabOrder = 1
+      OnClick = cxButton2Click
       Colors.Default = clBtnFace
       Colors.Normal = clBtnFace
       Colors.Hot = clSkyBlue
@@ -1137,6 +1105,7 @@ object frmEditAdmins: TfrmEditAdmins
       Font.Style = []
       ParentFont = False
       TabOrder = 2
+      OnClick = cxButton6Click
       Colors.Default = clBtnFace
       Colors.Normal = clBtnFace
       Colors.Hot = clSkyBlue
@@ -1209,7 +1178,7 @@ object frmEditAdmins: TfrmEditAdmins
         'SELECT c.id_clients, c.nick, c.fio FROM ADMIN_EMPLOYEES_ROLE_GRO' +
         'UPS EG, clients c where EG.ID_EMPLOYEES = c.id_clients and EG.ID' +
         '_ROLE_GROUPS=1')
-    Left = 24
+    Left = 120
     Top = 48
     object cdsQueryNICK: TStringField
       FieldName = 'NICK'
@@ -1227,11 +1196,11 @@ object frmEditAdmins: TfrmEditAdmins
   end
   object dsQuery: TOraDataSource
     DataSet = cdsQuery
-    Left = 56
+    Left = 152
     Top = 48
   end
   object cdsQ: TOraQuery
-    Left = 96
+    Left = 192
     Top = 48
   end
   object OraQuery1: TOraQuery

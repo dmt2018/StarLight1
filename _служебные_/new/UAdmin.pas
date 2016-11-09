@@ -7,7 +7,7 @@ uses
   Dialogs, StdCtrls, star_lib, Menus, cxLookAndFeelPainters, DBGridEhGrouping,
   ImgList, ActnList, ExtCtrls, GridsEh, DBGridEh, cxButtons, Mask, DBCtrlsEh,
   ComCtrls, DB, MemDS, DBAccess, Ora, cxGraphics, cxControls, cxContainer,
-  cxEdit, cxTextEdit, cxMaskEdit, cxDropDownEdit, cxImageComboBox, PI_Library_reg,
+  cxEdit, cxTextEdit, cxMaskEdit, cxDropDownEdit, cxImageComboBox, {PI_Library_reg,}
   cxLabel, cxButtonEdit, dxBar, cxBarEditItem, dxBarExtItems, cxClasses;
 
 type
@@ -37,8 +37,6 @@ type
     Panel15: TPanel;
     Label10: TLabel;
     ComboBox2: TDBComboBoxEh;
-    BitBtn16: TcxButton;
-    BitBtn14: TcxButton;
     BitBtn15: TcxButton;
     Panel13: TPanel;
     Label9: TLabel;
@@ -48,37 +46,24 @@ type
     Panel6: TPanel;
     DBGrid4: TDBGridEh;
     Panel5: TPanel;
-    BitBtn4: TcxButton;
-    BitBtn6: TcxButton;
-    BitBtn5: TcxButton;
     btnClients: TcxButton;
     Panel9: TPanel;
     Panel10: TPanel;
     Label7: TLabel;
     Panel11: TPanel;
-    BitBtn7: TcxButton;
-    BitBtn9: TcxButton;
-    BitBtn8: TcxButton;
     DBGrid3: TDBGridEh;
     TabSheet2: TTabSheet;
     Panel4: TPanel;
-    BitBtn3: TcxButton;
-    BitBtn11: TcxButton;
-    BitBtn12: TcxButton;
     DBGrid2: TDBGridEh;
     TabSheet4: TTabSheet;
     Panel17: TPanel;
     DBGridEh1: TDBGridEh;
     Panel18: TPanel;
     RadioGroup1: TRadioGroup;
-    BitBtn17: TcxButton;
-    BitBtn19: TcxButton;
     DBComboBoxEh1: TDBComboBoxEh;
     tsh_debetors: TTabSheet;
     Panel8: TPanel;
     Label3: TLabel;
-    btnAddPermission: TcxButton;
-    btnDelPermission: TcxButton;
     EhDebitors: TDBGridEh;
     ImageList1: TImageList;
     SelQ: TOraQuery;
@@ -173,10 +158,16 @@ type
     aDelete: TAction;
     aExit: TAction;
     ctrl_a: TAction;
-    imgoffice: TcxImageComboBox;
     TabSheet5: TTabSheet;
     dxBarEdit1: TdxBarEdit;
     cxBarEditItem6: TcxBarEditItem;
+    TabSheet6: TTabSheet;
+    Panel3: TPanel;
+    DBGridEh4: TDBGridEh;
+    BitBtn7: TcxButton;
+    BitBtn8: TcxButton;
+    BitBtn9: TcxButton;
+    imgoffice: TcxBarEditItem;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -186,34 +177,30 @@ type
     procedure BitBtn10Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
-    procedure BitBtn13Click(Sender: TObject);
-    procedure BitBtn14Click(Sender: TObject);
-    procedure BitBtn16Click(Sender: TObject);
     procedure BitBtn15Click(Sender: TObject);
     procedure ctrl_aExecute(Sender: TObject);
-    procedure BitBtn7Click(Sender: TObject);
-    procedure BitBtn8Click(Sender: TObject);
-    procedure BitBtn9Click(Sender: TObject);
-    procedure BitBtn4Click(Sender: TObject);
-    procedure BitBtn5Click(Sender: TObject);
-    procedure BitBtn6Click(Sender: TObject);
     procedure btnClientsClick(Sender: TObject);
-    procedure BitBtn3Click(Sender: TObject);
-    procedure BitBtn11Click(Sender: TObject);
-    procedure BitBtn12Click(Sender: TObject);
-    procedure BitBtn17Click(Sender: TObject);
     procedure BitBtn19Click(Sender: TObject);
     procedure btnAddPermissionClick(Sender: TObject);
-    procedure btnDelPermissionClick(Sender: TObject);
     procedure Q_PROGSAfterOpen(DataSet: TDataSet);
     procedure Action1Execute(Sender: TObject);
     procedure aExitExecute(Sender: TObject);
     procedure aRefreshExecute(Sender: TObject);
+    procedure aNewExecute(Sender: TObject);
+    procedure aEditExecute(Sender: TObject);
+    procedure aDeleteExecute(Sender: TObject);
+    procedure BitBtn7Click(Sender: TObject);
+    procedure BitBtn8Click(Sender: TObject);
+    procedure BitBtn9Click(Sender: TObject);
+    procedure ComboBox6Change(Sender: TObject);
+    procedure Q_GROUPSAfterOpen(DataSet: TDataSet);
+    procedure Q_EMPLAfterRefresh(DataSet: TDataSet);
   private
     { Private declarations }
     p_read, p_edit, p_delete, p_print: boolean;
   public
     { Public declarations }
+    page: integer;
     id_office: integer;
     function MainFormShow : boolean;
     procedure RefreshAll;
@@ -236,7 +223,6 @@ begin
   Q_EMPL.ParamByName('v_office').AsInteger := id_office;
   Q_EMPL.Open;
   Q_EMPL.AfterScroll := Q_EMPLAfterScroll;
-//  DM.Q_EMPL2.Open;
   Q_SET_CASH.Close;
   Q_SET_CASH.ParamByName('v_office').AsInteger := id_office;
   Q_SET_CASH.Open;
@@ -268,7 +254,6 @@ begin
 for i:=0 to ComponentCount-1 do
  if (Components[i] is TControl) and  (Components[i] is TDBGridEH) then
  (Components[i] as TDBGridEH).Font.Size := intDefFont;
- //grRegions.Font.Size := intDefFont;
 
    // получение прав на программу
   recUserRules  := getRules(DM.cdsRules,1);
@@ -277,36 +262,13 @@ for i:=0 to ComponentCount-1 do
   p_delete      := recUserRules.r_delete;
   p_print       := recUserRules.r_print;
 
-  BitBtn14.Enabled := p_edit;
-  BitBtn15.Enabled := p_read;
-  BitBtn16.Enabled := p_delete;
+  Btnadd.Enabled    := p_edit;
+  Btnedit.Enabled   := p_edit;
+  Btndelete.Enabled := p_delete;
 end;
 
 procedure TfrmAdmin.FormShow(Sender: TObject);
 begin
-  {try
-     DM.Q_IDD.Close;
-     DM.Q_IDD.SQL.Clear;
-     DM.Q_IDD.SQL.Add('SELECT ID_OFFICE, OFFICE_NAME FROM OFFICES ORDER BY OFFICE_NAME');
-     DM.Q_IDD.Open;
-  except
-     on E: Exception do ShowMessage(E.Message);
-  end;
-
-
-  imgOffice.Properties.OnChange := nil;
-  FillImgComboCx(DM.Q_IDD, imgOffice, 'Все...');
-  imgOffice.EditValue := DM.id_office;
-  imgOffice.Properties.OnChange := imgOfficePropertiesChange;
-
-  imgOffice.Enabled := (GetOfficeID = 1);
-  DBGridEh2.Columns.Items[1].Visible := imgOffice.Enabled;
-  DBGridEh1.Columns.Items[0].Visible := imgOffice.Enabled;
-
-  BitBtn3.Enabled := (GetOfficeID = 1);
-  BitBtn11.Enabled := (GetOfficeID = 1);
-  BitBtn12.Enabled := (GetOfficeID = 1);   }
-
  if (imgOffice.Enabled) then
   begin
    try
@@ -319,7 +281,7 @@ begin
     SelQ.SQL.Add('SELECT ID_OFFICE, OFFICE_NAME FROM OFFICES ORDER BY OFFICE_NAME');
     SelQ.Open;
     RefreshAll;
-    FillImgComboCx(SelQ, imgOffice, 'Все...');
+    FillImgComboCx2(SelQ, imgOffice, 'Все...');
     SelQ.Close;
     imgOffice.EditValue := id_office;
    except
@@ -330,9 +292,9 @@ begin
   DBGridEh2.Columns.Items[1].Visible := imgOffice.Enabled;
   DBGridEh1.Columns.Items[0].Visible := imgOffice.Enabled;
 
-  BitBtn3.Enabled  := (GetOfficeID = 1);
-  BitBtn11.Enabled := (GetOfficeID = 1);
-  BitBtn12.Enabled := (GetOfficeID = 1);
+  Btnadd.Enabled    := (GetOfficeID = 1);
+  Btnedit.Enabled   := (GetOfficeID = 1);
+  btndelete.Enabled := (GetOfficeID = 1);
 end;
 
 procedure TfrmAdmin.imgOfficePropertiesChange(Sender: TObject);
@@ -359,6 +321,13 @@ end;
 
 
 
+procedure TfrmAdmin.Q_EMPLAfterRefresh(DataSet: TDataSet);
+begin
+ { FillComboEh(selq, DBComboBoxEh1, 'select id_clients, FIO from employees_view where (id_office = '+IntToStr(id_office)+' or '+IntToStr(id_office)+' = 0) and active=1 and login is not null order by FIO');
+  selq.Close;
+  Q_EMPLAfterScroll(nil);      }
+end;
+
 procedure TfrmAdmin.Q_EMPLAfterScroll(DataSet: TDataSet);
 begin
     Q_EM_PR.Close;
@@ -367,6 +336,21 @@ begin
     Q_EM_PR.Open;
 end;
 
+// Запоняем список группами
+procedure TfrmAdmin.Q_GROUPSAfterOpen(DataSet: TDataSet);
+begin
+  ComboBox3.OnChange := nil;
+  DBGrid4.DataSource := nil;
+
+  FillComboOlmer(Q_GROUPS,ComboBox2,'Выберите группу для добавления...');
+  FillComboOlmer(Q_GROUPS,ComboBox3,'Все');
+
+  DBGrid4.DataSource := Q_GROUPS_DS;
+  ComboBox3.OnChange := ComboBox6Change;
+  Q_GROUPSAfterScroll(nil);
+end;
+
+// Открываем список программ для группы
 procedure TfrmAdmin.Q_GROUPSAfterScroll(DataSet: TDataSet);
 begin
     Q_GR_PR.Close;
@@ -375,6 +359,7 @@ begin
     Q_GR_PR.Open;
 end;
 
+// Запоняем список программами
 procedure TfrmAdmin.Q_PROGSAfterOpen(DataSet: TDataSet);
 begin
   frmEditAdmins.ComboBox1.Items.Clear;
@@ -391,9 +376,423 @@ begin
   if Q_GR_PR_DS.State = dsEdit then Q_GR_PR.Post;
 end;
 
+// удаление
+procedure TfrmAdmin.aDeleteExecute(Sender: TObject);
+ var ind, ind1, ind2: integer;
+begin
+try
+// Удаление у сотрудника группы
+if PageControl1.ActivePage.PageIndex=0 then begin
+  if (Q_EM_PR.FieldByName('ID_EMPLOYEES').AsInteger > 0) then
+  begin
+    if (DM.id_office <> Q_EMPL.FieldByName('ID_OFFICE').AsInteger) and (DM.id_office > 0) then
+    begin
+      MessageBox(Handle,'Данная запись не принадлежит вашему офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
+      exit;
+    end;
+
+    if MessageDlg('Вы действительно хотите удалить запись?',mtConfirmation,[mbYes, mbNo],0) = mrYes then
+    begin
+      Ora_SQL.SQL.Clear;
+      Ora_SQL.SQL.Add('begin admins.remove_role(:EMPL_ID_, :GROUP_ID_); end;' );
+      Ora_SQL.ParamByName('EMPL_ID_').AsInteger :=  Q_EM_PR.FieldByName('ID_EMPLOYEES').AsInteger;
+      Ora_SQL.ParamByName('GROUP_ID_').AsInteger := Q_EM_PR.FieldByName('ID_ROLE_GROUPS').AsInteger;
+
+      // Пытаемся выполнить SQL запрос на удаление
+      try
+        Ora_SQL.Execute;
+        Q_EM_PR.Refresh;
+        DBGridEh3.SetFocus;
+      except
+        on E: Exception do
+        begin
+          if (StrPos(PChar(E.Message), PChar('01031')) <> nil) then ShowMessage('У вас нет прав на данную операцию!')
+          else  ShowMessage(E.Message);
+        end;
+      End;
+    end;
+  end;
+end;
+
+// Удаление группы
+if PageControl1.ActivePage.PageIndex=1 then begin
+if  (Q_GROUPS.FieldByName('ID_ROLE_GROUPS').AsInteger > 0) then
+begin
+      if (DM.id_office <> Q_GROUPS.FieldByName('ID_OFFICE').AsInteger) and (DM.id_office > 0) then
+      begin
+        MessageBox(Handle,'Данная запись не принадлежит вашему офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
+        exit;
+      end;
+
+  if MessageDlg('Вы действительно хотите удалить запись?',mtConfirmation,[mbYes, mbNo],0) = mrYes then
+  begin
+    ind := Q_GROUPS.FieldByName('ID_ROLE_GROUPS').AsInteger;
+
+    Ora_SQL.SQL.Clear;
+    Ora_SQL.SQL.Add('begin admins.remove_role(:id_); end;' );
+    Ora_SQL.ParamByName('id_').AsInteger :=  ind;
+
+    // Пытаемся выполнить SQL запрос на удаление
+    try
+
+      Ora_SQL.Execute;
+      Q_GROUPS.Refresh;
+      Q_GR_PR.Refresh;
+      DBGrid4.SetFocus;
+
+    except
+      on E: Exception do
+      begin
+        if (StrPos(PChar(E.Message), PChar('01031')) <> nil) then ShowMessage('У вас нет прав на данную операцию!')
+        else  ShowMessage(E.Message);
+      end;
+    End;
+  end;
+end
+else ShowMessage('В базе данных нет записей для удаления!');
+end;
+
+// Удалить программу
+if PageControl1.ActivePage.PageIndex=2 then begin
+if  (Q_PROGS.FieldByName('ID_ADMIN_PROGRAMS').AsInteger > 0) then
+begin
+  if MessageDlg('Вы действительно хотите удалить запись?',mtConfirmation,[mbYes, mbNo],0) = mrYes then
+  begin
+
+    Ora_SQL.SQL.Clear;
+    Ora_SQL.SQL.Add('begin admins.remove_program(:id_); end;' );
+    Ora_SQL.ParamByName('id_').AsInteger :=  Q_PROGS.FieldByName('ID_ADMIN_PROGRAMS').AsInteger;
+
+    // Пытаемся выполнить SQL запрос на удаление
+    try
+      Ora_SQL.Execute;
+      Q_PROGS.Refresh;
+
+      ShowMessage('Удаление прошло успешно.');
+    except
+      on E: Exception do
+      begin
+        if (StrPos(PChar(E.Message), PChar('01031')) <> nil) then ShowMessage('У вас нет прав на данную операцию!')
+        else
+        begin
+          if (StrPos(PChar(E.Message), PChar('02292')) <> nil) then ShowMessage('Программа использована в группах!'#10#13'Удалите программу из всех групп')
+          else  ShowMessage(E.Message);
+        end;
+      end;
+    End;
+  end;
+end
+else ShowMessage('В базе данных нет записей для удаления!');
+end;
+
+//удалить доступ к кассам
+if PageControl1.ActivePage.PageIndex=3 then begin
+     if MessageDlg('Вы действительно хотите удалить доступ?',mtConfirmation,[mbYes, mbNo],0) = mrYes then
+    begin
+
+        Ora_SQL.SQL.Clear;
+        Ora_SQL.SQL.Add('begin admins.remove_cash(:cash_, :id_client_); end;' );
+        Ora_SQL.ParamByName('cash_').AsInteger :=  Q_SET_CASHN_CASH.AsInteger;
+        Ora_SQL.ParamByName('id_client_').AsInteger :=  Q_SET_CASHID_CLIENTS.AsInteger;
+
+        // Пытаемся выполнить SQL запрос
+        try
+          Ora_SQL.Execute;
+
+
+          Q_SET_CASH.Refresh;
+        except
+          on E: Exception do
+          begin
+            if (StrPos(PChar(E.Message), PChar('01031')) <> nil) then ShowMessage('У вас нет прав на данную операцию!')
+            else  ShowMessage(E.Message);
+          end;
+        End;
+    end;
+end;
+
+// Удалить доступ к дебиторам
+if PageControl1.ActivePage.PageIndex=4 then begin
+  if MessageDlg('Вы действительно хотите удалить доступ?',mtConfirmation,[mbYes, mbNo],0) = mrNo then exit;
+  try
+    selq.Close;
+    selq.SQL.Clear;
+    selq.SQL.Add('delete from DEBETOR_PERMISSIONS where USER_ID = :p1');
+    selq.ParamByName('p1').AsInteger := Q_SET_DEBITORID_CLIENTS.AsInteger;
+    selq.Execute;
+    dm.OraSession.Commit;
+    Q_SET_DEBITOR.Refresh;
+  except
+     on E: Exception do ShowMessage(E.Message);
+  end;
+end;
+
+if PageControl1.ActivePage.PageIndex=5 then begin
+
+end;
+
+// Удаление прав доступа
+if PageControl1.ActivePage.PageIndex=6 then begin
+if  (Q_GR_PR.FieldByName('ID_ROLE_GROUPS').AsInteger > 0) then
+begin
+    if (DM.id_office <> Q_EMPL.FieldByName('ID_OFFICE').AsInteger) and (DM.id_office > 0) then
+    begin
+      MessageBox(Handle,'Данная запись не принадлежит вашему офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
+      exit;
+    end;
+
+  if MessageDlg('Вы действительно хотите удалить запись?',mtConfirmation,[mbYes, mbNo],0) = mrYes then
+  begin
+    ind1 := Q_GR_PR.FieldByName('ID_ROLE_GROUPS').AsInteger;
+    ind2 := Q_GR_PR.FieldByName('ID_PROGRAMS').AsInteger;
+
+    Ora_SQL.SQL.Clear;
+    Ora_SQL.SQL.Add('begin admins.remove_role_program(:GROUP_ID_, :PROG_ID_); end;');
+    Ora_SQL.ParamByName('GROUP_ID_').Value := ind1;
+    Ora_SQL.ParamByName('PROG_ID_').Value := ind2;
+
+    // Пытаемся выполнить SQL запрос на удаление
+    try
+
+      Ora_SQL.Execute;
+      Q_GR_PR.Refresh;
+      DBGrid3.SetFocus;
+
+    except
+      on E: Exception do
+      begin
+        if (StrPos(PChar(E.Message), PChar('01031')) <> nil) then ShowMessage('У вас нет прав на данную операцию!')
+        else  ShowMessage(E.Message);
+      end;
+    End;
+  end;
+end
+else ShowMessage('В базе данных нет записей для удаления!');
+end;
+
+finally
+end;
+end;
+
+// Редактирование
+procedure TfrmAdmin.aEditExecute(Sender: TObject);
+ var ind: integer;
+begin
+try
+if PageControl1.ActivePage.PageIndex=0 then begin
+
+end;
+
+// Редактирование группы
+if PageControl1.ActivePage.PageIndex=1 then begin
+    page:=2;
+    if (Q_GROUPS.FieldByName('NAME').AsString <> '') then
+    begin
+      if (DM.id_office <> Q_GROUPS.FieldByName('ID_OFFICE').AsInteger) and (DM.id_office > 0) then
+      begin
+        MessageBox(Handle,'Данная запись не принадлежит вашему офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
+        exit;
+      end;
+
+      frmEditAdmins.ttype := 4;
+      frmEditAdmins.Edit1.Text := Q_GROUPS.FieldByName('NAME').AsString;
+      frmEditAdmins.MEMO1.Text := Q_GROUPS.FieldByName('INFO').AsString;
+      frmEditAdmins.Label6.Caption := 'Список групп';
+      frmEditAdmins.Edit1.Tag := Q_GROUPS.FieldByName('ID_ROLE_GROUPS').AsInteger;
+      frmEditAdmins.Store_DepsCBEx.Tag := Q_GROUPS.FieldByName('ID_DEP').AsInteger;
+      frmEditAdmins.ShowModal;
+      DBGrid4.SetFocus;
+    end;
+end;
+
+// Редактирование программы
+if PageControl1.ActivePage.PageIndex=2 then begin
+    page:=2;
+    if (Q_PROGS.FieldByName('NAME').AsString <> '') then
+    begin
+      frmEditAdmins.ttype := 2;
+      frmEditAdmins.Edit1.Text := Q_PROGS.FieldByName('NAME').AsString;
+      frmEditAdmins.MEMO1.Text := Q_PROGS.FieldByName('INFO').AsString;
+      frmEditAdmins.Label6.Caption := 'Список программ';
+      frmEditAdmins.Edit1.Tag := Q_PROGS.FieldByName('ID_ADMIN_PROGRAMS').AsInteger;
+      frmEditAdmins.ShowModal;
+      DBGrid2.SetFocus;
+    end;
+end;
+
+if PageControl1.ActivePage.PageIndex=3 then begin
+
+end;
+
+if PageControl1.ActivePage.PageIndex=4 then begin
+
+end;
+
+if PageControl1.ActivePage.PageIndex=5 then begin
+
+end;
+
+// Редактирование прав доступа
+if PageControl1.ActivePage.PageIndex=6 then begin
+  page:=1;
+  if (Q_GR_PR.FieldByName('ID_ROLE_GROUPS').AsInteger > 0) then
+  begin
+    if (DM.id_office <> Q_EMPL.FieldByName('ID_OFFICE').AsInteger) and (DM.id_office > 0) then
+    begin
+      MessageBox(Handle,'Данная запись не принадлежит вашему офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
+      exit;
+    end;
+
+    frmEditAdmins.ttype := 2;
+
+    ind := frmEditAdmins.ComboBox1.Items.IndexOf(Q_GR_PR.FieldByName('NAME').AsString);
+    frmEditAdmins.ComboBox1.ItemIndex := ind;
+    frmEditAdmins.ComboBox1.Enabled := false;
+
+    if Q_GR_PR.FieldByName('C_START').AsInteger = 1 then frmEditAdmins.CheckBox3.checked := true else frmEditAdmins.CheckBox3.checked := false;
+    if Q_GR_PR.FieldByName('C_EDIT').AsInteger = 1 then frmEditAdmins.CheckBox4.checked := true else frmEditAdmins.CheckBox4.checked := false;
+    if Q_GR_PR.FieldByName('C_DEL').AsInteger = 1 then frmEditAdmins.CheckBox5.checked := true else frmEditAdmins.CheckBox5.checked := false;
+    if Q_GR_PR.FieldByName('C_PRINT').AsInteger = 1 then frmEditAdmins.CheckBox6.checked := true else frmEditAdmins.CheckBox6.checked := false;
+    if Q_GR_PR.FieldByName('C_ADDIT').AsInteger = 1 then frmEditAdmins.CheckBox7.checked := true else frmEditAdmins.CheckBox7.checked := false;
+    frmEditAdmins.ComboBox1.Tag := Q_GR_PR.FieldByName('ID_PROGRAMS').AsInteger;
+    frmEditAdmins.ShowModal;
+    DBGrid3.SetFocus;
+  end;
+end;
+
+finally
+end;
+end;
+
 procedure TfrmAdmin.aExitExecute(Sender: TObject);
 begin
   Close;
+end;
+
+// добавление
+procedure TfrmAdmin.aNewExecute(Sender: TObject);
+begin
+try
+// Добавление сотруднику группы
+if PageControl1.ActivePage.PageIndex=0 then begin
+  if (ComboBox2.ItemIndex > 0) then
+  begin
+    if (DM.id_office <> Q_EMPL.FieldByName('ID_OFFICE').AsInteger) and (DM.id_office > 0) then
+    begin
+      MessageBox(Handle,'Данная запись не принадлежит вашему офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
+      exit;
+    end;   
+
+     Ora_SQL.SQL.Clear;
+     Ora_SQL.SQL.Add('begin admins.add_role(:EMPL_ID_, :GROUP_ID_); end;' );
+     Ora_SQL.ParamByName('EMPL_ID_').AsInteger :=  Q_EMPL.FieldByName('ID_CLIENTS').AsInteger;
+     Ora_SQL.ParamByName('GROUP_ID_').AsInteger :=  ComboBox2.Value;
+
+     // Пытаемся выполнить SQL запрос
+     try
+        Ora_SQL.Execute;
+        Q_EM_PR.Refresh;
+        DBGridEh3.SetFocus;
+
+      except
+        on E: Exception do
+        begin
+          if (StrPos(PChar(E.Message), PChar('01031')) <> nil) then ShowMessage('У вас нет прав на данную операцию!')
+          else
+          begin
+            if (StrPos(PChar(E.Message), PChar('20001')) <> nil) then ShowMessage('Указанная группа уже добавлена к сотруднику!')
+          else  ShowMessage(E.Message);
+          end;
+        end;
+      End;
+  end;
+end;
+
+// Добавление группы
+if PageControl1.ActivePage.PageIndex=1 then begin
+    page:=2;
+    frmEditAdmins.ttype := 3;
+    frmEditAdmins.Edit1.Text := '';
+    frmEditAdmins.Memo1.Lines.Clear;
+    frmEditAdmins.Label6.Caption := 'Список групп';
+    frmEditAdmins.Edit1.Tag := 0;
+    frmEditAdmins.Store_DepsCBEx.Tag := 0;
+    frmEditAdmins.ShowModal;
+    DBGrid4.SetFocus;
+end;
+
+// Добавление программы
+if PageControl1.ActivePage.PageIndex=2 then begin
+    page:=2;
+    frmEditAdmins.ttype := 1;
+    frmEditAdmins.Edit1.Text := '';
+    frmEditAdmins.Memo1.Lines.Clear;
+    frmEditAdmins.Label6.Caption := 'Список программ';
+    frmEditAdmins.Edit1.Tag := 0;
+    frmEditAdmins.ShowModal;
+    DBGrid2.SetFocus;
+end;
+
+// Добавление доступа к кассам 
+if PageControl1.ActivePage.PageIndex=3 then begin
+  If DBComboBoxEh1.ItemIndex > -1 then
+  begin
+      if Q_SET_CASH.Locate('N_CASH;ID_CLIENTS', VarArrayOf([(RadioGroup1.itemindex+1), DBComboBoxEh1.Value]), []) = false then
+      begin
+
+        Ora_SQL.SQL.Clear;
+        Ora_SQL.SQL.Add('begin admins.set_cash(:cash_, :id_client_); end;' );
+        Ora_SQL.ParamByName('cash_').AsInteger :=  (RadioGroup1.itemindex+1);
+        Ora_SQL.ParamByName('id_client_').AsInteger :=  DBComboBoxEh1.Value;
+
+        // Пытаемся выполнить SQL запрос
+        try
+          Ora_SQL.Execute;
+          Q_SET_CASH.Refresh;
+          Q_SET_CASH.Locate('N_CASH;ID_CLIENTS', VarArrayOf([(RadioGroup1.itemindex+1), DBComboBoxEh1.Value]), []);
+        except
+          on E: Exception do
+          begin
+            if (StrPos(PChar(E.Message), PChar('01031')) <> nil) then ShowMessage('У вас нет прав на данную операцию!')
+            else  ShowMessage(E.Message);
+          end;
+        End;
+      end;
+  end;
+end;
+
+// Добавить доступ к дебиторам
+if PageControl1.ActivePage.PageIndex=4 then begin
+    page:=4;
+    frmEditAdmins.DBComboBoxEh2.Tag := 0;
+    frmEditAdmins.Label1.Caption   := 'Сотрудник:';
+    frmEditAdmins.showmodal;
+    Q_SET_DEBITOR.Refresh;
+    Q_SET_DEBITOR.Locate('id_clients',frmEditAdmins.DBComboBoxEh2.Tag,[]);
+    EhDebitors.SetFocus;
+end;
+
+if PageControl1.ActivePage.PageIndex=5 then begin
+
+end;
+
+// Добавить доступ к прогам
+if PageControl1.ActivePage.PageIndex=6 then begin
+    page:=1;
+    frmEditAdmins.ttype := 1;
+    frmEditAdmins.ComboBox1.ItemIndex := -1;
+    frmEditAdmins.CheckBox3.checked := false;
+    frmEditAdmins.CheckBox4.checked := false;
+    frmEditAdmins.CheckBox5.checked := false;
+    frmEditAdmins.CheckBox6.checked := false;
+    frmEditAdmins.CheckBox7.checked := false;
+    frmEditAdmins.ComboBox1.Enabled := true;
+    frmEditAdmins.ComboBox1.Tag := 0;
+    frmEditAdmins.ShowModal;
+    DBGrid3.SetFocus;
+end;
+finally
+end;
 end;
 
 procedure TfrmAdmin.aRefreshExecute(Sender: TObject);
@@ -448,95 +847,6 @@ begin
 end;
 end;
 
- // Редактирование программы
-procedure TfrmAdmin.BitBtn11Click(Sender: TObject);
-begin
-    if (Q_PROGS.FieldByName('NAME').AsString <> '') then
-    begin
-      frmEditAdmins.ttype := 2;
-      frmEditAdmins.Edit1.Text := Q_PROGS.FieldByName('NAME').AsString;
-      frmEditAdmins.MEMO1.Text := Q_PROGS.FieldByName('INFO').AsString;
-      frmEditAdmins.Label6.Caption := 'Список программ';
-      frmEditAdmins.Edit1.Tag := Q_PROGS.FieldByName('ID_ADMIN_PROGRAMS').AsInteger;
-      frmEditAdmins.ShowModal;
-      DBGrid2.SetFocus;
-    end;
-end;
-
-// Удалить программу
-procedure TfrmAdmin.BitBtn12Click(Sender: TObject);
-begin
-if  (Q_PROGS.FieldByName('ID_ADMIN_PROGRAMS').AsInteger > 0) then
-begin
-  if MessageDlg('Вы действительно хотите удалить запись?',mtConfirmation,[mbYes, mbNo],0) = mrYes then
-  begin
-
-    Ora_SQL.SQL.Clear;
-    Ora_SQL.SQL.Add('begin admins.remove_program(:id_); end;' );
-    Ora_SQL.ParamByName('id_').AsInteger :=  Q_PROGS.FieldByName('ID_ADMIN_PROGRAMS').AsInteger;
-
-    // Пытаемся выполнить SQL запрос на удаление
-    try
-      Ora_SQL.Execute;
-      Q_PROGS.Refresh;
-
-      ShowMessage('Удаление прошло успешно.');
-    except
-      on E: Exception do
-      begin
-        if (StrPos(PChar(E.Message), PChar('01031')) <> nil) then ShowMessage('У вас нет прав на данную операцию!')
-        else
-        begin
-          if (StrPos(PChar(E.Message), PChar('02292')) <> nil) then ShowMessage('Программа использована в группах!'#10#13'Удалите программу из всех групп')
-          else  ShowMessage(E.Message);
-        end;  
-      end;
-    End;
-  end;
-end
-else ShowMessage('В базе данных нет записей для удаления!');
-end;
-
-procedure TfrmAdmin.BitBtn13Click(Sender: TObject);
-begin
-
-end;
-
-// Добавление сотруднику группы
-procedure TfrmAdmin.BitBtn14Click(Sender: TObject);
-begin
-  if (ComboBox2.ItemIndex > 0) then
-  begin
-    if (DM.id_office <> Q_EMPL.FieldByName('ID_OFFICE').AsInteger) and (DM.id_office > 0) then
-    begin
-      MessageBox(Handle,'Данная запись не принадлежит вашему офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
-      exit;
-    end;
-
-     Ora_SQL.SQL.Clear;
-     Ora_SQL.SQL.Add('begin admins.add_role(:EMPL_ID_, :GROUP_ID_); end;' );
-     Ora_SQL.ParamByName('EMPL_ID_').AsInteger :=  Q_EMPL.FieldByName('ID_CLIENTS').AsInteger;
-     Ora_SQL.ParamByName('GROUP_ID_').AsInteger :=  ComboBox2.Value;
-
-     // Пытаемся выполнить SQL запрос
-     try
-        Ora_SQL.Execute;
-        Q_EM_PR.Refresh;
-        DBGridEh3.SetFocus;
-
-      except
-        on E: Exception do
-        begin
-          if (StrPos(PChar(E.Message), PChar('01031')) <> nil) then ShowMessage('У вас нет прав на данную операцию!')
-          else
-          begin
-            if (StrPos(PChar(E.Message), PChar('20001')) <> nil) then ShowMessage('Указанная группа уже добавлена к сотруднику!')
-          else  ShowMessage(E.Message);
-          end;
-        end;
-      End;
-  end;
-end;
 
 procedure TfrmAdmin.BitBtn15Click(Sender: TObject);
 begin
@@ -547,93 +857,9 @@ begin
   end;
 end;
 
-// Удаление у сотрудника группы
- procedure TfrmAdmin.BitBtn16Click(Sender: TObject);
+ procedure TfrmAdmin.BitBtn19Click(Sender: TObject);
 begin
-  if (Q_EM_PR.FieldByName('ID_EMPLOYEES').AsInteger > 0) then
-  begin
-    if (DM.id_office <> Q_EMPL.FieldByName('ID_OFFICE').AsInteger) and (DM.id_office > 0) then
-    begin
-      MessageBox(Handle,'Данная запись не принадлежит вашему офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
-      exit;
-    end;
 
-    if MessageDlg('Вы действительно хотите удалить запись?',mtConfirmation,[mbYes, mbNo],0) = mrYes then
-    begin
-      Ora_SQL.SQL.Clear;
-      Ora_SQL.SQL.Add('begin admins.remove_role(:EMPL_ID_, :GROUP_ID_); end;' );
-      Ora_SQL.ParamByName('EMPL_ID_').AsInteger :=  Q_EM_PR.FieldByName('ID_EMPLOYEES').AsInteger;
-      Ora_SQL.ParamByName('GROUP_ID_').AsInteger := Q_EM_PR.FieldByName('ID_ROLE_GROUPS').AsInteger;
-
-      // Пытаемся выполнить SQL запрос на удаление
-      try
-        Ora_SQL.Execute;
-        Q_EM_PR.Refresh;
-        DBGridEh3.SetFocus;
-      except
-        on E: Exception do
-        begin
-          if (StrPos(PChar(E.Message), PChar('01031')) <> nil) then ShowMessage('У вас нет прав на данную операцию!')
-          else  ShowMessage(E.Message);
-        end;
-      End;
-    end;
-  end;
-end;
-
-
-procedure TfrmAdmin.BitBtn17Click(Sender: TObject);
-begin
-  If DBComboBoxEh1.ItemIndex > -1 then
-  begin
-      if Q_SET_CASH.Locate('N_CASH;ID_CLIENTS', VarArrayOf([(RadioGroup1.itemindex+1), DBComboBoxEh1.Value]), []) = false then
-      begin
-
-        Ora_SQL.SQL.Clear;
-        Ora_SQL.SQL.Add('begin admins.set_cash(:cash_, :id_client_); end;' );
-        Ora_SQL.ParamByName('cash_').AsInteger :=  (RadioGroup1.itemindex+1);
-        Ora_SQL.ParamByName('id_client_').AsInteger :=  DBComboBoxEh1.Value;
-
-        // Пытаемся выполнить SQL запрос
-        try
-          Ora_SQL.Execute;
-          Q_SET_CASH.Refresh;
-          Q_SET_CASH.Locate('N_CASH;ID_CLIENTS', VarArrayOf([(RadioGroup1.itemindex+1), DBComboBoxEh1.Value]), []);
-        except
-          on E: Exception do
-          begin
-            if (StrPos(PChar(E.Message), PChar('01031')) <> nil) then ShowMessage('У вас нет прав на данную операцию!')
-            else  ShowMessage(E.Message);
-          end;
-        End;
-      end;
-  end;
-end;
-
-procedure TfrmAdmin.BitBtn19Click(Sender: TObject);
-begin
-    if MessageDlg('Вы действительно хотите удалить доступ?',mtConfirmation,[mbYes, mbNo],0) = mrYes then
-    begin
-
-        Ora_SQL.SQL.Clear;
-        Ora_SQL.SQL.Add('begin admins.remove_cash(:cash_, :id_client_); end;' );
-        Ora_SQL.ParamByName('cash_').AsInteger :=  Q_SET_CASHN_CASH.AsInteger;
-        Ora_SQL.ParamByName('id_client_').AsInteger :=  Q_SET_CASHID_CLIENTS.AsInteger;
-
-        // Пытаемся выполнить SQL запрос
-        try
-          Ora_SQL.Execute;
-
-
-          Q_SET_CASH.Refresh;
-        except
-          on E: Exception do
-          begin
-            if (StrPos(PChar(E.Message), PChar('01031')) <> nil) then ShowMessage('У вас нет прав на данную операцию!')
-            else  ShowMessage(E.Message);
-          end;
-        End;
-    end;
 end;
 
 //Убрать доступ в ИС
@@ -699,96 +925,10 @@ begin
   end;
 end;
 
-// Добавление программы
-procedure TfrmAdmin.BitBtn3Click(Sender: TObject);
-begin
-    frmEditAdmins.ttype := 1;
-    frmEditAdmins.Edit1.Text := '';
-    frmEditAdmins.Memo1.Lines.Clear;
-    frmEditAdmins.Label6.Caption := 'Список программ';
-    frmEditAdmins.Edit1.Tag := 0;
-    frmEditAdmins.ShowModal;
-    DBGrid2.SetFocus;
-end;
 
-// Добавление группы
-procedure TfrmAdmin.BitBtn4Click(Sender: TObject);
-begin
-    frmEditAdmins.ttype := 3;
-    frmEditAdmins.Edit1.Text := '';
-    frmEditAdmins.Memo1.Lines.Clear;
-    frmEditAdmins.Label6.Caption := 'Список групп';
-    frmEditAdmins.Edit1.Tag := 0;
-    frmEditAdmins.Store_DepsCBEx.Tag := 0;
-    frmEditAdmins.ShowModal;
-    DBGrid4.SetFocus;
-end;
-
-// Редактирование группы
-procedure TfrmAdmin.BitBtn5Click(Sender: TObject);
-begin
-    if (Q_GROUPS.FieldByName('NAME').AsString <> '') then
-    begin
-      if (DM.id_office <> Q_GROUPS.FieldByName('ID_OFFICE').AsInteger) and (DM.id_office > 0) then
-      begin
-        MessageBox(Handle,'Данная запись не принадлежит вашему офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
-        exit;
-      end;
-
-      frmEditAdmins.ttype := 4;
-      frmEditAdmins.Edit1.Text := Q_GROUPS.FieldByName('NAME').AsString;
-      frmEditAdmins.MEMO1.Text := Q_GROUPS.FieldByName('INFO').AsString;
-      frmEditAdmins.Label6.Caption := 'Список групп';
-      frmEditAdmins.Edit1.Tag := Q_GROUPS.FieldByName('ID_ROLE_GROUPS').AsInteger;
-      frmEditAdmins.Store_DepsCBEx.Tag := Q_GROUPS.FieldByName('ID_DEP').AsInteger;
-      frmEditAdmins.ShowModal;
-      DBGrid4.SetFocus;
-    end;
-end;
-
-// Удаление группы
-procedure TfrmAdmin.BitBtn6Click(Sender: TObject);
-var ind: integer;
-begin
-if  (Q_GROUPS.FieldByName('ID_ROLE_GROUPS').AsInteger > 0) then
-begin
-      if (DM.id_office <> Q_GROUPS.FieldByName('ID_OFFICE').AsInteger) and (DM.id_office > 0) then
-      begin
-        MessageBox(Handle,'Данная запись не принадлежит вашему офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
-        exit;
-      end;
-
-  if MessageDlg('Вы действительно хотите удалить запись?',mtConfirmation,[mbYes, mbNo],0) = mrYes then
-  begin
-    ind := Q_GROUPS.FieldByName('ID_ROLE_GROUPS').AsInteger;
-
-    Ora_SQL.SQL.Clear;
-    Ora_SQL.SQL.Add('begin admins.remove_role(:id_); end;' );
-    Ora_SQL.ParamByName('id_').AsInteger :=  ind;
-
-    // Пытаемся выполнить SQL запрос на удаление
-    try
-
-      Ora_SQL.Execute;
-      Q_GROUPS.Refresh;
-      Q_GR_PR.Refresh;
-      DBGrid4.SetFocus;
-
-    except
-      on E: Exception do
-      begin
-        if (StrPos(PChar(E.Message), PChar('01031')) <> nil) then ShowMessage('У вас нет прав на данную операцию!')
-        else  ShowMessage(E.Message);
-      end;
-    End;
-  end;
-end
-else ShowMessage('В базе данных нет записей для удаления!');
-end;
-
-// Добавление прав доступа
 procedure TfrmAdmin.BitBtn7Click(Sender: TObject);
 begin
+    page:=1;
     frmEditAdmins.ttype := 1;
     frmEditAdmins.ComboBox1.ItemIndex := -1;
     frmEditAdmins.CheckBox3.checked := false;
@@ -802,10 +942,10 @@ begin
     DBGrid3.SetFocus;
 end;
 
-// Редактирование прав доступа
 procedure TfrmAdmin.BitBtn8Click(Sender: TObject);
-var ind: integer;
+ var ind: integer;
 begin
+  page:=1;
   if (Q_GR_PR.FieldByName('ID_ROLE_GROUPS').AsInteger > 0) then
   begin
     if (DM.id_office <> Q_EMPL.FieldByName('ID_OFFICE').AsInteger) and (DM.id_office > 0) then
@@ -831,9 +971,8 @@ begin
   end;
 end;
 
-// Удаление прав доступа
 procedure TfrmAdmin.BitBtn9Click(Sender: TObject);
-var ind, ind2: integer;
+ var ind1,ind2: integer;
 begin
 if  (Q_GR_PR.FieldByName('ID_ROLE_GROUPS').AsInteger > 0) then
 begin
@@ -845,12 +984,12 @@ begin
 
   if MessageDlg('Вы действительно хотите удалить запись?',mtConfirmation,[mbYes, mbNo],0) = mrYes then
   begin
-    ind := Q_GR_PR.FieldByName('ID_ROLE_GROUPS').AsInteger;
+    ind1 := Q_GR_PR.FieldByName('ID_ROLE_GROUPS').AsInteger;
     ind2 := Q_GR_PR.FieldByName('ID_PROGRAMS').AsInteger;
 
     Ora_SQL.SQL.Clear;
     Ora_SQL.SQL.Add('begin admins.remove_role_program(:GROUP_ID_, :PROG_ID_); end;');
-    Ora_SQL.ParamByName('GROUP_ID_').Value := ind;
+    Ora_SQL.ParamByName('GROUP_ID_').Value := ind1;
     Ora_SQL.ParamByName('PROG_ID_').Value := ind2;
 
     // Пытаемся выполнить SQL запрос на удаление
@@ -872,20 +1011,9 @@ end
 else ShowMessage('В базе данных нет записей для удаления!');
 end;
 
- // Добавить доступ к дебиторам
 procedure TfrmAdmin.btnAddPermissionClick(Sender: TObject);
 begin
-  //frmDebPermission := TfrmDebPermission.Create(Application);
-  try
-    frmEditAdmins.DBComboBoxEh2.Tag := 0;
-    frmEditAdmins.Label1.Caption   := 'Сотрудник:';
-    frmEditAdmins.showmodal;
-    Q_SET_DEBITOR.Refresh;
-    Q_SET_DEBITOR.Locate('id_clients',frmEditAdmins.DBComboBoxEh2.Tag,[]);
-    EhDebitors.SetFocus;
-  finally
-    //frmEditAdmins.Free;
-  end;
+
 end;
 
 // Посмотреть сотрудников у выбранной группы
@@ -895,22 +1023,31 @@ begin
   frmEditAdmins.OpenForUpdate(DM.OraSession, Q_GROUPSID_ROLE_GROUPS.AsInteger, Q_GROUPSNAME.AsString);
 end;
 
-// Удалить доступ к дебиторам
-procedure TfrmAdmin.btnDelPermissionClick(Sender: TObject);
+// Фильтр сотрудников
+procedure TfrmAdmin.ComboBox6Change(Sender: TObject);
+var sql: string;
 begin
-  if MessageDlg('Вы действительно хотите удалить доступ?',mtConfirmation,[mbYes, mbNo],0) = mrNo then exit;
+
+  sql := 'SELECT NN, ACTIVE, CCODE, FIO, ID_CLIENTS, LOGIN, NICK, STAFF, COUNT, id_office, brief from employees_view WHERE (id_office = '+IntToStr(DM.id_office)+' or '+IntToStr(DM.id_office)+' = 0) ';
+  if (ComboBox6.ItemIndex = 1) then  sql := sql + ' AND LOGIN is not null';
+  if (ComboBox6.ItemIndex = 2) then  sql := sql + ' AND LOGIN is null';
+
+  if (ComboBox1.ItemIndex = 1) then  sql := sql + ' AND ACTIVE = 1';
+  if (ComboBox1.ItemIndex = 2) then  sql := sql + ' AND ACTIVE = 0';
+
+  if (ComboBox3.ItemIndex > 0) then
+    sql := sql + ' AND ID_CLIENTS IN (SELECT ID_EMPLOYEES FROM ADMIN_EMPLOYEES_ROLE_GROUPS WHERE ID_ROLE_GROUPS='+IntToStr(ComboBox3.Value)+')';
+
+  Q_EMPL.Close;
+  Q_EMPL.SQL.Clear;
+  Q_EMPL.SQL.Add(sql);
 
   try
-    selq.Close;
-    selq.SQL.Clear;
-    selq.SQL.Add('delete from DEBETOR_PERMISSIONS where USER_ID = :p1');
-    selq.ParamByName('p1').AsInteger := Q_SET_DEBITORID_CLIENTS.AsInteger;
-    selq.Execute;
-    dm.OraSession.Commit;
-    Q_SET_DEBITOR.Refresh;
+    Q_EMPL.Open;
+    DBGridEh2.SetFocus;
   except
-     on E: Exception do ShowMessage(E.Message);
-  end;
+    on E: Exception do ShowMessage(E.Message);
+  End;
 end;
 
 procedure TfrmAdmin.ctrl_aExecute(Sender: TObject);

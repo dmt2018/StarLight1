@@ -5,7 +5,7 @@ interface
 uses StdCtrls,Classes,Variants,SysUtils,Graphics,Dialogs, Ora, Forms, IniFiles,
      CheckLst,windows,ComCtrls, DB, DBGrids, cxImageComboBox, cxBarEditItem,
      cxCustomData, Clipbrd, cxDBData, cxGridLevel, cxGridCustomView, cxGridDBBandedTableView,
-     cxGridTableView, cxGridDBDataDefinitions, Shellapi;
+     cxGridTableView, cxGridDBDataDefinitions, Shellapi, dbctrlseh;
 
 type
   PFixedFileInfo = ^TFixedFileInfo;
@@ -55,6 +55,8 @@ type
   function GetFileInformation( const FileName, Value : String ): String;
 // Заполнение комбобокса значениями из запроса
   function FillImgComboCx(TheQuery : TOraQuery; TheCombo : TCxImageComboBox; BeginStr : String) : boolean;
+  function FillImgComboCx2(TheQuery : TOraQuery; TheCombo : TCxbaredititem; BeginStr : String) : boolean;
+  function FillComboOlmer(TheQuery : TOraQuery; TheCombo : TDBComboBoxEh; BeginStr : String) : boolean;
   function FillImgComboCxItm(TheQuery : TOraQuery; TheCombo : TCxBarEditItem; BeginStr : String) : boolean;
 // Запомнить положение форм на экране
   procedure SaveFormState(aForm: TForm);
@@ -164,6 +166,83 @@ Begin
     FillImgComboCx := true;
   except
     FillImgComboCx := false;
+  End;
+End;
+
+function FillImgComboCx2(TheQuery : TOraQuery; TheCombo : TCxbaredititem; BeginStr : String) : boolean;
+{********************************************************************************
+ * Функция предназначена для заполнения комбо-бокса значениями                  *
+ * А также для запоминания ID каждого значения компонента DevExpress            *
+ * TheQuery - TQuery с набором данных                                           *
+ * TheCombo - комбо-бокс для значений                                           *
+ * BeginStr - начальная строка в списке с ID=0, если NULL то нет первой строки  *
+ * первый столбик TheQuery содержит ID , а второй - значение.                   *
+ ********************************************************************************}
+var cbep: TcxImageComboBoxProperties;
+    itm:  TcxImageComboBoxItem;
+Begin
+  try
+    TheQuery.First;
+//    TheCombo.Properties.Items.Clear;
+
+    cbep := (TheCombo.Properties as TcxImageComboBoxProperties);
+    cbep.Items.Clear;
+
+    if Length(BeginStr) > 0 then
+    begin
+     	itm             := cbep.Items.Add;
+   		itm.Description	:= BeginStr;
+     	itm.Value			  := 0;
+    end;
+
+    while not TheQuery.Eof do
+    begin
+     	itm             := cbep.Items.Add;
+   		itm.Description	:= TheQuery.Fields[1].AsString;
+     	itm.Value			  := TheQuery.Fields[0].AsString;
+      if TheQuery.Fields.Count = 3 then
+       	itm.Tag			  := TheQuery.Fields[2].AsInteger;
+ 	    TheQuery.Next;
+    end;
+
+    TheQuery.First;
+
+    FillImgComboCx2 := true;
+  except
+    FillImgComboCx2 := false;
+  End;
+End;
+
+function FillComboOlmer(TheQuery : TOraQuery; TheCombo : TDBComboBoxEh; BeginStr : String) : boolean;
+{********************************************************************************
+ * Функция предназначена для заполнения комбо-бокса значениями                  *
+ * А также для запоминания ID каждого значения компонента EhLib                 *
+ * TheQuery - TQuery с набором данных                                           *
+ * TheCombo - комбо-бокс для значений                                           *
+ * BeginStr - начальная строка в списке с ID=0, если NULL то нет первой строки  *
+ * первый столбик TheQuery содержит ID , а второй - значение.                   *
+ ********************************************************************************}
+Begin
+  try
+    TheQuery.First;
+    TheCombo.Items.Clear;
+    TheCombo.KeyItems.Clear;
+    if Length(BeginStr) > 0 then
+    begin
+        TheCombo.KeyItems.Add('0');
+        TheCombo.Items.Add(BeginStr);
+    end;
+    while not TheQuery.Eof do
+      Begin
+        TheCombo.KeyItems.Add(TheQuery.Fields[0].AsString);
+        TheCombo.Items.Add(TheQuery.Fields[1].AsString);
+        TheQuery.Next;
+      End;
+    TheCombo.ItemIndex := 0;
+    TheQuery.First;
+    FillComboOlmer := true;
+  except
+    FillComboOlmer := false;
   End;
 End;
 

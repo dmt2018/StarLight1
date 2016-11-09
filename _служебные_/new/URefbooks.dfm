@@ -25,6 +25,8 @@ object frmRefbooks: TfrmRefbooks
     ActivePage = tshClientTypes
     Align = alClient
     TabOrder = 0
+    ExplicitTop = 46
+    ExplicitHeight = 491
     ClientRectBottom = 479
     ClientRectRight = 770
     ClientRectTop = 24
@@ -39,6 +41,7 @@ object frmRefbooks: TfrmRefbooks
       ImageIndex = 0
       ParentColor = False
       ParentFont = False
+      ExplicitHeight = 467
       object grRegions: TcxGrid
         Left = 0
         Top = 0
@@ -52,6 +55,7 @@ object frmRefbooks: TfrmRefbooks
         Font.Style = []
         ParentFont = False
         TabOrder = 0
+        ExplicitHeight = 467
         object grRegionsView: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
           NavigatorButtons.First.Visible = True
@@ -136,6 +140,7 @@ object frmRefbooks: TfrmRefbooks
     object tshCityes: TcxTabSheet
       Caption = #1043#1086#1088#1086#1076#1072
       ImageIndex = 1
+      ExplicitHeight = 467
       object grCities: TcxGrid
         Left = 0
         Top = 0
@@ -143,6 +148,7 @@ object frmRefbooks: TfrmRefbooks
         Height = 455
         Align = alClient
         TabOrder = 0
+        ExplicitHeight = 467
         object grCitiesView: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
           NavigatorButtons.First.Visible = True
@@ -211,6 +217,7 @@ object frmRefbooks: TfrmRefbooks
     object tshPromo: TcxTabSheet
       Caption = #1056#1077#1082#1083#1072#1084#1072
       ImageIndex = 2
+      ExplicitHeight = 467
       object grPromo: TcxGrid
         Left = 0
         Top = 0
@@ -218,6 +225,7 @@ object frmRefbooks: TfrmRefbooks
         Height = 455
         Align = alClient
         TabOrder = 0
+        ExplicitHeight = 467
         object grPromoView: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
           NavigatorButtons.First.Visible = True
@@ -288,6 +296,7 @@ object frmRefbooks: TfrmRefbooks
     object tshClientTypes: TcxTabSheet
       Caption = #1058#1080#1087#1099' '#1082#1083#1080#1077#1085#1090#1086#1074
       ImageIndex = 3
+      ExplicitHeight = 467
       object grClientTypes: TcxGrid
         Left = 0
         Top = 0
@@ -295,6 +304,7 @@ object frmRefbooks: TfrmRefbooks
         Height = 455
         Align = alClient
         TabOrder = 0
+        ExplicitHeight = 467
         object grClientTypesView: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
           NavigatorButtons.First.Visible = True
@@ -405,6 +415,7 @@ object frmRefbooks: TfrmRefbooks
     object tshDeparts: TcxTabSheet
       Caption = #1054#1090#1076#1077#1083#1099
       ImageIndex = 4
+      ExplicitHeight = 467
       object grDeps: TcxGrid
         Left = 0
         Top = 0
@@ -412,6 +423,7 @@ object frmRefbooks: TfrmRefbooks
         Height = 455
         Align = alClient
         TabOrder = 0
+        ExplicitHeight = 467
         object grDepsView: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
           NavigatorButtons.First.Visible = True
@@ -500,6 +512,7 @@ object frmRefbooks: TfrmRefbooks
     object tshPositions: TcxTabSheet
       Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1080
       ImageIndex = 5
+      ExplicitHeight = 467
       object grPost: TcxGrid
         Left = 0
         Top = 0
@@ -507,6 +520,7 @@ object frmRefbooks: TfrmRefbooks
         Height = 455
         Align = alClient
         TabOrder = 0
+        ExplicitHeight = 467
         object grPostView: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
           NavigatorButtons.First.Visible = True
@@ -578,6 +592,7 @@ object frmRefbooks: TfrmRefbooks
     object tshCountries: TcxTabSheet
       Caption = #1057#1090#1088#1072#1085#1099
       ImageIndex = 6
+      ExplicitHeight = 467
       object grCountries: TcxGrid
         Left = 0
         Top = 0
@@ -585,6 +600,7 @@ object frmRefbooks: TfrmRefbooks
         Height = 455
         Align = alClient
         TabOrder = 0
+        ExplicitHeight = 467
         object grCountriesView: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
           NavigatorButtons.First.Visible = True
@@ -672,6 +688,7 @@ object frmRefbooks: TfrmRefbooks
     object tshSuppliers: TcxTabSheet
       Caption = #1055#1086#1089#1090#1072#1074#1097#1080#1082#1080
       ImageIndex = 7
+      ExplicitHeight = 467
       object grSuppliers: TcxGrid
         Left = 0
         Top = 0
@@ -679,6 +696,7 @@ object frmRefbooks: TfrmRefbooks
         Height = 455
         Align = alClient
         TabOrder = 0
+        ExplicitHeight = 467
         object grSuppliersView: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
           NavigatorButtons.First.Visible = True
@@ -783,6 +801,7 @@ object frmRefbooks: TfrmRefbooks
     object tshUnits: TcxTabSheet
       Caption = #1045#1076#1080#1085#1080#1094#1099' '#1080#1079#1084#1077#1088#1077#1085#1080#1103
       ImageIndex = 8
+      ExplicitHeight = 467
       object grUnits: TcxGrid
         Left = 0
         Top = 0
@@ -790,6 +809,7 @@ object frmRefbooks: TfrmRefbooks
         Height = 455
         Align = alClient
         TabOrder = 0
+        ExplicitHeight = 467
         object grUnitsView: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
           NavigatorButtons.First.Visible = True
@@ -938,7 +958,6 @@ object frmRefbooks: TfrmRefbooks
       2)
     Categories.Visibles = (
       True)
-    ImageOptions.Images = dm.ImgList_24
     ImageOptions.LargeImages = dm.ImgList_32
     ImageOptions.SmoothGlyphs = True
     ImageOptions.StretchGlyphs = False

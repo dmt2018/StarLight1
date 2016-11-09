@@ -28,6 +28,8 @@ object frmRegistration: TfrmRegistration
     LevelTabs.Style = 7
     LookAndFeel.Kind = lfOffice11
     LookAndFeel.NativeStyle = False
+    ExplicitTop = 46
+    ExplicitHeight = 558
     object cxClientView: TcxGridDBTableView
       NavigatorButtons.ConfirmDelete = False
       FilterBox.Position = fpTop
@@ -283,8 +285,11 @@ object frmRegistration: TfrmRegistration
     ParentFont = False
     Style = tsFlatButtons
     TabOrder = 5
+    ExplicitTop = 46
+    ExplicitHeight = 558
     object TabSheet1: TTabSheet
       Caption = ' '#1057#1055#1048#1057#1054#1050' '#1050#1051#1048#1045#1053#1058#1054#1042' '
+      ExplicitHeight = 525
       object Panel1: TPanel
         Left = 0
         Top = 0
@@ -1057,6 +1062,7 @@ object frmRegistration: TfrmRegistration
         LevelTabs.Style = 7
         LookAndFeel.Kind = lfOffice11
         LookAndFeel.NativeStyle = False
+        ExplicitHeight = 351
         object cxGridDBTableView1: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
           FilterBox.Position = fpTop
@@ -1367,6 +1373,7 @@ object frmRegistration: TfrmRegistration
     object TabSheet2: TTabSheet
       Caption = ' '#1057#1055#1048#1057#1054#1050' '#1043#1056#1059#1055#1055' '
       ImageIndex = 1
+      ExplicitHeight = 525
       object Panel4: TPanel
         Left = 0
         Top = 0
@@ -1656,6 +1663,7 @@ object frmRegistration: TfrmRegistration
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 1
+        ExplicitHeight = 276
         object Panel6: TPanel
           Left = 0
           Top = 0
@@ -1686,6 +1694,7 @@ object frmRegistration: TfrmRegistration
           LevelTabs.Style = 7
           LookAndFeel.Kind = lfOffice11
           LookAndFeel.NativeStyle = False
+          ExplicitHeight = 251
           object cxGridDBTableView2: TcxGridDBTableView
             OnDblClick = cxGridDBTableView2DblClick
             NavigatorButtons.ConfirmDelete = False
@@ -1773,6 +1782,7 @@ object frmRegistration: TfrmRegistration
     object TabSheet4: TTabSheet
       Caption = ' '#1055#1054#1048#1057#1050' '#1050#1051#1048#1045#1053#1058#1040' '
       ImageIndex = 3
+      ExplicitHeight = 525
       object Panel9: TPanel
         Left = 0
         Top = 0
@@ -2715,7 +2725,6 @@ object frmRegistration: TfrmRegistration
       2)
     Categories.Visibles = (
       True)
-    ImageOptions.Images = dm.ImgList_24
     ImageOptions.LargeImages = dm.ImgList_32
     ImageOptions.SmoothGlyphs = True
     ImageOptions.StretchGlyphs = False
@@ -3560,7 +3569,7 @@ object frmRegistration: TfrmRegistration
     Left = 820
     Top = 125
     Bitmap = {
-      494C010104000900A40110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010104000900A80110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -4537,7 +4546,7 @@ object frmRegistration: TfrmRegistration
     Left = 240
     Top = 328
     Bitmap = {
-      494C010127002C00940120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010127002C00980120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004001000001002000000000000080
       0200000000000000000000000000000000000000000000000000000000000000
       000000000000000000000101011A0B0B0B743B3D3DB4777777D5838383DA5152
@@ -9971,7 +9980,6 @@ object frmRegistration: TfrmRegistration
       'update clients set count=:count where id_clients=:id_clients')
     SQLRefresh.Strings = (
       'where id_clients=:id_clients')
-    Session = dm.OraSession
     SQL.Strings = (
       'SELECT * from CLIENTS_VIEW3')
     FetchAll = True
@@ -10095,7 +10103,6 @@ object frmRegistration: TfrmRegistration
     end
   end
   object Q_CLIENT_VIEW: TOraQuery
-    Session = dm.OraSession
     SQL.Strings = (
       'SELECT C.*, '
       
@@ -10324,7 +10331,6 @@ object frmRegistration: TfrmRegistration
     Top = 352
   end
   object Q_ADVERT: TOraQuery
-    Session = dm.OraSession
     SQL.Strings = (
       
         'SELECT a.ID_ADVERTISMENTS, a.NAME, a.ID_OFFICE, o.BRIEF FROM BOO' +
@@ -10359,7 +10365,6 @@ object frmRegistration: TfrmRegistration
     Top = 312
   end
   object Q_TYPES: TOraQuery
-    Session = dm.OraSession
     SQL.Strings = (
       
         'SELECT a.ID_CLIENT_TYPES, a.NAME, a.ID_OFFICE, o.BRIEF FROM BOOK' +
@@ -10394,7 +10399,6 @@ object frmRegistration: TfrmRegistration
     Top = 352
   end
   object Q_REGIONS: TOraQuery
-    Session = dm.OraSession
     SQL.Strings = (
       
         'SELECT a.ID_REGIONS, a.NAME, a.ID_OFFICE, o.BRIEF FROM BOOKS_REG' +
@@ -10429,7 +10433,6 @@ object frmRegistration: TfrmRegistration
     Top = 392
   end
   object Q_G_CL: TOraQuery
-    Session = dm.OraSession
     SQL.Strings = (
       
         'SELECT C.ID_CLIENTS, C.FIO, C.NICK, G.NAME AS GROUP_NAME, T.NAME' +
@@ -10474,7 +10477,6 @@ object frmRegistration: TfrmRegistration
     Top = 432
   end
   object Q_GROUPS: TOraQuery
-    Session = dm.OraSession
     SQL.Strings = (
       'SELECT a.*, o.BRIEF FROM CLIENTS_GROUPS a, offices o'
       
@@ -10519,7 +10521,6 @@ object frmRegistration: TfrmRegistration
       
         'update clients set active=:active, staff=:staff where id_clients' +
         '=:id_clients')
-    Session = dm.OraSession
     SQL.Strings = (
       'SELECT E.* FROM EMPLOYEES_VIEW E')
     FetchAll = True
@@ -10581,7 +10582,6 @@ object frmRegistration: TfrmRegistration
     Top = 312
   end
   object Q_DEPS: TOraQuery
-    Session = dm.OraSession
     SQL.Strings = (
       
         'SELECT ED.*, BD.NAME FROM BOOKS_DEPARTMENTS BD, EMPLOYEES_DEPART' +
@@ -10616,7 +10616,6 @@ object frmRegistration: TfrmRegistration
     Top = 352
   end
   object Q_JOBS: TOraQuery
-    Session = dm.OraSession
     SQL.Strings = (
       
         'SELECT EJ.*, J.NAME FROM BOOKS_JOB_TITLES J, EMPLOYEES_JOB_TITLE' +
@@ -10651,7 +10650,6 @@ object frmRegistration: TfrmRegistration
     Top = 392
   end
   object Q_TITLES: TOraQuery
-    Session = dm.OraSession
     SQL.Strings = (
       
         'SELECT a.ID_JOB_TITLES, a.NAME, a.ID_OFFICE, o.BRIEF FROM BOOKS_' +
@@ -10686,7 +10684,6 @@ object frmRegistration: TfrmRegistration
     Top = 432
   end
   object Q_DEPART: TOraQuery
-    Session = dm.OraSession
     SQL.Strings = (
       'SELECT ID_DEPARTMENTS, NAME FROM BOOKS_DEPARTMENTS ORDER BY NAME')
     AfterOpen = Q_DEPARTAfterOpen
@@ -10710,7 +10707,6 @@ object frmRegistration: TfrmRegistration
   end
   object Q_SEARCH: TOraQuery
     LocalUpdate = True
-    Session = dm.OraSession
     SQL.Strings = (
       
         'SELECT C.*, G.NAME AS GROUP_NAME, T.NAME AS TTYPE_NAME, R.NAME A' +
@@ -10935,7 +10931,6 @@ object frmRegistration: TfrmRegistration
     Top = 440
   end
   object OraQuery1: TOraQuery
-    Session = dm.OraSession
     SQL.Strings = (
       
         'SELECT C.ID_CLIENTS, C.FIO, C.NICK, G.NAME AS GROUP_NAME, T.NAME' +
@@ -10983,7 +10978,6 @@ object frmRegistration: TfrmRegistration
     Top = 480
   end
   object Q_IDD: TOraQuery
-    Session = dm.OraSession
     SQL.Strings = (
       'SELECT OLMER.PARAMS_SET_ID.nextval from DUAL')
     Left = 680
