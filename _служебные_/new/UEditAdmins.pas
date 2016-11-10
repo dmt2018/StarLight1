@@ -28,12 +28,9 @@ type
     Label1: TLabel;
     Label2: TLabel;
     Label23: TLabel;
-    BitBtn14: TBitBtn;
-    BitBtn17: TBitBtn;
     MaskEdit1: TMaskEdit;
     MaskEdit2: TMaskEdit;
     Edit10: TEdit;
-    BitBtn4: TBitBtn;
     Label3: TLabel;
     DBText1: TDBText;
     Label5: TLabel;
@@ -63,9 +60,6 @@ type
     cxButton6: TcxButton;
     pnlTop: TPanel;
     cdsQuery: TOraQuery;
-    cdsQueryNICK: TStringField;
-    cdsQueryFIO: TStringField;
-    cdsQueryID_CLIENTS: TIntegerField;
     dsQuery: TOraDataSource;
     cdsQ: TOraQuery;
     grClients: TcxGrid;
@@ -78,52 +72,13 @@ type
     Panel6: TPanel;
     Label12: TLabel;
     DBComboBoxEh2: TDBComboBoxEh;
-    OraQuery1: TOraQuery;
-    StringField1: TStringField;
-    StringField2: TStringField;
-    cdsQueryID_DEBETORS: TFloatField;
-    IntegerField1: TIntegerField;
-    cdsQueryLAST_DDATE: TDateTimeField;
-    cdsQuerySTATE: TIntegerField;
-    cdsQueryBEZNAL: TIntegerField;
-    cdsQueryMARK: TIntegerField;
-    cdsQueryDEBET: TFloatField;
-    cdsQueryCREDIT_DAYS: TIntegerField;
-    cdsQueryINFO: TStringField;
-    cdsQueryDDATE: TDateTimeField;
-    cdsQueryRUBL: TIntegerField;
-    cdsQueryCHART: TFloatField;
-    cdsQueryBLOCK1: TIntegerField;
-    cdsQueryBLOCK2: TIntegerField;
-    cdsQueryPHONE: TStringField;
-    cdsQueryREGION: TIntegerField;
-    cdsQueryGROUP_NAME: TStringField;
-    cdsQueryID_CLIENTS_GROUPS: TIntegerField;
-    cdsQueryKKK: TStringField;
-    cdsQueryMARK_KOL: TFloatField;
-    cdsQueryMAX_DATE: TDateTimeField;
-    cdsQueryGROUP_MAX_DATE: TDateTimeField;
-    cdsQueryIS_LOCK: TIntegerField;
-    cdsQueryLOCK_FOR: TIntegerField;
-    cdsQueryLOCK_CLIENT: TStringField;
-    cdsQuerySALES: TFloatField;
-    cdsQueryWW: TStringField;
-    cdsQueryCHART_FOR_GROUP: TFloatField;
-    cdsQueryID_OFFICE: TIntegerField;
-    cdsQueryBRIEF: TStringField;
-    cdsQueryINN: TStringField;
-    cdsQueryITOG_DISCOUNT: TFloatField;
-    cdsQueryCHART2: TFloatField;
-    cdsQueryCHART_GROUP: TFloatField;
-    cdsQueryD_CHECKED: TFloatField;
-    OraDataSource1: TOraDataSource;
     Q_IDD: TOraQuery;
     cxGrid1: TcxGrid;
     cxGridDBTableView1: TcxGridDBTableView;
-    cxGridDBColumn1: TcxGridDBColumn;
-    cxGridDBColumn2: TcxGridDBColumn;
-    cxGridDBColumn3: TcxGridDBColumn;
-    grClientsVGROUP_NAME: TcxGridDBColumn;
+    grotmetka: TcxGridDBColumn;
+    grkod: TcxGridDBColumn;
+    grfio: TcxGridDBColumn;
+    grgrypa: TcxGridDBColumn;
     grClientsVREGION: TcxGridDBColumn;
     cxGridDBColumn4: TcxGridDBColumn;
     grClientsVID_DEBETORS: TcxGridDBColumn;
@@ -158,15 +113,62 @@ type
     grClientsVCHART2: TcxGridDBColumn;
     grClientsVCHART_GROUP: TcxGridDBColumn;
     cxGridLevel1: TcxGridLevel;
+    cdsQuery1: TOraQuery;
+    dsQuery1: TOraDataSource;
+    cdsQuery1ID_CLIENTS: TIntegerField;
+    cdsQuery1NICK: TStringField;
+    cdsQuery1FIO: TStringField;
+    cdsQueryD_CHECKED: TFloatField;
+    cdsQueryNICK: TStringField;
+    cdsQueryFIO: TStringField;
+    cdsQueryID_DEBETORS: TFloatField;
+    cdsQueryID_CLIENTS: TIntegerField;
+    cdsQueryLAST_DDATE: TDateTimeField;
+    cdsQuerySTATE: TIntegerField;
+    cdsQueryBEZNAL: TIntegerField;
+    cdsQueryMARK: TIntegerField;
+    cdsQueryDEBET: TFloatField;
+    cdsQueryCREDIT_DAYS: TIntegerField;
+    cdsQueryINFO: TStringField;
+    cdsQueryDDATE: TDateTimeField;
+    cdsQueryRUBL: TIntegerField;
+    cdsQueryCHART: TFloatField;
+    cdsQueryBLOCK1: TIntegerField;
+    cdsQueryBLOCK2: TIntegerField;
+    cdsQueryPHONE: TStringField;
+    cdsQueryREGION: TIntegerField;
+    cdsQueryGROUP_NAME: TStringField;
+    cdsQueryID_CLIENTS_GROUPS: TIntegerField;
+    cdsQueryKKK: TStringField;
+    cdsQueryMARK_KOL: TFloatField;
+    cdsQueryMAX_DATE: TDateTimeField;
+    cdsQueryGROUP_MAX_DATE: TDateTimeField;
+    cdsQueryIS_LOCK: TIntegerField;
+    cdsQueryLOCK_FOR: TIntegerField;
+    cdsQueryLOCK_CLIENT: TStringField;
+    cdsQuerySALES: TFloatField;
+    cdsQueryWW: TStringField;
+    cdsQueryCHART_FOR_GROUP: TFloatField;
+    cdsQueryID_OFFICE: TIntegerField;
+    cdsQueryBRIEF: TStringField;
+    cdsQueryINN: TStringField;
+    cdsQueryITOG_DISCOUNT: TFloatField;
+    cdsQueryCHART2: TFloatField;
+    cdsQueryCHART_GROUP: TFloatField;
     procedure cxButton1Click(Sender: TObject);
     procedure cxButton6Click(Sender: TObject);
     procedure cxButton2Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure grBtnDelPropertiesButtonClick(Sender: TObject;
+      AButtonIndex: Integer);
+    procedure DBComboBoxEh2Change(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
-    ttype: integer;
+    ttype, ttype1: integer;
     function OpenForUpdate(oraSess: TOraSession; idGroup: integer; GroupName: string): integer;
   end;
 
@@ -179,12 +181,177 @@ implementation
 
 {$R *.dfm}
 
-uses uadmin;
+uses uadmin, udm;
 
 //запись
 procedure TfrmEditAdmins.cxButton1Click(Sender: TObject);
+var user_id: integer;
+    ind: integer;
 begin
-  if (trim(Edit1.Text) = '') then ShowMessage('Вы не заполнили обязательные поля!')
+
+//учетки
+if frmadmin.page=0 then begin
+  if ((Edit10.Text <> '') and (MaskEdit1.Text <> '') and (MaskEdit2.Text <> '')) then
+  begin
+
+  if (frmadmin.Q_EMPL.FieldByName('LOGIN').IsNull = false) then
+  // Изменение учетной записи для пользователя ИС
+  begin
+      if MessageDlg('Изменяется учетная запись пользователя в ИС!'+#10#13+'Вы уверены в правильности информации?',mtConfirmation,[mbYes, mbNo],0) = mrYes then
+      begin
+        if (MaskEdit1.Text <> MaskEdit2.Text) then ShowMessage('Неправильный ввод паролей!')
+        else
+        begin
+
+          frmadmin.Ora_SQL.SQL.Clear;
+          frmadmin.Ora_SQL.SQL.Add('begin admins.change_pass(:user_, :pass_); end;' );
+          frmadmin.Ora_SQL.ParamByName('user_').AsString :=  frmadmin.Q_EMPL.FieldByName('LOGIN').AsString;
+          frmadmin.Ora_SQL.ParamByName('pass_').AsString :=  MaskEdit1.Text;
+
+          // Пытаемся выполнить SQL запрос на добавление пользователя
+          try
+            frmadmin.Ora_SQL.Execute;
+            frmadmin.Q_EMPL.Refresh;
+            ShowMessage('Операция прошла успешно.');
+          except
+            on E: Exception do
+            begin
+              if (StrPos(PChar(E.Message), PChar('01031')) <> nil) then ShowMessage('У вас нет прав на данную операцию!')
+              else  ShowMessage(E.Message);
+            end;
+          End;  
+        end;
+      end;
+    end
+
+  else
+
+    // Создание учетной записи для нового пользователя ИС
+ //   if (trim(DM.Q_EMPL.FieldByName('LOGIN').AsString) = '') then
+    begin
+      if MessageDlg('Создается новая учетная запись пользователя в ИС!'+#10#13+'Вы уверены в правильности информации?',mtConfirmation,[mbYes, mbNo],0) = mrYes then
+      begin
+        if (MaskEdit1.Text <> MaskEdit2.Text) then ShowMessage('Неправильный ввод паролей!')
+        else
+        begin
+            ind := frmadmin.Q_EMPL.FieldByName('ID_CLIENTS').AsInteger;
+          frmadmin.Ora_SQL.SQL.Clear;
+          frmadmin.Ora_SQL.SQL.Add('begin admins.new_pass(:user_, :pass_, :id_); end;' );
+          frmadmin.Ora_SQL.Prepare;
+          frmadmin.Ora_SQL.ParamByName('user_').AsString :=  Edit10.Text;
+          frmadmin.Ora_SQL.ParamByName('pass_').AsString :=  MaskEdit1.Text;
+          frmadmin.Ora_SQL.ParamByName('id_').AsInteger :=  ind;
+
+          // Пытаемся выполнить SQL запрос на добавление пользователя
+          try
+            frmadmin.Ora_SQL.Execute;
+            frmadmin.Q_EMPL.Refresh;
+            frmadmin.Q_EMPL.Locate('ID_CLIENTS',ind,[]);
+
+            Edit10.Text := '';
+            MaskEdit1.Text := '';
+            MaskEdit2.Text := '';
+
+            ShowMessage('Операция прошла успешно.');
+          except
+            on E: Exception do
+            begin
+              ShowMessage(E.Message);
+            end;
+          End;
+        end;
+      end;
+    end;
+
+  end
+  else ShowMessage('Необхоимо заполнить все параметры!');
+end;
+
+
+
+//дебиторы
+if frmadmin.page=4 then begin
+  if not cxbutton1.Visible then ModalResult := mrOk;
+
+  Q_IDD.Close;
+  Q_IDD.SQL.Clear;
+  Q_IDD.SQL.Add('delete from DEBETOR_PERMISSIONS where USER_ID='+IntToStr(DBComboBoxEh2.Tag));
+  Q_IDD.Execute;
+
+  Q_IDD.Close;
+  Q_IDD.SQL.Clear;
+  Q_IDD.SQL.Add('insert into DEBETOR_PERMISSIONS values(:p1, :p2)');
+  cdsQuery.Filter := 'd_checked=1';
+  cdsQuery.Filtered := true;
+
+  if cdsQuery.RecordCount = 0 then
+  begin
+    cdsQuery.Filtered := false;
+    cdsQuery.Filter := '';
+    exit;
+  end;
+
+  if DBComboBoxEh2.Tag > 0 then
+    user_id := DBComboBoxEh2.Tag
+  else
+  begin
+    user_id := DBComboBoxEh2.Value;
+    DBComboBoxEh2.Tag := DBComboBoxEh2.Value;
+  end;
+
+  cdsQuery.DisableControls;
+  try
+    cdsQuery.First;
+    while not cdsQuery.Eof do
+    begin
+      Q_IDD.ParamByName('p1').AsInteger := user_id;
+      Q_IDD.ParamByName('p2').AsInteger := cdsQueryID_DEBETORS.AsInteger;
+      Q_IDD.Execute;
+      cdsQuery.next;
+    end;
+  finally
+    DM.OraSession.Commit;
+    cdsQuery.EnableControls;
+    ModalResult := mrOk;
+  end;
+ end;
+
+// привилегии
+if frmadmin.page=1 then begin
+if (ComboBox1.ItemIndex < 0) then ShowMessage('Вы не указали программу!')
+else
+begin
+      frmadmin.Ora_SQL.SQL.Clear;
+      frmadmin.Ora_SQL.SQL.Add('begin admins.save_role_program(:GROUP_ID_, :PROG_ID_, :CHECK1_, :CHECK2_, :CHECK3_, :CHECK4_, :CHECK5_); end;');
+
+      frmadmin.Ora_SQL.ParamByName('GROUP_ID_').Value := frmadmin.Q_GROUPS.FieldByName('ID_ROLE_GROUPS').AsInteger;
+      frmadmin.Ora_SQL.ParamByName('PROG_ID_').Value := ComboBox1.Value;
+      if CheckBox3.Checked = true then frmadmin.Ora_SQL.ParamByName('CHECK1_').Value := 1 else frmadmin.Ora_SQL.ParamByName('CHECK1_').Value := 0;
+      if CheckBox4.Checked = true then frmadmin.Ora_SQL.ParamByName('CHECK2_').Value := 1 else frmadmin.Ora_SQL.ParamByName('CHECK2_').Value := 0;
+      if CheckBox5.Checked = true then frmadmin.Ora_SQL.ParamByName('CHECK3_').Value := 1 else frmadmin.Ora_SQL.ParamByName('CHECK3_').Value := 0;
+      if CheckBox6.Checked = true then frmadmin.Ora_SQL.ParamByName('CHECK4_').Value := 1 else frmadmin.Ora_SQL.ParamByName('CHECK4_').Value := 0;
+      if CheckBox7.Checked = true then frmadmin.Ora_SQL.ParamByName('CHECK5_').Value := 1 else frmadmin.Ora_SQL.ParamByName('CHECK5_').Value := 0;
+
+      // Пытаемся выполнить SQL запрос
+      try
+        frmadmin.Ora_SQL.Execute;
+        frmadmin.Q_GR_PR.Refresh;
+        close;
+      except
+        on E: Exception do
+        begin
+          if (StrPos(PChar(E.Message), PChar('01031')) <> nil) then ShowMessage('У вас нет прав на данную операцию!')
+          else  ShowMessage(E.Message);
+        end;
+      End;
+end;
+end;
+
+
+
+//запись прог и групп:
+if frmadmin.page=2 then begin
+if (trim(Edit1.Text) = '') then ShowMessage('Вы не заполнили обязательные поля!')
 else
 begin
     frmadmin.selq.SQL.Clear;
@@ -219,6 +386,7 @@ begin
         frmadmin.Q_PROGS.Locate('ID_ADMIN_PROGRAMS',Edit1.Tag,[]);
       end;
 
+      // для групп
       if ((ttype = 4) or (ttype = 3)) then
       begin
         frmadmin.Q_GROUPS.Refresh;
@@ -235,10 +403,47 @@ begin
     End;
 end;
 end;
+end;
 
 //очистка
 procedure TfrmEditAdmins.cxButton2Click(Sender: TObject);
+ var ind: integer;
 begin
+
+if frmadmin.page=0 then begin
+  Edit10.Text := '';
+  MaskEdit1.Text := '';
+  MaskEdit2.Text := '';
+end;
+
+
+
+if frmadmin.page=1 then begin
+  if (ttype1 = 1) then
+  begin
+    ComboBox1.ItemIndex := -1;
+    CheckBox3.checked := false;
+    CheckBox4.checked := false;
+    CheckBox5.checked := false;
+    CheckBox6.checked := false;
+    CheckBox7.checked := false;
+  end;
+
+  if (ttype1 = 2) then
+  begin
+    ind := ComboBox1.Items.IndexOf(frmadmin.Q_GR_PR.FieldByName('NAME').AsString);
+    ComboBox1.ItemIndex := ind;
+
+    if frmadmin.Q_GR_PR.FieldByName('C_START').AsInteger = 1 then CheckBox3.checked := true else CheckBox3.checked := false;
+    if frmadmin.Q_GR_PR.FieldByName('C_EDIT').AsInteger = 1 then CheckBox4.checked := true else CheckBox4.checked := false;
+    if frmadmin.Q_GR_PR.FieldByName('C_DEL').AsInteger = 1 then CheckBox5.checked := true else CheckBox5.checked := false;
+    if frmadmin.Q_GR_PR.FieldByName('C_PRINT').AsInteger = 1 then CheckBox6.checked := true else CheckBox6.checked := false;
+    if frmadmin.Q_GR_PR.FieldByName('C_ADDIT').AsInteger = 1 then CheckBox7.checked := true else CheckBox7.checked := false;
+  end;
+end;
+
+
+if frmadmin.page=2 then begin
   if ((ttype = 1) or (ttype = 3)) then
   begin
     Edit1.Text := '';
@@ -257,21 +462,104 @@ begin
     MEMO1.Text := frmadmin.Q_GROUPS.FieldByName('INFO').AsString;
   end;
 end;
+end;
 
 procedure TfrmEditAdmins.cxButton6Click(Sender: TObject);
 begin
  close;
 end;
 
+procedure TfrmEditAdmins.DBComboBoxEh2Change(Sender: TObject);
+begin
+  cdsQuery.Close;
+  cdsQuery.ParamByName('user_id').AsInteger   := DBComboBoxEh2.Value;
+  cdsQuery.Open;
+  cxgrid1.SetFocus;
+end;
+
+procedure TfrmEditAdmins.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+ cdsQuery1.Close;
+end;
+
+procedure TfrmEditAdmins.FormCreate(Sender: TObject);
+begin
+{if frmadmin.page=4 then begin
+
+  DBComboBoxEh2.OnChange := nil;
+  FillComboEh(Q_IDD, DBComboBoxEh2, 'select id_clients, FIO from employees_view where (id_office = '+IntToStr(frmadmin.id_office)+' or '+IntToStr(frmadmin.id_office)+' = 0) and active=1 and login is not null order by FIO');
+  Q_IDD.Close;
+
+  cdsQuery.Filter   := '';
+  cdsQuery.Filtered := false;
+  cxGridDBTableView1.DataController.Filter.Clear;
+  cxGridDBTableView1.DataController.Filter.Active := false;
+end;   }
+end;
+
 procedure TfrmEditAdmins.FormShow(Sender: TObject);
  var i:integer;
 begin
+//скрываем все вкладки
 for i:=0 to cxPageControl1.PageCount-1 do cxPageControl1.Pages[i].TabVisible:=false;
-cxPageControl1.ActivePageIndex:=frmadmin.page;
+cxPageControl1.ActivePageIndex:=frmadmin.page; // активная вкладка задается в uadmin
 
+  if (cxPageControl1.ActivePage.PageIndex=1) then  cxbutton2.visible:=false
+  else   cxbutton2.visible:=true;
+
+  if frmadmin.page=3 then begin
+  cxPageControl1.ActivePageIndex:=3;
+  cxPageControl1.Pages[frmadmin.page].TabVisible:=true;
+  cxbutton1.visible:=false;
+  cxbutton2.visible:=false;
+  cxbutton6.visible:=false;
+  end
+  else begin
+  cxbutton1.visible:=true;
+  cxbutton2.visible:=true;
+  cxbutton6.visible:=true;
+  end;
+
+
+  if frmadmin.page=4 then begin
+  cxPageControl1.Pages[frmadmin.page].TabVisible:=true;
+  DBComboBoxEh2.OnChange := nil;
+  FillComboEh(Q_IDD, DBComboBoxEh2, 'select id_clients, FIO from employees_view where (id_office = '+IntToStr(frmadmin.id_office)+' or '+IntToStr(frmadmin.id_office)+' = 0) and active=1 and login is not null order by FIO');
+  Q_IDD.Close;
+
+  cdsQuery.Filter   := '';
+  cdsQuery.Filtered := false;
+  cxGridDBTableView1.DataController.Filter.Clear;
+  cxGridDBTableView1.DataController.Filter.Active := false;
+
+  cdsQuery.Close;
+  cdsQuery.ParamByName('office_id').AsInteger := frmadmin.id_office;
+  if DBComboBoxEh2.Tag > 0 then
+  begin
+    DBComboBoxEh2.ReadOnly           := true;
+    DBComboBoxEh2.Visible            := false;
+    cdsQuery.ParamByName('user_id').AsInteger   := DBComboBoxEh2.Tag;
+    cdsQuery.Open;
+
+    grotmetka.DataBinding.AddToFilter(nil, foEqual, 1);
+    cxGridDBTableView1.DataController.Filter.Active := True;
+  end
+  else
+  begin
+    DBComboBoxEh2.ReadOnly           := false;
+    DBComboBoxEh2.Visible            := true;
+    cdsQuery.ParamByName('user_id').AsInteger   := DBComboBoxEh2.Value;
+    cdsQuery.Open;
+    DBComboBoxEh2.OnChange := DBComboBoxEh2Change;
+  end;
+  end;
+
+  
+
+  //группы - доб и ред 
   if ((ttype = 3) or (ttype = 4)) then
   begin
-    cxPageControl1.Pages[frmadmin.page].TabVisible:=true;
+    cxPageControl1.Pages[frmadmin.page].TabVisible:=true; //открываю нужную вкладку
     Label24.Visible := true;
     Store_DepsCBEx.Visible := true;
     with frmadmin.selq do
@@ -300,19 +588,29 @@ cxPageControl1.ActivePageIndex:=frmadmin.page;
   end;
 end;
 
+procedure TfrmEditAdmins.grBtnDelPropertiesButtonClick(Sender: TObject;
+  AButtonIndex: Integer);
+begin
+  if MessageDlg('Удалить доступ сотрудника к роли?',mtConfirmation,[mbYes, mbNo],0) <> mrYes then exit;
+  cdsQ.Close;
+  cdsQ.SQL.Text := 'delete from ADMIN_EMPLOYEES_ROLE_GROUPS where ID_EMPLOYEES='+IntToStr(grClientsVID_CLIENTS.EditValue)+' and ID_ROLE_GROUPS='+IntToStr(pnlTop.Tag);
+  cdsQ.ExecSQL;
+  cdsQ.Session.Commit;
+  cdsQuery1.Refresh;
+end;
+
 function tfrmEditAdmins.OpenForUpdate(oraSess: TOraSession; idGroup: integer; GroupName: string): integer;
   begin
-    Application.CreateForm(TfrmEditAdmins, frmEditAdmins);
     try
       with frmEditAdmins do
       begin
         try
           frmEditAdmins.pnlTop.Caption := GroupName;
-          cdsQuery.Session := oraSess;
+          cdsQuery1.Session := oraSess;
           cdsQ.Session := oraSess;
-          cdsQuery.Close;
-          cdsQuery.SQL.Text := 'SELECT c.id_clients, c.nick, c.fio FROM ADMIN_EMPLOYEES_ROLE_GROUPS EG, clients c where EG.ID_EMPLOYEES = c.id_clients and EG.ID_ROLE_GROUPS='+IntToStr(idGroup);
-          cdsQuery.Open;
+          cdsQuery1.Close;
+          cdsQuery1.SQL.Text := 'SELECT c.id_clients, c.nick, c.fio FROM ADMIN_EMPLOYEES_ROLE_GROUPS EG, clients c where EG.ID_EMPLOYEES = c.id_clients and EG.ID_ROLE_GROUPS='+IntToStr(idGroup);
+          cdsQuery1.Open;
           pnlTop.Tag := idGroup;
           result := ShowModal;
         except
@@ -320,7 +618,6 @@ function tfrmEditAdmins.OpenForUpdate(oraSess: TOraSession; idGroup: integer; Gr
         End;
       end;
     finally
-      frmEditAdmins.Free;
     end;
   end;
 

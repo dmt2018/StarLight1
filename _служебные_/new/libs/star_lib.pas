@@ -58,6 +58,7 @@ type
   function FillImgComboCx2(TheQuery : TOraQuery; TheCombo : TCxbaredititem; BeginStr : String) : boolean;
   function FillComboOlmer(TheQuery : TOraQuery; TheCombo : TDBComboBoxEh; BeginStr : String) : boolean;
   function FillImgComboCxItm(TheQuery : TOraQuery; TheCombo : TCxBarEditItem; BeginStr : String) : boolean;
+  function FillComboEh(TheQuery : TOraQuery; TheCombo : TDBComboBoxEh; TheSql : String) : boolean;
 // Запомнить положение форм на экране
   procedure SaveFormState(aForm: TForm);
   procedure LoadFormState(aForm: TForm);
@@ -123,6 +124,41 @@ begin
     StorProc.Free;
   end;
 end;
+
+function FillComboEh(TheQuery : TOraQuery; TheCombo : TDBComboBoxEh; TheSql : String) : boolean;
+{***************************************************************
+ * Функция предназначена для заполнения комбо-бокса значениями *
+ * А также для запоминания ID каждого значения компонента EhLib*
+ * TheQuery - TQuery для обращени к БД                         *
+ * TheCombo - комбо-бокс для значений                          *
+ *                             *
+ * TheSql - SQL выражение которое должно содержать селект,     *
+ * первый столбик которого содержит ID , а второй - значение.  *
+ ***************************************************************}
+Begin
+  try
+    with TheQuery do
+      Begin
+        Close;
+        SQL.Clear;
+        SQL.Add(TheSql);
+        Open;
+      End;
+    TheCombo.Items.Clear;
+    TheCombo.KeyItems.Clear;
+    while not TheQuery.Eof do
+      Begin
+        TheCombo.KeyItems.Add(TheQuery.Fields[0].AsString);
+        TheCombo.Items.Add(TheQuery.Fields[1].AsString);
+        TheQuery.Next;
+      End;
+    TheQuery.Close;
+    TheCombo.ItemIndex := 0;
+    FillComboEh := true;
+  except
+    FillComboEh := false;
+  End;
+End;
 
 
 function FillImgComboCx(TheQuery : TOraQuery; TheCombo : TCxImageComboBox; BeginStr : String) : boolean;

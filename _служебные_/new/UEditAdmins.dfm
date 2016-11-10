@@ -12,6 +12,8 @@ object frmEditAdmins: TfrmEditAdmins
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnClose = FormClose
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -20,7 +22,7 @@ object frmEditAdmins: TfrmEditAdmins
     Top = 0
     Width = 662
     Height = 449
-    ActivePage = tsh_departs
+    ActivePage = tsh_regions
     Align = alClient
     MultiLine = True
     Style = 7
@@ -71,26 +73,6 @@ object frmEditAdmins: TfrmEditAdmins
           Height = 16
           Caption = #1055#1086#1076#1090#1074#1077#1088#1076#1080#1090#1100' '#1087#1072#1088#1086#1083#1100
         end
-        object BitBtn14: TBitBtn
-          Left = 8
-          Top = 104
-          Width = 121
-          Height = 24
-          Cursor = crHandPoint
-          Caption = #1059#1089#1090#1072#1085#1086#1074#1080#1090#1100
-          TabOrder = 3
-          Kind = bkOK
-        end
-        object BitBtn17: TBitBtn
-          Left = 136
-          Top = 104
-          Width = 121
-          Height = 24
-          Cursor = crHandPoint
-          Caption = #1059#1073#1088#1072#1090#1100
-          TabOrder = 4
-          Kind = bkCancel
-        end
         object MaskEdit1: TMaskEdit
           Left = 160
           Top = 43
@@ -132,30 +114,6 @@ object frmEditAdmins: TfrmEditAdmins
           MaxLength = 20
           TabOrder = 0
         end
-        object BitBtn4: TBitBtn
-          Left = 264
-          Top = 104
-          Width = 120
-          Height = 25
-          Cursor = crHandPoint
-          Cancel = True
-          Caption = #1047#1072#1082#1088#1099#1090#1100
-          TabOrder = 5
-          Glyph.Data = {
-            76010000424D7601000000000000760000002800000020000000100000000100
-            04000000000000010000120B0000120B00001000000000000000000000000000
-            800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
-            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00330000000000
-            03333377777777777F333301111111110333337F333333337F33330111111111
-            0333337F333333337F333301111111110333337F333333337F33330111111111
-            0333337F333333337F333301111111110333337F333333337F33330111111111
-            0333337F3333333F7F333301111111B10333337F333333737F33330111111111
-            0333337F333333337F333301111111110333337F33FFFFF37F3333011EEEEE11
-            0333337F377777F37F3333011EEEEE110333337F37FFF7F37F3333011EEEEE11
-            0333337F377777337F333301111111110333337F333333337F33330111111111
-            0333337FFFFFFFFF7F3333000000000003333377777777777333}
-          NumGlyphs = 2
-        end
       end
     end
     object tsh_cityes: TcxTabSheet
@@ -182,7 +140,6 @@ object frmEditAdmins: TfrmEditAdmins
         Height = 16
         AutoSize = True
         DataField = 'NAME'
-        DataSource = DM.Q_GROUPS_DS
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -221,7 +178,6 @@ object frmEditAdmins: TfrmEditAdmins
         Font.Style = []
         ParentFont = False
         TabOrder = 0
-        Text = 'ComboBox3'
         Visible = True
       end
       object GroupBox1: TGroupBox
@@ -535,7 +491,7 @@ object frmEditAdmins: TfrmEditAdmins
         TabOrder = 1
         object grClientsV: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
-          DataController.DataSource = dsQuery
+          DataController.DataSource = dsQuery1
           DataController.Summary.DefaultGroupSummaryItems = <>
           DataController.Summary.FooterSummaryItems = <
             item
@@ -576,6 +532,7 @@ object frmEditAdmins: TfrmEditAdmins
                 Width = 50
               end>
             Properties.ViewStyle = vsButtonsAutoWidth
+            Properties.OnButtonClick = grBtnDelPropertiesButtonClick
             MinWidth = 64
             Options.Filtering = False
             Options.FilteringPopup = False
@@ -634,8 +591,8 @@ object frmEditAdmins: TfrmEditAdmins
           EditButtons = <>
           Flat = True
           TabOrder = 0
-          Text = 'DBComboBoxEh1'
           Visible = True
+          OnChange = DBComboBoxEh2Change
         end
       end
       object cxGrid1: TcxGrid
@@ -659,12 +616,12 @@ object frmEditAdmins: TfrmEditAdmins
             item
               Format = '0'
               Kind = skCount
-              Column = cxGridDBColumn2
+              Column = grkod
             end
             item
               Format = '0'
               Kind = skSum
-              Column = cxGridDBColumn1
+              Column = grotmetka
             end>
           DataController.Summary.SummaryGroups = <>
           FilterRow.InfoText = #1055#1086#1083#1077' '#1076#1083#1103' '#1092#1080#1083#1100#1090#1088#1086#1074
@@ -674,7 +631,7 @@ object frmEditAdmins: TfrmEditAdmins
           OptionsView.ColumnAutoWidth = True
           OptionsView.Footer = True
           OptionsView.GroupByBox = False
-          object cxGridDBColumn1: TcxGridDBColumn
+          object grotmetka: TcxGridDBColumn
             Caption = #1054#1090#1084#1077#1090#1082#1072
             DataBinding.FieldName = 'D_CHECKED'
             PropertiesClassName = 'TcxCheckBoxProperties'
@@ -695,7 +652,7 @@ object frmEditAdmins: TfrmEditAdmins
             Options.Sorting = False
             Width = 60
           end
-          object cxGridDBColumn2: TcxGridDBColumn
+          object grkod: TcxGridDBColumn
             Caption = #1050#1086#1076
             DataBinding.FieldName = 'NICK'
             PropertiesClassName = 'TcxTextEditProperties'
@@ -708,13 +665,13 @@ object frmEditAdmins: TfrmEditAdmins
             Options.Moving = False
             Width = 90
           end
-          object cxGridDBColumn3: TcxGridDBColumn
+          object grfio: TcxGridDBColumn
             Caption = #1060#1048#1054
             DataBinding.FieldName = 'FIO'
             Options.Editing = False
             Width = 300
           end
-          object grClientsVGROUP_NAME: TcxGridDBColumn
+          object grgrypa: TcxGridDBColumn
             Caption = #1043#1088#1091#1087#1087#1072
             DataBinding.FieldName = 'GROUP_NAME'
             Options.Editing = False
@@ -1175,38 +1132,6 @@ object frmEditAdmins: TfrmEditAdmins
   object cdsQuery: TOraQuery
     SQL.Strings = (
       
-        'SELECT c.id_clients, c.nick, c.fio FROM ADMIN_EMPLOYEES_ROLE_GRO' +
-        'UPS EG, clients c where EG.ID_EMPLOYEES = c.id_clients and EG.ID' +
-        '_ROLE_GROUPS=1')
-    Left = 120
-    Top = 48
-    object cdsQueryNICK: TStringField
-      FieldName = 'NICK'
-      Required = True
-    end
-    object cdsQueryFIO: TStringField
-      FieldName = 'FIO'
-      Required = True
-      Size = 255
-    end
-    object cdsQueryID_CLIENTS: TIntegerField
-      FieldName = 'ID_CLIENTS'
-      Required = True
-    end
-  end
-  object dsQuery: TOraDataSource
-    DataSet = cdsQuery
-    Left = 152
-    Top = 48
-  end
-  object cdsQ: TOraQuery
-    Left = 192
-    Top = 48
-  end
-  object OraQuery1: TOraQuery
-    Session = DM.OraSession1
-    SQL.Strings = (
-      
         'select decode(b.USER_ID,null,0,1) as d_checked, a.nick, a.fio, a' +
         '.id_debetors, a.id_clients, a.last_ddate, a.state, a.beznal, a.m' +
         'ark, a.debet, a.credit_days,'
@@ -1226,7 +1151,7 @@ object frmEditAdmins: TfrmEditAdmins
         'etors and b.USER_ID = :user_id'
       'WHERE a.id_office = :office_id '
       'order by group_name, fio')
-    Left = 480
+    Left = 120
     Top = 48
     ParamData = <
       item
@@ -1237,11 +1162,14 @@ object frmEditAdmins: TfrmEditAdmins
         DataType = ftUnknown
         Name = 'office_id'
       end>
-    object StringField1: TStringField
+    object cdsQueryD_CHECKED: TFloatField
+      FieldName = 'D_CHECKED'
+    end
+    object cdsQueryNICK: TStringField
       FieldName = 'NICK'
       Required = True
     end
-    object StringField2: TStringField
+    object cdsQueryFIO: TStringField
       FieldName = 'FIO'
       Required = True
       Size = 255
@@ -1250,7 +1178,7 @@ object frmEditAdmins: TfrmEditAdmins
       FieldName = 'ID_DEBETORS'
       Required = True
     end
-    object IntegerField1: TIntegerField
+    object cdsQueryID_CLIENTS: TIntegerField
       FieldName = 'ID_CLIENTS'
       Required = True
     end
@@ -1367,13 +1295,14 @@ object frmEditAdmins: TfrmEditAdmins
     object cdsQueryCHART_GROUP: TFloatField
       FieldName = 'CHART_GROUP'
     end
-    object cdsQueryD_CHECKED: TFloatField
-      FieldName = 'D_CHECKED'
-    end
   end
-  object OraDataSource1: TOraDataSource
-    DataSet = OraQuery1
-    Left = 512
+  object dsQuery: TOraDataSource
+    DataSet = cdsQuery
+    Left = 152
+    Top = 48
+  end
+  object cdsQ: TOraQuery
+    Left = 192
     Top = 48
   end
   object Q_IDD: TOraQuery
@@ -1381,5 +1310,29 @@ object frmEditAdmins: TfrmEditAdmins
       'SELECT OLMER.PARAMS_SET_ID.nextval from DUAL')
     Left = 552
     Top = 48
+  end
+  object cdsQuery1: TOraQuery
+    SQL.Strings = (
+      
+        'SELECT c.id_clients, c.nick, c.fio FROM ADMIN_EMPLOYEES_ROLE_GRO' +
+        'UPS EG, clients c where EG.ID_EMPLOYEES = c.id_clients and EG.ID' +
+        '_ROLE_GROUPS=1')
+    Left = 320
+    Top = 104
+    object cdsQuery1ID_CLIENTS: TIntegerField
+      FieldName = 'ID_CLIENTS'
+    end
+    object cdsQuery1NICK: TStringField
+      FieldName = 'NICK'
+    end
+    object cdsQuery1FIO: TStringField
+      FieldName = 'FIO'
+      Size = 255
+    end
+  end
+  object dsQuery1: TOraDataSource
+    DataSet = cdsQuery1
+    Left = 360
+    Top = 104
   end
 end

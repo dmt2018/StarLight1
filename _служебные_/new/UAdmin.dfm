@@ -24,7 +24,7 @@ object frmAdmin: TfrmAdmin
     Width = 764
     Height = 449
     Cursor = crHandPoint
-    ActivePage = TabSheet3
+    ActivePage = TabSheet1
     Align = alClient
     Images = ImageList1
     MultiLine = True
@@ -33,14 +33,12 @@ object frmAdmin: TfrmAdmin
     Style = tsFlatButtons
     TabOrder = 0
     TabStop = False
-    ExplicitTop = 46
-    ExplicitHeight = 461
+    OnChange = PageControl1Change
     object TabSheet1: TTabSheet
       Caption = ' '#1057#1054#1058#1056#1059#1044#1053#1048#1050#1048' '
-      ExplicitHeight = 404
       object Splitter1: TSplitter
         Left = 0
-        Top = 194
+        Top = 219
         Width = 756
         Height = 3
         Cursor = crVSplit
@@ -443,7 +441,7 @@ object frmAdmin: TfrmAdmin
         Left = 0
         Top = 105
         Width = 756
-        Height = 89
+        Height = 114
         Align = alClient
         AutoFitColWidths = True
         DataGrouping.GroupLevels = <>
@@ -594,13 +592,12 @@ object frmAdmin: TfrmAdmin
       end
       object Panel2: TPanel
         Left = 0
-        Top = 197
+        Top = 222
         Width = 756
         Height = 195
         Align = alBottom
         BevelOuter = bvNone
         TabOrder = 3
-        ExplicitTop = 209
         object Panel15: TPanel
           Left = 0
           Top = 153
@@ -627,8 +624,8 @@ object frmAdmin: TfrmAdmin
             ParentFont = False
           end
           object ComboBox2: TDBComboBoxEh
-            Left = 64
-            Top = 9
+            Left = 66
+            Top = 6
             Width = 249
             Height = 22
             Cursor = crHandPoint
@@ -819,10 +816,9 @@ object frmAdmin: TfrmAdmin
     object TabSheet3: TTabSheet
       Caption = ' '#1043#1056#1059#1055#1055#1067' '
       ImageIndex = 2
-      ExplicitHeight = 404
       object Splitter2: TSplitter
         Left = 0
-        Top = 160
+        Top = 185
         Width = 756
         Height = 3
         Cursor = crVSplit
@@ -836,16 +832,15 @@ object frmAdmin: TfrmAdmin
         Left = 0
         Top = 0
         Width = 756
-        Height = 160
+        Height = 185
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitHeight = 172
         object DBGrid4: TDBGridEh
           Left = 0
           Top = 0
           Width = 756
-          Height = 120
+          Height = 145
           Align = alClient
           AutoFitColWidths = True
           DataGrouping.GroupLevels = <>
@@ -933,7 +928,7 @@ object frmAdmin: TfrmAdmin
         end
         object Panel5: TPanel
           Left = 0
-          Top = 120
+          Top = 145
           Width = 756
           Height = 40
           Align = alBottom
@@ -942,7 +937,6 @@ object frmAdmin: TfrmAdmin
           Ctl3D = False
           ParentCtl3D = False
           TabOrder = 1
-          ExplicitTop = 132
           object btnClients: TcxButton
             Left = 488
             Top = 5
@@ -1024,13 +1018,12 @@ object frmAdmin: TfrmAdmin
       end
       object Panel9: TPanel
         Left = 0
-        Top = 163
+        Top = 188
         Width = 756
         Height = 229
         Align = alBottom
         BevelOuter = bvNone
         TabOrder = 1
-        ExplicitTop = 175
         object Panel10: TPanel
           Left = 0
           Top = 0
@@ -1476,10 +1469,9 @@ object frmAdmin: TfrmAdmin
     object TabSheet2: TTabSheet
       Caption = ' '#1055#1056#1054#1043#1056#1040#1052#1052#1067' '
       ImageIndex = 1
-      ExplicitHeight = 404
       object Panel4: TPanel
         Left = 0
-        Top = 352
+        Top = 377
         Width = 756
         Height = 40
         Align = alBottom
@@ -1488,13 +1480,12 @@ object frmAdmin: TfrmAdmin
         Ctl3D = False
         ParentCtl3D = False
         TabOrder = 0
-        ExplicitTop = 364
       end
       object DBGrid2: TDBGridEh
         Left = 0
         Top = 0
         Width = 756
-        Height = 352
+        Height = 377
         Align = alClient
         AutoFitColWidths = True
         DataGrouping.GroupLevels = <>
@@ -1571,23 +1562,21 @@ object frmAdmin: TfrmAdmin
     object TabSheet4: TTabSheet
       Caption = ' '#1044#1054#1057#1058#1059#1055' '#1050' '#1050#1040#1057#1057#1040#1052' '
       ImageIndex = 3
-      ExplicitHeight = 404
       object Panel17: TPanel
         Left = 0
         Top = 0
         Width = 756
-        Height = 352
+        Height = 377
         Align = alClient
         BevelOuter = bvNone
         Ctl3D = False
         ParentCtl3D = False
         TabOrder = 0
-        ExplicitHeight = 364
         object DBGridEh1: TDBGridEh
           Left = 0
           Top = 0
           Width = 756
-          Height = 352
+          Height = 377
           Align = alClient
           AutoFitColWidths = True
           Ctl3D = True
@@ -1670,7 +1659,7 @@ object frmAdmin: TfrmAdmin
       end
       object Panel18: TPanel
         Left = 0
-        Top = 352
+        Top = 377
         Width = 756
         Height = 40
         Align = alBottom
@@ -1679,7 +1668,6 @@ object frmAdmin: TfrmAdmin
         Ctl3D = True
         ParentCtl3D = False
         TabOrder = 1
-        ExplicitTop = 364
         object RadioGroup1: TRadioGroup
           Left = 274
           Top = 2
@@ -1695,9 +1683,9 @@ object frmAdmin: TfrmAdmin
           TabOrder = 0
         end
         object DBComboBoxEh1: TDBComboBoxEh
-          Left = 392
-          Top = 8
-          Width = 377
+          Left = 408
+          Top = 6
+          Width = 337
           Height = 19
           Cursor = crHandPoint
           AlwaysShowBorder = True
@@ -1712,10 +1700,9 @@ object frmAdmin: TfrmAdmin
     object tsh_debetors: TTabSheet
       Caption = ' '#1044#1054#1057#1058#1059#1055' '#1050' '#1044#1045#1041#1048#1058#1054#1056#1040#1052' '
       ImageIndex = 4
-      ExplicitHeight = 404
       object Panel8: TPanel
         Left = 0
-        Top = 352
+        Top = 377
         Width = 756
         Height = 40
         Align = alBottom
@@ -1724,7 +1711,6 @@ object frmAdmin: TfrmAdmin
         Ctl3D = True
         ParentCtl3D = False
         TabOrder = 1
-        ExplicitTop = 364
         DesignSize = (
           756
           40)
@@ -1749,7 +1735,7 @@ object frmAdmin: TfrmAdmin
         Left = 0
         Top = 0
         Width = 756
-        Height = 352
+        Height = 377
         Align = alClient
         AutoFitColWidths = True
         Ctl3D = True
@@ -1833,194 +1819,13 @@ object frmAdmin: TfrmAdmin
     object TabSheet5: TTabSheet
       Caption = #1056#1040#1047#1056#1045#1064#1045#1053#1048#1071
       ImageIndex = 5
-      ExplicitHeight = 404
-    end
-    object TabSheet6: TTabSheet
-      Caption = #1044#1054#1057#1058#1059#1055' '#1050' '#1055#1056#1054#1043#1056#1040#1052#1052#1040#1052
-      ImageIndex = 6
-      ExplicitHeight = 404
-      object Panel3: TPanel
-        Left = 0
-        Top = 352
-        Width = 756
-        Height = 40
-        Align = alBottom
-        BevelInner = bvRaised
-        BevelOuter = bvLowered
-        Ctl3D = False
-        ParentCtl3D = False
-        TabOrder = 0
-        ExplicitTop = 364
-      end
-      object DBGridEh4: TDBGridEh
-        Left = 0
-        Top = 0
-        Width = 756
-        Height = 352
-        Align = alClient
-        AutoFitColWidths = True
-        DataGrouping.GroupLevels = <>
-        DataSource = Q_GR_PR_DS
-        Flat = True
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Arial'
-        Font.Pitch = fpFixed
-        Font.Style = []
-        FooterColor = clBtnFace
-        FooterFont.Charset = DEFAULT_CHARSET
-        FooterFont.Color = clWindowText
-        FooterFont.Height = -12
-        FooterFont.Name = 'Arial'
-        FooterFont.Pitch = fpFixed
-        FooterFont.Style = []
-        Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
-        OptionsEh = [dghFixed3D, dghHighlightFocus, dghClearSelection, dghAutoSortMarking, dghMultiSortMarking, dghRowHighlight, dghDialogFind, dghColumnResize, dghColumnMove]
-        ParentFont = False
-        RowDetailPanel.Color = clBtnFace
-        TabOrder = 1
-        TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWindowText
-        TitleFont.Height = -13
-        TitleFont.Name = 'Arial'
-        TitleFont.Pitch = fpFixed
-        TitleFont.Style = []
-        Columns = <
-          item
-            EditButtons = <>
-            FieldName = 'NAME'
-            Footers = <>
-            MinWidth = 100
-            Title.Caption = #1055#1088#1086#1075#1088#1072#1084#1084#1072
-            Title.Font.Charset = DEFAULT_CHARSET
-            Title.Font.Color = clWindowText
-            Title.Font.Height = -13
-            Title.Font.Name = 'Arial'
-            Title.Font.Pitch = fpFixed
-            Title.Font.Style = [fsBold]
-            Width = 100
-          end
-          item
-            Alignment = taCenter
-            AutoFitColWidth = False
-            Checkboxes = True
-            EditButtons = <>
-            FieldName = 'C_START'
-            Footers = <>
-            KeyList.Strings = (
-              '1'
-              '0')
-            MaxWidth = 80
-            MinWidth = 80
-            Title.Alignment = taCenter
-            Title.Caption = #1047#1072#1087#1091#1089#1082
-            Title.Font.Charset = DEFAULT_CHARSET
-            Title.Font.Color = clWindowText
-            Title.Font.Height = -13
-            Title.Font.Name = 'Arial'
-            Title.Font.Pitch = fpFixed
-            Title.Font.Style = [fsBold]
-            Width = 80
-          end
-          item
-            Alignment = taCenter
-            AutoFitColWidth = False
-            Checkboxes = True
-            EditButtons = <>
-            FieldName = 'C_EDIT'
-            Footers = <>
-            KeyList.Strings = (
-              '1'
-              '0')
-            MaxWidth = 120
-            MinWidth = 120
-            Title.Alignment = taCenter
-            Title.Caption = #1056#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1085#1080#1077
-            Title.Font.Charset = DEFAULT_CHARSET
-            Title.Font.Color = clWindowText
-            Title.Font.Height = -13
-            Title.Font.Name = 'Arial'
-            Title.Font.Pitch = fpFixed
-            Title.Font.Style = [fsBold]
-            Width = 120
-          end
-          item
-            Alignment = taCenter
-            AutoFitColWidth = False
-            Checkboxes = True
-            EditButtons = <>
-            FieldName = 'C_DEL'
-            Footers = <>
-            KeyList.Strings = (
-              '1'
-              '0')
-            MaxWidth = 80
-            MinWidth = 80
-            Title.Alignment = taCenter
-            Title.Caption = #1059#1076#1072#1083#1077#1085#1080#1077
-            Title.Font.Charset = DEFAULT_CHARSET
-            Title.Font.Color = clWindowText
-            Title.Font.Height = -13
-            Title.Font.Name = 'Arial'
-            Title.Font.Pitch = fpFixed
-            Title.Font.Style = [fsBold]
-            Width = 80
-          end
-          item
-            Alignment = taCenter
-            AutoFitColWidth = False
-            Checkboxes = True
-            EditButtons = <>
-            FieldName = 'C_PRINT'
-            Footers = <>
-            KeyList.Strings = (
-              '1'
-              '0')
-            MaxWidth = 80
-            MinWidth = 80
-            Title.Alignment = taCenter
-            Title.Caption = #1055#1077#1095#1072#1090#1100
-            Title.Font.Charset = DEFAULT_CHARSET
-            Title.Font.Color = clWindowText
-            Title.Font.Height = -13
-            Title.Font.Name = 'Arial'
-            Title.Font.Pitch = fpFixed
-            Title.Font.Style = [fsBold]
-            Width = 80
-          end
-          item
-            Alignment = taCenter
-            AutoFitColWidth = False
-            Checkboxes = True
-            EditButtons = <>
-            FieldName = 'C_ADDIT'
-            Footers = <>
-            KeyList.Strings = (
-              '1'
-              '0')
-            MaxWidth = 80
-            MinWidth = 80
-            Title.Alignment = taCenter
-            Title.Caption = #1044#1086#1087'. '#1092'-'#1094#1080#1103
-            Title.Font.Charset = DEFAULT_CHARSET
-            Title.Font.Color = clWindowText
-            Title.Font.Height = -13
-            Title.Font.Name = 'Arial'
-            Title.Font.Pitch = fpFixed
-            Title.Font.Style = [fsBold]
-            Width = 80
-          end>
-        object RowDetailData: TRowDetailPanelControlEh
-        end
-      end
     end
   end
   object ImageList1: TImageList
     Left = 632
     Top = 152
     Bitmap = {
-      494C0101050020004C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010105002000500010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -2776,11 +2581,7 @@ object frmAdmin: TfrmAdmin
       FloatTop = 8
       FloatClientWidth = 0
       FloatClientHeight = 0
-      ItemLinks = <
-        item
-          Visible = True
-          ItemName = 'btnHotKeys'
-        end>
+      ItemLinks = <>
       OneOnRow = True
       Row = 0
       UseOwnFont = False
@@ -3031,5 +2832,9 @@ object frmAdmin: TfrmAdmin
       Caption = 'ctrl_a'
       OnExecute = Action1Execute
     end
+  end
+  object Q_IDD: TOraQuery
+    Left = 472
+    Top = 400
   end
 end
