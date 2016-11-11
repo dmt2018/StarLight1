@@ -24,7 +24,7 @@ object frmAdmin: TfrmAdmin
     Width = 764
     Height = 449
     Cursor = crHandPoint
-    ActivePage = TabSheet1
+    ActivePage = TabSheet5
     Align = alClient
     Images = ImageList1
     MultiLine = True
@@ -1819,13 +1819,277 @@ object frmAdmin: TfrmAdmin
     object TabSheet5: TTabSheet
       Caption = #1056#1040#1047#1056#1045#1064#1045#1053#1048#1071
       ImageIndex = 5
+      object Panel3: TPanel
+        Left = 0
+        Top = 0
+        Width = 756
+        Height = 36
+        Align = alTop
+        Color = clWhite
+        ParentBackground = False
+        TabOrder = 0
+        ExplicitWidth = 734
+        object Label2: TLabel
+          Left = 8
+          Top = 8
+          Width = 149
+          Height = 16
+          Caption = #1057#1087#1080#1089#1086#1082' '#1088#1072#1079#1088#1077#1096#1077#1085#1080#1081
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'MS Sans Serif'
+          Font.Pitch = fpFixed
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+      end
+      object Panel12: TPanel
+        Left = 0
+        Top = 36
+        Width = 756
+        Height = 48
+        Align = alTop
+        Color = clMoneyGreen
+        ParentBackground = False
+        TabOrder = 1
+        Visible = False
+        ExplicitWidth = 734
+        object Label5: TLabel
+          Left = 8
+          Top = 6
+          Width = 48
+          Height = 13
+          Caption = #1053#1072#1079#1074#1072#1085#1080#1077
+        end
+        object Edit4: TEdit
+          Left = 72
+          Top = 6
+          Width = 313
+          Height = 22
+          Ctl3D = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Pitch = fpFixed
+          Font.Style = []
+          MaxLength = 50
+          ParentCtl3D = False
+          ParentFont = False
+          TabOrder = 0
+        end
+        object cxButton4: TcxButton
+          Left = 508
+          Top = 5
+          Width = 110
+          Height = 25
+          Cursor = crHandPoint
+          Caption = ' '#1047#1072#1087#1080#1089#1100
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Pitch = fpFixed
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 1
+          OnClick = cxButton4Click
+          Glyph.Data = {
+            36040000424D3604000000000000360000002800000010000000100000000100
+            2000000000000004000000000000000000000000000000000000994F42BDA35D
+            53DF9E5648DFA36156DFA26056DFA05E56DF9E5C56DF9C5B57DF9A5957DF9958
+            57DF985757DF965657DF955557DF8C4648DF965153DF894043B9A86256E4FEA7
+            A7FFC08B7EFFF5EAE5FFF5E9E5FFF5E9E5FFF5E9E5FFF5E9E5FFF5E9E5FFF5E9
+            E5FFF5E9E5FFF5E9E5FFF6EBE7FFB37172FFFEA5A5FF965153DFA96356E4FEA1
+            A1FFC18C7EFFE5D9D5FFC8BBB7FFC8BBB7FFC8BBB7FFC8BBB7FFC8BBB7FFC8BB
+            B7FFC8BBB7FFC8BBB7FFE9DDD9FFB47071FFFE9F9FFF975253DFAA6556E4FEA5
+            A5FFC38E7FFFF4E9E5FFEFE3DFFFEFE3DFFFEFE3DFFFEFE3DFFFEFE3DFFFEFE3
+            DFFFEFE3DFFFEFE3DFFFF5EBE8FFB57171FFFEA1A1FF985354DFAB6656E4FEA9
+            A9FFC48F7FFFE6DCD8FFC4B9B5FFC4B9B5FFC4B9B5FFC4B9B5FFC4B9B5FFC4B9
+            B5FFC4B9B5FFC4B9B5FFE9E0DDFFB67372FFFEA5A5FF985454DFAC6756E4FEAD
+            ADFFC59180FFF8F0EDFFF5EDEAFFF5EDEAFFF5EDEAFFF5EDEAFFF5EDEAFFF5ED
+            EAFFF5EDEAFFF5EDEAFFF8F1EEFFB77573FFFEA9A9FF995554DFAD6856E4FEB1
+            B1FFC79280FFE6DFDCFFC0B7B3FFC0B7B3FFC0B7B3FFC0B7B3FFC0B7B3FFC0B7
+            B3FFC0B7B3FFC0B7B3FFEAE3E0FFB87774FFFEADADFF9A5654DFAE6956E4FEB6
+            B6FFC79380FFFAF4F2FFFAF4F2FFFAF4F2FFFAF4F2FFFAF4F2FFFAF4F2FFFAF4
+            F2FFFAF4F2FFFAF4F2FFFAF5F3FFBA7974FFFEB1B1FF9B5754DFAF6B57E4FEBA
+            BAFFBC7D66FFD7B4A6FFD6B3A6FFD6B3A6FFD5B2A6FFD4B1A6FFD3B0A6FFD2B0
+            A6FFD1AFA7FFD0AEA7FFCFADA7FFB46F68FFFEB5B5FF9C5855DFB06C57E4FEBE
+            BEFFF1AAA5FFE39A90FFE0978CFFE0968CFFDF958CFFDF958BFFDF948BFFDE93
+            8BFFDE938BFFDD928AFFE0958EFFF2A6A5FFFEBABAFF9D5955DFB16D57E4FEC2
+            C2FFFFBCBCFFD57D6DFFEB7D74FFD0A399FFD1A79DFFD0A69CFFCAA198FFCAA1
+            97FFCF988EFFEC7C73FFD57E70FFFFB7B7FFFEBEBEFF9E5A54DFB26E57E4FEC6
+            C6FFFFC0C0FFDE8174FFFD7C78FFDBC1BBFFDBC8C0FFDAC6BFFFB78069FFAD64
+            47FFD7ADA6FFFF7B77FFDE8477FFFFBBBBFFFEC2C2FFA05C54DFB36E57E4FEC9
+            C9FFFFC3C3FFDE8578FFFD847FFFE1CBC7FFE4D6D0FFE2D4CFFFB8836EFFAC66
+            4BFFDAB3ADFFFF837EFFDE877AFFFFBFBFFFFEC5C5FFA15D54DFB36F57E4FECC
+            CCFFFFC7C7FFDE897BFFFD8C86FFE8D7D3FFEEE5E1FFECE3DFFFBA8A77FFAD6E
+            55FFDDBAB5FFFF8C86FFDE8B7EFFFFC2C2FFFECACAFFA15D53DFB47057E4FED2
+            D2FFFECECEFFDE8E80FFFD968FFFE9D8D4FFEFE5E2FFEDE4E1FFD0B7AEFFCCAD
+            A1FFE0BFBAFFFF958FFFDE9083FFFDCDCDFFC38A83FF964B4082A95E41BDB26D
+            53DFB16C53DFB46950DFBD725BDFB5715ADFB4705ADFB4705ADFB46F5ADFB36E
+            59DFB46E59DFBA705BDFAE644FDFA45E50DE994E406D00000000}
+          LookAndFeel.Kind = lfOffice11
+        end
+        object cxButton5: TcxButton
+          Left = 618
+          Top = 5
+          Width = 110
+          Height = 25
+          Cursor = crHandPoint
+          Caption = ' '#1054#1090#1084#1077#1085#1072
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Pitch = fpFixed
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 2
+          OnClick = cxButton5Click
+          Glyph.Data = {
+            36040000424D3604000000000000360000002800000010000000100000000100
+            2000000000000004000000000000000000000000000000000000000000000000
+            000000000000000000001D1D78182727A2792929A3BC3030AADD2E2EA9DC2727
+            9FB926269C751C1C741500000000000000000000000000000000000000000000
+            0000151557012929A6783838B8F65A5ADCFF7070F2FF6F6FF3FF6868EEFF5E5E
+            E6FF4A4AD0FF3131ACF325259B6F000000000000000000000000000000001616
+            58012A2AAAA34D4DCFFF6F6FEDFF6F6FEFFF5858DAFF4848C9FF4545C6FF4C4C
+            D0FF5454DFFF5050DCFF3F3FC1FF26269C990000000000000000000000002A2A
+            AC784B4BCEFF6969E6FF5858DBFF2F2FAEDC2828A56C212185341F1F7F322727
+            9E632A2AA4DB4A4AD2FF4949D4FF3F3FC1FF25259B6C00000000202080183838
+            BCF56363E0FF5555D8FF2A2AABAF1F1F80090000000000000000000000002424
+            953E3232B0F25252DFFF4D4DD7FF4F4FDCFF3030ABF11C1C75112B2BB0775050
+            D3FF6060DFFF3030B3DB2020820900000000000000000000000026269C483636
+            B5F65858E3FF3E3EC2FF2929A3EB4E4ED9FF4545CAFF26269C6B2D2DB3B95C5C
+            DAFF5050D3FF2B2BAE6C0000000000000000000000002828A2533A3ABBF85F5F
+            E9FF3F3FC1FE2828A37B27279F514242C6FF4F4FDAFF27279EAD3232B9D95D5D
+            DAFF4545CBFF2323903400000000000000002929A75F3E3EC1FB6666EEFF3F3F
+            C2FD2828A56E00000000191967183939BBFF5252DFFF2A2AA3CE3232BAD85D5D
+            DBFF4545CBFF22228B31000000002A2AAC6A4242C7FD6B6BF2FF3E3EC2FC2929
+            A8620000000000000000181864163939BBFF5252DFFF2A2AA4CC2E2EB7B45B5B
+            DBFF4F4FD4FF2C2CB1632B2BB0774646CBFE6D6DF3FF3D3DC2FA2A2AA9560000
+            00000000000000000000242494484141C7FF4E4EDAFF2828A1A92D2DB6704F4F
+            D4FF5F5FDFFF3030B7EE4949CFFF6C6CF1FF3C3CC1F62A2AAA4B000000000000
+            000000000000000000002A2AA8BA4E4ED9FF4444CBFF2727A164212186133838
+            C1F16363E2FF6161E3FF6969EDFF3939C0F22A2AAC4200000000000000000000
+            0000000000002929A9824141C8FF5151DEFF3030B0EB1E1E7A0C000000002D2D
+            B76A4848D0FF6969E4FF5B5BE1FF2F2FB6D52A2AAA511C1C73191A1A6C162727
+            9D482B2BAEBA4242CAFF5151DEFF3E3EC3FF2929A65E00000000000000000000
+            00002E2EB8904A4AD2FF6D6DEEFF6A6AEDFF5252D8FF4343CBFF4040C8FF4848
+            D0FF5353DEFF5252DFFF3E3EC5FF2A2AAA840000000000000000000000000000
+            0000000000002D2DB7653838C2EE5656DDFF6B6BEFFF6F6FF4FF6868F0FF5B5B
+            E5FF4949D2FF3232B7EA2A2AAC5D000000000000000000000000000000000000
+            000000000000000000002121850E2D2DB5652D2DB6A72F2FB8C92F2FB6C82C2C
+            B2A52B2BAF611F1F800B00000000000000000000000000000000}
+          LookAndFeel.Kind = lfOffice11
+        end
+        object CheckBox1: TCheckBox
+          Left = 304
+          Top = 29
+          Width = 97
+          Height = 17
+          Caption = #1040#1082#1090#1080#1074#1085#1086#1089#1090#1100
+          TabOrder = 3
+        end
+      end
+      object gr_rights: TcxGrid
+        Left = 0
+        Top = 84
+        Width = 756
+        Height = 333
+        Align = alClient
+        TabOrder = 2
+        LookAndFeel.Kind = lfOffice11
+        ExplicitLeft = 6
+        ExplicitTop = 6
+        ExplicitWidth = 722
+        ExplicitHeight = 382
+        object gr_rights_v: TcxGridDBTableView
+          NavigatorButtons.ConfirmDelete = False
+          DataController.DataSource = ds_rights
+          DataController.Filter.Options = [fcoCaseInsensitive]
+          DataController.Filter.AutoDataSetFilter = True
+          DataController.Options = [dcoAnsiSort, dcoCaseInsensitive, dcoAssignGroupingValues, dcoAssignMasterDetailKeys, dcoSaveExpanding, dcoGroupsAlwaysExpanded]
+          DataController.Summary.DefaultGroupSummaryItems = <>
+          DataController.Summary.FooterSummaryItems = <
+            item
+              Format = '0'
+              Kind = skCount
+              Column = gr_rights_id
+            end>
+          DataController.Summary.SummaryGroups = <>
+          FilterRow.InfoText = #1055#1086#1083#1077' '#1076#1083#1103' '#1092#1080#1083#1100#1090#1088#1086#1074
+          FilterRow.Visible = True
+          OptionsBehavior.CellHints = True
+          OptionsCustomize.ColumnGrouping = False
+          OptionsCustomize.ColumnMoving = False
+          OptionsData.Deleting = False
+          OptionsData.DeletingConfirmation = False
+          OptionsData.Editing = False
+          OptionsData.Inserting = False
+          OptionsView.CellEndEllipsis = True
+          OptionsView.NoDataToDisplayInfoText = #1053#1077#1090' '#1076#1072#1085#1085#1099#1093
+          OptionsView.ColumnAutoWidth = True
+          OptionsView.Footer = True
+          OptionsView.GroupByBox = False
+          OptionsView.HeaderEndEllipsis = True
+          object gr_rights_id: TcxGridDBColumn
+            Caption = 'ID '#1088#1072#1079#1088#1077#1096#1077#1085#1080#1103
+            DataBinding.FieldName = 'USER_RIGHTS_ID'
+            PropertiesClassName = 'TcxTextEditProperties'
+            Properties.Alignment.Horz = taCenter
+            Properties.ReadOnly = True
+            Visible = False
+            FooterAlignmentHorz = taCenter
+            HeaderAlignmentHorz = taCenter
+            MinWidth = 150
+            Options.Editing = False
+            Options.FilteringPopup = False
+            Options.FilteringPopupMultiSelect = False
+            Options.HorzSizing = False
+            Options.Moving = False
+            Width = 150
+          end
+          object gr_rights_name: TcxGridDBColumn
+            Caption = #1053#1072#1079#1074#1072#1085#1080#1077
+            DataBinding.FieldName = 'RIGHT_NAME'
+            Options.FilteringPopup = False
+            Options.FilteringPopupMultiSelect = False
+          end
+          object gr_rights_act: TcxGridDBColumn
+            Caption = #1040#1082#1090#1080#1074#1085#1086#1089#1090#1100
+            DataBinding.FieldName = 'IS_ACTIVE'
+            PropertiesClassName = 'TcxCheckBoxProperties'
+            Properties.DisplayChecked = #1044#1072
+            Properties.DisplayUnchecked = #1053#1077#1090
+            Properties.ImmediatePost = True
+            Properties.NullStyle = nssUnchecked
+            Properties.ReadOnly = True
+            Properties.ValueChecked = 1
+            Properties.ValueUnchecked = 0
+            FooterAlignmentHorz = taCenter
+            GroupSummaryAlignment = taCenter
+            HeaderAlignmentHorz = taCenter
+            MinWidth = 70
+            Options.Editing = False
+            Options.HorzSizing = False
+            Options.Moving = False
+            Width = 70
+          end
+        end
+        object gr_rights_l: TcxGridLevel
+          GridView = gr_rights_v
+        end
+      end
     end
   end
   object ImageList1: TImageList
     Left = 632
     Top = 152
     Bitmap = {
-      494C010105002000500010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010105002000540010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -2098,7 +2362,7 @@ object frmAdmin: TfrmAdmin
   end
   object SelQ: TOraQuery
     Left = 688
-    Top = 296
+    Top = 240
   end
   object Q_EMPL: TOraQuery
     SQL.Strings = (
@@ -2834,7 +3098,32 @@ object frmAdmin: TfrmAdmin
     end
   end
   object Q_IDD: TOraQuery
-    Left = 472
-    Top = 400
+    Left = 656
+    Top = 240
+  end
+  object cds_rights: TOraQuery
+    SQL.Strings = (
+      'SELECT * from user_rights')
+    FetchAll = True
+    AfterOpen = Q_EMPLAfterRefresh
+    AfterScroll = Q_EMPLAfterScroll
+    AfterRefresh = Q_EMPLAfterRefresh
+    Left = 296
+    Top = 272
+    object cds_rightsUSER_RIGHTS_ID: TIntegerField
+      FieldName = 'USER_RIGHTS_ID'
+    end
+    object cds_rightsRIGHT_NAME: TStringField
+      FieldName = 'RIGHT_NAME'
+      Size = 50
+    end
+    object cds_rightsIS_ACTIVE: TIntegerField
+      FieldName = 'IS_ACTIVE'
+    end
+  end
+  object ds_rights: TOraDataSource
+    DataSet = cds_rights
+    Left = 328
+    Top = 272
   end
 end

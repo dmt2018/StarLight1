@@ -8,7 +8,10 @@ uses
   ImgList, ActnList, ExtCtrls, GridsEh, DBGridEh, cxButtons, Mask, DBCtrlsEh,
   ComCtrls, DB, MemDS, DBAccess, Ora, cxGraphics, cxControls, cxContainer,
   cxEdit, cxTextEdit, cxMaskEdit, cxDropDownEdit, cxImageComboBox,
-  cxLabel, cxButtonEdit, dxBar, cxBarEditItem, dxBarExtItems, cxClasses;
+  cxLabel, cxButtonEdit, dxBar, cxBarEditItem, dxBarExtItems, cxClasses,
+  cxStyles, cxCustomData, cxFilter, cxData, cxDataStorage, cxDBData, cxCheckBox,
+  cxGridLevel, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
+  cxGridCustomView, cxGrid;
 
 type
   TfrmAdmin = class(TForm)
@@ -166,6 +169,25 @@ type
     BitBtn9: TcxButton;
     imgoffice: TcxBarEditItem;
     Q_IDD: TOraQuery;
+    Panel3: TPanel;
+    Label2: TLabel;
+    Panel12: TPanel;
+    Label5: TLabel;
+    Edit4: TEdit;
+    cxButton4: TcxButton;
+    cxButton5: TcxButton;
+    CheckBox1: TCheckBox;
+    gr_rights: TcxGrid;
+    gr_rights_v: TcxGridDBTableView;
+    gr_rights_id: TcxGridDBColumn;
+    gr_rights_name: TcxGridDBColumn;
+    gr_rights_act: TcxGridDBColumn;
+    gr_rights_l: TcxGridLevel;
+    cds_rights: TOraQuery;
+    ds_rights: TOraDataSource;
+    cds_rightsUSER_RIGHTS_ID: TIntegerField;
+    cds_rightsRIGHT_NAME: TStringField;
+    cds_rightsIS_ACTIVE: TIntegerField;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -194,6 +216,8 @@ type
     procedure Q_GROUPSAfterOpen(DataSet: TDataSet);
     procedure Q_EMPLAfterRefresh(DataSet: TDataSet);
     procedure PageControl1Change(Sender: TObject);
+    procedure cxButton4Click(Sender: TObject);
+    procedure cxButton5Click(Sender: TObject);
   private
     { Private declarations }
     p_read, p_edit, p_delete, p_print: boolean;
@@ -239,6 +263,10 @@ begin
   Q_SET_DEBITOR.Close;
   Q_SET_DEBITOR.ParamByName('v_office').AsInteger := id_office;
   Q_SET_DEBITOR.Open;
+
+  // Открытие разрешений
+  cds_rights.Close;
+  cds_rights.Open;
 end;
 
 procedure TfrmAdmin.FormCreate(Sender: TObject);
@@ -253,7 +281,9 @@ begin
 
 for i:=0 to ComponentCount-1 do
  if (Components[i] is TControl) and  (Components[i] is TDBGridEH) then
- (Components[i] as TDBGridEH).Font.Size := intDefFont;
+ (Components[i] as TDBGridEH).Font.Size := intDefFont else
+ if (Components[i] is TControl) and  (Components[i] is TcxGrid) then
+ (Components[i] as TcxGrid).Font.Size := intDefFont;
 
    // получение прав на программу
   recUserRules  := getRules(DM.cdsRules,1);
@@ -297,6 +327,7 @@ begin
   Btnadd.Enabled    := (GetOfficeID = 1);
   Btnedit.Enabled   := (GetOfficeID = 1);
   btndelete.Enabled := (GetOfficeID = 1);
+  Panel12.Visible  := false;
 end;
 
 procedure TfrmAdmin.imgOfficePropertiesChange(Sender: TObject);
@@ -326,7 +357,7 @@ end;
 procedure TfrmAdmin.PageControl1Change(Sender: TObject);
 begin
 //кнопка редакт д.б. не везде
-  if (PageControl1.ActivePage.PageIndex=2) or (PageControl1.ActivePage.PageIndex=1) then  btnedit.visible:=ivalways
+  if (PageControl1.ActivePage.PageIndex=2) or (PageControl1.ActivePage.PageIndex=1) or (PageControl1.ActivePage.PageIndex=5) then  btnedit.visible:=ivalways
   else  btnedit.visible:=ivnever;
 end;
 
@@ -388,7 +419,7 @@ end;
 
 // удаление
 procedure TfrmAdmin.aDeleteExecute(Sender: TObject);
- var ind, ind1, ind2: integer;
+ var ind, ind1, ind2, idd: integer;
 begin
 try
 // Удаление у сотрудника группы
@@ -537,8 +568,33 @@ if PageControl1.ActivePage.PageIndex=4 then begin
   end;
 end;
 
+//удалить разрешения
 if PageControl1.ActivePage.PageIndex=5 then begin
+    if (cds_rights.Active = true) and (cds_rights.RecordCount > 0) and (cds_rights.FieldByName('User_rights_id').AsString <> '') then
+    begin
+      if MessageDlg('Вы действительно хотите удалить операцию?',mtConfirmation,[mbYes, mbNo],0) = mrYes then
+      begin
+        try
+          selq.Close;
+          selq.SQL.Clear;
+          selq.SQL.Add('delete from user_rights where User_rights_id=:p2');
+          selq.ParamByName('p2').AsInteger  := cds_rights.FieldByName('User_rights_id').AsInteger;
 
+          cds_rights.Next;
+          idd := cds_rightsUser_rights_id.AsInteger;
+          selq.execute;
+
+          cds_rights.Refresh;
+          cds_rights.Locate('User_rights_id',idd,[]);
+
+          selq.Close;
+        except
+          on E: Exception do  MessageBox(Handle, PChar('Произошла ошибка!'#10#13 + E.Message), 'Внимание', MB_ICONERROR);
+        End;
+        //gr_rights_v.DataController.DataSet.Delete;
+      end;
+    end
+    else ShowMessage('Нет данных для удаления!');
 end;
 
 finally
@@ -590,10 +646,27 @@ if PageControl1.ActivePage.PageIndex=2 then begin
     end;
 end;
 
+// Редактирование разрешений
 if PageControl1.ActivePage.PageIndex=5 then begin
+ //page:=5;
+ if (cds_rights.Active = true) and (cds_rights.RecordCount > 0) and (cds_rights.FieldByName('User_rights_id').AsString <> '') then
+  begin
+    try
+      Edit4.Text := cds_rights.FieldByName('RIGHT_NAME').AsString;
 
+      if (cds_rights.FieldByName('IS_ACTIVE').AsInteger = 1) then
+        CheckBox1.Checked := true
+      else
+        CheckBox1.Checked := false;
+
+      frmEditAdmins.ttype := 6;  // операция Редакт.
+      Panel12.Visible := true;
+      Edit4.SetFocus;
+    except
+      on E: Exception do  MessageBox(Handle, PChar('Произошла ошибка!'#10#13 + E.Message), 'Внимание', MB_ICONERROR);
+    End;
+  end else MessageBox(Handle, 'Нет данных для редактирования', 'Внимание', MB_ICONWARNING);
 end;
-
 
 finally
 end;
@@ -712,7 +785,12 @@ end;
 
 // разрешения
 if PageControl1.ActivePage.PageIndex=5 then begin
-   page:=5;
+   //page:=5;                  // вкладка Разрешения
+   Edit4.Text := '';
+   CheckBox1.Checked := false;
+   frmEditAdmins.ttype := 5; // операция добавить
+   Panel12.Visible := true;
+   Edit4.SetFocus;
 end;
 
 finally
@@ -745,6 +823,11 @@ if (pageControl1.ActivePageIndex = 3) then
 begin
   Q_SET_CASH.Refresh;
   DBGridEh1.SetFocus;
+end;
+if (pageControl1.ActivePageIndex = 5) then
+begin
+  cds_rights.Refresh;
+  gr_rights.SetFocus;
 end;
 end;
 
@@ -986,6 +1069,66 @@ end;
 procedure TfrmAdmin.ctrl_aExecute(Sender: TObject);
 begin
 
+end;
+
+// запись разреш
+procedure TfrmAdmin.cxButton4Click(Sender: TObject);
+var sql: string;
+    ind: integer;
+begin
+  if (trim(Edit4.Text) = '') then ShowMessage('Не заполнены все поля!')
+  else
+  begin
+      cxButton4.SetFocus;
+      try
+        selq.Close;
+        selq.SQL.Clear;
+
+        if (frmEditAdmins.ttype = 5) then begin
+          //selq.SQL.Add('insert into user_rights values(:USER_RIGHTS_ID, :RIGHT_NAME, :IS_ACTIVE)');
+          selq.SQL.Add('insert into user_rights values(get_office_unique(''OPERATIONS_ID''), :RIGHT_NAME, :IS_ACTIVE)');
+          //selq.ParamByName('USER_RIGHTS_ID').AsInteger     := 0
+        end
+        else begin
+          selq.SQL.Add('update user_rights set RIGHT_NAME=:RIGHT_NAME, IS_ACTIVE=:IS_ACTIVE  where USER_RIGHTS_ID=:USER_RIGHTS_ID');
+          selq.ParamByName('USER_RIGHTS_ID').AsInteger     := cds_rightsUser_rights_id.AsInteger;
+        end;
+
+
+        selq.ParamByName('RIGHT_NAME').AsString := trim(Edit4.Text);
+        if (CheckBox1.Checked) then       
+          selq.ParamByName('IS_ACTIVE').AsInteger   := 1
+        else
+          selq.ParamByName('IS_ACTIVE').AsInteger   := 0;
+        selq.execute;
+
+        cds_rights.Refresh;
+
+        if (frmEditAdmins.ttype = 6) then begin
+        ind := selq.ParamByName('USER_RIGHTS_ID').AsInteger;
+
+        cds_rights.Refresh;
+        cds_rights.Locate('USER_RIGHTS_ID',ind,[]);
+        end;
+
+        panel12.Hide;
+        gr_rights.SetFocus;
+      except
+        on E: Exception do
+        begin
+          panel12.Hide;
+          MessageBox(Handle, PChar('Произошла ошибка!'#10#13 + E.Message), 'Внимание', MB_ICONERROR);
+        end;
+      End;
+
+  end;
+end;
+
+// отмена разреш.
+procedure TfrmAdmin.cxButton5Click(Sender: TObject);
+begin
+  Panel12.Visible := false;
+  gr_rights.SetFocus;
 end;
 
 //  Обновление данных
