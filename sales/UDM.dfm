@@ -2286,13 +2286,17 @@ object DM: TDM
       'added=:added')
     Session = sale_session
     SQL.Strings = (
-      'select '
-      'N_ID,'
+      'select N_ID, code, QUANTITY, price_list, store_type, ADDED'
+      'from store_docdatatemp_view'
+      'where (CODE = :CODE or BAR_CODE = :CODE)'
+      'and ID_DEPARTMENTS = :ID_DEPARTMENTS '
+      'and STORE_TYPE=1'
+      'and id_office = const_office'
+      ''
+      '/*'
+      'select N_ID,'
       'case when ID_DEPARTMENTS = 62 then code else our_code end code,'
-      'QUANTITY,'
-      'price_list,'
-      'store_type,'
-      'ADDED'
+      'QUANTITY, price_list, store_type, ADDED'
       'from '
       'store_docdatatemp_view'
       'where'
@@ -2300,7 +2304,8 @@ object DM: TDM
       'and ID_DEPARTMENTS = :ID_DEPARTMENTS '
       'and STORE_TYPE=1'
       'and id_office = const_office'
-      '--(CODE = :CODE or our_code = :CODE)')
+      '--(CODE = :CODE or our_code = :CODE)'
+      '*/')
     AutoCommit = False
     RefreshOptions = [roAfterInsert, roAfterUpdate]
     Options.CacheLobs = False

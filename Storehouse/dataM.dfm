@@ -43,7 +43,7 @@ object DM: TDM
     Left = 296
     Top = 25
     Bitmap = {
-      494C01010F001300A40010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010F001300A80010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000004000000001002000000000000040
       0000000000000000000000000000000000000000000000000000000000000000
       00007B737B007B737B007B737B007B737B007B737B007B737B007B737B007B73
@@ -628,37 +628,22 @@ object DM: TDM
       'added=:added')
     Session = OraSession
     SQL.Strings = (
-      'select '
-      'N_ID,'
-      'case when ID_DEPARTMENTS = 62 then code else our_code end code,'
-      'QUANTITY,'
-      'price_list,'
-      'store_type,'
-      'ADDED,'
-      'quantity_now'
-      'from '
-      'store_docdatatemp_view'
-      'where'
-      'decode(ID_DEPARTMENTS,62,code,our_code) = :CODE '
+      'select N_ID, code, QUANTITY, price_list, store_type, ADDED'
+      'from store_docdatatemp_view'
+      'where (CODE = :CODE or BAR_CODE = :CODE)'
       'and ID_DEPARTMENTS = :ID_DEPARTMENTS '
       'and STORE_TYPE=1'
       'and id_office = const_office'
       ''
       '/*'
-      'select '
-      'N_ID,'
-      'CODE,'
-      'QUANTITY,'
-      'price_list,'
-      'store_type,'
-      'ADDED,'
-      'quantity_now'
-      'from '
-      'store_docdatatemp_view'
-      'where'
-      'CODE = :CODE '
+      'select N_ID,'
+      'case when ID_DEPARTMENTS = 62 then code else our_code end code,'
+      'QUANTITY, price_list, store_type, ADDED, quantity_now'
+      'from store_docdatatemp_view'
+      'where decode(ID_DEPARTMENTS,62,code,our_code) = :CODE '
       'and ID_DEPARTMENTS = :ID_DEPARTMENTS '
       'and STORE_TYPE=1'
+      'and id_office = const_office'
       '*/')
     AutoCommit = False
     RefreshOptions = [roAfterInsert, roAfterUpdate]

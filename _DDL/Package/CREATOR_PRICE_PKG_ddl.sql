@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.PRICE_PKG
--- Generated 29.10.2016 1:26:26 from CREATOR@STAR_NEW
+-- Generated 13.11.2016 21:42:46 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE price_pkg
@@ -1634,7 +1634,12 @@ AS
     SELECT  NOM.N_ID N_ID, COMPILED_NAME TITLE, PRICE, CODE, nom.H_CODE,
       DECODE(nom.colour,'   ',NULL,' ',NULL,NULL,NULL, 'цв. ' || nom.colour) colour,
       nom.f_name_ru, nom.country, nom.rus_marks, BAR_CODE,
-      nvl(nom.BAR_CODE,nom.CODE) as PRINT_CODE,
+
+      --В СРЕЗКЕ и В ГОРШКАХ при распечатке стикеров должен отображаться только ш-код твоей программы.
+      --Напоминаю: СРЕЗКА + ГОРШКИ = наш ш-код, АКСЕССУАРЫ - при наличии - ш-код поставщика, если его нет - наш ш-код
+      --nvl(nom.BAR_CODE,nom.CODE) as PRINT_CODE,
+      case when ID_DEPARTMENTS = 121 then nvl(nom.BAR_CODE,to_char(nom.CODE)) else to_char(nom.CODE) end PRINT_CODE,
+
       PL.PRICE * DECODE(nom.PACK,NULL,1,0,1,PACK) PACK_PRICE
       , decode(nom.PACK,null,1,0,1,nom.PACK) as PACK
       --, nom.compiled_name_otdel
@@ -1738,7 +1743,12 @@ begin
       nom.rus_marks,
       BAR_CODE,
 --      DECODE(nom.BAR_CODE,NULL,nom.CODE,nom.BAR_CODE) PRINT_CODE,
-      case when nom.id_departments = 62 then DECODE(nom.BAR_CODE,NULL,nom.CODE,nom.BAR_CODE) else nom.CODE end PRINT_CODE,
+
+      --В СРЕЗКЕ и В ГОРШКАХ при распечатке стикеров должен отображаться только ш-код твоей программы.
+      --Напоминаю: СРЕЗКА + ГОРШКИ = наш ш-код, АКСЕССУАРЫ - при наличии - ш-код поставщика, если его нет - наш ш-код
+      --case when nom.id_departments = 62 then DECODE(nom.BAR_CODE,NULL,nom.CODE,nom.BAR_CODE) else nom.CODE end PRINT_CODE,
+      case when ID_DEPARTMENTS = 121 then nvl(nom.BAR_CODE,to_char(nom.CODE)) else to_char(nom.CODE) end PRINT_CODE,
+
       PL.PRICE * DECODE(nom.PACK,NULL,1,0,1,PACK) PACK_PRICE
       , IN_INVOICE_DATA_ID
       , decode(nom.PACK,null,1,0,1,nom.PACK) as PACK
