@@ -1288,7 +1288,7 @@ begin
 //  if MessageDlg('—читать со сканера?',mtConfirmation,[mbYes, mbNo],0) = mrYes then
   if (Panel_fill.Visible = false) then
   begin
-//    readscaner();
+    readscaner();
     dm.Scan.ParamByName('ID_DEPARTMENTS').AsInteger := CUR_DEPT_ID; //+'%';
   	SP_CLIENT_CODE := From_Scaner(path+'scan/1.txt', dm.Scan, dm.OraSQL_Scan);
     if alert_str <> '' then
