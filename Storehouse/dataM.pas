@@ -38,6 +38,13 @@ type
     fst_viewF_SUB_TYPE: TStringField;
     fst_viewID_DEPARTMENTS: TFloatField;
     fst_viewNBUTTON: TIntegerField;
+    ScanN_ID: TFloatField;
+    ScanCODE: TStringField;
+    ScanQUANTITY: TFloatField;
+    ScanPRICE_LIST: TFloatField;
+    ScanSTORE_TYPE: TFloatField;
+    ScanADDED: TFloatField;
+    ScanQUANTITY_NOW: TFloatField;
     procedure OraSessionAfterConnect(Sender: TObject);
     procedure DataModuleCreate(Sender: TObject);
   private

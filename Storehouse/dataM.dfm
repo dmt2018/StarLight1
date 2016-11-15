@@ -43,7 +43,7 @@ object DM: TDM
     Left = 296
     Top = 25
     Bitmap = {
-      494C01010F001300A80010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010F001300AC0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000004000000001002000000000000040
       0000000000000000000000000000000000000000000000000000000000000000
       00007B737B007B737B007B737B007B737B007B737B007B737B007B737B007B73
@@ -628,9 +628,11 @@ object DM: TDM
       'added=:added')
     Session = OraSession
     SQL.Strings = (
-      'select N_ID, code, QUANTITY, price_list, store_type, ADDED'
+      
+        'select N_ID, code, QUANTITY, price_list, store_type, ADDED, quan' +
+        'tity_now'
       'from store_docdatatemp_view'
-      'where (CODE = :CODE or BAR_CODE = :CODE)'
+      'where (CODE = :CODE or OUR_CODE = :CODE)'
       'and ID_DEPARTMENTS = :ID_DEPARTMENTS '
       'and STORE_TYPE=1'
       'and id_office = const_office'
@@ -664,6 +666,30 @@ object DM: TDM
         Name = 'ID_DEPARTMENTS'
         ParamType = ptInput
       end>
+    object ScanN_ID: TFloatField
+      FieldName = 'N_ID'
+      Required = True
+    end
+    object ScanCODE: TStringField
+      FieldName = 'CODE'
+      Size = 40
+    end
+    object ScanQUANTITY: TFloatField
+      FieldName = 'QUANTITY'
+    end
+    object ScanPRICE_LIST: TFloatField
+      FieldName = 'PRICE_LIST'
+    end
+    object ScanSTORE_TYPE: TFloatField
+      FieldName = 'STORE_TYPE'
+    end
+    object ScanADDED: TFloatField
+      FieldName = 'ADDED'
+    end
+    object ScanQUANTITY_NOW: TFloatField
+      FieldName = 'QUANTITY_NOW'
+      Required = True
+    end
   end
   object StorProc: TOraStoredProc
     StoredProcName = 'STORE_PKG.get_deps_on_user'
