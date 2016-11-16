@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.NOMENCLATURE2_PKG
--- Generated 17.08.2016 21:54:21 from CREATOR@STAR_NEW
+-- Generated 16-ноя-2016 18:24:06 from CREATOR@ORCL
 
 CREATE OR REPLACE 
 PACKAGE nomenclature2_pkg
@@ -203,13 +203,13 @@ PROCEDURE set_active_noms_by_suplier (
    v_id_dep    in number
 );
 
-
 --
--- товар на сайте
+-- Изменяем активность номенклатуры на сайте
 --
 PROCEDURE set_nomenclature_site_marks (
    v_n_id             in number,
-   v_REMOVE_FROM_SITE in number
+   v_REMOVE_FROM_SITE in number,
+   v_NO_ORDER         in number
 );
 
 
@@ -459,6 +459,7 @@ BEGIN
               , c.hs_val
               , u.nsi_name
               , nvl(a1.REMOVE_FROM_SITE,0) as REMOVE_FROM_SITE
+              , no_order
        FROM nomenclature_mat_view a
          left outer join import_flowers_kov i
             on i.NOM_CODE = a.code
@@ -881,6 +882,7 @@ begin
            , nvl(b.nom_start,0) as SEASON_START
            , nvl(b.nom_end,0) as SEASON_END
            , '0' as onMarch
+           , 0 as NO_ORDER
       FROM price_list a, nomenclature_mat_view b, store_main c
       where a.n_id = b.n_id
         and b.n_id = c.n_id
@@ -913,11 +915,15 @@ begin
            , nvl(b.nom_start,0) as SEASON_START
            , nvl(b.nom_end,0) as SEASON_END
            , nvl(c.hs_val,'0') as onMarch
+           , decode(mm.n_id,null,0,1) as NO_ORDER
+           --, decode(mm.n_id,null,0,1) as promo
       FROM nomenclature_mat_view b
         left outer join (select distinct a.n_id FROM invoice_data a, invoice_register b where a.inv_id = b.inv_id and b.supplier_date >= sysdate-qDays and b.id_departments = 62) inv on inv.n_id = b.n_id
         left outer join store_main a on a.n_id = b.n_id and a.store_type = 1
         inner join price_list p on p.n_id = b.n_id
         left outer join nom_specifications c on c.n_id = b.n_id and c.hs_id = const_8march
+        left outer join nomenclature_site_marks mm on mm.n_id = b.n_id and mm.no_order=1
+        --left outer join nomenclature_site_marks mm on mm.n_id = b.n_id and remove_from_site=2
       where b.id_departments = 62
         and b.notuse = 0
         and (a.quantity > 0 or inv.n_id is not null)
@@ -1016,7 +1022,8 @@ END set_active_noms_by_suplier;
 --
 PROCEDURE set_nomenclature_site_marks (
    v_n_id             in number,
-   v_REMOVE_FROM_SITE in number
+   v_REMOVE_FROM_SITE in number,
+   v_NO_ORDER         in number
 )
 is
 begin
@@ -1024,10 +1031,23 @@ begin
   if v_REMOVE_FROM_SITE = 1 then
     select count(1) into tmp_cnt from nomenclature_site_marks where N_ID = v_n_id;
     if tmp_cnt = 0 then
-      insert into nomenclature_site_marks values(v_n_id, 1, sysdate);
+      insert into nomenclature_site_marks values(v_n_id, 1, sysdate,v_NO_ORDER);
     end if;
-  else
+    if tmp_cnt = 1 then
+      update nomenclature_site_marks set no_order=v_NO_ORDER WHERE N_ID = v_n_id;
+    end if;
+  end if;
+  if (v_REMOVE_FROM_SITE = 0) and (v_NO_ORDER = 0) then
     delete from nomenclature_site_marks where N_ID = v_n_id;
+  end if;
+  if (v_REMOVE_FROM_SITE = 0) and (v_NO_ORDER = 1) then
+    select count(1) into tmp_cnt from nomenclature_site_marks where N_ID = v_n_id;
+    if tmp_cnt = 0 then
+      insert into nomenclature_site_marks values(v_n_id, 0, sysdate,v_NO_ORDER);
+    end if;
+    if tmp_cnt = 1 then
+      update nomenclature_site_marks set no_order=v_NO_ORDER WHERE N_ID = v_n_id;
+    end if;
   end if;
 EXCEPTION
    WHEN OTHERS THEN

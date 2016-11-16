@@ -98,6 +98,7 @@ type
     chbNoPrint: TcxCheckBox;
     chbNotUse: TcxCheckBox;
     cb_sait: TcxCheckBox;
+    cb_no_order: TcxCheckBox;
     procedure aSaveExecute(Sender: TObject);
     procedure a_findExecute(Sender: TObject);
     procedure a_find_cExecute(Sender: TObject);

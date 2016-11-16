@@ -152,6 +152,7 @@ type
     imcb_units: TcxImageComboBox;
     ed_length_hol: TcxSpinEdit;
     cb_sait: TCheckBox;
+    cb_no_order: TCheckBox;
     procedure BitBtn2Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
@@ -181,7 +182,7 @@ type
     tt : integer;
     N_ID, FN_ID_OLD, FT_ID_OLD, FST_ID_OLD, C_ID_OLD, S_ID_OLD,  COL_ID_OLD,
     LEN_OLD, PACK_OLD, PACK_OLD_HOL, HOL_TYPE_OLD, DIAMETER_OLD, WEIGHT_OLD, WEIGHTDRY_OLD,
-    CUST_COEF_OLD, VBN_OLD, CODE_OLD, H_NAME_OLD, H_CODE_OLD, REMARKS_OLD,
+    CUST_COEF_OLD, VBN_OLD, CODE_OLD, H_NAME_OLD, H_CODE_OLD, REMARKS_OLD, NOMNOORDER,
     BAR_CODE_OLD, PHOTO_OLD, NOPRINT_OLD, NOTUSE_OLD, TNVED, NOMNEW, NOMSTART, NOMEND, NOMSAIT,
     COLOR_OLD, NAME_CODE_OLD : Variant;
   public
@@ -301,6 +302,7 @@ begin
   cb_start.Checked := false;
   cb_end.Checked   := false;
   cb_sait.Checked   := false;
+  cb_no_order.Checked   := false;
 
   DM.SelQ.Close;
   DM.SelQ.SQL.Clear;
@@ -332,6 +334,7 @@ begin
           NOMSTART      := FieldByName('nom_start').Value;
           NOMEND        := FieldByName('nom_end').Value;
           NOMSAIT       := FieldByName('REMOVE_FROM_SITE').Value;
+          NOMNOORDER    := FieldByName('NO_ORDER').Value;
 
 {
     //************************читаю чекбокс в перем.NOMSAIT********
@@ -461,6 +464,7 @@ begin
       cb_start.Checked := (NOMSTART = 1);
       cb_end.Checked   := (NOMEND = 1);
       cb_sait.Checked   := (NOMSAIT = 1);
+      cb_no_order.Checked   := (NOMNOORDER = 1);
 
       panel10.Visible := (N_ID_ > 0);
 
@@ -1126,6 +1130,7 @@ begin
     NOMSTART  := BoolToint(cb_start.Checked);
     NOMEND    := BoolToint(cb_end.Checked);
     NOMSAIT    := boolToint(cb_sait.Checked);
+    NOMNOORDER    := boolToint(cb_no_order.Checked);
 
     with DM.StorProc do
     Begin
@@ -1215,7 +1220,7 @@ begin
       //******** доб/удал данные ********
         DM.SelQ.Close;
         DM.SelQ.SQL.Clear;
-        DM.SelQ.SQL.Add('begin nomenclature2_pkg.set_nomenclature_site_marks('+floattostr(N_ID)+','+IntToStr(BoolToInt(cb_sait.Checked))+'); end;');
+        DM.SelQ.SQL.Add('begin nomenclature2_pkg.set_nomenclature_site_marks('+floattostr(N_ID)+','+IntToStr(BoolToInt(cb_sait.Checked))+','+IntToStr(BoolToInt(cb_no_order.Checked))+'); end;');
         DM.SelQ.execute;
         DM.SelQ.Close;
      //*********************************

@@ -7,7 +7,7 @@ object DM: TDM
     Options.Direct = True
     Username = 'creator'
     Password = '123456'
-    Server = 'KLEPOV:1521:STARNEW'
+    Server = 'roznica:1521:orcl'
     AutoCommit = False
     Left = 24
     Top = 16
@@ -18,7 +18,7 @@ object DM: TDM
     SQLRefresh.Strings = (
       
         'select a.*, nvl(i.CHECKED,1) as CHECKED, u.nsi_name, nvl(a1.REMO' +
-        'VE_FROM_SITE,0) as REMOVE_FROM_SITE'
+        'VE_FROM_SITE,0) as REMOVE_FROM_SITE, NO_ORDER'
       'from creator.nomenclature_mat_view a'
       '  left outer join import_flowers_kov i'
       '       on i.NOM_CODE = a.code'
@@ -108,7 +108,7 @@ object DM: TDM
     end
     object DictViewH_CODE: TStringField
       FieldName = 'H_CODE'
-      Size = 50
+      Size = 80
     end
     object DictViewH_NAME: TStringField
       FieldName = 'H_NAME'
@@ -127,16 +127,17 @@ object DM: TDM
     object DictViewPACK: TIntegerField
       FieldName = 'PACK'
     end
+    object DictViewVBN: TIntegerField
+      FieldName = 'VBN'
+    end
     object DictViewHOL_TYPE: TStringField
       FieldName = 'HOL_TYPE'
     end
     object DictViewWEIGHT: TFloatField
       FieldName = 'WEIGHT'
-      DisplayFormat = '0.0000000000'
     end
     object DictViewWEIGHTDRY: TFloatField
       FieldName = 'WEIGHTDRY'
-      DisplayFormat = '0.0000000000'
     end
     object DictViewS_NAME_RU: TStringField
       FieldName = 'S_NAME_RU'
@@ -173,7 +174,7 @@ object DM: TDM
     end
     object DictViewPHOTO: TStringField
       FieldName = 'PHOTO'
-      Size = 30
+      Size = 80
     end
     object DictViewGREAT_NAME_F: TStringField
       FieldName = 'GREAT_NAME_F'
@@ -181,10 +182,11 @@ object DM: TDM
     end
     object DictViewCOMPILED_NAME_OTDEL: TStringField
       FieldName = 'COMPILED_NAME_OTDEL'
-      Size = 350
+      Size = 500
     end
     object DictViewNAME_CODE: TStringField
       FieldName = 'NAME_CODE'
+      Size = 30
     end
     object DictViewNOPRINT: TIntegerField
       FieldName = 'NOPRINT'
@@ -194,10 +196,23 @@ object DM: TDM
     end
     object DictViewNAMECODE: TStringField
       FieldName = 'NAMECODE'
+      Size = 30
     end
     object DictViewTNVED: TStringField
       FieldName = 'TNVED'
       Size = 50
+    end
+    object DictViewHOL_PACK: TIntegerField
+      FieldName = 'HOL_PACK'
+    end
+    object DictViewNOM_NEW: TIntegerField
+      FieldName = 'NOM_NEW'
+    end
+    object DictViewNOM_START: TIntegerField
+      FieldName = 'NOM_START'
+    end
+    object DictViewNOM_END: TIntegerField
+      FieldName = 'NOM_END'
     end
     object DictViewID_OFFICE: TIntegerField
       FieldName = 'ID_OFFICE'
@@ -209,15 +224,6 @@ object DM: TDM
     object DictViewCHECKED: TFloatField
       FieldName = 'CHECKED'
     end
-    object DictViewNOM_NEW: TIntegerField
-      FieldName = 'NOM_NEW'
-    end
-    object DictViewNOM_START: TIntegerField
-      FieldName = 'NOM_START'
-    end
-    object DictViewNOM_END: TIntegerField
-      FieldName = 'NOM_END'
-    end
     object DictViewHOL_COLOR: TStringField
       FieldName = 'HOL_COLOR'
       Size = 50
@@ -226,18 +232,15 @@ object DM: TDM
       FieldName = 'HS_VAL'
       Size = 50
     end
-    object DictViewVBN: TIntegerField
-      FieldName = 'VBN'
-    end
     object DictViewNSI_NAME: TStringField
       FieldName = 'NSI_NAME'
       Size = 50
     end
-    object DictViewHOL_PACK: TIntegerField
-      FieldName = 'HOL_PACK'
-    end
     object DictViewREMOVE_FROM_SITE: TFloatField
       FieldName = 'REMOVE_FROM_SITE'
+    end
+    object DictViewNO_ORDER: TIntegerField
+      FieldName = 'NO_ORDER'
     end
   end
   object DictView_DS: TDataSource

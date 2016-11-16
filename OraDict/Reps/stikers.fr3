@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TfrxReport Version="4.12.11" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="4095" PreviewOptions.Zoom="1" PrintOptions.Printer="Default" PrintOptions.PrintOnSheet="0" ReportOptions.CreateDate="37936,5626925926" ReportOptions.Description.Text="" ReportOptions.LastChange="42193,5372894329" ScriptLanguage="PascalScript" ScriptText.Text="begin&#13;&#10;&#13;&#10;end." PropData="044C65667403900103546F7003300108446174617365747301010C3C00000020446174615365743D2266727853656C50726E74507265766965772220446174615365744E616D653D2266727853656C50726E7450726576696577220000095661726961626C657301010C10000000204E616D653D2220437573744375742200010C11000000204E616D653D225072696E744D61726B220000055374796C650100">
+  <TfrxDataPage Name="Data" Height="1000" Left="0" Top="0" Width="1000"/>
+  <TfrxReportPage Name="Page1" PaperWidth="210" PaperHeight="297" PaperSize="256" LeftMargin="7,5" RightMargin="7,5" TopMargin="7,5" BottomMargin="7,5" Columns="1" ColumnWidth="198" ColumnPositions.Text="0" HGuides.Text="" VGuides.Text="">
+    <TfrxMasterData Name="MasterData9" Height="130,01577" Left="0" Top="18,89765" Width="737,00835" Columns="3" ColumnWidth="245,669291338583" ColumnGap="0" DataSet="frxSelPrntPreview" DataSetName="frxSelPrntPreview" RowCount="0">
+      <TfrxMemoView Name="Memo6" Left="0" Top="0,22047" Width="238,11039" Height="56,23624" ShowHint="False" DisplayFormat.DecimalSeparator="," Font.Charset="1" Font.Color="0" Font.Height="-12" Font.Name="Arial" Font.Style="1" HAlign="haCenter" ParentFont="False" VAlign="vaBottom" Text="[frxSelPrntPreview.&#34;COMPILED_NAME_OTDEL&#34;]&#13;&#10;[frxSelPrntPreview.&#34;COLOUR&#34;]"/>
+      <TfrxBarCodeView Name="Bar1" Left="67,23624" Top="58,45671" Width="103" Height="58,89765" ShowHint="False" BarType="bcCodeEAN13" CalcCheckSum="True" Expression="&#60;frxSelPrntPreview.&#34;CODE&#34;&#62;" Rotation="0" Text="12345678" WideBarRatio="2" Zoom="1" Font.Charset="1" Font.Color="0" Font.Height="-12" Font.Name="Arial" Font.Style="0"/>
+    </TfrxMasterData>
+  </TfrxReportPage>
+</TfrxReport>

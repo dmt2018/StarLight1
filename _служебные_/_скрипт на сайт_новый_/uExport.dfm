@@ -2,7 +2,7 @@ object frmExport: TfrmExport
   Left = 0
   Top = 0
   Caption = #1057#1080#1085#1093#1088#1086#1085#1080#1079#1072#1094#1080#1103' '#1089' '#1089#1072#1081#1090#1086#1084
-  ClientHeight = 299
+  ClientHeight = 331
   ClientWidth = 435
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -118,6 +118,9 @@ object frmExport: TfrmExport
       object cxGrid1DBTableView1ONMARCH: TcxGridDBColumn
         DataBinding.FieldName = 'ONMARCH'
       end
+      object cxGrid1DBTableView1Column1: TcxGridDBColumn
+        DataBinding.FieldName = 'NO_ORDER'
+      end
     end
     object cxGrid1Level1: TcxGridLevel
       GridView = cxGrid1DBTableView1
@@ -125,7 +128,7 @@ object frmExport: TfrmExport
   end
   object cxGrid2: TcxGrid
     Left = 10
-    Top = 120
+    Top = 144
     Width = 417
     Height = 171
     TabOrder = 3
@@ -243,6 +246,7 @@ object frmExport: TfrmExport
     end
     object OraQuery1CODENAME: TStringField
       FieldName = 'CODENAME'
+      Size = 30
     end
     object OraQuery1DEPART_ID: TFloatField
       FieldName = 'DEPART_ID'
@@ -275,7 +279,7 @@ object frmExport: TfrmExport
     end
     object OraQuery1PRODUCT_DESC: TStringField
       FieldName = 'PRODUCT_DESC'
-      Size = 400
+      Size = 581
     end
     object OraQuery1PRODUCT_PRICE: TFloatField
       FieldName = 'PRODUCT_PRICE'
@@ -308,6 +312,9 @@ object frmExport: TfrmExport
       FieldName = 'ONMARCH'
       Size = 50
     end
+    object OraQuery1NO_ORDER: TFloatField
+      FieldName = 'NO_ORDER'
+    end
   end
   object OraDataSource1: TOraDataSource
     DataSet = OraQuery1
@@ -320,7 +327,6 @@ object frmExport: TfrmExport
     Username = 'creator'
     Password = '123456'
     Server = 'roznica:1521:orcl'
-    AutoCommit = False
     LoginPrompt = False
     Left = 328
     Top = 8

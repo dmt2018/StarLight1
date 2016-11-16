@@ -1118,6 +1118,22 @@ object SetParsF: TSetParsF
       TabOrder = 19
       Width = 178
     end
+    object cb_no_order: TcxCheckBox
+      Left = 431
+      Top = 168
+      Caption = #1085#1077#1090' '#1079#1072#1082#1072#1079#1072
+      Properties.AllowGrayed = True
+      Properties.DisplayChecked = '1'
+      Properties.DisplayUnchecked = '0'
+      Properties.DisplayGrayed = '2'
+      Properties.ImmediatePost = True
+      Properties.ValueChecked = '1'
+      Properties.ValueGrayed = '2'
+      Properties.ValueUnchecked = '0'
+      State = cbsGrayed
+      TabOrder = 20
+      Width = 178
+    end
   end
   object Panel1: TPanel
     Left = 0

@@ -1,10 +1,11 @@
 -- Start of DDL Script for Table CREATOR.NOMENCLATURE_SITE_MARKS
--- Generated 24.05.2016 19:06:32 from CREATOR@STAR2
+-- Generated 16-ноя-2016 17:20:33 from CREATOR@ORCL
 
 CREATE TABLE nomenclature_site_marks
     (n_id                           NUMBER(10,0) NOT NULL,
     remove_from_site               NUMBER(1,0) NOT NULL,
-    date_change                    DATE DEFAULT sysdate)
+    date_change                    DATE DEFAULT sysdate,
+    no_order                       NUMBER(1,0))
   PCTFREE     10
   INITRANS    1
   MAXTRANS    255
@@ -56,10 +57,6 @@ LOGGING
 
 
 
--- Constraints for NOMENCLATURE_SITE_MARKS
-
-
-
 -- Comments for NOMENCLATURE_SITE_MARKS
 
 COMMENT ON TABLE nomenclature_site_marks IS 'Пометкиноменклатурыдлясайта'
@@ -69,9 +66,3 @@ COMMENT ON COLUMN nomenclature_site_marks.n_id IS 'FK номенклатуры'
 
 -- End of DDL Script for Table CREATOR.NOMENCLATURE_SITE_MARKS
 
--- Foreign Key
-ALTER TABLE nomenclature_site_marks
-ADD CONSTRAINT nsm_n_id_f_key FOREIGN KEY (n_id)
-REFERENCES nomenclature (n_id) ON DELETE CASCADE
-/
--- End of DDL script for Foreign Key(s)

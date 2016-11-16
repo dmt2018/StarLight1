@@ -40,6 +40,8 @@ object EditForm: TEditForm
       PopupMenu = pm_main
       TabOrder = 0
       LookAndFeel.Kind = lfOffice11
+      ExplicitLeft = -6
+      ExplicitTop = 11
       object gr_noms_l: TcxGridLevel
         GridView = gr_noms_v
       end
@@ -463,7 +465,7 @@ object EditForm: TEditForm
     Left = 208
     Top = 232
     Bitmap = {
-      494C010102000400140110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010102000400180110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -732,7 +734,7 @@ object EditForm: TEditForm
     Left = 504
     Top = 208
     Bitmap = {
-      494C010127002C00140120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010127002C00180120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004001000001002000000000000080
       0200000000000000000000000000000000000000000000000000000000000000
       000000000000000000000101011A0B0B0B743B3D3DB4777777D5838383DA5152
@@ -7326,7 +7328,7 @@ object EditForm: TEditForm
     Left = 504
     Top = 256
     Bitmap = {
-      494C010101000400140110001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010101000400180110001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -7935,7 +7937,7 @@ object EditForm: TEditForm
         Options.HorzSizing = False
         Width = 85
         Position.BandIndex = 2
-        Position.ColIndex = 15
+        Position.ColIndex = 16
         Position.RowIndex = 0
       end
       object gr_noms_vNOM_END: TcxGridDBBandedColumn
@@ -7955,7 +7957,7 @@ object EditForm: TEditForm
         Options.HorzSizing = False
         Width = 85
         Position.BandIndex = 2
-        Position.ColIndex = 16
+        Position.ColIndex = 17
         Position.RowIndex = 0
       end
       object gr_noms_vN_ID: TcxGridDBBandedColumn
@@ -8111,7 +8113,6 @@ object EditForm: TEditForm
         Properties.DisplayChecked = #1044#1072
         Properties.DisplayUnchecked = #1053#1077#1090
         Properties.ImmediatePost = True
-        Properties.NullStyle = nssUnchecked
         Properties.ValueChecked = 1
         Properties.ValueUnchecked = 0
         HeaderAlignmentHorz = taCenter
@@ -8120,7 +8121,22 @@ object EditForm: TEditForm
         Options.HorzSizing = False
         Width = 110
         Position.BandIndex = 2
-        Position.ColIndex = 17
+        Position.ColIndex = 18
+        Position.RowIndex = 0
+      end
+      object gr_noms_NO_ORDER: TcxGridDBBandedColumn
+        Caption = #1053#1077#1090' '#1079#1072#1082#1072#1079#1072
+        DataBinding.FieldName = 'NO_ORDER'
+        PropertiesClassName = 'TcxCheckBoxProperties'
+        Properties.DisplayChecked = #1076#1072
+        Properties.DisplayUnchecked = #1085#1077#1090
+        Properties.NullStyle = nssUnchecked
+        Properties.ValueChecked = 1
+        Properties.ValueUnchecked = 0
+        HeaderAlignmentHorz = taCenter
+        HeaderGlyphAlignmentHorz = taCenter
+        Position.BandIndex = 2
+        Position.ColIndex = 15
         Position.RowIndex = 0
       end
     end

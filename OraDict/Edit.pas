@@ -208,6 +208,7 @@ type
     gr_spec_vORD: TcxGridDBColumn;
     gr_spec_vSC_ID: TcxGridDBColumn;
     gr_noms_vWWW: TcxGridDBBandedColumn;
+    gr_noms_NO_ORDER: TcxGridDBBandedColumn;
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure aExitExecute(Sender: TObject);
@@ -267,6 +268,7 @@ type
   private
     { Private declarations }
     nomsait:variant;
+    nomnoorder:variant;
     pnl_msg: TPanel;
     procedure FildsShow(Sender: TObject);
     procedure RepaintNom;
@@ -567,9 +569,10 @@ begin
     //************************читаю чекбокс в перем.NOMSAIT********
           DM.SelQ.Close;
           DM.SelQ.SQL.Clear;
-          DM.SelQ.SQL.Add('SELECT REMOVE_FROM_SITE FROM nomenclature_site_marks');
+          DM.SelQ.SQL.Add('SELECT REMOVE_FROM_SITE, NO_ORDER FROM nomenclature_site_marks');
           DM.SelQ.Active:=TRUE;
           NOMSAIT:= DM.SelQ.FieldByName('REMOVE_FROM_SITE').AsString;
+          NOMNOORDER:= DM.SelQ.FieldByName('NO_ORDER').AsString;
           DM.SelQ.Open;
           DM.SelQ.Close;
      //***********************************************************
@@ -1420,7 +1423,7 @@ try
       if SetParsF.cb_sait.State<>cbsgrayed then begin
         DM.SelQ.Close;
         DM.SelQ.SQL.Clear;
-        DM.SelQ.SQL.Add('begin nomenclature2_pkg.set_nomenclature_site_marks(:v_n_id,'+IntToStr(BoolToInt(SetParsF.cb_sait.Checked))+'); end;');
+        DM.SelQ.SQL.Add('begin nomenclature2_pkg.set_nomenclature_site_marks(:v_n_id,'+IntToStr(BoolToInt(SetParsF.cb_sait.Checked))+','+IntToStr(BoolToInt(SetParsF.cb_no_order.Checked))+'); end;');
         for I := 0 to gr_noms_v.Controller.SelectedRowCount - 1 do begin
         DM.SelQ.ParamByName('v_n_id').Value       := gr_noms_v.Controller.SelectedRows[i].Values[gr_noms_vN_ID.Index];
         DM.SelQ.execute;
@@ -1429,6 +1432,7 @@ try
         DM.SelQ.Close;
       end;
      //*********************************
+
 
     gr_noms_v.Controller.ClearSelection;
     DM.DictView.Refresh;
