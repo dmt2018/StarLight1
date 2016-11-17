@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.NOMENCLATURE2_PKG
--- Generated 16-ноя-2016 18:24:06 from CREATOR@ORCL
+-- Generated 17-ноя-2016 18:38:06 from CREATOR@ORCL
 
 CREATE OR REPLACE 
 PACKAGE nomenclature2_pkg
@@ -915,15 +915,15 @@ begin
            , nvl(b.nom_start,0) as SEASON_START
            , nvl(b.nom_end,0) as SEASON_END
            , nvl(c.hs_val,'0') as onMarch
-           , decode(mm.n_id,null,0,1) as NO_ORDER
-           --, decode(mm.n_id,null,0,1) as promo
+           --, decode(mm.n_id,null,0,1) as NO_ORDER
+           ,case when (mm.n_id is null or mm.no_order = 0 or mm.no_order is null) then 0 else 1  end NO_ORDER
+
       FROM nomenclature_mat_view b
         left outer join (select distinct a.n_id FROM invoice_data a, invoice_register b where a.inv_id = b.inv_id and b.supplier_date >= sysdate-qDays and b.id_departments = 62) inv on inv.n_id = b.n_id
         left outer join store_main a on a.n_id = b.n_id and a.store_type = 1
         inner join price_list p on p.n_id = b.n_id
         left outer join nom_specifications c on c.n_id = b.n_id and c.hs_id = const_8march
         left outer join nomenclature_site_marks mm on mm.n_id = b.n_id and mm.no_order=1
-        --left outer join nomenclature_site_marks mm on mm.n_id = b.n_id and remove_from_site=2
       where b.id_departments = 62
         and b.notuse = 0
         and (a.quantity > 0 or inv.n_id is not null)
