@@ -130,21 +130,22 @@ begin
     ExportGridToText( file_clients, cxGrid2, True, True, ';', '', '', 'csv');
     qClients.Close;
 
-    IdFTP1.Connect;
+  {  IdFTP1.Connect;
     IdFTP1.ChangeDir('starlight.ru/exchange');
     IdFTP1.Put(file_clients,file_clients,false);
     IdFTP1.Disconnect;
-
+                            }
     OraQuery1.ParamByName('QDAYS').AsInteger := StrToInt(edQDays.Text);
+    //OraQuery1.ParamByName('cursor_').AsCursor;
     OraQuery1.Open;
     file_str := 'all_store.csv';
     ExportGridToText( file_str, cxGrid1, True, True, ';', '', '', 'csv');
     OraQuery1.Close;
 
-    IdFTP1.Connect;
+   { IdFTP1.Connect;
     IdFTP1.ChangeDir('starlight.ru/exchange');
     IdFTP1.Put(file_str,file_str,false);
-    IdFTP1.Disconnect;
+    IdFTP1.Disconnect;  }
 end;
 
 

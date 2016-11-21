@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.NOMENCLATURE2_PKG
--- Generated 17-ноя-2016 18:38:06 from CREATOR@ORCL
+-- Generated 21.11.2016 17:39:41 from CREATOR@STAR2
 
 CREATE OR REPLACE 
 PACKAGE nomenclature2_pkg
@@ -459,7 +459,7 @@ BEGIN
               , c.hs_val
               , u.nsi_name
               , nvl(a1.REMOVE_FROM_SITE,0) as REMOVE_FROM_SITE
-              , no_order
+              , a1.no_order
        FROM nomenclature_mat_view a
          left outer join import_flowers_kov i
             on i.NOM_CODE = a.code
@@ -915,9 +915,7 @@ begin
            , nvl(b.nom_start,0) as SEASON_START
            , nvl(b.nom_end,0) as SEASON_END
            , nvl(c.hs_val,'0') as onMarch
-           --, decode(mm.n_id,null,0,1) as NO_ORDER
            ,case when (mm.n_id is null or mm.no_order = 0 or mm.no_order is null) then 0 else 1  end NO_ORDER
-
       FROM nomenclature_mat_view b
         left outer join (select distinct a.n_id FROM invoice_data a, invoice_register b where a.inv_id = b.inv_id and b.supplier_date >= sysdate-qDays and b.id_departments = 62) inv on inv.n_id = b.n_id
         left outer join store_main a on a.n_id = b.n_id and a.store_type = 1
@@ -1027,7 +1025,16 @@ PROCEDURE set_nomenclature_site_marks (
 )
 is
 begin
-  tmp_cnt := 0;
+ /* tmp_cnt := 0;
+  if v_REMOVE_FROM_SITE = 1 then
+    select count(1) into tmp_cnt from nomenclature_site_marks where N_ID = v_n_id;
+    if tmp_cnt = 0 then
+      insert into nomenclature_site_marks values(v_n_id, 1, sysdate);
+    end if;
+  else
+    delete from nomenclature_site_marks where N_ID = v_n_id;
+  end if;*/
+    tmp_cnt := 0;
   if v_REMOVE_FROM_SITE = 1 then
     select count(1) into tmp_cnt from nomenclature_site_marks where N_ID = v_n_id;
     if tmp_cnt = 0 then
