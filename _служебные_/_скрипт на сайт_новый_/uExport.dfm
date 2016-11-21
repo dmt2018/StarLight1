@@ -2,7 +2,7 @@ object frmExport: TfrmExport
   Left = 0
   Top = 0
   Caption = #1057#1080#1085#1093#1088#1086#1085#1080#1079#1072#1094#1080#1103' '#1089' '#1089#1072#1081#1090#1086#1084
-  ClientHeight = 331
+  ClientHeight = 321
   ClientWidth = 435
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -127,8 +127,8 @@ object frmExport: TfrmExport
     end
   end
   object cxGrid2: TcxGrid
-    Left = 10
-    Top = 144
+    Left = 8
+    Top = 136
     Width = 417
     Height = 171
     TabOrder = 3
@@ -326,7 +326,7 @@ object frmExport: TfrmExport
     Options.Direct = True
     Username = 'creator'
     Password = '123456'
-    Server = 'roznica:1521:orcl'
+    Server = '192.168.1.89:1521:STAR'
     LoginPrompt = False
     Left = 328
     Top = 8
