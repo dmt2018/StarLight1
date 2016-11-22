@@ -1,8 +1,8 @@
--- Start of DDL Script for Table CREATOR.INVOICE_REGISTER
--- Generated 08.11.2016 23:04:05 from CREATOR@STAR_NEW
+-- Start of DDL Script for Table CREATOR.TRUCK_SALE
+-- Generated 22.11.2016 0:20:51 from CREATOR@STAR_NEW
 
 CREATE TABLE truck_sale
-    (truck_sale_id                 NUMBER(10,0),
+    (truck_sale_id                  NUMBER(10,0) ,
     start_date                     DATE,
     stop_date                      DATE,
     comments                       VARCHAR2(1024 BYTE),
@@ -10,43 +10,54 @@ CREATE TABLE truck_sale
     id_office                      NUMBER(4,0) DEFAULT 1,
     date_create                    DATE DEFAULT sysdate,
     date_change                    DATE,
-    user_create                    VARCHAR2(20),
-    user_change                    VARCHAR2(20),
-    status                         NUMBER(1,0) DEFAULT 0
-)
+    user_create                    VARCHAR2(20 BYTE),
+    user_change                    VARCHAR2(20 BYTE),
+    status                         VARCHAR2(20 BYTE) DEFAULT 'Новый',
+    course                         NUMBER(10,6))
   TABLESPACE  starlight_t
+/
+
+-- Grants for Table
+GRANT INSERT ON truck_sale TO new_role
+/
+GRANT SELECT ON truck_sale TO new_role
+/
+GRANT UPDATE ON truck_sale TO new_role
+/
+
+create public synonym truck_sale for creator.truck_sale
 /
 
 
 
-
-
--- Indexes for INVOICE_REGISTER
+-- Indexes for TRUCK_SALE
 
 CREATE INDEX ix_start_date ON truck_sale
   (
-    start_date                          ASC
+    start_date                      ASC
   )
   TABLESPACE  starlight_i
 /
 
 CREATE INDEX ix_stop_date ON truck_sale
   (
-    stop_date                          ASC
+    stop_date                       ASC
   )
   TABLESPACE  starlight_i
 /
 
 
 
-
+-- Constraints for TRUCK_SALE
 
 ALTER TABLE truck_sale
 ADD CONSTRAINT pk_truck_sale PRIMARY KEY (truck_sale_id)
+USING INDEX
+  TABLESPACE  starlight_t
 /
 
 
--- Triggers for INVOICE_REGISTER
+-- Triggers for TRUCK_SALE
 
 CREATE OR REPLACE TRIGGER tr_d_truck_sale
  AFTER
@@ -106,31 +117,24 @@ BEGIN insert into user_logs values(
 /
 
 
--- Comments for INVOICE_REGISTER
-   
+-- Comments for TRUCK_SALE
+
 COMMENT ON TABLE truck_sale IS 'Основная таблица списка продаж с колес'
-/
-COMMENT ON COLUMN truck_sale.truck_sale_id IS 'PK'
-/
-COMMENT ON COLUMN truck_sale.start_date IS 'Дата старта продаж на сайте'
-/
-COMMENT ON COLUMN truck_sale.stop_date IS 'Дата окончания продаж на сайте'
 /
 COMMENT ON COLUMN truck_sale.comments IS 'Комментарий'
 /
+COMMENT ON COLUMN truck_sale.course IS 'Курс валюты'
+/
 COMMENT ON COLUMN truck_sale.price_coef IS 'Коэффициент наценки'
+/
+COMMENT ON COLUMN truck_sale.start_date IS 'Дата старта продаж на сайте'
 /
 COMMENT ON COLUMN truck_sale.status IS 'Статус списка продаж'
 /
-
-
-GRANT INSERT ON truck_sale TO new_role
+COMMENT ON COLUMN truck_sale.stop_date IS 'Дата окончания продаж на сайте'
 /
-GRANT SELECT ON truck_sale TO new_role
-/
-GRANT UPDATE ON truck_sale TO new_role
+COMMENT ON COLUMN truck_sale.truck_sale_id IS 'PK'
 /
 
-create public synonym truck_sale for creator.truck_sale
-/
+-- End of DDL Script for Table CREATOR.TRUCK_SALE
 
