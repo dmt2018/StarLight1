@@ -650,6 +650,23 @@ object DocNewForm: TDocNewForm
       Caption = #1073#1077#1079' '#1053#1044#1057
       TabOrder = 4
     end
+    object chbSpecDiscont: TCheckBox
+      Left = 732
+      Top = 62
+      Width = 270
+      Height = 17
+      Alignment = taLeftJustify
+      Caption = #1055#1088#1080#1084#1077#1085#1103#1090#1100' '#1089#1082#1080#1076#1082#1091' '#1076#1083#1103' '#1089#1087#1077#1094'.'#1087#1088#1077#1076#1083#1086#1078#1077#1085#1080#1103
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 5
+      OnClick = chbSpecDiscontClick
+    end
   end
   object Panel_Edit: TPanel
     Left = 0

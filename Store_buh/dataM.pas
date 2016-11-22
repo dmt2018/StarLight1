@@ -179,12 +179,12 @@ begin
   id_office := GetOfficeID;
 
   path         := ExtractFilePath(Application.ExeName);
-  RegIni := TIniFile.Create(path + '\ini\'+Operator_username+'_setting.ini' );
+  {RegIni := TIniFile.Create(path + '\ini\'+Operator_username+'_setting.ini' );
   try
     spec_discont := RegIni.ReadInteger('spec_discont','value',0);
   finally
     RegIni.Free;
-  end;
+  end;     }
 end;
 
 procedure TDM.Ora_SQLPostError(DataSet: TDataSet; E: EDatabaseError;

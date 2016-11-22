@@ -120,7 +120,6 @@ object preferensesForm: TpreferensesForm
     Ctl3D = False
     ParentCtl3D = False
     TabOrder = 3
-    ExplicitTop = 489
     DesignSize = (
       404
       35)
@@ -279,8 +278,6 @@ object preferensesForm: TpreferensesForm
     ParentFont = False
     Style = tsFlatButtons
     TabOrder = 2
-    ExplicitTop = 376
-    ExplicitHeight = 105
   end
   object GroupBox2: TGroupBox
     Left = 0
@@ -594,7 +591,6 @@ object preferensesForm: TpreferensesForm
     ParentBackground = False
     ParentFont = False
     TabOrder = 5
-    ExplicitTop = 243
   end
   object Panel3: TPanel
     Left = 0
@@ -613,7 +609,6 @@ object preferensesForm: TpreferensesForm
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 7
-    ExplicitTop = 231
   end
   object Panel6: TPanel
     Left = 0
@@ -697,7 +692,6 @@ object preferensesForm: TpreferensesForm
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 10
-    ExplicitTop = 268
   end
   object Panel8: TPanel
     Left = 0
@@ -707,7 +701,6 @@ object preferensesForm: TpreferensesForm
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 11
-    ExplicitTop = 370
   end
   object DBGridEh1: TDBGridEh
     Left = 0
@@ -789,7 +782,6 @@ object preferensesForm: TpreferensesForm
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 13
-    ExplicitTop = 481
   end
   object banc: TOraQuery
     Session = DM.OraSession

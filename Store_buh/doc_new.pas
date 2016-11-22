@@ -14,7 +14,7 @@ uses
   cxTextEdit, ShellApi, cxContainer, cxLabel, frxExportPDF, frxExportXLS,
   frxExportText, frxExportMail, frxExportCSV, frxExportRTF, frxClass,
   frxExportHTML, frxDBSet, cxMaskEdit, cxDropDownEdit, cxCalendar, IniFiles,
-  cxCheckBox;
+  cxCheckBox, pi_library;
 
 type
   TDocNewForm = class(TForm)
@@ -201,6 +201,7 @@ type
     priznak: TcxGridDBColumn;
     stSpec: TcxStyle;
     DOC_DATAP2: TStringField;
+    chbSpecDiscont: TCheckBox;
     procedure ClientChoosClick(Sender: TObject);
     procedure NDSEditKeyPress(Sender: TObject; var Key: Char);
     procedure FormShow(Sender: TObject);
@@ -237,7 +238,8 @@ type
     procedure ToolButton6Click(Sender: TObject);
     procedure grid_buh_view_vCustomDrawCell(Sender: TcxCustomGridTableView;
       ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
-      var ADone: Boolean); //инициализация просмотра ID
+      var ADone: Boolean);
+    procedure chbSpecDiscontClick(Sender: TObject); //инициализация просмотра ID
 
 
   private
@@ -256,7 +258,7 @@ implementation
 
 {$R *.dfm}
 uses Client_Chooser, DataM, Select_Doc, edit_list_f, Change_Prices, global, Change_Country, doc_view,
-  Gtd, print_type_select;
+  Gtd, print_type_select, preferenses;
 
 
 
@@ -439,6 +441,12 @@ begin
   if (hcode_ <> '') or (gtd_ <> '') then grid_buh_view_v.DataController.Filter.Active := True;
 
   tb_delete.Enabled := DataM.Operator_delete;
+
+ if not(assigned(preferensesForm)) then
+ application.createform(tpreferensesForm,preferensesForm);
+ chbSpecDiscont.Checked := false;
+ datam.spec_discont := 0;
+
 end;
 
 
@@ -612,7 +620,7 @@ begin
           for i := 0 to DBGridEh2.Controller.SelectedRowCount-1 do
           begin
             j :=  DBGridEh2.Controller.SelectedRows[i].RecordIndex;
-
+            //отрабатываю когда стоит галка "применять для спецп" или галки нет, но и спецП нет
             if ( (DataM.spec_discont = 1) or ( (DataM.spec_discont = 0) and (DBGridEh2.ViewData.DataController.Values[j, DBGridEh2.GetColumnByFieldName('spec_price').Index] <> 1) ) ) then
             begin
               DBGridEh2.DataController.DataSet.Locate('ID_DOC_DATA',DBGridEh2.ViewData.DataController.Values[j, DBGridEh2.GetColumnByFieldName('ID_DOC_DATA').Index],[]);
@@ -669,11 +677,31 @@ begin
 
     Change(grid_buh_view_v, ChangeAll, ChangeWhat, NewValue);
 
+    DataM.spec_discont := 0; // обнуляю
+    chbSpecDiscont.Checked:=false;
+
   end;
   DOC_DATA.Refresh;
 
 end;
 
+
+procedure TDocNewForm.chbSpecDiscontClick(Sender: TObject);
+ //var ini: tinifile; ID_COMPANY: integer;
+begin
+{  ID_COMPANY := preferensesForm.Company_All_CBEx.Value;
+  path := ExtractFilePath(Application.ExeName);
+  Ini := TIniFile.Create(path + '\ini\'+Operator_username+'_setting.ini' );
+  try
+    Ini.WriteInteger('id_company','value',ID_COMPANY);
+    Ini.WriteInteger('spec_discont','value',BoolToInt(chbSpecDiscont.Checked));
+    DataM.spec_discont := Ini.ReadInteger('spec_discont','value',0);
+  finally
+    Ini.Free;
+  end;
+      }
+      DataM.spec_discont := BoolToInt(chbSpecDiscont.Checked);
+end;
 
 // Кнопка "Изменить цены"
 procedure TDocNewForm.ToolButton3Click(Sender: TObject);
@@ -1184,7 +1212,7 @@ begin
 
 // Копия
         //if (Datam.print_copy = 1) then
-        if MessageDlg('Печатать сопутствующий документ?',mtConfirmation,[mbYes, mbNo],0) = mrYes then
+       // if MessageDlg('Печатать сопутствующий документ?',mtConfirmation,[mbYes, mbNo],0) = mrYes then
         begin
           frxReportNakl.Clear;
 

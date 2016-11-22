@@ -242,8 +242,9 @@ begin
   Ini := TIniFile.Create(path + '\ini\'+Operator_username+'_setting.ini' );
   try
     Ini.WriteInteger('id_company','value',ID_COMPANY);
-    Ini.WriteInteger('spec_discont','value',BoolToInt(chbSpecDiscont.Checked));
-    DataM.spec_discont := BoolToInt(chbSpecDiscont.Checked);
+    //Ini.WriteInteger('spec_discont','value',BoolToInt(chbSpecDiscont.Checked));
+    Ini.WriteInteger('spec_discont','value',0);
+    //DataM.spec_discont := BoolToInt(chbSpecDiscont.Checked);
   finally
     Ini.Free;
   end;
