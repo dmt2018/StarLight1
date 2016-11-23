@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.NOMENCLATURE_PKG
--- Generated 05.09.2016 0:29:38 from CREATOR@STAR_NEW
+-- Generated 23.11.2016 13:09:30 from CREATOR@STAR2
 
 CREATE OR REPLACE 
 PACKAGE nomenclature_pkg
@@ -124,6 +124,7 @@ PROCEDURE SAVE_DATA
      what_          in number,
      where_         in number,
      dep_           in number,
+     digit_         in varchar2,
      in_id_         in out number,
      OUT_TEXT       OUT VARCHAR2
 );
@@ -1080,6 +1081,7 @@ PROCEDURE SAVE_DATA
      what_          in number,
      where_         in number,
      dep_           in number,
+     digit_         in varchar2,
      in_id_         in out number,
      OUT_TEXT       OUT VARCHAR2
 )
@@ -1102,7 +1104,7 @@ begin
              OUT_TEXT := '  сожалению, такое название уже есть!';
              in_id_ := 0;
           else
-             INSERT INTO COUNTRIES VALUES (get_office_unique('C_ID'), NAME_, NAME2_, null, mnemo_) returning c_id into NEW_ID_;
+             INSERT INTO COUNTRIES VALUES (get_office_unique('C_ID'), NAME_, NAME2_, digit_, mnemo_) returning c_id into NEW_ID_;
           end if;
        -- редактирование
        else
@@ -1114,7 +1116,7 @@ begin
              OUT_TEXT := '  сожалению, такое название уже есть!';
              in_id_ := 0;
           else
-             UPDATE COUNTRIES SET COUNTRY = NAME_, COUNTRY_ENG = NAME2_, mnemo=mnemo_ WHERE C_ID = ID_;
+             UPDATE COUNTRIES SET COUNTRY = NAME_, COUNTRY_ENG = NAME2_, BUH_CODE=digit_, mnemo=mnemo_ WHERE C_ID = ID_;
              NEW_ID_ := ID_;
           end if;
        end if;
@@ -2778,7 +2780,6 @@ EXCEPTION
            RAISE_APPLICATION_ERROR (-20080, '«апрос не выполнилс€. ' || SQLERRM || ' ' || DBMS_UTILITY.format_error_backtrace);
 
 END CHANGE_SUBTYPE_FROM_TO;
-
 
 
 END; -- nomenclature_pkg
