@@ -4,7 +4,7 @@ object NewD: TNewD
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = '  '#1044#1086#1073#1072#1074#1083#1077#1085#1080#1077' / '#1056#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1085#1080#1077
-  ClientHeight = 620
+  ClientHeight = 594
   ClientWidth = 760
   Color = clWindow
   Ctl3D = False
@@ -24,12 +24,12 @@ object NewD: TNewD
     Left = 0
     Top = 0
     Width = 760
-    Height = 580
+    Height = 554
     Align = alClient
     BevelOuter = bvNone
     Color = clCream
     TabOrder = 0
-    ExplicitHeight = 545
+    ExplicitHeight = 580
     object Panel3: TPanel
       Left = 0
       Top = 0
@@ -958,7 +958,7 @@ object NewD: TNewD
       Left = 0
       Top = 166
       Width = 760
-      Height = 211
+      Height = 200
       Align = alTop
       BevelInner = bvRaised
       BevelOuter = bvLowered
@@ -966,7 +966,7 @@ object NewD: TNewD
       TabOrder = 1
       object Label11: TLabel
         Left = 425
-        Top = 175
+        Top = 169
         Width = 48
         Height = 16
         Caption = #1040#1088#1090#1080#1082#1091#1083
@@ -980,7 +980,7 @@ object NewD: TNewD
       end
       object Label13: TLabel
         Left = 12
-        Top = 120
+        Top = 143
         Width = 133
         Height = 16
         Caption = #1053#1072#1079#1074#1072#1085#1080#1077' '#1087#1086#1089#1090#1072#1074#1097#1080#1082#1072
@@ -1050,7 +1050,7 @@ object NewD: TNewD
       end
       object Label5: TLabel
         Left = 12
-        Top = 94
+        Top = 117
         Width = 138
         Height = 16
         Caption = #1064#1090#1088#1080#1093'-'#1082#1086#1076' '#1087#1086#1089#1090#1072#1074#1097#1080#1082#1072
@@ -1078,7 +1078,7 @@ object NewD: TNewD
       end
       object Label9: TLabel
         Left = 422
-        Top = 153
+        Top = 143
         Width = 51
         Height = 16
         Caption = #1056#1077#1084#1072#1088#1082#1089
@@ -1113,7 +1113,7 @@ object NewD: TNewD
       end
       object Label2: TLabel
         Left = 12
-        Top = 146
+        Top = 169
         Width = 134
         Height = 16
         Caption = #1050#1086#1076' '#1085#1072#1079#1074'. '#1087#1086#1089#1090#1072#1074#1097#1080#1082#1072
@@ -1127,7 +1127,7 @@ object NewD: TNewD
       end
       object Label23: TLabel
         Left = 368
-        Top = 126
+        Top = 117
         Width = 105
         Height = 16
         Caption = #1062#1074#1077#1090' '#1087#1086#1089#1090#1072#1074#1097#1080#1082#1072
@@ -1140,15 +1140,15 @@ object NewD: TNewD
         ParentFont = False
       end
       object Label19: TLabel
-        Left = 499
-        Top = 36
+        Left = 171
+        Top = 87
         Width = 89
         Height = 16
         Caption = #1045#1076'. '#1080#1079#1084#1077#1088#1077#1085#1080#1103
       end
       object CheckBox1: TCheckBox
-        Left = 678
-        Top = 0
+        Left = 638
+        Top = 6
         Width = 113
         Height = 17
         Caption = 'VBN ('#1072#1091#1082#1094#1080#1086#1085')'
@@ -1240,7 +1240,7 @@ object NewD: TNewD
       end
       object ed_barcode: TcxTextEdit
         Left = 156
-        Top = 90
+        Top = 113
         Style.BorderStyle = ebsOffice11
         Style.LookAndFeel.Kind = lfOffice11
         Style.LookAndFeel.NativeStyle = True
@@ -1256,7 +1256,7 @@ object NewD: TNewD
       end
       object ed_hcode: TcxTextEdit
         Left = 479
-        Top = 177
+        Top = 165
         Properties.MaxLength = 50
         Style.BorderStyle = ebsOffice11
         Style.LookAndFeel.Kind = lfOffice11
@@ -1273,7 +1273,7 @@ object NewD: TNewD
       end
       object ed_postname: TcxTextEdit
         Left = 156
-        Top = 116
+        Top = 139
         Style.BorderStyle = ebsOffice11
         Style.LookAndFeel.Kind = lfOffice11
         Style.LookAndFeel.NativeStyle = True
@@ -1289,7 +1289,7 @@ object NewD: TNewD
       end
       object ed_remarks: TcxTextEdit
         Left = 479
-        Top = 149
+        Top = 139
         Properties.MaxLength = 50
         Style.BorderStyle = ebsOffice11
         Style.LookAndFeel.Kind = lfOffice11
@@ -1305,8 +1305,8 @@ object NewD: TNewD
         Width = 231
       end
       object chbNoPrint: TCheckBox
-        Left = 596
-        Top = 51
+        Left = 527
+        Top = 61
         Width = 155
         Height = 17
         Caption = #1085#1077' '#1087#1077#1095#1072#1090#1072#1090#1100' '#1089#1090#1080#1082#1077#1088#1099
@@ -1319,11 +1319,11 @@ object NewD: TNewD
         Font.Style = []
         ParentColor = False
         ParentFont = False
-        TabOrder = 21
+        TabOrder = 23
       end
       object chbNotUse: TCheckBox
-        Left = 596
-        Top = 67
+        Left = 527
+        Top = 77
         Width = 155
         Height = 17
         Caption = #1085#1077' '#1080#1089#1087#1086#1083#1100#1079#1086#1072#1074#1090#1100
@@ -1336,7 +1336,7 @@ object NewD: TNewD
         Font.Style = []
         ParentColor = False
         ParentFont = False
-        TabOrder = 22
+        TabOrder = 24
       end
       object edTnVed: TcxTextEdit
         Left = 400
@@ -1410,24 +1410,24 @@ object NewD: TNewD
         Width = 60
       end
       object cb_end: TCheckBox
-        Left = 596
-        Top = 34
+        Left = 527
+        Top = 38
         Width = 100
         Height = 17
         Caption = #1050#1086#1085#1077#1094' '#1089#1077#1079#1086#1085#1072
         TabOrder = 19
       end
       object cb_start: TCheckBox
-        Left = 596
-        Top = 18
+        Left = 527
+        Top = 22
         Width = 102
         Height = 17
         Caption = #1057#1090#1072#1088#1090' '#1089#1077#1079#1086#1085#1072
         TabOrder = 18
       end
       object cb_new: TCheckBox
-        Left = 596
-        Top = 2
+        Left = 527
+        Top = 6
         Width = 76
         Height = 17
         Caption = #1053#1086#1074#1080#1085#1082#1072
@@ -1435,7 +1435,7 @@ object NewD: TNewD
       end
       object ed_holcodename: TcxTextEdit
         Left = 156
-        Top = 142
+        Top = 165
         Properties.OnEditValueChanged = ed_holcodenamePropertiesEditValueChanged
         Style.BorderStyle = ebsOffice11
         Style.LookAndFeel.Kind = lfOffice11
@@ -1451,7 +1451,7 @@ object NewD: TNewD
       end
       object ed_hol_color: TcxTextEdit
         Left = 479
-        Top = 123
+        Top = 113
         Style.BorderStyle = ebsOffice11
         Style.LookAndFeel.Kind = lfOffice11
         Style.LookAndFeel.NativeStyle = True
@@ -1465,8 +1465,8 @@ object NewD: TNewD
         Width = 231
       end
       object btnArticul: TcxButton
-        Left = 716
-        Top = 141
+        Left = 713
+        Top = 164
         Width = 29
         Height = 25
         Hint = #1043#1077#1085#1077#1088#1072#1094#1080#1103' '#1072#1088#1090#1080#1082#1091#1083#1072
@@ -1512,8 +1512,8 @@ object NewD: TNewD
         LookAndFeel.NativeStyle = True
       end
       object imcb_units: TcxImageComboBox
-        Left = 499
-        Top = 58
+        Left = 288
+        Top = 83
         Properties.ImmediatePost = True
         Properties.ImmediateUpdateText = True
         Properties.Items = <>
@@ -1527,7 +1527,7 @@ object NewD: TNewD
         StyleHot.LookAndFeel.Kind = lfOffice11
         StyleHot.LookAndFeel.NativeStyle = True
         TabOrder = 9
-        Width = 93
+        Width = 104
       end
       object ed_length_hol: TcxSpinEdit
         Left = 132
@@ -1548,34 +1548,34 @@ object NewD: TNewD
         Width = 29
       end
       object cb_sait: TCheckBox
-        Left = 596
-        Top = 84
+        Left = 638
+        Top = 22
         Width = 114
         Height = 17
         Caption = #1091#1073#1088#1072#1090#1100' '#1089' '#1089#1072#1081#1090#1072
-        TabOrder = 23
+        TabOrder = 21
       end
       object cb_no_order: TCheckBox
-        Left = 596
-        Top = 100
+        Left = 638
+        Top = 38
         Width = 114
         Height = 17
         Caption = #1085#1077#1090' '#1079#1072#1082#1072#1079#1072
-        TabOrder = 24
+        TabOrder = 22
       end
     end
     object Panel10: TPanel
       Left = 0
-      Top = 377
+      Top = 366
       Width = 760
-      Height = 203
+      Height = 188
       Align = alClient
       BevelInner = bvRaised
       BevelOuter = bvLowered
       ParentBackground = False
       TabOrder = 2
-      ExplicitTop = 353
-      ExplicitHeight = 227
+      ExplicitTop = 377
+      ExplicitHeight = 203
       object Label12: TLabel
         Left = 12
         Top = 10
@@ -1824,7 +1824,7 @@ object NewD: TNewD
   end
   object Panel2: TPanel
     Left = 0
-    Top = 580
+    Top = 554
     Width = 760
     Height = 40
     Align = alBottom
@@ -1835,7 +1835,7 @@ object NewD: TNewD
     ParentBackground = False
     ParentCtl3D = False
     TabOrder = 1
-    ExplicitTop = 545
+    ExplicitTop = 580
     DesignSize = (
       760
       40)

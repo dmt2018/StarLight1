@@ -211,7 +211,7 @@ type
     DictViewHS_VAL: TStringField;
     DictViewNSI_NAME: TStringField;
     DictViewREMOVE_FROM_SITE: TFloatField;
-    DictViewNO_ORDER: TIntegerField;
+    DictViewNO_ORDER: TFloatField;
     procedure FlowerNamesAfterPost(DataSet: TDataSet);
     procedure DictViewBeforeOpen(DataSet: TDataSet);
     procedure FlowerNamesAfterOpen(DataSet: TDataSet);

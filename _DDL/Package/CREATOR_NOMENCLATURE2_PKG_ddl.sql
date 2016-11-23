@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.NOMENCLATURE2_PKG
--- Generated 21.11.2016 17:39:41 from CREATOR@STAR2
+-- Generated 23.11.2016 23:02:52 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE nomenclature2_pkg
@@ -459,7 +459,7 @@ BEGIN
               , c.hs_val
               , u.nsi_name
               , nvl(a1.REMOVE_FROM_SITE,0) as REMOVE_FROM_SITE
-              , a1.no_order
+              , nvl(a1.no_order,0) as NO_ORDER
        FROM nomenclature_mat_view a
          left outer join import_flowers_kov i
             on i.NOM_CODE = a.code
@@ -915,17 +915,17 @@ begin
            , nvl(b.nom_start,0) as SEASON_START
            , nvl(b.nom_end,0) as SEASON_END
            , nvl(c.hs_val,'0') as onMarch
-           ,case when (mm.n_id is null or mm.no_order = 0 or mm.no_order is null) then 0 else 1  end NO_ORDER
+           , nvl(mm.no_order,0) as NO_ORDER
       FROM nomenclature_mat_view b
         left outer join (select distinct a.n_id FROM invoice_data a, invoice_register b where a.inv_id = b.inv_id and b.supplier_date >= sysdate-qDays and b.id_departments = 62) inv on inv.n_id = b.n_id
         left outer join store_main a on a.n_id = b.n_id and a.store_type = 1
         inner join price_list p on p.n_id = b.n_id
         left outer join nom_specifications c on c.n_id = b.n_id and c.hs_id = const_8march
-        left outer join nomenclature_site_marks mm on mm.n_id = b.n_id and mm.no_order=1
+        left outer join nomenclature_site_marks mm on mm.n_id = b.n_id and mm.no_order = 1
       where b.id_departments = 62
         and b.notuse = 0
         and (a.quantity > 0 or inv.n_id is not null)
-        and not exists (select * from nomenclature_site_marks marks where remove_from_site=1 and marks.n_id=b.n_id)
+        and not exists (select * from nomenclature_site_marks marks where remove_from_site = 1 and marks.n_id = b.n_id)
   ;
 
 EXCEPTION
@@ -1034,7 +1034,19 @@ begin
   else
     delete from nomenclature_site_marks where N_ID = v_n_id;
   end if;*/
-    tmp_cnt := 0;
+
+  tmp_cnt := 0;
+  select count(1) into tmp_cnt from nomenclature_site_marks where N_ID = v_n_id;
+  if tmp_cnt = 1 then
+    update nomenclature_site_marks set no_order = v_NO_ORDER, REMOVE_FROM_SITE = v_REMOVE_FROM_SITE WHERE N_ID = v_n_id;
+  else
+    insert into nomenclature_site_marks values(v_n_id, v_REMOVE_FROM_SITE, sysdate, v_NO_ORDER);
+  end if;
+
+  -- удалим лишние данные
+  delete from nomenclature_site_marks where nvl(REMOVE_FROM_SITE, 0) = 0 and nvl(NO_ORDER, 0) = 0;
+
+/*
   if v_REMOVE_FROM_SITE = 1 then
     select count(1) into tmp_cnt from nomenclature_site_marks where N_ID = v_n_id;
     if tmp_cnt = 0 then
@@ -1056,6 +1068,7 @@ begin
       update nomenclature_site_marks set no_order=v_NO_ORDER WHERE N_ID = v_n_id;
     end if;
   end if;
+*/
 EXCEPTION
    WHEN OTHERS THEN
            LOG_ERR(SQLERRM, SQLCODE, 'nomenclature2_pkg.set_nomenclature_site_marks', '');

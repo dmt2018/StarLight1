@@ -764,6 +764,15 @@ object SetParsF: TSetParsF
       Font.Style = []
       ParentFont = False
     end
+    object Panel4: TPanel
+      Left = 431
+      Top = 144
+      Width = 204
+      Height = 48
+      BevelInner = bvRaised
+      BevelOuter = bvLowered
+      TabOrder = 21
+    end
     object ed_length: TcxSpinEdit
       Left = 101
       Top = 32

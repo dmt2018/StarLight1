@@ -7,7 +7,7 @@ object DM: TDM
     Options.Direct = True
     Username = 'creator'
     Password = '123456'
-    Server = 'roznica:1521:orcl'
+    Server = 'KLEPOV:1521:STARNEW'
     AutoCommit = False
     Left = 24
     Top = 16
@@ -239,7 +239,7 @@ object DM: TDM
     object DictViewREMOVE_FROM_SITE: TFloatField
       FieldName = 'REMOVE_FROM_SITE'
     end
-    object DictViewNO_ORDER: TIntegerField
+    object DictViewNO_ORDER: TFloatField
       FieldName = 'NO_ORDER'
     end
   end

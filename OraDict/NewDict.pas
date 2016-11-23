@@ -336,19 +336,6 @@ begin
           NOMSAIT       := FieldByName('REMOVE_FROM_SITE').Value;
           NOMNOORDER    := FieldByName('NO_ORDER').Value;
 
-{
-    //************************читаю чекбокс в перем.NOMSAIT********
-          DM.SelQ.Close;
-          DM.SelQ.SQL.Clear;
-          DM.SelQ.SQL.Add('SELECT REMOVE_FROM_SITE FROM nomenclature_site_marks where N_ID='+floattostr(N_ID));
-          DM.SelQ.Active:=TRUE;
-          NOMSAIT:= DM.SelQ.FieldByName('REMOVE_FROM_SITE').AsString;
-          DM.SelQ.Open;
-          DM.SelQ.Close;
-          if NOMSAIT=1 then cb_sait.Checked:=true else cb_sait.Checked:=false;
-     //***********************************************************
-}
-
 //          HOL_TYPE_OLD  := FieldByName('HOL_TYPE').Value;
           DM.SelQ.Close;
           DM.SelQ.SQL.Clear;
@@ -460,11 +447,11 @@ begin
       ed_holcodename.EditValue  := NAME_CODE_OLD;
       ed_hol_color.EditValue    := COLOR_OLD;
 
-      cb_new.Checked   := (NOMNEW = 1);
-      cb_start.Checked := (NOMSTART = 1);
-      cb_end.Checked   := (NOMEND = 1);
-      cb_sait.Checked   := (NOMSAIT = 1);
-      cb_no_order.Checked   := (NOMNOORDER = 1);
+      cb_new.Checked      := (NOMNEW = 1);
+      cb_start.Checked    := (NOMSTART = 1);
+      cb_end.Checked      := (NOMEND = 1);
+      cb_sait.Checked     := (NOMSAIT = 1);
+      cb_no_order.Checked := (NOMNOORDER = 1);
 
       panel10.Visible := (N_ID_ > 0);
 
@@ -1126,11 +1113,11 @@ begin
     NAME_CODE_OLD    := ed_holcodename.EditValue;
     COLOR_OLD   := ed_hol_color.EditValue;
 
-    NOMNEW    := BoolToint(cb_new.Checked);
-    NOMSTART  := BoolToint(cb_start.Checked);
-    NOMEND    := BoolToint(cb_end.Checked);
+    NOMNEW     := BoolToint(cb_new.Checked);
+    NOMSTART   := BoolToint(cb_start.Checked);
+    NOMEND     := BoolToint(cb_end.Checked);
     NOMSAIT    := boolToint(cb_sait.Checked);
-    NOMNOORDER    := boolToint(cb_no_order.Checked);
+    NOMNOORDER := boolToint(cb_no_order.Checked);
 
     with DM.StorProc do
     Begin
