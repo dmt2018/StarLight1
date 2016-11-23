@@ -96,6 +96,7 @@ object DocNewForm: TDocNewForm
   Position = poMainFormCenter
   WindowState = wsMaximized
   OnClose = FormClose
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 16
@@ -1448,8 +1449,11 @@ object DocNewForm: TDocNewForm
         'else case when :ppp=1 and :ID_DOC_TYPE > 1 then round((:price*1.' +
         '18),2) else :PRICE end end),'
       
-        '  PRICE    = case when :spec_price=1 and :OLD_p2 = '#39'0'#39' then :OLD' +
-        '_PRICE else :PRICE end,'
+        '  --PRICE    = case when :spec_price=1 and :OLD_p2 = '#39'0'#39' then :O' +
+        'LD_PRICE else :PRICE end,'
+      
+        '  PRICE    = case when :spec_price=1 and :OLD_PRICE = '#39'0'#39' then :' +
+        'OLD_PRICE else :PRICE end,'
       '  C_ID     = :C_ID,'
       '  GTD      = :GTD,'
       '  compiled_name_otdel = :compiled_name_otdel,'
@@ -1515,7 +1519,6 @@ object DocNewForm: TDocNewForm
         DataType = ftString
         Name = 'p1'
         ParamType = ptInput
-        Value = ''
       end
       item
         DataType = ftUnknown

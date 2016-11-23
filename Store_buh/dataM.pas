@@ -102,7 +102,7 @@ var
   nds_default: integer;
   bez_nds_default: integer;
   bez_nds_minus: integer;
-  spec_discont: integer;
+  //spec_discont: integer;
   okpo_default:string;
   okud_default:string;
   okdp_default:string;
@@ -185,6 +185,7 @@ begin
   finally
     RegIni.Free;
   end;     }
+   //spec_discont := 0;
 end;
 
 procedure TDM.Ora_SQLPostError(DataSet: TDataSet; E: EDatabaseError;

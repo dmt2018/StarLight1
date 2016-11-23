@@ -542,6 +542,7 @@ object preferensesForm: TpreferensesForm
       Height = 17
       Alignment = taLeftJustify
       Caption = #1055#1088#1080#1084#1077#1085#1103#1090#1100' '#1089#1082#1080#1076#1082#1091' '#1076#1083#1103' '#1089#1087#1077#1094'.'#1087#1088#1077#1076#1083#1086#1078#1077#1085#1080#1103
+      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
@@ -550,6 +551,7 @@ object preferensesForm: TpreferensesForm
       Font.Style = []
       ParentFont = False
       TabOrder = 7
+      Visible = False
     end
   end
   object Panel4: TPanel

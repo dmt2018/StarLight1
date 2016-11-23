@@ -126,7 +126,7 @@ begin
   edOKPO.EditValue    := datam.okpo_default;
   edOKUD.EditValue    := datam.okud_default;
   edOKDP.EditValue    := datam.okdp_default;
-  chbSpecDiscont.Checked := (datam.spec_discont = 1);
+  //chbSpecDiscont.Checked := (datam.spec_discont = 1);
 end;
 
 
@@ -243,7 +243,7 @@ begin
   try
     Ini.WriteInteger('id_company','value',ID_COMPANY);
     //Ini.WriteInteger('spec_discont','value',BoolToInt(chbSpecDiscont.Checked));
-    Ini.WriteInteger('spec_discont','value',0);
+    //Ini.WriteInteger('spec_discont','value',0);
     //DataM.spec_discont := BoolToInt(chbSpecDiscont.Checked);
   finally
     Ini.Free;

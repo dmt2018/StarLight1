@@ -156,6 +156,9 @@ type
     grid_buh_view_vSTART_PRICE: TcxGridDBColumn;
     chbMinusNDS: TCheckBox;
     chbWithoutNDS: TCheckBox;
+    priznak: TcxGridDBColumn;
+    stSpec: TcxStyle;
+    chbSpecDiscont: TCheckBox;
     DOC_DATAID_DOC_TYPE: TFloatField;
     DOC_DATAID_DOC_DATA: TFloatField;
     DOC_DATAID_DOC: TFloatField;
@@ -198,10 +201,7 @@ type
     DOC_DATANDS: TIntegerField;
     DOC_DATABEZNDS: TIntegerField;
     DOC_DATASPEC_PRICE: TIntegerField;
-    priznak: TcxGridDBColumn;
-    stSpec: TcxStyle;
     DOC_DATAP2: TStringField;
-    chbSpecDiscont: TCheckBox;
     procedure ClientChoosClick(Sender: TObject);
     procedure NDSEditKeyPress(Sender: TObject; var Key: Char);
     procedure FormShow(Sender: TObject);
@@ -239,7 +239,8 @@ type
     procedure grid_buh_view_vCustomDrawCell(Sender: TcxCustomGridTableView;
       ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
       var ADone: Boolean);
-    procedure chbSpecDiscontClick(Sender: TObject); //инициализаци€ просмотра ID
+    procedure chbSpecDiscontClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject); //инициализаци€ просмотра ID
 
 
   private
@@ -253,12 +254,13 @@ type
 
 var
   DocNewForm: TDocNewForm;
+  spec_discont : integer;
 
 implementation
 
 {$R *.dfm}
 uses Client_Chooser, DataM, Select_Doc, edit_list_f, Change_Prices, global, Change_Country, doc_view,
-  Gtd, print_type_select, preferenses;
+  Gtd, print_type_select;
 
 
 
@@ -318,7 +320,7 @@ begin
       chbWithoutNDS.Checked := (DOC.FieldByName('BEZNDS').AsInteger = 1);
       chbWithoutNDS.Enabled := false;
 
-      DOC_DATA.ParamByName('p1').AsString := IntToStr(datam.spec_discont);
+      DOC_DATA.ParamByName('p1').AsString := IntToStr(spec_discont);
       doc_data.Open;
     except on E: Exception do
       MessageBox(Handle, PChar(E.Message), 'ќшибка в запросе!', MB_ICONERROR);
@@ -360,7 +362,7 @@ begin
       chbWithoutNDS.Checked := (DOC.FieldByName('BEZNDS').AsInteger = 1);
       chbWithoutNDS.Enabled := DataM.Operator_edit;
 
-      DOC_DATA.ParamByName('p1').AsString := IntToStr(datam.spec_discont);
+      DOC_DATA.ParamByName('p1').AsString := IntToStr(spec_discont);
       doc_data.Open;
     except on E: Exception do
       MessageBox(Handle, PChar(E.Message), 'ќшибка в запросе!', MB_ICONERROR);
@@ -402,6 +404,11 @@ end;
 
 
 
+procedure TDocNewForm.FormCreate(Sender: TObject);
+begin
+  spec_discont := 0;
+end;
+
 //
 //  ќткрытие формы
 //
@@ -442,10 +449,10 @@ begin
 
   tb_delete.Enabled := DataM.Operator_delete;
 
- if not(assigned(preferensesForm)) then
- application.createform(tpreferensesForm,preferensesForm);
- chbSpecDiscont.Checked := false;
- datam.spec_discont := 0;
+ {if not(assigned(preferensesForm)) then
+ application.createform(tpreferensesForm,preferensesForm);}
+ chbSpecDiscont.Checked := spec_discont = 1;//false;
+ //datam.spec_discont := 0;
 
 end;
 
@@ -601,7 +608,7 @@ end;
 //  ѕроца изменени€
 //
 procedure Change(DBGridEh2:TcxGridDBTableView; ChangeAll:Boolean; ChangeWhat:string; NewValue:integer);
-var i, ii, j: integer;
+var i, j: integer;
 begin
 
   if (DBGridEh2.DataController.DataSet.Active) then
@@ -621,7 +628,7 @@ begin
           begin
             j :=  DBGridEh2.Controller.SelectedRows[i].RecordIndex;
             //отрабатываю когда стоит галка "примен€ть дл€ спецп" или галки нет, но и спецѕ нет
-            if ( (DataM.spec_discont = 1) or ( (DataM.spec_discont = 0) and (DBGridEh2.ViewData.DataController.Values[j, DBGridEh2.GetColumnByFieldName('spec_price').Index] <> 1) ) ) then
+            if ( (spec_discont = 1) or ( (spec_discont = 0) and (DBGridEh2.ViewData.DataController.Values[j, DBGridEh2.GetColumnByFieldName('spec_price').Index] <> 1) ) ) then
             begin
               DBGridEh2.DataController.DataSet.Locate('ID_DOC_DATA',DBGridEh2.ViewData.DataController.Values[j, DBGridEh2.GetColumnByFieldName('ID_DOC_DATA').Index],[]);
               DBGridEh2.DataController.DataSet.Edit;
@@ -677,7 +684,7 @@ begin
 
     Change(grid_buh_view_v, ChangeAll, ChangeWhat, NewValue);
 
-    DataM.spec_discont := 0; // обнул€ю
+    spec_discont := 0; // обнул€ю
     chbSpecDiscont.Checked:=false;
 
   end;
@@ -700,7 +707,7 @@ begin
     Ini.Free;
   end;
       }
-      DataM.spec_discont := BoolToInt(chbSpecDiscont.Checked);
+      spec_discont := BoolToInt(chbSpecDiscont.Checked);
 end;
 
 //  нопка "»зменить цены"
