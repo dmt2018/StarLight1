@@ -876,6 +876,7 @@ begin
         ParamByName('where_').Value := 0;
         ParamByName('dep_').Value   := 0;
         ParamByName('in_id_').Value := 0;
+        ParamByName('digit_').Value :=trim(frm_editform.Ed10.Text);
         ExecProc;
 
         ID := ParamByName('in_id_').Value;
@@ -927,6 +928,8 @@ begin
     frm_editform.edit_country_eng.EditValue     := DM.Countries.FieldByName('COUNTRY_ENG').Value;
     frm_editform.edit_country_code.EditValue    := DM.Countries.FieldByName('MNEMO').Value;
     ID                                          := DM.Countries.FieldByName('C_ID').Value;
+    frm_editform.ed10.EditValue                 := DM.Countries.FieldByName('BUH_CODE').Value;
+
 
     if (frm_editform.ShowModal = mrOk) then
     begin
@@ -943,6 +946,7 @@ begin
         ParamByName('where_').Value := 0;
         ParamByName('dep_').Value   := 0;
         ParamByName('in_id_').Value := 0;
+        ParamByName('digit_').Value :=trim(frm_editform.Ed10.Text);
         ExecProc;
 
         ID := ParamByName('in_id_').Value;

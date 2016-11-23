@@ -137,7 +137,7 @@ object frm_editform: Tfrm_editform
     Top = 0
     Width = 442
     Height = 344
-    ActivePage = tsh_change_subtype
+    ActivePage = tsh_country
     Align = alClient
     MultiLine = True
     Style = 7
@@ -615,6 +615,13 @@ object frm_editform: Tfrm_editform
         Height = 16
         Caption = #1050#1086#1076
       end
+      object Label50: TLabel
+        Left = 34
+        Top = 98
+        Width = 69
+        Height = 16
+        Caption = #1050#1086#1076' ('#1094#1080#1092#1088'.)'
+      end
       object edit_country: TcxTextEdit
         Left = 132
         Top = 12
@@ -658,6 +665,21 @@ object frm_editform: Tfrm_editform
         StyleHot.LookAndFeel.Kind = lfOffice11
         StyleHot.LookAndFeel.NativeStyle = True
         TabOrder = 2
+        Width = 262
+      end
+      object ed10: TcxTextEdit
+        Left = 133
+        Top = 99
+        Style.BorderStyle = ebsOffice11
+        Style.LookAndFeel.Kind = lfOffice11
+        Style.LookAndFeel.NativeStyle = True
+        StyleDisabled.LookAndFeel.Kind = lfOffice11
+        StyleDisabled.LookAndFeel.NativeStyle = True
+        StyleFocused.LookAndFeel.Kind = lfOffice11
+        StyleFocused.LookAndFeel.NativeStyle = True
+        StyleHot.LookAndFeel.Kind = lfOffice11
+        StyleHot.LookAndFeel.NativeStyle = True
+        TabOrder = 3
         Width = 262
       end
     end
@@ -2487,7 +2509,7 @@ object frm_editform: Tfrm_editform
   end
   object ActionList1: TActionList
     Left = 72
-    Top = 188
+    Top = 228
     object aSave: TAction
       Caption = #1047#1072#1087#1080#1089#1072#1090#1100' (Ctrl+Enter)'
       ShortCut = 16397

@@ -153,6 +153,8 @@ type
     edit_weight_dry: TcxSpinEdit;
     lcb_subtypes: TcxLookupComboBox;
     lbl_change_subtype: TLabel;
+    ed10: TcxTextEdit;
+    Label50: TLabel;
     procedure aSaveExecute(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure cxCheckBox1PropertiesEditValueChanged(Sender: TObject);
