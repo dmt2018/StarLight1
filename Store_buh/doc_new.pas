@@ -453,7 +453,7 @@ begin
  application.createform(tpreferensesForm,preferensesForm);}
  chbSpecDiscont.Checked := spec_discont = 1;//false;
  //datam.spec_discont := 0;
-
+    
 end;
 
 
@@ -689,7 +689,7 @@ begin
 
   end;
   DOC_DATA.Refresh;
-
+         
 end;
 
 
@@ -708,6 +708,9 @@ begin
   end;
       }
       spec_discont := BoolToInt(chbSpecDiscont.Checked);
+      doc_data.close;
+      DOC_DATA.ParamByName('p1').AsString := IntToStr(spec_discont);
+      doc_data.Open;
 end;
 
 //  нопка "»зменить цены"
@@ -724,7 +727,7 @@ end;
 procedure TDocNewForm.From_storeExecute(Sender: TObject);
 var theForm: TForm;
 begin
-
+       
   theForm                                   := TSelectDocForm.Create(Application);
 	TSelectDocForm(theForm).department_index  := strtoint(DataM.department_id);
 	TSelectDocForm(theForm).department_name   := DataM.department_name;

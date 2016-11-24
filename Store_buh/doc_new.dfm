@@ -1452,8 +1452,8 @@ object DocNewForm: TDocNewForm
         '  --PRICE    = case when :spec_price=1 and :OLD_p2 = '#39'0'#39' then :O' +
         'LD_PRICE else :PRICE end,'
       
-        '  PRICE    = case when :spec_price=1 and :OLD_PRICE = '#39'0'#39' then :' +
-        'OLD_PRICE else :PRICE end,'
+        '  PRICE    = case when :spec_price=1 and :p2 = '#39'0'#39' then :OLD_PRI' +
+        'CE else :PRICE end,'
       '  C_ID     = :C_ID,'
       '  GTD      = :GTD,'
       '  compiled_name_otdel = :compiled_name_otdel,'
