@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.DISTRIBUTION_PKG
--- Generated 29.10.2016 1:26:48 from CREATOR@STAR_NEW
+-- Generated 29.11.2016 2:03:30 from CREATOR@STAR_REG
 
 CREATE OR REPLACE 
 PACKAGE distribution_pkg
@@ -417,6 +417,17 @@ procedure check_missed_distributions
 );
 
 
+PROCEDURE INS_ORDERS
+(
+    ID_ORDERS_CLIENTS_   IN NUMBER,
+    N_ID_                IN NUMBER,
+    Q_NUM_               IN NUMBER,
+    TRUCK_               IN NUMBER,
+    sub_weight           IN NUMBER,
+    v_site_data          in varchar2,
+    v_id                 in out number
+);
+
 END; -- Package spec
 /
 
@@ -576,11 +587,12 @@ BEGIN
                         where ol.ID_ORDERS_CLIENTS = oc.ID_ORDERS_CLIENTS and oc.ID_ORDERS = a.order_id and a.dist_ind_id = DIST_IND_ID_ and oc.ID_CLIENTS = vClient and ol.active=1 and oc.active=1
                         group by ol.n_id
                       ) o
-                    , (select sum(ol.QUANTITY) as qq, ol.n_id
-                        from orders_list ol, orders_clients oc, distributions_orders a
+                    , (select sum(nvl(d.quantity,ol.QUANTITY)) as qq, nvl(d.n_id,ol.n_id) as n_id
+                        from orders_list ol, orders_clients oc, distributions_orders a, DISTRIBUTIONS d
                         where ol.ID_ORDERS_CLIENTS = oc.ID_ORDERS_CLIENTS and oc.ID_ORDERS = a.order_id and a.dist_ind_id = DIST_IND_ID_ and ol.active=1 and oc.active=1
                            and oc.ID_CLIENTS not in (const_dir,const_main) -- 2015-06-22 На совещании решили, что на директора и МАЙН не разносить и даже их не показывать
-                        group by ol.n_id
+                           and ol.id_orders_list = d.id_orders_list --and ol.n_id = d.n_id
+                        group by nvl(d.n_id,ol.n_id)
                       ) oa
                     , (select max(id.PRICE_PER_UNIT) as price, id.INVOICE_DATA_ID from invoice_data id, distributions_invoices di where id.inv_id = di.inv_id and DIST_IND_ID = DIST_IND_ID_ group by id.INVOICE_DATA_ID ) pp
                 WHERE a.DIST_IND_ID = DIST_IND_ID_
@@ -2537,6 +2549,83 @@ EXCEPTION
         LOG_ERR(SQLERRM, SQLCODE, 'distribution_pkg.check_missed_distributions', '');
         RAISE_APPLICATION_ERROR (-20527, 'Запрос не выполнился. ' || SQLERRM);
 end;
+
+
+
+
+
+
+
+
+PROCEDURE INS_ORDERS
+(
+    ID_ORDERS_CLIENTS_   IN NUMBER,
+    N_ID_                IN NUMBER,
+    Q_NUM_               IN NUMBER,
+    TRUCK_               IN NUMBER,
+    sub_weight           IN NUMBER,
+    v_site_data          in varchar2,
+    v_id                 in out number
+)
+IS
+   IDD_ number;
+--   SQL_ VARCHAR2(1024);
+/*
+   SEQ_ number;
+   ID_F_ NUMBER;
+   FORMULA_ VARCHAR2(20);
+   FORMULA_DRY_ VARCHAR2(20);
+   PACK_ VARCHAR2(5);
+   vPack number;
+*/
+BEGIN
+  IDD_ := 0;
+
+  -- Пытаемся найти такую же позицию в заказе
+  BEGIN
+    SELECT ID_ORDERS_LIST INTO IDD_ FROM ORDERS_LIST WHERE ID_ORDERS_CLIENTS = ID_ORDERS_CLIENTS_ AND N_ID = N_ID_;
+  EXCEPTION
+    WHEN OTHERS THEN IDD_ := 0;
+  END;
+
+
+  -- Такой цветок уже есть в заказе
+  if IDD_ > 0 THEN
+     -- изменем кол-во заказа
+     --select site_data into SQL_ from ORDERS_LIST where ID_ORDERS_LIST = IDD_;
+
+     --UPDATE ORDERS_LIST SET QUANTITY = case when v_site_data is null then Q_NUM_ else (case when Q_NUM_=0 then Q_NUM_ else QUANTITY + Q_NUM_ end) end, TRUCK = TRUCK_, date_change=sysdate,
+     --   count_data = case when v_site_data||chr(10) = site_data then count_data else nvl(count_data,0)+1 end,
+     --   site_data  = case when v_site_data||chr(10) = site_data then site_data else site_data||v_site_data||chr(10) end
+     --WHERE ID_ORDERS_LIST = IDD_;
+     UPDATE ORDERS_LIST SET QUANTITY = QUANTITY + Q_NUM_, TRUCK = TRUCK_, date_change = sysdate
+     WHERE ID_ORDERS_LIST = IDD_;
+
+     --UPDATE ORDERS_LIST SET WEIGHT = QUANTITY * sub_weight, date_change = sysdate WHERE ID_ORDERS_LIST = IDD_;
+     v_id := IDD_;
+  ELSE
+     SELECT ORDERS_LIST_SEQ.NEXTVAL INTO v_id FROM DUAL;
+     -- добавляем новую позицию
+     INSERT INTO ORDERS_LIST VALUES(v_id,N_ID_,Q_NUM_,ID_ORDERS_CLIENTS_,nvl(TRUCK_,0),(Q_NUM_ * sub_weight),1,0, null, 1, const_office, sysdate, null, 1, null, 0, null);
+  END IF; -- N_ID_ > 0
+
+  UPDATE ORDERS_CLIENTS SET D_DATE = sysdate, date_change = sysdate WHERE ID_ORDERS_CLIENTS = ID_ORDERS_CLIENTS_;
+  commit;
+
+EXCEPTION
+   WHEN OTHERS THEN
+        LOG_ERR(SQLERRM, SQLCODE, 'distribution_pkg.INS_ORDERS', '');
+        RAISE_APPLICATION_ERROR (-20528, 'Запрос не выполнился. ' || SQLERRM);
+
+END INS_ORDERS; -- INS_RESERV
+
+
+
+
+
+
+
+
 
 END;
 /

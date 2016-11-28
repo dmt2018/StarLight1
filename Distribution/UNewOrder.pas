@@ -235,24 +235,31 @@ begin
 
     if (id_ord_cl > 0) then
     begin
+      Tag := edQuantity.EditValue;
+      id_ord_list := 0;
       Close;
       SQL.Clear;
-      SQL.Add('begin INS_ORDERS(:ID_ORDERS_CLIENTS, :N_ID, :FL_ORDERS, :TRUCK, :sub_weight, null); end;');
-      ParamByName('ID_ORDERS_CLIENTS').Value := id_ord_cl;
-      ParamByName('N_ID').Value        := CUR_NID;
-      ParamByName('FL_ORDERS').Value   := edQuantity.EditValue;
-      ParamByName('TRUCK').Value       := 0;
-      ParamByName('sub_weight').Value  := 0;
+      SQL.Add('begin distribution_pkg.INS_ORDERS(:ID_ORDERS_CLIENTS, :N_ID, :Q_NUM_, :TRUCK, :sub_weight, :v_site_data, :v_id); end;');
+      ParamByName('ID_ORDERS_CLIENTS').Value  := id_ord_cl;
+      ParamByName('N_ID').Value               := CUR_NID;
+      ParamByName('Q_NUM_').Value             := edQuantity.EditValue;
+      ParamByName('TRUCK').Value              := 0;
+      ParamByName('sub_weight').Value         := 0;
+      ParamByName('v_site_data').Value        := '';
+      ParamByName('v_id').Value               := id_ord_list;
 
       // Пытаемся выполнить SQL запрос
       try
         Execute;
-
+        id_ord_list := ParamByName('v_id').Value;
+        btnSave.Tag := id_ord_list;
         Close;
+{
         SQL.Clear;
         SQL.Add('SELECT creator.ORDERS_LIST_SEQ.CURRVAL as nn FROM DUAL');
         Open;
-        btnSave.Tag := FieldByName('nn').AsInteger;
+        btnSave.Tag := id_ord_list; FieldByName('nn').AsInteger;
+}
         ModalResult := mrOk;
       except
         on E: Exception do ShowMessage('Ошибка записи!'#13#10+E.Message);

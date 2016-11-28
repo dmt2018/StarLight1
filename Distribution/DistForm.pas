@@ -1520,7 +1520,7 @@ begin
                 AViewInfo.GridRecord.RecordIndex, gr_goods_v.GetColumnByFieldName('QUANTITY').Index
                 );
 
-    If ( qua = qua2 ) then ACanvas.Brush.Color := cx_ok.Color;
+    If ( qua >= qua2 ) then ACanvas.Brush.Color := cx_ok.Color;
   end;
 
 end;
@@ -2416,7 +2416,7 @@ end;
 procedure TDistFormF.PutByNIDnew(vReplace: integer);
 var
   RES, RES_TEXT : Variant;
-  QUA, QUA2, QUA_SET, id_or_cl, leftQ, distId, destClient, C_ID_ORDERS : Integer;
+  QUA, QUA2, QUA_SET, id_or_cl, leftQ, distId, destClient, C_ID_ORDERS, old_QUA: Integer;
   cds_good, cds, cds_source: TDataSet;
 begin
 
@@ -2458,9 +2458,6 @@ begin
       End;
     end;
 
-//    if (not cds_source.Active) and (cds_source.IsEmpty) and (cds_source.FieldByName('LEFT_QUANTITY').AsInteger = 0)
-//       and (not cds.Active) then exit;
-
     if ((cds_source.FieldByName('LEFT_QUANTITY').AsInteger = 0) and (vReplace = 0))
     or ( (vReplace = 1) and (DM.SelQ.RecordCount = 0) )
     then exit;
@@ -2472,12 +2469,15 @@ begin
           C_ID_ORDERS := CUR_ID_ORDERS;
       //
 
-    id_or_cl := NewOrder(C_ID_ORDERS,cds_source.FieldByName('N_ID').AsInteger, cds_source.FieldByName('LEFT_QUANTITY').AsInteger+leftQ, destClient);
+
+    id_or_cl := NewOrder(C_ID_ORDERS, cds_source.FieldByName('N_ID').AsInteger, cds_source.FieldByName('LEFT_QUANTITY').AsInteger+leftQ, destClient);
 
     if id_or_cl > 0 then
     begin
+      QUA_SET := DM.SelQ.Tag;
               with DM.SelQ do
               Begin
+
                 Close;
                 SQL.Clear;
                 Params.Clear;
@@ -2506,17 +2506,27 @@ begin
                 Close;
                 SQL.Clear;
                 Params.Clear;
+{
                 SQL.Add('begin creator.DISTRIBUTION_PKG.CREATE_CUSTOM_DIST_LINE(:IN_PREP_DIST_ID, :IN_ID_ORDERS_LIST, :IN_QUANTITY, :OUT_RES, :OUT_TEXT); end;');
                 ParamByName('IN_PREP_DIST_ID').AsInteger    := cds_source.FieldByName('PREP_DIST_ID').Value;
                 ParamByName('IN_ID_ORDERS_LIST').AsInteger  := id_or_cl;
                 ParamByName('IN_QUANTITY').AsInteger        := QUA_SET;
                 ParamByName('OUT_RES').AsString             := RES;
                 ParamByName('OUT_TEXT').AsString            := RES_TEXT;
+}
+                SQL.Add('begin creator.DISTRIBUTION_PKG.CREATE_CUSTOM_DIST_LINE2(:IN_PREP_DIST_ID, :IN_ID_ORDERS_LIST, :IN_QUANTITY, :IN_DIST_ID); end;');
+                ParamByName('IN_PREP_DIST_ID').AsInteger    := cds_source.FieldByName('PREP_DIST_ID').Value;
+                ParamByName('IN_ID_ORDERS_LIST').AsInteger  := id_or_cl;
+                ParamByName('IN_QUANTITY').AsInteger        := QUA_SET;
+                ParamByName('IN_DIST_ID').AsInteger         := 0;
+
                 Execute;
+{
                 RES      := ParamByName('OUT_RES').Value;
                 RES_TEXT := ParamByName('OUT_TEXT').Value;
                 if VarToInt(RES) < 0 then
                    MessageBox(Handle, PChar(VarToStr(RES_TEXT)), 'Внимание', MB_ICONERROR);
+}
               End;
               ReactivateGoods(cds.FieldByName('N_ID').AsInteger, DM.CDS_ORDER_NID.FieldByName('ID_ORDERS_LIST').AsInteger);
     end;

@@ -360,6 +360,7 @@ var SQLstr : string;
 begin
   if (idOrderClient = 0) or (nID = 0) then result := 0;
 
+  id_ord_list := 0;
   with SelQ do
   begin
     Close;
@@ -373,13 +374,15 @@ begin
     begin
       Close;
       SQL.Clear;
-      SQL.Add('begin INS_ORDERS(:ID_ORDERS_CLIENTS, :N_ID, :FL_ORDERS, :TRUCK, :sub_weight, null); end;');
-      ParamByName('ID_ORDERS_CLIENTS').Value := idOrderClient;
-      ParamByName('N_ID').Value              := nID;
-      ParamByName('FL_ORDERS').Value         := quantity;
-      ParamByName('TRUCK').Value             := 0;
-      ParamByName('sub_weight').Value        := 0;
-
+      SQL.Add('begin distribution_pkg.INS_ORDERS(:ID_ORDERS_CLIENTS, :N_ID, :Q_NUM_, :TRUCK, :sub_weight, :v_site_data, :v_id); end;');
+      ParamByName('ID_ORDERS_CLIENTS').Value  := idOrderClient;
+      ParamByName('N_ID').Value               := nID;
+      ParamByName('Q_NUM_').Value             := quantity;
+      ParamByName('TRUCK').Value              := 0;
+      ParamByName('sub_weight').Value         := 0;
+      ParamByName('v_site_data').Value        := '';
+      ParamByName('v_id').Value               := id_ord_list;
+{
       // Пытаемся выполнить SQL запрос
       try
         Execute;
@@ -391,6 +394,7 @@ begin
       except
         on E: Exception do ShowMessage('Ошибка записи!'#13#10+E.Message);
       End;
+}
     end;
   end;
 

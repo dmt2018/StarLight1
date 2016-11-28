@@ -311,12 +311,17 @@ object DM: TDM
       'SELECT'
       '  LEFT_QUANTITY'
       '  , case when INVOICE_DATA_ID is null then 0 else '
-      '      (select sum(ol.QUANTITY)'
-      '       from orders_list ol, orders_clients oc'
+      '      (select sum(nvl(d.quantity,ol.QUANTITY))'
+      
+        '       from orders_list ol, orders_clients oc, distributions_ord' +
+        'ers a, DISTRIBUTIONS d'
       
         '       where ol.ID_ORDERS_CLIENTS = oc.ID_ORDERS_CLIENTS and oc.' +
-        'ID_ORDERS = :OrderID and ol.active=1 and oc.active=1 and ol.n_id' +
-        ' = :N_ID                       '
+        'ID_ORDERS = a.order_id and a.dist_ind_id = :DIST_IND_ID and ol.a' +
+        'ctive=1 and oc.active=1 and d.n_id = :N_ID  '
+      
+        '             and ol.id_orders_list = d.id_orders_list           ' +
+        '          '
       '      )'
       '  end allorder'
       'FROM PREP_DIST_VIEW'
