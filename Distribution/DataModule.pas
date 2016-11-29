@@ -382,19 +382,23 @@ begin
       ParamByName('sub_weight').Value         := 0;
       ParamByName('v_site_data').Value        := '';
       ParamByName('v_id').Value               := id_ord_list;
-{
+
+
       // Пытаемся выполнить SQL запрос
       try
         Execute;
+        id_ord_list := ParamByName('v_id').Value;
+{
         Close;
         SQL.Clear;
         SQL.Add('SELECT creator.ORDERS_LIST_SEQ.CURRVAL as nn FROM DUAL');
         Open;
         id_ord_list := FieldByName('nn').AsInteger;
+}
       except
         on E: Exception do ShowMessage('Ошибка записи!'#13#10+E.Message);
       End;
-}
+
     end;
   end;
 

@@ -558,7 +558,6 @@ object frmDobor: TfrmDobor
     ParentFont = False
     TabOrder = 2
     LookAndFeel.Kind = lfOffice11
-    ExplicitTop = 224
     object gr_Dobor_v: TcxGridDBTableView
       NavigatorButtons.ConfirmDelete = False
       OnCustomDrawCell = gr_Dobor_vCustomDrawCell
