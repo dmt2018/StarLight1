@@ -214,6 +214,7 @@ begin
 if abs(time - strtotime('00:05:00')) <    strtotime('00:00:02') then begin  //в 12:05 ночи   - потом убрать
     Memo1.Lines.Add('Start store ' + DateTimeToStr(Now));
 
+    OraQuery1.ParamByName('QDAYS').AsInteger := StrToInt(edQDays.Text);
     OraQuery1.Open;
     file_str := 'all_store.csv';
     ExportGridToText( file_str, cxGrid1, True, True, ';', '', '', 'csv');
