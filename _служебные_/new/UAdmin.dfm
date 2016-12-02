@@ -24,7 +24,7 @@ object frmAdmin: TfrmAdmin
     Width = 764
     Height = 449
     Cursor = crHandPoint
-    ActivePage = TabSheet5
+    ActivePage = TabSheet3
     Align = alClient
     Images = ImageList1
     MultiLine = True
@@ -1828,7 +1828,6 @@ object frmAdmin: TfrmAdmin
         Color = clWhite
         ParentBackground = False
         TabOrder = 0
-        ExplicitWidth = 734
         object Label2: TLabel
           Left = 8
           Top = 8
@@ -1854,7 +1853,6 @@ object frmAdmin: TfrmAdmin
         ParentBackground = False
         TabOrder = 1
         Visible = False
-        ExplicitWidth = 734
         object Label5: TLabel
           Left = 8
           Top = 6
@@ -2002,10 +2000,6 @@ object frmAdmin: TfrmAdmin
         Align = alClient
         TabOrder = 2
         LookAndFeel.Kind = lfOffice11
-        ExplicitLeft = 6
-        ExplicitTop = 6
-        ExplicitWidth = 722
-        ExplicitHeight = 382
         object gr_rights_v: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
           DataController.DataSource = ds_rights
@@ -2089,7 +2083,7 @@ object frmAdmin: TfrmAdmin
     Left = 632
     Top = 152
     Bitmap = {
-      494C010105002000540010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010105002000580010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

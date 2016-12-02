@@ -1,5 +1,5 @@
 -- Start of DDL Script for View CREATOR.CLIENTS_VIEW3
--- Generated 23-сен-2016 14:28:53 from CREATOR@ORCL
+-- Generated 2-дек-2016 17:28:17 from CREATOR@ORCL
 
 CREATE OR REPLACE VIEW clients_view3 (
    d_check,

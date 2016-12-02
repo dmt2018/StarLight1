@@ -584,7 +584,6 @@ type
     procedure BitBtn6Click(Sender: TObject);
     procedure BitBtn4Click(Sender: TObject);
     procedure btn_conctactClick(Sender: TObject);
-    procedure cxButton1Click(Sender: TObject);
     procedure bbCopyToOldClick(Sender: TObject);
     procedure bbCopyClientClick(Sender: TObject);
     procedure bbSyncClientsClick(Sender: TObject);
@@ -592,6 +591,19 @@ type
     procedure SpeedButton4Click(Sender: TObject);
     procedure SpeedButton5Click(Sender: TObject);
     procedure DBGrid2CellClick(Column: TColumnEh);
+    procedure BitBtn22Click(Sender: TObject);
+    procedure BitBtn23Click(Sender: TObject);
+    procedure cxButton2Click(Sender: TObject);
+    procedure filtr_onExecute(Sender: TObject);
+    procedure filtr_offExecute(Sender: TObject);
+    procedure seach_kodExecute(Sender: TObject);
+    procedure search_nickExecute(Sender: TObject);
+    procedure select_allExecute(Sender: TObject);
+    procedure fast_filterExecute(Sender: TObject);
+    procedure aClearFilterExecute(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure Edit2KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Edit1KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
 
   private
     { Private declarations }
@@ -899,6 +911,22 @@ begin
 end;
 
 
+procedure TfrmRegistration.seach_kodExecute(Sender: TObject);
+begin
+  if (PageControl1.TabIndex = 0) then ComboBox12.SetFocus;
+  if (PageControl1.TabIndex = 1) then Edit5.SetFocus;
+end;
+
+procedure TfrmRegistration.search_nickExecute(Sender: TObject);
+begin
+ if (PageControl1.TabIndex = 0) then Edit2.SetFocus;
+end;
+
+procedure TfrmRegistration.select_allExecute(Sender: TObject);
+begin
+     CRDBGrid4.Selection.SelectAll;
+end;
+
 //поиск клиента
 procedure TfrmRegistration.SpeedButton4Click(Sender: TObject);
 var sql: string;
@@ -929,12 +957,17 @@ begin
 end;
 
 // Ctrl+Enter
+procedure TfrmRegistration.aClearFilterExecute(Sender: TObject);
+begin
+    if (PageControl1.ActivePageIndex = 0) then cxClientView.DataController.Filter.Clear;
+end;
+
 procedure TfrmRegistration.aCtrlEnterExecute(Sender: TObject);
 begin
-   {чо это за таблицы
+     {    4to za tablizi
    if PageControl1.ActivePageIndex = 0 then CRDBGrid1DblClick(Sender);
   if PageControl1.ActivePageIndex = 1 then cxGridDBTableView1DblClick(Sender);
-  if PageControl1.ActivePageIndex = 2 then CRDBGrid2DblClick(Sender);  }
+                }
 end;
 
 //добавить
@@ -1469,7 +1502,122 @@ begin
   end;
 end;
 
-//печать шк
+
+procedure TfrmRegistration.BitBtn22Click(Sender: TObject);
+begin
+ if ( ( DbComboBoxEh1.ItemIndex = 0 ) and (trim(edit10.Text) = '') and (trim(edit11.Text) = '') and (trim(edit12.Text) = '') and (trim(edit13.Text) = '') and (trim(edit14.Text) = '') and (trim(edit15.Text) = '') and (trim(edit16.Text) = '') and (trim(edit17.Text) = '') and (trim(edit18.Text) = '') and (trim(edit19.Text) = '') and (trim(edit20.Text) = '') and (trim(edit21.Text) = '') and (trim(edit22.Text) = '') and (trim(edit23.Text) = '') and (trim(edit24.Text) = '') ) then
+  showmessage('Заполните поля для поиска!')
+  else
+  begin
+    Q_SEARCH.Close;
+    Q_SEARCH.SQL.Clear;
+    Q_SEARCH.SQL.Add('SELECT C.*, s.city , o.brief, G.NAME AS GROUP_NAME, T.NAME AS TTYPE_NAME, R.NAME AS REGION_NAME, A.NAME AS ADVERT ');
+    Q_SEARCH.SQL.Add(' FROM CLIENTS_GROUPS G, BOOKS_CLIENT_TYPES T, BOOKS_ADVERTISMENTS A, CLIENTS C, BOOKS_REGIONS R, offices o, books_cities s');
+    Q_SEARCH.SQL.Add('WHERE C.ID_CLIENTS_GROUPS = G.ID_CLIENTS_GROUPS AND C.TTYPE = T.ID_CLIENT_TYPES AND C.ADVERTISMENT = A.ID_ADVERTISMENTS AND C.REGION = R.ID_REGIONS and c.id_city = s.id_city(+) and c.id_office = o.ID_OFFICE and (c.ID_OFFICE='+IntToStr(dm.id_office)+' or 0='+IntToStr(dm.id_office)+') ');
+
+    if (DBComboBoxEh2.Value = 1) then
+    begin
+      if trim(edit10.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(NICK) like ''%'+ AnsiUpperCase(Edit10.Text) +'%''');
+      if trim(edit11.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(FIO) like ''%'+ AnsiUpperCase(Edit11.Text) +'%''');
+      if trim(edit12.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(AGREEMENT) like ''%'+ AnsiUpperCase(Edit12.Text) +'%''');
+      if trim(edit13.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(REG_SVID) like ''%'+ AnsiUpperCase(Edit13.Text) +'%''');
+      if trim(edit14.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(CONTACT) like ''%'+ AnsiUpperCase(Edit14.Text) +'%''');
+      if trim(edit15.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(INN) like ''%'+ AnsiUpperCase(Edit15.Text) +'%''');
+      if trim(edit16.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(KPP) like ''%'+ AnsiUpperCase(Edit16.Text) +'%''');
+      if trim(edit17.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(OKATO) like ''%'+ AnsiUpperCase(Edit17.Text) +'%''');
+      if trim(edit18.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(EMAIL) like ''%'+ AnsiUpperCase(Edit18.Text) +'%''');
+      if trim(edit19.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(WWW) like ''%'+ AnsiUpperCase(Edit19.Text) +'%''');
+      if trim(edit20.Text) <> '' then Q_SEARCH.SQL.Add(' and ( UPPER(PHONE) like ''%'+ AnsiUpperCase(Edit20.Text) +'%'' or UPPER(CONT_PHONE) like ''%'+ AnsiUpperCase(Edit20.Text) +'%'' )');
+      if trim(edit21.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(U_ADDRESS) like ''%'+ AnsiUpperCase(Edit21.Text) +'%''');
+      if trim(edit22.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(BANK) like ''%'+ AnsiUpperCase(Edit22.Text) +'%''');
+      if trim(edit23.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(ADDRESS) like ''%'+ AnsiUpperCase(Edit23.Text) +'%''');
+      if trim(edit24.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(PASSPORT) like ''%'+ AnsiUpperCase(Edit24.Text) +'%''');
+    end;
+
+    if (DBComboBoxEh2.Value = 2) then
+    begin
+      if trim(edit10.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(NICK) like '''+ AnsiUpperCase(Edit10.Text) +'%''');
+      if trim(edit11.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(FIO) like '''+ AnsiUpperCase(Edit11.Text) +'%''');
+      if trim(edit12.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(AGREEMENT) like '''+ AnsiUpperCase(Edit12.Text) +'%''');
+      if trim(edit13.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(REG_SVID) like '''+ AnsiUpperCase(Edit13.Text) +'%''');
+      if trim(edit14.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(CONTACT) like '''+ AnsiUpperCase(Edit14.Text) +'%''');
+      if trim(edit15.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(INN) like '''+ AnsiUpperCase(Edit15.Text) +'%''');
+      if trim(edit16.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(KPP) like '''+ AnsiUpperCase(Edit16.Text) +'%''');
+      if trim(edit17.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(OKATO) like '''+ AnsiUpperCase(Edit17.Text) +'%''');
+      if trim(edit18.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(EMAIL) like '''+ AnsiUpperCase(Edit18.Text) +'%''');
+      if trim(edit19.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(WWW) like '''+ AnsiUpperCase(Edit19.Text) +'%''');
+      if trim(edit20.Text) <> '' then Q_SEARCH.SQL.Add(' and ( UPPER(PHONE) like '''+ AnsiUpperCase(Edit20.Text) +'%'' or UPPER(CONT_PHONE) like '''+ AnsiUpperCase(Edit20.Text) +'%'' )');
+      if trim(edit21.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(U_ADDRESS) like '''+ AnsiUpperCase(Edit21.Text) +'%''');
+      if trim(edit22.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(BANK) like '''+ AnsiUpperCase(Edit22.Text) +'%''');
+      if trim(edit23.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(ADDRESS) like '''+ AnsiUpperCase(Edit23.Text) +'%''');
+      if trim(edit24.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(PASSPORT) like '''+ AnsiUpperCase(Edit24.Text) +'%''');
+    end;
+
+    if (DBComboBoxEh2.Value = 3) then
+    begin
+      if trim(edit10.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(NICK) = '''+ AnsiUpperCase(Edit10.Text) +'''');
+      if trim(edit11.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(FIO) = '''+ AnsiUpperCase(Edit11.Text) +'''');
+      if trim(edit12.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(AGREEMENT) = '''+ AnsiUpperCase(Edit12.Text) +'''');
+      if trim(edit13.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(REG_SVID) = '''+ AnsiUpperCase(Edit13.Text) +'''');
+      if trim(edit14.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(CONTACT) = '''+ AnsiUpperCase(Edit14.Text) +'''');
+      if trim(edit15.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(INN) = '''+ AnsiUpperCase(Edit15.Text) +'''');
+      if trim(edit16.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(KPP) = '''+ AnsiUpperCase(Edit16.Text) +'''');
+      if trim(edit17.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(OKATO) = '''+ AnsiUpperCase(Edit17.Text) +'''');
+      if trim(edit18.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(EMAIL) = '''+ AnsiUpperCase(Edit18.Text) +'''');
+      if trim(edit19.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(WWW) = '''+ AnsiUpperCase(Edit19.Text) +'''');
+      if trim(edit20.Text) <> '' then Q_SEARCH.SQL.Add(' and ( UPPER(PHONE) = '''+ AnsiUpperCase(Edit20.Text) +''' or UPPER(CONT_PHONE) = '''+ AnsiUpperCase(Edit20.Text) +''' )');
+      if trim(edit21.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(U_ADDRESS) = '''+ AnsiUpperCase(Edit21.Text) +'''');
+      if trim(edit22.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(BANK) = '''+ AnsiUpperCase(Edit22.Text) +'''');
+      if trim(edit23.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(ADDRESS) = '''+ AnsiUpperCase(Edit23.Text) +'''');
+      if trim(edit24.Text) <> '' then Q_SEARCH.SQL.Add(' and UPPER(PASSPORT) = '''+ AnsiUpperCase(Edit24.Text) +'''');
+    end;
+
+    if DbComboBoxEh1.ItemIndex > 0 then Q_SEARCH.SQL.Add(' and reg_type='+DbComboBoxEh1.Value);
+    Q_SEARCH.Open;
+    CrDBGrid4.Visible := true;
+  end;
+end;
+
+procedure TfrmRegistration.BitBtn23Click(Sender: TObject);
+begin
+  Edit10.Text := '';
+  Edit11.Text := '';
+  Edit12.Text := '';
+  Edit13.Text := '';
+  Edit14.Text := '';
+  Edit15.Text := '';
+  Edit16.Text := '';
+  Edit17.Text := '';
+  Edit18.Text := '';
+  Edit19.Text := '';
+  Edit20.Text := '';
+  Edit21.Text := '';
+  Edit22.Text := '';
+  Edit23.Text := '';
+  Edit24.Text := '';
+  DbComboBoxEh1.ItemIndex := 0;
+
+  Q_SEARCH.Close;
+  Q_SEARCH.SQL.Clear;
+  Q_SEARCH.SQL.Add('SELECT C.*, G.NAME AS GROUP_NAME, T.NAME AS TTYPE_NAME, R.NAME AS REGION_NAME, A.NAME AS ADVERT FROM CLIENTS_GROUPS G, BOOKS_CLIENT_TYPES T, BOOKS_ADVERTISMENTS A, CLIENTS C, BOOKS_REGIONS R, offices o ');
+  Q_SEARCH.SQL.Add('WHERE C.ID_CLIENTS_GROUPS = G.ID_CLIENTS_GROUPS AND C.TTYPE = T.ID_CLIENT_TYPES AND C.ADVERTISMENT = A.ID_ADVERTISMENTS AND C.REGION = R.ID_REGIONS and c.id_office = o.ID_OFFICE and (c.ID_OFFICE='+IntToStr(dm.id_office)+' or 0='+IntToStr(dm.id_office)+') ');
+  CrDBGrid4.Visible := false;
+end;
+
+procedure TfrmRegistration.BitBtn3Click(Sender: TObject);
+begin
+    try
+    DBGrid2.DataSource := nil;
+    DBGrid2.DataSource := Q_GROUPS_DS;
+  except
+    on E: Exception do
+    begin
+      DBGrid2.DataSource := Q_GROUPS_DS;
+      ShowMessage('Ошибка при выводе на печать!'+#10#13+'Проверьте настройки принтера');
+    end;
+  End;
+end;
+
 procedure TfrmRegistration.BitBtn4Click(Sender: TObject);
 begin
  try
@@ -1789,11 +1937,9 @@ begin
 end;
 
 
-procedure TfrmRegistration.cxButton1Click(Sender: TObject);
+procedure TfrmRegistration.cxButton2Click(Sender: TObject);
 begin
-  {if (PageControl1.TabIndex = 0) then BitBtn8Click(self);
-  if (PageControl1.TabIndex = 2) then BitBtn15Click(self);
-  if (PageControl1.TabIndex = 3) then BitBtn22Click(self);  }
+
 end;
 
 // фильтр по выделеным строкам  - снять/поставить
@@ -1852,14 +1998,7 @@ end;
 
 procedure TfrmRegistration.DBGrid2CellClick(Column: TColumnEh);
 begin
-  // Открытие клиентов по группам
-    Q_G_CL.SQL.Clear;
-    Q_G_CL.SQL.Add('SELECT C.ID_CLIENTS, C.FIO, C.NICK, G.NAME AS GROUP_NAME, T.NAME AS TTYPE_NAME ');
-    Q_G_CL.SQL.Add('FROM CLIENTS_GROUPS G, BOOKS_CLIENT_TYPES T, CLIENTS C ');
-    Q_G_CL.SQL.Add('where C.ID_CLIENTS_GROUPS = G.ID_CLIENTS_GROUPS AND C.TTYPE = T.ID_CLIENT_TYPES AND C.ID_CLIENTS_GROUPS=:ID_CLIENTS_GROUPS ');
-    Q_G_CL.SQL.Add('ORDER BY C.NICK');
-    Q_G_CL.ParamByName('ID_CLIENTS_GROUPS').AsInteger:=Q_GROUPS.FieldByName('ID_CLIENTS_GROUPS').AsInteger;
-    Q_G_CL.Open;     
+
 end;
 
 
@@ -1968,6 +2107,36 @@ begin
 end;
 
 // изменить
+procedure TfrmRegistration.Edit1KeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+      if Edit1.Text = '' then
+    begin
+      Q_CLIENTS.First;
+      Edit1.Color := clWindow;
+    end
+    else
+    begin
+      if Q_CLIENTS.Locate('NICK',ComboBox12.Text+Edit1.Text,[loCaseInsensitive, loPartialKey]) then begin Edit1.Color := clWindow; end
+      else Edit1.Color := clred;
+    end;
+end;
+
+procedure TfrmRegistration.Edit2KeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+    if Edit2.Text = '' then
+    begin
+      Q_CLIENTS.First;
+      Edit2.Color := clWindow;
+    end
+    else
+    begin
+      if Q_CLIENTS.Locate('FIO',Edit2.Text,[loCaseInsensitive, loPartialKey]) then begin Edit2.Color := clWindow; end
+      else Edit2.Color := clred;
+    end;
+end;
+
 procedure TfrmRegistration.EditNExecute(Sender: TObject);
  var ind:integer; ss:string;
 begin
@@ -2164,6 +2333,88 @@ begin
  finally
   //frmEditRegistration.Free;
  end;
+end;
+
+procedure TfrmRegistration.fast_filterExecute(Sender: TObject);
+begin
+    if (PageControl1.TabIndex = 0) then
+    cxClientView.Filtering.RunCustomizeDialog(cxClientView.Controller.FocusedColumn);
+end;
+
+procedure TfrmRegistration.filtr_offExecute(Sender: TObject);
+ var sql: string;
+begin
+    // if (PageControl1.TabIndex = 0) then BitBtn9Click(self);
+  if (PageControl1.TabIndex = 3) then BitBtn23Click(self);
+  if (PageControl1.TabIndex = 0) then begin
+  sql := 'SELECT * from CLIENTS_VIEW3 where (ID_OFFICE='+IntToStr(dm.id_office)+' or 0='+IntToStr(dm.id_office)+') ';
+
+  Q_CLIENTS.Close;
+  Q_CLIENTS.SQL.Clear;
+  Q_CLIENTS.SQL.Add(sql);
+
+  try
+    Q_CLIENTS.Open;
+  except
+    on E: Exception do ShowMessage(E.Message);
+  End;
+
+  Edit4.Text := '';
+  Edit3.Text := '';
+  Edit3.Text := '';
+  Edit4.Text := '';
+  DateTimePicker1.Checked := false;
+  DateTimePicker2.Checked := false;
+  CheckBox4.Checked := false;
+  CheckBox5.Checked := false;
+  if (PageControl1.ActivePageIndex = 0) then
+    cxClient.SetFocus;
+  end;
+end;
+
+procedure TfrmRegistration.filtr_onExecute(Sender: TObject);
+ var sql: string;
+begin
+  //if (PageControl1.TabIndex = 0) then BitBtn8Click(self);
+  if (PageControl1.TabIndex = 3) then BitBtn22Click(self);
+if (PageControl1.TabIndex = 0) then begin
+    sql := 'SELECT * from CLIENTS_VIEW3 WHERE (ID_OFFICE='+IntToStr(dm.id_office)+' or 0='+IntToStr(dm.id_office)+') ';
+
+  if (trim(Edit4.Text) <> '') then sql := sql + ' AND UPPER(FIO) LIKE ''%' + AnsiUpperCase(Edit4.Text) + '%''';
+  if (trim(Edit3.Text) <> '') then sql := sql + ' AND UPPER(NICK) LIKE ''%' + AnsiUpperCase(Edit3.Text) + '%''';
+
+  if (DateTimePicker1.Checked = true) then
+    sql := sql + ' AND trunc(DDATE) >= :date1';
+
+  if (DateTimePicker2.Checked = true) then
+    sql := sql + ' AND trunc(DDATE) <= :date2';
+
+  if (DateTimePicker1.Checked = true) and (DateTimePicker2.Checked = true) and (DateTimePicker1.Date > DateTimePicker2.Date) then
+  begin
+    ShowMessage('Первая дата должна быть меньше второй!');
+    abort;
+  end;
+
+  if (CheckBox4.Checked = true) then sql := sql + ' AND BLOCK1 = 1';
+  if (CheckBox5.Checked = true) then sql := sql + ' AND BLOCK2 = 1';
+
+  Q_CLIENTS.Close;
+  Q_CLIENTS.SQL.Clear;
+  Q_CLIENTS.SQL.Add(sql);
+
+  if (DateTimePicker1.Checked = true) then
+    Q_CLIENTS.ParamByName('date1').AsDate := DateTimePicker1.Date;
+
+  if (DateTimePicker2.Checked = true) then
+    Q_CLIENTS.ParamByName('date2').AsDate := DateTimePicker2.Date;
+
+  try
+    Q_CLIENTS.Open;
+    cxClient.SetFocus;
+  except
+    on E: Exception do ShowMessage(E.Message);
+  End;
+end;
 end;
 
 procedure TfrmRegistration.FormClose(Sender: TObject; var Action: TCloseAction);

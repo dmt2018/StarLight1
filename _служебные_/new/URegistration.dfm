@@ -28,8 +28,6 @@ object frmRegistration: TfrmRegistration
     LevelTabs.Style = 7
     LookAndFeel.Kind = lfOffice11
     LookAndFeel.NativeStyle = False
-    ExplicitTop = 46
-    ExplicitHeight = 558
     object cxClientView: TcxGridDBTableView
       NavigatorButtons.ConfirmDelete = False
       FilterBox.Position = fpTop
@@ -285,11 +283,8 @@ object frmRegistration: TfrmRegistration
     ParentFont = False
     Style = tsFlatButtons
     TabOrder = 5
-    ExplicitTop = 46
-    ExplicitHeight = 558
     object TabSheet1: TTabSheet
       Caption = ' '#1057#1055#1048#1057#1054#1050' '#1050#1051#1048#1045#1053#1058#1054#1042' '
-      ExplicitHeight = 525
       object Panel1: TPanel
         Left = 0
         Top = 0
@@ -390,6 +385,7 @@ object frmRegistration: TfrmRegistration
             MaxLength = 20
             ParentFont = False
             TabOrder = 1
+            OnKeyUp = Edit1KeyUp
           end
           object Edit2: TEdit
             Left = 128
@@ -398,6 +394,7 @@ object frmRegistration: TfrmRegistration
             Height = 23
             MaxLength = 100
             TabOrder = 2
+            OnKeyUp = Edit2KeyUp
           end
           object ComboBox12: TComboBox
             Left = 128
@@ -1062,7 +1059,6 @@ object frmRegistration: TfrmRegistration
         LevelTabs.Style = 7
         LookAndFeel.Kind = lfOffice11
         LookAndFeel.NativeStyle = False
-        ExplicitHeight = 351
         object cxGridDBTableView1: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
           FilterBox.Position = fpTop
@@ -1373,7 +1369,6 @@ object frmRegistration: TfrmRegistration
     object TabSheet2: TTabSheet
       Caption = ' '#1057#1055#1048#1057#1054#1050' '#1043#1056#1059#1055#1055' '
       ImageIndex = 1
-      ExplicitHeight = 525
       object Panel4: TPanel
         Left = 0
         Top = 0
@@ -1526,6 +1521,7 @@ object frmRegistration: TfrmRegistration
           Enabled = False
           TabOrder = 3
           Visible = False
+          OnClick = BitBtn3Click
           Glyph.Data = {
             76010000424D7601000000000000760000002800000020000000100000000100
             04000000000000010000130B0000130B00001000000000000000000000000000
@@ -1588,7 +1584,6 @@ object frmRegistration: TfrmRegistration
           Width = 1070
           Height = 184
           Align = alClient
-          AllowedOperations = []
           AutoFitColWidths = True
           ColumnDefValues.EndEllipsis = True
           DataGrouping.GroupLevels = <>
@@ -1663,7 +1658,6 @@ object frmRegistration: TfrmRegistration
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 1
-        ExplicitHeight = 276
         object Panel6: TPanel
           Left = 0
           Top = 0
@@ -1694,7 +1688,6 @@ object frmRegistration: TfrmRegistration
           LevelTabs.Style = 7
           LookAndFeel.Kind = lfOffice11
           LookAndFeel.NativeStyle = False
-          ExplicitHeight = 251
           object cxGridDBTableView2: TcxGridDBTableView
             OnDblClick = cxGridDBTableView2DblClick
             NavigatorButtons.ConfirmDelete = False
@@ -1782,7 +1775,6 @@ object frmRegistration: TfrmRegistration
     object TabSheet4: TTabSheet
       Caption = ' '#1055#1054#1048#1057#1050' '#1050#1051#1048#1045#1053#1058#1040' '
       ImageIndex = 3
-      ExplicitHeight = 525
       object Panel9: TPanel
         Left = 0
         Top = 0
@@ -2084,6 +2076,7 @@ object frmRegistration: TfrmRegistration
           Font.Style = []
           ParentFont = False
           TabOrder = 16
+          OnClick = BitBtn22Click
           Colors.Default = clBtnFace
           Colors.Normal = clBtnFace
           Colors.Hot = clCream
@@ -2219,6 +2212,7 @@ object frmRegistration: TfrmRegistration
           Font.Style = []
           ParentFont = False
           TabOrder = 17
+          OnClick = BitBtn23Click
           Colors.Default = clBtnFace
           Colors.Normal = clBtnFace
           Colors.Hot = clCream
@@ -2389,6 +2383,7 @@ object frmRegistration: TfrmRegistration
         AutoFitColWidths = True
         ColumnDefValues.EndEllipsis = True
         DataGrouping.GroupLevels = <>
+        DataSource = Q_SEARCH_DS
         Flat = True
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
@@ -3569,7 +3564,7 @@ object frmRegistration: TfrmRegistration
     Left = 820
     Top = 125
     Bitmap = {
-      494C010104000900A80110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010104000900B40110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -4546,7 +4541,7 @@ object frmRegistration: TfrmRegistration
     Left = 240
     Top = 328
     Bitmap = {
-      494C010127002C00980120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010127002C00A40120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004001000001002000000000000080
       0200000000000000000000000000000000000000000000000000000000000000
       000000000000000000000101011A0B0B0B743B3D3DB4777777D5838383DA5152
@@ -9884,18 +9879,22 @@ object frmRegistration: TfrmRegistration
     object filtr_on: TAction
       Caption = #1042#1082#1083#1102#1095#1080#1090#1100' (F8)'
       ShortCut = 119
+      OnExecute = filtr_onExecute
     end
     object filtr_off: TAction
       Caption = #1042#1099#1082#1083#1102#1095#1080#1090#1100' (F9)'
       ShortCut = 120
+      OnExecute = filtr_offExecute
     end
     object seach_kod: TAction
       Caption = 'seach_kod'
       ShortCut = 16497
+      OnExecute = seach_kodExecute
     end
     object search_nick: TAction
       Caption = 'search_nick'
       ShortCut = 16498
+      OnExecute = search_nickExecute
     end
     object export_search: TAction
       Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100'...'
@@ -9904,14 +9903,17 @@ object frmRegistration: TfrmRegistration
     object select_all: TAction
       Caption = #1042#1099#1076#1077#1083#1080#1090#1100' '#1074#1089#1077
       ShortCut = 16449
+      OnExecute = select_allExecute
     end
     object fast_filter: TAction
       Caption = 'fast_filter'
       ShortCut = 16474
+      OnExecute = fast_filterExecute
     end
     object aClearFilter: TAction
       Caption = #1054#1095#1080#1089#1090#1080#1090#1100' '#1092#1080#1083#1100#1090#1088
       ShortCut = 123
+      OnExecute = aClearFilterExecute
     end
   end
   object cxStyleRepository1: TcxStyleRepository
@@ -10442,6 +10444,7 @@ object frmRegistration: TfrmRegistration
         'WHERE C.ID_CLIENTS_GROUPS = G.ID_CLIENTS_GROUPS AND C.TTYPE = T.' +
         'ID_CLIENT_TYPES AND C.ID_CLIENTS_GROUPS=:ID_CLIENTS_GROUPS ORDER' +
         ' BY C.NICK')
+    MasterSource = Q_GROUPS_DS
     MasterFields = 'ID'
     FetchAll = True
     Left = 816

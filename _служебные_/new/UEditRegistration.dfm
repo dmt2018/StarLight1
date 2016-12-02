@@ -1696,6 +1696,7 @@ object frmEditRegistration: TfrmEditRegistration
         LookAndFeel.NativeStyle = False
         object gr_address_v: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
+          NavigatorButtons.Images = cxImageList1
           NavigatorButtons.First.Visible = False
           NavigatorButtons.PriorPage.Visible = False
           NavigatorButtons.Prior.Visible = False
@@ -2157,7 +2158,7 @@ object frmEditRegistration: TfrmEditRegistration
     Left = 532
     Top = 22
     Bitmap = {
-      494C010107000900DC0010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010107000900E00010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000084CA84FF54B757FF000000000000000000000000000000000000
