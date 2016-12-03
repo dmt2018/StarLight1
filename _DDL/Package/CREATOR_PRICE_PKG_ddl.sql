@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.PRICE_PKG
--- Generated 13.11.2016 21:42:46 from CREATOR@STAR_NEW
+-- Generated 04.12.2016 0:45:48 from CREATOR@STAR_REG
 
 CREATE OR REPLACE 
 PACKAGE price_pkg
@@ -406,6 +406,7 @@ procedure sync_with_curr_pricelist
    v_PPLI_ID     IN       NUMBER,
    v_PPLI_ID_old IN       NUMBER
 );
+
 
 
 
@@ -848,14 +849,14 @@ begin
   ;
 
 
-  insert into PREPARE_PRICE_LIST a (PPLI_ID, PPL_ID, INVOICE_AMOUNT, N_ID, HOL_PRICE, RUBLE_PRICE, STOCK_AMOUNT, LEFT_AMOUNT, GIVEN_AMOUNT, PRICE_PCC, PRICE_PCC_PC, FINAL_PRICE, LAST_PRICE, INVOICE_DATA_ID, id_office)
+  insert into PREPARE_PRICE_LIST a (PPLI_ID, PPL_ID, INVOICE_AMOUNT, N_ID, HOL_PRICE, RUBLE_PRICE, STOCK_AMOUNT, LEFT_AMOUNT, GIVEN_AMOUNT, PRICE_PCC, PRICE_PCC_PC, FINAL_PRICE, LAST_PRICE, INVOICE_DATA_ID, id_office, PROFIT_COEFFITIENT)
   (
 
     select IN_PPLI_ID, get_office_unique('PPL_ID'), a.UNITS, a.N_ID, a.PRICE_PER_UNIT, round((EXCH_RATE * a.PRICE_PER_UNIT),2)
         , nvl(b.quantity, 0), a.UNITS, 0, round((EXCH_RATE * a.PRICE_PER_UNIT * PCC),2)
         , round((EXCH_RATE * a.PRICE_PER_UNIT * PCC * PC),2)
         , case when e.CUST_COEF = 0 then round((EXCH_RATE*a.PRICE_PER_UNIT*PCC*PC),2) else round((EXCH_RATE*a.PRICE_PER_UNIT*PCC*PC*e.CUST_COEF),2) end
-        , nvl(d.PRICE, 0), a.INVOICE_DATA_ID, const_office
+        , nvl(d.PRICE, 0), a.INVOICE_DATA_ID, const_office, PC
     from store_main b, PRICE_LIST d, NOMENCLATURE e, (
        select sum(a.UNITS) as UNITS, a.N_ID, a.PRICE_PER_UNIT, max(a.INVOICE_DATA_ID) as INVOICE_DATA_ID
         from invoice_data a

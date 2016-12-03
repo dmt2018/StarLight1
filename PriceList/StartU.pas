@@ -25,6 +25,7 @@ type
     btnArchive: TcxButton;
     btnDiscount: TcxButton;
     btnSpecOffer: TcxButton;
+    btnTruckSale: TcxButton;
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn4Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
@@ -37,6 +38,7 @@ type
     procedure btnArchiveClick(Sender: TObject);
     procedure btnDiscountClick(Sender: TObject);
     procedure btnSpecOfferClick(Sender: TObject);
+    procedure btnTruckSaleClick(Sender: TObject);
   private
     { Private declarations }
     procedure AfterSetDept();
@@ -50,7 +52,7 @@ var
 implementation
 
 uses PriceU, PreparePrintU, PI_Library, Globals, DataModule, UNacenka,
-  UPriceArchive, UClientSale, USpecOrder;
+  UPriceArchive, UClientSale, USpecOrder, UTruckSale;
 
 {$R *.dfm}
 
@@ -108,7 +110,8 @@ Begin
       btn_price.Enabled   := false;
       btnArchive.Enabled  := false;
       btnDiscount.Enabled := false;
-      btnSpecOffer.Enabled := false;
+      //btnSpecOffer.Enabled := false;
+      btnTruckSale.Enabled := false;
     End;
 End;
 
@@ -174,7 +177,8 @@ begin
        btn_price.Enabled   := false;
        btnArchive.Enabled  := false;
        btnDiscount.Enabled := false;
-       btnSpecOffer.Enabled := false;
+       //btnSpecOffer.Enabled := false;
+       btnTruckSale.Enabled := false;
        MessageBox(Handle, 'У Вас не указан ни один отдел продаж. Обратитесь к менеджерам по персоналу.', 'Внимание!', MB_ICONWARNING);
     end
     else
@@ -237,8 +241,8 @@ begin
       btn_price.Enabled   := addit;
       btnArchive.Enabled  := addit;
       btnDiscount.Enabled := addit;
-      btnSpecOffer.Enabled := addit;
-
+      //btnSpecOffer.Enabled := addit;
+      btnTruckSale.Enabled := addit;
       Close;
       Filter := '';
       Filtered := false;
@@ -319,6 +323,12 @@ end;
 procedure TStartF.btnSpecOfferClick(Sender: TObject);
 begin
   frmSpecOrder.SpecOfferFormShow;
+end;
+
+// Продажа с колес
+procedure TStartF.btnTruckSaleClick(Sender: TObject);
+begin
+  frmTruckSale.TruckSaleFormShow;
 end;
 
 end.

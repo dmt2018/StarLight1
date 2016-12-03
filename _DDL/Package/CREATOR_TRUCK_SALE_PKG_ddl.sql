@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.TRUCK_SALE_PKG
--- Generated 22.11.2016 0:25:41 from CREATOR@STAR_NEW
+-- Generated 04.12.2016 0:46:04 from CREATOR@STAR_REG
 
 CREATE OR REPLACE 
 PACKAGE truck_sale_pkg
@@ -132,13 +132,32 @@ PROCEDURE edit_truck_sale_del_inv
 );
 
 
+--
+-- Добавляем разносы к продажам с колес
+--
+PROCEDURE edit_truck_sale_ins_distr
+(
+  p_id          in number,
+  p_inv_id      in number
+);
+
+--
+-- Выбор записанных распределений
+--
+PROCEDURE get_distr_index
+(
+   id_dep_   in number,
+   startDate in date,
+   stopDate  in date,
+   cursor_   out ref_cursor
+);
+
+
 END; -- Package spec
 /
 
 -- Grants for Package
 GRANT EXECUTE ON truck_sale_pkg TO new_role
-/
-create public synonym truck_sale_pkg for creator.truck_sale_pkg
 /
 
 CREATE OR REPLACE 
@@ -300,6 +319,7 @@ EXCEPTION
 end;
 
 
+
 --
 -- Выбор данных для продаж с колес
 --
@@ -323,37 +343,18 @@ BEGIN
               from invoice_data a, truck_sale_invoices b
               where a.storned_data = 0 and a.inv_id = b.inv_id and b.truck_sale_id = truck_sale_id_
               group by a.n_id
+              union all
+              select sum(a.left_quantity) as units, max(d.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id
+              from PREP_DIST_VIEW a, invoice_data d, truck_sale_distr b
+              where a.dist_ind_id = b.DIST_IND_ID and b.truck_sale_id = truck_sale_id_
+              and a.left_quantity > 0 and a.invoice_data_id = d.invoice_data_id
+              group by a.n_id
        ) a
        inner join truck_sale s on s.truck_sale_id = truck_sale_id_
        inner join nomenclature_mat_view n on n.n_id = a.n_id
        left outer join truck_sale_data d on d.truck_sale_id = s.truck_sale_id and d.n_id = a.n_id
        ;
-/*
-     select a.UNITS, a.PRICE_PER_UNIT, s.PRICE_COEF, d.price,
-            nvl(d.price, round(a.PRICE_PER_UNIT * nvl(d.coef, s.PRICE_COEF) * s.course, 2)) as coef_price,
-            case when d.n_id > 0 then 1 else 0 end IS_ACTIVE, d.coef as p_coef, d.price as p_price
-            , s.truck_sale_id as truck_sale_id
-            , n.*
-       from truck_sale s
-         inner join truck_sale_invoices i on i.truck_sale_id = s.truck_sale_id
-         inner join (select sum(a.UNITS) units, max(a.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id, a.inv_id from invoice_data a where a.storned_data = 0 group by a.inv_id, a.n_id) a
-           on i.inv_id = a.inv_id
-         inner join nomenclature_mat_view n on n.n_id = a.n_id
-         left outer join truck_sale_data d on d.truck_sale_id = s.truck_sale_id and d.n_id = a.n_id
-       where s.truck_sale_id = truck_sale_id_
-     ;
-*/
-/*
-     select a.INVOICE_DATA_ID, a.UNITS, a.PRICE_PER_UNIT, s.PRICE_COEF, nvl(d.price, round(a.PRICE_PER_UNIT * nvl(d.coef, s.PRICE_COEF) * s.course, 2)) as coef_price,
-            case when d.n_id > 0 then 1 else 0 end IS_ACTIVE, d.coef as p_coef, d.price as p_price, n.*
-            , s.truck_sale_id as truck_sale_id
-       from invoice_data a
-         inner join truck_sale s on s.truck_sale_id = truck_sale_id_
-         inner join truck_sale_invoices i on i.truck_sale_id = s.truck_sale_id and i.inv_id = a.inv_id
-         inner join nomenclature_mat_view n on n.n_id = a.n_id
-         left outer join truck_sale_data d on d.truck_sale_id = s.truck_sale_id and d.n_id = a.n_id
-     ;
-*/
+
 EXCEPTION
    WHEN others THEN
         LOG_ERR(SQLERRM, SQLCODE, 'truck_sale_pkg.get_truck_sale_data', '');
@@ -386,10 +387,40 @@ BEGIN
 EXCEPTION
    WHEN OTHERS
    THEN
-      LOG_ERR(SQLERRM|| ' ' || DBMS_UTILITY.format_error_backtrace, SQLCODE, 'price_pkg.get_not_loaded_inv', '');
-      RAISE_APPLICATION_ERROR (-20416, 'Запрос не выполнился. ' || SQLERRM);
+      LOG_ERR(SQLERRM|| ' ' || DBMS_UTILITY.format_error_backtrace, SQLCODE, 'truck_sale_pkg.get_not_loaded_inv', '');
+      RAISE_APPLICATION_ERROR (-20905, 'Запрос не выполнился. ' || SQLERRM);
 
 end get_not_loaded_inv;
+
+--
+-- Выбор записанных распределений
+--
+PROCEDURE get_distr_index
+(
+   id_dep_   in number,
+   startDate in date,
+   stopDate  in date,
+   cursor_   out ref_cursor
+)
+IS
+BEGIN
+   open cursor_ for
+        SELECT a.dist_ind_id, a.description, a.dist_date, a.ready, distribution_pkg.get_list_inv(dist_ind_id) as str_inv, distribution_pkg.get_list_orders(dist_ind_id) str_orders
+               , nvl(s.outer_id, a.dist_ind_id) as distrib_seq
+               , (select max(r.WAREHOUSE_SENDED_DATE) as WAREHOUSE_SENDED_DATE from invoice_register r, DISTRIBUTIONS_INVOICES d where r.inv_id = d.INV_ID and d.DIST_IND_ID = a.dist_ind_id) is_sended
+                FROM DISTRIBUTIONS_INDEX a
+                  --left outer join orders b on b.id_orders = a.id_orders
+                  left outer join numeration_seq s on s.obj_id = a.dist_ind_id and s.entity = 'distribution'
+                WHERE a.ID_DEPARTMENTS = id_dep_
+                  and a.DIST_DATE between startDate and stopDate
+                  and not exists (select 1 from truck_sale_distr z where z.DIST_IND_ID = a.dist_ind_id)
+                ORDER BY a.dist_ind_id DESC;
+
+EXCEPTION
+   WHEN others THEN
+        LOG_ERR(SQLERRM, SQLCODE, 'truck_sale_pkg.get_distr_index', '');
+        RAISE_APPLICATION_ERROR (-20500, 'Запрос не выполнился. ' || SQLERRM);
+END get_distr_index;
 
 
 
@@ -417,7 +448,7 @@ EXCEPTION
    WHEN OTHERS
    THEN
       LOG_ERR(SQLERRM|| ' ' || DBMS_UTILITY.format_error_backtrace, SQLCODE, 'price_pkg.ins_truck_sale_data', '');
-      RAISE_APPLICATION_ERROR (-20417, 'Запрос не выполнился. ' || SQLERRM);
+      RAISE_APPLICATION_ERROR (-20906, 'Запрос не выполнился. ' || SQLERRM);
 
 end ins_truck_sale_data;
 
@@ -439,6 +470,12 @@ BEGIN
               select sum(a.UNITS) units, max(a.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id
               from invoice_data a, truck_sale_invoices b
               where a.storned_data = 0 and a.inv_id = b.inv_id and b.truck_sale_id = p_TRUCK_SALE_ID
+              group by a.n_id
+              union all
+              select sum(a.left_quantity) as units, max(d.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id
+              from PREP_DIST_VIEW a, invoice_data d, truck_sale_distr b
+              where a.dist_ind_id = b.DIST_IND_ID and b.truck_sale_id = p_TRUCK_SALE_ID
+              and a.left_quantity > 0 and a.invoice_data_id = d.invoice_data_id
               group by a.n_id
          ) a
          inner join truck_sale s on s.truck_sale_id = p_TRUCK_SALE_ID
@@ -467,7 +504,7 @@ EXCEPTION
    WHEN OTHERS
    THEN
       LOG_ERR(SQLERRM|| ' ' || DBMS_UTILITY.format_error_backtrace, SQLCODE, 'price_pkg.get_statistic', '');
-      RAISE_APPLICATION_ERROR (-20418, 'Запрос не выполнился. ' || SQLERRM);
+      RAISE_APPLICATION_ERROR (-20907, 'Запрос не выполнился. ' || SQLERRM);
 
 end get_statistic;
 
@@ -518,6 +555,12 @@ BEGIN
               from invoice_data a, truck_sale_invoices b
               where a.storned_data = 0 and a.inv_id = b.inv_id and b.truck_sale_id = p_TRUCK_SALE_ID
               group by a.n_id
+              union all
+              select sum(a.left_quantity) as units, max(d.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id
+              from PREP_DIST_VIEW a, invoice_data d, truck_sale_distr b
+              where a.dist_ind_id = b.DIST_IND_ID and b.truck_sale_id = p_TRUCK_SALE_ID
+              and a.left_quantity > 0 and a.invoice_data_id = d.invoice_data_id
+              group by a.n_id
          ) a on b.n_id = a.n_id
 
          inner join truck_sale s on s.truck_sale_id = p_TRUCK_SALE_ID
@@ -566,7 +609,7 @@ EXCEPTION
    WHEN OTHERS
    THEN
       LOG_ERR(SQLERRM|| ' ' || DBMS_UTILITY.format_error_backtrace, SQLCODE, 'price_pkg.get_data_for_web', '');
-      RAISE_APPLICATION_ERROR (-20419, 'Запрос не выполнился. ' || SQLERRM);
+      RAISE_APPLICATION_ERROR (-20908, 'Запрос не выполнился. ' || SQLERRM);
 
 end get_data_for_web;
 
@@ -594,8 +637,29 @@ begin
 EXCEPTION
    WHEN others THEN
         LOG_ERR(SQLERRM, SQLCODE, 'truck_sale_pkg.edit_truck_sale_ins_inv', '');
-        RAISE_APPLICATION_ERROR (-20903, 'Запрос не выполнился. ' || SQLERRM);
+        RAISE_APPLICATION_ERROR (-20909, 'Запрос не выполнился. ' || SQLERRM);
 end;
+
+
+--
+-- Добавляем разносы к продажам с колес
+--
+PROCEDURE edit_truck_sale_ins_distr
+(
+  p_id          in number,
+  p_inv_id      in number
+)
+is
+begin
+
+  insert into TRUCK_SALE_DISTR(TRUCK_SALE_ID, DIST_IND_ID) values(p_id, p_inv_id);
+
+EXCEPTION
+   WHEN others THEN
+        LOG_ERR(SQLERRM, SQLCODE, 'truck_sale_pkg.edit_truck_sale_ins_distr', '');
+        RAISE_APPLICATION_ERROR (-20910, 'Запрос не выполнился. ' || SQLERRM);
+end;
+
 
 
 END;

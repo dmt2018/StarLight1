@@ -235,7 +235,7 @@ begin
 
     if (id_ord_cl > 0) then
     begin
-      Tag := edQuantity.EditValue;
+      DM.SelQ.Tag := edQuantity.EditValue;
       id_ord_list := 0;
       Close;
       SQL.Clear;

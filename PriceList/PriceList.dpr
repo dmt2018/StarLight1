@@ -24,7 +24,9 @@ uses
   UClientSale in 'UClientSale.pas' {frmClientSales},
   UPriceStatistic in 'UPriceStatistic.pas' {frmPriceStatisitic},
   USpecOrder in 'USpecOrder.pas' {frmSpecOrder},
-  UaddSpecOrder in 'UaddSpecOrder.pas' {frmAddSpecOrder};
+  UaddSpecOrder in 'UaddSpecOrder.pas' {frmAddSpecOrder},
+  UTruckSale in 'UTruckSale.pas' {frmTruckSale},
+  UEditWebShop in 'UEditWebShop.pas' {frmEditWebShop};
 
 {$R *.res}
 
@@ -39,5 +41,7 @@ begin
   Application.CreateForm(TDM, DM);
   Application.CreateForm(TStartF, StartF);
   Application.CreateForm(TfrmAddSpecOrder, frmAddSpecOrder);
+  Application.CreateForm(TfrmTruckSale, frmTruckSale);
+  Application.CreateForm(TfrmEditWebShop, frmEditWebShop);
   Application.Run;
 end.

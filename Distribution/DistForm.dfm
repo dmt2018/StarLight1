@@ -1289,12 +1289,16 @@ object DistFormF: TDistFormF
       ShortCut = 16462
       OnExecute = aSearchByNameExecute
     end
+    object aLoadDobor: TAction
+      Caption = #1047#1072#1075#1088#1091#1079#1080#1090#1100' '#1076#1086#1073#1086#1088' '#1080#1079' WebShop'
+      OnExecute = aLoadDoborExecute
+    end
   end
   object ActionImageList: TImageList
     Left = 576
     Top = 488
     Bitmap = {
-      494C01010C00C800F40010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010C00C800F80010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000004000000001002000000000000040
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -2949,6 +2953,11 @@ object DistFormF: TDistFormF
           BeginGroup = True
           Visible = True
           ItemName = 'mnCheckInvoices'
+        end
+        item
+          BeginGroup = True
+          Visible = True
+          ItemName = 'mnLoadDobor'
         end>
     end
     object dxBarButton6: TdxBarButton
@@ -3780,6 +3789,10 @@ object DistFormF: TDistFormF
       Visible = ivAlways
       OnClick = mnCheckInvoice
     end
+    object mnLoadDobor: TdxBarButton
+      Action = aLoadDobor
+      Category = 0
+    end
   end
   object ppStok: TPopupMenu
     Left = 168
@@ -4404,5 +4417,11 @@ object DistFormF: TDistFormF
     BCDToCurrency = False
     Left = 456
     Top = 57
+  end
+  object odOrder: TOpenDialog
+    Filter = 'txt|*.txt|csv|*.csv'
+    InitialDir = '/'
+    Left = 640
+    Top = 72
   end
 end
