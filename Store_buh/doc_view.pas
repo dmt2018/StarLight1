@@ -1446,7 +1446,7 @@ begin
 
 
 // Копия
-//        if (Datam.print_copy = 1) then
+        if (Datam.print_copy = 1) then
         //if MessageDlg('Печатать сопутствующий документ?',mtConfirmation,[mbYes, mbNo],0) = mrYes then
         begin
           frxReportNakl.Clear;
