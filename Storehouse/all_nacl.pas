@@ -591,7 +591,7 @@ begin
   DocListPrint_Action.Enabled := DataM.Operator_print;
   dxBarButton15.Enabled := DataM.Operator_print;
 
-  grid_allnakl_v.OptionsView.Footer:=false;
+  //grid_allnakl_v.OptionsView.Footer:=true;
 end;
 
 
