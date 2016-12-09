@@ -690,6 +690,10 @@ object all_nacl_Form: Tall_nacl_Form
       object TabSheet3: TTabSheet
         Caption = ' '#1047#1072#1082#1088#1099#1090#1100' '#1087#1088#1086#1089#1084#1086#1090#1088' (Ctrl+1) '
         ImageIndex = 2
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object Panel4: TPanel
           Left = 0
           Top = 0
@@ -1500,6 +1504,9 @@ object all_nacl_Form: Tall_nacl_Form
             Font.Style = []
             ImageIndex = 2
             ParentFont = False
+            ExplicitLeft = 0
+            ExplicitTop = 0
+            ExplicitWidth = 0
             object Bevel10: TBevel
               Left = 0
               Top = 13
@@ -1520,6 +1527,9 @@ object all_nacl_Form: Tall_nacl_Form
             Font.Pitch = fpFixed
             Font.Style = []
             ParentFont = False
+            ExplicitLeft = 0
+            ExplicitTop = 0
+            ExplicitWidth = 0
             object Bevel9: TBevel
               Left = 0
               Top = 13
@@ -1942,7 +1952,7 @@ object all_nacl_Form: Tall_nacl_Form
             Left = 8
             Top = 4
             Width = 169
-            Height = 24
+            Height = 27
             AlwaysShowBorder = True
             EditButtons = <>
             Font.Charset = DEFAULT_CHARSET
