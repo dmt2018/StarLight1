@@ -20,7 +20,10 @@ uses
   URefbooks in 'URefbooks.pas' {frmRefbooks},
   UEditRefBooks in 'UEditRefBooks.pas' {frmEditRefbooks},
   UEditSubReg in 'UEditSubReg.pas' {frmEditSubReg},
-  UEditAdmins in 'UEditAdmins.pas' {frmEditAdmins};
+  UEditAdmins in 'UEditAdmins.pas' {frmEditAdmins},
+  Unomenclature in 'Unomenclature.pas' {frmNomenclature},
+  UEditNom in 'UEditNom.pas' {frmEditNom},
+  UEditSubNom in 'UEditSubNom.pas' {frmEditSubNom};
 
 {$R *.res}
 

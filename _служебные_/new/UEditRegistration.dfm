@@ -287,6 +287,10 @@ object frmEditRegistration: TfrmEditRegistration
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = '  '#1054#1073#1103#1079#1072#1090#1077#1083#1100#1085#1099#1077' '#1087#1086#1083#1103'  '
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Panel2: TPanel
         Left = 0
         Top = 0
@@ -980,7 +984,7 @@ object frmEditRegistration: TfrmEditRegistration
           Style = csDropDownList
           Color = clWhite
           Ctl3D = False
-          ItemHeight = 16
+          ItemHeight = 0
           ParentCtl3D = False
           TabOrder = 1
           OnChange = ComboBox1Change
@@ -996,7 +1000,7 @@ object frmEditRegistration: TfrmEditRegistration
           Style = csDropDownList
           Color = clWhite
           Ctl3D = False
-          ItemHeight = 16
+          ItemHeight = 0
           ParentCtl3D = False
           TabOrder = 16
         end
@@ -1011,7 +1015,7 @@ object frmEditRegistration: TfrmEditRegistration
           Style = csDropDownList
           Color = clWhite
           Ctl3D = False
-          ItemHeight = 16
+          ItemHeight = 0
           ParentCtl3D = False
           TabOrder = 0
         end
@@ -1044,7 +1048,7 @@ object frmEditRegistration: TfrmEditRegistration
           Font.Name = 'Arial'
           Font.Pitch = fpFixed
           Font.Style = []
-          ItemHeight = 16
+          ItemHeight = 0
           ParentCtl3D = False
           ParentFont = False
           TabOrder = 5
@@ -1256,7 +1260,7 @@ object frmEditRegistration: TfrmEditRegistration
           Left = 134
           Top = 201
           Width = 297
-          Height = 22
+          Height = 24
           Cursor = crHandPoint
           AlwaysShowBorder = True
           Ctl3D = True
@@ -1768,6 +1772,10 @@ object frmEditRegistration: TfrmEditRegistration
     object tshRules: TTabSheet
       Caption = ' '#1056#1072#1079#1088#1077#1096#1077#1085#1080#1103' '#1080#1085#1090#1077#1088#1085#1077#1090'-'#1084#1072#1075#1072#1079#1080#1085#1072' '
       ImageIndex = 3
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object chbRuleSite: TCheckBox
         Left = 19
         Top = 4
@@ -2158,7 +2166,7 @@ object frmEditRegistration: TfrmEditRegistration
     Left = 532
     Top = 22
     Bitmap = {
-      494C010107000900E00010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010107000900E40010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000084CA84FF54B757FF000000000000000000000000000000000000

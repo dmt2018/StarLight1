@@ -122,6 +122,7 @@ type
     procedure mnNSI_pcsClick(Sender: TObject);
     procedure mmiTransClick(Sender: TObject);
     procedure mmiUndoClick(Sender: TObject);
+    procedure miNomen_NomClick(Sender: TObject);
   private
     { Private declarations }
     porasessStarLight: POraSession;
@@ -134,7 +135,7 @@ var
 
 implementation
 
-uses info_f, UNSICurrency, USettings, UAdmin,  URegistration, UTrans, Urefbooks;
+uses info_f, UNSICurrency, USettings, UAdmin,  URegistration, UTrans, Urefbooks, uNomenclature;
 
 {$R *.dfm}
 
@@ -234,6 +235,12 @@ end;
 procedure TfrmMain.miExitClick(Sender: TObject);
 begin
   close;
+end;
+
+//форма Номенклатура
+procedure TfrmMain.miNomen_NomClick(Sender: TObject);
+begin
+  frmNomenclature.MainFormShow;
 end;
 
 //форма Администрирование

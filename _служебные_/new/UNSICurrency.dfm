@@ -53,6 +53,7 @@ object frmNSICurreny: TfrmNSICurreny
       OptionsData.CancelOnExit = False
       OptionsData.Deleting = False
       OptionsData.DeletingConfirmation = False
+      OptionsData.Editing = False
       OptionsData.Inserting = False
       OptionsSelection.MultiSelect = True
       OptionsView.CellEndEllipsis = True

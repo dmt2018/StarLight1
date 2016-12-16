@@ -2,10 +2,12 @@ unit star_lib;
 
 interface
 
-uses StdCtrls,Classes,Variants,SysUtils,Graphics,Dialogs, Ora, Forms, IniFiles,
+uses StdCtrls,Classes,Variants,SysUtils,Graphics,Dialogs, Ora, Forms, IniFiles,ExtCtrls, Controls,
      CheckLst,windows,ComCtrls, DB, DBGrids, cxImageComboBox, cxBarEditItem,
      cxCustomData, Clipbrd, cxDBData, cxGridLevel, cxGridCustomView, cxGridDBBandedTableView,
      cxGridTableView, cxGridDBDataDefinitions, Shellapi, dbctrlseh;
+
+
 
 type
   PFixedFileInfo = ^TFixedFileInfo;
@@ -41,6 +43,8 @@ type
  end;
  TOKEN_USER = _TOKEN_USER;
 
+ function MakePanelLabel(wctrl: TWinControl; def_width: integer; def_height: integer; caption_text: string) : TObject;
+
 // Права на программу
   function getRules( TheQuery : TOraQuery; pProgram : integer ) : TUserRules;
 // Проверка на право
@@ -64,6 +68,8 @@ type
   procedure LoadFormState(aForm: TForm);
 // Для shellexecute
   procedure CheckShell(hand: Thandle; st: pchar);
+  function BoolToInt(inp : boolean) : integer;
+  function  VarToInt(VarVar : Variant) : Integer;
 
 const RussianMonthsNames: array[1..12] of String =  //Просто массив русских названий месяцев
 ('Январь',
@@ -90,6 +96,57 @@ const RussianWeekDays: array[1..7,0..1] of String =  //Просто массив русских наз
 
 implementation
 
+// Нарисуем окно с текстов для оброботки запросов и другой фигни
+// 2011-09-02
+function MakePanelLabel(wctrl: TWinControl; def_width: integer; def_height: integer; caption_text: string) : TObject;
+var pnl1: TPanel;
+begin
+    pnl1 := TPanel.Create(wctrl);
+    pnl1.Top        := round(wctrl.Height / 2 - pnl1.Height / 2);
+    pnl1.Left       := round(wctrl.Width / 2 - pnl1.Width / 2);
+    pnl1.Parent     := wctrl;
+    pnl1.Width      := def_width;
+    pnl1.Height     := def_height;
+    pnl1.Font.Name  := 'Arial';
+    pnl1.Font.Style := [fsBold];
+    pnl1.Font.Size  := 10;
+    pnl1.Caption    := caption_text;
+    pnl1.BevelInner := bvRaised;
+    pnl1.BevelKind  := bkSoft;
+    pnl1.BevelOuter := bvNone;
+    pnl1.Color      := clWhite; //TColor($00F9E8D9);
+    pnl1.Visible    := true;
+
+    result := pnl1;
+end;
+
+function BoolToInt(inp : boolean) : integer;
+Begin
+  if inp then BoolToInt := 1
+         else BoolToInt := 0;
+End;
+
+function  VarToInt(VarVar : Variant) : Integer;
+{***************************************************************
+ * Функция предназначена для преобразования                    *
+ * переменной типа Variant в integer                           *
+ * в случае невозможности преобразования результат -1          * 
+ ***************************************************************}
+VAR
+  VT : TVarType;
+Begin
+  VT := VarType(VarVar);
+  case VT of
+    varEmpty,varNull	: VarToInt := -1;
+    varString : try
+                  VarToInt := StrToInt(VarVar);
+                except
+                  VarToInt := -1
+                end;
+    varInteger,varSmallint : VarToInt := VarVar;
+    varSingle,varDouble	: VarToInt := Trunc(VarVar);
+  End;
+End;
 
 // Копирование данных ячейки футера в клипборд
 procedure PoolToClipbaord(vControl: TcxGridDBDataController; vParam: integer = 0);

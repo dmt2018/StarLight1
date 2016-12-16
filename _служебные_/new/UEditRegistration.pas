@@ -764,7 +764,7 @@ begin
   else
   begin
     str := trim(copy(trim(labeledEdit1.text),2,length(trim(labeledEdit1.text))));
-    sql := 'SELECT ID_CLIENTS from CLIENTS_VIEW3 WHERE UPPER(NICK) LIKE trim(''%'+ UpperCase(str) +''') and id_office='+IntToStr(DM.id_office);
+    sql := 'SELECT ID_CLIENTS from CLIENTS_VIEW3 WHERE UPPER(NICK) LIKE trim(''%'+ UpperCase(str) +''') and id_office='+IntToStr(frmRegistration.id_office);
     // Генерация кода сотрудника
     frmRegistration.selq.Close;
     frmRegistration.selq.SQL.Clear;

@@ -73,5 +73,11 @@
     <Transaction>2016.10.27 17:34:56.402.dfm,C:\Users\Prg_10\Desktop\new\Unit2.dfm=C:\Users\Prg_10\Desktop\new\UEditSubReg.dfm</Transaction>
     <Transaction>2016.10.31 16:40:36.589.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\UEditAdmins.pas</Transaction>
     <Transaction>2016.10.31 16:40:36.589.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\UEditAdmins.dfm</Transaction>
+    <Transaction>2016.12.13 14:06:05.542.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\Unomenclature.pas</Transaction>
+    <Transaction>2016.12.13 14:06:05.542.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\Unomenclature.dfm</Transaction>
+    <Transaction>2016.12.16 14:25:59.567.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\UEditNom.pas</Transaction>
+    <Transaction>2016.12.16 14:25:59.567.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\UEditNom.dfm</Transaction>
+    <Transaction>2016.12.16 17:48:29.317.pas,C:\Users\Prg_10\Desktop\new\Unit1.pas=C:\Users\Prg_10\Desktop\new\UEditSubNom.pas</Transaction>
+    <Transaction>2016.12.16 17:48:29.317.dfm,C:\Users\Prg_10\Desktop\new\Unit1.dfm=C:\Users\Prg_10\Desktop\new\UEditSubNom.dfm</Transaction>
   </Transactions>
 </BorlandProject>
