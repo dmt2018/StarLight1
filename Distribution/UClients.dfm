@@ -230,6 +230,11 @@ object frmClients: TfrmClients
               Format = '0'
               Kind = skSum
               Column = grClients_VQUANTITY
+            end
+            item
+              Format = '0'
+              Kind = skSum
+              Column = grClients_VWEBSHOP
             end>
           DataController.Summary.SummaryGroups = <>
           FilterRow.InfoText = #1055#1086#1083#1077' '#1076#1083#1103' '#1092#1080#1083#1100#1090#1088#1086#1074
@@ -310,6 +315,18 @@ object frmClients: TfrmClients
             Options.HorzSizing = False
             Options.Moving = False
           end
+          object grClients_VWEBSHOP: TcxGridDBColumn
+            DataBinding.FieldName = 'WEBSHOP'
+            PropertiesClassName = 'TcxTextEditProperties'
+            Properties.Alignment.Horz = taCenter
+            Properties.ReadOnly = True
+            FooterAlignmentHorz = taCenter
+            GroupSummaryAlignment = taCenter
+            HeaderAlignmentHorz = taCenter
+            MinWidth = 90
+            Options.HorzSizing = False
+            Width = 90
+          end
         end
         object grClients_L: TcxGridLevel
           GridView = grClients_V
@@ -363,6 +380,11 @@ object frmClients: TfrmClients
               Format = '0'
               Kind = skSum
               Column = cxGridDBColumnQUANTITY
+            end
+            item
+              Format = '0'
+              Kind = skSum
+              Column = grClientsItem_VWEBSHOP
             end>
           DataController.Summary.SummaryGroups = <>
           FilterRow.InfoText = #1055#1086#1083#1077' '#1076#1083#1103' '#1092#1080#1083#1100#1090#1088#1086#1074
@@ -486,6 +508,18 @@ object frmClients: TfrmClients
             DataBinding.FieldName = 'COLOUR_RAZN'
             Visible = False
           end
+          object grClientsItem_VWEBSHOP: TcxGridDBColumn
+            DataBinding.FieldName = 'WEBSHOP'
+            PropertiesClassName = 'TcxTextEditProperties'
+            Properties.Alignment.Horz = taCenter
+            Properties.ReadOnly = True
+            FooterAlignmentHorz = taCenter
+            GroupSummaryAlignment = taCenter
+            HeaderAlignmentHorz = taCenter
+            MinWidth = 100
+            Options.HorzSizing = False
+            Width = 100
+          end
         end
         object grClientsItem_L: TcxGridLevel
           GridView = grClientsItem_V
@@ -584,6 +618,9 @@ object frmClients: TfrmClients
     object cdsClientsStatISDONE: TFloatField
       FieldName = 'ISDONE'
     end
+    object cdsClientsStatWEBSHOP: TFloatField
+      FieldName = 'WEBSHOP'
+    end
   end
   object dsClientsStat: TOraDataSource
     DataSet = cdsClientsStat
@@ -666,6 +703,9 @@ object frmClients: TfrmClients
     object cdsClientsStatItemIS_PACK: TStringField
       FieldName = 'IS_PACK'
       Size = 19
+    end
+    object cdsClientsStatItemWEBSHOP: TFloatField
+      FieldName = 'WEBSHOP'
     end
   end
   object dsClientsStatItem: TOraDataSource

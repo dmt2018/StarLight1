@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.DISTRIBUTION_PKG
--- Generated 29.11.2016 2:03:30 from CREATOR@STAR_REG
+-- Generated 20.12.2016 23:54:15 from CREATOR@STAR_REG
 
 CREATE OR REPLACE 
 PACKAGE distribution_pkg
@@ -427,6 +427,23 @@ PROCEDURE INS_ORDERS
     v_site_data          in varchar2,
     v_id                 in out number
 );
+
+
+--
+-- Добавляем запись в разноску по продажам с колес
+--
+PROCEDURE CREATE_CUSTOM_DIST_LINE_truck
+(
+  IN_PREP_DIST_ID       IN NUMBER,
+  IN_ID_ORDERS_CLIENT   IN NUMBER,
+  IN_N_ID               IN NUMBER,
+  IN_QUANTITY           IN NUMBER,
+  IN_DIST_ID            IN NUMBER,
+  IN_PRICE              IN NUMBER,
+  OUT_RES               OUT NUMBER,
+  OUT_TEXT              OUT VARCHAR2
+);
+
 
 END; -- Package spec
 /
@@ -2226,9 +2243,10 @@ IS
 BEGIN
   open cursor_ for
     select a.*, case when quantity=dq then 1 else 0 end isdone from (
-        SELECT t.ord, t.hol_type as htype, a.ID_CLIENTS, b.NICK || ' ' || a.alpha as NICK, b.FIO, sum(c.quantity) as quantity, sum(nvl(e.dq,0)) as dq
+        SELECT t.ord, t.hol_type as htype, a.ID_CLIENTS, b.NICK || ' ' || a.alpha as NICK, b.FIO, sum(c.quantity) as quantity, sum(nvl(e.dq,0)) as dq, sum(nvl(w.dq,0)) as webshop
         FROM ORDERS_CLIENTS a, CLIENTS b, orders_list c, nomenclature_mat_view v, hol_types t, distributions_orders z
           , ( select sum(nvl(e.dq,0)) as dq, e.id_orders_list from DISTRIBUTION_VIEW e where e.dist_ind_id = vDistIndId group by e.id_orders_list ) e
+          , ( select sum(nvl(e.quantity,0)) as dq, e.id_orders_list from distributions_webshop e where e.dist_ind_id = vDistIndId group by e.id_orders_list ) w
         WHERE z.dist_ind_id = vDistIndId
               and a.id_orders = z.order_id -- vIdOrders
               and a.active = 1
@@ -2240,6 +2258,7 @@ BEGIN
               and v.ht_id = t.ht_id
               and c.active = 1
               and c.id_orders_list = e.id_orders_list(+)
+              and c.id_orders_list = w.id_orders_list(+)
         group by a.ID_CLIENTS, b.NICK || ' ' || a.alpha, b.FIO, t.ord, t.hol_type
     ) a
     order by NICK, ord;
@@ -2263,20 +2282,20 @@ IS
 BEGIN
   open cursor_ for
   select a.*, DECODE(is_stock, 1, 'сток', 'инвойс') AS WHERE_FLOWER_IS from (
-    select a.n_id, case when a.nnn = a.bbb then a.quantity else 0 end quantity, a.zatirka, a.id_orders_list, a.compiled_name_otdel, a.colour, a.is_stock, a.dq, a.dq_check, a.dist_id, a.compiled_name_otdel_razn, a.colour_razn, a.nick, a.id_clients, a.is_pack
+    select a.n_id, case when a.nnn = a.bbb then a.quantity else 0 end quantity, a.zatirka, a.id_orders_list, a.compiled_name_otdel, a.colour, a.is_stock, a.dq, a.dq_check, a.webshop, a.dist_id, a.compiled_name_otdel_razn, a.colour_razn, a.nick, a.id_clients, a.is_pack
     from (
       SELECT row_number() over(partition by a.id_orders_clients, c.n_id order by e.dist_id) as nnn,
          count(*) over(partition by a.id_orders_clients, c.n_id) as bbb,
          c.n_id, c.quantity, c.zatirka, c.id_orders_list, d.compiled_name_otdel||' '||d.colour as compiled_name_otdel, d.colour,
          case when (e.INVOICE_DATA_ID is NULL and e.DQ > 0) then 1 else 0 end is_stock,
-         nvl(e.dq,0) as dq, case when e.DQ is null then 0 else 1 end dq_check,
+         nvl(e.dq,0) as dq, case when e.DQ is null then 0 else 1 end dq_check, nvl(w.quantity,0) as webshop,
          e.dist_id
          , case when e.D_N_ID = c.n_id then null else e.compiled_name_otdel||' '||e.colour end compiled_name_otdel_razn, e.colour as colour_razn
          --, l.nick || ' ' || a.alpha as NICK
          , l.nick
          , l.id_clients
          , '1. Обычные клиенты' as is_pack
-      FROM ORDERS_CLIENTS a, orders_list c, nomenclature_mat_view d, DISTRIBUTION_VIEW e, clients l, distributions_orders z
+      FROM ORDERS_CLIENTS a, orders_list c, nomenclature_mat_view d, DISTRIBUTION_VIEW e, clients l, distributions_orders z, distributions_webshop w
       WHERE z.dist_ind_id = vDistIndId
         and a.id_orders = z.order_id  --vIdOrders
         and a.active = 1
@@ -2290,6 +2309,7 @@ BEGIN
         and a.id_clients = l.id_clients
         and c.quantity > 0
         and a.id_clients not in (const_dir, const_main)
+        and c.id_orders_list = w.id_orders_list(+)
     ) a
 
     union all
@@ -2298,7 +2318,7 @@ BEGIN
            , n.compiled_name_otdel||' '||n.colour as compiled_name_otdel, n.colour
            , 0 as is_stock, b.quantity as dq
            , case when b.quantity = inv.UNITS then 1 else 0 end dq_check
-           --, b.dist_id
+           , 0 as webshop
            , 0 as dist_id
            , null as compiled_name_otdel_razn, null as colour_razn
            , inv.to_client as nick
@@ -2313,7 +2333,7 @@ BEGIN
 
     union all
 
-    select a.n_id, case when a.nnn = a.bbb then a.quantity else 0 end quantity, a.zatirka, a.id_orders_list, a.compiled_name_otdel, a.colour, a.is_stock, a.dq, a.dq_check, a.dist_id, a.compiled_name_otdel_razn, a.colour_razn, a.nick, a.id_clients, a.is_pack
+    select a.n_id, case when a.nnn = a.bbb then a.quantity else 0 end quantity, a.zatirka, a.id_orders_list, a.compiled_name_otdel, a.colour, a.is_stock, a.dq, a.dq_check, 0 as webshop, a.dist_id, a.compiled_name_otdel_razn, a.colour_razn, a.nick, a.id_clients, a.is_pack
     from (
       SELECT row_number() over(partition by a.id_orders_clients, c.n_id order by e.dist_id) as nnn,
          count(*) over(partition by a.id_orders_clients, c.n_id) as bbb,
@@ -2625,6 +2645,74 @@ END INS_ORDERS; -- INS_RESERV
 
 
 
+--
+-- Добавляем запись в разноску по продажам с колес
+--
+PROCEDURE CREATE_CUSTOM_DIST_LINE_truck
+(
+  IN_PREP_DIST_ID       IN NUMBER,
+  IN_ID_ORDERS_CLIENT   IN NUMBER,
+  IN_N_ID               IN NUMBER,
+  IN_QUANTITY           IN NUMBER,
+  IN_DIST_ID            IN NUMBER,
+  IN_PRICE              IN NUMBER,
+  OUT_RES               OUT NUMBER,
+  OUT_TEXT              OUT VARCHAR2
+)
+IS
+  v_id_orders_list  number;
+  NEXT_DIST_ID      NUMBER;
+
+BEGIN
+
+  -- Найдем заказ или создадим. Если найдем, то увеличим количество заказа
+  select count(*) into tmp_cnt from ORDERS_LIST where ID_ORDERS_CLIENTS = IN_ID_ORDERS_CLIENT and active = 1 and PACK_ = 0 and n_id = IN_N_ID;
+  if tmp_cnt = 0 then
+    distribution_pkg.INS_ORDERS(IN_ID_ORDERS_CLIENT, IN_N_ID, IN_QUANTITY, 0, 0, '', v_id_orders_list);
+  else
+    select ID_ORDERS_LIST into v_id_orders_list from ORDERS_LIST where ID_ORDERS_CLIENTS = IN_ID_ORDERS_CLIENT and active = 1 and PACK_ = 0 and n_id = IN_N_ID;
+    update ORDERS_LIST set QUANTITY = QUANTITY + IN_QUANTITY, DATE_CHANGE = sysdate where ID_ORDERS_LIST = v_id_orders_list;
+  end if;
+
+
+  -- Пытаемся найти уже существующую запись
+  select count(*) into tmp_cnt from DISTRIBUTIONS
+  where ID_ORDERS_LIST = v_id_orders_list and N_ID = IN_N_ID and PREP_DIST_ID = IN_PREP_DIST_ID;
+
+  if tmp_cnt > 0 then
+    update DISTRIBUTIONS set QUANTITY = QUANTITY + IN_QUANTITY
+    where ID_ORDERS_LIST = v_id_orders_list and N_ID = IN_N_ID and PREP_DIST_ID = IN_PREP_DIST_ID;
+
+    UPDATE PREPARE_DISTRIBUTION SET LEFT_QUANTITY = LEFT_QUANTITY - IN_QUANTITY
+    WHERE PREP_DIST_ID = IN_PREP_DIST_ID;
+  else
+    SELECT DIST_ID.NextVal INTO NEXT_DIST_ID FROM DUAL;
+
+    INSERT INTO DISTRIBUTIONS (DIST_IND_ID, DIST_ID, N_ID, QUANTITY, PREP_DIST_ID, ID_ORDERS_LIST)
+    VALUES (IN_DIST_ID, NEXT_DIST_ID, IN_N_ID, IN_QUANTITY, IN_PREP_DIST_ID, v_id_orders_list);
+
+    UPDATE PREPARE_DISTRIBUTION SET LEFT_QUANTITY = LEFT_QUANTITY - IN_QUANTITY
+    WHERE PREP_DIST_ID = IN_PREP_DIST_ID;
+  end if;
+
+  -- Добавим запись в разнос webshop
+  select count(*) into tmp_cnt from distributions_webshop
+  where ID_ORDERS_LIST = v_id_orders_list and N_ID = IN_N_ID and dist_ind_id = IN_DIST_ID;
+  if tmp_cnt > 0 then
+    update distributions_webshop set QUANTITY = QUANTITY + IN_QUANTITY
+    where ID_ORDERS_LIST = v_id_orders_list and N_ID = IN_N_ID and dist_ind_id = IN_DIST_ID;
+  else
+    insert into distributions_webshop values(IN_DIST_ID, universal_id.nextval, IN_N_ID, IN_QUANTITY, IN_PRICE, v_id_orders_list);
+  end if;
+
+  OUT_RES := 1;
+  OUT_TEXT := 'Операция прошла успешно!';
+
+EXCEPTION
+   WHEN OTHERS THEN
+        LOG_ERR(SQLERRM, SQLCODE, 'distribution_pkg.CREATE_CUSTOM_DIST_LINE_truck', '');
+        RAISE_APPLICATION_ERROR (-20529, 'Запрос не выполнился. ' || SQLERRM);
+END CREATE_CUSTOM_DIST_LINE_truck;
 
 
 END;

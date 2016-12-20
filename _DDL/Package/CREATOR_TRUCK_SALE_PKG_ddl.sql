@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.TRUCK_SALE_PKG
--- Generated 04.12.2016 0:46:04 from CREATOR@STAR_REG
+-- Generated 20.12.2016 23:24:53 from CREATOR@STAR_REG
 
 CREATE OR REPLACE 
 PACKAGE truck_sale_pkg
@@ -125,10 +125,11 @@ PROCEDURE get_data_for_web
 --
 -- Удаляем инвойсы с продажам с колес
 --
-PROCEDURE edit_truck_sale_del_inv
+PROCEDURE edit_truck_sale_del
 (
   p_id          in number,
-  p_inv_id      in number
+  p_inv_id      in number,
+  p_type        in varchar2
 );
 
 
@@ -150,6 +151,16 @@ PROCEDURE get_distr_index
    startDate in date,
    stopDate  in date,
    cursor_   out ref_cursor
+);
+
+
+--
+-- Найдем разнос по идентификатору продаж с коле
+--
+PROCEDURE get_dist_id
+(
+  in_truck_sale_id  in number,
+  in_dist_id        in out number
 );
 
 
@@ -618,20 +629,30 @@ end get_data_for_web;
 --
 -- Удаляем инвойсы с продажам с колес
 --
-PROCEDURE edit_truck_sale_del_inv
+PROCEDURE edit_truck_sale_del
 (
   p_id          in number,
-  p_inv_id      in number
+  p_inv_id      in number,
+  p_type        in varchar2
 )
 is
 begin
 
-  delete from truck_sale_data a
-    where truck_sale_id = p_id
-      and exists (select 1 from invoice_data z, truck_sale_invoices y where z.n_id = a.n_id and z.inv_id = y.inv_id and y.truck_sale_id = a.truck_sale_id and y.inv_id = p_inv_id )
-      and not exists (select 1 from invoice_data z, truck_sale_invoices y where z.n_id = a.n_id and z.inv_id = y.inv_id and y.truck_sale_id = a.truck_sale_id and y.inv_id <> p_inv_id )
-  ;
-  delete from truck_sale_invoices where TRUCK_SALE_ID = p_id and INV_ID = p_inv_id;
+  if p_type = 'distr' THEN
+    delete from truck_sale_data a
+      where truck_sale_id = p_id
+        and exists (select 1 from invoice_data z, truck_sale_invoices y where z.n_id = a.n_id and z.inv_id = y.inv_id and y.truck_sale_id = a.truck_sale_id and y.inv_id = p_inv_id )
+        and not exists (select 1 from invoice_data z, truck_sale_invoices y where z.n_id = a.n_id and z.inv_id = y.inv_id and y.truck_sale_id = a.truck_sale_id and y.inv_id <> p_inv_id )
+    ;
+    delete from truck_sale_distr where TRUCK_SALE_ID = p_id and DIST_IND_ID = p_inv_id;
+  else
+    delete from truck_sale_data a
+      where truck_sale_id = p_id
+        and exists (select 1 from truck_sale_distr z, PREP_DIST_VIEW y where z.truck_sale_id = a.truck_sale_id and z.DIST_IND_ID = y.DIST_IND_ID and y.n_id = a.n_id )
+    ;
+    delete from truck_sale_invoices where TRUCK_SALE_ID = p_id and INV_ID = p_inv_id;
+  end if;
+
   commit;
 
 EXCEPTION
@@ -660,6 +681,33 @@ EXCEPTION
         RAISE_APPLICATION_ERROR (-20910, 'Запрос не выполнился. ' || SQLERRM);
 end;
 
+
+--
+-- Найдем разнос по идентификатору продаж с коле
+--
+PROCEDURE get_dist_id
+(
+  in_truck_sale_id  in number,
+  in_dist_id        in out number
+)
+is
+begin
+  select count(*) into tmp_cnt from TRUCK_SALE_DISTR where TRUCK_SALE_ID = in_truck_sale_id;
+
+  if tmp_cnt > 0 then
+    select DIST_IND_ID into in_dist_id from TRUCK_SALE_DISTR where TRUCK_SALE_ID = in_truck_sale_id and rownum = 1;
+  else
+    select count(*) into tmp_cnt from distributions_invoices where inv_id in (select inv_id from truck_sale_invoices where TRUCK_SALE_ID = in_truck_sale_id);
+    if tmp_cnt > 0 then
+      select DIST_IND_ID into in_dist_id from distributions_invoices where inv_id in (select inv_id from truck_sale_invoices where TRUCK_SALE_ID = in_truck_sale_id) and rownum = 1;
+    end if;
+  end if;
+
+EXCEPTION
+   WHEN others THEN
+        LOG_ERR(SQLERRM, SQLCODE, 'truck_sale_pkg.get_dist_id', '');
+        RAISE_APPLICATION_ERROR (-20911, 'Запрос не выполнился. ' || SQLERRM);
+end get_dist_id;
 
 
 END;

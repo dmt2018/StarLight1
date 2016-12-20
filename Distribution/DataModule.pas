@@ -181,6 +181,17 @@ type
     CDS_GOODSNBUTTON: TFloatField;
     CDS_ORDER_NIDPRIORITY: TIntegerField;
     SelPrepDistITOG_PRICE: TFloatField;
+    Q_CLIENTS: TOraQuery;
+    Q_CLIENTSID_CLIENTS: TIntegerField;
+    Q_CLIENTSNICK: TStringField;
+    Q_CLIENTSFIO: TStringField;
+    Q_CLIENTSCCODE: TStringField;
+    Q_CLIENTSTTYPE: TIntegerField;
+    Q_CLIENTSID_CLIENTS_GROUPS: TIntegerField;
+    Q_CLIENTSBLOCK1: TIntegerField;
+    Q_CLIENTSBLOCK2: TIntegerField;
+    Q_CLIENTSGROUP_NAME: TStringField;
+    Q_CLIENTS_DS: TOraDataSource;
     procedure StarSessBeforeConnect(Sender: TObject);
     procedure SelDistrIndBeforeOpen(DataSet: TDataSet);
     procedure SelOrderClientsBeforeOpen(DataSet: TDataSet);
@@ -383,13 +394,12 @@ begin
       ParamByName('v_site_data').Value        := '';
       ParamByName('v_id').Value               := id_ord_list;
 
-
       // ѕытаемс€ выполнить SQL запрос
       try
         Execute;
         id_ord_list := ParamByName('v_id').Value;
-{
         Close;
+{
         SQL.Clear;
         SQL.Add('SELECT creator.ORDERS_LIST_SEQ.CURRVAL as nn FROM DUAL');
         Open;

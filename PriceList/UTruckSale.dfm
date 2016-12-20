@@ -253,6 +253,7 @@ object frmTruckSale: TfrmTruckSale
       Height = 30
       Cursor = crHandPoint
       Caption = #1042#1099#1075#1088#1091#1079#1080#1090#1100' '#1085#1072' '#1089#1072#1081#1090
+      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -334,6 +335,7 @@ object frmTruckSale: TfrmTruckSale
       Height = 30
       Cursor = crHandPoint
       Caption = #1055#1088#1080#1086#1089#1090#1072#1085#1086#1074#1080#1090#1100
+      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -610,6 +612,11 @@ object frmTruckSale: TfrmTruckSale
           Format = '0'
           Kind = skSum
           Column = grSpecOrdersVIS_ACTIVE
+        end
+        item
+          Format = '0'
+          Kind = skCount
+          Column = grSpecOrdersVCOMPILED_NAME_OTDEL
         end>
       DataController.Summary.SummaryGroups = <>
       OptionsBehavior.CellHints = True
@@ -962,6 +969,7 @@ object frmTruckSale: TfrmTruckSale
       Height = 30
       Cursor = crHandPoint
       Caption = #1044#1086#1073#1072#1074#1080#1090#1100' '#1074#1089#1105
+      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -1037,12 +1045,13 @@ object frmTruckSale: TfrmTruckSale
       Spacing = 6
     end
     object btnRemoveAll: TcxButton
-      Left = 140
+      Left = 137
       Top = 6
       Width = 130
       Height = 30
       Cursor = crHandPoint
       Caption = #1059#1076#1072#1083#1080#1090#1100' '#1074#1089#1105
+      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -1118,12 +1127,13 @@ object frmTruckSale: TfrmTruckSale
       Spacing = 6
     end
     object btnStat: TcxButton
-      Left = 276
+      Left = 270
       Top = 6
       Width = 130
       Height = 30
       Cursor = crHandPoint
       Caption = #1057#1090#1072#1090#1080#1089#1090#1080#1082#1072
+      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -1254,9 +1264,6 @@ object frmTruckSale: TfrmTruckSale
       end
       object cxGrid1DBTableView1PRODUCT_QTY: TcxGridDBColumn
         DataBinding.FieldName = 'PRODUCT_QTY'
-      end
-      object cxGrid1DBTableView1PRODUCT_RESERVE: TcxGridDBColumn
-        DataBinding.FieldName = 'PRODUCT_RESERVE'
       end
       object cxGrid1DBTableView1NEW_FLAG: TcxGridDBColumn
         DataBinding.FieldName = 'NEW_FLAG'
@@ -1689,7 +1696,14 @@ object frmTruckSale: TfrmTruckSale
       '  USER_CHANGE = user '
       'where TRUCK_SALE_ID = :TRUCK_SALE_ID')
     SQLRefresh.Strings = (
-      'WHERE truck_sale_id = :truck_sale_id')
+      'SELECT a.*,'
+      '       a.truck_sale_id as truck_sale_id_,'
+      '       truck_sale_pkg.get_list_inv(truck_sale_id) as list_inv,'
+      
+        '       truck_sale_pkg.get_list_distr(truck_sale_id) as list_dist' +
+        'r'
+      'FROM truck_sale a'
+      'WHERE a.truck_sale_id = :old_truck_sale_id')
     SQL.Strings = (
       'begin'
       

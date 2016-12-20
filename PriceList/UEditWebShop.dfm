@@ -208,6 +208,7 @@ object frmEditWebShop: TfrmEditWebShop
       Height = 349
       Hint = 'Ctrl+Tab '#1087#1077#1088#1077#1082#1083#1102#1095#1077#1085#1080#1077' '#1084#1077#1078#1076#1091' '#1090#1072#1073#1083#1080#1094#1072#1084#1080
       Align = alLeft
+      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -678,6 +679,7 @@ object frmEditWebShop: TfrmEditWebShop
           #1088#1072#1079#1085#1086#1089#1099)
         ParentFont = False
         TabOrder = 6
+        OnClick = rgWebShopClick
       end
       object edCourse: TcxCurrencyEdit
         Left = 497
@@ -705,6 +707,7 @@ object frmEditWebShop: TfrmEditWebShop
       Width = 476
       Height = 349
       Align = alClient
+      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
@@ -716,6 +719,7 @@ object frmEditWebShop: TfrmEditWebShop
       LookAndFeel.Kind = lfOffice11
       object gr_distr_v: TcxGridDBTableView
         NavigatorButtons.ConfirmDelete = False
+        OnCellDblClick = gr_distr_vCellDblClick
         DataController.DataSource = SelDistrInd_DS
         DataController.Filter.Options = [fcoCaseInsensitive]
         DataController.Options = [dcoAnsiSort, dcoCaseInsensitive, dcoAssignGroupingValues, dcoAssignMasterDetailKeys, dcoSaveExpanding]
@@ -778,40 +782,9 @@ object frmEditWebShop: TfrmEditWebShop
           Options.Moving = False
           Options.Sorting = False
         end
-        object gr_distr_vDATE_TRUCK_OUT: TcxGridDBColumn
-          Caption = #1042#1099#1093#1086#1076' '#1084#1072#1096#1080#1085#1099
-          DataBinding.FieldName = 'DATE_TRUCK_OUT'
-          Visible = False
-          MinWidth = 110
-          Options.Editing = False
-          Options.HorzSizing = False
-          Options.Moving = False
-          Options.Sorting = False
-          Width = 110
-        end
-        object gr_distr_vID_DEPARTMENTS: TcxGridDBColumn
-          DataBinding.FieldName = 'ID_DEPARTMENTS'
-          Visible = False
-        end
         object gr_distr_vREADY: TcxGridDBColumn
           DataBinding.FieldName = 'READY'
           Visible = False
-        end
-        object gr_distr_vID_ORDERS: TcxGridDBColumn
-          Caption = #8470' '#1079#1072#1082#1072#1079#1072
-          DataBinding.FieldName = 'ID_ORDERS'
-          PropertiesClassName = 'TcxTextEditProperties'
-          Properties.Alignment.Horz = taCenter
-          Properties.ReadOnly = True
-          Visible = False
-          HeaderAlignmentHorz = taCenter
-          MinWidth = 70
-          Options.Editing = False
-          Options.Grouping = False
-          Options.HorzSizing = False
-          Options.Moving = False
-          Options.Sorting = False
-          Width = 70
         end
         object gr_distr_vSTR_INV: TcxGridDBColumn
           Caption = #8470'-'#1088#1072' '#1080#1085#1074#1086#1081#1089#1086#1074

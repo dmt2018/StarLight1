@@ -297,6 +297,8 @@ type
     PPLMDL_PRICE: TFloatField;
     PPLHAS_PRICE: TFloatField;
     PPLSTAT_LAST_PRICE: TStringField;
+    PPLW_QUANTITY: TFloatField;
+    PPLW_PRICE: TFloatField;
     procedure STAR_DBBeforeConnect(Sender: TObject);
     procedure PPL1AfterPost(DataSet: TDataSet);
     procedure PPLAfterPost(DataSet: TDataSet);

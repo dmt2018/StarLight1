@@ -41,10 +41,7 @@ type
     gr_distr_vDIST_IND_ID: TcxGridDBColumn;
     gr_distr_vDIST_DATE: TcxGridDBColumn;
     gr_distr_vDESCRIPTION: TcxGridDBColumn;
-    gr_distr_vDATE_TRUCK_OUT: TcxGridDBColumn;
-    gr_distr_vID_DEPARTMENTS: TcxGridDBColumn;
     gr_distr_vREADY: TcxGridDBColumn;
-    gr_distr_vID_ORDERS: TcxGridDBColumn;
     gr_distr_vSTR_INV: TcxGridDBColumn;
     gr_distr_vSTR_ORDERS: TcxGridDBColumn;
     gr_distr_vIS_SENDED: TcxGridDBColumn;
@@ -99,6 +96,10 @@ type
       ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
       AShift: TShiftState; var AHandled: Boolean);
     procedure aEnterExecute(Sender: TObject);
+    procedure gr_distr_vCellDblClick(Sender: TcxCustomGridTableView;
+      ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
+      AShift: TShiftState; var AHandled: Boolean);
+    procedure rgWebShopClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -119,6 +120,7 @@ uses PI_Library, DataModule, Globals;
 {$R *.dfm}
 
 
+// проставим даты старта и окончания продаж с инвойса
 procedure TfrmEditWebShop.gd_invoice_vCellDblClick(
   Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo;
   AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
@@ -129,6 +131,32 @@ begin
   stopDate.EditValue  := startDate.EditValue + 4;
 end;
 
+// проставим даты старта и окончания продаж с разноса
+procedure TfrmEditWebShop.gr_distr_vCellDblClick(Sender: TcxCustomGridTableView;
+  ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
+  AShift: TShiftState; var AHandled: Boolean);
+begin
+  if gr_distr_v.DataController.DataSet.RecordCount = 0 then exit;
+
+  startDate.EditValue := gr_distr_v.DataController.DataSet.FieldByName('DIST_DATE').AsDateTime;
+  stopDate.EditValue  := startDate.EditValue + 2;
+end;
+
+// лочим таблицы в зависимости от выбора источника данных
+procedure TfrmEditWebShop.rgWebShopClick(Sender: TObject);
+begin
+  if rgWebShop.ItemIndex = 0 then
+  begin
+    gd_invoice.Enabled := true;
+    gr_distr.Enabled   := false;
+  end
+  else
+  begin
+    gd_invoice.Enabled := false;
+    gr_distr.Enabled   := true;
+  end;
+end;
+
 function TfrmEditWebShop.ShowEditWebShop(wType: string; cds: TOraQuery) : Variant;
 begin
   frmEditWebShop := TfrmEditWebShop.Create(Application);
@@ -136,16 +164,16 @@ begin
     frmEditWebShop.w_cds := cds;
     frmEditWebShop.w_type := wType;
 
-      frmEditWebShop.InvoReg.ParamByName('id_dept_').Value := CUR_DEPT_ID;
-      ReactivateOraQuery(frmEditWebShop.InvoReg);
-      frmEditWebShop.SelDistrInd.ParamByName('ID_DEP_').Value := CUR_DEPT_ID;
-      frmEditWebShop.SelDistrInd.ParamByName('STARTDATE').AsDate := Now-30;
-      frmEditWebShop.SelDistrInd.ParamByName('STOPDATE').AsDate  := Now+10;
-      ReactivateOraQuery(frmEditWebShop.SelDistrInd);
+    frmEditWebShop.InvoReg.ParamByName('id_dept_').Value := CUR_DEPT_ID;
+    ReactivateOraQuery(frmEditWebShop.InvoReg);
+    frmEditWebShop.SelDistrInd.ParamByName('ID_DEP_').Value := CUR_DEPT_ID;
+    frmEditWebShop.SelDistrInd.ParamByName('STARTDATE').AsDate := Now-30;
+    frmEditWebShop.SelDistrInd.ParamByName('STOPDATE').AsDate  := Now+10;
+    ReactivateOraQuery(frmEditWebShop.SelDistrInd);
 
     if wType = 'new' then
     begin
-      null;
+      frmEditWebShop.rgWebShop.ItemIndex := 0;
 {
       frmEditWebShop.InvoReg.ParamByName('id_dept_').Value := CUR_DEPT_ID;
       ReactivateOraQuery(frmEditWebShop.InvoReg);
@@ -163,6 +191,18 @@ begin
       gr_distr.Enabled   := false;
 }
     end;
+
+    if frmEditWebShop.rgWebShop.ItemIndex = 0 then
+    begin
+      frmEditWebShop.gd_invoice.Enabled := true;
+      frmEditWebShop.gr_distr.Enabled   := false;
+    end
+    else
+    begin
+      frmEditWebShop.gd_invoice.Enabled := false;
+      frmEditWebShop.gr_distr.Enabled   := true;
+    end;
+
     frmEditWebShop.ShowModal;
   finally
     frmEditWebShop := nil;
@@ -232,6 +272,19 @@ begin
         for I := 0 to gd_invoice_v.Controller.SelectedRowCount - 1 do
         begin
           DM.ForceQ.ParamByName('p_inv_id').AsInteger := gd_invoice_v.Controller.SelectedRows[I].Values[gd_invoice_vINV_ID.Index];
+          DM.ForceQ.Execute;
+        end;
+      end;
+      // добавим разносы
+      if rgWebShop.ItemIndex = 1 then
+      begin
+        DM.ForceQ.Close;
+        DM.ForceQ.SQL.Text := 'begin truck_sale_pkg.edit_truck_sale_ins_distr(:p_id, :p_inv_id); end;';
+        DM.ForceQ.ParamByName('p_id').AsInteger       := w_cds.FieldByName('TRUCK_SALE_ID').AsInteger;
+
+        for I := 0 to gr_distr_v.Controller.SelectedRowCount - 1 do
+        begin
+          DM.ForceQ.ParamByName('p_inv_id').AsInteger := gr_distr_v.Controller.SelectedRows[I].Values[gr_distr_vDIST_IND_ID.Index];
           DM.ForceQ.Execute;
         end;
       end;

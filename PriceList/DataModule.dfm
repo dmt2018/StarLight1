@@ -1023,6 +1023,12 @@ object DM: TDM
       FieldName = 'STAT_LAST_PRICE'
       Size = 83
     end
+    object PPLW_QUANTITY: TFloatField
+      FieldName = 'W_QUANTITY'
+    end
+    object PPLW_PRICE: TFloatField
+      FieldName = 'W_PRICE'
+    end
   end
   object StoreProc: TOraStoredProc
     Session = STAR_DB

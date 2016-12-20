@@ -89,6 +89,10 @@ type
     mnDelDistribAll: TMenuItem;
     N7: TMenuItem;
     mnDelDistribItem: TMenuItem;
+    cdsClientsStatWEBSHOP: TFloatField;
+    cdsClientsStatItemWEBSHOP: TFloatField;
+    grClients_VWEBSHOP: TcxGridDBColumn;
+    grClientsItem_VWEBSHOP: TcxGridDBColumn;
     procedure N2Click(Sender: TObject);
     procedure N3Click(Sender: TObject);
     procedure N1Click(Sender: TObject);

@@ -11,7 +11,7 @@ uses
   cxGrid, DBAccess, Ora, MemDS, cxContainer, cxMaskEdit, cxDropDownEdit,
   StdCtrls, cxButtons, ExtCtrls, ActnList, cxGridExportLink, IdBaseComponent,
   IdComponent, IdTCPConnection, IdTCPClient, IdExplicitTLSClientServerBase,
-  IdFTP, IniFiles, dxBar, cxLabel;
+  IdFTP, IniFiles, dxBar, cxLabel, ShellAPI;
 
 type
   TfrmTruckSale = class(TForm)
@@ -169,7 +169,6 @@ type
     cxGrid1DBTableView1PRODUCT_DESC: TcxGridDBColumn;
     cxGrid1DBTableView1PRODUCT_PRICE: TcxGridDBColumn;
     cxGrid1DBTableView1PRODUCT_QTY: TcxGridDBColumn;
-    cxGrid1DBTableView1PRODUCT_RESERVE: TcxGridDBColumn;
     cxGrid1DBTableView1NEW_FLAG: TcxGridDBColumn;
     cxGrid1DBTableView1DISCOUNT: TcxGridDBColumn;
     cxGrid1DBTableView1PROFIT: TcxGridDBColumn;
@@ -253,10 +252,11 @@ type
   private
     { Private declarations }
     ed_param : integer;
+    out_dir: string;
   public
     { Public declarations }
     function TruckSaleFormShow : boolean;
-    procedure setMenuItem(element: string; src: TMenuItem);
+    procedure setMenuItem(element: string; src: TMenuItem; p_type: string);
     procedure UnloadObject(param: string; p_id: integer);
   end;
 
@@ -293,6 +293,7 @@ begin
     IdFTP1.Host     := RegIni.ReadString('FTP', 'host', '');
     IdFTP1.Username := RegIni.ReadString('FTP', 'login', '');
     IdFTP1.Password := RegIni.ReadString('FTP', 'pass', '');
+    out_dir := RegIni.ReadString('OUTDIR', 'value', '');
   finally
     RegIni.Free;
   end;
@@ -318,8 +319,12 @@ end;
 // Изменить состав инвойсов/разносов
 procedure TfrmTruckSale.miEditClick(Sender: TObject);
 begin
+  if grTruckSale_v.ViewData.RecordCount = 0 then exit;
+
   frmEditWebShop.ShowEditWebShop('edit', CDS_TruckSale);
-  btnRefreshClick(nil);
+  //btnRefreshClick(nil);
+  CDS_TruckSale.RefreshRecord;
+  CDS_TruckSaleData.Refresh;
   grSpecOrders.SetFocus;
 end;
 
@@ -327,6 +332,8 @@ end;
 // Удалить продажу с колес
 procedure TfrmTruckSale.btnDelClick(Sender: TObject);
 begin
+  if grTruckSale_v.ViewData.RecordCount = 0 then exit;
+
   if MessageDlg('Удалить продажу?', mtConfirmation, [mbNo,mbOk], 0, mbOk) = mrOk then
     grTruckSale_v.DataController.DataSet.Delete;
 end;
@@ -347,7 +354,6 @@ begin
     CDS_TruckSale.AfterScroll := CDS_TruckSaleAfterScroll;
     CDS_TruckSale.First;
 
-    //CDS_TruckSaleData.ParamByName('p_id').AsInteger := CDS_TruckSaleTRUCK_SALE_ID.AsInteger;
     if CDS_TruckSaleData.Active then
       CDS_TruckSaleData.Refresh
     else
@@ -370,6 +376,7 @@ begin
     CDS_TruckSaleData.Refresh;
   end;
 end;
+
 
 // Добавить все позиции
 procedure TfrmTruckSale.btnAddAllClick(Sender: TObject);
@@ -437,6 +444,8 @@ end;
 procedure TfrmTruckSale.btnWebClick(Sender: TObject);
 var file_str: string;
 begin
+  if grTruckSale_v.ViewData.RecordCount = 0 then exit;
+
   if MessageDlg('Будет сформирован файл экспорта и статус утановлен "Исполненный". Продолжить?', mtConfirmation, [mbNo,mbOk], 0, mbOk) <> mrOk then exit;
 
   with cds_export do
@@ -458,14 +467,26 @@ begin
   CDS_TruckSaleSTATUS.AsString := 'Исполненный';
   CDS_TruckSale.Post;
 
+  // Копируем файл в удаленную папку для обмена
+  if out_dir <> '' then
+  begin
+    CopyFile(PChar(file_str), PChar(out_dir+'/webshop.csv'), false);
+  end;
+  ShellExecute(Handle, nil, PChar('export\'), nil, nil, SW_RESTORE);
+{
   if MessageDlg('Отправить файл на FTP?', mtConfirmation, [mbNo,mbOk], 0, mbOk) = mrOk then
   begin
     IdFTP1.Connect;
-    IdFTP1.ChangeDir('starlight.ru/exchange');
+    //IdFTP1.ChangeDir('orders');
     IdFTP1.Put(file_str,'webshop.csv',false);
     IdFTP1.Disconnect;
     MessageBox(Handle, PChar('Отправка завершена'), 'Информация', MB_ICONINFORMATION);
+  end
+  else
+  begin
+    ShellExecute(Handle, nil, PChar('export\'), nil, nil, SW_RESTORE);
   end;
+}
 end;
 
 // Приостановить продажу
@@ -525,31 +546,65 @@ begin
   grSpecOrdersV.OptionsData.Editing := ((CDS_TruckSaleSTATUS.AsString = 'Новый') or (CDS_TruckSaleSTATUS.AsString = 'Подготовленный'));
   grTruckSale_v.OptionsData.Editing := ((CDS_TruckSaleSTATUS.AsString = 'Новый') or (CDS_TruckSaleSTATUS.AsString = 'Подготовленный') or (CDS_TruckSaleSTATUS.AsString = 'Утвержденный'));
 }
+  btnWeb.Enabled := (CDS_TruckSale.Active and (CDS_TruckSale.RecordCount > 0));
+  btnAddAll.Enabled     := btnWeb.Enabled;
+  btnRemoveAll.Enabled  := btnWeb.Enabled;
+  btnStat.Enabled       := btnWeb.Enabled;
+
+  if CDS_TruckSale.RecordCount = 0 then
+  begin
+    miUnloadDistr.Enabled := false;
+    miUnloadInv.Enabled   := false;
+    miUnloadInv.Clear;
+    miUnloadDistr.Clear;
+  end;
+
   elements := VarToStr(grTruckSale_vLIST_INV.EditValue);
   if elements <> '' then
   begin
     miUnloadDistr.Enabled := false;
+    miUnloadInv.Enabled   := true;
     miUnloadInv.Clear;
     while pos(',',elements) > 0 do
     begin
       i := pos(',',elements);
       new_str := copy(elements,0,i-1);
       elements := copy(elements,i+2,length(elements));
-      setMenuItem(new_str, miUnloadInv);
+      setMenuItem(new_str, miUnloadInv, 'inv');
     end;
-    setMenuItem(elements, miUnloadInv);
+    setMenuItem(elements, miUnloadInv, 'inv');
   end;
+
+  elements := VarToStr(grTruckSale_vLIST_DISTR.EditValue);
+  if elements <> '' then
+  begin
+    miUnloadInv.Enabled   := false;
+    miUnloadDistr.Enabled := true;
+    miUnloadDistr.Clear;
+    while pos(',',elements) > 0 do
+    begin
+      i := pos(',',elements);
+      new_str := copy(elements,0,i-1);
+      elements := copy(elements,i+2,length(elements));
+      setMenuItem(new_str, miUnloadDistr, 'distr');
+    end;
+    setMenuItem(elements, miUnloadDistr, 'distr');
+  end;
+
 end;
 
 
-procedure TfrmTruckSale.setMenuItem(element: string; src: TMenuItem);
+procedure TfrmTruckSale.setMenuItem(element: string; src: TMenuItem; p_type: string);
 var ItemLink: TMenuItem;
 begin
   ItemLink := TMenuItem.Create(src);
   ItemLink.Name := 'mn_'+element;
   ItemLink.Caption := 'ID '+element;
   ItemLink.Tag := StrToInt(element);
-  ItemLink.OnClick := miDelInvClick;
+  if p_type = 'inv' then
+    ItemLink.OnClick := miDelInvClick
+  else
+    ItemLink.OnClick := miDelDistrClick;
   src.Add(ItemLink);
 end;
 
@@ -570,9 +625,10 @@ begin
 
   try
     DM.ForceQ.Close;
-    DM.ForceQ.SQL.Text := 'begin truck_sale_pkg.edit_truck_sale_del_inv(:p_id, :p_inv_id); end;';
+    DM.ForceQ.SQL.Text := 'begin truck_sale_pkg.edit_truck_sale_del(:p_id, :p_obj_id, :p_type); end;';
     DM.ForceQ.ParamByName('p_id').AsInteger       := grTruckSale_vTRUCK_SALE_ID.EditValue;
-    DM.ForceQ.ParamByName('p_inv_id').AsInteger   := p_id;
+    DM.ForceQ.ParamByName('p_obj_id').AsInteger   := p_id;
+    DM.ForceQ.ParamByName('p_type').AsString      := param;
     DM.ForceQ.Execute;
     CDS_TruckSale.RefreshRecord;
     CDS_TruckSaleData.Refresh;

@@ -254,6 +254,9 @@ type
     bsHASPRICE: TdxBarStatic;
     st_hasprice: TcxStyle;
     dxBarStatic12: TdxBarStatic;
+    mnSyncWebShop: TMenuItem;
+    grid_pplView1W_QUANTITY: TcxGridDBColumn;
+    grid_pplView1W_PRICE: TcxGridDBColumn;
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn4Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
@@ -342,6 +345,7 @@ type
     procedure aClearNewMarkExecute(Sender: TObject);
     procedure N16Click(Sender: TObject);
     procedure bsHASPRICEClick(Sender: TObject);
+    procedure mnSyncWebShopClick(Sender: TObject);
   private
     path: string;
     is_sync: boolean;
@@ -1011,18 +1015,6 @@ begin
     end;
 
 
-    if (grid_pplView1.Columns[AViewInfo.Item.Index].DataBinding.FieldName = 'COMPILED_NAME_POT') then
-    begin
-      Col := grid_pplView1.DataController.GetValue(
-                  AViewInfo.GridRecord.RecordIndex, grid_pplView1.GetColumnByFieldName('HAS_PRICE').Index
-                  );
-      if (Col = 1) then
-          ACanvas.Brush.Color := st_hasprice.Color;
-    end;
-
-
-
-
     // Красим новинку
     Col := grid_pplView1.DataController.GetValue(
                 AViewInfo.GridRecord.RecordIndex, grid_pplView1.GetColumnByFieldName('NOM_NEW').Index
@@ -1036,7 +1028,7 @@ begin
                 );
     if (Col = 1) then
       ACanvas.Brush.Color := st_spec_price.Color;
-      
+{
     // Красим M URIS_
     Col := grid_pplView1.DataController.GetValue(
                 AViewInfo.GridRecord.RecordIndex, grid_pplView1.GetColumnByFieldName('PAINT_SUPER').Index
@@ -1046,7 +1038,7 @@ begin
       ACanvas.Font.Color := stSuper.TextColor;
       ACanvas.Font.Style := stSuper.Font.Style;
     end;
-
+}
     // Красим названия с "!"
     Col := grid_pplView1.DataController.GetValue(
                 AViewInfo.GridRecord.RecordIndex, grid_pplView1.GetColumnByFieldName('spec').Index
@@ -1054,6 +1046,16 @@ begin
     if (Col > 0) and (grid_pplView1.Columns[AViewInfo.Item.Index].DataBinding.FieldName = 'COMPILED_NAME_POT') then
       ACanvas.Brush.Color := stSPEC.Color;
 
+
+    // Красим позицию если у нее есть спец.цены
+    if (grid_pplView1.Columns[AViewInfo.Item.Index].DataBinding.FieldName = 'COMPILED_NAME_POT') then
+    begin
+      Col := grid_pplView1.DataController.GetValue(
+                  AViewInfo.GridRecord.RecordIndex, grid_pplView1.GetColumnByFieldName('HAS_PRICE').Index
+                  );
+      if (Col = 1) then
+          ACanvas.Brush.Color := st_hasprice.Color;
+    end;
 
   end;
 
@@ -1883,6 +1885,7 @@ begin
     MessageBox(Handle, 'Необходимо выбрать инвойс для синхронизации', 'Внимание!', MB_ICONINFORMATION);
 end;
 
+
 procedure TPriceF.N16Click(Sender: TObject);
 begin
   frmAddSpecOrder.AddSpecOfferFormShow(
@@ -1973,6 +1976,39 @@ begin
     pnlPrice.Visible := true;
     te_price.EditValue := price;
     te_price.SetFocus;
+  end;
+end;
+
+
+//
+//  Синхронизация с WebShop. Подтянем разносы и цены, как отдельные цены на товар.
+//
+procedure TPriceF.mnSyncWebShopClick(Sender: TObject);
+begin
+  if (MessageDlg('Будут пересчитаны позиции с WebShop по всем разносам с текущими инвойсами!'+#10+'Продолжить операцию?', mtConfirmation, [mbNo,mbOk], 0, mbNo) = mrNo) then
+    exit;
+
+  try
+    cbInvoices.PostEditValue;
+
+    with DM.ForceQ do
+    Begin
+      Close;
+      SQL.Clear;
+      SQL.Add('begin price_pkg.sync_webshop_prices(:v_PPLI_ID); end;');
+      Prepare;
+      ParamByName('v_PPLI_ID').Value := DM.PPL_Index.fieldByName('PPLI_ID').Value;
+      Execute;
+    End;
+
+    MessageBox(Handle, 'Операция прошла успешно', 'Результат', MB_ICONINFORMATION);
+
+    //DM.PPL.Refresh;
+    //FINAL_PRICE.DataBinding.AddToFilter(nil,foEqual,0);
+    //grid_pplView1.DataController.Filter.Active := True;
+
+  except on E: Exception do
+      MessageBox(Handle, PChar(E.Message), 'Ошибка!', MB_ICONERROR)
   end;
 end;
 

@@ -137,6 +137,11 @@ object PriceF: TPriceF
             Format = '0'
             Kind = skCount
             Column = COMPILED_NAME
+          end
+          item
+            Format = '0'
+            Kind = skSum
+            Column = grid_pplView1W_QUANTITY
           end>
         DataController.Summary.SummaryGroups = <>
         FilterRow.InfoText = #1055#1086#1083#1077' '#1076#1083#1103' '#1091#1089#1090#1072#1085#1086#1074#1082#1080' '#1092#1080#1083#1100#1090#1088#1086#1074
@@ -716,6 +721,24 @@ object PriceF: TPriceF
           Caption = #1082#1083#1080#1077#1085#1090#1089#1082#1080#1077' '#1094#1077#1085#1099
           DataBinding.FieldName = 'HAS_PRICE'
           Visible = False
+        end
+        object grid_pplView1W_QUANTITY: TcxGridDBColumn
+          Caption = #1050'-'#1074#1086' (WS)'
+          DataBinding.FieldName = 'W_QUANTITY'
+          PropertiesClassName = 'TcxTextEditProperties'
+          Properties.Alignment.Horz = taCenter
+          Properties.ReadOnly = True
+          FooterAlignmentHorz = taCenter
+          HeaderAlignmentHorz = taCenter
+        end
+        object grid_pplView1W_PRICE: TcxGridDBColumn
+          Caption = 'Pr (WS)'
+          DataBinding.FieldName = 'W_PRICE'
+          PropertiesClassName = 'TcxCurrencyEditProperties'
+          Properties.Alignment.Horz = taRightJustify
+          Properties.DisplayFormat = ',0.00;-,0.00'
+          Properties.ReadOnly = True
+          HeaderAlignmentHorz = taCenter
         end
       end
       object grid_ppl_Level1: TcxGridLevel
@@ -6449,6 +6472,10 @@ object PriceF: TPriceF
       Caption = #1054#1090#1084#1077#1085#1080#1090#1100' '#1089#1080#1085#1093#1088#1086#1085#1080#1079#1072#1094#1080#1102
       Enabled = False
       OnClick = mnRollbackSyncClick
+    end
+    object mnSyncWebShop: TMenuItem
+      Caption = #1057#1080#1085#1093#1088#1086#1085#1080#1079#1072#1094#1080#1103' '#1089' WebShop'
+      OnClick = mnSyncWebShopClick
     end
     object N7: TMenuItem
       Caption = '-'

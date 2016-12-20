@@ -6,7 +6,7 @@ object DM: TDM
     Options.Direct = True
     Username = 'creator'
     Password = '123456'
-    Server = 'roznica:1521:orcl'
+    Server = 'KLEPOV:1521:STARREG'
     AutoCommit = False
     LoginPrompt = False
     BeforeConnect = StarSessBeforeConnect
@@ -955,5 +955,64 @@ object DM: TDM
       AssignedValues = [svColor]
       Color = 15658734
     end
+  end
+  object Q_CLIENTS: TOraQuery
+    SQL.Strings = (
+      'SELECT C.ID_CLIENTS, C.NICK, C.FIO, C.CCODE,'
+      '    C.TTYPE, C.ID_CLIENTS_GROUPS, C.BLOCK1, C.BLOCK2'
+      '    , g.name as group_name'
+      '    FROM CLIENTS C, clients_groups g '
+      
+        'WHERE (C.ACTIVE=1 or C.active is NULL) and C.ID_CLIENTS_GROUPS =' +
+        ' g.ID_CLIENTS_GROUPS and c.ID_OFFICE = const_office'
+      ' ORDER BY C.NICK')
+    FetchAll = True
+    FilterOptions = [foCaseInsensitive]
+    Left = 408
+    Top = 304
+    object Q_CLIENTSID_CLIENTS: TIntegerField
+      FieldName = 'ID_CLIENTS'
+      Required = True
+    end
+    object Q_CLIENTSNICK: TStringField
+      FieldName = 'NICK'
+      Required = True
+    end
+    object Q_CLIENTSFIO: TStringField
+      FieldName = 'FIO'
+      Required = True
+      Size = 255
+    end
+    object Q_CLIENTSCCODE: TStringField
+      FieldName = 'CCODE'
+      Required = True
+      Size = 13
+    end
+    object Q_CLIENTSTTYPE: TIntegerField
+      FieldName = 'TTYPE'
+      Required = True
+    end
+    object Q_CLIENTSID_CLIENTS_GROUPS: TIntegerField
+      FieldName = 'ID_CLIENTS_GROUPS'
+      Required = True
+    end
+    object Q_CLIENTSBLOCK1: TIntegerField
+      FieldName = 'BLOCK1'
+      Required = True
+    end
+    object Q_CLIENTSBLOCK2: TIntegerField
+      FieldName = 'BLOCK2'
+      Required = True
+    end
+    object Q_CLIENTSGROUP_NAME: TStringField
+      FieldName = 'GROUP_NAME'
+      Required = True
+      Size = 255
+    end
+  end
+  object Q_CLIENTS_DS: TOraDataSource
+    DataSet = Q_CLIENTS
+    Left = 408
+    Top = 360
   end
 end

@@ -441,7 +441,7 @@ type
     procedure mnCheckInvoice(Sender: TObject);
     procedure aLoadDoborExecute(Sender: TObject);
   private
-    path: string;
+    path, out_dir: string;
     vSTOK: integer;
     procedure PutByNID;
     procedure PutByOrder(cds: TDataSet);
@@ -478,7 +478,19 @@ var itm: TcxImageComboBoxItem;
     cbep: TcxImageComboBoxProperties;
     newitem: TdxBarButton;
     ItemLink: TdxBarItemLink;
+    path: string;
+    RegIni : TIniFile;
 begin
+  try
+    path   := ExtractFilePath(Application.ExeName);
+    path   := path+'Distribution.ini';
+    RegIni := TIniFile.Create(path);
+    out_dir := RegIni.ReadString('OUTDIR', 'value', '');
+  finally
+    RegIni.Free;
+  end;
+
+
   inv_done := false;
 
   with DM.SelQ do
@@ -839,6 +851,7 @@ Begin
 
       AChooseOrder.Enabled   := false; // Временно, пока не разберусь ed;
       ALoadInvoice.Enabled   := ed;
+      aLoadDobor.Enabled     := ed;
       ALoadOrder.Enabled     := ed;
       mnUnloadOrder.Enabled  := ed;
       ALoadStock.Enabled     := ed;
@@ -874,6 +887,7 @@ Begin
         ALoadInvoice.Enabled   := false;
         ALoadOrder.Enabled     := false;
         mnUnloadOrder.Enabled  := false;
+        aLoadDobor.Enabled     := false;
       end;
 
       d1 := 0;
@@ -920,6 +934,7 @@ Begin
       Label1.Caption         := 'Распределение: ';
       AChooseOrder.Enabled   := false;
       ALoadInvoice.Enabled   := false;
+      ALoadDobor.Enabled     := false;
       ALoadOrder.Enabled     := false;
       mnUnloadOrder.Enabled  := false;
       ALoadStock.Enabled     := false;
@@ -3271,84 +3286,61 @@ end;
 //
 procedure TDistFormF.aLoadDoborExecute(Sender: TObject);
 var conf: textfile;
-    Date1, Date2, Client, Email, tmpstr, alpha, tmp, order_num, FullFileName: string;
+    Date1, Date2, Client, Email, tmpstr, alpha, tmp, order_num, FullFileName, truck_sale_id: string;
     z_price, z_code, z_q, z_name, err_log, err_log_short, vInfo, dep, dep_order, ortype, depid, arrive, depart: string;
-    id_cl, idClient, idOrder, fistPos, res: integer;
+    id_cl, idClient, idOrder, fistPos, res, idDist, id_or_cl, C_ID_ORDERS, id_or_list: integer;
     dateCargo, dateIn: TDateTime;
     fs : TFormatSettings;
     openDialog : TOpenDialog;
+    cds_source: TDataSet;
+    RESS, RES_TEXT : Variant;
 begin
 
-{
-var
-  openDialog : TOpenDialog;    // Переменная OpenDialog
-begin
-  // Создание объекта OpenDialog - назначение на нашу переменную OpenDialog
+  // Определим файл для обработки
+  FullFileName := '';
   openDialog := TOpenDialog.Create(self);
+  try
+    openDialog.InitialDir := GetCurrentDir;
+    openDialog.Options    := [ofFileMustExist];
+    openDialog.Filter     := 'csv|*.csv|txt|*.txt';
+    openDialog.InitialDir := out_dir;
+    if openDialog.Execute then FullFileName := openDialog.FileName;
+  finally
+    openDialog.Free;
+  end;
+  if FullFileName = '' then exit;
+  // -------------------------------
 
-  // Установка начального каталога, чтобы сделать его текущим
-  openDialog.InitialDir := GetCurrentDir;
-
-  // Только разрешенные существующие файлы могут быть выбраны
-  openDialog.Options := [ofFileMustExist];
-
-  // Разрешено выбрать только .dpr и .pas файлы
-  openDialog.Filter :=
-    'Delphi project files|*.dpr|Delphi pascal files|*.pas';
-
-  // Выбор файлов Паскаля как стартовый тип фильтра
-  openDialog.FilterIndex := 2;
-
-  // Показ диалог открытия файла
-  if openDialog.Execute
-  then ShowMessage('File : '+openDialog.FileName)
-  else ShowMessage('Открытие файла остановлено');
-
-  // Освобождение диалога
-  openDialog.Free;
-end;
-}
-
-openDialog := TOpenDialog.Create(self);
-try
-  openDialog.InitialDir := GetCurrentDir;
-  openDialog.Options := [ofFileMustExist];
-  openDialog.Filter := 'txt|*.txt|csv|*.csv';
-  if openDialog.Execute then FullFileName := openDialog.FileName;
-finally
-  openDialog.Free;
-end;
-
-
+  try
   // Открываем файл с заказом
   try
     AssignFile(conf, FullFileName);
     Reset(conf);
-    try
 {
-order:	1167
-ortype:	2
-depid:	3
-date:	14-06-2015 16:42
-office:	Старлайт Казань
-depart:	Срезанные цветы
-login:	16 KAVG
-bcode:	1600199921163
-name:	КАРАНДАКОВА ВИОЛЕТТА ГЕННАДЬЕВНА
-email:	kazan@starlight.ru
-phone:	89030625212(магазин) :89656009610 89063274170 Наташа: 89050250820 Ксюша: 89093095045 Лена: 8(903)062-56-35 : 8(903)062-56-35
-city:	Татарстан респ.
-addr:	
-summ:	0.00
-rem:	
-departure:	2015-06-17
-arrive:	2015-06-21
-
---
-
+"order:	1424"
+"ortype:	4"						
+"depid:	3"						
+"date:	07-12-2015 13:49"						
+"office:	Старлайт Москва"						
+"depart:	Срезанные цветы"						
+"login:	59F ANTI"						
+"bcode:	9000199983116"						
+"name:	АНТИПИН НИКОЛАЙ МАКСИМОВИЧ"						
+"email:	melamori__@mail.ru"						
+"phone:	"						
+"city:	Пермский край"						
+"addr:	"						
+"summ:	22000.10"						
+"rem:	"						
+"departure:	2015-12-07"						
+"arrive:	2015-12-10"						
+inv_id: 10007897
+						
+--						
+#	depart_id	barcode	title	price	qty	summ
 }
-    Readln(conf, order_num);  // order:	2586
-    Readln(conf, ortype);     // ortype:	2      1=>'Покупка товаров со склада', 2=>'Предзаказ товаров из новой поставки', 3=>'Предзаказ
+    Readln(conf, order_num);  // order:	1424
+    Readln(conf, ortype);     // ortype:	4      1=>'Покупка товаров со склада', 2=>'Предзаказ товаров из новой поставки', 3=>'Предзаказ, 4=>С колес
     Readln(conf, depid);      // depid:	3
     Readln(conf, Date1);      // date:	22-08-2014 18:46
     Readln(conf, tmp);        // office:	Старлайт Москва
@@ -3364,164 +3356,90 @@ arrive:	2015-06-21
     Readln(conf, tmp);        // rem:             примечания к заказу
     Readln(conf, depart);     // depart:	2014-12-09  дата выхода от поставщика
     Readln(conf, arrive);     // arrive:	2014-12-09  дата прибытия в Москву (для предзаказов)
+    Readln(conf, truck_sale_id); // inv_id: 10007897
+    Readln(conf, tmp);        //
     Readln(conf, tmp);        // --
     Readln(conf, tmp);        // #;depart_id;barcode;title;price;qty;summ
-    //Readln(conf);
 
-    arrive := copy(arrive,9,10);
     GetLocaleFormatSettings(1251,fs);
-    fs.DateSeparator := '-';
+    arrive              := copy(arrive,9,10);
+    fs.DateSeparator    := '-';
     fs.DecimalSeparator := '.';
-    fs.ShortDateFormat := 'yyyy-mm-dd';
-    dateIn := StrToDate(arrive,fs);
+    fs.ShortDateFormat  := 'yyyy-mm-dd';
+    dateIn              := StrToDate(arrive,fs);
 
-    depart := copy(depart,12,10);
-    fs.ShortDateFormat := 'yyyy-mm-dd';
-    dateCargo := StrToDate(depart,fs);
+    depart              := copy(depart,12,10);
+    fs.ShortDateFormat  := 'yyyy-mm-dd';
+    dateCargo           := StrToDate(depart,fs);
+
+
+    // 1. Считаем код клиента с файла и сопоставим его с базой
     idClient  := 0;
     DM.Q_CLIENTS.Open;
-
-// 1. Считаем код клиента с файла и сопоставим его с базой
+    DM.Q_CLIENTS.Filter   := '';
+    DM.Q_CLIENTS.Filtered := false;
     Client := Trim(copy(Client,pos(':',Client)+1,length(Client)-1));
-{
-    if Client = '' then
+    if Not DM.Q_CLIENTS.Locate('nick',Client,[loCaseInsensitive]) then
     begin
-      MessageBox(Hwnd, 'Строка с клиентом пустая!', 'Внимание', MB_ICONERROR);
-      // Предоставим выбор клиента
-      clientchoosForm := TclientchoosForm.Create(nil);
-      try
-        clientchoosForm.block_client_ := 0;
-        if clientchoosForm.showmodal = mrOk then
-          idClient := clientchoosForm.choised_client_
-        else
-        begin
-          result := false;
-          exit;
-        end;
-      finally
-        clientchoosForm.Free;
-      end;
-    end;
-}
-    if (idClient = 0) then
-    begin
-      if Not DM.Q_CLIENTS.Locate('nick',Client,[loCaseInsensitive]) then
-      begin
-        MessageBox(Hwnd, PChar('Клиент с кодом '+Client+' не найден!'), 'Внимание', MB_ICONERROR);
-{
-        clientchoosForm := TclientchoosForm.Create(nil);
-        try
-//        id_client_ := 0;
-//        CUR_DATE   := de_date.EditValue;
-          clientchoosForm.block_client_ := 0;
-          if clientchoosForm.showmodal = mrOk then
-            idClient := clientchoosForm.choised_client_
-          else
-          begin
-            result := false;
-            exit;
-          end;
-        finally
-          clientchoosForm.Free;
-        end;
-}
-      end
-      else idClient := DM.Q_CLIENTS.FieldByName('ID_CLIENTS').Value;
-    end;
+      MessageBox(Handle, PChar('Клиент с кодом '+Client+' не найден!'), 'Внимание', MB_ICONERROR);
+      exit;
+    end
+    else idClient := DM.Q_CLIENTS.FieldByName('ID_CLIENTS').Value;
     DM.Q_CLIENTS.Close;
-// -------------------------------
+    // -------------------------------
 
-// 2. По дате отправки найдем заказ или добавим новый
-    if vOrder > 0 then
+
+    // 2. По truck_sale_id найдем продажу с колес
+    truck_sale_id := Trim(copy(truck_sale_id,pos(':',truck_sale_id)+1,length(truck_sale_id)-1));
+    idDist := 0;
+    with DM.SelQ do
+    Begin
+      Close;
+      SQL.Clear;
+      SQL.Add('begin truck_sale_pkg.get_dist_id(:in_truck_sale_id, :in_dist_id); end;');
+      ParamByName('in_truck_sale_id').AsInteger := StrToInt(truck_sale_id);
+      ParamByName('in_dist_id').AsInteger       := idDist;
+      Execute;
+      idDist := ParamByName('in_dist_id').AsInteger;
+      Close;
+    End;
+
+    if idDist = 0 then
     begin
-      idOrder := vOrder;
+      MessageBox(Handle, PChar('Разнос не найден по WebShop №'+truck_sale_id), 'Ошибка', MB_ICONERROR);
+      Exit;
+    end;
 
-      // 2016-10-11
-      // СДЕЛАЙТЕ,ПОЖАЛУЙСТА ИНФОРМАЦИОННОЕ ОКНО ,КОТОРОЕ БУДЕТ СПРАШИАВАТЬ " ВЫ ДЕЙСТВИТЕЛЬНО ХОТИТЕ ЗАГРУЗИТЬ ЗАКАЗ НА "ДРУГУЮ  ДАТУ"( Т Е НА ДАТУ ,КОТОРАЯ НЕ СООТВЕТСТВУЕТ ОН-ЛАЙН ДАТЕ)
-      if dateCargo <> Q_ORDERSDATE_TRUCK_OUT.AsDateTime then
-      begin
-        if mrNo = MessageDlg(PChar('Вы действительно хотите загрузить заявку на '+DateToStr(dateCargo)+' в заказ на '+Q_ORDERSDATE_TRUCK_OUT.AsString+'.'),mtConfirmation,[mbYes, mbNo],0) then
-        begin
-          //MessageBox(Hwnd, PChar('Заказ для клиента '+alpha+' не был создан!'), 'Ошибка', MB_ICONERROR);
-          result := false;
-          exit;
-        end;
-      end;
-    end
+    if (idDist > 0) and (idDist <> CUR_DIST_IND_ID) then
+    begin
+      MessageBox(Handle, PChar('Добор для разноса №'+IntToStr(idDist)+' по WebShop №'+truck_sale_id+' пытаетесь установить для разноса №'+VarToStr(CUR_DIST_IND_ID)), 'Ошибка', MB_ICONERROR);
+      Exit;
+    end;
+    // -------------------------------
 
+
+
+
+
+    // 2016-06-23 Т.к. много заказов может быть, до добавим новую строчку в первый же заказ по списку
+    if Pos( ',', VarToStr(CUR_ID_ORDERS) ) > 0 then
+       C_ID_ORDERS := StrToInt( Copy( VarToStr(CUR_ID_ORDERS), 0, Pos( ',', VarToStr(CUR_ID_ORDERS) )-1 ) )
     else
-    begin
-      if Q_ORDERS.Locate('DATE_TRUCK_OUT',dateCargo,[]) then
-      begin
-        idOrder := Q_ORDERSID_ORDERS.AsInteger;
-      end
-      else
-      begin
-        idOrder := CreateOrder(0, dateIn, '', dateCargo);
-        DM.Q_ORDERS.Refresh;
-        DM.Q_ORDERS.Locate('ID_ORDERS',idOrder,[]);
-      end;
-    end;
+       C_ID_ORDERS := CUR_ID_ORDERS;
+    //
 
-    if idOrder > 0 then
-    begin
-      Q_ORDERS_ORDERS.ParamByName('id_user').AsString := UpperCase(Main_session.Username);
-      Q_ORDERS_ORDERS.Open;
-    end
-    else
-    begin
-      MessageBox(Hwnd, PChar('Нет выбранного заказа!'), 'Внимание', MB_ICONERROR);
-      CloseFile(conf);
-      result := false;
-      exit;
-    end;
-// -------------------------------
+    id_or_cl := DM.insert_new_order( C_ID_ORDERS, idClient );
+    if id_or_cl = 0 then exit;
+
+    cds_source := gr_PrepDist_v.DataController.DataSet;
 
 
-// 3. Проверим нет ли уже добавленного заказа клиента. Если есть, то спросим добавить в найденный
-    alpha := Client;
-    Q_ORDERS_ORDERS.Refresh;
-    if Q_ORDERS_ORDERS.Locate('ID_CLIENTS',idClient,[]) then
-    begin
-      alpha := DM.Q_ORDERS_ORDERSNICK.AsString + ' ' + CountSameClients(DM.Q_ORDERS_ORDERSID_ORDERS.AsInteger, idClient);
-//      alpha := DM.Q_ORDERS_ORDERSNICK.AsString + ' ' + alpha;
-      res := MessageDlg(PChar('Клиент с кодом '+Client+' уже есть в заказе.'#13'Yes - Добавить данные в уже существущий заказ'#13'No - Создать новый заказ "'+trim(alpha)+'"'#13'Cancel - отмена операции'),mtConfirmation,[mbYes, mbNo, mbCancel],0);
-      if res = mrYes then
-      begin
-        id_cl := DM.Q_ORDERS_ORDERSID_ORDERS_CLIENTS.AsInteger;
-        alpha := DM.Q_ORDERS_ORDERSNICK.AsString + ' ' + DM.Q_ORDERS_ORDERSALPHA.AsString;
-      end else id_cl := 0;
-      if res = mrCancel then exit;
-      
-    end else id_cl := 0;
-// -------------------------------
 
-
-// 4. Сделаем заказ
-    if (id_cl = 0) then
-    begin
-      id_cl := CreateClientOrder(idOrder, idClient, FullFileName);
-    end;
-
-    if (id_cl = 0) then
-    begin
-      MessageBox(Hwnd, PChar('Заказ для клиента '+alpha+' не был создан!'), 'Ошибка', MB_ICONERROR);
-      result := false;
-      exit;
-    end;
-// -------------------------------
-
-
-// 5. Добавим позиции в заказ
-    DM.Q_SQL.Close;
-    dm.Q_SQL.SQL.Clear;
-    DM.Q_SQL.SQL.Text := 'begin PACK_ORDERS.INS_ORDERS(:ID_ORDERS_CLIENTS, :N_ID, :FL_ORDERS, :TRUCK, :sub_weight, :v_site_data, :REMARKS_); end;';
-    DM.Q_SQL.ParamByName('ID_ORDERS_CLIENTS').Value := id_cl;
-
-    err_log := '';
+    err_log       := '';
     err_log_short := '';
-    vInfo   := '';
+    vInfo         := '';
     Readln(conf, tmpstr);
+
     while not Eof(conf) do
     begin
       Readln(conf, tmpstr);
@@ -3546,26 +3464,50 @@ arrive:	2015-06-21
 
       if (z_code <> '') and (z_q <> '') then
       begin
-        dep_order := '';
-        if first_dialog_frm.DBComboBoxEh1.Value = 121 then dep_order := '2';
-        if first_dialog_frm.DBComboBoxEh1.Value = 61 then dep_order := '1';
-        if first_dialog_frm.DBComboBoxEh1.Value = 62 then dep_order := '3';
+        dep_order := '3';
 
         if dep_order = dep then
         begin
           cdsNom.Close;
           cdsNom.ParamByName('p_code').AsString := z_code;
-          cdsNom.ParamByName('p_dep').AsInteger := first_dialog_frm.DBComboBoxEh1.Value;
+          cdsNom.ParamByName('p_dep').AsInteger := CUR_DEPT_ID;
           cdsNom.Open;
           if not cdsNom.IsEmpty then
           begin
-            DM.Q_SQL.ParamByName('N_ID').Value        := cdsNomN_ID.AsInteger;
-            DM.Q_SQL.ParamByName('FL_ORDERS').Value   := StrToFloat(z_q,fs);
-            DM.Q_SQL.ParamByName('TRUCK').Value       := 0;
-            DM.Q_SQL.ParamByName('sub_weight').Value  := 0;
-            DM.Q_SQL.ParamByName('v_site_data').Value := ReplaceStr(tmpstr,'''','`');
-            DM.Q_SQL.ParamByName('REMARKS_').Value    := '';
-            DM.Q_SQL.Execute;
+            if cds_source.Locate('N_ID', cdsNomN_ID.AsInteger, []) then
+            begin
+
+              if (cds_source.FieldByName('LEFT_QUANTITY').AsInteger = 0) or (cds_source.FieldByName('LEFT_QUANTITY').AsInteger < StrToInt(z_q)) then
+              begin
+                MessageBox(Handle, PChar('Номенклатура '+z_name+ '. Требуется разнести '+z_q+', когда доступно лишь '+cds_source.FieldByName('LEFT_QUANTITY').AsString+'. Позиция будет пропущена'), 'Внимание', MB_ICONWARNING);
+              end
+              else
+              begin
+                with DM.SelQ do
+                Begin
+                  Close;
+                  SQL.Clear;
+                  Params.Clear;
+                  SQL.Add('begin creator.DISTRIBUTION_PKG.CREATE_CUSTOM_DIST_LINE_truck(:IN_PREP_DIST_ID, :IN_ID_ORDERS_CLIENT, :IN_N_ID, :IN_QUANTITY, :IN_DIST_ID, :IN_PRICE, :OUT_RES, :OUT_TEXT); end;');
+                  ParamByName('IN_PREP_DIST_ID').AsInteger      := cds_source.FieldByName('PREP_DIST_ID').Value;
+                  ParamByName('IN_ID_ORDERS_CLIENT').AsInteger  := id_or_cl;
+                  ParamByName('IN_N_ID').AsInteger              := cdsNomN_ID.AsInteger;
+                  ParamByName('IN_QUANTITY').AsInteger          := StrToInt(z_q);
+                  ParamByName('IN_DIST_ID').AsInteger           := CUR_DIST_IND_ID;
+                  ParamByName('IN_PRICE').AsCurrency            := StrToFloat(z_price);
+                  ParamByName('OUT_RES').AsString               := RESS;
+                  ParamByName('OUT_TEXT').AsString              := RES_TEXT;
+                  Execute;
+                  RES      := ParamByName('OUT_RES').Value;
+                  RES_TEXT := ParamByName('OUT_TEXT').Value;
+                  if VarToInt(RES) < 0 then
+                     MessageBox(Handle, PChar(VarToStr(RES_TEXT)), 'Внимание', MB_ICONERROR);
+                end;
+              end;
+
+            end
+            else MessageBox(Handle, PChar('Номенклатура '+z_name+ 'не найдена в разносе и будет пропущена'), 'Внимание', MB_ICONWARNING);
+
           end
           else
           begin
@@ -3577,43 +3519,32 @@ arrive:	2015-06-21
           cdsNom.Close;
         end;
       end;
-    end;
+    end; // while not Eof(conf) do
 // -------------------------------
 
 // 6. Если есть ошибки по позициям, покажем их
     if vInfo <> '' then
     begin
+      MessageBox(Handle, PChar('Не найденная номенклатура:'+ #13#10 + vInfo), 'Внимание', MB_ICONWARNING);
+      {
       Q_SQL.Close;
       Q_SQL.SQL.Clear;
       Q_SQL.SQL.Text := 'update ORDERS_CLIENTS set miss_code=miss_code||'''+err_log+''', miss_code_short=miss_code_short||'''+err_log_short+''' where ID_ORDERS_CLIENTS='+IntToStr(id_cl);
       Q_SQL.Execute;
       Q_SQL.Close;
+      }
     end;
 // -------------------------------
 
-
-    Main_session.Commit;
-    DM.Q_ORDERS.RefreshRecord;
-    DM.Q_ORDERS_ORDERS.RefreshRecord;
-    finally
-      CloseFile(conf);
-    end;
-
-    if vInfo <> '' then
-    begin
-       OpenFormForShow('Заказ обработан успешно. Создан заказ на клиента "'+trim(alpha)+'", '+DateToStr(dateCargo)+#13#10+'Коды не найденные в номенклатуре:'+#13#10+vInfo);
-    end
-    else
-       MessageBox(Hwnd, PChar('Заказ обработан успешно. Создан заказ на клиента "'+trim(alpha)+'", '+DateToStr(dateCargo)), 'Результат', MB_ICONINFORMATION);
-
-    ShowInfoAboutOrder(idOrder, DateToStr(dateCargo), idClient, DM.Q_ORDERS_ORDERSALPHA.AsString, id_cl);
-    Q_CLIENTS.Close;
-
-    result := true;
+    DM.StarSess.Commit;
+    tlb_refresh.Click;
+  finally
+    CloseFile(conf);
+  end;
 
   except
      on E: Exception do
-      MessageBox(Hwnd, PChar(E.Message), 'Внимание', MB_ICONERROR);
+      MessageBox(Handle, PChar(E.Message), 'Внимание', MB_ICONERROR);
   End;
 end;
 
