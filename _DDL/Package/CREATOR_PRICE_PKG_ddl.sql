@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.PRICE_PKG
--- Generated 04.12.2016 0:45:48 from CREATOR@STAR_REG
+-- Generated 21-дек-2016 16:53:53 from CREATOR@STAR2
 
 CREATE OR REPLACE 
 PACKAGE price_pkg
@@ -2210,6 +2210,8 @@ from (
        , NOM_NEW
        , mdl.mdl_price
        , a.has_price
+       , w.w_quantity, w.w_price
+
     from (
         SELECT a.ppli_id, ppl_id, coming_date, invoice_amount, case when STOCK_AMOUNT < 0 then 0 else stock_amount end STOCK_AMOUNT, left_amount, given_amount, hol_price, ruble_price, last_price
           , price_pcc, price_pcc_pc, a.n_id, final_price, inv_total_sum, stok_total_sum
@@ -2329,6 +2331,20 @@ from (
           group by n_id
         ) z
       ) mdl on mdl.n_id = a.n_id
+
+
+          left outer join
+      (
+        select w.n_id as w_n_id, sum(w.quantity) as w_quantity, max(w.price) as w_price
+        from distributions_webshop w
+          where w.dist_ind_id in (
+            select distinct d.DIST_IND_ID
+              from distributions_invoices d, PREPARE_PRICE_LIST_INDEX p, invoice_register r
+              where p.ppli_id = v_PPLI_ID and (d.INV_ID = p.inv_id or p.PACK_ID = r.ipp_id) and d.inv_id = r.inv_id
+          )
+        group by n_id
+      ) w on w.w_n_id = a.n_id
+
 ) z
     order by compiled_name_pot, len, RUS_MARKS, BAR_CODE;
 
