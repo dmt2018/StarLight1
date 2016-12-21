@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.PRICE_PKG
--- Generated 21-дек-2016 16:53:53 from CREATOR@STAR2
+-- Generated 21.12.2016 22:57:38 from CREATOR@STAR_REG
 
 CREATE OR REPLACE 
 PACKAGE price_pkg
@@ -432,6 +432,15 @@ PROCEDURE add_spec_orders
     v_d_e     in date,
     v_price   in number,
     v_res     in out number
+);
+
+
+--
+-- Добавляем спец.цены на товар клиентам по WebShop
+--
+PROCEDURE sync_webshop_prices
+(
+    v_ppli_id  in number
 );
 
 
@@ -2140,22 +2149,14 @@ PROCEDURE get_ppl_list
    cursor_       in out   ref_cursor
 )
 IS
-  v_DIST_IND_ID number;
 BEGIN
-  begin
-    select max(d.DIST_IND_ID) into v_DIST_IND_ID
-    from distributions_invoices d, PREPARE_PRICE_LIST_INDEX p
-      where p.ppli_id = v_PPLI_ID and (d.INV_ID = p.inv_id or d.INV_ID = p.inv_id2 or d.INV_ID = p.inv_id3 or d.INV_ID = p.inv_id4)
-    ;
-  exception when NO_DATA_FOUND then
-    v_DIST_IND_ID := 0;
-  end;
 
-
+  -- Соберем все разносы по прайсу во временную таблицу
   delete from tmp_exp_doc;
   insert into tmp_exp_doc (
-    select distinct d.DIST_IND_ID from distributions_invoices d, PREPARE_PRICE_LIST_INDEX p
-    where p.ppli_id = v_PPLI_ID and (d.inv_id in (p.inv_id, p.inv_id2, p.inv_id3, p.inv_id4) or d.inv_id in (select z.inv_id from invoice_register z where z.ipp_id = p.PACK_ID ))
+    select distinct d.DIST_IND_ID
+    from distributions_invoices d, invoice_register r, PREPARE_PRICE_LIST_INDEX p
+      where p.ppli_id = v_PPLI_ID and d.inv_id = r.inv_id and (p.inv_id = r.INV_ID or p.PACK_ID = r.ipp_id)
    );
 
 
@@ -2204,14 +2205,14 @@ from (
        , nvl(spec,0) as SPEC
        , inv.TO_CLIENT
        --, decode(d.TO_CLIENT,'URIS',1,0) as paint_super
-       , decode(c.nick,'M URLO',1,0) as paint_super
+       --, decode(c.nick,'M URLO',1,0) as paint_super
+       , 0 as paint_super
        , v_PPLI_ID_old as PPLI_ID_old
        , case when a.INVOICE_DATA_ID is null then null else PROFIT_COEFFITIENT end PROFIT_COEFFITIENT
        , NOM_NEW
        , mdl.mdl_price
        , a.has_price
        , w.w_quantity, w.w_price
-
     from (
         SELECT a.ppli_id, ppl_id, coming_date, invoice_amount, case when STOCK_AMOUNT < 0 then 0 else stock_amount end STOCK_AMOUNT, left_amount, given_amount, hol_price, ruble_price, last_price
           , price_pcc, price_pcc_pc, a.n_id, final_price, inv_total_sum, stok_total_sum
@@ -2230,46 +2231,6 @@ from (
         FROM ppl_view a
           left outer join (select b.n_id from ppl_client_price b where b.PPLI_ID = v_PPLI_ID and SPEC_PRICE is not null group by b.n_id) c on c.n_id = a.n_id
           WHERE a.PPLI_ID = v_PPLI_ID
-
-/*
-        SELECT a.ppli_id, ppl_id, coming_date, invoice_amount, case when STOCK_AMOUNT < 0 then 0 else stock_amount end STOCK_AMOUNT, left_amount, given_amount, hol_price, ruble_price, last_price
-          , price_pcc, price_pcc_pc, a.n_id, final_price, inv_total_sum, stok_total_sum
-          , (final_price - price_pcc * curr_cust_coef) * (invoice_amount - nvl(c.total_client_quantity,0)) as inv_total_profit
-          , stok_total_profit
-          , compiled_name_otdel, (total_sum - nvl(final_price*c.total_client_quantity,0)) as total_sum, cust_coef, h_code, nvl(COL,0) as col
-          , rus_marks, INVOICE_DATA_ID, compiled_name_pot, f_type, hol_type, f_sub_type
-          , case when INVOICE_DATA_ID is null then 'Склад' else 'Инвойсы' end came_type
-          , row_number() over(partition by a.n_id order by ppl_id) as nid_rownum
-          , country, colour, bar_code, code, ft_id, fst_id, col_id, len, type_subtype, a.spec_price, best_price, discount
-          , inv_id, inv_id2, inv_id3, inv_id4
-          , null id_clients, null client_price, null as client_quantity, c.total_client_quantity
-          , instr(remarks,'"!"') as spec
-          , a.PROFIT_COEFFITIENT, a.NOM_NEW
-        FROM ppl_view a
-        left outer join (select b.n_id, sum(b.quantity) as total_client_quantity from ppl_client_price b where b.PPLI_ID = v_PPLI_ID group by b.n_id) c on c.n_id = a.n_id
-          WHERE a.PPLI_ID = v_PPLI_ID
-           and not exists (select 1 from ppl_client_price b where b.PPLI_ID = a.PPLI_ID and b.n_id = a.n_id and b.INVOICE_DATA_ID = a.INVOICE_DATA_ID)
-
-        union all
-
-        SELECT a.ppli_id, ppl_id, coming_date, invoice_amount, 0 as stock_amount, left_amount, given_amount, hol_price, ruble_price, last_price
-          , price_pcc, price_pcc_pc, a.n_id, b.spec_price as final_price, inv_total_sum, stok_total_sum
-          , (b.spec_price - price_pcc * curr_cust_coef) * b.quantity as inv_total_profit
-          , 0 as stok_total_profit
-          , compiled_name_otdel, nvl(b.spec_price*b.quantity, total_sum) as total_sum
-          , cust_coef, h_code, nvl(COL,0) as col
-          , rus_marks, a.INVOICE_DATA_ID, compiled_name_pot, f_type, hol_type, f_sub_type
-          , case when a.INVOICE_DATA_ID is null then 'Склад' else 'Инвойсы' end came_type
-          , row_number() over(partition by a.n_id order by ppl_id) as nid_rownum
-          , country, colour, bar_code, code, ft_id, fst_id, col_id, len, type_subtype, a.spec_price, best_price, discount
-          , inv_id, inv_id2, inv_id3, inv_id4
-          , b.id_clients, b.spec_price as client_price, null as client_quantity, null as total_client_quantity
-          , instr(remarks,'"!"') as spec
-          , a.PROFIT_COEFFITIENT, a.NOM_NEW
-        FROM ppl_view a
-        inner join ppl_client_price b on b.PPLI_ID = a.PPLI_ID and b.n_id = a.n_id and b.INVOICE_DATA_ID = a.INVOICE_DATA_ID
-          WHERE a.PPLI_ID = v_PPLI_ID
-*/
     ) a
 
     left outer join
@@ -2332,8 +2293,7 @@ from (
         ) z
       ) mdl on mdl.n_id = a.n_id
 
-
-          left outer join
+    left outer join
       (
         select w.n_id as w_n_id, sum(w.quantity) as w_quantity, max(w.price) as w_price
         from distributions_webshop w
@@ -2607,6 +2567,53 @@ EXCEPTION
       LOG_ERR(SQLERRM|| ' ' || DBMS_UTILITY.format_error_backtrace, SQLCODE, 'price_pkg.add_spec_orders', v_n_id);
       RAISE_APPLICATION_ERROR (-20429, 'Запрос не выполнился. ' || SQLERRM);
 end add_spec_orders;
+
+
+
+--
+-- Добавляем спец.цены на товар клиентам по WebShop
+--
+PROCEDURE sync_webshop_prices
+(
+    v_ppli_id  in number
+)
+is
+
+  CURSOR sel_pp_cur is
+    select w.*, c.id_clients from distributions_webshop w, orders_list l, orders_clients c
+    where w.dist_ind_id in (
+        select distinct d.DIST_IND_ID
+        from distributions_invoices d, PREPARE_PRICE_LIST_INDEX p, invoice_register r
+          where p.ppli_id = v_ppli_id and (d.INV_ID = p.inv_id or p.PACK_ID = r.ipp_id) and d.inv_id = r.inv_id
+    )
+      and w.id_orders_list = l.id_orders_list and l.id_orders_clients = c.id_orders_clients;
+
+  sel_pp_row sel_pp_cur%rowtype;
+
+  tmp_invoice_data_id  number;
+begin
+
+    open sel_pp_cur;
+    LOOP
+        FETCH sel_pp_cur INTO sel_pp_row;
+        EXIT WHEN sel_pp_cur%NOTFOUND;
+
+        delete from ppl_client_price where PPLI_ID = v_ppli_id and ID_CLIENTS = sel_pp_row.id_clients and N_ID = sel_pp_row.n_id;
+
+        select l.invoice_data_id into tmp_invoice_data_id from prepare_price_list l where l.ppli_id = v_ppli_id and n_id =  sel_pp_row.n_id;
+
+        insert into ppl_client_price values(get_office_unique('seq_PPLCP_ID'), sel_pp_row.n_id, sel_pp_row.id_clients, sel_pp_row.quantity, sel_pp_row.price, v_ppli_id, null, tmp_invoice_data_id);
+    end loop;
+    close sel_pp_cur;
+
+    commit;
+
+EXCEPTION
+  WHEN others THEN
+      LOG_ERR(SQLERRM|| ' ' || DBMS_UTILITY.format_error_backtrace, SQLCODE, 'price_pkg.sync_webshop_prices', v_ppli_id);
+      RAISE_APPLICATION_ERROR (-20430, 'Запрос не выполнился. ' || SQLERRM);
+end sync_webshop_prices;
+
 
 END;
 /
