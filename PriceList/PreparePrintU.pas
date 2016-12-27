@@ -444,6 +444,7 @@ var old_filter : string;
     mTXT: TfrxMemoView;
     memo1, memo2: TfrxMemoView;
     mGH: TfrxGroupHeader;
+    koef : string;
 begin
   try
     Screen.Cursor         := crHandPoint;
@@ -470,7 +471,19 @@ begin
       memo2 := frxReport1.FindObject('MemoKind') as TfrxMemoView;
       if setProfit > 0 then
       begin
-        memo1.Text := '[<frSelPriceList."PRICE">*1.5]';
+        //****** беру % из табл.PROCENT: ************
+      with dm do
+      begin
+       selq.close;
+       selq.sql.clear;
+       selq.sql.add('select * from sale_percenet where id_departments ='+inttostr(CUR_DEPT_ID));
+       selq.open;
+       koef := selq.fieldbyname('proc').asstring;  
+       selq.close;
+      end;
+        memo1.Text := '[(<frSelPriceList."PRICE">*'+koef+'/100)+<frSelPriceList."PRICE">]';
+      //*******************************************
+        //memo1.Text := '[<frSelPriceList."PRICE">*1.5]';
         memo2.Text := 'Розничный прайс-лист';
       end
       else

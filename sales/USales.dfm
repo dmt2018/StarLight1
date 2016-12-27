@@ -518,6 +518,10 @@ object frmSales: TfrmSales
     object tch_main: TcxTabSheet
       Caption = ' '#1054#1089#1085#1086#1074#1085#1086#1081' '#1089#1082#1083#1072#1076' (Ctrl+1) '
       ImageIndex = 0
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object gr_main: TDBGridEh
         Left = 0
         Top = 0
@@ -1202,6 +1206,10 @@ object frmSales: TfrmSales
     object tsh_nulls: TcxTabSheet
       Caption = ' '#1053#1091#1083#1077#1074#1099#1077' '#1079#1085#1072#1095#1077#1085#1080#1103' (Ctrl+3) '
       ImageIndex = 2
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object gr_nulls: TDBGridEh
         Left = 0
         Top = 0

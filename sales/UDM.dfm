@@ -3138,4 +3138,8 @@ object DM: TDM
     Left = 272
     Top = 376
   end
+  object OraQuery1: TOraQuery
+    Left = 736
+    Top = 24
+  end
 end

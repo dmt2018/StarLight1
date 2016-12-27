@@ -356,6 +356,7 @@ type
     doc_dataSPESIFICATION: TStringField;
     doc_dataCOMPILED_NAME_OTDEL: TStringField;
     doc_dataSPEC_PRICE: TIntegerField;
+    OraQuery1: TOraQuery;
     function frxReport1UserFunction(const MethodName: string;
       var Params: Variant): Variant;
     procedure DataModuleCreate(Sender: TObject);

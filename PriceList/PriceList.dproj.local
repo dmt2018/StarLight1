@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/10/04 12:53:36.650.pas,E:\Delphi\_Цветы 2010\PriceList\Unit1.pas=E:\Delphi\_Цветы 2010\PriceList\UNacenka.pas</Transaction>
+    <Transaction>2010/10/04 12:53:36.650.dfm,E:\Delphi\_Цветы 2010\PriceList\Unit1.dfm=E:\Delphi\_Цветы 2010\PriceList\UNacenka.dfm</Transaction>
+    <Transaction>2012.05.23 00:50:30.323.pas,C:\_WORK\delphi\StarLight\_Цветы регионы\PriceList\Unit1.pas=C:\_WORK\delphi\StarLight\_Цветы регионы\PriceList\UOldPrice.pas</Transaction>
+    <Transaction>2012.05.23 00:50:30.323.dfm,C:\_WORK\delphi\StarLight\_Цветы регионы\PriceList\Unit1.dfm=C:\_WORK\delphi\StarLight\_Цветы регионы\PriceList\UOldPrice.dfm</Transaction>
+    <Transaction>2013.10.21 23:25:33.464.pas,C:\_work\delphi\StarLight\_Цветы регионы\PriceList\Unit1.pas=C:\_work\delphi\StarLight\_Цветы регионы\PriceList\UPriceArchive.pas</Transaction>
+    <Transaction>2013.10.21 23:25:33.464.dfm,C:\_work\delphi\StarLight\_Цветы регионы\PriceList\Unit1.dfm=C:\_work\delphi\StarLight\_Цветы регионы\PriceList\UPriceArchive.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

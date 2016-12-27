@@ -1194,6 +1194,20 @@ var i: integer;
     param_: boolean;
 begin
   try
+
+   //****** беру % из табл.PROCENT: ************
+   with dm do
+   if Q_CLIENTS.FieldByName('nick').AsString = 'R CHL' then
+   begin
+    oraquery1.close;
+    oraquery1.sql.clear;
+    oraquery1.sql.add('select * from sale_percenet where id_departments ='+inttostr(CUR_DEPT_ID));
+    oraquery1.open;
+    editpercent.Text := oraquery1.fieldbyname('proc').asstring;
+    oraquery1.close;
+   end;
+   //*******************************************
+
     path   := ExtractFilePath(Application.ExeName);
 
     AStoreKey     := path + '/ini/'+DM.sale_session.Username+'_store_main.ini';
