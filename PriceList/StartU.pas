@@ -26,6 +26,7 @@ type
     btnDiscount: TcxButton;
     btnSpecOffer: TcxButton;
     btnTruckSale: TcxButton;
+    btnEditPercent: TcxButton;
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn4Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
@@ -39,6 +40,7 @@ type
     procedure btnDiscountClick(Sender: TObject);
     procedure btnSpecOfferClick(Sender: TObject);
     procedure btnTruckSaleClick(Sender: TObject);
+    procedure btnEditPercentClick(Sender: TObject);
   private
     { Private declarations }
     procedure AfterSetDept();
@@ -52,7 +54,7 @@ var
 implementation
 
 uses PriceU, PreparePrintU, PI_Library, Globals, DataModule, UNacenka,
-  UPriceArchive, UClientSale, USpecOrder, UTruckSale;
+  UPriceArchive, UClientSale, USpecOrder, UTruckSale, uEditPercent;
 
 {$R *.dfm}
 
@@ -317,6 +319,12 @@ begin
       frmClientSales.Free;
     end;
   end else MessageBox(Handle, 'Необходимо выбрать отдел', 'Внимание', MB_ICONWARNING);
+end;
+
+//%
+procedure TStartF.btnEditPercentClick(Sender: TObject);
+begin
+  frmEditPercent.showmodal;
 end;
 
 // Спец.предложение

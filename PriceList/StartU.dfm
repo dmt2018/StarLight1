@@ -4,7 +4,7 @@ object StartF: TStartF
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = #1062#1077#1085#1099
-  ClientHeight = 387
+  ClientHeight = 436
   ClientWidth = 352
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -49,14 +49,15 @@ object StartF: TStartF
     Left = 0
     Top = 33
     Width = 352
-    Height = 354
+    Height = 403
     Align = alClient
     BevelInner = bvRaised
     BevelOuter = bvLowered
     TabOrder = 0
+    ExplicitHeight = 354
     DesignSize = (
       352
-      354)
+      403)
     object Label2: TLabel
       Left = 13
       Top = 44
@@ -73,7 +74,7 @@ object StartF: TStartF
     end
     object BitBtn4: TcxButton
       Left = 13
-      Top = 312
+      Top = 357
       Width = 324
       Height = 30
       Cursor = crHandPoint
@@ -153,6 +154,7 @@ object StartF: TStartF
       LookAndFeel.Kind = lfFlat
       LookAndFeel.NativeStyle = True
       Spacing = 6
+      ExplicitTop = 312
     end
     object BitBtn1: TcxButton
       Left = 13
@@ -744,6 +746,30 @@ object StartF: TStartF
         FCFDFFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
         FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
         00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF}
+      LookAndFeel.Kind = lfFlat
+      LookAndFeel.NativeStyle = True
+      Spacing = 6
+    end
+    object btnEditPercent: TcxButton
+      Left = 13
+      Top = 311
+      Width = 324
+      Height = 30
+      Cursor = crHandPoint
+      Caption = '%'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 10
+      OnClick = btnEditPercentClick
+      Colors.Default = clBtnFace
+      Colors.Normal = clBtnFace
+      Colors.Hot = clBtnShadow
+      Colors.Pressed = clBtnShadow
       LookAndFeel.Kind = lfFlat
       LookAndFeel.NativeStyle = True
       Spacing = 6

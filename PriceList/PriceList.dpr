@@ -26,7 +26,8 @@ uses
   USpecOrder in 'USpecOrder.pas' {frmSpecOrder},
   UaddSpecOrder in 'UaddSpecOrder.pas' {frmAddSpecOrder},
   UTruckSale in 'UTruckSale.pas' {frmTruckSale},
-  UEditWebShop in 'UEditWebShop.pas' {frmEditWebShop};
+  UEditWebShop in 'UEditWebShop.pas' {frmEditWebShop},
+  UEditPercent in 'UEditPercent.pas' {frmEditPercent};
 
 {$R *.res}
 
@@ -43,5 +44,6 @@ begin
   Application.CreateForm(TfrmAddSpecOrder, frmAddSpecOrder);
   Application.CreateForm(TfrmTruckSale, frmTruckSale);
   Application.CreateForm(TfrmEditWebShop, frmEditWebShop);
+  Application.CreateForm(TfrmEditPercent, frmEditPercent);
   Application.Run;
 end.
