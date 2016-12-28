@@ -484,12 +484,12 @@ begin
         memo1.Text := '[(<frSelPriceList."PRICE">*'+koef+'/100)+<frSelPriceList."PRICE">]';
       //*******************************************
         //memo1.Text := '[<frSelPriceList."PRICE">*1.5]';
-        memo2.Text := 'Розничный прайс-лист';
+        memo2.Text := 'Розничный Прайс-лист';
       end
       else
       begin
         memo1.Text := '[frSelPriceList."PRICE"]';
-        memo2.Text := 'Прайс-лист';
+        memo2.Text := 'Оптовый Прайс-лист';
       end;
 //      memo2 := frxReport1.FindObject('MemoPrice') as TfrxMemoView;
 //      memo1.Visible := be_price.EditValue;
@@ -509,8 +509,8 @@ begin
       null;
     end;
 
-    mTXT   := frxReport1.FindObject('Memo1') as TfrxMemoView;
-    mTXT.Text := title_name;
+    //mTXT   := frxReport1.FindObject('Memo1') as TfrxMemoView;
+    //mTXT.Text := title_name;
     frxReport1.PrepareReport(true);
     frxReport1.ShowReport;
     grid_priceView1.DataController.DataSet.EnableControls;

@@ -552,7 +552,7 @@ object PreparePrintF: TPreparePrintF
     Left = 417
     Top = 193
     Bitmap = {
-      494C010102000400780010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101020004007C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -702,7 +702,7 @@ object PreparePrintF: TPreparePrintF
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 38616.761564004600000000
-    ReportOptions.LastChange = 42196.070587071800000000
+    ReportOptions.LastChange = 42732.677533159720000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'procedure MasterData1OnBeforePrint(Sender: TfrxComponent);'
@@ -747,7 +747,7 @@ object PreparePrintF: TPreparePrintF
         object Memo1: TfrxMemoView
           Align = baWidth
           Width = 755.906000000000000000
-          Height = 41.574830000000000000
+          Height = 30.236240000000000000
           ShowHint = False
           AutoWidth = True
           Font.Charset = DEFAULT_CHARSET
@@ -821,7 +821,7 @@ object PreparePrintF: TPreparePrintF
         end
         object Memo15: TfrxMemoView
           Align = baWidth
-          Top = 41.574803150000000000
+          Top = 60.472453150000000000
           Width = 755.906000000000000000
           Height = 18.897637800000000000
           ShowHint = False
@@ -879,16 +879,16 @@ object PreparePrintF: TPreparePrintF
         end
         object MemoKind: TfrxMemoView
           Align = baWidth
-          Top = 60.472480000000000000
+          Top = 30.236240000000000000
           Width = 755.906000000000000000
-          Height = 18.897650000000000000
+          Height = 30.236240000000000000
           ShowHint = False
           DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -13
+          Font.Height = -16
           Font.Name = 'tahoma'
-          Font.Style = []
+          Font.Style = [fsBold]
           HAlign = haCenter
           Memo.UTF8 = (
             #1056#1119#1057#1026#1056#176#1056#8470#1057#1027'-'#1056#187#1056#1105#1057#1027#1057#8218)
@@ -2588,7 +2588,7 @@ object PreparePrintF: TPreparePrintF
     Left = 416
     Top = 264
     Bitmap = {
-      494C010128002C00780010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010128002C007C0010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000040000000B0000000010020000000000000B0
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -4053,7 +4053,7 @@ object PreparePrintF: TPreparePrintF
     Left = 512
     Top = 232
     Bitmap = {
-      494C010127002C00780020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010127002C007C0020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004001000001002000000000000080
       0200000000000000000000000000000000000000000000000000000000000000
       000000000000000000000101011A0B0B0B743B3D3DB4777777D5838383DA5152
