@@ -516,6 +516,7 @@ object frmEditSubReg: TfrmEditSubReg
           Width = 215
           Height = 24
           Color = clWhite
+          MaxLength = 15
           TabOrder = 0
         end
         object ComboBox8: TComboBox
@@ -533,6 +534,7 @@ object frmEditSubReg: TfrmEditSubReg
           Width = 215
           Height = 24
           Color = clWhite
+          MaxLength = 4
           TabOrder = 2
         end
         object Edit6: TEdit
@@ -541,6 +543,7 @@ object frmEditSubReg: TfrmEditSubReg
           Width = 215
           Height = 24
           Color = clWhite
+          MaxLength = 200
           TabOrder = 3
         end
         object Edit7: TEdit
@@ -549,6 +552,7 @@ object frmEditSubReg: TfrmEditSubReg
           Width = 215
           Height = 24
           Color = clWhite
+          MaxLength = 200
           TabOrder = 4
         end
         object DateTimePicker1: TDateTimePicker

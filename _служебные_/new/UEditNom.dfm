@@ -1215,6 +1215,7 @@ object frmEditNom: TfrmEditNom
     object ed_barcode: TcxTextEdit
       Left = 156
       Top = 113
+      Properties.MaxLength = 13
       Style.BorderStyle = ebsOffice11
       Style.LookAndFeel.Kind = lfOffice11
       Style.LookAndFeel.NativeStyle = True
@@ -1246,6 +1247,7 @@ object frmEditNom: TfrmEditNom
     object ed_postname: TcxTextEdit
       Left = 156
       Top = 139
+      Properties.MaxLength = 150
       Style.BorderStyle = ebsOffice11
       Style.LookAndFeel.Kind = lfOffice11
       Style.LookAndFeel.NativeStyle = True
@@ -1406,6 +1408,7 @@ object frmEditNom: TfrmEditNom
     object ed_holcodename: TcxTextEdit
       Left = 156
       Top = 165
+      Properties.MaxLength = 10
       Style.BorderStyle = ebsOffice11
       Style.LookAndFeel.Kind = lfOffice11
       Style.LookAndFeel.NativeStyle = True

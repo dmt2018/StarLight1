@@ -22,7 +22,7 @@ object frmEditAdmins: TfrmEditAdmins
     Top = 0
     Width = 662
     Height = 449
-    ActivePage = tsh_promo
+    ActivePage = tsh_departs
     Align = alClient
     MultiLine = True
     Style = 7

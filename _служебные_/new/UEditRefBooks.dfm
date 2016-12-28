@@ -203,7 +203,7 @@ object frmEditRefbooks: TfrmEditRefbooks
     Top = 0
     Width = 555
     Height = 334
-    ActivePage = tsh_clienttypes
+    ActivePage = tsh_units
     Align = alClient
     MultiLine = True
     Style = 7
@@ -215,10 +215,6 @@ object frmEditRefbooks: TfrmEditRefbooks
     object tsh_regions: TcxTabSheet
       Caption = #1056#1077#1075#1080#1086#1085#1099
       ImageIndex = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Label5: TLabel
         Left = 34
         Top = 128
@@ -318,6 +314,7 @@ object frmEditRefbooks: TfrmEditRefbooks
       object Ed1: TcxTextEdit
         Left = 141
         Top = 21
+        Properties.MaxLength = 255
         Style.BorderStyle = ebsOffice11
         Style.LookAndFeel.Kind = lfOffice11
         Style.LookAndFeel.NativeStyle = True
@@ -331,8 +328,9 @@ object frmEditRefbooks: TfrmEditRefbooks
         Width = 397
       end
       object ed2: TcxTextEdit
-        Left = 140
+        Left = 132
         Top = 56
+        Properties.MaxLength = 4
         Style.BorderStyle = ebsOffice11
         Style.LookAndFeel.Kind = lfOffice11
         Style.LookAndFeel.NativeStyle = True
@@ -348,6 +346,7 @@ object frmEditRefbooks: TfrmEditRefbooks
       object ed3: TcxTextEdit
         Left = 140
         Top = 95
+        Properties.MaxLength = 15
         Style.BorderStyle = ebsOffice11
         Style.LookAndFeel.Kind = lfOffice11
         Style.LookAndFeel.NativeStyle = True
@@ -366,6 +365,7 @@ object frmEditRefbooks: TfrmEditRefbooks
         Width = 519
         Height = 123
         Ctl3D = False
+        MaxLength = 1024
         ParentCtl3D = False
         ScrollBars = ssVertical
         TabOrder = 3
@@ -374,10 +374,6 @@ object frmEditRefbooks: TfrmEditRefbooks
     object tsh_cityes: TcxTabSheet
       Caption = #1043#1086#1088#1086#1076#1072
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Image2: TImage
         Left = 12
         Top = 22
@@ -508,6 +504,7 @@ object frmEditRefbooks: TfrmEditRefbooks
       object ed4: TcxTextEdit
         Left = 140
         Top = 21
+        Properties.MaxLength = 255
         Style.BorderStyle = ebsOffice11
         Style.LookAndFeel.Kind = lfOffice11
         Style.LookAndFeel.NativeStyle = True
@@ -523,6 +520,7 @@ object frmEditRefbooks: TfrmEditRefbooks
       object ed5: TcxTextEdit
         Left = 140
         Top = 56
+        Properties.MaxLength = 8
         Style.BorderStyle = ebsOffice11
         Style.LookAndFeel.Kind = lfOffice11
         Style.LookAndFeel.NativeStyle = True
@@ -621,6 +619,7 @@ object frmEditRefbooks: TfrmEditRefbooks
       object ed6: TcxTextEdit
         Left = 128
         Top = 21
+        Properties.MaxLength = 255
         Style.BorderStyle = ebsOffice11
         Style.LookAndFeel.Kind = lfOffice11
         Style.LookAndFeel.NativeStyle = True
@@ -639,6 +638,7 @@ object frmEditRefbooks: TfrmEditRefbooks
         Width = 519
         Height = 123
         Ctl3D = False
+        MaxLength = 1024
         ParentCtl3D = False
         ScrollBars = ssVertical
         TabOrder = 1
@@ -734,6 +734,7 @@ object frmEditRefbooks: TfrmEditRefbooks
       object ed7: TcxTextEdit
         Left = 140
         Top = 21
+        Properties.MaxLength = 50
         Style.BorderStyle = ebsOffice11
         Style.LookAndFeel.Kind = lfOffice11
         Style.LookAndFeel.NativeStyle = True
@@ -752,6 +753,7 @@ object frmEditRefbooks: TfrmEditRefbooks
         Width = 519
         Height = 123
         Ctl3D = False
+        MaxLength = 1024
         ParentCtl3D = False
         ScrollBars = ssVertical
         TabOrder = 1
@@ -807,10 +809,6 @@ object frmEditRefbooks: TfrmEditRefbooks
     object tsh_departs: TcxTabSheet
       Caption = #1054#1090#1076#1077#1083#1099
       ImageIndex = 4
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Image11: TImage
         Left = 12
         Top = 21
@@ -884,6 +882,7 @@ object frmEditRefbooks: TfrmEditRefbooks
       object ed8: TcxTextEdit
         Left = 140
         Top = 21
+        Properties.MaxLength = 100
         Style.BorderStyle = ebsOffice11
         Style.LookAndFeel.Kind = lfOffice11
         Style.LookAndFeel.NativeStyle = True
@@ -902,6 +901,7 @@ object frmEditRefbooks: TfrmEditRefbooks
         Width = 519
         Height = 123
         Ctl3D = False
+        MaxLength = 1024
         ParentCtl3D = False
         ScrollBars = ssVertical
         TabOrder = 1
@@ -918,10 +918,6 @@ object frmEditRefbooks: TfrmEditRefbooks
     object tsh_positions: TcxTabSheet
       Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1080
       ImageIndex = 5
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Image12: TImage
         Left = 12
         Top = 21
@@ -995,6 +991,7 @@ object frmEditRefbooks: TfrmEditRefbooks
       object ed9: TcxTextEdit
         Left = 140
         Top = 21
+        Properties.MaxLength = 100
         Style.BorderStyle = ebsOffice11
         Style.LookAndFeel.Kind = lfOffice11
         Style.LookAndFeel.NativeStyle = True
@@ -1013,6 +1010,7 @@ object frmEditRefbooks: TfrmEditRefbooks
         Width = 519
         Height = 123
         Ctl3D = False
+        MaxLength = 1024
         ParentCtl3D = False
         ScrollBars = ssVertical
         TabOrder = 1
@@ -1021,10 +1019,6 @@ object frmEditRefbooks: TfrmEditRefbooks
     object tsh_countries: TcxTabSheet
       Caption = #1057#1090#1088#1072#1085#1072
       ImageIndex = 6
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Image5: TImage
         Left = 12
         Top = 19
@@ -1124,6 +1118,7 @@ object frmEditRefbooks: TfrmEditRefbooks
       object edit_country: TcxTextEdit
         Left = 172
         Top = 13
+        Properties.MaxLength = 50
         Style.BorderStyle = ebsOffice11
         Style.LookAndFeel.Kind = lfOffice11
         Style.LookAndFeel.NativeStyle = True
@@ -1139,6 +1134,7 @@ object frmEditRefbooks: TfrmEditRefbooks
       object edit_country_eng: TcxTextEdit
         Left = 172
         Top = 55
+        Properties.MaxLength = 50
         Style.BorderStyle = ebsOffice11
         Style.LookAndFeel.Kind = lfOffice11
         Style.LookAndFeel.NativeStyle = True
@@ -1154,6 +1150,7 @@ object frmEditRefbooks: TfrmEditRefbooks
       object edit_country_code: TcxTextEdit
         Left = 172
         Top = 94
+        Properties.MaxLength = 10
         Style.BorderStyle = ebsOffice11
         Style.LookAndFeel.Kind = lfOffice11
         Style.LookAndFeel.NativeStyle = True
@@ -1169,6 +1166,7 @@ object frmEditRefbooks: TfrmEditRefbooks
       object ed10: TcxTextEdit
         Left = 172
         Top = 131
+        Properties.MaxLength = 10
         Style.BorderStyle = ebsOffice11
         Style.LookAndFeel.Kind = lfOffice11
         Style.LookAndFeel.NativeStyle = True
@@ -1185,10 +1183,6 @@ object frmEditRefbooks: TfrmEditRefbooks
     object tsh_suppliers: TcxTabSheet
       Caption = #1055#1086#1089#1090#1072#1074#1097#1080#1082
       ImageIndex = 7
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Image6: TImage
         Left = 12
         Top = 16
@@ -1337,6 +1331,7 @@ object frmEditRefbooks: TfrmEditRefbooks
       object edit_suplier: TcxTextEdit
         Left = 128
         Top = 15
+        Properties.MaxLength = 150
         Style.BorderStyle = ebsOffice11
         Style.LookAndFeel.Kind = lfOffice11
         Style.LookAndFeel.NativeStyle = True
@@ -1401,10 +1396,6 @@ object frmEditRefbooks: TfrmEditRefbooks
     object tsh_units: TcxTabSheet
       Caption = ' '#1045#1076#1080#1085#1080#1094#1099' '#1080#1079#1084#1077#1088#1077#1085#1080#1103' '
       ImageIndex = 8
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Image23: TImage
         Left = 12
         Top = 16
@@ -1574,6 +1565,7 @@ object frmEditRefbooks: TfrmEditRefbooks
       object edUnit_name: TcxTextEdit
         Left = 229
         Top = 47
+        Properties.MaxLength = 50
         Style.BorderStyle = ebsOffice11
         Style.LookAndFeel.Kind = lfOffice11
         Style.LookAndFeel.NativeStyle = True
@@ -1589,6 +1581,7 @@ object frmEditRefbooks: TfrmEditRefbooks
       object edUnit_znach_national: TcxTextEdit
         Left = 229
         Top = 80
+        Properties.MaxLength = 50
         Style.BorderStyle = ebsOffice11
         Style.LookAndFeel.Kind = lfOffice11
         Style.LookAndFeel.NativeStyle = True
@@ -1604,6 +1597,7 @@ object frmEditRefbooks: TfrmEditRefbooks
       object edUnit_znach_international: TcxTextEdit
         Left = 229
         Top = 107
+        Properties.MaxLength = 50
         Style.BorderStyle = ebsOffice11
         Style.LookAndFeel.Kind = lfOffice11
         Style.LookAndFeel.NativeStyle = True
@@ -1638,6 +1632,7 @@ object frmEditRefbooks: TfrmEditRefbooks
       object edUnit_code_litering_national: TcxTextEdit
         Left = 229
         Top = 138
+        Properties.MaxLength = 50
         Style.BorderStyle = ebsOffice11
         Style.LookAndFeel.Kind = lfOffice11
         Style.LookAndFeel.NativeStyle = True
@@ -1653,6 +1648,7 @@ object frmEditRefbooks: TfrmEditRefbooks
       object edUnit_code_litering_international: TcxTextEdit
         Left = 229
         Top = 168
+        Properties.MaxLength = 50
         Style.BorderStyle = ebsOffice11
         Style.LookAndFeel.Kind = lfOffice11
         Style.LookAndFeel.NativeStyle = True

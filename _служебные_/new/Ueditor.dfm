@@ -25,8 +25,6 @@ object frmeditor: Tfrmeditor
     Height = 40
     Align = alBottom
     TabOrder = 1
-    ExplicitTop = 330
-    ExplicitWidth = 629
     DesignSize = (
       367
       40)
@@ -45,7 +43,6 @@ object frmeditor: Tfrmeditor
       ParentFont = False
       TabOrder = 0
       Colors.Default = clActiveBorder
-      ExplicitLeft = 397
     end
     object btnClose: TcxButton
       Left = 250
@@ -63,7 +60,6 @@ object frmeditor: Tfrmeditor
       ParentFont = False
       TabOrder = 1
       Colors.Default = clActiveBorder
-      ExplicitLeft = 512
     end
   end
   object pnlMain: TPanel
@@ -73,10 +69,6 @@ object frmeditor: Tfrmeditor
     Height = 175
     Align = alClient
     TabOrder = 0
-    ExplicitLeft = 112
-    ExplicitTop = 248
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object Lbl1: TLabel
       Left = 12
       Top = 12
@@ -266,6 +258,7 @@ object frmeditor: Tfrmeditor
       Top = 58
       Properties.DecimalPlaces = 5
       Properties.DisplayFormat = ',0.00000;-,0.00000'
+      Properties.MaxLength = 10
       TabOrder = 1
       Width = 93
     end
@@ -274,6 +267,7 @@ object frmeditor: Tfrmeditor
       Top = 85
       Properties.DecimalPlaces = 5
       Properties.DisplayFormat = ',0.00000;-,0.00000'
+      Properties.MaxLength = 10
       TabOrder = 2
       Width = 93
     end
@@ -282,6 +276,7 @@ object frmeditor: Tfrmeditor
       Top = 112
       Properties.DecimalPlaces = 5
       Properties.DisplayFormat = ',0.00000;-,0.00000'
+      Properties.MaxLength = 10
       TabOrder = 3
       Width = 93
     end
@@ -290,6 +285,7 @@ object frmeditor: Tfrmeditor
       Top = 139
       Properties.DecimalPlaces = 5
       Properties.DisplayFormat = ',0.00000;-,0.00000'
+      Properties.MaxLength = 10
       TabOrder = 4
       Width = 93
     end
@@ -298,6 +294,7 @@ object frmeditor: Tfrmeditor
       Top = 60
       Properties.DecimalPlaces = 5
       Properties.DisplayFormat = ',0.00000;-,0.00000'
+      Properties.MaxLength = 10
       TabOrder = 5
       Width = 93
     end
@@ -306,6 +303,7 @@ object frmeditor: Tfrmeditor
       Top = 84
       Properties.DecimalPlaces = 5
       Properties.DisplayFormat = ',0.00000;-,0.00000'
+      Properties.MaxLength = 10
       TabOrder = 6
       Width = 93
     end
@@ -314,6 +312,7 @@ object frmeditor: Tfrmeditor
       Top = 111
       Properties.DecimalPlaces = 5
       Properties.DisplayFormat = ',0.00000;-,0.00000'
+      Properties.MaxLength = 10
       TabOrder = 7
       Width = 93
     end
@@ -322,6 +321,7 @@ object frmeditor: Tfrmeditor
       Top = 138
       Properties.DecimalPlaces = 5
       Properties.DisplayFormat = ',0.00000;-,0.00000'
+      Properties.MaxLength = 10
       TabOrder = 8
       Width = 93
     end

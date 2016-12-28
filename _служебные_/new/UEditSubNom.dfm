@@ -20,14 +20,11 @@ object frmEditSubNom: TfrmEditSubNom
     Top = 0
     Width = 645
     Height = 241
-    ActivePage = tsh_change_subtype
+    ActivePage = tsh_spec
     Align = alClient
     MultiLine = True
     Style = 7
     TabOrder = 0
-    ExplicitTop = -35
-    ExplicitWidth = 442
-    ExplicitHeight = 344
     ClientRectBottom = 240
     ClientRectLeft = 1
     ClientRectRight = 644
@@ -35,8 +32,6 @@ object frmEditSubNom: TfrmEditSubNom
     object tsh_name: TcxTabSheet
       Caption = #1053#1072#1080#1084#1077#1085#1086#1074#1072#1085#1080#1077' '#1090#1086#1074#1072#1088#1072
       ImageIndex = 0
-      ExplicitTop = 57
-      ExplicitHeight = 183
       object Label5: TLabel
         Left = 34
         Top = 16
@@ -199,8 +194,6 @@ object frmEditSubNom: TfrmEditSubNom
     object tsh_translate: TcxTabSheet
       Caption = #1055#1077#1088#1077#1074#1086#1076' '#1085#1072#1080#1084#1077#1085#1086#1074#1072#1085#1080#1103
       ImageIndex = 1
-      ExplicitTop = 57
-      ExplicitHeight = 183
       object Image4: TImage
         Left = 12
         Top = 16
@@ -395,9 +388,6 @@ object frmEditSubNom: TfrmEditSubNom
     object tsh_types: TcxTabSheet
       Caption = #1058#1080#1087' '#1090#1086#1074#1072#1088#1072
       ImageIndex = 4
-      ExplicitTop = 87
-      ExplicitWidth = 440
-      ExplicitHeight = 256
       object Label10: TLabel
         Left = 34
         Top = 16
@@ -556,8 +546,6 @@ object frmEditSubNom: TfrmEditSubNom
     object tsh_subtype: TcxTabSheet
       Caption = #1055#1086#1076#1090#1080#1087' '#1090#1086#1074#1072#1088#1072
       ImageIndex = 5
-      ExplicitTop = 57
-      ExplicitHeight = 183
       object Image10: TImage
         Left = 12
         Top = 16
@@ -806,8 +794,6 @@ object frmEditSubNom: TfrmEditSubNom
     object tsh_change_subtype: TcxTabSheet
       Caption = #1057#1084#1077#1085#1080#1090#1100' '#1090#1080#1087' '#1076#1083#1103' '#1087#1086#1076#1090#1080#1087#1072' '#1090#1086#1074#1072#1088#1072
       ImageIndex = 6
-      ExplicitTop = 57
-      ExplicitHeight = 183
       object Image11: TImage
         Left = 12
         Top = 16
@@ -924,8 +910,6 @@ object frmEditSubNom: TfrmEditSubNom
     object tsh_color: TcxTabSheet
       Caption = #1062#1074#1077#1090
       ImageIndex = 7
-      ExplicitTop = 57
-      ExplicitHeight = 183
       object Image12: TImage
         Left = 12
         Top = 16
@@ -996,8 +980,6 @@ object frmEditSubNom: TfrmEditSubNom
     object tsh_spec: TcxTabSheet
       Caption = #1057#1087#1077#1094#1080#1092#1080#1082#1072#1094#1080#1103
       ImageIndex = 8
-      ExplicitTop = 57
-      ExplicitHeight = 183
       object Image13: TImage
         Left = 12
         Top = 16
@@ -1406,8 +1388,6 @@ object frmEditSubNom: TfrmEditSubNom
     object tsh_spec_trans: TcxTabSheet
       Caption = #1055#1077#1088#1077#1074#1086#1076' '#1089#1087#1077#1094#1080#1092#1080#1082#1072#1094#1080#1080
       ImageIndex = 9
-      ExplicitTop = 57
-      ExplicitHeight = 183
       object Image18: TImage
         Left = 16
         Top = 16
@@ -1544,8 +1524,6 @@ object frmEditSubNom: TfrmEditSubNom
     object tshPacks: TcxTabSheet
       Caption = #1055#1072#1082#1086#1074#1082#1072' '#1087#1086' '#1091#1084#1086#1083#1095#1072#1085#1080#1102
       ImageIndex = 10
-      ExplicitTop = 57
-      ExplicitHeight = 183
       object Image21: TImage
         Left = 12
         Top = 16
@@ -1728,8 +1706,6 @@ object frmEditSubNom: TfrmEditSubNom
     Height = 27
     Align = alBottom
     TabOrder = 1
-    ExplicitTop = 282
-    ExplicitWidth = 442
     object Label4: TLabel
       Left = 35
       Top = 5
@@ -1796,7 +1772,6 @@ object frmEditSubNom: TfrmEditSubNom
     Height = 41
     Align = alBottom
     TabOrder = 2
-    ExplicitWidth = 442
     object cxButton2: TcxButton
       Left = 61
       Top = 7
