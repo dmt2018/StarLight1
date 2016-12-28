@@ -15,6 +15,7 @@ object frmSales: TfrmSales
   Position = poScreenCenter
   WindowState = wsMaximized
   OnClose = FormClose
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 16
@@ -565,7 +566,6 @@ object frmSales: TfrmSales
         OnDrawColumnCell = gr_mainDrawColumnCell
         OnKeyDown = gr_mainKeyDown
         OnKeyPress = gr_mainKeyPress
-        OnMouseDown = gr_mainMouseDown
         OnTitleClick = gr_mainTitleClick
         Columns = <
           item

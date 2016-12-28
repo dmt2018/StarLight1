@@ -210,8 +210,7 @@ type
     procedure aShowReservExecute(Sender: TObject);
     procedure mnExcelClick(Sender: TObject);
     procedure N3Click(Sender: TObject);
-    procedure gr_mainMouseDown(Sender: TObject; Button: TMouseButton;
-      Shift: TShiftState; X, Y: Integer);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
     procedure Grid_Set;
@@ -634,17 +633,6 @@ begin
    end;
 end;
 
-//автоподстава % 
-procedure TfrmSales.gr_mainMouseDown(Sender: TObject; Button: TMouseButton;
-  Shift: TShiftState; X, Y: Integer);
-begin
-    DM.OraProc.StoredProcName := 'STORE_PKG.set_price_part';
-    DM.OraProc.Prepare;
-    DM.OraProc.ParamByName('price_percent').AsInteger := EditPercent.EditValue;
-    DM.OraProc.Execute;
-    DM.CDS_MSTORE.close;
-    DM.CDS_MSTORE.open;
-end;
 
 // —ортировка основного склада
 procedure TfrmSales.gr_mainTitleClick(Column: TColumnEh);
@@ -1196,6 +1184,25 @@ begin
 end;
 
 
+procedure TfrmSales.FormCreate(Sender: TObject);
+begin
+   //****** беру % из табл.PROCENT: ************
+   with dm do
+   if Q_CLIENTS.FieldByName('nick').AsString = 'R CHL' then
+   begin
+    oraquery1.close;
+    oraquery1.sql.clear;
+    oraquery1.sql.add('select * from sale_percenet where id_departments ='+inttostr(CUR_DEPT_ID));
+    oraquery1.open;
+    if oraquery1.RecordCount > 0 then
+      editpercent.Text := oraquery1.fieldbyname('proc').asstring
+    else
+      editpercent.EditValue := 0;
+    oraquery1.close;
+   end;
+   //*******************************************
+end;
+
 //
 //  ѕокажем форму
 //
@@ -1207,20 +1214,6 @@ var i: integer;
     param_: boolean;
 begin
   try
-
-   //****** беру % из табл.PROCENT: ************
-   with dm do
-   if Q_CLIENTS.FieldByName('nick').AsString = 'R CHL' then
-   begin
-    oraquery1.close;
-    oraquery1.sql.clear;
-    oraquery1.sql.add('select * from sale_percenet where id_departments ='+inttostr(CUR_DEPT_ID));
-    oraquery1.open;
-    editpercent.Text := oraquery1.fieldbyname('proc').asstring;
-    oraquery1.close;
-   end;
-   //*******************************************
-
     path   := ExtractFilePath(Application.ExeName);
 
     AStoreKey     := path + '/ini/'+DM.sale_session.Username+'_store_main.ini';
