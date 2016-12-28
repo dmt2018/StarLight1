@@ -5099,4 +5099,11 @@ object frmftpwww: Tfrmftpwww
     Left = 344
     Top = 40
   end
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 500
+    OnTimer = Timer1Timer
+    Left = 344
+    Top = 184
+  end
 end
