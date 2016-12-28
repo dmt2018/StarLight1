@@ -210,6 +210,8 @@ type
     procedure aShowReservExecute(Sender: TObject);
     procedure mnExcelClick(Sender: TObject);
     procedure N3Click(Sender: TObject);
+    procedure gr_mainMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
   private
     { Private declarations }
     procedure Grid_Set;
@@ -602,7 +604,7 @@ begin
 
   end;
   label2.Repaint;
-  Panel2.Repaint;
+  Panel2.Repaint;     
 end;
 
 //
@@ -632,6 +634,17 @@ begin
    end;
 end;
 
+//автоподстава % 
+procedure TfrmSales.gr_mainMouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+    DM.OraProc.StoredProcName := 'STORE_PKG.set_price_part';
+    DM.OraProc.Prepare;
+    DM.OraProc.ParamByName('price_percent').AsInteger := EditPercent.EditValue;
+    DM.OraProc.Execute;
+    DM.CDS_MSTORE.close;
+    DM.CDS_MSTORE.open;
+end;
 
 // —ортировка основного склада
 procedure TfrmSales.gr_mainTitleClick(Column: TColumnEh);

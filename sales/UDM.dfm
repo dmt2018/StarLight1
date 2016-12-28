@@ -233,7 +233,7 @@ object DM: TDM
     end
     object CDS_MSTOREH_CODE: TStringField
       FieldName = 'H_CODE'
-      Size = 50
+      Size = 80
     end
     object CDS_MSTOREF_TYPE: TStringField
       FieldName = 'F_TYPE'
@@ -329,11 +329,11 @@ object DM: TDM
     end
     object CDS_MSTOREPHOTO: TStringField
       FieldName = 'PHOTO'
-      Size = 30
+      Size = 80
     end
     object CDS_MSTORECOMPILED_NAME_OTDEL: TStringField
       FieldName = 'COMPILED_NAME_OTDEL'
-      Size = 350
+      Size = 500
     end
     object CDS_MSTOREID_OFFICE: TIntegerField
       FieldName = 'ID_OFFICE'
