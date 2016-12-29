@@ -595,17 +595,11 @@ begin
   if cb_pics.EditValue = true then
   begin
     if beWithGroup.EditValue = true then
-//      if setProfit > 0 then
-//        print_price(StartDir + '/Reps/PriceRepPics_rozn.fr3', 'QUANTITY > 0')
-//      else
-        print_price(StartDir + '/Reps/PriceRepPics.fr3', 'QUANTITY > 0')
+      print_price(StartDir + '/Reps/PriceRepPics.fr3', 'QUANTITY > 0')
     else
     begin
       MakeSortForPrint(TOraQuery(grid_priceView1.DataController.DataSet),grid_priceView1);
-//      if setProfit > 0 then
-//        print_price(StartDir + '/Reps/PriceRepPics_wog_rozn.fr3', 'QUANTITY > 0')
-//      else
-        print_price(StartDir + '/Reps/PriceRepPics_wog.fr3', 'QUANTITY > 0');
+      print_price(StartDir + '/Reps/PriceRepPics_wog.fr3', 'QUANTITY > 0');
       TOraQuery(grid_priceView1.DataController.DataSet).IndexFieldNames := '';
       aRefresh.Execute;
     end;
@@ -614,18 +608,12 @@ begin
   begin
     if beWithGroup.EditValue = true then
     begin
-//      if setProfit > 0 then
-//        print_price(StartDir + '/Reps/PriceRep_rozn.fr3', 'QUANTITY > 0')
-//      else
-        print_price(StartDir + '/Reps/PriceRep.fr3', 'QUANTITY > 0')
+      print_price(StartDir + '/Reps/PriceRep.fr3', 'QUANTITY > 0')
     end
     else
     begin
       MakeSortForPrint(TOraQuery(grid_priceView1.DataController.DataSet),grid_priceView1);
-//      if setProfit > 0 then
-//        print_price(StartDir + '/Reps/PriceRep_wog_rozn.fr3', 'QUANTITY > 0')
-//      else
-        print_price(StartDir + '/Reps/PriceRep_wog.fr3', 'QUANTITY > 0');
+      print_price(StartDir + '/Reps/PriceRep_wog.fr3', 'QUANTITY > 0');
       TOraQuery(grid_priceView1.DataController.DataSet).IndexFieldNames := '';
       aRefresh.Execute;
     end;

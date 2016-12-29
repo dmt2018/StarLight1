@@ -17,7 +17,7 @@ type
     btnSave: TcxButton;
     btnClose: TcxButton;
     OraQuery1: TOraQuery;
-    Edit1: TEdit;
+    edCoef: TcxCurrencyEdit;
     procedure FormShow(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure btnSaveClick(Sender: TObject);
@@ -34,30 +34,40 @@ implementation
 
 {$R *.dfm}
 
-uses Globals;
+uses Globals, DataModule;
 
 procedure TfrmEditPercent.btnCloseClick(Sender: TObject);
 begin
- close;
+  close;
 end;
 
 procedure TfrmEditPercent.btnSaveClick(Sender: TObject);
 begin
- oraquery1.Close;
-  oraquery1.SQL.clear;
-   oraquery1.sql.add('update sale_percenet set proc = '+edit1.Text+' where id_departments ='+inttostr(CUR_DEPT_ID));
-  oraquery1.execute;
- close;
+  try
+    oraquery1.Close;
+    oraquery1.SQL.clear;
+    oraquery1.sql.add('update sale_percenet set proc = '+VarToStr(edCoef.EditValue)+' where id_departments ='+inttostr(CUR_DEPT_ID));
+    oraquery1.execute;
+    DM.STAR_DB.Commit;
+    MessageBox(Handle, 'Сохранено', 'Результат', MB_ICONINFORMATION);
+    close;
+  except on E: Exception do
+    MessageBox(Handle, PChar(E.Message), 'Ощибка!', MB_ICONERROR);
+  end;
 end;
 
 procedure TfrmEditPercent.FormShow(Sender: TObject);
 begin
- oraquery1.Close;
-  oraquery1.SQL.clear;
-   oraquery1.sql.add('select * from sale_percenet where id_departments ='+inttostr(CUR_DEPT_ID));
-   oraquery1.open;
-  edit1.Text := oraquery1.fieldbyname('proc').asstring;
- oraquery1.Close;
+  try
+    oraquery1.Close;
+    oraquery1.SQL.clear;
+    oraquery1.sql.add('select * from sale_percenet where id_departments ='+inttostr(CUR_DEPT_ID));
+    oraquery1.open;
+    edCoef.EditValue := oraquery1.fieldbyname('proc').Value;
+    oraquery1.Close;
+  except on E: Exception do
+    MessageBox(Handle, PChar(E.Message), 'Ощибка!', MB_ICONERROR);
+  end;
 end;
 
 end.
