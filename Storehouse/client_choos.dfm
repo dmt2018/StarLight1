@@ -222,6 +222,7 @@ object clientchoosForm: TclientchoosForm
       ModalResult = 1
       ParentFont = False
       TabOrder = 1
+      OnClick = BitBtnSaveClick
       Colors.Default = clBtnFace
       Colors.Normal = clBtnFace
       Colors.Hot = clSkyBlue
@@ -275,7 +276,6 @@ object clientchoosForm: TclientchoosForm
     BevelOuter = bvNone
     ParentColor = True
     TabOrder = 2
-    ExplicitTop = 366
     object BitBtn2: TBitBtn
       Left = 40
       Top = 40
@@ -326,7 +326,6 @@ object clientchoosForm: TclientchoosForm
     Color = clWhite
     TabOrder = 3
     Visible = False
-    ExplicitTop = 369
     object Order_Grid: TDBGridEh
       Left = 0
       Top = 0
@@ -463,7 +462,6 @@ object clientchoosForm: TclientchoosForm
     ParentFont = False
     TabOrder = 0
     LookAndFeel.Kind = lfOffice11
-    ExplicitHeight = 339
     object grid_clients_View: TcxGridDBTableView
       OnDblClick = grid_clients_ViewDblClick
       NavigatorButtons.ConfirmDelete = False

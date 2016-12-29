@@ -45,6 +45,7 @@ type
     ScanSTORE_TYPE: TFloatField;
     ScanADDED: TFloatField;
     ScanQUANTITY_NOW: TFloatField;
+    selq: TOraQuery;
     procedure OraSessionAfterConnect(Sender: TObject);
     procedure DataModuleCreate(Sender: TObject);
   private

@@ -266,6 +266,7 @@ type
     procedure DOCNEW1_DATABeforeOpen(DataSet: TDataSet);
     procedure mnLoadFooterClick(Sender: TObject);
     procedure mnLoadCellClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
 
   private
     path: string;
@@ -373,6 +374,27 @@ begin
   Action:= caFree;
 end;
 
+
+procedure TnaclnewForm.FormCreate(Sender: TObject);
+begin
+   //****** беру % из табл.PROCENT: ************
+   //if CLIENTS.FieldByName('nick').AsString = 'R CHL' then
+   //if clientchoosForm.clients.FieldByName('nick').AsString = 'R CHL' then
+   if nk = 'R CHL' then
+   with dm do
+   begin
+    selq.close;
+    selq.sql.clear;
+    selq.sql.add('select * from sale_percenet where id_departments ='+DataM.department_id);
+    selq.open;
+    if selq.RecordCount > 0 then
+      editpercent.Text := selq.fieldbyname('proc').asstring
+    else
+      editpercent.EditValue := 0;
+    selq.close;
+   end;
+   //*******************************************    
+end;
 
 //
 //  Нажимаем CTRL+ENTER

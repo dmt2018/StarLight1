@@ -86,6 +86,7 @@ type
     procedure DBEdit_fillKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure aClearFilterExecute(Sender: TObject);
+    procedure BitBtnSaveClick(Sender: TObject);
   private
     param_: integer;
     { Private declarations }
@@ -96,7 +97,8 @@ type
 
 var
   clientchoosForm: TclientchoosForm;
-
+  nk: string;
+  
 implementation
 
 uses DataM, nacl_new;
@@ -216,6 +218,12 @@ procedure TclientchoosForm.aSearchByFIOExecute(Sender: TObject);
 begin
   search_execute(2);
 end;
+
+procedure TclientchoosForm.BitBtnSaveClick(Sender: TObject);
+begin
+ nk := clientchoosForm.clients.FieldByName('nick').AsString;
+end;
+
 //
 //  Поиск
 //
