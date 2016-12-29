@@ -508,7 +508,7 @@ begin
     except
       null;
     end;
-
+    //title_name - коменчу штоб в шабку мусор не лез
     //mTXT   := frxReport1.FindObject('Memo1') as TfrxMemoView;
     //mTXT.Text := title_name;
     frxReport1.PrepareReport(true);

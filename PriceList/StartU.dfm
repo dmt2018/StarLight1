@@ -54,7 +54,6 @@ object StartF: TStartF
     BevelInner = bvRaised
     BevelOuter = bvLowered
     TabOrder = 0
-    ExplicitHeight = 354
     DesignSize = (
       352
       403)
@@ -154,7 +153,6 @@ object StartF: TStartF
       LookAndFeel.Kind = lfFlat
       LookAndFeel.NativeStyle = True
       Spacing = 6
-      ExplicitTop = 312
     end
     object BitBtn1: TcxButton
       Left = 13
@@ -756,7 +754,8 @@ object StartF: TStartF
       Width = 324
       Height = 30
       Cursor = crHandPoint
-      Caption = '%'
+      Caption = #1048#1079#1084#1077#1085#1080#1090#1100' % '#1085#1072#1076#1073#1072#1074#1082#1080
+      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13

@@ -114,6 +114,7 @@ Begin
       btnDiscount.Enabled := false;
       //btnSpecOffer.Enabled := false;
       btnTruckSale.Enabled := false;
+      btnEditPercent.Enabled := false;
     End;
 End;
 
@@ -181,6 +182,7 @@ begin
        btnDiscount.Enabled := false;
        //btnSpecOffer.Enabled := false;
        btnTruckSale.Enabled := false;
+       btnEditPercent.Enabled := false;
        MessageBox(Handle, 'У Вас не указан ни один отдел продаж. Обратитесь к менеджерам по персоналу.', 'Внимание!', MB_ICONWARNING);
     end
     else
@@ -245,6 +247,7 @@ begin
       btnDiscount.Enabled := addit;
       //btnSpecOffer.Enabled := addit;
       btnTruckSale.Enabled := addit;
+      btnEditPercent.Enabled := addit;
       Close;
       Filter := '';
       Filtered := false;
@@ -324,7 +327,15 @@ end;
 //%
 procedure TStartF.btnEditPercentClick(Sender: TObject);
 begin
-  frmEditPercent.showmodal;
+    if (imgcb_dept.ItemIndex >= 0) then
+  begin
+    frmEditPercent := TfrmEditPercent.Create(Application);
+    try
+      frmEditPercent.ShowModal;
+    finally
+      frmEditPercent.Free;
+    end;
+  end else MessageBox(Handle, 'Необходимо выбрать отдел', 'Внимание', MB_ICONWARNING);
 end;
 
 // Спец.предложение
