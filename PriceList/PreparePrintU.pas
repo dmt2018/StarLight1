@@ -489,7 +489,7 @@ begin
       else
       begin
         memo1.Text := '[frSelPriceList."PRICE"]';
-        memo2.Text := 'Оптовый Прайс-лист';
+        memo2.Text := 'Оптовый Прайс-лист';     
       end;
 //      memo2 := frxReport1.FindObject('MemoPrice') as TfrxMemoView;
 //      memo1.Visible := be_price.EditValue;
@@ -531,6 +531,7 @@ end;
 //
 procedure TPreparePrintF.bb_price_selectedClick(Sender: TObject);
 begin
+  setProfit := 0;
   idD_CHECK.DataBinding.AddToFilter(nil, foEqual, 1);
   //QUANTITY.DataBinding.AddToFilter(nil, foGreater, 0);
   grid_priceView1.DataController.Filter.Active := true;
