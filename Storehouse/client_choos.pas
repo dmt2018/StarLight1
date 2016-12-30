@@ -97,7 +97,7 @@ type
 
 var
   clientchoosForm: TclientchoosForm;
-  nk: string;
+  //nk: string;
   
 implementation
 
@@ -221,7 +221,7 @@ end;
 
 procedure TclientchoosForm.BitBtnSaveClick(Sender: TObject);
 begin
- nk := clientchoosForm.clients.FieldByName('nick').AsString;
+ //nk := clientchoosForm.clients.FieldByName('nick').AsString;
 end;
 
 //
