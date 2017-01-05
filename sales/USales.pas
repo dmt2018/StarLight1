@@ -733,6 +733,7 @@ begin
     DM.CDS_SALES.Close;
     DM.CDS_SALES.ParamByName('id_dep_').AsInteger := CUR_DEPT_ID;
     DM.CDS_SALES.ParamByName('price_part_').AsInteger := EditPercent.EditValue;
+    DM.CDS_SALES.ParamByName('v_client').AsInteger := Image1.Tag;
     DM.CDS_SALES.ParamByName('cursor_');
     DM.CDS_SALES.Open;
     gr_main.DataSource := DM.DS_SALES;
@@ -872,6 +873,7 @@ begin
     DM.OraProc.StoredProcName := 'STORE_PKG.set_price_part';
     DM.OraProc.Prepare;
     DM.OraProc.ParamByName('price_percent').AsInteger := EditPercent.EditValue;
+    DM.OraProc.ParamByName('p_client').AsString       := DBText2.Field.Text;
     DM.OraProc.Execute;
     DM.CDS_MSTORE.Refresh;
     DM.CDS_USTORE.Refresh;

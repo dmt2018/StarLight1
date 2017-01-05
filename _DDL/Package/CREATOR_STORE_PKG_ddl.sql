@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.STORE_PKG
--- Generated 30.10.2016 2:04:30 from CREATOR@STAR_NEW
+-- Generated 06.01.2017 1:56:41 from CREATOR@STAR_REG
 
 CREATE OR REPLACE 
 PACKAGE store_pkg
@@ -100,7 +100,8 @@ procedure doc_new
 --
 procedure set_price_part
 (
-  price_percent IN NUMBER
+  price_percent IN NUMBER,
+  p_client      in varchar2
 );
 
 
@@ -2419,20 +2420,23 @@ end doc_new_hst;
 --
 procedure set_price_part
 (
-  price_percent IN NUMBER
+  price_percent IN NUMBER,
+  p_client      in varchar2
 )
 as
 --p1 number;
 --p2 number;
 begin
-
---select sum(PRICE), sum(price_list) into p1,p2 from STORE_DOC_DATA_TEMP;
---      LOG_ERR('price_percent='||price_percent, 1, 'store_pkg.set_price_part', 'p1='||p1||' p2='||p2);
-
+  if p_client = 'вк' then
+    UPDATE STORE_DOC_DATA_TEMP a
+      set PRICE = price_list+round((price_list*price_percent/100),2)
+    ;
+  ELSE
     UPDATE STORE_DOC_DATA_TEMP a
       set PRICE = price_list+round((price_list*price_percent/100),2)
     where exists (select 1 from price_list p where p.n_id = a.n_id and nvl(p.SPEC_PRICE,0) = 0)
     ;
+  end if;
     --commit;
 
 EXCEPTION

@@ -8,7 +8,7 @@ object DM: TDM
     Options.Direct = True
     Username = 'CREATOR'
     Password = '123456'
-    Server = 'ROZNICA:1521:orcl'
+    Server = 'KLEPOV:1521:STARREG'
     AutoCommit = False
     AfterConnect = sale_sessionAfterConnect
     Left = 32
@@ -106,7 +106,7 @@ object DM: TDM
       'declare pp number(10,2);'
       'begin'
       'if (:N_ID > 0) then'
-      '  if :price_percent=0 or :price_percent is NULL THEN '
+      '  if :price_percent = 0 or :price_percent is NULL THEN '
       '    :PRICE := :PRICE;'
       '  else'
       
@@ -117,7 +117,7 @@ object DM: TDM
         '  select price into pp from price_list where n_id = :N_ID and id' +
         '_office=const_office;'
       ''
-      '  if :SPEC_PRICE = 1 then'
+      '  if :SPEC_PRICE = 1 and :FIO <> '#39#1063#1051#39' then'
       '    :PRICE := pp;'
       '    :price_percent := NULL;'
       '  end if;'
@@ -350,6 +350,10 @@ object DM: TDM
     end
     object CDS_MSTORESPEC_PRICE: TIntegerField
       FieldName = 'SPEC_PRICE'
+    end
+    object CDS_MSTOREFIO: TStringField
+      FieldName = 'FIO'
+      Size = 255
     end
   end
   object DS_MSTORE: TOraDataSource
@@ -585,6 +589,10 @@ object DM: TDM
     object CDS_USTORESPEC_PRICE: TIntegerField
       FieldName = 'SPEC_PRICE'
     end
+    object CDS_USTOREFIO: TStringField
+      FieldName = 'FIO'
+      Size = 255
+    end
   end
   object DS_USTORE: TOraDataSource
     DataSet = CDS_USTORE
@@ -607,7 +615,7 @@ object DM: TDM
         '  select price into pp from price_list where n_id = :N_ID and id' +
         '_office=const_office;'
       ''
-      '  if :SPEC_PRICE = 1 then'
+      '  if :SPEC_PRICE = 1 and :FIO <> '#39#1063#1051#39' then'
       '    :PRICE := pp;'
       '    :price_percent := NULL;'
       '  end if;'
@@ -823,6 +831,10 @@ object DM: TDM
     end
     object CDS_NULLSTORESPEC_PRICE: TIntegerField
       FieldName = 'SPEC_PRICE'
+    end
+    object CDS_NULLSTOREFIO: TStringField
+      FieldName = 'FIO'
+      Size = 255
     end
   end
   object DS_NULLSTORE: TOraDataSource
@@ -2880,6 +2892,40 @@ object DM: TDM
   end
   object CDS_SALES: TOraQuery
     SQLUpdate.Strings = (
+      'declare pp number(10,2);'
+      'begin'
+      'if (:N_ID > 0) then'
+      '  if :price_percent = 0 or :price_percent is NULL THEN '
+      '    :PRICE := :PRICE;'
+      '  else'
+      
+        '    :PRICE := :price_list + round((:price_list * :price_percent ' +
+        '/ 100),2);'
+      '  end if; '
+      
+        '  select price into pp from price_list where n_id = :N_ID and id' +
+        '_office=const_office;'
+      ''
+      '  if :SPEC_PRICE = 1 and :FIO <> '#39#1063#1051#39' then'
+      '    :PRICE := pp;'
+      '    :price_percent := NULL;'
+      '  end if;'
+      ''
+      '  delete from STORE_DOC_DATA_TEMP where n_id = :n_id;'
+      
+        '  if (:QUANTITY is not null and :QUANTITY <> 0 and :PRICE <> 0 a' +
+        'nd pp <> 0) then'
+      
+        '    INSERT INTO STORE_DOC_DATA_TEMP (ID_DOC_DATA, N_ID, QUANTITY' +
+        ', store_type, PRICE, PRICE_LIST) '
+      
+        '    VALUES (STORE_DOC_DATA_TEMP_SET_ID.NEXTVAL, :N_ID, :QUANTITY' +
+        ', :STORE_TYPE, :PRICE, pp)'
+      '    RETURNING ID_DOC_DATA INTO :added;'
+      '  end if;'
+      'end if;'
+      'end;'
+      '/*'
       'begin'
       'if (:N_ID > 0) then'
       '  if :price_percent=0 or :price_percent is NULL THEN '
@@ -2906,7 +2952,8 @@ object DM: TDM
       '    RETURNING ID_DOC_DATA INTO :added;'
       '  end if;'
       'end if;'
-      'end;')
+      'end;'
+      '*/')
     SQLRefresh.Strings = (
       
         'select a.QUANTITY, a.PRICE_LIST, a.QUANTITY_NOW, a.added, round(' +
@@ -2927,8 +2974,8 @@ object DM: TDM
     SQL.Strings = (
       'begin'
       
-        '  sales_pkg.get_sklad_sale(:ID_DEP_, :PRICE_PART_, :v_office, :C' +
-        'URSOR_);'
+        '  sales_pkg.get_sklad_sale(:ID_DEP_, :PRICE_PART_, :v_office, :v' +
+        '_client, :CURSOR_);'
       'end;')
     FetchAll = True
     AutoCommit = False
@@ -2953,6 +3000,10 @@ object DM: TDM
       item
         DataType = ftUnknown
         Name = 'v_office'
+      end
+      item
+        DataType = ftUnknown
+        Name = 'v_client'
       end
       item
         DataType = ftCursor
@@ -3083,6 +3134,13 @@ object DM: TDM
     end
     object CDS_SALESSPEC_PRICE: TIntegerField
       FieldName = 'SPEC_PRICE'
+    end
+    object CDS_SALESFIO: TStringField
+      FieldName = 'FIO'
+      Size = 255
+    end
+    object CDS_SALESCUR_CLIENT: TFloatField
+      FieldName = 'CUR_CLIENT'
     end
   end
   object DS_SALES: TOraDataSource

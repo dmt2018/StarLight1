@@ -285,6 +285,7 @@ type
     doc_dataNOTUSE: TIntegerField;
     doc_dataID_DOC_DATA: TFloatField;
     doc_dataSPEC_PRICE: TIntegerField;
+    STORE_VIEWPRICE_ROZN: TFloatField;
     procedure aLoadExecute(Sender: TObject);
     procedure aGetNaklsExecute(Sender: TObject);
     procedure FormShow(Sender: TObject);

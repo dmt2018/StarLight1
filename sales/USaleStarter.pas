@@ -352,7 +352,11 @@ begin
       frmSales.StatusBar.Panels[1].Text:='  Оператор: ' + operator_name;
       frmSales.Caption := imgOtdel.Text +' :: Накладная продажи';
 
-      frmSales.AddedCB.Checked := is_scaner;
+      if is_scaner then
+      begin
+        frmSales.AddedCB.Checked := is_scaner;
+        frmSales.btn_discount.Click;
+      end;
       if frmSales.showmodal = mrOk then
       begin
         SP_COMMENTS := frmSales.EditComments.Text;
@@ -390,9 +394,9 @@ begin
   if (imgOtdel.ItemIndex >= 0) then
   begin
   try
-      DM.SelQ.SQL.Clear;
-      DM.SelQ.SQL.Add('delete from STORE_DOC_DATA_TEMP');
-      DM.SelQ.Execute;
+    DM.SelQ.SQL.Clear;
+    DM.SelQ.SQL.Add('delete from STORE_DOC_DATA_TEMP');
+    DM.SelQ.Execute;
 
     readscaner();
     id_client_ := 0;

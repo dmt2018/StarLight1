@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.SALES_PKG
--- Generated 30.10.2016 2:04:18 from CREATOR@STAR_NEW
+-- Generated 06.01.2017 1:56:53 from CREATOR@STAR_REG
 
 CREATE OR REPLACE 
 PACKAGE sales_pkg
@@ -112,6 +112,7 @@ PROCEDURE get_sklad_sale
    id_dep_      in number,
    price_part_  in number,
    v_office     in number,
+   v_client     in number,
    cursor_      in out ref_cursor
 );
 
@@ -160,7 +161,7 @@ BEGIN
            , TO_NUMBER(0,9) as nbutton, 'Все' but_name
            , a.our_code, a.is_photo, a.photo, compiled_name_otdel, a.id_office, a.brief, a.notuse
            , v_client as cur_client
-           , a.SPEC_PRICE
+           , a.SPEC_PRICE, a.fio
     from (
         select a.N_ID, a.CODE, a.H_CODE, a.F_TYPE, a.F_SUB_TYPE, a.FT_ID, a.FST_ID, a.full_name, a.spesification,
                a.QUANTITY_NOW, a.store_type_name, a.STORE_TYPE, a.hol_type, a.hol_sub_type,
@@ -168,7 +169,7 @@ BEGIN
                CASE WHEN b.price is NULL THEN a.price_list ELSE b.price END price,
                b.QUANTITY, b.ID_DOC_DATA as added, a.ID_DEPARTMENTS as id_departments, a.colour, a.country, reserv
                , a.our_code, a.is_photo, a.photo, compiled_name_otdel, a.id_office, a.brief, a.notuse
-               , a.SPEC_PRICE
+               , a.SPEC_PRICE, a.fio
         from store_doc_data_temp b,
           (
             select a.N_ID, a.F_NAME, a.F_NAME_RU, a.F_TYPE, a.F_SUB_TYPE,
@@ -184,9 +185,11 @@ BEGIN
                     , a.compiled_name_otdel
                     , b.id_office, o.brief, a.notuse
                     , p.SPEC_PRICE
+                    , l.fio
             from NOMENCLATURE_MAT_VIEW a,
                  PRICE_LIST p, store_main b, store_type c, offices o
-                 , ppl_client_price_current s
+                 , ppl_client_price_current s,
+                 clients l
             where a.ID_DEPARTMENTS = id_dep_
                 and a.N_ID = p.N_ID
                 and p.PRICE > 0
@@ -198,6 +201,7 @@ BEGIN
                 and b.id_office = o.id_office
                 and (b.id_office in (1, v_office) or v_office = 0)
                 and a.n_id = s.n_id(+) and v_client = s.ID_CLIENTS(+)
+                and l.id_clients = v_client
         ) a
       where a.N_ID = b.N_ID(+)
             and a.STORE_TYPE = b.STORE_TYPE(+)
@@ -225,6 +229,7 @@ PROCEDURE get_sklad_sale
    id_dep_      in number,
    price_part_  in number,
    v_office     in number,
+   v_client     in number,
    cursor_      in out ref_cursor
 )
 IS
@@ -242,7 +247,8 @@ BEGIN
            , TO_NUMBER(nbutton,9) as nbutton, 'Все' but_name, compiled_name_otdel
            , a.our_code, a.is_photo, a.photo
            , a.id_office, a.brief, a.notuse
-           , a.SPEC_PRICE
+           , a.SPEC_PRICE, a.fio
+           , v_client as cur_client
     from (
         select a.N_ID, a.CODE, a.H_CODE, a.F_TYPE, a.F_SUB_TYPE, a.FT_ID, a.FST_ID, a.full_name, a.spesification,
                a.QUANTITY_NOW, a.store_type_name, a.STORE_TYPE, a.hol_type, a.hol_sub_type,
@@ -250,7 +256,7 @@ BEGIN
                CASE WHEN b.price is NULL THEN a.price_list ELSE b.price END price,
                b.QUANTITY, b.ID_DOC_DATA as added, a.ID_DEPARTMENTS as id_departments, a.colour, a.country, reserv
                , a.our_code, a.is_photo, a.photo, compiled_name_otdel, nbutton, a.id_office, a.brief, a.notuse
-               , a.SPEC_PRICE
+               , a.SPEC_PRICE, a.fio
         from store_doc_data_temp b,
           (
             select a.N_ID, a.F_NAME, a.F_NAME_RU, a.F_TYPE, a.F_SUB_TYPE,
@@ -267,6 +273,7 @@ BEGIN
                     , a.compiled_name_otdel
                     , b.id_office, o.brief, a.notuse
                     , p.SPEC_PRICE
+                    , l.fio
 /*
                     , case when id_dep_ = 62 then
                         (a.f_name_ru || '. ' || (case when a.col_id in (0,1639,2768,2915) then null else a.colour||'. ' end) || a.RUS_MARKS)
@@ -275,6 +282,7 @@ BEGIN
 */
             from NOMENCLATURE_MAT_VIEW a,
                  PRICE_LIST p, store_main b, store_type c, offices o --, buttons_set_sale n
+                 , clients l
             where a.ID_DEPARTMENTS = id_dep_
                 and a.N_ID = p.N_ID
                 and p.PRICE > 0
@@ -283,6 +291,7 @@ BEGIN
                 and b.id_office = o.id_office
                 and b.id_office = p.id_office
                 and (b.id_office in (1, v_office) or v_office = 0)
+                and l.id_clients = v_client
                 --and a.ft_id = n.ft_id(+)
         ) a
       where a.N_ID = b.N_ID
@@ -324,10 +333,13 @@ BEGIN
            , case when b.store_type = 1 then '' else 'уценки' end store_type_name
            , to_char(a.code) as our_code, a.is_photo, a.photo
            , a.compiled_name_otdel, b.id_office, o.brief, a.notuse
+           , CASE WHEN b.STORE_TYPE=1 THEN c.PRICE*((100+p.PROC)/100) ELSE b.PRICE*((100+p.PROC)/100) END price_rozn
         FROM NOMENCLATURE_MAT_VIEW a,
           STORE_MAIN b,
           PRICE_LIST c,
-          buttons_set_sale n,  offices o
+          buttons_set_sale n,
+          offices o,
+          sale_percenet p
         where a.N_ID=b.N_ID
             and c.N_ID = b.N_ID
             and a.id_departments = id_dep_
@@ -335,6 +347,7 @@ BEGIN
             and b.id_office = c.id_office
             and b.id_office = o.id_office
             and (b.id_office in (1, v_office) or v_office = 0)
+            and a.id_departments = p.id_departments(+)
                   order by nbutton, compiled_name_otdel;
 
 EXCEPTION

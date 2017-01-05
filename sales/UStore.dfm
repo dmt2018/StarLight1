@@ -300,7 +300,7 @@ object frmStore: TfrmStore
     Top = 127
     Width = 986
     Height = 445
-    ActivePage = tch_nakls
+    ActivePage = tch_main
     Align = alClient
     LookAndFeel.Kind = lfOffice11
     LookAndFeel.NativeStyle = True
@@ -617,6 +617,19 @@ object frmStore: TfrmStore
             Title.Caption = #1042#1085#1091#1090#1088'. '#1082#1086#1076
             Title.EndEllipsis = True
             Width = 100
+          end
+          item
+            Color = clYellow
+            DisplayFormat = '0.00'
+            EditButtons = <>
+            EndEllipsis = True
+            FieldName = 'PRICE_ROZN'
+            Footers = <>
+            Title.Alignment = taCenter
+            Title.Caption = #1062#1077#1085#1072' '#1088#1086#1079#1085'.'
+            Title.Color = clYellow
+            Title.EndEllipsis = True
+            Width = 80
           end>
         object RowDetailData: TRowDetailPanelControlEh
         end
@@ -2690,6 +2703,9 @@ object frmStore: TfrmStore
     object STORE_VIEWNOTUSE: TIntegerField
       FieldName = 'NOTUSE'
     end
+    object STORE_VIEWPRICE_ROZN: TFloatField
+      FieldName = 'PRICE_ROZN'
+    end
   end
   object doc: TOraQuery
     SQL.Strings = (
@@ -2854,56 +2870,6 @@ object frmStore: TfrmStore
   end
   object doc_data: TOraQuery
     SQL.Strings = (
-      '/*'
-      'SELECT distinct'
-      
-        'a.ID_DOC, a.N_ID, a.CODE, a.H_CODE, a.F_TYPE, a.F_SUB_TYPE, a.FU' +
-        'LL_NAME, a.country, a.colour,'
-      
-        'a.QUANTITY, a.QUANTITY_NOW, a.STORE_TYPE_NAME, a.STORE_TYPE, a.P' +
-        'RICE_LIST, a.OUR_CODE,'
-      
-        'a.QUANTITY_PRICE, a.PRICE_PERCENT, a.PRICE, a.GTD, a.SPESIFICATI' +
-        'ON, a.compiled_name_otdel'
-      ', b.quantity as store, a.notuse, a.ID_DOC_DATA, bb.spec_price'
-      'from'
-      'store_docdata_view a'
-      
-        'left outer join prepare_price_list bb ON a.n_id=bb.n_id and bb.s' +
-        'pec_price=1,'
-      'store_main b'
-      'where'
-      'a.ID_DOC=:ID_DOC '
-      
-        'and a.n_id = b.n_id and a.STORE_TYPE = b.STORE_TYPE and a.id_off' +
-        'ice = b.id_office'
-      'order by compiled_name_otdel'
-      '*/'
-      ''
-      '/*'
-      'SELECT '
-      
-        'a.ID_DOC, a.N_ID, a.CODE, a.H_CODE, a.F_TYPE, a.F_SUB_TYPE, a.FU' +
-        'LL_NAME, a.country, a.colour,'
-      
-        'a.QUANTITY, a.QUANTITY_NOW, a.STORE_TYPE_NAME, a.STORE_TYPE, a.P' +
-        'RICE_LIST, a.OUR_CODE,'
-      
-        'a.QUANTITY_PRICE, a.PRICE_PERCENT, a.PRICE, a.GTD, a.SPESIFICATI' +
-        'ON, a.compiled_name_otdel'
-      ', b.quantity as store, a.notuse, a.ID_DOC_DATA, bb.spec_price'
-      'from'
-      'store_docdata_view a'
-      'inner join price_list bb ON a.n_id = bb.n_id, '
-      'store_main b'
-      'where'
-      'a.ID_DOC=:ID_DOC '
-      
-        'and a.n_id = b.n_id and a.STORE_TYPE = b.STORE_TYPE and a.id_off' +
-        'ice = b.id_office'
-      'order by compiled_name_otdel'
-      '*/'
-      ''
       'SELECT '
       
         'a.ID_DOC, a.N_ID, a.CODE, a.H_CODE, a.F_TYPE, a.F_SUB_TYPE, a.FU' +

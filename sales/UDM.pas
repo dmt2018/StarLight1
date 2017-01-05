@@ -357,6 +357,11 @@ type
     CDS_MSTORENOTUSE: TIntegerField;
     CDS_MSTORECUR_CLIENT: TFloatField;
     CDS_MSTORESPEC_PRICE: TIntegerField;
+    CDS_MSTOREFIO: TStringField;
+    CDS_USTOREFIO: TStringField;
+    CDS_NULLSTOREFIO: TStringField;
+    CDS_SALESFIO: TStringField;
+    CDS_SALESCUR_CLIENT: TFloatField;
     function frxReport1UserFunction(const MethodName: string;
       var Params: Variant): Variant;
     procedure DataModuleCreate(Sender: TObject);
