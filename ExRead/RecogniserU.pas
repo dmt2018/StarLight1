@@ -1225,6 +1225,23 @@ begin
     if (DM.InvoiceRegisterSENDED_TO_WAREHOUSE.AsInteger > 0) then ShowMessage('Нельзя удалить инвойс который подгружен на склад!')
     else
     begin
+
+          with DM.SelQ do
+          Begin
+            Close;
+            SQL.Clear;
+            SQL.Add('select DIST_IND_ID from DISTRIBUTIONS_INVOICES where INV_ID = '+DM.InvoiceRegister.FieldByName('INV_ID').AsString);
+            Open;
+            if RecordCount > 0 then
+            begin
+              ShowMessage('Нельзя удалить инвойс который подгружен в разнос №'+FieldByName('DIST_IND_ID').AsString);
+              Close;
+              exit;
+            end;
+            Close;
+          End;
+
+
       if MessageDlg('Удалить инвойс из реестра инвойсов?', mtConfirmation,[mbOk, mbNo],0) = mrOk then
       begin
         ddone := true;
