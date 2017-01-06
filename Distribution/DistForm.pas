@@ -3388,8 +3388,23 @@ inv_id: 10007897
     Client := Trim(copy(Client,pos(':',Client)+1,length(Client)-1));
     if Not DM.Q_CLIENTS.Locate('nick',Client,[loCaseInsensitive]) then
     begin
-      MessageBox(Handle, PChar('Клиент с кодом '+Client+' не найден!'), 'Внимание', MB_ICONERROR);
-      exit;
+      // Найдем клиента в перекодировочной таблице
+      with DM.SelQ do
+      Begin
+        Close;
+        SQL.Clear;
+        SQL.Add('SELECT id_client FROM old_client_map where old_client = '''+Client+'''');
+        Open;
+        if RecordCount = 1 then        
+          idClient := FieldByName('id_client').AsInteger
+        else
+        begin
+          Close;
+          MessageBox(Handle, PChar('Клиент с кодом '+Client+' не найден!'), 'Внимание', MB_ICONERROR);
+          exit;
+        end;
+        Close;
+      End;
     end
     else idClient := DM.Q_CLIENTS.FieldByName('ID_CLIENTS').Value;
     DM.Q_CLIENTS.Close;
