@@ -3341,6 +3341,13 @@ inv_id: 10007897
 }
     Readln(conf, order_num);  // order:	1424
     Readln(conf, ortype);     // ortype:	4      1=>'Покупка товаров со склада', 2=>'Предзаказ товаров из новой поставки', 3=>'Предзаказ, 4=>С колес
+
+    if StrToInt( Trim(copy(ortype,pos(':',ortype)+1,length(ortype)-1)) ) <> 4 then
+    begin
+      MessageBox(Handle, 'Данный заказ не является продажей с колес', 'Внимание', MB_ICONERROR);
+      exit;
+    end;
+
     Readln(conf, depid);      // depid:	3
     Readln(conf, Date1);      // date:	22-08-2014 18:46
     Readln(conf, tmp);        // office:	Старлайт Москва
@@ -3353,10 +3360,10 @@ inv_id: 10007897
     Readln(conf, tmp);        // city:	Москва
     Readln(conf, tmp);        // addr:	107045, г. Москва, Луков переулок, дом 4, офис 8
     Readln(conf, tmp);        // summ:	11987.00
-    Readln(conf, tmp);        // rem:             примечания к заказу
     Readln(conf, depart);     // depart:	2014-12-09  дата выхода от поставщика
     Readln(conf, arrive);     // arrive:	2014-12-09  дата прибытия в Москву (для предзаказов)
     Readln(conf, truck_sale_id); // inv_id: 10007897
+    Readln(conf, tmp);        // rem:             примечания к заказу
     Readln(conf, tmp);        //
     Readln(conf, tmp);        // --
     Readln(conf, tmp);        // #;depart_id;barcode;title;price;qty;summ
@@ -3438,7 +3445,7 @@ inv_id: 10007897
     err_log       := '';
     err_log_short := '';
     vInfo         := '';
-    Readln(conf, tmpstr);
+    //Readln(conf, tmpstr);
 
     while not Eof(conf) do
     begin
@@ -3494,7 +3501,7 @@ inv_id: 10007897
                   ParamByName('IN_N_ID').AsInteger              := cdsNomN_ID.AsInteger;
                   ParamByName('IN_QUANTITY').AsInteger          := StrToInt(z_q);
                   ParamByName('IN_DIST_ID').AsInteger           := CUR_DIST_IND_ID;
-                  ParamByName('IN_PRICE').AsCurrency            := StrToFloat(z_price);
+                  ParamByName('IN_PRICE').AsCurrency            := StrToFloat(z_price, fs);
                   ParamByName('OUT_RES').AsString               := RESS;
                   ParamByName('OUT_TEXT').AsString              := RES_TEXT;
                   Execute;
@@ -3533,7 +3540,9 @@ inv_id: 10007897
       Q_SQL.Execute;
       Q_SQL.Close;
       }
-    end;
+    end
+    else
+      MessageBox(Handle, 'Обработка файла закончена успешно', 'Внимание', MB_ICONINFORMATION);
 // -------------------------------
 
     DM.StarSess.Commit;
