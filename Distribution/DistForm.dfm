@@ -1299,7 +1299,7 @@ object DistFormF: TDistFormF
     Left = 576
     Top = 488
     Bitmap = {
-      494C01010C00C800040110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010C00C800080110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000004000000001002000000000000040
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -4289,8 +4289,8 @@ object DistFormF: TDistFormF
   object cdsNom: TOraQuery
     SQL.Strings = (
       
-        'SELECT n_id FROM nomenclature_mat_view where nvl(bar_code,code) ' +
-        '= :p_code and ID_DEPARTMENTS = :p_dep')
+        'SELECT n_id FROM nomenclature_mat_view where code = :p_code and ' +
+        'ID_DEPARTMENTS = :p_dep')
     Left = 800
     Top = 40
     ParamData = <
