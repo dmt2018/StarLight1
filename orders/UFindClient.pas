@@ -37,6 +37,8 @@ type
     cds_client_ordersALPHA: TStringField;
     cds_client_ordersID_CLIENTS: TIntegerField;
     cds_client_ordersPACK_: TIntegerField;
+    cds_client_ordersS_ID: TIntegerField;
+    cds_client_ordersS_NAME_RU: TStringField;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure filter_onExecute(Sender: TObject);
     procedure filter_offExecute(Sender: TObject);

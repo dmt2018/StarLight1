@@ -5,7 +5,7 @@ object frm_find_client: Tfrm_find_client
   BorderStyle = bsSingle
   Caption = '  '#1055#1086#1080#1089#1082' '#1082#1083#1080#1077#1085#1090#1072
   ClientHeight = 559
-  ClientWidth = 802
+  ClientWidth = 872
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -23,7 +23,7 @@ object frm_find_client: Tfrm_find_client
   object Label1: TLabel
     Left = 0
     Top = 0
-    Width = 802
+    Width = 872
     Height = 20
     Align = alTop
     AutoSize = False
@@ -36,11 +36,12 @@ object frm_find_client: Tfrm_find_client
     Font.Style = [fsBold]
     ParentFont = False
     Layout = tlCenter
+    ExplicitWidth = 802
   end
   object Label2: TLabel
     Left = 0
     Top = 270
-    Width = 802
+    Width = 872
     Height = 20
     Align = alTop
     AutoSize = False
@@ -53,11 +54,12 @@ object frm_find_client: Tfrm_find_client
     Font.Style = [fsBold]
     ParentFont = False
     Layout = tlCenter
+    ExplicitWidth = 802
   end
   object Panel2: TPanel
     Left = 0
     Top = 526
-    Width = 802
+    Width = 872
     Height = 33
     Align = alBottom
     Color = clWhite
@@ -72,6 +74,10 @@ object frm_find_client: Tfrm_find_client
     ParentCtl3D = False
     ParentFont = False
     TabOrder = 2
+    ExplicitWidth = 802
+    DesignSize = (
+      872
+      33)
     object Label3: TLabel
       Left = 232
       Top = 3
@@ -125,11 +131,12 @@ object frm_find_client: Tfrm_find_client
       NumGlyphs = 2
     end
     object BitBtn2: TBitBtn
-      Left = 628
+      Left = 696
       Top = 4
       Width = 171
       Height = 25
       Cursor = crHandPoint
+      Anchors = [akTop, akRight]
       Cancel = True
       Caption = #1047#1072#1082#1088#1099#1090#1100
       ModalResult = 2
@@ -153,7 +160,7 @@ object frm_find_client: Tfrm_find_client
   object DBGridEh1: TDBGridEh
     Left = 0
     Top = 20
-    Width = 802
+    Width = 872
     Height = 250
     Align = alTop
     AutoFitColWidths = True
@@ -233,7 +240,7 @@ object frm_find_client: Tfrm_find_client
   object DBGridEh2: TDBGridEh
     Left = 0
     Top = 290
-    Width = 802
+    Width = 872
     Height = 236
     Align = alClient
     AutoFitColWidths = True
@@ -396,6 +403,13 @@ object frm_find_client: Tfrm_find_client
         MinWidth = 40
         Title.Caption = #1055#1072#1082'.'
         Width = 40
+      end
+      item
+        EditButtons = <>
+        FieldName = 'S_NAME_RU'
+        Footers = <>
+        Title.Caption = #1055#1086#1089#1090#1072#1074#1097#1080#1082
+        Width = 150
       end>
     object RowDetailData: TRowDetailPanelControlEh
     end
@@ -407,29 +421,25 @@ object frm_find_client: Tfrm_find_client
       'a.* '
       'FROM '
       '('
-      'SELECT '
-      'O.ID_ORDERS, '
-      'r.INV_ID as INVOICE, '
-      'O.D_DATE, '
-      'O.DATE_TRUCK,'
-      'O.DATE_TRUCK_OUT,'
-      'O.INFO,'
-      'c.id_orders_clients,'
-      'c.id_clients,'
-      'c.pack_,'
-      'c.alpha'
+      
+        'SELECT O.ID_ORDERS, r.INV_ID as INVOICE, O.D_DATE, O.DATE_TRUCK,' +
+        ' O.DATE_TRUCK_OUT, O.INFO,'
+      '  c.id_orders_clients, c.id_clients, c.pack_, c.alpha, '
+      '  o.s_id, u.S_NAME_RU'
       'FROM '
       'ORDERS O, '
       'ORDERS_CLIENTS c,'
-      'INVOICE_REGISTER R'
+      'INVOICE_REGISTER R,'
+      'SUPPLIERS u'
       'WHERE '
       'o.id_orders = r.id_orders(+) '
       'AND O.N_TYPE = 0'
       'AND O.ACTIVE = 1'
+      'and u.s_id = O.s_id'
       'AND O.ID_DEPARTMENTS = :id_dep_'
       'and o.id_orders = c.id_orders'
       'and c.id_clients = :id_clients'
-      'ORDER BY O.DATE_TRUCK_OUT DESC nulls last'
+      'ORDER BY O.DATE_TRUCK_OUT DESC nulls last, u.S_NAME_RU'
       ') A'
       'WHERE '
       '/*Filter*/ 1=1')
@@ -483,6 +493,13 @@ object frm_find_client: Tfrm_find_client
     end
     object cds_client_ordersPACK_: TIntegerField
       FieldName = 'PACK_'
+    end
+    object cds_client_ordersS_ID: TIntegerField
+      FieldName = 'S_ID'
+    end
+    object cds_client_ordersS_NAME_RU: TStringField
+      FieldName = 'S_NAME_RU'
+      Size = 150
     end
   end
   object ds_client_orders: TOraDataSource

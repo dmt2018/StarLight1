@@ -505,7 +505,7 @@ object frmCopyOrder: TfrmCopyOrder
       'O.N_TYPE=0'
       'AND O.ACTIVE=1'
       'AND O.ID_DEPARTMENTS=:P1'
-      'ORDER BY O.DATE_TRUCK_OUT DESC nulls last')
+      'ORDER BY O.DATE_TRUCK_OUT DESC nulls last, u.S_NAME_RU')
     Left = 152
     Top = 168
     ParamData = <
