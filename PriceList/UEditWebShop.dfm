@@ -521,7 +521,7 @@ object frmEditWebShop: TfrmEditWebShop
         ParentFont = False
       end
       object Label3: TLabel
-        Left = 290
+        Left = 295
         Top = 6
         Width = 78
         Height = 16
@@ -534,7 +534,7 @@ object frmEditWebShop: TfrmEditWebShop
         ParentFont = False
       end
       object Label4: TLabel
-        Left = 290
+        Left = 295
         Top = 33
         Width = 86
         Height = 16
@@ -573,7 +573,7 @@ object frmEditWebShop: TfrmEditWebShop
         ParentFont = False
       end
       object startDate: TcxDateEdit
-        Left = 134
+        Left = 129
         Top = 2
         ParentFont = False
         Properties.DateButtons = [btnClear, btnToday]
@@ -588,17 +588,16 @@ object frmEditWebShop: TfrmEditWebShop
         Style.Font.Style = []
         Style.IsFontAssigned = True
         TabOrder = 0
-        Width = 121
+        Width = 155
       end
       object stopDate: TcxDateEdit
-        Left = 134
+        Left = 129
         Top = 29
         ParentFont = False
         Properties.DateButtons = [btnClear, btnToday]
         Properties.DateOnError = deToday
         Properties.ImmediatePost = True
-        Properties.SaveTime = False
-        Properties.ShowTime = False
+        Properties.Kind = ckDateTime
         Style.Font.Charset = DEFAULT_CHARSET
         Style.Font.Color = clWindowText
         Style.Font.Height = -13
@@ -606,7 +605,7 @@ object frmEditWebShop: TfrmEditWebShop
         Style.Font.Style = []
         Style.IsFontAssigned = True
         TabOrder = 1
-        Width = 121
+        Width = 155
       end
       object edComments: TcxTextEdit
         Left = 391
@@ -698,7 +697,7 @@ object frmEditWebShop: TfrmEditWebShop
         Style.Font.Style = []
         Style.IsFontAssigned = True
         TabOrder = 4
-        Width = 58
+        Width = 64
       end
     end
     object gr_distr: TcxGrid

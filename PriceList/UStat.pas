@@ -46,6 +46,9 @@ type
     cxStyle1: TcxStyle;
     CDS_STATPROFIT_COEF: TStringField;
     cxDBVerticalGrid1DBEditorRow1: TcxDBEditorRow;
+    stat_truck_sale: TcxDBEditorRow;
+    CDS_STATTRUCK_SALE: TStringField;
+    cxDBVerticalGrid1CategoryRow1: TcxCategoryRow;
     procedure cxButton1Click(Sender: TObject);
   private
     { Private declarations }

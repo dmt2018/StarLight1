@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.PRICE_PKG
--- Generated 21.12.2016 22:57:38 from CREATOR@STAR_REG
+-- Generated 06.01.2017 5:56:29 from CREATOR@STAR_REG
 
 CREATE OR REPLACE 
 PACKAGE price_pkg
@@ -1355,6 +1355,10 @@ BEGIN
         ) a
     ) profit_coef
 
+    ,(
+      select sum(quantity) || ' / ' || sum(quantity*spec_price) from ppl_client_price b where b.PPLI_ID = ID_
+    ) truck_sale
+
     , b.*
     from
     (
@@ -1377,7 +1381,7 @@ BEGIN
           , price_pcc * (invoice_amount - nvl(c.total_client_quantity,0)) as pcc_sum
           , (final_price - price_pcc * curr_cust_coef) * (invoice_amount - nvl(c.total_client_quantity,0)) as inv_profit
         FROM ppl_view a
-        left outer join (select b.n_id, sum(b.quantity) as total_client_quantity from ppl_client_price b where b.PPLI_ID = ID_ group by b.n_id) c on c.n_id = a.n_id
+        left outer join (select b.INVOICE_DATA_ID, sum(b.quantity) as total_client_quantity from ppl_client_price b where b.PPLI_ID = ID_ group by b.INVOICE_DATA_ID) c on c.INVOICE_DATA_ID = a.INVOICE_DATA_ID
           WHERE a.PPLI_ID = ID_
 
         union all
@@ -1389,7 +1393,7 @@ BEGIN
           , (price_pcc * b.quantity) as pcc_sum
           , (b.spec_price - price_pcc * curr_cust_coef) * b.quantity as inv_profit
         FROM ppl_view a
-        inner join ppl_client_price b on b.PPLI_ID = a.PPLI_ID and b.n_id = a.n_id
+        inner join ppl_client_price b on b.PPLI_ID = a.PPLI_ID and b.n_id = a.n_id and b.INVOICE_DATA_ID = a.INVOICE_DATA_ID
           WHERE a.PPLI_ID = ID_
       ) z
 
@@ -2600,7 +2604,7 @@ begin
 
         delete from ppl_client_price where PPLI_ID = v_ppli_id and ID_CLIENTS = sel_pp_row.id_clients and N_ID = sel_pp_row.n_id;
 
-        select l.invoice_data_id into tmp_invoice_data_id from prepare_price_list l where l.ppli_id = v_ppli_id and n_id =  sel_pp_row.n_id;
+        select l.invoice_data_id into tmp_invoice_data_id from prepare_price_list l where l.ppli_id = v_ppli_id and n_id = sel_pp_row.n_id and rownum = 1;
 
         insert into ppl_client_price values(get_office_unique('seq_PPLCP_ID'), sel_pp_row.n_id, sel_pp_row.id_clients, sel_pp_row.quantity, sel_pp_row.price, v_ppli_id, null, tmp_invoice_data_id);
     end loop;

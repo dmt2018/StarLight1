@@ -11,7 +11,7 @@ uses
   cxGrid, DBAccess, Ora, MemDS, cxContainer, cxMaskEdit, cxDropDownEdit,
   StdCtrls, cxButtons, ExtCtrls, ActnList, cxGridExportLink, IdBaseComponent,
   IdComponent, IdTCPConnection, IdTCPClient, IdExplicitTLSClientServerBase,
-  IdFTP, IniFiles, dxBar, cxLabel, ShellAPI;
+  IdFTP, IniFiles, dxBar, cxLabel, ShellAPI, cxImageComboBox;
 
 type
   TfrmTruckSale = class(TForm)
@@ -179,30 +179,6 @@ type
     cxGrid1Level1: TcxGridLevel;
     cds_export: TOraQuery;
     ds_export: TOraDataSource;
-    cds_exportPRODUCT_ART: TFloatField;
-    cds_exportCODENAME: TStringField;
-    cds_exportDEPART_ID: TFloatField;
-    cds_exportBRAND_TITLE: TStringField;
-    cds_exportCOUNTRY: TStringField;
-    cds_exportCATEGORY: TStringField;
-    cds_exportPRODUCT_TITLE: TStringField;
-    cds_exportCOLOUR: TStringField;
-    cds_exportSIZE: TIntegerField;
-    cds_exportPIECESINPACK: TIntegerField;
-    cds_exportPRODUCT_DESC: TStringField;
-    cds_exportPRODUCT_PRICE: TFloatField;
-    cds_exportPRODUCT_QTY: TFloatField;
-    cds_exportPRODUCT_RESERVE: TFloatField;
-    cds_exportNEW_FLAG: TFloatField;
-    cds_exportDISCOUNT: TFloatField;
-    cds_exportPROFIT: TFloatField;
-    cds_exportBESTPRICE: TFloatField;
-    cds_exportSEASON_START: TFloatField;
-    cds_exportSEASON_END: TFloatField;
-    cds_exportONMARCH: TStringField;
-    cds_exportSALE_START: TDateTimeField;
-    cds_exportSALE_END: TDateTimeField;
-    cds_exportINV_ID: TFloatField;
     stItog: TcxStyle;
     btnEditInv: TcxButton;
     mpEdit: TPopupMenu;
@@ -225,6 +201,41 @@ type
     N1: TMenuItem;
     mmPriceSel: TMenuItem;
     mmPriceAll: TMenuItem;
+    CDS_TruckSaleDataMIN_PACK: TIntegerField;
+    grSpecOrdersVPACK: TcxGridDBColumn;
+    grSpecOrdersVMIN_PACK: TcxGridDBColumn;
+    cds_exportPRODUCT_ART: TFloatField;
+    cds_exportCODENAME: TStringField;
+    cds_exportDEPART_ID: TFloatField;
+    cds_exportBRAND_TITLE: TStringField;
+    cds_exportCOUNTRY: TStringField;
+    cds_exportCATEGORY: TStringField;
+    cds_exportPRODUCT_TITLE: TStringField;
+    cds_exportCOLOUR: TStringField;
+    cds_exportSIZE: TIntegerField;
+    cds_exportPIECESINPACK: TFloatField;
+    cds_exportPRODUCT_DESC: TStringField;
+    cds_exportPRODUCT_PRICE: TFloatField;
+    cds_exportPRODUCT_QTY: TFloatField;
+    cds_exportPRODUCT_RESERVE: TFloatField;
+    cds_exportNEW_FLAG: TFloatField;
+    cds_exportDISCOUNT: TFloatField;
+    cds_exportPROFIT: TFloatField;
+    cds_exportBESTPRICE: TFloatField;
+    cds_exportSEASON_START: TFloatField;
+    cds_exportSEASON_END: TFloatField;
+    cds_exportONMARCH: TStringField;
+    cds_exportSALE_START: TDateTimeField;
+    cds_exportSALE_END: TDateTimeField;
+    cds_exportINV_ID: TFloatField;
+    cbInvoices: TcxImageComboBox;
+    Label12: TLabel;
+    btnLoadPrice: TcxButton;
+    CDS_OLD_PRICE: TOraQuery;
+    DS_OLD_PRICE: TOraDataSource;
+    CDS_OLD_PRICEN_ID: TFloatField;
+    CDS_OLD_PRICEHOL_PRICE: TFloatField;
+    CDS_OLD_PRICEFINAL_PRICE: TFloatField;
     procedure btnRefreshClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnAddClick(Sender: TObject);
@@ -249,6 +260,7 @@ type
       Shift: TShiftState);
     procedure mmPriceSelClick(Sender: TObject);
     procedure mmPriceAllClick(Sender: TObject);
+    procedure btnLoadPriceClick(Sender: TObject);
   private
     { Private declarations }
     ed_param : integer;
@@ -302,6 +314,22 @@ end;
 procedure TfrmTruckSale.FormShow(Sender: TObject);
 begin
   btnRefresh.Click;
+
+    try
+      DM.SelQ.Close;
+      DM.SelQ.SQL.Clear;
+      DM.SelQ.SQL.Add('SELECT ppli_id, ppl_comment ||'' - ''|| to_char(ppl_date,''dd.mm.yyyy'') as inv_str FROM prepare_price_list_index where ID_DEPARTMENTS='+IntToStr(CUR_DEPT_ID)+' and ppl_date > sysdate - 85 and finished=1 order by ppl_date desc');
+      DM.SelQ.Open;
+      FillImgComboCx(DM.SelQ, cbInvoices, 'Выбрать инвойса для подгрузки');
+      DM.SelQ.Close;
+      if DM.PPL_Index.fieldByName('ppli_id_old').AsInteger > 0 then
+        cbInvoices.EditValue := DM.PPL_Index.fieldByName('ppli_id_old').AsInteger
+      else
+        cbInvoices.ItemIndex := 0;
+    except
+      on E: Exception do ShowMessage(E.Message);
+    end;
+
   grTruckSale.SetFocus;
 end;
 
@@ -431,7 +459,7 @@ begin
       MessageBox(Handle, PChar(
         'Позиций - '+FieldByName('nn').AsString+#10#13+
         'Стеблей - '+FieldByName('units').AsString+#10#13+
-        'Стоимость инвойса - '+FieldByName('net_summ').AsString+#10#13+
+        //'Стоимость инвойса - '+FieldByName('net_summ').AsString+#10#13+
         'Стоимость итоговая - '+FieldByName('summ').AsString
       ), 'Информация', MB_ICONINFORMATION);
     end;
@@ -802,6 +830,54 @@ begin
   end;
 end;
 
+
+// Применим цены выбранного прайса
+procedure TfrmTruckSale.btnLoadPriceClick(Sender: TObject);
+begin
+  if CDS_TruckSaleData.State = dsEdit then CDS_TruckSaleData.Post;
+
+  cbInvoices.PostEditValue;
+  if cbInvoices.ItemIndex = 0 then exit;
+
+  try
+    with CDS_OLD_PRICE do
+    Begin
+      Close;
+      Prepare;
+      ParamByName('old_price').Value := cbInvoices.EditValue;
+      Open;
+    End;
+
+    if CDS_OLD_PRICE.RecordCount = 0 then
+    begin
+      CDS_OLD_PRICE.Close;
+      exit;
+    end;
+
+    CDS_TruckSaleData.First;
+    CDS_TruckSaleData.DisableControls;
+    try
+      while not CDS_TruckSaleData.Eof do
+      begin
+        if CDS_OLD_PRICE.Locate('N_ID',CDS_TruckSaleDataN_ID.AsInteger,[]) then
+        begin
+          CDS_TruckSaleData.Edit;
+          CDS_TruckSaleDataP_PRICE.AsCurrency := CDS_OLD_PRICEFINAL_PRICE.AsCurrency;
+          CDS_TruckSaleData.Post;
+        end;
+        CDS_TruckSaleData.Next;
+      end;
+    finally
+      CDS_TruckSaleData.EnableControls;
+    end;
+
+    CDS_TruckSaleData.Refresh;
+    MessageBox(Handle, PChar('Обработка завершена'), 'Информация', MB_ICONINFORMATION);
+
+  except on E: Exception do
+      MessageBox(Handle, PChar(E.Message), 'Ошибка!', MB_ICONERROR)
+  end;
+end;
 
 
 end.

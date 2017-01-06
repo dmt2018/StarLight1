@@ -4,7 +4,7 @@ object frm_stat: Tfrm_stat
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = #1057#1090#1072#1090#1080#1089#1090#1080#1082#1072
-  ClientHeight = 472
+  ClientHeight = 528
   ClientWidth = 538
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -20,14 +20,14 @@ object frm_stat: Tfrm_stat
   TextHeight = 17
   object Panel3: TPanel
     Left = 0
-    Top = 407
+    Top = 463
     Width = 538
     Height = 65
     Align = alBottom
     BevelInner = bvRaised
     BevelOuter = bvLowered
     TabOrder = 0
-    ExplicitTop = 378
+    ExplicitTop = 407
     DesignSize = (
       538
       65)
@@ -256,17 +256,17 @@ object frm_stat: Tfrm_stat
     Left = 0
     Top = 0
     Width = 538
-    Height = 407
+    Height = 463
     Align = alClient
     BevelInner = bvRaised
     BevelOuter = bvLowered
     TabOrder = 1
-    ExplicitHeight = 378
+    ExplicitHeight = 407
     object cxDBVerticalGrid1: TcxDBVerticalGrid
       Left = 2
       Top = 2
       Width = 534
-      Height = 403
+      Height = 459
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -278,7 +278,7 @@ object frm_stat: Tfrm_stat
       LookAndFeel.Kind = lfOffice11
       OptionsView.CellEndEllipsis = True
       OptionsView.RowHeaderMinWidth = 30
-      OptionsView.RowHeaderWidth = 303
+      OptionsView.RowHeaderWidth = 304
       OptionsView.ValueMinWidth = 100
       OptionsBehavior.ImmediateEditor = False
       OptionsBehavior.HeaderSizing = False
@@ -289,7 +289,7 @@ object frm_stat: Tfrm_stat
       ParentFont = False
       TabOrder = 0
       DataController.DataSource = DS_STAT
-      ExplicitHeight = 374
+      ExplicitHeight = 403
       object cxDBVerticalGrid1DBEditorRow1: TcxDBEditorRow
         Options.Moving = False
         Height = 35
@@ -410,6 +410,19 @@ object frm_stat: Tfrm_stat
         Properties.EditProperties.UseThousandSeparator = True
         Properties.DataBinding.FieldName = 'UC_SUM'
       end
+      object cxDBVerticalGrid1CategoryRow1: TcxCategoryRow
+      end
+      object stat_truck_sale: TcxDBEditorRow
+        Options.Moving = False
+        Height = 36
+        Properties.Caption = '      '#1055#1088#1086#1076#1072#1078#1072' '#1089' '#1082#1086#1083#1077#1089' ('#1082#1086#1083'-'#1074#1086' / '#1089#1091#1084#1084#1072')'
+        Properties.HeaderAlignmentVert = vaCenter
+        Properties.EditPropertiesClassName = 'TcxTextEditProperties'
+        Properties.EditProperties.Alignment.Horz = taRightJustify
+        Properties.EditProperties.Alignment.Vert = taVCenter
+        Properties.EditProperties.ReadOnly = True
+        Properties.DataBinding.FieldName = 'TRUCK_SALE'
+      end
     end
   end
   object CDS_STAT: TOraQuery
@@ -484,6 +497,10 @@ object frm_stat: Tfrm_stat
       FieldName = 'PROFIT_COEF'
       Size = 83
     end
+    object CDS_STATTRUCK_SALE: TStringField
+      FieldName = 'TRUCK_SALE'
+      Size = 83
+    end
   end
   object DS_STAT: TOraDataSource
     DataSet = CDS_STAT
@@ -494,7 +511,7 @@ object frm_stat: Tfrm_stat
     Left = 312
     Top = 112
     Bitmap = {
-      494C010102000400140010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010102000400180010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000000000000000000000000000042C5680078D09900000000000000

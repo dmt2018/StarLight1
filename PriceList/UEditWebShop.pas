@@ -129,6 +129,7 @@ begin
 
   startDate.EditValue := gd_invoice_v.DataController.DataSet.FieldByName('INV_DATE').AsDateTime;
   stopDate.EditValue  := startDate.EditValue + 4;
+  stopDate.EditValue  := StrToDateTime(stopDate.Text + ' 22:00:00');
 end;
 
 // проставим даты старта и окончания продаж с разноса
@@ -140,6 +141,7 @@ begin
 
   startDate.EditValue := gr_distr_v.DataController.DataSet.FieldByName('DIST_DATE').AsDateTime;
   stopDate.EditValue  := startDate.EditValue + 2;
+  stopDate.EditValue  := StrToDateTime(stopDate.Text + ' 22:00:00');
 end;
 
 // лочим таблицы в зависимости от выбора источника данных
@@ -218,13 +220,13 @@ begin
     begin
       Close;
       SQL.Text := 'begin truck_sale_pkg.edit_truck_sale(:p_id, :p_start_date, :p_stop_date, :p_comments, :p_price_coef, :p_course, :p_status); end;';
-      ParamByName('p_id').AsInteger       := 0;
-      ParamByName('p_start_date').AsDate  := startDate.EditValue;
-      ParamByName('p_stop_date').AsDate   := stopDate.EditValue;
-      ParamByName('p_comments').AsString  := VarToStr(edComments.EditValue);
-      ParamByName('p_price_coef').AsFloat := edCoef.EditValue;
-      ParamByName('p_course').AsFloat     := edCourse.EditValue;
-      ParamByName('p_status').AsString    := edStatus.EditingText;
+      ParamByName('p_id').AsInteger         := 0;
+      ParamByName('p_start_date').AsDate    := startDate.EditValue;
+      ParamByName('p_stop_date').AsDateTime := stopDate.EditValue;
+      ParamByName('p_comments').AsString    := VarToStr(edComments.EditValue);
+      ParamByName('p_price_coef').AsFloat   := edCoef.EditValue;
+      ParamByName('p_course').AsFloat       := edCourse.EditValue;
+      ParamByName('p_status').AsString      := edStatus.EditingText;
       Execute;
 
       id := ParamByName('p_id').AsInteger;
@@ -299,7 +301,7 @@ begin
   if w_type = 'new' then
   begin
     startDate.EditValue := Now;
-    stopDate.EditValue  := Now;
+    stopDate.EditValue  := StrToDateTime(startDate.Text + ' 22:00:00');
 
     DM.ForceQ.SQL.Clear;
     DM.ForceQ.SQL.Add('begin dicts.get_curse(:DDATE_, :CURSOR_); end;');

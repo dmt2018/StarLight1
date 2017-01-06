@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.TRUCK_SALE_PKG
--- Generated 20.12.2016 23:24:53 from CREATOR@STAR_REG
+-- Generated 06.01.2017 5:56:14 from CREATOR@STAR_REG
 
 CREATE OR REPLACE 
 PACKAGE truck_sale_pkg
@@ -98,7 +98,8 @@ PROCEDURE ins_truck_sale_data
    p_TRUCK_SALE_ID  IN NUMBER,
    p_N_ID           IN NUMBER,
    p_COEF           IN NUMBER,
-   p_price          IN NUMBER
+   p_price          IN NUMBER,
+   p_min_pack       in number
 );
 
 
@@ -343,27 +344,35 @@ IS
 BEGIN
 
    open cursor_ for
-     select a.UNITS, a.PRICE_PER_UNIT, s.PRICE_COEF, d.price,
-            nvl(d.price, round(a.PRICE_PER_UNIT * nvl(d.coef, s.PRICE_COEF) * s.course, 2)) as coef_price,
+     select a.UNITS, a.PRICE_PER_UNIT, s.PRICE_COEF, d.price, d.min_pack,
+            nvl(d.price,
+              case when a.PRICE_PER_UNIT * nvl(d.coef, s.PRICE_COEF) * s.course > 100 then round(a.PRICE_PER_UNIT * nvl(d.coef, s.PRICE_COEF) * s.course)
+              else round(a.PRICE_PER_UNIT * nvl(d.coef, s.PRICE_COEF) * s.course, 1) end
+            ) coef_price,
             case when d.n_id > 0 then 1 else 0 end IS_ACTIVE, d.coef as p_coef, d.price as p_price
             , s.truck_sale_id as truck_sale_id
             , n.*
        from
        (
-              select sum(a.UNITS) units, max(a.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id
-              from invoice_data a, truck_sale_invoices b
-              where a.storned_data = 0 and a.inv_id = b.inv_id and b.truck_sale_id = truck_sale_id_
-              group by a.n_id
+         select units, round(PRICE_PER_UNIT/decode(units,0,1,units),2) as PRICE_PER_UNIT, n_id from (
+              --select sum(a.UNITS) units, max(a.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id
+              select sum(a.UNITS) units, sum(a.UNITS*a.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id
+                from invoice_data a, truck_sale_invoices b
+                where a.storned_data = 0 and a.inv_id = b.inv_id and b.truck_sale_id = truck_sale_id_
+                group by a.n_id
               union all
-              select sum(a.left_quantity) as units, max(d.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id
-              from PREP_DIST_VIEW a, invoice_data d, truck_sale_distr b
-              where a.dist_ind_id = b.DIST_IND_ID and b.truck_sale_id = truck_sale_id_
-              and a.left_quantity > 0 and a.invoice_data_id = d.invoice_data_id
-              group by a.n_id
+              --select sum(a.left_quantity) as units, max(d.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id
+              select sum(a.left_quantity) as units, sum(a.left_quantity*d.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id
+                from PREP_DIST_VIEW a, invoice_data d, truck_sale_distr b
+                where a.dist_ind_id = b.DIST_IND_ID and b.truck_sale_id = truck_sale_id_
+                  and a.left_quantity > 0 and a.invoice_data_id = d.invoice_data_id
+                group by a.n_id
+         ) a
        ) a
        inner join truck_sale s on s.truck_sale_id = truck_sale_id_
        inner join nomenclature_mat_view n on n.n_id = a.n_id
        left outer join truck_sale_data d on d.truck_sale_id = s.truck_sale_id and d.n_id = a.n_id
+       order by n.COMPILED_NAME_OTDEL
        ;
 
 EXCEPTION
@@ -443,16 +452,17 @@ PROCEDURE ins_truck_sale_data
    p_TRUCK_SALE_ID  IN NUMBER,
    p_N_ID           IN NUMBER,
    p_COEF           IN NUMBER,
-   p_price          IN NUMBER
+   p_price          IN NUMBER,
+   p_min_pack       in number
 )
 IS
 BEGIN
 
   select count(*) into tmp_cnt from truck_sale_data where TRUCK_SALE_ID = p_TRUCK_SALE_ID and N_ID = p_N_ID;
   if tmp_cnt = 0 then
-    insert into truck_sale_data values(p_TRUCK_SALE_ID, p_N_ID, p_COEF, p_price);
+    insert into truck_sale_data values(p_TRUCK_SALE_ID, p_N_ID, p_COEF, p_price, p_min_pack);
   else
-    update truck_sale_data set COEF = p_COEF, price = p_price where TRUCK_SALE_ID = p_TRUCK_SALE_ID and N_ID = p_N_ID;
+    update truck_sale_data set COEF = p_COEF, price = p_price, min_pack = p_min_pack where TRUCK_SALE_ID = p_TRUCK_SALE_ID and N_ID = p_N_ID;
   end if;
 
 EXCEPTION
@@ -476,8 +486,25 @@ IS
 BEGIN
 
    open cursor_ for
-     select count(*) as nn, sum(units) as units, round(sum(a.PRICE_PER_UNIT * units * s.course),2) as net_summ, round(sum(nvl(d.price, a.PRICE_PER_UNIT * nvl(d.coef, s.PRICE_COEF) * s.course) * units), 2) as summ
+     select count(*) as nn, sum(units) as units, round(sum(a.PRICE_PER_UNIT * units * s.course),2) as net_summ,
+       round(sum(nvl(d.price,
+              case when a.PRICE_PER_UNIT * nvl(d.coef, s.PRICE_COEF) * s.course > 100 then round(a.PRICE_PER_UNIT * nvl(d.coef, s.PRICE_COEF) * s.course)
+              else round(a.PRICE_PER_UNIT * nvl(d.coef, s.PRICE_COEF) * s.course, 1) end
+            ) * units), 1) as summ
        from (
+           select units, round(PRICE_PER_UNIT/decode(units,0,1,units),2) as PRICE_PER_UNIT, n_id from (
+              select sum(a.UNITS) units, sum(a.UNITS*a.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id
+                from invoice_data a, truck_sale_invoices b
+                where a.storned_data = 0 and a.inv_id = b.inv_id and b.truck_sale_id = p_TRUCK_SALE_ID
+                group by a.n_id
+              union all
+              select sum(a.left_quantity) as units, sum(a.left_quantity*d.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id
+                from PREP_DIST_VIEW a, invoice_data d, truck_sale_distr b
+                where a.dist_ind_id = b.DIST_IND_ID and b.truck_sale_id = p_TRUCK_SALE_ID
+                  and a.left_quantity > 0 and a.invoice_data_id = d.invoice_data_id
+                group by a.n_id
+           ) a
+/*
               select sum(a.UNITS) units, max(a.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id
               from invoice_data a, truck_sale_invoices b
               where a.storned_data = 0 and a.inv_id = b.inv_id and b.truck_sale_id = p_TRUCK_SALE_ID
@@ -488,29 +515,13 @@ BEGIN
               where a.dist_ind_id = b.DIST_IND_ID and b.truck_sale_id = p_TRUCK_SALE_ID
               and a.left_quantity > 0 and a.invoice_data_id = d.invoice_data_id
               group by a.n_id
+*/
          ) a
          inner join truck_sale s on s.truck_sale_id = p_TRUCK_SALE_ID
          inner join nomenclature_mat_view n on n.n_id = a.n_id
          inner join truck_sale_data d on d.truck_sale_id = s.truck_sale_id and d.n_id = a.n_id
      ;
-/*
-     select count(*) as nn, sum(units) as units, round(sum(a.PRICE_PER_UNIT * units * s.course),2) as net_summ, round(sum(nvl(d.price, a.PRICE_PER_UNIT * nvl(d.coef, s.PRICE_COEF) * s.course) * units), 2) as summ
-       from truck_sale s
-         inner join truck_sale_invoices i on i.truck_sale_id = s.truck_sale_id
-         inner join (select sum(a.UNITS) units, max(a.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id, a.inv_id from invoice_data a where a.storned_data = 0 group by a.inv_id, a.n_id) a
-           on i.inv_id = a.inv_id
-         inner join nomenclature_mat_view n on n.n_id = a.n_id
-         left outer join truck_sale_data d on d.truck_sale_id = s.truck_sale_id and d.n_id = a.n_id
-       where s.truck_sale_id = p_TRUCK_SALE_ID
-     ;
-*/
-/*
-     select count(*) as nn, sum(units) as units, round(sum(a.PRICE_PER_UNIT * units * s.course),2) as net_summ, round(sum(nvl(d.price, a.PRICE_PER_UNIT * nvl(d.coef, s.PRICE_COEF) * s.course) * units), 2) as summ
-       from invoice_data a
-         inner join truck_sale s on s.truck_sale_id = p_TRUCK_SALE_ID
-         inner join truck_sale_invoices i on i.truck_sale_id = s.truck_sale_id and i.inv_id = a.inv_id
-         inner join truck_sale_data d on d.truck_sale_id = s.truck_sale_id and d.n_id = a.n_id;
-*/
+
 EXCEPTION
    WHEN OTHERS
    THEN
@@ -542,9 +553,15 @@ BEGIN
            , b.f_name_ru as product_title
            , b.colour
            , b.len as "SIZE"
-           , b.pack as PIECESINPACK
+           , nvl(d.MIN_PACK, b.pack) as PIECESINPACK
            , b.compiled_name_otdel as product_desc
-           , nvl(d.price, round(a.PRICE_PER_UNIT * nvl(d.coef, s.PRICE_COEF) * s.course, 2)) as product_price
+
+           --, nvl(d.price, round(a.PRICE_PER_UNIT * nvl(d.coef, s.PRICE_COEF) * s.course, 2)) as product_price
+           , nvl(d.price,
+              case when a.PRICE_PER_UNIT * nvl(d.coef, s.PRICE_COEF) * s.course > 100 then round(a.PRICE_PER_UNIT * nvl(d.coef, s.PRICE_COEF) * s.course)
+              else round(a.PRICE_PER_UNIT * nvl(d.coef, s.PRICE_COEF) * s.course, 1) end
+            ) product_price
+
            , nvl(a.units,0) as product_qty
            , 0 as product_reserve
            , nvl(b.nom_new,0) as NEW_FLAG
@@ -562,6 +579,19 @@ BEGIN
          left outer join nom_specifications c on c.n_id = b.n_id and c.hs_id = const_8march
 
          inner join (
+           select units, round(PRICE_PER_UNIT/units,2) as PRICE_PER_UNIT, n_id from (
+              select sum(a.UNITS) units, sum(a.UNITS*a.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id
+                from invoice_data a, truck_sale_invoices b
+                where a.storned_data = 0 and a.inv_id = b.inv_id and b.truck_sale_id = p_TRUCK_SALE_ID
+                group by a.n_id
+              union all
+              select sum(a.left_quantity) as units, sum(a.left_quantity*d.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id
+                from PREP_DIST_VIEW a, invoice_data d, truck_sale_distr b
+                where a.dist_ind_id = b.DIST_IND_ID and b.truck_sale_id = p_TRUCK_SALE_ID
+                  and a.left_quantity > 0 and a.invoice_data_id = d.invoice_data_id
+                group by a.n_id
+           ) a
+/*
               select sum(a.UNITS) units, max(a.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id
               from invoice_data a, truck_sale_invoices b
               where a.storned_data = 0 and a.inv_id = b.inv_id and b.truck_sale_id = p_TRUCK_SALE_ID
@@ -572,6 +602,7 @@ BEGIN
               where a.dist_ind_id = b.DIST_IND_ID and b.truck_sale_id = p_TRUCK_SALE_ID
               and a.left_quantity > 0 and a.invoice_data_id = d.invoice_data_id
               group by a.n_id
+*/
          ) a on b.n_id = a.n_id
 
          inner join truck_sale s on s.truck_sale_id = p_TRUCK_SALE_ID

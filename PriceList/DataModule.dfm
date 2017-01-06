@@ -6,7 +6,7 @@ object DM: TDM
     Options.Direct = True
     Username = 'creator'
     Password = '123456'
-    Server = 'ROZNICA:1521:orcl'
+    Server = 'KLEPOV:1521:STARREG'
     AutoCommit = False
     LoginPrompt = False
     AfterConnect = STAR_DBAfterConnect

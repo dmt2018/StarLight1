@@ -3,7 +3,7 @@ object frmTruckSale: TfrmTruckSale
   Top = 0
   Caption = 'WebShop'
   ClientHeight = 547
-  ClientWidth = 984
+  ClientWidth = 1072
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,7 +20,7 @@ object frmTruckSale: TfrmTruckSale
   object pnlTop: TPanel
     Left = 0
     Top = 0
-    Width = 984
+    Width = 1072
     Height = 40
     Align = alTop
     BevelInner = bvRaised
@@ -32,6 +32,7 @@ object frmTruckSale: TfrmTruckSale
     Font.Style = []
     ParentFont = False
     TabOrder = 0
+    ExplicitWidth = 984
     object btnRefresh: TcxButton
       Left = 4
       Top = 4
@@ -114,10 +115,10 @@ object frmTruckSale: TfrmTruckSale
       Properties.SaveTime = False
       Properties.ShowTime = False
       TabOrder = 1
-      Width = 100
+      Width = 97
     end
     object dtEnd: TcxDateEdit
-      Left = 217
+      Left = 214
       Top = 6
       EditValue = 0d
       Properties.DateButtons = []
@@ -126,10 +127,10 @@ object frmTruckSale: TfrmTruckSale
       Properties.SaveTime = False
       Properties.ShowTime = False
       TabOrder = 2
-      Width = 100
+      Width = 97
     end
     object btnAdd: TcxButton
-      Left = 320
+      Left = 315
       Top = 4
       Width = 108
       Height = 30
@@ -188,7 +189,7 @@ object frmTruckSale: TfrmTruckSale
       Spacing = 6
     end
     object btnDel: TcxButton
-      Left = 430
+      Left = 425
       Top = 4
       Width = 108
       Height = 30
@@ -247,7 +248,7 @@ object frmTruckSale: TfrmTruckSale
       Spacing = 6
     end
     object btnWeb: TcxButton
-      Left = 654
+      Left = 646
       Top = 4
       Width = 160
       Height = 30
@@ -329,7 +330,7 @@ object frmTruckSale: TfrmTruckSale
       Spacing = 6
     end
     object btnBlockWeb: TcxButton
-      Left = 816
+      Left = 808
       Top = 4
       Width = 160
       Height = 30
@@ -411,7 +412,7 @@ object frmTruckSale: TfrmTruckSale
       Spacing = 6
     end
     object btnEditInv: TcxButton
-      Left = 540
+      Left = 535
       Top = 4
       Width = 108
       Height = 30
@@ -496,7 +497,7 @@ object frmTruckSale: TfrmTruckSale
   object pnlBottom: TPanel
     Left = 0
     Top = 507
-    Width = 984
+    Width = 1072
     Height = 40
     Align = alBottom
     BevelInner = bvRaised
@@ -505,11 +506,12 @@ object frmTruckSale: TfrmTruckSale
     ParentBackground = False
     ParentCtl3D = False
     TabOrder = 1
+    ExplicitWidth = 984
     DesignSize = (
-      984
+      1072
       40)
     object BitBtn_Cancel: TcxButton
-      Left = 838
+      Left = 926
       Top = 4
       Width = 140
       Height = 30
@@ -568,6 +570,7 @@ object frmTruckSale: TfrmTruckSale
       LookAndFeel.Kind = lfFlat
       LookAndFeel.NativeStyle = True
       Spacing = 6
+      ExplicitLeft = 838
     end
     object cxLabel1: TcxLabel
       Left = 4
@@ -589,7 +592,7 @@ object frmTruckSale: TfrmTruckSale
   object grSpecOrders: TcxGrid
     Left = 0
     Top = 268
-    Width = 984
+    Width = 1072
     Height = 239
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
@@ -601,6 +604,7 @@ object frmTruckSale: TfrmTruckSale
     ParentFont = False
     TabOrder = 2
     LookAndFeel.Kind = lfOffice11
+    ExplicitWidth = 984
     object grSpecOrdersV: TcxGridDBTableView
       PopupMenu = pmMain
       NavigatorButtons.ConfirmDelete = False
@@ -619,6 +623,8 @@ object frmTruckSale: TfrmTruckSale
           Column = grSpecOrdersVCOMPILED_NAME_OTDEL
         end>
       DataController.Summary.SummaryGroups = <>
+      FilterRow.InfoText = #1044#1086#1073#1072#1074#1080#1090#1100' '#1092#1080#1083#1100#1090#1088
+      FilterRow.Visible = True
       OptionsBehavior.CellHints = True
       OptionsCustomize.ColumnMoving = False
       OptionsData.Deleting = False
@@ -705,7 +711,7 @@ object frmTruckSale: TfrmTruckSale
         PropertiesClassName = 'TcxCurrencyEditProperties'
         Properties.Alignment.Horz = taRightJustify
         Properties.DisplayFormat = ',0.00;-,0.00'
-        Properties.ReadOnly = False
+        Properties.ReadOnly = True
         MinWidth = 65
         Options.HorzSizing = False
         Width = 65
@@ -768,6 +774,33 @@ object frmTruckSale: TfrmTruckSale
         DataBinding.FieldName = 'TRUCK_SALE_ID'
         Visible = False
       end
+      object grSpecOrdersVPACK: TcxGridDBColumn
+        Caption = #1060#1072#1089#1086#1074#1082#1072
+        DataBinding.FieldName = 'PACK'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        HeaderAlignmentHorz = taCenter
+        HeaderAlignmentVert = vaCenter
+        MinWidth = 60
+        Options.Editing = False
+        Options.HorzSizing = False
+        Width = 60
+      end
+      object grSpecOrdersVMIN_PACK: TcxGridDBColumn
+        Caption = #1048#1085#1076'. '#1092#1072#1089'-'#1082#1072
+        DataBinding.FieldName = 'MIN_PACK'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.Alignment.Horz = taCenter
+        Properties.DecimalPlaces = 0
+        Properties.DisplayFormat = ',0;-,0'
+        Properties.MaxLength = 4
+        HeaderAlignmentHorz = taCenter
+        HeaderAlignmentVert = vaCenter
+        MinWidth = 80
+        Options.HorzSizing = False
+        Styles.Content = stEdit
+        Width = 80
+      end
     end
     object grSpecOrdersL: TcxGridLevel
       GridView = grSpecOrdersV
@@ -776,7 +809,7 @@ object frmTruckSale: TfrmTruckSale
   object grTruckSale: TcxGrid
     Left = 0
     Top = 40
-    Width = 984
+    Width = 1072
     Height = 187
     Align = alTop
     Font.Charset = DEFAULT_CHARSET
@@ -788,6 +821,7 @@ object frmTruckSale: TfrmTruckSale
     ParentFont = False
     TabOrder = 3
     LookAndFeel.Kind = lfOffice11
+    ExplicitWidth = 984
     object grTruckSale_v: TcxGridDBTableView
       NavigatorButtons.ConfirmDelete = False
       OnEditKeyDown = grTruckSale_vEditKeyDown
@@ -806,8 +840,14 @@ object frmTruckSale: TfrmTruckSale
       OptionsView.GroupByBox = False
       OptionsView.HeaderEndEllipsis = True
       object grTruckSale_vTRUCK_SALE_ID: TcxGridDBColumn
+        Caption = 'ID'
         DataBinding.FieldName = 'TRUCK_SALE_ID'
-        Visible = False
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.ReadOnly = True
+        HeaderAlignmentHorz = taCenter
+        MinWidth = 80
+        Options.HorzSizing = False
+        Width = 80
       end
       object grTruckSale_vSTART_DATE: TcxGridDBColumn
         Caption = #1044#1072#1090#1072' '#1089#1090#1072#1088#1090#1072
@@ -831,15 +871,14 @@ object frmTruckSale: TfrmTruckSale
         PropertiesClassName = 'TcxDateEditProperties'
         Properties.Alignment.Horz = taCenter
         Properties.ImmediatePost = True
-        Properties.SaveTime = False
-        Properties.ShowTime = False
+        Properties.Kind = ckDateTime
         HeaderAlignmentHorz = taCenter
         HeaderGlyphAlignmentHorz = taCenter
-        MinWidth = 100
+        MinWidth = 135
         Options.HorzSizing = False
         Options.Moving = False
         Styles.Content = stEdit
-        Width = 100
+        Width = 135
       end
       object grTruckSale_vPRICE_COEF: TcxGridDBColumn
         Caption = #1053#1072#1094#1077#1085#1082#1072
@@ -956,12 +995,29 @@ object frmTruckSale: TfrmTruckSale
   object Panel1: TPanel
     Left = 0
     Top = 227
-    Width = 984
+    Width = 1072
     Height = 41
     Align = alTop
     BevelInner = bvRaised
     BevelOuter = bvLowered
     TabOrder = 4
+    ExplicitWidth = 984
+    object Label12: TLabel
+      Left = 406
+      Top = 6
+      Width = 92
+      Height = 29
+      AutoSize = False
+      Caption = #1087#1086#1076#1075#1088#1091#1079#1080#1090#1100' '#1094#1077#1085#1099' '#1080#1085#1074#1086#1081#1089#1072
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = []
+      ParentFont = False
+      WordWrap = True
+    end
     object btnAddAll: TcxButton
       Left = 4
       Top = 6
@@ -1208,6 +1264,101 @@ object frmTruckSale: TfrmTruckSale
       LookAndFeel.NativeStyle = True
       Spacing = 6
     end
+    object cbInvoices: TcxImageComboBox
+      Left = 504
+      Top = 9
+      Cursor = crHandPoint
+      ParentFont = False
+      Properties.ImmediatePost = True
+      Properties.ImmediateUpdateText = True
+      Properties.Items = <>
+      Style.BorderStyle = ebsOffice11
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -12
+      Style.Font.Name = 'Arial'
+      Style.Font.Pitch = fpFixed
+      Style.Font.Style = []
+      Style.LookAndFeel.Kind = lfOffice11
+      Style.LookAndFeel.NativeStyle = True
+      Style.IsFontAssigned = True
+      StyleDisabled.LookAndFeel.Kind = lfOffice11
+      StyleDisabled.LookAndFeel.NativeStyle = True
+      StyleFocused.LookAndFeel.Kind = lfOffice11
+      StyleFocused.LookAndFeel.NativeStyle = True
+      StyleHot.LookAndFeel.Kind = lfOffice11
+      StyleHot.LookAndFeel.NativeStyle = True
+      TabOrder = 3
+      Width = 245
+    end
+    object btnLoadPrice: TcxButton
+      Left = 753
+      Top = 8
+      Width = 57
+      Height = 25
+      Cursor = crHandPoint
+      TabOrder = 4
+      OnClick = btnLoadPriceClick
+      Glyph.Data = {
+        F6060000424DF606000000000000360000002800000018000000180000000100
+        180000000000C0060000120B0000120B00000000000000000000FF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFF2
+        FBF2B9EBB885DC8262D25E52CD4D52CD4D5CD0587CD979ACE7AAEBF9EAFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFBFEFBB0E8AF5CD15A52CE5058D4565FDB5C62DE6062DE6060DC5D5AD65752
+        CE5055CF539BE39AF4FCF4FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFF2FBF27CDA7C52CF525ED95E61D66160D0605FCC5F5FCA5F5FCA
+        5F5FCB5F60CF6060D46061DC6152CF526AD56AE7F8E7FF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFF7FDF770D87351CF5560D6635ECC625ECB625ECB62
+        5ECB625ECB625ECB625ECB625ECB625ECB625ECC6260D36352D05760D363E7F8
+        E7FF00FFFF00FFFF00FFFF00FFFF00FFFF00FF86DF8B51CF575FD1655ECC645E
+        CC645ECC6460D96661E16762E66962E56860DE6760D5655ECC645ECC645ECC64
+        5FCF6552CF596DD872F7FDF8FF00FFFF00FFFF00FFFF00FFCBF1CE51D05B5FCF
+        675ECC675ECC675ECD675ECE6760DC69CFF7D3FFFFFFFFFFFFCFF7D260DA695E
+        CE675ECD675ECC675ECC675ECE6751CF5AABE9B0FF00FFFF00FFFF00FFFF00FF
+        6FDA7B56CA625ECD695ECD695ECF6A5ECF6A5ECF6A5ED46CFFFFFFFFFFFFFFFF
+        FFFFFFFF5FD76C5ECF6A5ECF6A5ECE695ECD695ECD695ACC6758D365F2FCF3FF
+        00FFFF00FFDAF6DD50CC605ECE6C5ECE6C5ECF6C5ECF6D5ECF6D5ECF6D5ED26E
+        FFFFFFFFFFFFFFFFFFFFFFFF5FD9705ECF6D5ECF6D5ECF6D5ECF6C5ECE6C5ECE
+        6C50C960B9EDBFFF00FFFF00FFAFEBB950C3625ECF705ECF705FDD7460E47661
+        EA7860E6775FDC74FFFFFFFFFFFFFFFFFFFFFFFF61E87761EC7861E97860E175
+        5FD9735ECF705ECF7054C5668CE19AFF00FFFF00FF8FE19E52C5685DD1735DD1
+        735FE078CFF9D7FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFCFF8D75EDD775DD1735DD07358CB6E6ED682FF00FFFF00FF83DB96
+        54C96E5DD1765DD2775ED878FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF5EDA7A5DD2775DD17659CD7363CF7BFF
+        00FFFF00FF86DB9B53CA715CD37A5CD37A5CD37AFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF5CD47B5CD37A5CD3
+        7A59CF7665CE7FFF00FFFF00FF99E2AD50C8715CD57D5CD47D5CD37DCEF2D8FF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFCEF2D8
+        5CD47D5CD47D5CD57D55CE767AD693FF00FFFF00FFC0EECE4DC9735CD7815BD6
+        815BD6815BD5815BD5815BD5815BD581FFFFFFFFFFFFFFFFFFFFFFFF5BD5815B
+        D5815BD5815BD5815BD6815BD6815CD7814ECA74A1E3B5FF00FFFF00FFF2FCF5
+        51CC795BD8835CD8845BD6835BD6835BD6835BD6835BD683FFFFFFFFFFFFFFFF
+        FFFFFFFF5BD6835BD6835BD6835BD6835BD7845CD8845CD9854DCB76D7F4E1FF
+        00FFFF00FFFF00FF92E0AD4DCD7A5CDA885CD8875BD7865BD6865BD6865BD686
+        FFFFFFFFFFFFFFFFFFFFFFFF5BD6865BD6865BD7865BD8875CD9875CDA8852D1
+        7E71D794FF00FFFF00FFFF00FFFF00FFECFAF155D28354D5835BDA8A5BD98A5B
+        D8895BD8895BD789CDF3DBFFFFFFFFFFFFCDF3DB5BD7895BD8895BD88A5BDA8A
+        5BDC8B59DA894DD07DD5F4E1FF00FFFF00FFFF00FFFF00FFFF00FFC8F1D84DD1
+        8157DA8A5BDC8E5BDA8D5BD98D5BD88C5BD88C5BD88C5BD88C5BD88C5BD88C5B
+        D98D5BDA8D5BDD8E5BDF8F4DD281A7E9C1FF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFB1EDC94FD58653D8895BDF915BDC8F5BDB8F5BDA8F5BDA8F5BDA
+        8F5BDB8F5BDB8F5BDD905BDF9157DD8E4DD48491E5B4FF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFCCF4DD59DA904CD68659E0925BE194
+        5BE0945BDF935BE0945BE0945BE2945BE3944DD78850D88AB1EECBFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFF4FDF89E
+        EABF57DB904CD8894CD7884DD88A4FDA8C4CD7884CD88950DA8C8FE7B6EAFAF1
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFBFEFCCFF5E0B7F1D19AEBBE94EABBB7F1D1C8F4DCF2
+        FCF7FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF}
+      LookAndFeel.Kind = lfFlat
+      LookAndFeel.NativeStyle = True
+    end
   end
   object cxGrid1: TcxGrid
     Left = 386
@@ -1301,8 +1452,8 @@ object frmTruckSale: TfrmTruckSale
     end
   end
   object pnlPrice: TPanel
-    Left = 362
-    Top = 204
+    Left = 630
+    Top = 159
     Width = 193
     Height = 65
     BevelInner = bvRaised
@@ -1362,26 +1513,61 @@ object frmTruckSale: TfrmTruckSale
       '    else'
       
         '      TRUCK_SALE_PKG.INS_TRUCK_SALE_DATA(:TRUCK_SALE_ID, :N_ID, ' +
-        ':P_COEF, :P_PRICE);'
+        ':P_COEF, :P_PRICE, :min_pack);'
       '    end if;'
       '  else'
       
         '    TRUCK_SALE_PKG.INS_TRUCK_SALE_DATA(:TRUCK_SALE_ID, :N_ID, :P' +
-        '_COEF, :P_PRICE);'
+        '_COEF, :P_PRICE, :min_pack);'
       '  end if;'
       '  commit;'
       'end;')
     SQLRefresh.Strings = (
-      'select a.UNITS, a.PRICE_PER_UNIT, s.PRICE_COEF, d.price,'
       
-        '            nvl(d.price, round(a.PRICE_PER_UNIT * nvl(d.coef, s.' +
-        'PRICE_COEF) * s.course, 2)) as coef_price,'
+        'select a.UNITS, a.PRICE_PER_UNIT, s.PRICE_COEF, d.price, d.min_p' +
+        'ack,'
+      '            nvl(d.price,'
+      
+        '              case when a.PRICE_PER_UNIT * nvl(d.coef, s.PRICE_C' +
+        'OEF) * s.course > 100 then round(a.PRICE_PER_UNIT * nvl(d.coef, ' +
+        's.PRICE_COEF) * s.course)'
+      
+        '              else round(a.PRICE_PER_UNIT * nvl(d.coef, s.PRICE_' +
+        'COEF) * s.course, 1) end'
+      '            ) coef_price,'
       
         '            case when d.n_id > 0 then 1 else 0 end IS_ACTIVE, d.' +
         'coef as p_coef, d.price as p_price'
       '            , s.truck_sale_id as truck_sale_id'
       '       from '
       '       ('
+      
+        '         select units, round(PRICE_PER_UNIT/units,2) as PRICE_PE' +
+        'R_UNIT, n_id from ('
+      
+        '              select sum(a.UNITS) units, sum(a.UNITS*a.PRICE_PER' +
+        '_UNIT) as PRICE_PER_UNIT, a.n_id'
+      '                from invoice_data a, truck_sale_invoices b'
+      
+        '                where a.storned_data = 0 and a.inv_id = b.inv_id' +
+        ' and b.truck_sale_id = :truck_sale_id and a.N_ID = :N_ID'
+      '                group by a.n_id'
+      '              union all'
+      
+        '              select sum(a.left_quantity) as units, sum(a.left_q' +
+        'uantity*d.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id'
+      
+        '                from PREP_DIST_VIEW a, invoice_data d, truck_sal' +
+        'e_distr b'
+      
+        '                where a.dist_ind_id = b.DIST_IND_ID and b.truck_' +
+        'sale_id = :truck_sale_id and a.N_ID = :N_ID'
+      
+        '                  and a.left_quantity > 0 and a.invoice_data_id ' +
+        '= d.invoice_data_id'
+      '                group by a.n_id'
+      '         ) a'
+      '/*'
       
         '              select sum(a.UNITS) units, max(a.PRICE_PER_UNIT) a' +
         's PRICE_PER_UNIT, a.n_id'
@@ -1404,38 +1590,14 @@ object frmTruckSale: TfrmTruckSale
         '              and a.left_quantity > 0 and a.invoice_data_id = d.' +
         'invoice_data_id'
       '              group by a.n_id'
+      '*/'
       '       ) a       '
       
         '       inner join truck_sale s on s.truck_sale_id = :truck_sale_' +
         'id'
       
         '       left outer join truck_sale_data d on d.truck_sale_id = s.' +
-        'truck_sale_id and d.n_id = a.n_id'
-      '       '
-      '/*'
-      'select a.UNITS, a.PRICE_PER_UNIT, s.PRICE_COEF, d.price,'
-      
-        '            nvl(d.price, round(a.PRICE_PER_UNIT * nvl(d.coef, s.' +
-        'PRICE_COEF) * s.course, 2)) as coef_price,'
-      
-        '            case when d.n_id > 0 then 1 else 0 end IS_ACTIVE, d.' +
-        'coef as p_coef, d.price as p_price'
-      '            , s.truck_sale_id as truck_sale_id'
-      '       from truck_sale s'
-      
-        '         inner join truck_sale_invoices i on i.truck_sale_id = s' +
-        '.truck_sale_id '
-      
-        '         inner join (select sum(a.UNITS) units, max(a.PRICE_PER_' +
-        'UNIT) as PRICE_PER_UNIT, a.n_id, a.inv_id from invoice_data a wh' +
-        'ere a.storned_data = 0 and a.N_ID = :N_ID group by a.inv_id, a.n' +
-        '_id) a'
-      '           on i.inv_id = a.inv_id'
-      
-        '         left outer join truck_sale_data d on d.truck_sale_id = ' +
-        's.truck_sale_id and d.n_id = a.n_id '
-      '       where s.truck_sale_id = :truck_sale_id'
-      '*/')
+        'truck_sale_id and d.n_id = a.n_id')
     SQL.Strings = (
       'begin'
       '  TRUCK_SALE_PKG.GET_TRUCK_SALE_DATA(:TRUCK_SALE_ID_, :CURSOR_);'
@@ -1673,6 +1835,9 @@ object frmTruckSale: TfrmTruckSale
     object CDS_TruckSaleDataHOL_PACK: TIntegerField
       FieldName = 'HOL_PACK'
     end
+    object CDS_TruckSaleDataMIN_PACK: TIntegerField
+      FieldName = 'MIN_PACK'
+    end
   end
   object DS_TruckSaleData: TOraDataSource
     DataSet = CDS_TruckSaleData
@@ -1874,7 +2039,7 @@ object frmTruckSale: TfrmTruckSale
     object cds_exportSIZE: TIntegerField
       FieldName = 'SIZE'
     end
-    object cds_exportPIECESINPACK: TIntegerField
+    object cds_exportPIECESINPACK: TFloatField
       FieldName = 'PIECESINPACK'
     end
     object cds_exportPRODUCT_DESC: TStringField
@@ -1969,5 +2134,35 @@ object frmTruckSale: TfrmTruckSale
       Caption = #1059#1089#1090#1072#1085#1086#1074#1080#1090#1100' '#1077#1076#1080#1085#1091#1102' '#1094#1077#1085#1091' '#1076#1083#1103' '#1090#1077#1082#1091#1097#1080#1093' '#1087#1086#1079#1080#1094#1080#1081
       OnClick = mmPriceAllClick
     end
+  end
+  object CDS_OLD_PRICE: TOraQuery
+    SQL.Strings = (
+      'SELECT a.n_id, a.hol_price, a.final_price'
+      '  FROM prepare_price_list a'
+      '  where a.ppli_id = :old_price')
+    FetchAll = True
+    AfterScroll = CDS_TruckSaleAfterScroll
+    Left = 112
+    Top = 432
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'old_price'
+      end>
+    object CDS_OLD_PRICEN_ID: TFloatField
+      FieldName = 'N_ID'
+      Required = True
+    end
+    object CDS_OLD_PRICEHOL_PRICE: TFloatField
+      FieldName = 'HOL_PRICE'
+    end
+    object CDS_OLD_PRICEFINAL_PRICE: TFloatField
+      FieldName = 'FINAL_PRICE'
+    end
+  end
+  object DS_OLD_PRICE: TOraDataSource
+    DataSet = CDS_OLD_PRICE
+    Left = 144
+    Top = 432
   end
 end
