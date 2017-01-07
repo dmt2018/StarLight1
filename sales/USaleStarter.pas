@@ -684,6 +684,7 @@ var id_: integer;
 begin
     frmSales := TfrmSales.Create(Application);
     try
+      frmSales.Image1.Tag := id_client_;
       frmSales.aLoad.Execute;
       frmSales.Edit_Order_Id.Visible  := false;
       frmSales.Label1.Caption         := 'На дату';
