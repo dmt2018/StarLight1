@@ -1359,6 +1359,7 @@ begin
       frmSales.Edit_Order_Id.Visible  := false;
       frmSales.Label1.Caption         := 'На дату';
       frmSales.dt_ondate.DateTime     := dm.cds_reservON_DATE.AsDateTime;
+      frmSales.Image1.Tag             := dm.cds_reservID_CLIENTS.AsInteger;
 //      frmSales.Label1.Visible         := frmSales.Edit_Order_Id.Visible;
 //      frmSales.Label1.Visible         := frmSales.Edit_Order_Id.Visible;
 //      frmSales.Label1.Visible         := frmSales.Edit_Order_Id.Visible;
