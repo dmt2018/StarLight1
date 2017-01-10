@@ -748,7 +748,13 @@ begin
       DM.CDS_NULLSTORE.Filtered := true;
     end;
 
-  end else gr_main.DataSource := DM.DS_MSTORE;
+  end else begin
+   if dm.cds_reservINFO.AsString = trim('') then begin
+    DM.cDS_MSTORE.ParamByName('v_client').AsInteger := image1.tag;
+    DM.cDS_MSTORE.Refresh;
+   end;
+    gr_main.DataSource := DM.DS_MSTORE;
+  end;
 
   screen.cursor := crdefault;
 end;

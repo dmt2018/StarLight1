@@ -397,7 +397,8 @@ uses Globals;
 procedure TDM.CDS_MSTOREBeforeOpen(DataSet: TDataSet);
 begin
   (DataSet As TOraQuery).ParamByName('v_office').AsInteger := id_office;
-  (DataSet As TOraQuery).ParamByName('v_client').AsInteger := cds_reservID_CLIENTS.AsInteger;
+  //(DataSet As TOraQuery).ParamByName('v_client').AsInteger := Q_CLIENTSID_CLIENTS.AsInteger;
+  //(DataSet As TOraQuery).ParamByName('v_client').AsInteger := cds_reservID_CLIENTS.AsInteger;
 end;
 
 procedure TDM.CDS_NULLSTOREBeforeOpen(DataSet: TDataSet);
