@@ -748,7 +748,8 @@ begin
       DM.CDS_NULLSTORE.Filtered := true;
     end;
 
-  end else  gr_main.DataSource := DM.DS_MSTORE;
+  end else gr_main.DataSource := DM.DS_MSTORE;
+
   screen.cursor := crdefault;
 end;
 

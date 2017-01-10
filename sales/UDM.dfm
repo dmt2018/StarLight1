@@ -8,7 +8,7 @@ object DM: TDM
     Options.Direct = True
     Username = 'CREATOR'
     Password = '123456'
-    Server = 'KLEPOV:1521:STARREG'
+    Server = 'ROZNICA:1521:orcl'
     AutoCommit = False
     AfterConnect = sale_sessionAfterConnect
     Left = 32
