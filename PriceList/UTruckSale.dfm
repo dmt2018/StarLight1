@@ -32,7 +32,6 @@ object frmTruckSale: TfrmTruckSale
     Font.Style = []
     ParentFont = False
     TabOrder = 0
-    ExplicitWidth = 984
     object btnRefresh: TcxButton
       Left = 4
       Top = 4
@@ -506,7 +505,6 @@ object frmTruckSale: TfrmTruckSale
     ParentBackground = False
     ParentCtl3D = False
     TabOrder = 1
-    ExplicitWidth = 984
     DesignSize = (
       1072
       40)
@@ -570,7 +568,6 @@ object frmTruckSale: TfrmTruckSale
       LookAndFeel.Kind = lfFlat
       LookAndFeel.NativeStyle = True
       Spacing = 6
-      ExplicitLeft = 838
     end
     object cxLabel1: TcxLabel
       Left = 4
@@ -604,12 +601,13 @@ object frmTruckSale: TfrmTruckSale
     ParentFont = False
     TabOrder = 2
     LookAndFeel.Kind = lfOffice11
-    ExplicitWidth = 984
     object grSpecOrdersV: TcxGridDBTableView
       PopupMenu = pmMain
       NavigatorButtons.ConfirmDelete = False
       DataController.DataSource = DS_TruckSaleData
-      DataController.Options = [dcoAssignGroupingValues, dcoAssignMasterDetailKeys, dcoSaveExpanding, dcoGroupsAlwaysExpanded, dcoImmediatePost]
+      DataController.Filter.Options = [fcoCaseInsensitive]
+      DataController.Filter.AutoDataSetFilter = True
+      DataController.Options = [dcoAnsiSort, dcoCaseInsensitive, dcoAssignGroupingValues, dcoAssignMasterDetailKeys, dcoSaveExpanding, dcoGroupsAlwaysExpanded, dcoImmediatePost]
       DataController.Summary.DefaultGroupSummaryItems = <>
       DataController.Summary.FooterSummaryItems = <
         item
@@ -821,7 +819,6 @@ object frmTruckSale: TfrmTruckSale
     ParentFont = False
     TabOrder = 3
     LookAndFeel.Kind = lfOffice11
-    ExplicitWidth = 984
     object grTruckSale_v: TcxGridDBTableView
       NavigatorButtons.ConfirmDelete = False
       OnEditKeyDown = grTruckSale_vEditKeyDown
@@ -879,6 +876,22 @@ object frmTruckSale: TfrmTruckSale
         Options.Moving = False
         Styles.Content = stEdit
         Width = 135
+      end
+      object grTruckSale_vTRUCKINCAMING: TcxGridDBColumn
+        Caption = #1055#1088#1080#1093#1086#1076' '#1084#1072#1096#1080#1085#1099
+        DataBinding.FieldName = 'TRUCKINCAMING'
+        PropertiesClassName = 'TcxDateEditProperties'
+        Properties.Alignment.Horz = taCenter
+        Properties.ImmediatePost = True
+        Properties.SaveTime = False
+        Properties.ShowTime = False
+        HeaderAlignmentHorz = taCenter
+        HeaderGlyphAlignmentHorz = taCenter
+        MinWidth = 110
+        Options.HorzSizing = False
+        Options.Moving = False
+        Styles.Content = stEdit
+        Width = 110
       end
       object grTruckSale_vPRICE_COEF: TcxGridDBColumn
         Caption = #1053#1072#1094#1077#1085#1082#1072
@@ -1001,7 +1014,6 @@ object frmTruckSale: TfrmTruckSale
     BevelInner = bvRaised
     BevelOuter = bvLowered
     TabOrder = 4
-    ExplicitWidth = 984
     object Label12: TLabel
       Left = 406
       Top = 6
@@ -1446,6 +1458,9 @@ object frmTruckSale: TfrmTruckSale
       object cxGrid1DBTableView1INV_ID: TcxGridDBColumn
         DataBinding.FieldName = 'INV_ID'
       end
+      object cxGrid1DBTableView1TRUCKINCAMING: TcxGridDBColumn
+        DataBinding.FieldName = 'TRUCKINCAMING'
+      end
     end
     object cxGrid1Level1: TcxGridLevel
       GridView = cxGrid1DBTableView1
@@ -1606,6 +1621,7 @@ object frmTruckSale: TfrmTruckSale
     MasterFields = 'truck_sale_id_'
     FetchAll = True
     RefreshOptions = [roAfterUpdate]
+    FilterOptions = [foCaseInsensitive]
     Left = 160
     Top = 376
     ParamData = <
@@ -1854,6 +1870,7 @@ object frmTruckSale: TfrmTruckSale
       '  PRICE_COEF = :PRICE_COEF, '
       '  COURSE = :COURSE, '
       '  start_date = :start_date, '
+      '  truckincaming = :truckincaming, '
       '  STOP_DATE = :STOP_DATE, '
       '  STATUS = :STATUS, '
       '  COMMENTS = :COMMENTS, '
@@ -1943,6 +1960,9 @@ object frmTruckSale: TfrmTruckSale
     end
     object CDS_TruckSaleCOURSE: TFloatField
       FieldName = 'COURSE'
+    end
+    object CDS_TruckSaleTRUCKINCAMING: TDateTimeField
+      FieldName = 'TRUCKINCAMING'
     end
   end
   object DS_TruckSale: TOraDataSource
@@ -2086,6 +2106,9 @@ object frmTruckSale: TfrmTruckSale
     object cds_exportINV_ID: TFloatField
       FieldName = 'INV_ID'
     end
+    object cds_exportTRUCKINCAMING: TDateTimeField
+      FieldName = 'TRUCKINCAMING'
+    end
   end
   object ds_export: TOraDataSource
     DataSet = cds_export
@@ -2137,7 +2160,7 @@ object frmTruckSale: TfrmTruckSale
   end
   object CDS_OLD_PRICE: TOraQuery
     SQL.Strings = (
-      'SELECT a.n_id, a.hol_price, a.final_price'
+      'SELECT a.ppli_id, a.n_id, a.hol_price, a.final_price'
       '  FROM prepare_price_list a'
       '  where a.ppli_id = :old_price')
     FetchAll = True
@@ -2158,6 +2181,10 @@ object frmTruckSale: TfrmTruckSale
     end
     object CDS_OLD_PRICEFINAL_PRICE: TFloatField
       FieldName = 'FINAL_PRICE'
+    end
+    object CDS_OLD_PRICEPPLI_ID: TFloatField
+      FieldName = 'PPLI_ID'
+      Required = True
     end
   end
   object DS_OLD_PRICE: TOraDataSource

@@ -236,6 +236,11 @@ type
     CDS_OLD_PRICEN_ID: TFloatField;
     CDS_OLD_PRICEHOL_PRICE: TFloatField;
     CDS_OLD_PRICEFINAL_PRICE: TFloatField;
+    CDS_TruckSaleTRUCKINCAMING: TDateTimeField;
+    grTruckSale_vTRUCKINCAMING: TcxGridDBColumn;
+    cds_exportTRUCKINCAMING: TDateTimeField;
+    cxGrid1DBTableView1TRUCKINCAMING: TcxGridDBColumn;
+    CDS_OLD_PRICEPPLI_ID: TFloatField;
     procedure btnRefreshClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnAddClick(Sender: TObject);
@@ -870,7 +875,7 @@ begin
     finally
       CDS_TruckSaleData.EnableControls;
     end;
-
+    CDS_OLD_PRICE.Close;
     CDS_TruckSaleData.Refresh;
     MessageBox(Handle, PChar('Обработка завершена'), 'Информация', MB_ICONINFORMATION);
 

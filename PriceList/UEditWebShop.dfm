@@ -203,9 +203,9 @@ object frmEditWebShop: TfrmEditWebShop
     TabOrder = 0
     object gd_invoice: TcxGrid
       Left = 6
-      Top = 73
+      Top = 91
       Width = 499
-      Height = 349
+      Height = 331
       Hint = 'Ctrl+Tab '#1087#1077#1088#1077#1082#1083#1102#1095#1077#1085#1080#1077' '#1084#1077#1078#1076#1091' '#1090#1072#1073#1083#1080#1094#1072#1084#1080
       Align = alLeft
       Enabled = False
@@ -218,6 +218,8 @@ object frmEditWebShop: TfrmEditWebShop
       ParentFont = False
       TabOrder = 1
       LookAndFeel.Kind = lfOffice11
+      ExplicitTop = 73
+      ExplicitHeight = 349
       object gd_invoice_v: TcxGridDBTableView
         NavigatorButtons.ConfirmDelete = False
         FilterBox.Position = fpTop
@@ -489,7 +491,7 @@ object frmEditWebShop: TfrmEditWebShop
       Left = 6
       Top = 6
       Width = 983
-      Height = 67
+      Height = 85
       Align = alTop
       BevelOuter = bvNone
       ParentBackground = False
@@ -547,8 +549,8 @@ object frmEditWebShop: TfrmEditWebShop
         ParentFont = False
       end
       object Label5: TLabel
-        Left = 577
-        Top = 33
+        Left = 295
+        Top = 60
         Width = 39
         Height = 16
         Caption = #1057#1090#1072#1090#1091#1089
@@ -565,6 +567,19 @@ object frmEditWebShop: TfrmEditWebShop
         Width = 26
         Height = 16
         Caption = #1050#1091#1088#1089
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label7: TLabel
+        Left = 10
+        Top = 60
+        Width = 94
+        Height = 16
+        Caption = #1055#1088#1080#1093#1086#1076' '#1084#1072#1096#1080#1085#1099
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -618,7 +633,7 @@ object frmEditWebShop: TfrmEditWebShop
         Style.Font.Name = 'Tahoma'
         Style.Font.Style = []
         Style.IsFontAssigned = True
-        TabOrder = 2
+        TabOrder = 3
         Width = 402
       end
       object edCoef: TcxCurrencyEdit
@@ -637,12 +652,12 @@ object frmEditWebShop: TfrmEditWebShop
         Style.Font.Name = 'Tahoma'
         Style.Font.Style = []
         Style.IsFontAssigned = True
-        TabOrder = 3
+        TabOrder = 4
         Width = 58
       end
       object edStatus: TcxComboBox
-        Left = 622
-        Top = 29
+        Left = 391
+        Top = 56
         ParentFont = False
         Properties.ImmediatePost = True
         Properties.Items.Strings = (
@@ -657,15 +672,15 @@ object frmEditWebShop: TfrmEditWebShop
         Style.Font.Name = 'Tahoma'
         Style.Font.Style = []
         Style.IsFontAssigned = True
-        TabOrder = 5
+        TabOrder = 6
         Text = #1053#1086#1074#1099#1081
         Width = 171
       end
       object rgWebShop: TRadioGroup
-        Left = 822
-        Top = 0
+        Left = 814
+        Top = 2
         Width = 130
-        Height = 53
+        Height = 65
         Caption = ' '#1063#1090#1086' '#1080#1089#1087#1086#1083#1100#1079#1091#1077#1084' '
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -677,7 +692,7 @@ object frmEditWebShop: TfrmEditWebShop
           #1080#1085#1074#1086#1081#1089#1099
           #1088#1072#1079#1085#1086#1089#1099)
         ParentFont = False
-        TabOrder = 6
+        TabOrder = 7
         OnClick = rgWebShopClick
       end
       object edCourse: TcxCurrencyEdit
@@ -696,15 +711,33 @@ object frmEditWebShop: TfrmEditWebShop
         Style.Font.Name = 'Tahoma'
         Style.Font.Style = []
         Style.IsFontAssigned = True
-        TabOrder = 4
+        TabOrder = 5
         Width = 64
+      end
+      object de_TruckIncaming: TcxDateEdit
+        Left = 129
+        Top = 56
+        ParentFont = False
+        Properties.DateButtons = [btnClear, btnToday]
+        Properties.DateOnError = deToday
+        Properties.ImmediatePost = True
+        Properties.SaveTime = False
+        Properties.ShowTime = False
+        Style.Font.Charset = DEFAULT_CHARSET
+        Style.Font.Color = clWindowText
+        Style.Font.Height = -13
+        Style.Font.Name = 'Tahoma'
+        Style.Font.Style = []
+        Style.IsFontAssigned = True
+        TabOrder = 2
+        Width = 155
       end
     end
     object gr_distr: TcxGrid
       Left = 513
-      Top = 73
+      Top = 91
       Width = 476
-      Height = 349
+      Height = 331
       Align = alClient
       Enabled = False
       Font.Charset = DEFAULT_CHARSET
@@ -716,6 +749,8 @@ object frmEditWebShop: TfrmEditWebShop
       ParentFont = False
       TabOrder = 2
       LookAndFeel.Kind = lfOffice11
+      ExplicitTop = 73
+      ExplicitHeight = 349
       object gr_distr_v: TcxGridDBTableView
         NavigatorButtons.ConfirmDelete = False
         OnCellDblClick = gr_distr_vCellDblClick
@@ -818,11 +853,13 @@ object frmEditWebShop: TfrmEditWebShop
     end
     object cxSplitter1: TcxSplitter
       Left = 505
-      Top = 73
+      Top = 91
       Width = 8
-      Height = 349
+      Height = 331
       HotZoneClassName = 'TcxXPTaskBarStyle'
       Control = gd_invoice
+      ExplicitTop = 73
+      ExplicitHeight = 349
     end
   end
   object SelDistrInd: TOraQuery

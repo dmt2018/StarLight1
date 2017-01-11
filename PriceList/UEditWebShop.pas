@@ -91,6 +91,8 @@ type
     edCourse: TcxCurrencyEdit;
     InvoRegREADY_POS: TFloatField;
     gd_invoice_vREADY_POS: TcxGridDBColumn;
+    Label7: TLabel;
+    de_TruckIncaming: TcxDateEdit;
     procedure FormShow(Sender: TObject);
     procedure gd_invoice_vCellDblClick(Sender: TcxCustomGridTableView;
       ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
@@ -130,6 +132,7 @@ begin
   startDate.EditValue := gd_invoice_v.DataController.DataSet.FieldByName('INV_DATE').AsDateTime;
   stopDate.EditValue  := startDate.EditValue + 4;
   stopDate.EditValue  := StrToDateTime(stopDate.Text + ' 22:00:00');
+  de_TruckIncaming.EditValue  := startDate.EditValue + 6;
 end;
 
 // проставим даты старта и окончания продаж с разноса
@@ -142,6 +145,7 @@ begin
   startDate.EditValue := gr_distr_v.DataController.DataSet.FieldByName('DIST_DATE').AsDateTime;
   stopDate.EditValue  := startDate.EditValue + 2;
   stopDate.EditValue  := StrToDateTime(stopDate.Text + ' 22:00:00');
+  de_TruckIncaming.EditValue  := startDate.EditValue + 4;
 end;
 
 // лочим таблицы в зависимости от выбора источника данных
@@ -176,22 +180,10 @@ begin
     if wType = 'new' then
     begin
       frmEditWebShop.rgWebShop.ItemIndex := 0;
-{
-      frmEditWebShop.InvoReg.ParamByName('id_dept_').Value := CUR_DEPT_ID;
-      ReactivateOraQuery(frmEditWebShop.InvoReg);
-      frmEditWebShop.SelDistrInd.ParamByName('STARTDATE').AsDate := Now-10;
-      frmEditWebShop.SelDistrInd.ParamByName('STOPDATE').AsDate  := Now+10;
-      ReactivateOraQuery(frmEditWebShop.SelDistrInd);
-}
     end;
     if wType = 'edit' then
     begin
       null;
-//      pnlTop.Enabled := false;
-{
-      gd_invoice.Enabled := false;
-      gr_distr.Enabled   := false;
-}
     end;
 
     if frmEditWebShop.rgWebShop.ItemIndex = 0 then
@@ -219,7 +211,7 @@ begin
     with DM.ForceQ do
     begin
       Close;
-      SQL.Text := 'begin truck_sale_pkg.edit_truck_sale(:p_id, :p_start_date, :p_stop_date, :p_comments, :p_price_coef, :p_course, :p_status); end;';
+      SQL.Text := 'begin truck_sale_pkg.edit_truck_sale(:p_id, :p_start_date, :p_stop_date, :p_comments, :p_price_coef, :p_course, :p_status, :p_truckincaming); end;';
       ParamByName('p_id').AsInteger         := 0;
       ParamByName('p_start_date').AsDate    := startDate.EditValue;
       ParamByName('p_stop_date').AsDateTime := stopDate.EditValue;
@@ -227,6 +219,7 @@ begin
       ParamByName('p_price_coef').AsFloat   := edCoef.EditValue;
       ParamByName('p_course').AsFloat       := edCourse.EditValue;
       ParamByName('p_status').AsString      := edStatus.EditingText;
+      ParamByName('p_truckincaming').AsDate := de_TruckIncaming.EditValue;
       Execute;
 
       id := ParamByName('p_id').AsInteger;
@@ -302,6 +295,7 @@ begin
   begin
     startDate.EditValue := Now;
     stopDate.EditValue  := StrToDateTime(startDate.Text + ' 22:00:00');
+    de_TruckIncaming.EditValue  := startDate.EditValue + 4;
 
     DM.ForceQ.SQL.Clear;
     DM.ForceQ.SQL.Add('begin dicts.get_curse(:DDATE_, :CURSOR_); end;');
