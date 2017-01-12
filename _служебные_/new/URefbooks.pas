@@ -285,7 +285,7 @@ begin
   begin
 
   if (pcrefbooks.ActivePage.PageIndex  in [0..5]) then
-  if (DM.id_office <> (sss.ActiveView.DataController as TcxDBDataController).DataSet.FieldByName('ID_OFFICE').AsInteger) then
+  if (intDefOffice <> (sss.ActiveView.DataController as TcxDBDataController).DataSet.FieldByName('ID_OFFICE').AsInteger) then
   begin
     MessageBox(Handle,'Данная запись не принадлежит главному офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
     exit;
@@ -418,7 +418,7 @@ begin
           selq.Close;
           grSuppliers.SetFocus;
       end;
-      if (pcrefbooks.ActivePage.PageIndex=8) and (DM.id_office=1)  then begin
+      if (pcrefbooks.ActivePage.PageIndex=8) and (intDefOffice=1)  then begin
           grUnitsView.DataController.DataSet.Delete;
       end;
       except
@@ -450,7 +450,7 @@ begin
   begin
 
   if (pcrefbooks.ActivePage.PageIndex  in [0..5]) then
-  if (DM.id_office <> (sss.ActiveView.DataController as TcxDBDataController).DataSet.FieldByName('ID_OFFICE').AsInteger) then
+  if (intDefOffice <> (sss.ActiveView.DataController as TcxDBDataController).DataSet.FieldByName('ID_OFFICE').AsInteger) then
   begin
     MessageBox(Handle,'Данная запись не принадлежит главному офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
     exit;
@@ -596,7 +596,7 @@ end;
 procedure TfrmRefbooks.aNewExecute(Sender: TObject);
  var id : variant;
 begin
-  if (pcrefbooks.ActivePage.PageIndex<4) and (DM.id_office > 1) then
+  if (pcrefbooks.ActivePage.PageIndex<4) and (intDefOffice > 1) then
   begin
     MessageBox(Handle,'Вид данных добавляется только через главный офис компании.','Внимание!',MB_ICONERROR);
     exit;
@@ -724,7 +724,7 @@ begin
   begin
     Caption := 'Cправочники :: регионы';
     Q_REGIONS.Close;
-    Q_REGIONS.ParamByName('V_OFFICE').AsInteger :=  DM.id_office;
+    Q_REGIONS.ParamByName('V_OFFICE').AsInteger :=  intDefOffice;
     Q_REGIONS.Open;
     grRegions.SetFocus;
   end;
@@ -733,10 +733,10 @@ begin
   begin
     Caption := 'Cправочники :: города';
     Q_REGIONS.Close;  // чтоб был открыт датасет регионов для выбора в городах
-    Q_REGIONS.ParamByName('V_OFFICE').AsInteger := DM.id_office;
+    Q_REGIONS.ParamByName('V_OFFICE').AsInteger := intDefOffice;
     Q_REGIONS.Open;
     Q_CITIES.Close;
-    Q_CITIES.ParamByName('V_OFFICE').AsInteger := DM.id_office;
+    Q_CITIES.ParamByName('V_OFFICE').AsInteger := intDefOffice;
     Q_CITIES.Open;
     grCities.SetFocus;
   end;
@@ -745,7 +745,7 @@ begin
   begin
     Caption := 'Cправочники :: реклама';
     Q_Promo.Close;
-    Q_Promo.ParamByName('V_OFFICE').AsInteger := DM.id_office;
+    Q_Promo.ParamByName('V_OFFICE').AsInteger := intDefOffice;
     Q_Promo.Open;
     grPromo.SetFocus;
   end;
@@ -754,7 +754,7 @@ begin
   begin
     Caption := 'Cправочники :: типы клиентов';
     Q_CT.Close;
-    Q_CT.ParamByName('V_OFFICE').AsInteger := DM.id_office;
+    Q_CT.ParamByName('V_OFFICE').AsInteger := intDefOffice;
     Q_CT.Open;
     grClientTypes.SetFocus;
   end;
@@ -763,7 +763,7 @@ begin
   begin
     Caption := 'Cправочники :: отделы';
     Q_DEPS.Close;
-    Q_DEPS.ParamByName('V_OFFICE').AsInteger := DM.id_office;
+    Q_DEPS.ParamByName('V_OFFICE').AsInteger := intDefOffice;
     Q_DEPS.Open;
     grDeps.SetFocus;
   end;
@@ -772,7 +772,7 @@ begin
   begin
     Caption := 'Cправочники :: должности';
     Q_POST.Close;
-    Q_POST.ParamByName('V_OFFICE').AsInteger := DM.id_office;
+    Q_POST.ParamByName('V_OFFICE').AsInteger := intDefOffice;
     Q_POST.Open;
     grPost.SetFocus;
   end;
@@ -791,7 +791,7 @@ begin
     Q_CTRS.Close;
     Q_CTRS.Open;
     Q_SUP.Close;
-    Q_SUP.ParamByName('V_OFFICE').AsInteger := DM.id_office;
+    Q_SUP.ParamByName('V_OFFICE').AsInteger := intDefOffice;
     Q_SUP.Open;
     grSuppliers.SetFocus;
   end;

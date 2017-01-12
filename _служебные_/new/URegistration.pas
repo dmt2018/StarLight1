@@ -731,23 +731,23 @@ end;
 
 procedure TfrmRegistration.FormShow(Sender: TObject);
 begin
-  if (imgOffice.Enabled) then
-  begin
+ // if (imgOffice.Enabled) then
+ // begin
       try
         id_office := GetOfficeID;
-        imgOffice.Enabled := (id_office = 1);
+       { imgOffice.Enabled := (id_office = 1);
         imgOffice.Properties.OnChange := nil;
         selq.Close;
         selq.SQL.Clear;
         selq.SQL.Add('SELECT ID_OFFICE, OFFICE_NAME FROM OFFICES ORDER BY OFFICE_NAME');
         selq.Open;
         SelQ.Close;
-        imgOffice.EditValue := id_office;
+        imgOffice.EditValue := id_office; }
         Refresh.Execute;//вывод клиентов в грид
       except
         on E: Exception do ShowMessage(E.Message);
       end;
-  end;
+ // end;
 
   cxClientViewSALES.Visible := p_read;
   export_search.Enabled     := p_edit;
@@ -933,7 +933,7 @@ var sql: string;
 begin
   Q_GROUPS.Close;
   Q_GROUPS.SQL.Clear;
-  sql := 'SELECT a.*, o.BRIEF FROM CLIENTS_GROUPS a, offices o where (a.ID_OFFICE='+IntToStr(dm.id_office)+' or 0='+IntToStr(dm.id_office)+') and a.id_office = o.id_office and a.ID_CLIENTS_GROUPS in (select ID_CLIENTS_GROUPS from clients where (ID_OFFICE='+IntToStr(dm.id_office)+' or '+IntToStr(dm.id_office)+'=0) ';
+  sql := 'SELECT a.*, o.BRIEF FROM CLIENTS_GROUPS a, offices o where (a.ID_OFFICE='+IntToStr(intDefOffice)+' or 0='+IntToStr(intDefOffice)+') and a.id_office = o.id_office and a.ID_CLIENTS_GROUPS in (select ID_CLIENTS_GROUPS from clients where (ID_OFFICE='+IntToStr(intDefOffice)+' or '+IntToStr(intDefOffice)+'=0) ';
   if ( Trim(Edit25.Text) <> '' ) then sql := sql + ' and UPPER(NICK) LIKE UPPER(''%'+Edit25.Text+'%'')';
   if ( Trim(Edit26.Text) <> '' ) then sql := sql + ' and UPPER(FIO) LIKE UPPER(''%'+Edit26.Text+'%'')';
   sql := sql + ' ) ORDER BY a.NAME';
@@ -949,7 +949,7 @@ var sql: string;
 begin
   Q_GROUPS.Close;
   Q_GROUPS.SQL.Clear;
-  sql := 'SELECT a.*, o.BRIEF FROM CLIENTS_GROUPS a, offices o where (a.ID_OFFICE='+IntToStr(dm.id_office)+' or '+IntToStr(dm.id_office)+'=0) and a.id_office = o.id_office ORDER BY a.NAME';
+  sql := 'SELECT a.*, o.BRIEF FROM CLIENTS_GROUPS a, offices o where (a.ID_OFFICE='+IntToStr(intDefOffice)+' or '+IntToStr(intDefOffice)+'=0) and a.id_office = o.id_office ORDER BY a.NAME';
   Q_GROUPS.SQL.Add(sql);
   Q_GROUPS.Open;
   Edit25.Text := '';
@@ -1376,7 +1376,7 @@ begin
 
           Clients_table.Post;
           Clients_table.Active := false;
-          if DM.id_office = 1 then         
+          if intDefOffice = 1 then
              ShellExecute(Application.Handle, nil, PChar(progas), nil, nil, SW_SHOWNORMAL);
           ShowMessage('Клиент скопирован в старую БД успешно.');
       except
@@ -1412,7 +1412,7 @@ begin
     //pnl_msg := TPanel(MakePanelLabel(Panel1,300,100,'Идет обработка запроса'));
     //pnl_msg.Repaint;
 
-    AssignFile(F_CSV, path+ '\OUT\'+IntToStr(DM.id_office)+'_export_clients.sql');
+    AssignFile(F_CSV, path+ '\OUT\'+IntToStr(intDefOffice)+'_export_clients.sql');
     Rewrite(F_CSV);
 
     sql_str := 'Alter session set NLS_NUMERIC_CHARACTERS=''.,''';
@@ -1513,7 +1513,7 @@ begin
     Q_SEARCH.SQL.Clear;
     Q_SEARCH.SQL.Add('SELECT C.*, s.city , o.brief, G.NAME AS GROUP_NAME, T.NAME AS TTYPE_NAME, R.NAME AS REGION_NAME, A.NAME AS ADVERT ');
     Q_SEARCH.SQL.Add(' FROM CLIENTS_GROUPS G, BOOKS_CLIENT_TYPES T, BOOKS_ADVERTISMENTS A, CLIENTS C, BOOKS_REGIONS R, offices o, books_cities s');
-    Q_SEARCH.SQL.Add('WHERE C.ID_CLIENTS_GROUPS = G.ID_CLIENTS_GROUPS AND C.TTYPE = T.ID_CLIENT_TYPES AND C.ADVERTISMENT = A.ID_ADVERTISMENTS AND C.REGION = R.ID_REGIONS and c.id_city = s.id_city(+) and c.id_office = o.ID_OFFICE and (c.ID_OFFICE='+IntToStr(dm.id_office)+' or 0='+IntToStr(dm.id_office)+') ');
+    Q_SEARCH.SQL.Add('WHERE C.ID_CLIENTS_GROUPS = G.ID_CLIENTS_GROUPS AND C.TTYPE = T.ID_CLIENT_TYPES AND C.ADVERTISMENT = A.ID_ADVERTISMENTS AND C.REGION = R.ID_REGIONS and c.id_city = s.id_city(+) and c.id_office = o.ID_OFFICE and (c.ID_OFFICE='+IntToStr(intDefOffice)+' or 0='+IntToStr(intDefOffice)+') ');
 
     if (DBComboBoxEh2.Value = 1) then
     begin
@@ -1600,7 +1600,7 @@ begin
   Q_SEARCH.Close;
   Q_SEARCH.SQL.Clear;
   Q_SEARCH.SQL.Add('SELECT C.*, G.NAME AS GROUP_NAME, T.NAME AS TTYPE_NAME, R.NAME AS REGION_NAME, A.NAME AS ADVERT FROM CLIENTS_GROUPS G, BOOKS_CLIENT_TYPES T, BOOKS_ADVERTISMENTS A, CLIENTS C, BOOKS_REGIONS R, offices o ');
-  Q_SEARCH.SQL.Add('WHERE C.ID_CLIENTS_GROUPS = G.ID_CLIENTS_GROUPS AND C.TTYPE = T.ID_CLIENT_TYPES AND C.ADVERTISMENT = A.ID_ADVERTISMENTS AND C.REGION = R.ID_REGIONS and c.id_office = o.ID_OFFICE and (c.ID_OFFICE='+IntToStr(dm.id_office)+' or 0='+IntToStr(dm.id_office)+') ');
+  Q_SEARCH.SQL.Add('WHERE C.ID_CLIENTS_GROUPS = G.ID_CLIENTS_GROUPS AND C.TTYPE = T.ID_CLIENT_TYPES AND C.ADVERTISMENT = A.ID_ADVERTISMENTS AND C.REGION = R.ID_REGIONS and c.id_office = o.ID_OFFICE and (c.ID_OFFICE='+IntToStr(intDefOffice)+' or 0='+IntToStr(intDefOffice)+') ');
   CrDBGrid4.Visible := false;
 end;
 
@@ -2347,7 +2347,7 @@ begin
     // if (PageControl1.TabIndex = 0) then BitBtn9Click(self);
   if (PageControl1.TabIndex = 3) then BitBtn23Click(self);
   if (PageControl1.TabIndex = 0) then begin
-  sql := 'SELECT * from CLIENTS_VIEW3 where (ID_OFFICE='+IntToStr(dm.id_office)+' or 0='+IntToStr(dm.id_office)+') ';
+  sql := 'SELECT * from CLIENTS_VIEW3 where (ID_OFFICE='+IntToStr(intDefOffice)+' or 0='+IntToStr(intDefOffice)+') ';
 
   Q_CLIENTS.Close;
   Q_CLIENTS.SQL.Clear;
@@ -2378,7 +2378,7 @@ begin
   //if (PageControl1.TabIndex = 0) then BitBtn8Click(self);
   if (PageControl1.TabIndex = 3) then BitBtn22Click(self);
 if (PageControl1.TabIndex = 0) then begin
-    sql := 'SELECT * from CLIENTS_VIEW3 WHERE (ID_OFFICE='+IntToStr(dm.id_office)+' or 0='+IntToStr(dm.id_office)+') ';
+    sql := 'SELECT * from CLIENTS_VIEW3 WHERE (ID_OFFICE='+IntToStr(intDefOffice)+' or 0='+IntToStr(intDefOffice)+') ';
 
   if (trim(Edit4.Text) <> '') then sql := sql + ' AND UPPER(FIO) LIKE ''%' + AnsiUpperCase(Edit4.Text) + '%''';
   if (trim(Edit3.Text) <> '') then sql := sql + ' AND UPPER(NICK) LIKE ''%' + AnsiUpperCase(Edit3.Text) + '%''';

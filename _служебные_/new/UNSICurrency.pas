@@ -175,7 +175,7 @@ procedure TfrmNSICurreny.aDeleteExecute(Sender: TObject);
 begin
   if Q_CURR.RecordCount = 0 then exit;
 
-  if (DM.id_office <> Q_CURR.FieldByName('ID_OFFICE').AsInteger) then
+  if (intDefOffice <> Q_CURR.FieldByName('ID_OFFICE').AsInteger) then
   begin
     MessageBox(Handle,'Данная запись не принадлежит главному офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
     exit;
@@ -198,7 +198,7 @@ procedure TfrmNSICurreny.aEditExecute(Sender: TObject);
 begin
   if Q_CURR.RecordCount = 0 then exit;
 
-  if (DM.id_office <> Q_CURR.FieldByName('ID_OFFICE').AsInteger) then
+  if (intDefOffice <> Q_CURR.FieldByName('ID_OFFICE').AsInteger) then
   begin
     MessageBox(Handle,'Данная запись не принадлежит главному офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
     exit;
@@ -226,7 +226,7 @@ begin
 
   try
     Q_CURR.Close;
-    Q_CURR.ParamByName('v_office').AsInteger  := DM.id_office;
+    Q_CURR.ParamByName('v_office').AsInteger  := GetOfficeID;//DM.id_office;
     Q_CURR.ParamByName('date_begin').AsDate   := deCoursesBegin.CurDate; // deCoursesBegin.EditValue;
     Q_CURR.ParamByName('date_end').AsDate     := deCoursesEnd.CurDate;
     try

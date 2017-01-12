@@ -32,9 +32,9 @@ type
   public
     { Public declarations }
     //это пока не использую:
-    id_office: integer;
+   { id_office: integer;
     CUR_DEPT_ID: integer;
-    CUR_DEPT_NAME: string;
+    CUR_DEPT_NAME: string;}
   end;
 
 var

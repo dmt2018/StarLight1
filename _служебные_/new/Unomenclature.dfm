@@ -1,8 +1,8 @@
 object frmNomenclature: TfrmNomenclature
   Left = 0
   Top = 0
-  Caption = #1053#1086#1084#1077#1085#1082#1083#1072#1090#1091#1088#1072' - '#1088#1072#1073#1086#1090#1072#1077#1090', '#1085#1086' '#1090#1091#1090' '#1084#1085#1086#1075#1086' '#1083#1080#1096#1085#1077#1075#1086', '#1085#1072#1076#1072' '#1088#1072#1079#1073#1080#1088#1072#1094#1072
-  ClientHeight = 558
+  Caption = #1053#1086#1084#1077#1085#1082#1083#1072#1090#1091#1088#1072' - '#1087#1086#1095#1080#1089#1090#1080#1090#1100' '#1083#1080#1096#1085#1077#1077', '#1080' '#1085#1080#1078' '#1090#1072#1073#1083' '#1085#1077' '#1086#1090#1086#1073#1088'-'#1089#1103
+  ClientHeight = 560
   ClientWidth = 1124
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -20,21 +20,22 @@ object frmNomenclature: TfrmNomenclature
   TextHeight = 13
   object cxSplitter1: TcxSplitter
     Left = 0
-    Top = 400
+    Top = 376
     Width = 1124
     Height = 8
     Cursor = crVSplit
     HotZoneClassName = 'TcxXPTaskBarStyle'
     AlignSplitter = salBottom
-    Control = gr_spec
+    Control = Panel4
     Color = clBtnFace
     ParentColor = False
+    ExplicitTop = 368
   end
   object Panel1: TPanel
     Left = 0
-    Top = 84
+    Top = 58
     Width = 1124
-    Height = 316
+    Height = 318
     Align = alClient
     BevelInner = bvRaised
     BevelOuter = bvLowered
@@ -43,7 +44,7 @@ object frmNomenclature: TfrmNomenclature
       Left = 2
       Top = 2
       Width = 1120
-      Height = 312
+      Height = 314
       Align = alClient
       TabOrder = 0
       LookAndFeel.Kind = lfOffice11
@@ -54,12 +55,15 @@ object frmNomenclature: TfrmNomenclature
   end
   object Panel4: TPanel
     Left = 0
-    Top = 408
+    Top = 410
     Width = 1124
     Height = 150
     Align = alBottom
     BevelInner = bvRaised
     BevelOuter = bvLowered
+    Ctl3D = False
+    ParentBackground = False
+    ParentCtl3D = False
     TabOrder = 6
     object Panel2: TPanel
       Left = 2
@@ -77,6 +81,8 @@ object frmNomenclature: TfrmNomenclature
         Align = alClient
         TabOrder = 0
         LookAndFeel.Kind = lfOffice11
+        ExplicitLeft = 24
+        ExplicitTop = -111
         object gr_spec_v: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
           FilterBox.Position = fpTop
@@ -373,8 +379,8 @@ object frmNomenclature: TfrmNomenclature
     DockControlHeights = (
       0
       0
-      84
-      0)
+      58
+      26)
     object bmToolBar: TdxBar
       AllowClose = False
       AllowCustomizing = False
@@ -444,10 +450,10 @@ object frmNomenclature: TfrmNomenclature
       AllowQuickCustomizing = False
       Caption = 'Custom 1'
       CaptionButtons = <>
-      DockedDockingStyle = dsTop
+      DockedDockingStyle = dsBottom
       DockedLeft = 0
-      DockedTop = 58
-      DockingStyle = dsTop
+      DockedTop = 0
+      DockingStyle = dsBottom
       FloatLeft = 1158
       FloatTop = 8
       FloatClientWidth = 0
@@ -456,7 +462,7 @@ object frmNomenclature: TfrmNomenclature
       MultiLine = True
       NotDocking = [dsNone, dsLeft, dsTop, dsRight, dsBottom]
       OneOnRow = True
-      Row = 1
+      Row = 0
       UseOwnFont = False
       UseRestSpace = True
       Visible = True
@@ -1033,6 +1039,8 @@ object frmNomenclature: TfrmNomenclature
       'end;')
     FetchAll = True
     FilterOptions = [foCaseInsensitive]
+    BeforeOpen = DictViewBeforeOpen
+    BeforeRefresh = DictViewBeforeOpen
     Left = 480
     Top = 144
     ParamData = <
@@ -1293,7 +1301,7 @@ object frmNomenclature: TfrmNomenclature
     Left = 88
     Top = 184
     Bitmap = {
-      494C010102000400540110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010102000400640110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -1564,7 +1572,7 @@ object frmNomenclature: TfrmNomenclature
     Left = 208
     Top = 184
     Bitmap = {
-      494C010127002C00540120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010127002C00640120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004001000001002000000000000080
       0200000000000000000000000000000000000000000000000000000000000000
       000000000000000000000101011A0B0B0B743B3D3DB4777777D5838383DA5152
@@ -6855,7 +6863,7 @@ object frmNomenclature: TfrmNomenclature
     Left = 248
     Top = 184
     Bitmap = {
-      494C010101000400540110001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010101000400640110001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -8173,5 +8181,599 @@ object frmNomenclature: TfrmNomenclature
   object frxBarCodeObject1: TfrxBarCodeObject
     Left = 272
     Top = 311
+  end
+  object FlowerNames: TOraQuery
+    SQLUpdate.Strings = (
+      'select 1 from dual')
+    SQLRefresh.Strings = (
+      'select a.FN_ID, a.F_NAME_RU'
+      
+        ' , (SELECT count(1) FROM FLOWER_NAME_TRANSLATIONS where FN_ID = ' +
+        'a.FN_ID) as cnt'
+      'FROM FLOWER_NAMES a '
+      'where a.FN_ID = :FN_ID')
+    SQL.Strings = (
+      'select a.FN_ID, a.F_NAME_RU, ID_DEPARTMENTS, a.id_office'
+      
+        ' , (SELECT count(1) FROM FLOWER_NAME_TRANSLATIONS where FN_ID = ' +
+        'a.FN_ID) as cnt'
+      
+        ' , (SELECT count(1) FROM NOMENCLATURE WHERE FN_ID = a.FN_ID) as ' +
+        'cnt_noms'
+      'FROM FLOWER_NAMES a '
+      'where ID_DEPARTMENTS = :ID_DEPARTMENTS '
+      'and (id_office in (1,:v_office) or :v_office = 0)'
+      'order by F_NAME_RU')
+    FetchAll = True
+    FilterOptions = [foCaseInsensitive]
+    BeforeOpen = FlowerNamesAfterOpen
+    AfterOpen = FlowerNamesAfterOpen
+    BeforePost = FlowerNamesAfterPost
+    AfterPost = FlowerNamesAfterPost
+    BeforeRefresh = FlowerNamesAfterOpen
+    Left = 720
+    Top = 152
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'ID_DEPARTMENTS'
+      end
+      item
+        DataType = ftUnknown
+        Name = 'v_office'
+      end>
+    object FlowerNamesFN_ID: TFloatField
+      FieldName = 'FN_ID'
+      Required = True
+    end
+    object FlowerNamesF_NAME_RU: TStringField
+      FieldName = 'F_NAME_RU'
+      Required = True
+      Size = 256
+    end
+    object FlowerNamesCNT: TFloatField
+      FieldName = 'CNT'
+    end
+    object FlowerNamesID_DEPARTMENTS: TFloatField
+      FieldName = 'ID_DEPARTMENTS'
+      Required = True
+    end
+    object FlowerNamesCNT_NOMS: TFloatField
+      FieldName = 'CNT_NOMS'
+    end
+    object FlowerNamesID_OFFICE: TIntegerField
+      FieldName = 'ID_OFFICE'
+    end
+  end
+  object FlowerNames_DS: TDataSource
+    DataSet = FlowerNames
+    Left = 720
+    Top = 200
+  end
+  object FlowerNameTranslations: TOraQuery
+    SQLRefresh.Strings = (
+      
+        'SELECT a.fn_id, a.f_name, a.name_code, a.id_departments, a.fnt_i' +
+        'd, a.remarks, b.f_name_ru'
+      '  FROM flower_name_translations a, flower_names b'
+      '  where a.fn_id = b.fn_id'
+      '        and a.fnt_id = :OLD_FNT_ID')
+    SQL.Strings = (
+      
+        'SELECT a.fn_id, a.f_name, a.name_code, a.id_departments, a.fnt_i' +
+        'd, a.remarks, a.id_office, b.F_NAME_RU'
+      '  FROM flower_name_translations a, FLOWER_NAMES b'
+      '  where a.id_departments = :ID_DEPARTMENTS '
+      '   and a.fn_id = b.fn_id'
+      '   and (a.id_office in (1,:v_office) or :v_office = 0)'
+      '  order by a.f_name')
+    FetchAll = True
+    FilterOptions = [foCaseInsensitive]
+    BeforeOpen = FlowerNameTranslationsAfterPost
+    AfterPost = FlowerNameTranslationsAfterPost
+    BeforeRefresh = FlowerNameTranslationsAfterPost
+    Left = 760
+    Top = 152
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'ID_DEPARTMENTS'
+      end
+      item
+        DataType = ftUnknown
+        Name = 'v_office'
+      end>
+    object FlowerNameTranslationsFN_ID: TFloatField
+      FieldName = 'FN_ID'
+      Required = True
+    end
+    object FlowerNameTranslationsF_NAME: TStringField
+      FieldName = 'F_NAME'
+      Required = True
+      Size = 256
+    end
+    object FlowerNameTranslationsNAME_CODE: TStringField
+      FieldName = 'NAME_CODE'
+    end
+    object FlowerNameTranslationsID_DEPARTMENTS: TFloatField
+      FieldName = 'ID_DEPARTMENTS'
+      Required = True
+    end
+    object FlowerNameTranslationsFNT_ID: TFloatField
+      FieldName = 'FNT_ID'
+      Required = True
+    end
+    object FlowerNameTranslationsREMARKS: TStringField
+      FieldName = 'REMARKS'
+      Size = 30
+    end
+    object FlowerNameTranslationsID_OFFICE: TIntegerField
+      FieldName = 'ID_OFFICE'
+    end
+    object FlowerNameTranslationsF_NAME_RU: TStringField
+      FieldName = 'F_NAME_RU'
+      Size = 256
+    end
+  end
+  object FlowerNameTranslations_DS: TOraDataSource
+    DataSet = FlowerNameTranslations
+    Left = 760
+    Top = 200
+  end
+  object FlowerSubTypes_DS: TDataSource
+    DataSet = FlowerSubTypes
+    Left = 800
+    Top = 200
+  end
+  object FlowerSubTypes: TOraQuery
+    SQL.Strings = (
+      'select rownum as nn, a.* from ('
+      
+        'SELECT a.fst_id, a.f_sub_type, a.hol_sub_type, a.ft_id, a.f_type' +
+        ', a.double_name, a.ht_id, a.hol_type, a.mnemo, a.sub_weight, a.i' +
+        'd_office, a.price_prefix, a.tnved, a.sub_weight_dry, b.cnt'
+      'FROM fst_view a'
+      
+        '  left outer join (select n.FST_ID, count(*) as cnt from nomencl' +
+        'ature n group by n.FST_ID) b on b.fst_id = a.fst_id '
+      'WHERE FT_ID = :FT_ID '
+      '  and (id_office in (1,:v_office) or :v_office = 0)'
+      'order by f_sub_type'
+      ') a')
+    MasterSource = FlowerTypes_DS
+    FetchAll = True
+    FilterOptions = [foCaseInsensitive]
+    BeforeOpen = FlowerSubTypesAfterOpen
+    AfterOpen = FlowerSubTypesAfterOpen
+    BeforeRefresh = FlowerSubTypesAfterOpen
+    Left = 800
+    Top = 152
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'FT_ID'
+      end
+      item
+        DataType = ftUnknown
+        Name = 'v_office'
+      end>
+    object FlowerSubTypesFST_ID: TFloatField
+      FieldName = 'FST_ID'
+      Required = True
+    end
+    object FlowerSubTypesF_SUB_TYPE: TStringField
+      FieldName = 'F_SUB_TYPE'
+      Required = True
+      Size = 30
+    end
+    object FlowerSubTypesFT_ID: TFloatField
+      FieldName = 'FT_ID'
+      Required = True
+    end
+    object FlowerSubTypesHOL_SUB_TYPE: TStringField
+      FieldName = 'HOL_SUB_TYPE'
+      Size = 50
+    end
+    object FlowerSubTypesNN: TFloatField
+      FieldName = 'NN'
+    end
+    object FlowerSubTypesMNEMO: TStringField
+      FieldName = 'MNEMO'
+    end
+    object FlowerSubTypesSUB_WEIGHT: TFloatField
+      FieldName = 'SUB_WEIGHT'
+    end
+    object FlowerSubTypesF_TYPE: TStringField
+      FieldName = 'F_TYPE'
+      Required = True
+      Size = 50
+    end
+    object FlowerSubTypesDOUBLE_NAME: TStringField
+      FieldName = 'DOUBLE_NAME'
+      Size = 2053
+    end
+    object FlowerSubTypesHT_ID: TFloatField
+      FieldName = 'HT_ID'
+    end
+    object FlowerSubTypesHOL_TYPE: TStringField
+      FieldName = 'HOL_TYPE'
+    end
+    object FlowerSubTypesID_OFFICE: TIntegerField
+      FieldName = 'ID_OFFICE'
+    end
+    object FlowerSubTypesPRICE_PREFIX: TStringField
+      FieldName = 'PRICE_PREFIX'
+      Size = 50
+    end
+    object FlowerSubTypesTNVED: TStringField
+      FieldName = 'TNVED'
+      Size = 50
+    end
+    object FlowerSubTypesSUB_WEIGHT_DRY: TFloatField
+      FieldName = 'SUB_WEIGHT_DRY'
+    end
+    object FlowerSubTypesCNT: TFloatField
+      FieldName = 'CNT'
+    end
+  end
+  object FlowerTypes: TOraQuery
+    SQL.Strings = (
+      'select rownum as nn, a.* from ('
+      
+        'SELECT a.ft_id, a.f_type, a.ft_mask, a.ht_id, a.hol_type, a.id_o' +
+        'ffice '
+      
+        ', (SELECT COUNT(1) from dual where exists (SELECT 1 FROM FLOWER_' +
+        'SUBTYPES where FT_ID = a.FT_ID)) as cnt'
+      'FROM FT_VIEW a'
+      'WHERE ID_DEPARTMENTS = :ID_DEPARTMENTS '
+      '   and (id_office in (1,:v_office) or :v_office = 0)'
+      'order by f_type'
+      ') a')
+    FetchAll = True
+    FilterOptions = [foCaseInsensitive]
+    BeforeOpen = FlowerTypesAfterOpen
+    AfterOpen = FlowerTypesAfterOpen
+    BeforeRefresh = FlowerTypesAfterOpen
+    Left = 840
+    Top = 152
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'ID_DEPARTMENTS'
+      end
+      item
+        DataType = ftUnknown
+        Name = 'v_office'
+      end>
+    object FlowerTypesFT_ID: TFloatField
+      FieldName = 'FT_ID'
+      Required = True
+    end
+    object FlowerTypesF_TYPE: TStringField
+      FieldName = 'F_TYPE'
+      Required = True
+      Size = 30
+    end
+    object FlowerTypesFT_MASK: TStringField
+      FieldName = 'FT_MASK'
+      Size = 50
+    end
+    object FlowerTypesHT_ID: TFloatField
+      FieldName = 'HT_ID'
+    end
+    object FlowerTypesHOL_TYPE: TStringField
+      FieldName = 'HOL_TYPE'
+      Size = 10
+    end
+    object FlowerTypesNN: TFloatField
+      FieldName = 'NN'
+    end
+    object FlowerTypesCNT: TFloatField
+      FieldName = 'CNT'
+    end
+    object FlowerTypesID_OFFICE: TIntegerField
+      FieldName = 'ID_OFFICE'
+    end
+  end
+  object FlowerTypes_DS: TDataSource
+    DataSet = FlowerTypes
+    Left = 840
+    Top = 200
+  end
+  object FNameTransLink: TOraQuery
+    SQLRefresh.Strings = (
+      
+        'SELECT a.fn_id, a.f_name, a.name_code, a.id_departments, a.fnt_i' +
+        'd, a.remarks, b.f_name_ru'
+      '  FROM flower_name_translations a, flower_names b'
+      '  where a.fn_id = b.fn_id'
+      '        and a.fnt_id = :OLD_FNT_ID')
+    SQL.Strings = (
+      
+        'SELECT a.fn_id, a.f_name, a.name_code, a.id_departments, a.fnt_i' +
+        'd, a.remarks, a.id_office'
+      '  FROM flower_name_translations a'
+      '  where a.id_departments = :ID_DEPARTMENTS '
+      '    and (id_office in (1,:v_office) or :v_office = 0)'
+      '    and a.FN_ID = :FN_ID'
+      '  order by a.f_name')
+    MasterSource = FlowerNames_DS
+    MasterFields = 'FN_ID'
+    FetchAll = True
+    FilterOptions = [foCaseInsensitive]
+    BeforeOpen = FNameTransLinkAfterOpen
+    AfterOpen = FNameTransLinkAfterOpen
+    BeforeRefresh = FNameTransLinkAfterOpen
+    Left = 880
+    Top = 152
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'ID_DEPARTMENTS'
+      end
+      item
+        DataType = ftUnknown
+        Name = 'v_office'
+      end
+      item
+        DataType = ftUnknown
+        Name = 'FN_ID'
+      end>
+    object FNameTransLinkFN_ID: TFloatField
+      FieldName = 'FN_ID'
+      Required = True
+    end
+    object FNameTransLinkF_NAME: TStringField
+      FieldName = 'F_NAME'
+      Required = True
+      Size = 256
+    end
+    object FNameTransLinkNAME_CODE: TStringField
+      FieldName = 'NAME_CODE'
+    end
+    object FNameTransLinkID_DEPARTMENTS: TFloatField
+      FieldName = 'ID_DEPARTMENTS'
+      Required = True
+    end
+    object FNameTransLinkFNT_ID: TFloatField
+      FieldName = 'FNT_ID'
+      Required = True
+    end
+    object FNameTransLinkREMARKS: TStringField
+      FieldName = 'REMARKS'
+      Size = 30
+    end
+    object FNameTransLinkID_OFFICE: TIntegerField
+      FieldName = 'ID_OFFICE'
+    end
+  end
+  object FNameTransLink_DS: TOraDataSource
+    DataSet = FNameTransLink
+    Left = 880
+    Top = 200
+  end
+  object Suppliers: TOraQuery
+    SQL.Strings = (
+      'select rownum as nn, a.* '
+      '  , case when nn = bb then 1 else 0 end is_active'
+      'from ('
+      
+        '  SELECT S_ID, S_NAME_RU, C_ID, COUNTRY, NEED_CUST, id_office, a' +
+        'nalyze_days'
+      '  FROM SUPPLIERS_VIEW '
+      '  WHERE (NOT (S_ID = 0)) and id_office = :v_office'
+      ') a'
+      
+        '  left outer join (select count(*) as nn, sum(notuse) as bb, s_i' +
+        'd from nomenclature_mat_view z where z.id_departments = :ID_DEPA' +
+        'RTMENTS group by s_id ) b on b.s_id = a.s_id'
+      'ORDER BY S_NAME_RU')
+    FetchAll = True
+    FilterOptions = [foCaseInsensitive]
+    BeforeOpen = SuppliersAfterOpen
+    AfterOpen = SuppliersAfterOpen
+    BeforeRefresh = SuppliersAfterOpen
+    Left = 992
+    Top = 152
+    ParamData = <
+      item
+        Name = 'v_office'
+        ParamType = ptInput
+        Value = Null
+        ExtDataType = 107
+      end
+      item
+        DataType = ftInteger
+        Name = 'ID_DEPARTMENTS'
+        ParamType = ptInput
+      end>
+    object SuppliersS_ID: TFloatField
+      FieldName = 'S_ID'
+      Required = True
+    end
+    object SuppliersS_NAME_RU: TStringField
+      FieldName = 'S_NAME_RU'
+      Required = True
+      Size = 150
+    end
+    object SuppliersC_ID: TFloatField
+      FieldName = 'C_ID'
+      Required = True
+    end
+    object SuppliersNEED_CUST: TIntegerField
+      FieldName = 'NEED_CUST'
+      Required = True
+    end
+    object SuppliersCOUNTRY: TStringField
+      FieldName = 'COUNTRY'
+      Size = 50
+    end
+    object SuppliersNN: TFloatField
+      FieldName = 'NN'
+    end
+    object SuppliersID_OFFICE: TIntegerField
+      FieldName = 'ID_OFFICE'
+    end
+    object SuppliersANALYZE_DAYS: TIntegerField
+      FieldName = 'ANALYZE_DAYS'
+    end
+    object SuppliersIS_ACTIVE: TFloatField
+      FieldName = 'IS_ACTIVE'
+    end
+  end
+  object Suppliers_DS: TDataSource
+    DataSet = Suppliers
+    Left = 992
+    Top = 200
+  end
+  object Colours: TOraQuery
+    SQLRefresh.Strings = (
+      'SELECT '
+      '  COL_ID,'
+      '  COLOUR'
+      'FROM '
+      '  COLOURS '
+      'WHERE'
+      '  COL_ID = :OLD_COL_ID')
+    SQL.Strings = (
+      'select rownum as nn, a.* from ('
+      'SELECT COL_ID, COLOUR, id_office '
+      'FROM COLOURS '
+      'where (id_office in (1,:v_office) or :v_office = 0)'
+      'ORDER BY COLOUR'
+      ') a')
+    FetchAll = True
+    FilterOptions = [foCaseInsensitive]
+    BeforeOpen = ColoursAfterOpen
+    AfterOpen = ColoursAfterOpen
+    BeforeRefresh = ColoursAfterOpen
+    Left = 928
+    Top = 152
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'v_office'
+      end>
+    object ColoursCOL_ID: TFloatField
+      FieldName = 'COL_ID'
+      Required = True
+    end
+    object ColoursCOLOUR: TStringField
+      FieldName = 'COLOUR'
+      Required = True
+      Size = 50
+    end
+    object ColoursNN: TFloatField
+      FieldName = 'NN'
+    end
+    object ColoursID_OFFICE: TIntegerField
+      FieldName = 'ID_OFFICE'
+    end
+  end
+  object Colours_DS: TDataSource
+    DataSet = Colours
+    Left = 928
+    Top = 200
+  end
+  object HColours: TOraQuery
+    SQLRefresh.Strings = (
+      'SELECT'
+      '  H_COL_ID,'
+      '  COL_ID,'
+      '  HOL_COLOUR'
+      'FROM'
+      '  H_COLOURS'
+      'WHERE'
+      '  H_COL_ID = :OLD_H_COL_ID')
+    SQL.Strings = (
+      'select rownum as nn, a.* from ('
+      'SELECT H_COL_ID, COL_ID, HOL_COLOUR, id_office'
+      'FROM H_COLOURS'
+      'WHERE COL_ID = :COL_ID and id_office = :v_office'
+      'ORDER BY HOL_COLOUR'
+      ') a')
+    MasterSource = Colours_DS
+    FetchAll = True
+    FilterOptions = [foCaseInsensitive]
+    BeforeOpen = HColoursAfterOpen
+    AfterOpen = HColoursAfterOpen
+    BeforeRefresh = HColoursAfterOpen
+    Left = 1032
+    Top = 152
+    ParamData = <
+      item
+        DataType = ftFloat
+        Name = 'COL_ID'
+        ParamType = ptInput
+        Value = 2768.000000000000000000
+      end
+      item
+        DataType = ftUnknown
+        Name = 'v_office'
+      end>
+    object HColoursH_COL_ID: TFloatField
+      FieldName = 'H_COL_ID'
+      Required = True
+    end
+    object HColoursCOL_ID: TFloatField
+      FieldName = 'COL_ID'
+      Required = True
+    end
+    object HColoursHOL_COLOUR: TStringField
+      FieldName = 'HOL_COLOUR'
+      Required = True
+      Size = 50
+    end
+    object HColoursID_OFFICE: TIntegerField
+      FieldName = 'ID_OFFICE'
+    end
+  end
+  object HColours_DS: TOraDataSource
+    DataSet = HColours
+    Left = 1032
+    Top = 200
+  end
+  object Countries: TOraQuery
+    SQL.Strings = (
+      'select rownum as nn, a.* from ('
+      'SELECT COUNTRY, COUNTRY_ENG, C_ID, mnemo, BUH_CODE '
+      'FROM COUNTRIES '
+      'WHERE NOT (C_ID = 0) '
+      'ORDER BY COUNTRY'
+      ') a')
+    FetchAll = True
+    FilterOptions = [foCaseInsensitive]
+    Left = 1072
+    Top = 152
+    object CountriesC_ID: TIntegerField
+      FieldName = 'C_ID'
+      Required = True
+    end
+    object CountriesCOUNTRY: TStringField
+      FieldName = 'COUNTRY'
+      Required = True
+      Size = 50
+    end
+    object CountriesNN: TFloatField
+      FieldName = 'NN'
+    end
+    object CountriesCOUNTRY_ENG: TStringField
+      FieldName = 'COUNTRY_ENG'
+      Size = 50
+    end
+    object CountriesMNEMO: TStringField
+      FieldName = 'MNEMO'
+      Size = 10
+    end
+    object CountriesBUH_CODE: TStringField
+      FieldName = 'BUH_CODE'
+      Size = 10
+    end
+  end
+  object Countries_DS: TDataSource
+    DataSet = Countries
+    Left = 1072
+    Top = 200
   end
 end

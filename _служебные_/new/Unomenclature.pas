@@ -259,6 +259,92 @@ type
     frxCSVExport1: TfrxCSVExport;
     frxSelPrntPreview: TfrxDBDataset;
     frxBarCodeObject1: TfrxBarCodeObject;
+    FlowerNames: TOraQuery;
+    FlowerNamesFN_ID: TFloatField;
+    FlowerNamesF_NAME_RU: TStringField;
+    FlowerNamesCNT: TFloatField;
+    FlowerNamesID_DEPARTMENTS: TFloatField;
+    FlowerNamesCNT_NOMS: TFloatField;
+    FlowerNamesID_OFFICE: TIntegerField;
+    FlowerNames_DS: TDataSource;
+    FlowerNameTranslations: TOraQuery;
+    FlowerNameTranslationsFN_ID: TFloatField;
+    FlowerNameTranslationsF_NAME: TStringField;
+    FlowerNameTranslationsNAME_CODE: TStringField;
+    FlowerNameTranslationsID_DEPARTMENTS: TFloatField;
+    FlowerNameTranslationsFNT_ID: TFloatField;
+    FlowerNameTranslationsREMARKS: TStringField;
+    FlowerNameTranslationsID_OFFICE: TIntegerField;
+    FlowerNameTranslationsF_NAME_RU: TStringField;
+    FlowerNameTranslations_DS: TOraDataSource;
+    FlowerSubTypes_DS: TDataSource;
+    FlowerSubTypes: TOraQuery;
+    FlowerSubTypesFST_ID: TFloatField;
+    FlowerSubTypesF_SUB_TYPE: TStringField;
+    FlowerSubTypesFT_ID: TFloatField;
+    FlowerSubTypesHOL_SUB_TYPE: TStringField;
+    FlowerSubTypesNN: TFloatField;
+    FlowerSubTypesMNEMO: TStringField;
+    FlowerSubTypesSUB_WEIGHT: TFloatField;
+    FlowerSubTypesF_TYPE: TStringField;
+    FlowerSubTypesDOUBLE_NAME: TStringField;
+    FlowerSubTypesHT_ID: TFloatField;
+    FlowerSubTypesHOL_TYPE: TStringField;
+    FlowerSubTypesID_OFFICE: TIntegerField;
+    FlowerSubTypesPRICE_PREFIX: TStringField;
+    FlowerSubTypesTNVED: TStringField;
+    FlowerSubTypesSUB_WEIGHT_DRY: TFloatField;
+    FlowerSubTypesCNT: TFloatField;
+    FlowerTypes: TOraQuery;
+    FlowerTypesFT_ID: TFloatField;
+    FlowerTypesF_TYPE: TStringField;
+    FlowerTypesFT_MASK: TStringField;
+    FlowerTypesHT_ID: TFloatField;
+    FlowerTypesHOL_TYPE: TStringField;
+    FlowerTypesNN: TFloatField;
+    FlowerTypesCNT: TFloatField;
+    FlowerTypesID_OFFICE: TIntegerField;
+    FlowerTypes_DS: TDataSource;
+    FNameTransLink: TOraQuery;
+    FNameTransLinkFN_ID: TFloatField;
+    FNameTransLinkF_NAME: TStringField;
+    FNameTransLinkNAME_CODE: TStringField;
+    FNameTransLinkID_DEPARTMENTS: TFloatField;
+    FNameTransLinkFNT_ID: TFloatField;
+    FNameTransLinkREMARKS: TStringField;
+    FNameTransLinkID_OFFICE: TIntegerField;
+    FNameTransLink_DS: TOraDataSource;
+    Suppliers: TOraQuery;
+    SuppliersS_ID: TFloatField;
+    SuppliersS_NAME_RU: TStringField;
+    SuppliersC_ID: TFloatField;
+    SuppliersNEED_CUST: TIntegerField;
+    SuppliersCOUNTRY: TStringField;
+    SuppliersNN: TFloatField;
+    SuppliersID_OFFICE: TIntegerField;
+    SuppliersANALYZE_DAYS: TIntegerField;
+    SuppliersIS_ACTIVE: TFloatField;
+    Suppliers_DS: TDataSource;
+    Colours: TOraQuery;
+    ColoursCOL_ID: TFloatField;
+    ColoursCOLOUR: TStringField;
+    ColoursNN: TFloatField;
+    ColoursID_OFFICE: TIntegerField;
+    Colours_DS: TDataSource;
+    HColours: TOraQuery;
+    HColoursH_COL_ID: TFloatField;
+    HColoursCOL_ID: TFloatField;
+    HColoursHOL_COLOUR: TStringField;
+    HColoursID_OFFICE: TIntegerField;
+    HColours_DS: TOraDataSource;
+    Countries: TOraQuery;
+    CountriesC_ID: TIntegerField;
+    CountriesCOUNTRY: TStringField;
+    CountriesNN: TFloatField;
+    CountriesCOUNTRY_ENG: TStringField;
+    CountriesMNEMO: TStringField;
+    CountriesBUH_CODE: TStringField;
+    Countries_DS: TDataSource;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure aExitExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -291,6 +377,16 @@ type
     procedure dxBarButton24Click(Sender: TObject);
     procedure dxBarButton25Click(Sender: TObject);
     procedure btnExitClick(Sender: TObject);
+    procedure DictViewBeforeOpen(DataSet: TDataSet);
+    procedure FlowerNamesAfterPost(DataSet: TDataSet);
+    procedure FlowerNamesAfterOpen(DataSet: TDataSet);
+    procedure FlowerNameTranslationsAfterPost(DataSet: TDataSet);
+    procedure FlowerSubTypesAfterOpen(DataSet: TDataSet);
+    procedure FlowerTypesAfterOpen(DataSet: TDataSet);
+    procedure FNameTransLinkAfterOpen(DataSet: TDataSet);
+    procedure SuppliersAfterOpen(DataSet: TDataSet);
+    procedure ColoursAfterOpen(DataSet: TDataSet);
+    procedure HColoursAfterOpen(DataSet: TDataSet);
   private
     { Private declarations }
     p_read, p_edit, p_delete, p_print: boolean;
@@ -310,10 +406,14 @@ type
 
 var
   frmNomenclature: TfrmNomenclature;
-  INPUT_DEPT_ID : Variant;
-  CUR_DEPT_ID, CUR_DEPT_NAME : Variant;
+  //INPUT_DEPT_ID : Variant;
+  CUR_DEPT_ID{, CUR_DEPT_NAME} : Variant;
   SPEC_SHOW : Boolean;
   ora_db_path, username, password, creator, def_folder : string;
+  err_code: integer;
+  err_msg: string;
+  v_FN_ID, v_ID_DEPARTMENTS: integer;
+  v_F_NAME_RU: string;
 
 implementation
 
@@ -325,6 +425,39 @@ procedure TfrmNomenclature.FildsShow(Sender: TObject);
 begin
   if (Sender as TMenuItem).Checked then (Sender as TMenuItem).Checked := false else (Sender as TMenuItem).Checked := true;
   gr_noms_v.Columns[(Sender as TMenuItem).Tag].Visible := (Sender as TMenuItem).Checked;
+end;
+
+procedure TfrmNomenclature.FlowerNamesAfterOpen(DataSet: TDataSet);
+begin
+ FlowerNames.ParamByName('v_office').AsInteger := id_office;
+end;
+
+procedure TfrmNomenclature.FlowerNamesAfterPost(DataSet: TDataSet);
+begin
+  EditRusName(StorProc, FlowerNames, v_FN_ID, v_F_NAME_RU, v_ID_DEPARTMENTS);
+  v_FN_ID := 0;
+  v_F_NAME_RU := '';
+  v_ID_DEPARTMENTS := 0;
+end;
+
+procedure TfrmNomenclature.FlowerNameTranslationsAfterPost(DataSet: TDataSet);
+begin
+  FlowerNameTranslations.ParamByName('v_office').AsInteger := id_office;
+end;
+
+procedure TfrmNomenclature.FlowerSubTypesAfterOpen(DataSet: TDataSet);
+begin
+  FlowerSubTypes.ParamByName('v_office').AsInteger := id_office;
+end;
+
+procedure TfrmNomenclature.FlowerTypesAfterOpen(DataSet: TDataSet);
+begin
+  FlowerTypes.ParamByName('v_office').AsInteger := id_office;
+end;
+
+procedure TfrmNomenclature.FNameTransLinkAfterOpen(DataSet: TDataSet);
+begin
+  FNameTransLink.ParamByName('v_office').AsInteger := id_office;
 end;
 
 // *************Картинки***********************
@@ -385,7 +518,7 @@ end;
 // Указываем отдел и открываем данные с номенклатурой
 procedure TfrmNomenclature.RepaintNom;
 Begin
-  cursor := crHourGlass;
+{  cursor := crHourGlass;
   if (CUR_DEPT_ID > 0) and (imgOtdel.EditValue > 0) then
   Begin
     with DictView do
@@ -402,13 +535,13 @@ Begin
       End;
   End;
   if cb_pics.EditValue = true then
-     LoadPictures(gr_noms_v.DataController, gr_noms_vPHOTO.Index, gr_image.Index);
+     LoadPictures(gr_noms_v.DataController, gr_noms_vPHOTO.Index, gr_image.Index);     }
 End;
 
 //  Показываем форму со спецификацией и обнавляем данные
 procedure TfrmNomenclature.RepaintSpec;
 Begin
-  if SPEC_SHOW then
+ { if SPEC_SHOW then
     Begin
       with NomSpec do if not Active then Open
                                        else Refresh;
@@ -419,8 +552,13 @@ Begin
       Panel4.Visible := false;
       NomSpec.Close;
     End;
-  cursor := crDefault;  
+  cursor := crDefault;     }
 End;
+
+procedure TfrmNomenclature.SuppliersAfterOpen(DataSet: TDataSet);
+begin
+  Suppliers.ParamByName('v_office').AsInteger := id_office;
+end;
 
 // Отметить Ковалевскую позицию как проверенную
 procedure TfrmNomenclature.tbnSetDoneClick(Sender: TObject);
@@ -501,7 +639,7 @@ begin
       frmEditNom.N_ID_    := DictView.FieldByName('N_ID').AsInteger;
       if frmEditNom.ShowModal = mrOk then
       begin
-        gr_spec_v.DataController.DataSet.Refresh;
+        gr_spec_v.DataController.DataSet.Refresh;  
         if cb_pics.EditValue = true then
            LoadPictures(gr_noms_v.DataController, gr_noms_vPHOTO.Index, gr_image.Index);
       end;
@@ -564,7 +702,7 @@ end;
 
 procedure TfrmNomenclature.aGetRulesExecute(Sender: TObject);
 begin
-  with SelQ do
+ { with SelQ do
   Begin
       Close;
       SQL.Clear;
@@ -632,7 +770,7 @@ begin
       Close;
       Filter := '';
       Filtered := false;
-  End;
+  End;     }
 end;
 
 // Добавляем номенклатуру
@@ -663,27 +801,49 @@ procedure TfrmNomenclature.aRefreshExecute(Sender: TObject);
   var id: integer;
 begin
   try
-    dictview.Close;
-    dictview.Open;
-    nomspec.close;
-    nomspec.open;
 
     pnl_msg := TPanel(MakePanelLabel(Panel1,300,100,'Идет обработка запроса'));
     pnl_msg.Repaint;
 
-    id := DictView.FieldByName('N_ID').AsInteger;
+   // id := DictView.FieldByName('N_ID').AsInteger;
 
     NomSpec.MasterFields := '';
     NomSpec.MasterSource := nil;
 
-    DictView.Refresh;
-    gr_noms_v.DataController.LocateByKey(id);
+   // DictView.Refresh;
+    with DictView do
+    if not Active then
+      Begin
+        Close;
+        ParamByName('dept_').Value := CUR_DEPT_ID;
+        Open;
+      End
+    else
+      Begin
+        ParamByName('dept_').Value := CUR_DEPT_ID;
+        Refresh;
+      End;
+
+   // gr_noms_v.DataController.LocateByKey(id);
 
 
-    NomSpec.MasterFields := 'N_ID';
-    NomSpec.MasterSource := DictView_DS;
+  //  NomSpec.MasterFields := 'N_ID';
+   // NomSpec.MasterSource := DictView_DS;
 
-    NomSpec.Refresh;
+   // NomSpec.Refresh;
+  if SPEC_SHOW then begin
+     with NomSpec do if not Active then Open
+                                       else Refresh;
+      Panel4.Visible := true;
+    end
+  else
+    Begin
+      Panel4.Visible := false;
+      NomSpec.Close;
+    End;
+
+
+
     pnl_msg.Free;
 
     if cb_pics.EditValue = true then
@@ -1142,6 +1302,11 @@ begin
 end;
 
 //  Копирование номенклатуры
+procedure TfrmNomenclature.ColoursAfterOpen(DataSet: TDataSet);
+begin
+  Colours.ParamByName('v_office').AsInteger := id_office;
+end;
+
 procedure TfrmNomenclature.CopyNExecute(Sender: TObject);
 VAR
   N_ID, N_ID_OLD : Integer;
@@ -1185,6 +1350,11 @@ begin
   end;     }
 end;
 
+
+procedure TfrmNomenclature.DictViewBeforeOpen(DataSet: TDataSet);
+begin
+ DictView.ParamByName('v_office').AsInteger := id_office;
+end;
 
 // Одинаковые артикулы
 procedure TfrmNomenclature.dxBarButton21Click(Sender: TObject);
@@ -1290,7 +1460,7 @@ begin
   p_edit        := recUserRules.r_edit;
   p_delete      := recUserRules.r_delete;
   p_print       := recUserRules.r_print;
-
+                                
   aNew.Enabled    := p_edit;
   aEdit.Enabled   := p_edit;
   aDelete.Enabled := p_delete;
@@ -1305,28 +1475,32 @@ var pass_, i : integer;
     newitem: Tmenuitem;
 begin
   try
-    //def_folder := RegIni.ReadString('folder', 'Value', '..');
+    //RegIni := TIniFile.Create(path+'DictionaryEditor.ini');
+    def_folder := strPath+'\images\';//RegIni.ReadString('folder', 'Value', '..');
 
-  if (imgOffice.Enabled) then
-  begin
+
+  //if (imgOffice.Enabled) then
+  //begin
       try
         id_office := GetOfficeID;
-        imgOffice.Enabled := (id_office = 1);
+        CUR_DEPT_ID := intDefDept;
+       // CUR_DEPT_NAME := dm.CUR_DEPT_NAME;
+      {  imgOffice.Enabled := (id_office = 1);
         imgOffice.Properties.OnChange := nil;
         selq.Close;
         selq.SQL.Clear;
         selq.SQL.Add('SELECT ID_OFFICE, OFFICE_NAME FROM OFFICES ORDER BY OFFICE_NAME');
         selq.Open;
         SelQ.Close;
-        imgOffice.EditValue := id_office;
+        imgOffice.EditValue := id_office; }
         aRefresh.Execute;//вывод в грид
       except
         on E: Exception do ShowMessage(E.Message);
       end;
-  end;
+  //end;
 
 // ********************* Может это убрать? ******************************************
-    pass_ := 1;
+  {  pass_ := 1;
     with SelQ do
     Begin
       try
@@ -1385,10 +1559,10 @@ begin
           nFields.insert(nFields.count, newitem);
         end;
       end;
-// ********************* конец Может это убрать? ******************************************
+
 
      // imgOtdel.Properties.OnChange := imgOtdelPropertiesChange;
-      gr_noms.SetFocus;
+     // gr_noms.SetFocus;
       imgOtdel.SetFocus;
 
      // это пока коменчу - надо разбираться - права теперь подругому задаюца
@@ -1397,8 +1571,10 @@ begin
 
       gr_noms.SetFocus;
     end;
+    // ********************* конец Может это убрать? ******************************************
+     }
     gr_noms_vBRIEF.Visible := not (GetOfficeID = id_office);
-
+    gr_noms.SetFocus;
 
          try
     //************************читаю чекбокс в перем.NOMSAIT********
@@ -1413,9 +1589,15 @@ begin
      //***********************************************************
         except
         end;
-
+            
   finally
+  // RegIni.Free;
   end;
+end;
+
+procedure TfrmNomenclature.HColoursAfterOpen(DataSet: TDataSet);
+begin
+  HColours.ParamByName('v_office').AsInteger := id_office;
 end;
 
 function TfrmNomenclature.MainFormShow : boolean;

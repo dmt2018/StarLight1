@@ -105,12 +105,12 @@ if (cxPageControl1.ActivePage.PageIndex=0) then begin
     frmregistration.SelQ.SQL.Clear;
     if (ttype = 1) then
     begin
-      frmregistration.SelQ.SQL.Add('select count(1) as nn from CLIENTS_GROUPS where upper(name)=:NAME and ID_CLIENTS_GROUPS <> :id and id_office='+IntToStr(DM.id_office));
+      frmregistration.SelQ.SQL.Add('select count(1) as nn from CLIENTS_GROUPS where upper(name)=:NAME and ID_CLIENTS_GROUPS <> :id and id_office='+IntToStr(intDefOffice));
       frmregistration.SelQ.ParamByName('ID').Value := 0;
     end;
     if (ttype = 2) then
     begin
-      frmregistration.SelQ.SQL.Add('select count(1) as nn from CLIENTS_GROUPS where upper(name)=:NAME and ID_CLIENTS_GROUPS <> :id and id_office='+IntToStr(DM.id_office));
+      frmregistration.SelQ.SQL.Add('select count(1) as nn from CLIENTS_GROUPS where upper(name)=:NAME and ID_CLIENTS_GROUPS <> :id and id_office='+IntToStr(intDefOffice));
       frmregistration.SelQ.ParamByName('ID').Value := ind;
     end;
     frmregistration.SelQ.ParamByName('NAME').Value := UpperCase(Edit1.Text);

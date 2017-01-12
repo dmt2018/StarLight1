@@ -309,7 +309,6 @@ begin
     SelQ.Close;
     SelQ.SQL.Clear;
     SelQ.SQL.Add('SELECT ID_OFFICE, OFFICE_NAME FROM OFFICES ORDER BY OFFICE_NAME');
-    //SelQ.Open;
     RefreshAll;
     SelQ.Open;
     FillImgComboCx2(SelQ, imgOffice, 'Все...');
@@ -426,7 +425,7 @@ try
 if PageControl1.ActivePage.PageIndex=0 then begin
   if (Q_EM_PR.FieldByName('ID_EMPLOYEES').AsInteger > 0) then
   begin
-    if (DM.id_office <> Q_EMPL.FieldByName('ID_OFFICE').AsInteger) and (DM.id_office > 0) then
+    if (intDefOffice <> Q_EMPL.FieldByName('ID_OFFICE').AsInteger) and (intDefOffice > 0) then
     begin
       MessageBox(Handle,'Данная запись не принадлежит вашему офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
       exit;
@@ -459,7 +458,7 @@ end;
 if PageControl1.ActivePage.PageIndex=1 then begin
 if  (Q_GROUPS.FieldByName('ID_ROLE_GROUPS').AsInteger > 0) then
 begin
-      if (DM.id_office <> Q_GROUPS.FieldByName('ID_OFFICE').AsInteger) and (DM.id_office > 0) then
+      if (intDefOffice <> Q_GROUPS.FieldByName('ID_OFFICE').AsInteger) and (intDefOffice > 0) then
       begin
         MessageBox(Handle,'Данная запись не принадлежит вашему офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
         exit;
@@ -612,7 +611,7 @@ if PageControl1.ActivePage.PageIndex=1 then begin
     page:=2;
     if (Q_GROUPS.FieldByName('NAME').AsString <> '') then
     begin
-      if (DM.id_office <> Q_GROUPS.FieldByName('ID_OFFICE').AsInteger) and (DM.id_office > 0) then
+      if (intDefOffice <> Q_GROUPS.FieldByName('ID_OFFICE').AsInteger) and (intDefOffice > 0) then
       begin
         MessageBox(Handle,'Данная запись не принадлежит вашему офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
         exit;
@@ -685,7 +684,7 @@ try
 if PageControl1.ActivePage.PageIndex=0 then begin
   if (ComboBox2.ItemIndex > 0) then
   begin
-    if (DM.id_office <> Q_EMPL.FieldByName('ID_OFFICE').AsInteger) and (DM.id_office > 0) then
+    if (intDefOffice <> Q_EMPL.FieldByName('ID_OFFICE').AsInteger) and (intDefOffice > 0) then
     begin
       MessageBox(Handle,'Данная запись не принадлежит вашему офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
       exit;
@@ -837,7 +836,7 @@ page:=0;
 frmEditAdmins.Caption:='Учетные записи. Доступ';
 if (Q_EMPL.FieldByName('ID_CLIENTS').AsInteger > 0) then
 begin
-  if (DM.id_office <> Q_EMPL.FieldByName('ID_OFFICE').AsInteger) and (DM.id_office > 0) then
+  if (intDefOffice <> Q_EMPL.FieldByName('ID_OFFICE').AsInteger) and (intDefOffice > 0) then
   begin
     MessageBox(Handle,'Данная запись не принадлежит главному офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
     exit;
@@ -876,7 +875,7 @@ procedure TfrmAdmin.BitBtn1Click(Sender: TObject);
 var ind: integer;
 begin
 page:=0;
-  if (DM.id_office <> Q_EMPL.FieldByName('ID_OFFICE').AsInteger) and (DM.id_office > 0) then
+  if (intDefOffice <> Q_EMPL.FieldByName('ID_OFFICE').AsInteger) and (intDefOffice > 0) then
   begin
     MessageBox(Handle,'Данная запись не принадлежит главному офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
     exit;
@@ -917,7 +916,7 @@ var id: integer;
 begin
 page:=0;
 frmEditAdmins.Caption:='Учетные записи. Смена пароля';
-  if (DM.id_office <> Q_EMPL.FieldByName('ID_OFFICE').AsInteger) and (DM.id_office > 0) then
+  if (intDefOffice <> Q_EMPL.FieldByName('ID_OFFICE').AsInteger) and (intDefOffice > 0) then
   begin
     MessageBox(Handle,'Данная запись не принадлежит главному офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
     exit;
@@ -962,7 +961,7 @@ begin
   frmEditAdmins.Caption:= 'Редактирование привилегий к программам';
   if (Q_GR_PR.FieldByName('ID_ROLE_GROUPS').AsInteger > 0) then
   begin
-    if (DM.id_office <> Q_EMPL.FieldByName('ID_OFFICE').AsInteger) and (DM.id_office > 0) then
+    if (intDefOffice <> Q_EMPL.FieldByName('ID_OFFICE').AsInteger) and (intDefOffice > 0) then
     begin
       MessageBox(Handle,'Данная запись не принадлежит вашему офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
       exit;
@@ -990,7 +989,7 @@ procedure TfrmAdmin.BitBtn9Click(Sender: TObject);
 begin
 if  (Q_GR_PR.FieldByName('ID_ROLE_GROUPS').AsInteger > 0) then
 begin
-    if (DM.id_office <> Q_EMPL.FieldByName('ID_OFFICE').AsInteger) and (DM.id_office > 0) then
+    if (intDefOffice <> Q_EMPL.FieldByName('ID_OFFICE').AsInteger) and (intDefOffice > 0) then
     begin
       MessageBox(Handle,'Данная запись не принадлежит вашему офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
       exit;
@@ -1044,7 +1043,7 @@ procedure TfrmAdmin.ComboBox6Change(Sender: TObject);
 var sql: string;
 begin
 
-  sql := 'SELECT NN, ACTIVE, CCODE, FIO, ID_CLIENTS, LOGIN, NICK, STAFF, COUNT, id_office, brief from employees_view WHERE (id_office = '+IntToStr(DM.id_office)+' or '+IntToStr(DM.id_office)+' = 0) ';
+  sql := 'SELECT NN, ACTIVE, CCODE, FIO, ID_CLIENTS, LOGIN, NICK, STAFF, COUNT, id_office, brief from employees_view WHERE (id_office = '+IntToStr(intDefOffice)+' or '+IntToStr(intDefOffice)+' = 0) ';
   if (ComboBox6.ItemIndex = 1) then  sql := sql + ' AND LOGIN is not null';
   if (ComboBox6.ItemIndex = 2) then  sql := sql + ' AND LOGIN is null';
 

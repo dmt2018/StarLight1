@@ -186,6 +186,10 @@ object frmEditSubReg: TfrmEditSubReg
     object tsh_regions: TcxTabSheet
       Caption = #1043#1088#1091#1087#1087#1072
       ImageIndex = 0
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Label3: TLabel
         Left = 12
         Top = 16
@@ -283,6 +287,10 @@ object frmEditSubReg: TfrmEditSubReg
     object tsh_cityes: TcxTabSheet
       Caption = #1043#1086#1088#1086#1076
       ImageIndex = 1
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Label6: TLabel
         Left = 27
         Top = 13
@@ -415,6 +423,10 @@ object frmEditSubReg: TfrmEditSubReg
     object tsh_promo: TcxTabSheet
       Caption = #1055#1072#1089#1089#1087#1086#1088#1090
       ImageIndex = 2
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object gbInfoProg: TcxGroupBox
         Left = 15
         Top = 16

@@ -63,6 +63,9 @@ type
   function FillComboOlmer(TheQuery : TOraQuery; TheCombo : TDBComboBoxEh; BeginStr : String) : boolean;
   function FillImgComboCxItm(TheQuery : TOraQuery; TheCombo : TCxBarEditItem; BeginStr : String) : boolean;
   function FillComboEh(TheQuery : TOraQuery; TheCombo : TDBComboBoxEh; TheSql : String) : boolean;
+  function EditRusName(StorProc: TOraStoredProc; cds: TOraQuery; in_fn_id: integer; in_f_name_ru: string; in_id_dep: integer) : integer;
+  function EditTransName(StorProc: TOraStoredProc; cds: TOraQuery; in_fnt_id: integer; in_f_name: string; in_id_dep: integer; in_fn_id: integer; in_codename: string; in_remarks: string) : integer;
+
 // Запомнить положение форм на экране
   procedure SaveFormState(aForm: TForm);
   procedure LoadFormState(aForm: TForm);
@@ -70,6 +73,7 @@ type
   procedure CheckShell(hand: Thandle; st: pchar);
   function BoolToInt(inp : boolean) : integer;
   function  VarToInt(VarVar : Variant) : Integer;
+
 
 const RussianMonthsNames: array[1..12] of String =  //Просто массив русских названий месяцев
 ('Январь',
@@ -93,6 +97,11 @@ const RussianWeekDays: array[1..7,0..1] of String =  //Просто массив русских наз
  ('Пятница','пт'),
  ('Суббота','сб'),
  ('Воскресенье','вс'));
+
+ var
+  err_msg: string;
+  err_code: integer;
+  PrColours : set of Byte = [0,1,2,3];
 
 implementation
 
@@ -512,5 +521,71 @@ procedure CheckShell(hand: Thandle; st: pchar);
 begin
   ShellExecute(hand, nil, st, nil, nil, SW_RESTORE);
 end;
+
+// Добавление русского названия
+//
+function EditRusName(StorProc: TOraStoredProc; cds: TOraQuery; in_fn_id: integer; in_f_name_ru: string; in_id_dep: integer) : integer;
+begin
+  with StorProc do
+  begin
+//    Params.Clear;
+    StoredProcName := 'CREATOR.NOMENCLATURE2_PKG.edit_rus_tovar_name';
+    Prepare;
+    ParamByName('IN_ID').AsInteger             := in_fn_id;
+    ParamByName('IN_F_NAME_RU').AsString       := in_f_name_ru;
+    ParamByName('IN_ID_DEPARTMENTS').AsInteger := in_id_dep;
+    ParamByName('out_code').AsInteger          := err_code;
+    ParamByName('out_errmsg').AsString         := err_msg;
+    Execute;
+    err_code := ParamByName('out_code').AsInteger;
+    err_msg  := ParamByName('out_errmsg').AsString;
+    if (err_code = 1) then
+    begin
+      MessageBox(0, PChar(err_msg), 'Внимание', MB_ICONINFORMATION);
+      cds.RefreshRecord;
+    end;
+    if (err_code = -1) then
+    begin
+      MessageBox(0, PChar(err_msg), 'Внимание', MB_ICONERROR);
+      cds.RefreshRecord;
+    end;
+    result := ParamByName('IN_ID').AsInteger;
+  end;
+end;
+
+// Добавление названия поставщика
+//
+function EditTransName(StorProc: TOraStoredProc; cds: TOraQuery; in_fnt_id: integer; in_f_name: string; in_id_dep: integer; in_fn_id: integer; in_codename: string; in_remarks: string) : integer;
+begin
+  with StorProc do
+  begin
+//    Params.Clear;
+    StoredProcName := 'CREATOR.NOMENCLATURE2_PKG.edit_eng_tovar_name';
+    Prepare;
+    ParamByName('IN_ID').AsInteger             := in_fnt_id;
+    ParamByName('IN_F_NAME').AsString          := in_f_name;
+    ParamByName('IN_ID_DEPARTMENTS').AsInteger := in_id_dep;
+    ParamByName('IN_FN_ID').AsInteger          := in_fn_id;
+    ParamByName('IN_CODENAME').AsString        := in_codename;
+    ParamByName('IN_REMARKS').AsString         := in_remarks;
+    ParamByName('out_code').AsInteger          := err_code;
+    ParamByName('out_errmsg').AsString         := err_msg;
+    Execute;
+    err_code := ParamByName('out_code').AsInteger;
+    err_msg  := ParamByName('out_errmsg').AsString;
+    if (err_code = 1) then
+    begin
+      MessageBox(0, PChar(err_msg), 'Внимание', MB_ICONINFORMATION);
+      cds.RefreshRecord;
+    end;
+    if (err_code = -1) then
+    begin
+      MessageBox(0, PChar(err_msg), 'Внимание', MB_ICONERROR);
+      cds.RefreshRecord;
+    end;
+    result := ParamByName('IN_ID').AsInteger;
+  end;
+end;
+
 
 end.

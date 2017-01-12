@@ -162,7 +162,7 @@ cxButton2.SetFocus;
     Modalresult := mrOk;
   end;
 
-  if cxPageControl1.ActivePageIndex = 4 then
+  if cxPageControl1.ActivePageIndex = 2 then
   begin
     if ( Length(Trim(VarToStr(edit_type.EditValue))) = 0 ) then
       MessageBox(Handle, 'Необходимо ввести название типа товара', 'Внимание', MB_ICONWARNING)
@@ -173,7 +173,7 @@ cxButton2.SetFocus;
         MessageBox(Handle, 'Необходимо указать голландский тип', 'Внимание', MB_ICONWARNING)
   end;
 
-  if cxPageControl1.ActivePageIndex = 5 then
+  if cxPageControl1.ActivePageIndex = 3 then
   begin
     if ( Length(Trim(VarToStr(edit_subtype.EditValue))) = 0 ) then
       MessageBox(Handle, 'Необходимо ввести название подтипа товара', 'Внимание', MB_ICONWARNING)
@@ -181,7 +181,7 @@ cxButton2.SetFocus;
       Modalresult := mrOk;
   end;
 
-  if cxPageControl1.ActivePageIndex = 6 then
+  if cxPageControl1.ActivePageIndex = 4 then
   begin
     if ( lcb_types.EditValue < 1 ) and lcb_types.Visible then
       MessageBox(Handle, 'Необходимо выбрать тип товара', 'Внимание', MB_ICONWARNING)
@@ -192,7 +192,7 @@ cxButton2.SetFocus;
         Modalresult := mrOk;
   end;
 
-  if cxPageControl1.ActivePageIndex = 7 then
+  if cxPageControl1.ActivePageIndex = 5 then
   begin
     if ( Length(Trim(VarToStr(edit_color.EditValue))) = 0 ) then
       MessageBox(Handle, 'Необходимо ввести название цвета', 'Внимание', MB_ICONWARNING)
@@ -201,7 +201,7 @@ cxButton2.SetFocus;
   end;
 
 
-  if cxPageControl1.ActivePageIndex = 8 then
+  if cxPageControl1.ActivePageIndex = 6 then
   begin
     if ( Length(Trim(VarToStr(edit_spec_kod.EditValue))) = 0 ) then
       MessageBox(Handle, 'Необходимо ввести код', 'Внимание', MB_ICONWARNING);
@@ -226,7 +226,7 @@ cxButton2.SetFocus;
     then Modalresult := mrOk;
   end;
 
-  if cxPageControl1.ActivePageIndex = 9 then
+  if cxPageControl1.ActivePageIndex = 7 then
   begin
     if ( Length(Trim(VarToStr(edit_spec_trans.EditValue))) = 0 ) then
       MessageBox(Handle, 'Необходимо ввести содержание русское', 'Внимание', MB_ICONWARNING);
@@ -238,7 +238,7 @@ cxButton2.SetFocus;
     then Modalresult := mrOk;
   end;
 
-  if cxPageControl1.ActivePageIndex = 10 then
+  if cxPageControl1.ActivePageIndex = 8 then
   begin
     if ( Length(Trim(VarToStr(ed_pack_name.EditValue))) = 0 ) then
       MessageBox(Handle, 'Необходимо ввести название подтипа', 'Внимание', MB_ICONWARNING);
@@ -256,14 +256,14 @@ procedure TfrmEditSubNom.FormShow(Sender: TObject);
 begin
   if cxPageControl1.ActivePageIndex = 0 then Edit_name.SetFocus;
   if cxPageControl1.ActivePageIndex = 1 then edit_translate.SetFocus;
-  if cxPageControl1.ActivePageIndex = 4 then edit_type.SetFocus;
-  if cxPageControl1.ActivePageIndex = 5 then edit_subtype.SetFocus;
-  if (cxPageControl1.ActivePageIndex = 6) and lcb_types.Visible then lcb_types.SetFocus;
-  if (cxPageControl1.ActivePageIndex = 6) and lcb_subtypes.Visible then lcb_subtypes.SetFocus;
-  if cxPageControl1.ActivePageIndex = 7 then edit_color.SetFocus;
-  if cxPageControl1.ActivePageIndex = 8 then edit_spec_kod.SetFocus;
-  if cxPageControl1.ActivePageIndex = 9 then edit_spec_trans.SetFocus;
-  if cxPageControl1.ActivePageIndex = 10 then ed_pack_name.SetFocus;
+  if cxPageControl1.ActivePageIndex = 2 then edit_type.SetFocus;
+  if cxPageControl1.ActivePageIndex = 3 then edit_subtype.SetFocus;
+  if (cxPageControl1.ActivePageIndex = 4) and lcb_types.Visible then lcb_types.SetFocus;
+  if (cxPageControl1.ActivePageIndex = 4) and lcb_subtypes.Visible then lcb_subtypes.SetFocus;
+  if cxPageControl1.ActivePageIndex = 5 then edit_color.SetFocus;
+  if cxPageControl1.ActivePageIndex = 6 then edit_spec_kod.SetFocus;
+  if cxPageControl1.ActivePageIndex = 7 then edit_spec_trans.SetFocus;
+  if cxPageControl1.ActivePageIndex = 8 then ed_pack_name.SetFocus;
 end;
 
 end.

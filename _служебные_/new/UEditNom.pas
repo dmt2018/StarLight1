@@ -38,8 +38,6 @@ type
     bt_findn: TcxButton;
     bt_findc: TcxButton;
     btn_ins_name: TcxButton;
-    btn_ins_country: TcxButton;
-    btn_ins_suplier: TcxButton;
     btn_ins_color: TcxButton;
     grEngName: TcxGrid;
     grEngNameDBTableView1: TcxGridDBTableView;
@@ -160,6 +158,12 @@ type
     procedure cxButton4Click(Sender: TObject);
     procedure cxButton5Click(Sender: TObject);
     procedure btn_ins_nameClick(Sender: TObject);
+    procedure btn_ins_suplierClick(Sender: TObject);
+    procedure btn_ins_colorClick(Sender: TObject);
+    procedure btn_ins_countryClick(Sender: TObject);
+    procedure ed_translateKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure imcb_specPropertiesChange(Sender: TObject);
   private
     { Private declarations }
     tt : integer;
@@ -181,7 +185,7 @@ implementation
 
 {$R *.dfm}
 
-uses uNomenclature;
+uses uNomenclature, uEditSubNom;
 
 // Сгенерировать артикул
 procedure TfrmEditNom.btnArticulClick(Sender: TObject);
@@ -273,44 +277,97 @@ begin
 end;
 
 
- //  Ввод нового названия - нужна еще одна форма!!
+ //  Ввод нового цвета
+procedure TfrmEditNom.btn_ins_colorClick(Sender: TObject);
+var id : variant;
+begin
+  frmEditSubNom                                := TfrmEditSubNom.Create(Application);
+  try
+    frmEditSubNom.cxPageControl1.HideTabs        := true;
+    frmEditSubNom.cxPageControl1.ActivePageIndex := 5;
+    frmEditSubNom.Caption                        := frmEditSubNom.cxPageControl1.ActivePage.Caption;
+
+    if (frmEditSubNom.ShowModal = mrOk) then
+    begin
+      with frmNomenclature.StorProc do
+      Begin
+        StoredProcName := 'NOMENCLATURE_PKG.INSERT_COLOUR';
+        Prepare;
+        ParamByName('IN_COLOUR').Value     := frmEditsubNom.edit_color.EditValue;
+        ParamByName('in_id_').Value         := 0;
+        ExecProc;
+
+        ID := ParamByName('in_id_').Value;
+      End;
+      IF ((ID = null) or (ID = 0)) then MessageBox(Handle, 'Запрос не выполнился', 'Ошибка', MB_ICONWARNING)
+      else
+      Begin
+          CDS_COLOR.Refresh;
+          CDS_COLOR.Locate('COL_ID',ID,[]);
+          lookcombo_color.EditValue := ID;
+      End;
+    end;
+
+    frmEditSubNom.free;
+    cb_length.SetFocus;
+
+  Except on E:Exception do
+    begin
+      frmEditSubNom.free;
+      MessageBox(Handle, PChar(E.Message), 'Ошибка', MB_ICONERROR);
+    end;
+  end;
+end;
+
+ procedure TfrmEditNom.btn_ins_countryClick(Sender: TObject);
+begin
+
+end;
+
+//  Ввод нового названия
 procedure TfrmEditNom.btn_ins_nameClick(Sender: TObject);
 VAR FN_ID, FNT_ID, OutText : Variant;
 begin
-{  frm_editform                                := Tfrm_editform.Create(Application);
+  frmeditsubnom                               := Tfrmeditsubnom.Create(Application);
   try
-    frm_editform.cxPageControl1.HideTabs        := true;
-    frm_editform.cxPageControl1.ActivePageIndex := 0;
-    frm_editform.Caption                        := frm_editform.cxPageControl1.ActivePage.Caption;
-    if (frm_editform.ShowModal = mrOk) then
+    frmeditsubnom.cxPageControl1.HideTabs        := true;
+    frmeditsubnom.cxPageControl1.ActivePageIndex := 0;
+    frmeditsubnom.Caption                        := frmeditsubnom.cxPageControl1.ActivePage.Caption;
+    if (frmeditsubnom.ShowModal = mrOk) then
     begin
-      FN_ID := EditRusName(DM.StorProc, DM.FlowerNames, 0, frm_editform.Edit_name.EditValue, CUR_DEPT_ID);
+      FN_ID := EditRusName(frmNomenclature.StorProc, frmNomenclature.FlowerNames, 0, frmeditsubnom.Edit_name.EditValue, CUR_DEPT_ID);
 
-      if ( length(frm_editform.Edit_eng_name.EditingText) > 0 ) then
+      if ( length(frmeditsubnom.Edit_eng_name.EditingText) > 0 ) then
       begin
-        FNT_ID := EditTransName(DM.StorProc, DM.FlowerNameTranslations, 0
-          , VarToStr(frm_editform.Edit_eng_name.EditValue)
+        FNT_ID := EditTransName(frmNomenclature.StorProc, frmNomenclature.FlowerNameTranslations, 0
+          , VarToStr(frmeditsubnom.Edit_eng_name.EditValue)
           , CUR_DEPT_ID
           , FN_ID
-          , VarToStr(frm_editform.edit_code.EditValue)
-          , VarToStr(frm_editform.edit_remarks.EditValue)
+          , VarToStr(frmeditsubnom.edit_code.EditValue)
+          , VarToStr(frmeditsubnom.edit_remarks.EditValue)
         );
-        if ( length(frm_editform.edit_remarks.EditingText) > 0 ) then
-           ed_remarks.EditValue := frm_editform.edit_remarks.EditValue;
+        if ( length(frmeditsubnom.edit_remarks.EditingText) > 0 ) then
+           ed_remarks.EditValue := frmeditsubnom.edit_remarks.EditValue;
       end;
       CDS_FLOWERS.Refresh;
       CDS_FLOWERS.Locate('FN_ID',FN_ID,[]);
       lookcombo_name.EditValue := FN_ID;
     end;
-    frm_editform.Free;
+    frmeditsubnom.Free;
     lookcombo_type.SetFocus;
 
   Except on E:Exception do
     begin
-      frm_editform.Free;
+      frmeditsubnom.Free;
       MessageBox(Handle, PChar(E.Message), 'Ошибка', MB_ICONERROR);
     end;
-  end; }
+  end;
+end;
+
+
+procedure TfrmEditNom.btn_ins_suplierClick(Sender: TObject);
+begin
+   
 end;
 
 //  Поиск по цвету
@@ -725,6 +782,13 @@ begin
   StringGrid2.SetFocus;
 end;
 
+//  Поиск в цвете
+procedure TfrmEditNom.ed_translateKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if (KEY = VK_RETURN) then a_find_c.Execute;
+end;
+
 //  При закрытии формы закрываем датасеты
 procedure TfrmEditNom.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
@@ -741,8 +805,6 @@ end;
 procedure TfrmEditNom.FormShow(Sender: TObject);
 begin
  tt := 0;
-
-  btn_ins_country.Enabled   := (frmNomenclature.id_office = 1);
 
   color_find.EditValue      := 'поиск...';
   text_find.EditValue       := 'поиск...';
@@ -1003,6 +1065,30 @@ begin
       panel10.Visible := true;
   End;
 
+end;
+
+
+procedure TfrmEditNom.imcb_specPropertiesChange(Sender: TObject);
+begin
+  if imcb_spec.Properties.Items.Items[imcb_spec.ItemIndex].Tag = 1 then
+  Begin
+      imcb_translate.Enabled    := true;
+      frmNomenclature.SelQ.Close;
+      frmNomenclature.SelQ.SQL.Clear;
+      frmNomenclature.SelQ.SQL.Add('SELECT SC_ID, CONTENT_HOL || '' | '' || CONTENT_RUS FROM SPECIFICATION_CONTENT WHERE HS_ID = ' + IntToStr(imcb_spec.EditValue) );
+      frmNomenclature.SelQ.Open;
+      FillImgComboCx(frmNomenclature.SelQ, imcb_translate, '');
+      imcb_translate.ItemIndex  := 0;
+      ed_translate.EditValue    := '';
+      ed_translate.Enabled      := false;
+  End
+  else
+  Begin
+      ed_translate.EditValue    := '';
+      ed_translate.Enabled      := true;
+      imcb_translate.Enabled    := false;
+      imcb_translate.EditValue  := -1;
+  End;
 end;
 
 end.

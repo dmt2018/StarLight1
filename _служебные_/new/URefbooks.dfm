@@ -39,6 +39,9 @@ object frmRefbooks: TfrmRefbooks
       ImageIndex = 0
       ParentColor = False
       ParentFont = False
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object grRegions: TcxGrid
         Left = 0
         Top = 0
@@ -136,6 +139,9 @@ object frmRefbooks: TfrmRefbooks
     object tshCityes: TcxTabSheet
       Caption = #1043#1086#1088#1086#1076#1072
       ImageIndex = 1
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object grCities: TcxGrid
         Left = 0
         Top = 0
@@ -211,6 +217,9 @@ object frmRefbooks: TfrmRefbooks
     object tshPromo: TcxTabSheet
       Caption = #1056#1077#1082#1083#1072#1084#1072
       ImageIndex = 2
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object grPromo: TcxGrid
         Left = 0
         Top = 0
@@ -288,6 +297,9 @@ object frmRefbooks: TfrmRefbooks
     object tshClientTypes: TcxTabSheet
       Caption = #1058#1080#1087#1099' '#1082#1083#1080#1077#1085#1090#1086#1074
       ImageIndex = 3
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object grClientTypes: TcxGrid
         Left = 0
         Top = 0
@@ -405,6 +417,9 @@ object frmRefbooks: TfrmRefbooks
     object tshDeparts: TcxTabSheet
       Caption = #1054#1090#1076#1077#1083#1099
       ImageIndex = 4
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object grDeps: TcxGrid
         Left = 0
         Top = 0
@@ -500,6 +515,9 @@ object frmRefbooks: TfrmRefbooks
     object tshPositions: TcxTabSheet
       Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1080
       ImageIndex = 5
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object grPost: TcxGrid
         Left = 0
         Top = 0
@@ -578,6 +596,9 @@ object frmRefbooks: TfrmRefbooks
     object tshCountries: TcxTabSheet
       Caption = #1057#1090#1088#1072#1085#1099
       ImageIndex = 6
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object grCountries: TcxGrid
         Left = 0
         Top = 0
@@ -672,6 +693,9 @@ object frmRefbooks: TfrmRefbooks
     object tshSuppliers: TcxTabSheet
       Caption = #1055#1086#1089#1090#1072#1074#1097#1080#1082#1080
       ImageIndex = 7
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object grSuppliers: TcxGrid
         Left = 0
         Top = 0
@@ -783,6 +807,9 @@ object frmRefbooks: TfrmRefbooks
     object tshUnits: TcxTabSheet
       Caption = #1045#1076#1080#1085#1080#1094#1099' '#1080#1079#1084#1077#1088#1077#1085#1080#1103
       ImageIndex = 8
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object grUnits: TcxGrid
         Left = 0
         Top = 0
