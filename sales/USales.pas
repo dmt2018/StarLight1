@@ -1326,6 +1326,8 @@ begin
     aLoad.Execute;
     AddedCB.Checked := true;
     deletefile(path+'scan/1.txt');
+
+    btn_discount.Click;
   end;
 end;
 
