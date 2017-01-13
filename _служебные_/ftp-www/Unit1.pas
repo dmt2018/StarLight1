@@ -268,6 +268,8 @@ end;
  memo1.Lines.Add('1.Копирую с фтп на локальный');
 
 // ищу файлы
+IF IdFTP1.Size('/orders/*.*') > 0 THEN BEGIN
+
 FileList:=tstringlist.Create;
 IdFTP1.List(FileList,'*', False);
 if FileList.Count > 0 then
@@ -279,13 +281,17 @@ for I := 0 to FileList.Count - 1 do  begin
   application.processmessages;
 end;
  memo1.Lines.Add('скачено на лок');
- IdFTP1.Disconnect;  ///////////////////
  FileList.Free;
+
+END;
+ IdFTP1.Disconnect;  ///////////////////
 //------------------------------------------------------------
 
 // шаг4. локальный - сетевая папка
 memo1.Lines.Add('2.Копирую с лок на сетевой');
 SetCurrentDir(ExtractFilePath(Application.ExeName)+'copy_скачать\');  //папка для поиска файлов
+
+IF FileExists(ExtractFilePath(Application.ExeName)+'copy_скачать\*.*') = true THEN BEGIN
 if FindFirst('*', faAnyFile , sr)=0 then  //если найдено, то:
 repeat
  if (sr.Name= '.') or (sr.Name='..') then continue;
@@ -299,6 +305,8 @@ repeat
 until (FindNext(sr) <> 0) ;
  findclose(sr);
  memo1.Lines.Add('скачено на диск'+ DateTimeToStr(Now));
+
+END;
 //------------------------------------------------------------
 
 end;
