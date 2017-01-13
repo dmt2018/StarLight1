@@ -17,6 +17,7 @@ type
     Button4: TButton;
     Button1: TButton;
     Timer1: TTimer;
+    CheckBox1: TCheckBox;
     procedure btnExportClick(Sender: TObject);
     procedure Button4Click(Sender: TObject);
     procedure TimerStoreTimer(Sender: TObject);
@@ -274,6 +275,7 @@ for I := 0 to FileList.Count - 1 do  begin
   //забираю с фтп:
   idFTP1.Get(FileList.Strings[i], ExtractFilePath(Application.ExeName)+'copy_скачать\'+FileList.Strings[i], True,false);
   memo1.Lines.Add(FileList.Strings[i]);
+    if checkbox1.Checked =false then IdFTP1.Delete('/orders/'+FileList.Strings[i]);
   application.processmessages;
 end;
  memo1.Lines.Add('скачено на лок');

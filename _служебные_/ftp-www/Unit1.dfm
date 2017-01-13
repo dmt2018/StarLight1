@@ -2,7 +2,7 @@ object frmftpwww: Tfrmftpwww
   Left = 0
   Top = 0
   Caption = #1089#1072#1081#1090#1099'-'#1096#1084#1072#1081#1090#1099
-  ClientHeight = 424
+  ClientHeight = 463
   ClientWidth = 378
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -5073,6 +5073,14 @@ object frmftpwww: Tfrmftpwww
     Caption = #1042#1099#1075#1088#1091#1079#1080#1090#1100' '#1092#1072#1081#1083#1099': DIR-FTP'
     TabOrder = 3
     OnClick = Button1Click
+  end
+  object CheckBox1: TCheckBox
+    Left = 112
+    Top = 438
+    Width = 113
+    Height = 17
+    Caption = #1085#1077' '#1089#1090#1080#1088#1072#1090#1100
+    TabOrder = 4
   end
   object TimerStore: TTimer
     Enabled = False
