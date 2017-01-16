@@ -215,6 +215,7 @@ var
     FileList : TStringList;
     k:NETRESOURCE;
 begin
+try
 memo1.Lines.Clear;// шоб не переполнялось
 // шаг1. сетевая папка - локальный
 memo1.Lines.Add('1.Копирую с сетевого на лок');
@@ -265,13 +266,17 @@ end;
  // шаг3. фтп - локальный
  IdFTP1.Connect;  ////////////////
  IdFTP1.ChangeDir('/orders');
- memo1.Lines.Add('1.Копирую с фтп на локальный');
+ memo1.Lines.Add('3.Копирую с фтп на локальный');
 
 // ищу файлы
-IF IdFTP1.Size('/orders/*.*') > 0 THEN BEGIN
 
 FileList:=tstringlist.Create;
+try
 IdFTP1.List(FileList,'*', False);
+application.processmessages;
+except
+end;
+
 if FileList.Count > 0 then
 for I := 0 to FileList.Count - 1 do  begin
   //забираю с фтп:
@@ -283,15 +288,13 @@ end;
  memo1.Lines.Add('скачено на лок');
  FileList.Free;
 
-END;
  IdFTP1.Disconnect;  ///////////////////
 //------------------------------------------------------------
 
 // шаг4. локальный - сетевая папка
-memo1.Lines.Add('2.Копирую с лок на сетевой');
+memo1.Lines.Add('4.Копирую с лок на сетевой');
 SetCurrentDir(ExtractFilePath(Application.ExeName)+'copy_скачать\');  //папка для поиска файлов
 
-IF FileExists(ExtractFilePath(Application.ExeName)+'copy_скачать\*.*') = true THEN BEGIN
 if FindFirst('*', faAnyFile , sr)=0 then  //если найдено, то:
 repeat
  if (sr.Name= '.') or (sr.Name='..') then continue;
@@ -305,10 +308,10 @@ repeat
 until (FindNext(sr) <> 0) ;
  findclose(sr);
  memo1.Lines.Add('скачено на диск'+ DateTimeToStr(Now));
-
-END;
 //------------------------------------------------------------
 
+except
+end;
 end;
 
 procedure Tfrmftpwww.TimerClientsTimer(Sender: TObject);

@@ -3,7 +3,7 @@ object frmftpwww: Tfrmftpwww
   Top = 0
   Caption = #1089#1072#1081#1090#1099'-'#1096#1084#1072#1081#1090#1099
   ClientHeight = 463
-  ClientWidth = 378
+  ClientWidth = 375
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -5075,9 +5075,9 @@ object frmftpwww: Tfrmftpwww
     OnClick = Button1Click
   end
   object CheckBox1: TCheckBox
-    Left = 112
+    Left = 128
     Top = 438
-    Width = 113
+    Width = 97
     Height = 17
     Caption = #1085#1077' '#1089#1090#1080#1088#1072#1090#1100
     TabOrder = 4
