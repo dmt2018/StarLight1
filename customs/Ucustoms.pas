@@ -144,6 +144,8 @@ type
     cxProgressBar1: TcxProgressBar;
     view_asisTROLLEY1: TcxGridDBColumn;
     view_asisREMARK: TcxGridDBColumn;
+    btn_pricing_grid: TdxBarButton;
+    btn_pricing_process: TdxBarButton;
     procedure FormCreate(Sender: TObject);
     procedure dxBarLargeButton1Click(Sender: TObject);
     procedure btn_settingsClick(Sender: TObject);
@@ -187,6 +189,7 @@ type
     procedure bb_excludeClick(Sender: TObject);
     procedure bb_includeClick(Sender: TObject);
     procedure btn_inv_equipmentClick(Sender: TObject);
+    procedure btn_pricing_gridClick(Sender: TObject);
   private
     { Private declarations }
     pnl_msg: TPanel;
@@ -1640,6 +1643,26 @@ begin
 end;
 
 
+procedure TfrmCustoms.btn_pricing_gridClick(Sender: TObject);
+begin
+  if (grid_invoices_v.DataController.DataSet.RecordCount = 0) then
+  begin
+    MessageBox(Handle, 'Нет данных для операции', 'Внимание', MB_ICONWARNING);
+    exit;
+  end;
+
+  frm_stat := Tfrm_stat.Create(Application);
+  try
+    frm_stat.CDS_PRICING_GRID.Close;
+    frm_stat.CDS_PRICING_GRID.ParamByName('v_id_inv').AsInteger  := grid_invoices_v.DataController.DataSet.FieldByName('INV_ID').Value;
+    frm_stat.CDS_PRICING_GRID.Open;
+    frm_stat.gr_stat.ActiveLevel := frm_stat.gr_pricegrid_l;
+    frm_stat.ShowModal;
+  finally
+    frm_stat.Free;
+  end;
+end;
+
 // Кликаем на файле инвойса
 procedure TfrmCustoms.grid_invoices_vDblClick(Sender: TObject);
 begin
@@ -1907,6 +1930,7 @@ begin
     frm_stat.CDS_STAT.ParamByName('v_vid').AsInteger     := 1;
     frm_stat.CDS_STAT.ParamByName('v_truck').AsInteger   := 0;
     frm_stat.CDS_STAT.Open;
+    frm_stat.gr_stat.ActiveLevel := frm_stat.gr_stat_l;
     frm_stat.ShowModal;
   finally
     frm_stat.Free;

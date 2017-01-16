@@ -5,7 +5,7 @@ object frm_stat: Tfrm_stat
   BorderStyle = bsSingle
   Caption = #1057#1090#1072#1090#1080#1089#1090#1080#1082#1072
   ClientHeight = 443
-  ClientWidth = 593
+  ClientWidth = 644
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -22,18 +22,18 @@ object frm_stat: Tfrm_stat
   object Panel3: TPanel
     Left = 0
     Top = 403
-    Width = 593
+    Width = 644
     Height = 40
     Align = alBottom
     BevelInner = bvRaised
     BevelOuter = bvLowered
     TabOrder = 0
-    ExplicitWidth = 538
+    ExplicitWidth = 593
     DesignSize = (
-      593
+      644
       40)
     object cxButton2: TcxButton
-      Left = 476
+      Left = 527
       Top = 3
       Width = 112
       Height = 31
@@ -114,23 +114,23 @@ object frm_stat: Tfrm_stat
       LookAndFeel.Kind = lfFlat
       LookAndFeel.NativeStyle = True
       Spacing = 6
-      ExplicitLeft = 421
+      ExplicitLeft = 476
     end
   end
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 593
+    Width = 644
     Height = 403
     Align = alClient
     BevelInner = bvRaised
     BevelOuter = bvLowered
     TabOrder = 1
-    ExplicitWidth = 538
+    ExplicitWidth = 593
     object gr_stat: TcxGrid
       Left = 2
       Top = 2
-      Width = 589
+      Width = 640
       Height = 399
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
@@ -142,8 +142,8 @@ object frm_stat: Tfrm_stat
       ParentFont = False
       TabOrder = 0
       LookAndFeel.Kind = lfOffice11
-      LookAndFeel.NativeStyle = True
-      ExplicitWidth = 534
+      LookAndFeel.NativeStyle = False
+      ExplicitWidth = 589
       object gr_stat_v: TcxGridDBTableView
         PopupMenu = pmStatCustom
         NavigatorButtons.ConfirmDelete = False
@@ -219,8 +219,123 @@ object frm_stat: Tfrm_stat
           Width = 90
         end
       end
+      object gr_pricegrid_v: TcxGridDBTableView
+        NavigatorButtons.ConfirmDelete = False
+        DataController.DataSource = DS_PRICING_GRID
+        DataController.Summary.DefaultGroupSummaryItems = <>
+        DataController.Summary.FooterSummaryItems = <
+          item
+            Format = '0'
+            Kind = skCount
+            Column = gr_pricegrid_vNAME_CAT
+          end
+          item
+            Format = '0.00'
+            Kind = skSum
+            Column = gr_pricegrid_vNETTO
+          end
+          item
+            Format = '0.00'
+            Kind = skSum
+            Column = gr_pricegrid_vSUMM
+          end
+          item
+            Format = '0.00'
+            Kind = skSum
+            Column = gr_pricegrid_vCUST_NORM
+          end
+          item
+            Format = '0.00'
+            Kind = skSum
+            Column = gr_pricegrid_vCUST_VALUE
+          end
+          item
+            Format = '0'
+            Kind = skSum
+            Column = gr_pricegrid_vUNITS
+          end>
+        DataController.Summary.SummaryGroups = <>
+        OptionsData.Deleting = False
+        OptionsData.Editing = False
+        OptionsData.Inserting = False
+        OptionsView.NoDataToDisplayInfoText = #1053#1077#1090' '#1076#1072#1085#1085#1099#1093
+        OptionsView.Footer = True
+        OptionsView.GroupByBox = False
+        object gr_pricegrid_vNAME_CAT: TcxGridDBColumn
+          Caption = #1050#1072#1090#1077#1075#1086#1088#1080#1103
+          DataBinding.FieldName = 'NAME_CAT'
+          FooterAlignmentHorz = taRightJustify
+          Width = 120
+        end
+        object gr_pricegrid_vNAME_CAT_RU: TcxGridDBColumn
+          DataBinding.FieldName = 'NAME_CAT_RU'
+          Visible = False
+        end
+        object gr_pricegrid_vCOUNTRY: TcxGridDBColumn
+          Caption = #1057#1090#1088#1072#1085#1072
+          DataBinding.FieldName = 'COUNTRY'
+          Width = 120
+        end
+        object gr_pricegrid_vUNITS: TcxGridDBColumn
+          Caption = #1050#1086#1083'-'#1074#1086
+          DataBinding.FieldName = 'UNITS'
+          PropertiesClassName = 'TcxTextEditProperties'
+          Properties.Alignment.Horz = taCenter
+          FooterAlignmentHorz = taCenter
+          HeaderAlignmentHorz = taCenter
+          Width = 70
+        end
+        object gr_pricegrid_vFO_RULE: TcxGridDBColumn
+          DataBinding.FieldName = 'FO_RULE'
+          Visible = False
+        end
+        object gr_pricegrid_vNETTO: TcxGridDBColumn
+          Caption = #1053#1077#1090#1090#1086
+          DataBinding.FieldName = 'NETTO'
+          PropertiesClassName = 'TcxTextEditProperties'
+          Properties.Alignment.Horz = taCenter
+          FooterAlignmentHorz = taRightJustify
+          HeaderAlignmentHorz = taCenter
+          Width = 70
+        end
+        object gr_pricegrid_vSUMM: TcxGridDBColumn
+          Caption = #1057#1091#1084#1084#1072
+          DataBinding.FieldName = 'SUMM'
+          PropertiesClassName = 'TcxCurrencyEditProperties'
+          Properties.Alignment.Horz = taRightJustify
+          Properties.DisplayFormat = ',0.00;-,0.00'
+          FooterAlignmentHorz = taRightJustify
+          HeaderAlignmentHorz = taCenter
+        end
+        object gr_pricegrid_vFO_VALUE: TcxGridDBColumn
+          DataBinding.FieldName = 'FO_VALUE'
+          Visible = False
+        end
+        object gr_pricegrid_vCUST_NORM: TcxGridDBColumn
+          Caption = #1053#1086#1088#1084#1072
+          DataBinding.FieldName = 'CUST_NORM'
+          PropertiesClassName = 'TcxCurrencyEditProperties'
+          Properties.Alignment.Horz = taCenter
+          Properties.DisplayFormat = ',0.00;-,0.00'
+          FooterAlignmentHorz = taRightJustify
+          HeaderAlignmentHorz = taCenter
+          Width = 70
+        end
+        object gr_pricegrid_vCUST_VALUE: TcxGridDBColumn
+          Caption = #1047#1085#1072#1095#1077#1085#1080#1077
+          DataBinding.FieldName = 'CUST_VALUE'
+          PropertiesClassName = 'TcxCurrencyEditProperties'
+          Properties.Alignment.Horz = taCenter
+          Properties.DisplayFormat = ',0.00;-,0.00'
+          FooterAlignmentHorz = taRightJustify
+          HeaderAlignmentHorz = taCenter
+        end
+      end
       object gr_stat_l: TcxGridLevel
         GridView = gr_stat_v
+      end
+      object gr_pricegrid_l: TcxGridLevel
+        GridView = gr_pricegrid_v
       end
     end
   end
@@ -308,5 +423,62 @@ object frm_stat: Tfrm_stat
       Caption = #1057#1074#1077#1088#1085#1091#1090#1100' '#1089#1087#1080#1089#1082#1080
       OnClick = mnCollapseAllClick
     end
+  end
+  object CDS_PRICING_GRID: TOraQuery
+    SQL.Strings = (
+      'begin'
+      '  custom_pkg.get_pricing_grid(:V_ID_INV, :CURSOR_);'
+      'end;')
+    FetchAll = True
+    Left = 312
+    Top = 160
+    ParamData = <
+      item
+        DataType = ftFloat
+        Name = 'V_ID_INV'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftCursor
+        Name = 'CURSOR_'
+        ParamType = ptOutput
+        Value = 'Object'
+      end>
+    object CDS_PRICING_GRIDUNITS: TFloatField
+      FieldName = 'UNITS'
+    end
+    object CDS_PRICING_GRIDNAME_CAT_RU: TStringField
+      FieldName = 'NAME_CAT_RU'
+    end
+    object CDS_PRICING_GRIDNAME_CAT: TStringField
+      FieldName = 'NAME_CAT'
+    end
+    object CDS_PRICING_GRIDFO_RULE: TFloatField
+      FieldName = 'FO_RULE'
+    end
+    object CDS_PRICING_GRIDCOUNTRY: TStringField
+      FieldName = 'COUNTRY'
+      Size = 50
+    end
+    object CDS_PRICING_GRIDNETTO: TFloatField
+      FieldName = 'NETTO'
+    end
+    object CDS_PRICING_GRIDSUMM: TFloatField
+      FieldName = 'SUMM'
+    end
+    object CDS_PRICING_GRIDFO_VALUE: TFloatField
+      FieldName = 'FO_VALUE'
+    end
+    object CDS_PRICING_GRIDCUST_VALUE: TFloatField
+      FieldName = 'CUST_VALUE'
+    end
+    object CDS_PRICING_GRIDCUST_NORM: TFloatField
+      FieldName = 'CUST_NORM'
+    end
+  end
+  object DS_PRICING_GRID: TOraDataSource
+    DataSet = CDS_PRICING_GRID
+    Left = 344
+    Top = 160
   end
 end

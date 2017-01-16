@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.CUSTOM_PKG
--- Generated 09.10.2016 2:14:08 from CREATOR@STAR_NEW
+-- Generated 16.01.2017 22:47:09 from CREATOR@STAR_REG
 
 CREATE OR REPLACE 
 PACKAGE custom_pkg
@@ -548,6 +548,29 @@ PROCEDURE get_total_list
     v_id_dep  in number,
     v_inv_id  in number,
     v_truck   in number,
+    cursor_   out ref_cursor
+);
+
+
+--
+--  Узнаем вес НЕТТО к которому будем приводить все выгрузки
+--
+PROCEDURE get_inv_netto
+(
+    v_id_dep  in number,
+    v_inv_id  in number,
+    v_truck   in number,
+    cursor_   out ref_cursor
+)
+;
+
+
+--
+--  Достанем ценовую сетку
+--
+PROCEDURE get_pricing_grid
+(
+    v_inv_id  in number,
     cursor_   out ref_cursor
 );
 
@@ -2215,7 +2238,7 @@ begin
                  , decode(a.hol_country,'','Holland',a.hol_country) as hol_country
                  , t.COUNTRY
                  , orderby
-                 , sum(round(STEM_WEIGHT*a.units)) as netto
+                 , sum(STEM_WEIGHT*a.units) as netto
                  , round(sum((case when UPACK = 'W' then weight_tank else weight_pack end)*PACKING_AMOUNT + STEM_WEIGHT*a.units) + nvl(max(e.telega)*const_customs_telega,0) + nvl(max(e.poddon)*const_customs_poddon,0)) as brutto
                  , sum(summ) as summ
                  , max(nvl(e.telega,0)) as telega, max(nvl(e.poddon,0)) as poddon
@@ -2343,7 +2366,7 @@ begin
                  , decode(a.hol_country,'','Holland',a.hol_country) as hol_country
                  , t.COUNTRY
                  , orderby
-                 , sum(round(STEM_WEIGHT*a.units)) as netto
+                 , sum(STEM_WEIGHT*a.units) as netto
                  , round(sum((case when UPACK = 'W' then weight_tank else weight_pack end)*PACKING_AMOUNT + STEM_WEIGHT*a.units) + nvl(max(e.telega)*const_customs_telega,0) + nvl(max(e.poddon)*const_customs_poddon,0)) as brutto
                  , sum(summ) as summ
                  , max(nvl(e.telega,0)) as telega, max(nvl(e.poddon,0)) as poddon
@@ -2681,7 +2704,7 @@ begin
                  , decode(a.hol_country,'','Holland',a.hol_country) as hol_country
                  , t.COUNTRY
                  , orderby
-                 , sum(round(STEM_WEIGHT*a.units)) as netto
+                 , sum(STEM_WEIGHT*a.units) as netto
                  , round(sum((case when UPACK = 'W' then weight_tank else weight_pack end)*PACKING_AMOUNT + STEM_WEIGHT*a.units) + nvl(max(e.telega)*const_customs_telega,0) + nvl(max(e.poddon)*const_customs_poddon,0)) as brutto
                  , sum(summ) as summ
                  , max(nvl(e.telega,0)) as telega, max(nvl(e.poddon,0)) as poddon
@@ -2719,6 +2742,110 @@ begin
 
 end get_fito_total_by_group;
 
+
+
+--
+--  Узнаем вес НЕТТО к которому будем приводить все выгрузки
+--
+PROCEDURE get_inv_netto
+(
+    v_id_dep  in number,
+    v_inv_id  in number,
+    v_truck   in number,
+    cursor_   out ref_cursor
+)
+is
+begin
+
+  open cursor_ for
+    select round(sum(STEM_WEIGHT*a.units)) as netto
+      FROM customs_inv_data_as_is a
+        left outer join (
+                 select w.id, w.NAME_CAT, nvl(wf.fo_rule,0) fo_rule, wf.fo_value, wf.FO_NAME, w.CUST_REGN, nvl(wf.V_WEIGHT, w.STEM_WEIGHT) as STEM_WEIGHT
+                        , w.weight_tank, w.weight_pack, NAME_CAT_RU, w.orderby
+                 from customs_weight w
+                   left outer join customs_weight_formula wf on wf.id_w = w.id and wf.fo_rule > 0
+                 where w.ID_DEP = v_id_dep
+                ) c on lower(c.NAME_CAT) = lower(a.hol_sub_type)
+                  and (
+                     (c.fo_rule = 3 and c.fo_value <= a.height)
+                      or
+                     (c.fo_rule = 2 and c.fo_value > a.height)
+                      or
+                     (c.fo_rule = 0)
+        )
+      where inv_id = v_inv_id and to_number(a.TRUCKS) = v_truck;
+
+  EXCEPTION
+  WHEN OTHERS THEN
+       LOG_ERR(SQLERRM, SQLCODE, 'custom_pkg.get_inv_netto', tmp_sql);
+       RAISE_APPLICATION_ERROR (-20256, 'Запрос не выполнился. ' || SQLERRM);
+
+end get_inv_netto;
+
+
+
+--
+--  Достанем ценовую сетку
+--
+PROCEDURE get_pricing_grid
+(
+    v_inv_id  in number,
+    cursor_   out ref_cursor
+)
+is
+  v_id_dep  number;
+  v_COURCE  number;
+begin
+  begin
+      SELECT a.id_departments, a.COURCE into v_id_dep, v_COURCE
+      FROM customs_inv_register a
+      where a.inv_id = v_inv_id
+      ;
+  EXCEPTION WHEN no_data_found THEN
+    v_id_dep := 0;
+    v_COURCE := 1;
+  end;
+
+
+  open cursor_ for
+    select a.*, round(summ/netto*v_COURCE,2) cust_value, a.FO_VALUE as cust_norm
+    from (
+      select sum(a.units) as units,
+                  NAME_CAT_RU, NAME_CAT
+                 , fo_rule
+                 , t.COUNTRY
+                 , sum(STEM_WEIGHT*a.units) as netto
+                 , sum(summ) as summ
+                 , max(s.FO_VALUE) as FO_VALUE
+            FROM customs_inv_data_as_is a
+             left outer join (
+                 select w.id, w.NAME_CAT, nvl(wf.fo_rule,0) fo_rule, wf.fo_value, wf.FO_NAME, w.CUST_REGN, nvl(wf.V_WEIGHT, w.STEM_WEIGHT) as STEM_WEIGHT
+                        , w.weight_tank, w.weight_pack, NAME_CAT_RU, w.orderby
+                 from customs_weight w
+                   left outer join customs_weight_formula wf on wf.id_w = w.id and wf.fo_rule > 0
+                 where w.ID_DEP = v_id_dep
+                ) c on lower(c.NAME_CAT) = lower(a.hol_sub_type)
+                  and (
+                     (c.fo_rule = 3 and c.fo_value <= a.height)
+                      or
+                     (c.fo_rule = 2 and c.fo_value > a.height)
+                      or
+                     (c.fo_rule = 0)
+                    )
+              left outer join countries t on lower(t.country_eng) = lower(a.hol_country)
+              left outer join customs_weight_group_settings s on s.ID_DEPARTMENTS = v_id_dep and s.FS_COUNTRY_ID = 0 and s.ID_W = c.id
+            where a.inv_id = v_inv_id
+            group by  NAME_CAT_RU, NAME_CAT, fo_rule, decode(a.hol_country,'','Holland',a.hol_country), t.COUNTRY
+    ) a
+    order by NAME_CAT, COUNTRY;
+
+  EXCEPTION
+  WHEN OTHERS THEN
+       LOG_ERR(SQLERRM, SQLCODE, 'custom_pkg.get_pricing_grid', tmp_sql);
+       RAISE_APPLICATION_ERROR (-20257, 'Запрос не выполнился. ' || SQLERRM);
+
+end get_pricing_grid;
 
 
 END;
