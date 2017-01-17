@@ -192,6 +192,16 @@ type
     Q_CLIENTSBLOCK2: TIntegerField;
     Q_CLIENTSGROUP_NAME: TStringField;
     Q_CLIENTS_DS: TOraDataSource;
+    Q_CLIENTS_WESHOP: TOraQuery;
+    IntegerField1: TIntegerField;
+    StringField1: TStringField;
+    StringField2: TStringField;
+    StringField3: TStringField;
+    IntegerField2: TIntegerField;
+    IntegerField3: TIntegerField;
+    IntegerField4: TIntegerField;
+    IntegerField5: TIntegerField;
+    Q_CLIENTS_WESHOPID_OFFICE: TIntegerField;
     procedure StarSessBeforeConnect(Sender: TObject);
     procedure SelDistrIndBeforeOpen(DataSet: TDataSet);
     procedure SelOrderClientsBeforeOpen(DataSet: TDataSet);
@@ -207,6 +217,7 @@ type
   public
     function insert_new_order(idOrder: integer; idClient: integer) : integer;
     function insert_new_order_item(idOrderClient: integer; nID: integer; quantity: integer) : integer;
+    function insert_new_order_dobor(idOrder: integer; idClient: integer; FullFileName: string) : integer;
     { Public declarations }
   end;
 
@@ -361,6 +372,58 @@ begin
   end;
   result := id_ord_cl;
 end;
+
+
+
+// ¬ указанном заказе ищет указаного клиента, чтобы был не упакованный.
+// ≈сли найден заказ клиента, то возвращает ID_ORDER_CLIENT, иначе создает заказ и возвращает ID_ORDER_CLIENT
+function TDM.insert_new_order_dobor(idOrder: integer; idClient: integer; FullFileName: string) : integer;
+var SQLstr : string;
+    id_ord_cl : integer;
+begin
+  if (idOrder = 0) or (idClient = 0) then result := 0;
+
+  with SelQ do
+  begin
+    Close;
+    SQLstr := 'select id_orders_clients from orders_clients where id_orders ='+IntToStr(idOrder)+' and IN_FILE like ''webshop%'' and active=1 and PACK_=0 and ID_CLIENTS='+IntToStr(idClient);
+    SQL.Clear;
+    SQL.Add(SQLstr);
+    Open;
+    if recordcount > 0 then
+      id_ord_cl := FieldByName('id_orders_clients').AsInteger
+    else
+    begin
+      // —оздадим новый заказ клиента
+      Close;
+      SQL.Clear;
+      SQL.Add('begin PACK_ORDERS.save_new_order(:id_, :ID_ORDERS_F_, :ID_CLIENT_, :DDATE_, :user_, :NN_, :v_file); end; ');
+      ParamByName('id_').Value := 0;
+      ParamByName('ID_ORDERS_F_').Value := idOrder;
+      ParamByName('ID_CLIENT_').Value   := idClient;
+      ParamByName('user_').AsString     := UpperCase(StarSess.Username);
+      ParamByName('DDATE_').AsDateTime  := Date;
+      ParamByName('NN_').Value          := 0;
+      ParamByName('v_file').AsString    := 'webshop - '+ExtractFileName(FullFileName);
+
+      // ѕытаемс€ выполнить SQL запрос
+      try
+        Execute;
+        id_ord_cl := ParamByName('id_').AsInteger;
+
+        Close;
+        SQL.Clear;
+        SQL.Add( 'update ORDERS_CLIENTS set N_TYPE=3 where ID_ORDERS_CLIENTS='+IntToStr(id_ord_cl) );
+        Execute;
+
+      except
+        on E: Exception do ShowMessage('ќшибка записи!'#13#10+E.Message);
+      End;
+    end;
+  end;
+  result := id_ord_cl;
+end;
+
 
 
 // ¬ указанном клиентском заказе ищем позицию.

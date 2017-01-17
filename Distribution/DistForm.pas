@@ -3382,12 +3382,15 @@ inv_id: 10007897
 
     // 1. Считаем код клиента с файла и сопоставим его с базой
     idClient  := 0;
-    DM.Q_CLIENTS.Open;
-    DM.Q_CLIENTS.Filter   := '';
-    DM.Q_CLIENTS.Filtered := false;
+    DM.Q_CLIENTS_WESHOP.Open;
+    DM.Q_CLIENTS_WESHOP.Filter   := '';
+    DM.Q_CLIENTS_WESHOP.Filtered := false;
     Client := Trim(copy(Client,pos(':',Client)+1,length(Client)-1));
-    if Not DM.Q_CLIENTS.Locate('nick',Client,[loCaseInsensitive]) then
+    if Not DM.Q_CLIENTS_WESHOP.Locate('nick',Client,[loCaseInsensitive]) then
     begin
+      MessageBox(Handle, PChar('Клиент с кодом '+Client+' не найден!'), 'Внимание', MB_ICONERROR);
+      exit;
+    {
       // Найдем клиента в перекодировочной таблице
       with DM.SelQ do
       Begin
@@ -3395,7 +3398,7 @@ inv_id: 10007897
         SQL.Clear;
         SQL.Add('SELECT id_client FROM old_client_map where old_client = '''+Client+'''');
         Open;
-        if RecordCount = 1 then        
+        if RecordCount = 1 then
           idClient := FieldByName('id_client').AsInteger
         else
         begin
@@ -3405,9 +3408,33 @@ inv_id: 10007897
         end;
         Close;
       End;
+}
     end
-    else idClient := DM.Q_CLIENTS.FieldByName('ID_CLIENTS').Value;
-    DM.Q_CLIENTS.Close;
+    else
+    begin
+      if DM.Q_CLIENTS_WESHOP.FieldByName('id_office').AsInteger = 1 then
+        idClient := DM.Q_CLIENTS_WESHOP.FieldByName('ID_CLIENTS').Value
+      else
+      begin
+        with DM.SelQ do
+        Begin
+          Close;
+          SQL.Clear;
+          SQL.Add(' select CONST_WEBSHOP('+DM.Q_CLIENTS_WESHOP.FieldByName('id_office').AsString+') as id from dual');
+          Open;
+          if RecordCount = 1 then
+            idClient := FieldByName('id').AsInteger
+          else
+          begin
+            Close;
+            MessageBox(Handle, PChar('Клиент с кодом '+Client+' не найден!'), 'Внимание', MB_ICONERROR);
+            exit;
+          end;
+          Close;
+        End;
+      end;
+    end;
+    DM.Q_CLIENTS_WESHOP.Close;
     // -------------------------------
 
 
@@ -3450,12 +3477,10 @@ inv_id: 10007897
        C_ID_ORDERS := CUR_ID_ORDERS;
     //
 
-    id_or_cl := DM.insert_new_order( C_ID_ORDERS, idClient );
+    id_or_cl := DM.insert_new_order_dobor( C_ID_ORDERS, idClient, FullFileName );
     if id_or_cl = 0 then exit;
 
     cds_source := gr_PrepDist_v.DataController.DataSet;
-
-
 
     err_log       := '';
     err_log_short := '';

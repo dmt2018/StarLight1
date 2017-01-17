@@ -328,6 +328,8 @@ object orders_clients: Torders_clients
       ParentFont = False
       TabOrder = 0
       LookAndFeel.Kind = lfFlat
+      ExplicitLeft = 0
+      ExplicitTop = 0
       object grClients_v: TcxGridDBTableView
         PopupMenu = PopupMenu1
         OnDblClick = DBGridEh1DblClick
@@ -389,8 +391,10 @@ object orders_clients: Torders_clients
         DataController.Summary.SummaryGroups = <>
         FilterRow.InfoText = #1055#1086#1083#1077' '#1076#1083#1103' '#1092#1080#1083#1100#1090#1088#1086#1074
         FilterRow.Visible = True
+        OptionsBehavior.CellHints = True
         OptionsData.Inserting = False
         OptionsSelection.MultiSelect = True
+        OptionsView.CellEndEllipsis = True
         OptionsView.NoDataToDisplayInfoText = #1053#1077#1090' '#1076#1072#1085#1085#1099#1093
         OptionsView.CellAutoHeight = True
         OptionsView.DataRowHeight = 30
@@ -1024,6 +1028,10 @@ object orders_clients: Torders_clients
           ItemName = 'blbImportFile'
         end
         item
+          Visible = True
+          ItemName = 'blbImportWebShop'
+        end
+        item
           BeginGroup = True
           Visible = True
           ItemName = 'blbLoadFile'
@@ -1490,6 +1498,15 @@ object orders_clients: Torders_clients
       Hint = #1050#1083#1080#1077#1085#1090#1099' '#1073#1083#1086#1082'. '#1073#1091#1093'-'#1077#1081' '#1080#1083#1080' '#1082#1088#1077#1076#1080#1090#1086#1084
       Style = stWarning
       Visible = ivAlways
+    end
+    object blbImportWebShop: TdxBarLargeButton
+      Caption = #1047#1072#1075#1088#1091#1079#1080#1090#1100' '#1076#1086#1073#1086#1088
+      Category = 0
+      Hint = #1047#1072#1075#1088#1091#1079#1080#1090#1100' '#1092#1072#1081#1083' '#1074' '#1090#1077#1082#1091#1097#1080#1081' '#1079#1072#1082#1072#1079
+      Visible = ivAlways
+      LargeImageIndex = 23
+      OnClick = blbImportWebShopClick
+      AutoGrayScale = False
     end
   end
   object bpmCopyOrder: TdxBarPopupMenu

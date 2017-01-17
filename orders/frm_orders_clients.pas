@@ -182,6 +182,7 @@ type
     DBText5: TDBText;
     mnChangeClient: TMenuItem;
     grClients_vPRIORITY: TcxGridDBColumn;
+    blbImportWebShop: TdxBarLargeButton;
     procedure BitBtn10Click(Sender: TObject);
     procedure BitBtn12Click(Sender: TObject);
     procedure BitBtn13Click(Sender: TObject);
@@ -219,6 +220,7 @@ type
       ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
       var ADone: Boolean);
     procedure mnChangeClientClick(Sender: TObject);
+    procedure blbImportWebShopClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -1209,6 +1211,27 @@ begin
     pnl_msg.Free;
   end;
 end;
+
+
+// Загрузить добор
+procedure Torders_clients.blbImportWebShopClick(Sender: TObject);
+begin
+  DM.odOrder.FilterIndex := 2;
+
+  if not DM.odOrder.Execute then exit;
+
+  try
+    pnl_msg := TPanel(MakePanelLabel(Panel6,300,100,'Идет обработка заказа'));
+    pnl_msg.Repaint;
+
+    if DM.UpploadDoborFromInet(Handle, DM.odOrder.FileName, DM.Q_ORDERS.FieldByName('ID_ORDERS').AsInteger) then
+       DM.Q_ORDERS_ORDERS.Refresh;
+
+  finally
+    pnl_msg.Free;
+  end;
+end;
+
 
 
 // Проверить заказ

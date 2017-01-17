@@ -1015,4 +1015,55 @@ object DM: TDM
     Left = 408
     Top = 360
   end
+  object Q_CLIENTS_WESHOP: TOraQuery
+    SQL.Strings = (
+      'SELECT C.ID_CLIENTS, C.NICK, C.FIO, C.CCODE,'
+      
+        '    C.TTYPE, C.ID_CLIENTS_GROUPS, C.BLOCK1, C.BLOCK2, c.id_offic' +
+        'e'
+      '    FROM CLIENTS C'
+      'WHERE (C.ACTIVE=1 or C.active is NULL)'
+      ' ORDER BY C.NICK')
+    FetchAll = True
+    FilterOptions = [foCaseInsensitive]
+    Left = 408
+    Top = 416
+    object IntegerField1: TIntegerField
+      FieldName = 'ID_CLIENTS'
+      Required = True
+    end
+    object StringField1: TStringField
+      FieldName = 'NICK'
+      Required = True
+    end
+    object StringField2: TStringField
+      FieldName = 'FIO'
+      Required = True
+      Size = 255
+    end
+    object StringField3: TStringField
+      FieldName = 'CCODE'
+      Required = True
+      Size = 13
+    end
+    object IntegerField2: TIntegerField
+      FieldName = 'TTYPE'
+      Required = True
+    end
+    object IntegerField3: TIntegerField
+      FieldName = 'ID_CLIENTS_GROUPS'
+      Required = True
+    end
+    object IntegerField4: TIntegerField
+      FieldName = 'BLOCK1'
+      Required = True
+    end
+    object IntegerField5: TIntegerField
+      FieldName = 'BLOCK2'
+      Required = True
+    end
+    object Q_CLIENTS_WESHOPID_OFFICE: TIntegerField
+      FieldName = 'ID_OFFICE'
+    end
+  end
 end
