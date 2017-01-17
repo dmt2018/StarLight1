@@ -591,7 +591,8 @@ begin
   DocListPrint_Action.Enabled := DataM.Operator_print;
   dxBarButton15.Enabled := DataM.Operator_print;
 
-  grid_allnakl_v.OptionsView.Footer:=true;
+  //футер доступен тем кому доступно редакт.. зад-ся в unit oper_select
+  grid_allnakl_v.OptionsView.Footer:=DataM.Operator_delete;
 end;
 
 
