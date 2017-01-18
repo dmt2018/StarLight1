@@ -815,7 +815,7 @@ begin
     try
       DM.SelQ.Close;
       DM.SelQ.SQL.Clear;
-      DM.SelQ.SQL.Add('SELECT ppli_id, ppl_comment ||'' - ''|| to_char(ppl_date,''dd.mm.yyyy'') as inv_str FROM prepare_price_list_index where ID_DEPARTMENTS='+IntToStr(CUR_DEPT_ID)+' and ppli_id <> '+DM.PPL_Index.fieldByName('PPLI_ID').AsString+' and ppl_date > sysdate - 15 and finished=1 order by ppl_date desc');
+      DM.SelQ.SQL.Add('SELECT ppli_id, ppli_id ||'' - ''|| to_char(ppl_date,''dd.mm.yyyy'') ||'' - ''|| ppl_comment as inv_str FROM prepare_price_list_index where ID_DEPARTMENTS='+IntToStr(CUR_DEPT_ID)+' and ppli_id <> '+DM.PPL_Index.fieldByName('PPLI_ID').AsString+' and ppl_date > sysdate - 15 and finished=1 order by ppl_date desc');
       DM.SelQ.Open;
       FillImgComboCx(DM.SelQ, cbInvoices, 'Выбрать инвойса для подгрузки');
       DM.SelQ.Close;

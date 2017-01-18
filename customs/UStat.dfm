@@ -5,7 +5,7 @@ object frm_stat: Tfrm_stat
   BorderStyle = bsSingle
   Caption = #1057#1090#1072#1090#1080#1089#1090#1080#1082#1072
   ClientHeight = 443
-  ClientWidth = 644
+  ClientWidth = 779
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -22,7 +22,7 @@ object frm_stat: Tfrm_stat
   object Panel3: TPanel
     Left = 0
     Top = 403
-    Width = 644
+    Width = 779
     Height = 40
     Align = alBottom
     BevelInner = bvRaised
@@ -30,10 +30,10 @@ object frm_stat: Tfrm_stat
     TabOrder = 0
     ExplicitWidth = 593
     DesignSize = (
-      644
+      779
       40)
     object cxButton2: TcxButton
-      Left = 527
+      Left = 662
       Top = 3
       Width = 112
       Height = 31
@@ -120,7 +120,7 @@ object frm_stat: Tfrm_stat
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 644
+    Width = 779
     Height = 403
     Align = alClient
     BevelInner = bvRaised
@@ -130,7 +130,7 @@ object frm_stat: Tfrm_stat
     object gr_stat: TcxGrid
       Left = 2
       Top = 2
-      Width = 640
+      Width = 775
       Height = 399
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
@@ -330,6 +330,22 @@ object frm_stat: Tfrm_stat
           FooterAlignmentHorz = taRightJustify
           HeaderAlignmentHorz = taCenter
         end
+        object gr_pricegrid_vAVG_PRICE: TcxGridDBColumn
+          Caption = #1057#1088'. '#1094#1077#1085#1072
+          DataBinding.FieldName = 'AVG_PRICE'
+          PropertiesClassName = 'TcxCurrencyEditProperties'
+          Properties.Alignment.Horz = taRightJustify
+          Properties.DisplayFormat = ',0.00;-,0.00'
+          HeaderAlignmentHorz = taCenter
+        end
+        object gr_pricegrid_vCALC_VALUE: TcxGridDBColumn
+          Caption = #1048#1090#1086#1075'. '#1094#1077#1085#1072
+          DataBinding.FieldName = 'CALC_VALUE'
+          PropertiesClassName = 'TcxCurrencyEditProperties'
+          Properties.Alignment.Horz = taRightJustify
+          Properties.DisplayFormat = ',0.00;-,0.00'
+          HeaderAlignmentHorz = taCenter
+        end
       end
       object gr_stat_l: TcxGridLevel
         GridView = gr_stat_v
@@ -474,6 +490,12 @@ object frm_stat: Tfrm_stat
     end
     object CDS_PRICING_GRIDCUST_NORM: TFloatField
       FieldName = 'CUST_NORM'
+    end
+    object CDS_PRICING_GRIDAVG_PRICE: TFloatField
+      FieldName = 'AVG_PRICE'
+    end
+    object CDS_PRICING_GRIDCALC_VALUE: TFloatField
+      FieldName = 'CALC_VALUE'
     end
   end
   object DS_PRICING_GRID: TOraDataSource

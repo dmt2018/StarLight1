@@ -1015,12 +1015,12 @@ object frmTruckSale: TfrmTruckSale
     BevelOuter = bvLowered
     TabOrder = 4
     object Label12: TLabel
-      Left = 406
+      Left = 411
       Top = 6
-      Width = 92
+      Width = 114
       Height = 29
       AutoSize = False
-      Caption = #1087#1086#1076#1075#1088#1091#1079#1080#1090#1100' '#1094#1077#1085#1099' '#1080#1085#1074#1086#1081#1089#1072
+      Caption = #1087#1086#1076#1075#1088#1091#1079#1080#1090#1100' '#1094#1077#1085#1099' '#1074#1099#1073#1088#1072#1085#1085#1086#1075#1086' '#1087#1088#1072#1081#1089#1072
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -1277,7 +1277,7 @@ object frmTruckSale: TfrmTruckSale
       Spacing = 6
     end
     object cbInvoices: TcxImageComboBox
-      Left = 504
+      Left = 525
       Top = 9
       Cursor = crHandPoint
       ParentFont = False
@@ -1304,7 +1304,7 @@ object frmTruckSale: TfrmTruckSale
       Width = 245
     end
     object btnLoadPrice: TcxButton
-      Left = 753
+      Left = 774
       Top = 8
       Width = 57
       Height = 25
@@ -2156,6 +2156,21 @@ object frmTruckSale: TfrmTruckSale
     object mmPriceAll: TMenuItem
       Caption = #1059#1089#1090#1072#1085#1086#1074#1080#1090#1100' '#1077#1076#1080#1085#1091#1102' '#1094#1077#1085#1091' '#1076#1083#1103' '#1090#1077#1082#1091#1097#1080#1093' '#1087#1086#1079#1080#1094#1080#1081
       OnClick = mmPriceAllClick
+    end
+    object N2: TMenuItem
+      Caption = '-'
+    end
+    object mmClearCoef: TMenuItem
+      Caption = #1054#1095#1080#1089#1090#1080#1090#1100' '#1080#1085#1076#1080#1074#1080#1076#1091#1072#1083#1100#1085#1099#1081' '#1082#1086#1101#1092#1092#1080#1094#1080#1077#1085#1090
+      OnClick = mmClearCoefClick
+    end
+    object mmClearPrice: TMenuItem
+      Caption = #1054#1095#1080#1089#1090#1080#1090#1100' '#1080#1085#1076#1080#1074#1080#1076#1091#1072#1083#1100#1085#1091#1102' '#1094#1077#1085#1091
+      OnClick = mmClearPriceClick
+    end
+    object mmClearPack: TMenuItem
+      Caption = #1054#1095#1080#1089#1090#1080#1090#1100' '#1080#1085#1076#1080#1074#1080#1076#1091#1072#1083#1100#1085#1091#1102' '#1092#1072#1089#1086#1074#1082#1091
+      OnClick = mmClearPackClick
     end
   end
   object CDS_OLD_PRICE: TOraQuery

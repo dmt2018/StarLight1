@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.DISTRIBUTION_PKG
--- Generated 20.12.2016 23:54:15 from CREATOR@STAR_REG
+-- Generated 18.01.2017 23:44:02 from CREATOR@STAR_REG
 
 CREATE OR REPLACE 
 PACKAGE distribution_pkg
@@ -1038,7 +1038,7 @@ IS
         and o.dist_ind_id = IN_DIST_IND_ID
         and b.id_orders_clients = a.id_orders_clients
         and b.active = 1
-        and b.n_type < 2
+        and b.n_type <> 2
         and a.quantity > 0
         --and b.pack_ = 0
         and (b.pack_ = 0 or const_office > 1)

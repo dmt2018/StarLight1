@@ -241,6 +241,10 @@ type
     cds_exportTRUCKINCAMING: TDateTimeField;
     cxGrid1DBTableView1TRUCKINCAMING: TcxGridDBColumn;
     CDS_OLD_PRICEPPLI_ID: TFloatField;
+    N2: TMenuItem;
+    mmClearCoef: TMenuItem;
+    mmClearPrice: TMenuItem;
+    mmClearPack: TMenuItem;
     procedure btnRefreshClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnAddClick(Sender: TObject);
@@ -266,6 +270,9 @@ type
     procedure mmPriceSelClick(Sender: TObject);
     procedure mmPriceAllClick(Sender: TObject);
     procedure btnLoadPriceClick(Sender: TObject);
+    procedure mmClearCoefClick(Sender: TObject);
+    procedure mmClearPriceClick(Sender: TObject);
+    procedure mmClearPackClick(Sender: TObject);
   private
     { Private declarations }
     ed_param : integer;
@@ -275,6 +282,7 @@ type
     function TruckSaleFormShow : boolean;
     procedure setMenuItem(element: string; src: TMenuItem; p_type: string);
     procedure UnloadObject(param: string; p_id: integer);
+    procedure ClearData(param: string);
   end;
 
 var
@@ -323,7 +331,7 @@ begin
     try
       DM.SelQ.Close;
       DM.SelQ.SQL.Clear;
-      DM.SelQ.SQL.Add('SELECT ppli_id, ppl_comment ||'' - ''|| to_char(ppl_date,''dd.mm.yyyy'') as inv_str FROM prepare_price_list_index where ID_DEPARTMENTS='+IntToStr(CUR_DEPT_ID)+' and ppl_date > sysdate - 85 and finished=1 order by ppl_date desc');
+      DM.SelQ.SQL.Add('SELECT ppli_id, ppli_id ||'' - ''|| to_char(ppl_date,''dd.mm.yyyy'') ||'' - ''|| ppl_comment as inv_str FROM prepare_price_list_index where ID_DEPARTMENTS='+IntToStr(CUR_DEPT_ID)+' and ppl_date > sysdate - 15 and finished=1 order by ppl_date desc');
       DM.SelQ.Open;
       FillImgComboCx(DM.SelQ, cbInvoices, 'Выбрать инвойса для подгрузки');
       DM.SelQ.Close;
@@ -884,5 +892,36 @@ begin
   end;
 end;
 
+
+procedure TfrmTruckSale.mmClearCoefClick(Sender: TObject);
+begin
+  ClearData('COEF');
+end;
+
+procedure TfrmTruckSale.mmClearPackClick(Sender: TObject);
+begin
+  ClearData('MIN_PACK');
+end;
+
+procedure TfrmTruckSale.mmClearPriceClick(Sender: TObject);
+begin
+  ClearData('PRICE');
+end;
+
+procedure TfrmTruckSale.ClearData(param: string);
+begin
+  if MessageDlg('Удалить индивидуальные позиции у №'+VarToStr(grTruckSale_vTRUCK_SALE_ID.EditValue)+'?', mtConfirmation, [mbNo,mbOk], 0, mbOk) <> mrOk then exit;
+
+  try
+    DM.ForceQ.Close;
+    DM.ForceQ.SQL.Text := 'update TRUCK_SALE_DATA set '+param+' = null where TRUCK_SALE_ID = '+VarToStr(grTruckSale_vTRUCK_SALE_ID.EditValue);
+    DM.ForceQ.Execute;
+    CDS_TruckSale.RefreshRecord;
+    CDS_TruckSaleData.Refresh;
+  except
+    on E: Exception do
+          MessageBox(Handle, PChar(E.Message), 'Ошибка', MB_ICONERROR);
+  end;
+end;
 
 end.

@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.CUSTOM_PKG
--- Generated 16.01.2017 22:47:09 from CREATOR@STAR_REG
+-- Generated 18.01.2017 23:44:15 from CREATOR@STAR_REG
 
 CREATE OR REPLACE 
 PACKAGE custom_pkg
@@ -2809,34 +2809,38 @@ begin
 
 
   open cursor_ for
-    select a.*, round(summ/netto*v_COURCE,2) cust_value, a.FO_VALUE as cust_norm
+    select a.*, round( case when cust_value > cust_norm then cust_value else cust_norm end /1.12 * netto / units,2) as calc_value
     from (
-      select sum(a.units) as units,
-                  NAME_CAT_RU, NAME_CAT
-                 , fo_rule
-                 , t.COUNTRY
-                 , sum(STEM_WEIGHT*a.units) as netto
-                 , sum(summ) as summ
-                 , max(s.FO_VALUE) as FO_VALUE
-            FROM customs_inv_data_as_is a
-             left outer join (
-                 select w.id, w.NAME_CAT, nvl(wf.fo_rule,0) fo_rule, wf.fo_value, wf.FO_NAME, w.CUST_REGN, nvl(wf.V_WEIGHT, w.STEM_WEIGHT) as STEM_WEIGHT
-                        , w.weight_tank, w.weight_pack, NAME_CAT_RU, w.orderby
-                 from customs_weight w
-                   left outer join customs_weight_formula wf on wf.id_w = w.id and wf.fo_rule > 0
-                 where w.ID_DEP = v_id_dep
-                ) c on lower(c.NAME_CAT) = lower(a.hol_sub_type)
-                  and (
-                     (c.fo_rule = 3 and c.fo_value <= a.height)
-                      or
-                     (c.fo_rule = 2 and c.fo_value > a.height)
-                      or
-                     (c.fo_rule = 0)
-                    )
-              left outer join countries t on lower(t.country_eng) = lower(a.hol_country)
-              left outer join customs_weight_group_settings s on s.ID_DEPARTMENTS = v_id_dep and s.FS_COUNTRY_ID = 0 and s.ID_W = c.id
-            where a.inv_id = v_inv_id
-            group by  NAME_CAT_RU, NAME_CAT, fo_rule, decode(a.hol_country,'','Holland',a.hol_country), t.COUNTRY
+      select a.*, round(summ/netto*v_COURCE,2) cust_value, a.FO_VALUE as cust_norm
+      from (
+        select sum(a.units) as units,
+                    NAME_CAT_RU, NAME_CAT
+                   , fo_rule
+                   , t.COUNTRY
+                   , sum(STEM_WEIGHT*a.units) as netto
+                   , sum(summ) as summ
+                   , max(s.FO_VALUE) as FO_VALUE
+                   , avg(a.price) as avg_price
+              FROM customs_inv_data_as_is a
+               left outer join (
+                   select w.id, w.NAME_CAT, nvl(wf.fo_rule,0) fo_rule, wf.fo_value, wf.FO_NAME, w.CUST_REGN, nvl(wf.V_WEIGHT, w.STEM_WEIGHT) as STEM_WEIGHT
+                          , w.weight_tank, w.weight_pack, NAME_CAT_RU, w.orderby
+                   from customs_weight w
+                     left outer join customs_weight_formula wf on wf.id_w = w.id and wf.fo_rule > 0
+                   where w.ID_DEP = v_id_dep
+                  ) c on lower(c.NAME_CAT) = lower(a.hol_sub_type)
+                    and (
+                       (c.fo_rule = 3 and c.fo_value <= a.height)
+                        or
+                       (c.fo_rule = 2 and c.fo_value > a.height)
+                        or
+                       (c.fo_rule = 0)
+                      )
+                left outer join countries t on lower(t.country_eng) = lower(a.hol_country)
+                left outer join customs_weight_group_settings s on s.ID_DEPARTMENTS = v_id_dep and s.FS_COUNTRY_ID = 0 and s.ID_W = c.id
+              where a.inv_id = v_inv_id
+              group by  NAME_CAT_RU, NAME_CAT, fo_rule, decode(a.hol_country,'','Holland',a.hol_country), t.COUNTRY
+      ) a
     ) a
     order by NAME_CAT, COUNTRY;
 

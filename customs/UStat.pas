@@ -61,6 +61,10 @@ type
     gr_pricegrid_vFO_VALUE: TcxGridDBColumn;
     gr_pricegrid_vCUST_VALUE: TcxGridDBColumn;
     gr_pricegrid_vCUST_NORM: TcxGridDBColumn;
+    CDS_PRICING_GRIDAVG_PRICE: TFloatField;
+    CDS_PRICING_GRIDCALC_VALUE: TFloatField;
+    gr_pricegrid_vAVG_PRICE: TcxGridDBColumn;
+    gr_pricegrid_vCALC_VALUE: TcxGridDBColumn;
     procedure FormShow(Sender: TObject);
     procedure mnExpandAllClick(Sender: TObject);
     procedure mnCollapseAllClick(Sender: TObject);
