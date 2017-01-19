@@ -967,7 +967,7 @@ Begin
       DM.CDS_GOODS.Close;
       pb_main.Visible := false;
     End;
-
+    
 End;
 
 
@@ -1663,6 +1663,7 @@ end;
 procedure TDistFormF.tlb_refreshClick(Sender: TObject);
 begin
   ShowDistInd();
+  //dm.StarSess.Commit;
 end;
 
 // Разворачиваем списки
@@ -2300,7 +2301,7 @@ begin
 
 
         ReactivateGoods(cds.FieldByName('N_ID').AsInteger, DM.CDS_ORDER_NID.FieldByName('ID_ORDERS_LIST').AsInteger);
-
+        dm.StarSess.Commit;
       end else MessageBox(Handle, 'Проверте наличие количества', 'Внимание', MB_ICONINFORMATION);
     end;
   end;

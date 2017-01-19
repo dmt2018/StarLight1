@@ -969,7 +969,7 @@ begin
 {  09.09.2008  Дина решила не фильтр а locate применять }
 
     if first_dialog_frm.uDefSort < 2 then
-    begin
+    begin            
 //      if first_dialog_frm.uFilterByRus = true then
 //        DBGridEh1.FieldColumns['COMPILED_NAME_OTDEL'].STFilter.ExpressionStr := DBEdit_fill.Text
 //      else
@@ -981,9 +981,9 @@ begin
     DBGridEh1.ApplyFilter;
     Panel_fill.Visible := false;
     DBEdit_fill.Text := '';
-    if DM.Q_ORDERS_LIST.RecordCount > 0 then
+    if DM.Q_ORDERS_LIST.RecordCount > 0 then 
       DBGridEh1.FieldColumns['FL_ORDERS'].Field.FocusControl
-    else
+   else
     begin
       DBGridEh1.ClearFilter;
       DBGridEh1.ApplyFilter;

@@ -813,8 +813,8 @@ arrive:	2015-06-21
 }
     Readln(conf, order_num);  // order:	2586
     Readln(conf, ortype);     // ortype:	2      1=>'Покупка товаров со склада', 2=>'Предзаказ товаров из новой поставки', 3=>'Предзаказ
-
-    if StrToInt( Trim(copy(ortype,pos(':',ortype)+1,length(ortype)-1)) ) <> 3 then
+                
+    if (StrToInt( Trim(copy(ortype,pos(':',ortype)+1,length(ortype)-1)) ) <> 2) and (StrToInt( Trim(copy(ortype,pos(':',ortype)+1,length(ortype)-1)) ) <> 3) then
     begin
       MessageBox(Hwnd, 'Данный заказ не является предзаказом', 'Внимание', MB_ICONERROR);
       exit;
