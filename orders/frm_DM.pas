@@ -757,7 +757,7 @@ function TDM.UpploadOrderFromInetNewSite(Hwnd: THandle; FullFileName: String; vO
 var conf: textfile;
     Date1, Date2, Client, Email, tmpstr, alpha, tmp, order_num: string;
     z_price, z_code, z_q, z_name, err_log, err_log_short, vInfo, dep, dep_order, ortype, depid, arrive, depart: string;
-    id_cl, idClient, idOrder, fistPos, res: integer;
+    id_cl, idClient, idOrder, fistPos, res, order_type: integer;
     dateCargo, dateIn: TDateTime;
     fs : TFormatSettings;
 begin
@@ -813,8 +813,8 @@ arrive:	2015-06-21
 }
     Readln(conf, order_num);  // order:	2586
     Readln(conf, ortype);     // ortype:	2      1=>'Покупка товаров со склада', 2=>'Предзаказ товаров из новой поставки', 3=>'Предзаказ
-                
-    if (StrToInt( Trim(copy(ortype,pos(':',ortype)+1,length(ortype)-1)) ) <> 2) and (StrToInt( Trim(copy(ortype,pos(':',ortype)+1,length(ortype)-1)) ) <> 3) then
+    order_type := StrToInt( Trim(copy(ortype,pos(':',ortype)+1,length(ortype)-1)) );
+    if (order_type < 2) and (order_type > 3) then
     begin
       MessageBox(Hwnd, 'Данный заказ не является предзаказом', 'Внимание', MB_ICONERROR);
       exit;

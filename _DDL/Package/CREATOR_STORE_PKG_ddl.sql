@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.STORE_PKG
--- Generated 06.01.2017 1:56:41 from CREATOR@STAR_REG
+-- Generated 19.01.2017 22:09:29 from CREATOR@STAR_REG
 
 CREATE OR REPLACE 
 PACKAGE store_pkg
@@ -1035,11 +1035,17 @@ begin
             WHERE a.PPLI_ID = v_ppli_id  --and a.invoice_data_id is null
         );
         insert into price_list (
+          SELECT a.N_ID, sysdate, max(a.FINAL_PRICE) as FINAL_PRICE, const_office, sysdate, max(a.spec_price), max(a.best_price), max(a.discount)
+            FROM PREPARE_PRICE_LIST a
+            WHERE a.PPLI_ID = v_ppli_id
+            group by a.N_ID
+/*
           SELECT a.N_ID, sysdate, max(nvl(p.SPEC_PRICE,a.FINAL_PRICE)) as FINAL_PRICE, const_office, sysdate, max(a.spec_price), max(a.best_price), max(a.discount)
             FROM PREPARE_PRICE_LIST a, ppl_client_price p
             WHERE a.PPLI_ID = v_ppli_id
               and a.invoice_data_id = p.invoice_data_id(+)
             group by a.N_ID
+*/
         );
 
         -- Применим спец цены как основные
