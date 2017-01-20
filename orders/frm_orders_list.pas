@@ -950,7 +950,7 @@ begin
 
   if (Key = VK_RETURN) then
   begin
-{
+     {
     te_search.PostEditValue;
     grid.ClearFilter;
     grid.FieldColumns['COMPILED_NAME_OTDEL'].STFilter.ExpressionStr := '*' + VarToStr(te_search.EditValue) + '*';
@@ -958,37 +958,49 @@ begin
     Panel_fill.Visible := false;
     te_search.Text := '';
 
+
+
     if ( DM.Q_ORDERS_LIST.LocateEx('H_NAME', DBEdit_fill.Text, [lxCaseInsensitive, lxPartialCompare] ) = true ) then
       DBGridEh1.FieldColumns['FL_ORDERS'].Field.FocusControl
     else
       DM.Q_ORDERS_LIST.Last;
 
     Panel_fill.Visible := false;
-    DBEdit_fill.Text := '';
-}
+    DBEdit_fill.Text := '';    }
+
 {  09.09.2008  Дина решила не фильтр а locate применять }
 
-    if first_dialog_frm.uDefSort < 2 then
-    begin            
+    //if first_dialog_frm.uDefSort < 2 then
+    if GetKeyboardLayout(GetWindowThreadProcessId(GetForegroundWindow, nil)) <> 67699721 then
+    begin
 //      if first_dialog_frm.uFilterByRus = true then
 //        DBGridEh1.FieldColumns['COMPILED_NAME_OTDEL'].STFilter.ExpressionStr := DBEdit_fill.Text
 //      else
-        DBGridEh1.FieldColumns['COMPILED_NAME_OTDEL'].STFilter.ExpressionStr := DBEdit_fill.Text;
+        DBGridEh1.FieldColumns['COMPILED_NAME_OTDEL'].STFilter.ExpressionStr := '*' + DBEdit_fill.Text + '*';
     end
     else
-      DBGridEh1.FieldColumns['H_NAME'].STFilter.ExpressionStr := DBEdit_fill.Text;
+      DBGridEh1.FieldColumns['H_NAME'].STFilter.ExpressionStr := '*' + DBEdit_fill.Text + '*';
 
-    DBGridEh1.ApplyFilter;
-    Panel_fill.Visible := false;
-    DBEdit_fill.Text := '';
-    if DM.Q_ORDERS_LIST.RecordCount > 0 then 
+    //DBGridEh1.ApplyFilter;
+    //Panel_fill.Visible := false;
+    //DBEdit_fill.Text := '';
+
+    //if DM.Q_ORDERS_LIST.RecordCount > 0 then
+  {  if ( DM.Q_ORDERS_LIST.LocateEx('COMPILED_NAME_OTDEL', DBEdit_fill.Text, [lxCaseInsensitive, lxPartialCompare] ) = true ) then
       DBGridEh1.FieldColumns['FL_ORDERS'].Field.FocusControl
-   else
+    else
+    if ( DM.Q_ORDERS_LIST.LocateEx('H_NAME', DBEdit_fill.Text, [lxCaseInsensitive, lxPartialCompare] ) = true ) then
+      DBGridEh1.FieldColumns['FL_ORDERS'].Field.FocusControl
+    else
     begin
       DBGridEh1.ClearFilter;
       DBGridEh1.ApplyFilter;
       DM.Q_ORDERS_LIST.Last;
     end;
+    }
+    DBGridEh1.ApplyFilter;
+    Panel_fill.Visible := false;
+    DBEdit_fill.Text := '';
 
   if DBCheckBoxEh2.Checked = true then
   begin
