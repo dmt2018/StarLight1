@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.PRICE_PKG
--- Generated 06.01.2017 5:56:29 from CREATOR@STAR_REG
+-- Generated 21.01.2017 19:32:44 from CREATOR@STAR_REG
 
 CREATE OR REPLACE 
 PACKAGE price_pkg
@@ -2276,10 +2276,11 @@ from (
 
     left outer join
       (
-        select z.n_id, max(nvl(p.SPEC_PRICE, z.final_price)) as final_price
+        --select z.n_id, max(nvl(p.SPEC_PRICE, z.final_price)) as final_price
+        select z.n_id, max(z.final_price) as final_price
           from PREPARE_PRICE_LIST z
             left outer join invoice_data d on d.INVOICE_DATA_ID = z.INVOICE_DATA_ID
-            left outer join ppl_client_price p on p.ppli_id = v_PPLI_ID_old and p.INVOICE_DATA_ID = z.INVOICE_DATA_ID
+            --left outer join ppl_client_price p on p.ppli_id = v_PPLI_ID_old and p.INVOICE_DATA_ID = z.INVOICE_DATA_ID
           where z.ppli_id = v_PPLI_ID_old and z.ppli_id <> v_PPLI_ID --and d.TO_CLIENT is null
           group by z.n_id
       ) z on z.n_id = a.n_id

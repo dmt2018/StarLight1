@@ -529,29 +529,6 @@ object DM: TDM
     SQLRefresh.Strings = (
       'select a.ppli_id, a.ppl_id, a.coming_date, a.invoice_amount'
       
-        '       --, nvl(pd.total_quantity,0) - nvl(pd.left_quantity,0) - ' +
-        'nvl(d.DISTRIBUTED_NUMBER_to_zhirar,0) as DISTRIBUTED_NUMBER'
-      
-        '       --, nvl(pd.left_quantity,0) +  nvl(d.DISTRIBUTED_NUMBER_t' +
-        'o_zhirar,0) as obshak'
-      ''
-      
-        '--       , case when DISTRIBUTED_NUMBER_forOrder > nvl(pd.total_' +
-        'quantity,0)-nvl(pd.left_quantity,0)-nvl(d.DISTRIBUTED_NUMBER_to_' +
-        'zhirar,0) then DISTRIBUTED_NUMBER_forOrder else nvl(pd.total_qua' +
-        'ntity,0) - nvl(pd.left_quantity,0) - nvl(d.DISTRIBUTED_NUMBER_to' +
-        '_zhirar,0) end as DISTRIBUTED_NUMBER'
-      
-        '--       , case when DISTRIBUTED_NUMBER_forOrder > nvl(pd.total_' +
-        'quantity,0)-nvl(pd.left_quantity,0)-nvl(d.DISTRIBUTED_NUMBER_to_' +
-        'zhirar,0) then case when (nvl(pd.total_quantity,0) - DISTRIBUTED' +
-        '_NUMBER_forOrder) < 0 then 0 else (nvl(pd.total_quantity,0) - DI' +
-        'STRIBUTED_NUMBER_forOrder) end'
-      
-        '--           else nvl(pd.left_quantity,0) +  nvl(d.DISTRIBUTED_N' +
-        'UMBER_to_zhirar,0) end obshak'
-      ''
-      
         '       , a.stock_amount, a.left_amount, a.given_amount, a.hol_pr' +
         'ice, a.ruble_price'
       '       , case'
@@ -572,7 +549,6 @@ object DM: TDM
         '         else floor( a.final_price / decode(a.PRICE_PCC_PC,0,1,a' +
         '.PRICE_PCC_PC))'
       '         end extra_gross'
-      ''
       '       , a.price_pcc, a.price_pcc_pc, a.n_id'
       '       , a.final_price'
       
@@ -595,26 +571,71 @@ object DM: TDM
       
         '       , a.country, a.colour, to_char(nvl(a.bar_code,a.code)) as' +
         ' bar_code'
+      ''
       
         '       , a.ft_id, a.fst_id, a.col_id, a.len, a.type_subtype, a.s' +
         'pec_price, a.best_price, a.discount'
       '       , a.inv_id, a.inv_id2, a.inv_id3, a.inv_id4'
+      ''
       
         '       , case when a.inv_total_profit > 0 then 1 else 0 end as l' +
         'oss_profit'
       
         '       , case when trunc(a.RUBLE_PRICE) = trunc(a.FINAL_PRICE) a' +
         'nd const_office = 1 then 1 else 0 end as eq_price'
+      ''
       '       , a.id_clients, client_price'
+      ''
       '       , c.nick'
       '       , nvl(spec,0) as SPEC'
       '       , inv.TO_CLIENT'
-      '       , decode(c.nick,'#39'M URLO'#39',1,0) as paint_super'
+      '       --, decode(c.nick,'#39'M URLO'#39',1,0) as paint_super'
       
         '       , case when a.INVOICE_DATA_ID is null then null else PROF' +
         'IT_COEFFITIENT end PROFIT_COEFFITIENT'
       '       , NOM_NEW'
       '    from ('
+      
+        '        SELECT a.ppli_id, ppl_id, coming_date, invoice_amount, c' +
+        'ase when STOCK_AMOUNT < 0 then 0 else stock_amount end STOCK_AMO' +
+        'UNT, left_amount, given_amount, hol_price, ruble_price, last_pri' +
+        'ce'
+      
+        '          , price_pcc, price_pcc_pc, a.n_id, final_price, inv_to' +
+        'tal_sum, stok_total_sum'
+      
+        '          , (final_price - price_pcc * curr_cust_coef) * invoice' +
+        '_amount as inv_total_profit'
+      '          , stok_total_profit'
+      
+        '          , compiled_name_otdel, total_sum, cust_coef, h_code, n' +
+        'vl(COL,0) as col'
+      
+        '          , rus_marks, INVOICE_DATA_ID, compiled_name_pot, f_typ' +
+        'e, hol_type, f_sub_type'
+      
+        '          , case when INVOICE_DATA_ID is null then '#39#1057#1082#1083#1072#1076#39' else ' +
+        #39#1048#1085#1074#1086#1081#1089#1099#39' end came_type'
+      
+        '          , row_number() over(partition by a.n_id order by ppl_i' +
+        'd) as nid_rownum'
+      
+        '          , country, colour, bar_code, code, ft_id, fst_id, col_' +
+        'id, len, type_subtype, a.spec_price, best_price, discount'
+      '          , inv_id, inv_id2, inv_id3, inv_id4'
+      
+        '          , null id_clients, null client_price, null as client_q' +
+        'uantity, null as total_client_quantity'
+      '          , instr(remarks,'#39'"!"'#39') as spec'
+      '          , a.PROFIT_COEFFITIENT, a.NOM_NEW,'
+      '          decode(c.n_id,null,0,1) as has_price'
+      '        FROM ppl_view a'
+      
+        '          left outer join (select b.n_id from ppl_client_price b' +
+        ' where b.PPLI_ID = :OLD_PPLI_ID and SPEC_PRICE is not null group' +
+        ' by b.n_id) c on c.n_id = a.n_id'
+      '          WHERE a.PPL_ID = :OLD_PPL_ID'
+      '/*'
       
         '        SELECT a.ppli_id, ppl_id, coming_date, invoice_amount, c' +
         'ase when STOCK_AMOUNT < 0 then 0 else stock_amount end STOCK_AMO' +
@@ -700,84 +721,16 @@ object DM: TDM
         '        inner join ppl_client_price b on b.PPLI_ID = a.PPLI_ID a' +
         'nd b.n_id = a.n_id and b.INVOICE_DATA_ID = a.INVOICE_DATA_ID'
       '          WHERE a.PPL_ID = :OLD_PPL_ID'
-      ''
-      '    ) a'
-      '/*'
-      '    left outer join'
-      '      ('
-      
-        '        select sum(left_quantity) as left_quantity, sum(total_qu' +
-        'antity) as total_quantity, n_id'
-      '        from prepare_distribution pd, PREPARE_PRICE_LIST_INDEX p'
-      
-        '        where p.ppli_id = :OLD_PPLI_ID and pd.DIST_IND_ID in (se' +
-        'lect d.DIST_IND_ID from distributions_invoices d where d.inv_id ' +
-        'in (p.inv_id, p.inv_id2, p.inv_id3, p.inv_id4) or d.inv_id in (s' +
-        'elect z.inv_id from invoice_register z where z.ipp_id = p.PACK_I' +
-        'D ) )'
-      '          and pd.id_store_main is null'
-      '          group by pd.n_id'
-      '      ) pd on pd.n_id = a.n_id'
-      ''
-      '    left outer join'
-      '      ('
-      
-        '        select c.d_n_id, nvl(SUM(c.DQ),0) as DISTRIBUTED_NUMBER_' +
-        'to_zhirar'
-      '        from DISTRIBUTION_VIEW c, PREPARE_PRICE_LIST_INDEX p'
-      
-        '          where p.ppli_id = :OLD_PPLI_ID and c.DIST_IND_ID in (s' +
-        'elect d.DIST_IND_ID from distributions_invoices d where d.inv_id' +
-        ' in (p.inv_id, p.inv_id2, p.inv_id3, p.inv_id4) or d.inv_id in (' +
-        'select z.inv_id from invoice_register z where z.ipp_id = p.PACK_' +
-        'ID ) )'
-      
-        '           and c.id_clients in (const_dir,const_main) and c.INVO' +
-        'ICE_DATA_ID is not null and c.id_store_main is null'
-      '          group by c.d_n_id'
-      '        union all'
-      
-        '        select c.n_id as d_n_id, sum(c.units) as DISTRIBUTED_NUM' +
-        'BER_to_zhirar'
-      '        from invoice_data c, PREPARE_PRICE_LIST_INDEX p'
-      
-        '          where p.ppli_id = :OLD_PPLI_ID and (c.inv_id in (p.inv' +
-        '_id, p.inv_id2, p.inv_id3, p.inv_id4) or c.inv_id in (select z.i' +
-        'nv_id from invoice_register z where z.ipp_id = p.PACK_ID ) )'
-      '            and c.to_client = '#39'MAIN'#39
-      '          group by c.n_id'
-      '      ) d on d.d_n_id = a.n_id'
-      ''
-      '    left outer join'
-      '      ('
-      
-        '        select c.o_n_id, nvl(SUM(c.DQ),0) as DISTRIBUTED_NUMBER_' +
-        'forOrder'
-      '        from DISTRIBUTION_VIEW c, PREPARE_PRICE_LIST_INDEX p'
-      
-        '          where p.ppli_id = :OLD_PPLI_ID and c.DIST_IND_ID in (s' +
-        'elect d.DIST_IND_ID from distributions_invoices d where d.inv_id' +
-        ' in (p.inv_id, p.inv_id2, p.inv_id3, p.inv_id4) or d.inv_id in (' +
-        'select z.inv_id from invoice_register z where z.ipp_id = p.PACK_' +
-        'ID ) )'
-      
-        '           and c.INVOICE_DATA_ID is not null and c.id_store_main' +
-        ' is null'
-      '          group by c.o_n_id'
-      '      ) for_order on for_order.o_n_id = a.n_id'
       '*/'
+      '    ) a'
+      ''
       '    left outer join'
       '      ('
-      
-        '        select z.n_id, max(nvl(p.SPEC_PRICE, z.final_price)) as ' +
-        'final_price'
+      '        select z.n_id, max(z.final_price) as final_price'
       '          from PREPARE_PRICE_LIST z'
       
         '            left outer join invoice_data d on d.INVOICE_DATA_ID ' +
         '= z.INVOICE_DATA_ID'
-      
-        '            left outer join ppl_client_price p on p.ppli_id = :O' +
-        'LD_PPLI_ID_old and p.INVOICE_DATA_ID = z.INVOICE_DATA_ID'
       
         '          where z.ppli_id = :OLD_PPLI_ID_old and z.ppli_id <> :O' +
         'LD_PPLI_ID --and d.TO_CLIENT is null'
