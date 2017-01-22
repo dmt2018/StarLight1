@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.CUSTOM_PKG
--- Generated 18.01.2017 23:44:15 from CREATOR@STAR_REG
+-- Generated 22.01.2017 21:47:38 from CREATOR@STAR_REG
 
 CREATE OR REPLACE 
 PACKAGE custom_pkg
@@ -2809,7 +2809,13 @@ begin
 
 
   open cursor_ for
-    select a.*, round( case when cust_value > cust_norm then cust_value else cust_norm end /1.12 * netto / units,2) as calc_value
+    select a.*
+      , ceil( (cust_norm /v_COURCE * netto / units) * 100 ) / 100 as calc_value
+      , units * ( ceil( (cust_norm /v_COURCE * netto / units) * 100 ) / 100 ) as calc_summ
+      , round( units * ( ceil( (cust_norm /v_COURCE * netto / units) * 100 ) / 100 ) /netto*v_COURCE,2) as calc_new_value
+--      , round( case when cust_value > cust_norm then cust_value else cust_norm end /v_COURCE * netto / units,2) as calc_value
+--      , units * round( case when cust_value > cust_norm then cust_value else cust_norm end /v_COURCE * netto / units,2) as calc_summ
+--      , round( units * round( case when cust_value > cust_norm then cust_value else cust_norm end /v_COURCE * netto / units,2) /netto*v_COURCE,2) as calc_new_value
     from (
       select a.*, round(summ/netto*v_COURCE,2) cust_value, a.FO_VALUE as cust_norm
       from (

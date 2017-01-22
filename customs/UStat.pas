@@ -10,7 +10,7 @@ uses
   cxLabel, cxContainer, cxTextEdit, cxMaskEdit, cxDropDownEdit, cxCustomData,
   cxFilter, cxData, cxDataStorage, cxDBData, cxGridCustomTableView,
   cxGridTableView, cxGridDBTableView, cxGridLevel, cxClasses, cxGridCustomView,
-  cxGrid;
+  cxGrid, cxGridBandedTableView, cxGridDBBandedTableView;
 
 type
   Tfrm_stat = class(TForm)
@@ -65,9 +65,29 @@ type
     CDS_PRICING_GRIDCALC_VALUE: TFloatField;
     gr_pricegrid_vAVG_PRICE: TcxGridDBColumn;
     gr_pricegrid_vCALC_VALUE: TcxGridDBColumn;
+    gr_pricegrid_v2: TcxGridDBBandedTableView;
+    gr_pricegrid_v2UNITS: TcxGridDBBandedColumn;
+    gr_pricegrid_v2NAME_CAT_RU: TcxGridDBBandedColumn;
+    gr_pricegrid_v2NAME_CAT: TcxGridDBBandedColumn;
+    gr_pricegrid_v2FO_RULE: TcxGridDBBandedColumn;
+    gr_pricegrid_v2COUNTRY: TcxGridDBBandedColumn;
+    gr_pricegrid_v2NETTO: TcxGridDBBandedColumn;
+    gr_pricegrid_v2SUMM: TcxGridDBBandedColumn;
+    gr_pricegrid_v2FO_VALUE: TcxGridDBBandedColumn;
+    gr_pricegrid_v2CUST_VALUE: TcxGridDBBandedColumn;
+    gr_pricegrid_v2CUST_NORM: TcxGridDBBandedColumn;
+    gr_pricegrid_v2AVG_PRICE: TcxGridDBBandedColumn;
+    gr_pricegrid_v2CALC_VALUE: TcxGridDBBandedColumn;
+    CDS_PRICING_GRIDCALC_SUMM: TFloatField;
+    gr_pricegrid_v2CALC_SUMM: TcxGridDBBandedColumn;
+    CDS_PRICING_GRIDCALC_NEW_VALUE: TFloatField;
+    gr_pricegrid_v2CALC_NEW_VALUE: TcxGridDBBandedColumn;
     procedure FormShow(Sender: TObject);
     procedure mnExpandAllClick(Sender: TObject);
     procedure mnCollapseAllClick(Sender: TObject);
+    procedure gr_pricegrid_v2CustomDrawCell(Sender: TcxCustomGridTableView;
+      ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
+      var ADone: Boolean);
   private
     { Private declarations }
   public
@@ -87,6 +107,25 @@ procedure Tfrm_stat.FormShow(Sender: TObject);
 begin
   if (CDS_STAT.Active) and (CDS_STAT.RecordCount > 0) then
       gr_stat_v.DataController.Groups.FullExpand;
+end;
+
+procedure Tfrm_stat.gr_pricegrid_v2CustomDrawCell(
+  Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+var val1, val2: variant;
+begin
+
+  if (not AViewInfo.Selected) and (gr_pricegrid_v2.DataController.DataSet.RecordCount > 0) then
+  begin
+    val1  := gr_pricegrid_v2.DataController.GetValue(
+                AViewInfo.GridRecord.RecordIndex, gr_pricegrid_v2.GetColumnByFieldName('CUST_VALUE').Index
+                );
+    val2  := gr_pricegrid_v2.DataController.GetValue(
+                AViewInfo.GridRecord.RecordIndex, gr_pricegrid_v2.GetColumnByFieldName('CUST_NORM').Index
+                );
+    if (gr_pricegrid_v2.Columns[AViewInfo.Item.Index].DataBinding.FieldName = 'CUST_VALUE') and (val1 < val2) then
+        ACanvas.Brush.Color := $008080FF;
+  end;
 end;
 
 procedure Tfrm_stat.mnCollapseAllClick(Sender: TObject);
