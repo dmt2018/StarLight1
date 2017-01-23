@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.TRUCK_SALE_PKG
--- Generated 06.01.2017 5:56:14 from CREATOR@STAR_REG
+-- Generated 23.01.2017 22:42:35 from CREATOR@STAR_REG
 
 CREATE OR REPLACE 
 PACKAGE truck_sale_pkg
@@ -50,13 +50,14 @@ PROCEDURE del_truck_sale
 --
 PROCEDURE edit_truck_sale
 (
-  p_id          in out number,
-  p_start_date  in date,
-  p_stop_date   in date,
-  p_comments    in varchar2,
-  p_price_coef  in number,
-  p_course      in number,
-  p_status      in varchar2
+  p_id              in out number,
+  p_start_date      in date,
+  p_stop_date       in date,
+  p_comments        in varchar2,
+  p_price_coef      in number,
+  p_course          in number,
+  p_status          in varchar2,
+  p_truckincaming   in date
 );
 
 
@@ -288,20 +289,21 @@ END del_truck_sale;
 --
 PROCEDURE edit_truck_sale
 (
-  p_id          in out number,
-  p_start_date  in date,
-  p_stop_date   in date,
-  p_comments    in varchar2,
-  p_price_coef  in number,
-  p_course      in number,
-  p_status      in varchar2
+  p_id              in out number,
+  p_start_date      in date,
+  p_stop_date       in date,
+  p_comments        in varchar2,
+  p_price_coef      in number,
+  p_course          in number,
+  p_status          in varchar2,
+  p_truckincaming   in date
 )
 is
 begin
 
   if p_id = 0 then
-    insert into truck_sale(truck_sale_id, start_date, stop_date, comments, price_coef, status, id_office, date_create, user_create, course)
-    values(universal_id.nextval, p_start_date, p_stop_date, p_comments, p_price_coef, p_status, const_office, sysdate, user, p_course)
+    insert into truck_sale(truck_sale_id, start_date, stop_date, comments, price_coef, status, id_office, date_create, user_create, course, truckincaming)
+    values(universal_id.nextval, p_start_date, p_stop_date, p_comments, p_price_coef, p_status, const_office, sysdate, user, p_course, p_truckincaming)
     returning truck_sale_id into p_id;
   end if;
 EXCEPTION
@@ -353,25 +355,26 @@ BEGIN
             , s.truck_sale_id as truck_sale_id
             , n.*
        from
-       (
-         select units, round(PRICE_PER_UNIT/decode(units,0,1,units),2) as PRICE_PER_UNIT, n_id from (
-              --select sum(a.UNITS) units, max(a.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id
-              select sum(a.UNITS) units, sum(a.UNITS*a.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id
-                from invoice_data a, truck_sale_invoices b
-                where a.storned_data = 0 and a.inv_id = b.inv_id and b.truck_sale_id = truck_sale_id_
-                group by a.n_id
-              union all
-              --select sum(a.left_quantity) as units, max(d.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id
-              select sum(a.left_quantity) as units, sum(a.left_quantity*d.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id
-                from PREP_DIST_VIEW a, invoice_data d, truck_sale_distr b
-                where a.dist_ind_id = b.DIST_IND_ID and b.truck_sale_id = truck_sale_id_
-                  and a.left_quantity > 0 and a.invoice_data_id = d.invoice_data_id
-                group by a.n_id
+         (
+           select units, round(PRICE_PER_UNIT/decode(units,0,1,units),2) as PRICE_PER_UNIT, n_id from (
+                --select sum(a.UNITS) units, max(a.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id
+                select sum(a.UNITS) units, sum(a.UNITS*a.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id
+                  from invoice_data a, truck_sale_invoices b
+                  where a.storned_data = 0 and a.inv_id = b.inv_id and b.truck_sale_id = truck_sale_id_
+                  group by a.n_id
+                union all
+                --select sum(a.left_quantity) as units, max(d.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id
+                select sum(a.left_quantity) as units, sum(a.left_quantity*d.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id
+                  from PREP_DIST_VIEW a, invoice_data d, truck_sale_distr b
+                  where a.dist_ind_id = b.DIST_IND_ID and b.truck_sale_id = truck_sale_id_
+                    and a.left_quantity > 0 and a.invoice_data_id = d.invoice_data_id
+                  group by a.n_id
+           ) a
          ) a
-       ) a
-       inner join truck_sale s on s.truck_sale_id = truck_sale_id_
-       inner join nomenclature_mat_view n on n.n_id = a.n_id
-       left outer join truck_sale_data d on d.truck_sale_id = s.truck_sale_id and d.n_id = a.n_id
+         inner join truck_sale s on s.truck_sale_id = truck_sale_id_
+         inner join nomenclature_mat_view n on n.n_id = a.n_id and n.notuse = 0
+         left outer join truck_sale_data d on d.truck_sale_id = s.truck_sale_id and d.n_id = a.n_id
+       where not exists (select * from nomenclature_site_marks marks where remove_from_site=1 and marks.n_id=n.n_id)
        order by n.COMPILED_NAME_OTDEL
        ;
 
@@ -575,6 +578,7 @@ BEGIN
            , s.START_DATE as SALE_START
            , s.stop_date as SALE_END
            , s.TRUCK_SALE_ID as INV_ID
+           , s.truckincaming
        FROM nomenclature_mat_view b
          left outer join nom_specifications c on c.n_id = b.n_id and c.hs_id = const_8march
 

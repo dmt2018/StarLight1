@@ -3312,6 +3312,23 @@ begin
   if FullFileName = '' then exit;
   // -------------------------------
 
+
+  with DM.SelQ do
+  Begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT count(*) as cnt FROM orders_clients where active = 1 and in_file = ''webshop - '+ExtractFileName(FullFileName)+'''');
+    Open;
+  End;
+  if DM.SelQ.FieldByName('cnt').AsInteger > 0 then
+  begin
+    MessageBox(Handle, 'Данный заказ уже подгрухен в разнос', 'Внимание', MB_ICONERROR);
+    DM.SelQ.Close;
+    exit;
+  end;
+  DM.SelQ.Close;
+
+
   try
   // Открываем файл с заказом
   try
