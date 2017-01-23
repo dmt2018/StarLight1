@@ -63,7 +63,6 @@ object main: Tmain
         ParentCtl3D = False
         ParentFont = False
         TabOrder = 1
-        ExplicitTop = -6
         object BitBtn6: TBitBtn
           Left = 8
           Top = 8
@@ -240,7 +239,7 @@ object main: Tmain
           end
           object CheckBox4: TCheckBox
             Left = 88
-            Top = 66
+            Top = 62
             Width = 97
             Height = 17
             Caption = #1073#1091#1093#1075#1072#1083#1090#1077#1088#1080#1077#1081
@@ -248,7 +247,7 @@ object main: Tmain
           end
           object CheckBox5: TCheckBox
             Left = 88
-            Top = 82
+            Top = 76
             Width = 73
             Height = 17
             Caption = #1082#1088#1077#1076#1080#1090#1086#1084
@@ -544,6 +543,14 @@ object main: Tmain
             TabOrder = 1
             OnKeyDown = Edit3KeyDown
           end
+          object CheckBox3: TCheckBox
+            Left = 88
+            Top = 88
+            Width = 105
+            Height = 17
+            Caption = #1079#1072#1087#1088#1077#1090' '#1089' '#1082#1086#1083#1077#1089
+            TabOrder = 8
+          end
         end
         object GroupBox3: TGroupBox
           Left = 302
@@ -820,8 +827,6 @@ object main: Tmain
         LevelTabs.Style = 7
         LookAndFeel.Kind = lfOffice11
         LookAndFeel.NativeStyle = False
-        ExplicitTop = 170
-        ExplicitHeight = 345
         object cxClientView: TcxGridDBTableView
           OnDblClick = CRDBGrid1DblClick
           NavigatorButtons.ConfirmDelete = False
@@ -3795,7 +3800,7 @@ object main: Tmain
     Left = 676
     Top = 65533
     Bitmap = {
-      494C010104000900040110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010104000900080110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -5471,7 +5476,7 @@ object main: Tmain
     Left = 240
     Top = 328
     Bitmap = {
-      494C010127002C00F40020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010127002C00F80020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004001000001002000000000000080
       0200000000000000000000000000000000000000000000000000000000000000
       000000000000000000000101011A0B0B0B743B3D3DB4777777D5838383DA5152

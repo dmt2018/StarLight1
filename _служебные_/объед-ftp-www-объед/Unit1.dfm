@@ -3,7 +3,7 @@ object frmftpwww: Tfrmftpwww
   Top = 0
   Caption = #1089#1072#1081#1090#1099'-'#1096#1084#1072#1081#1090#1099
   ClientHeight = 622
-  ClientWidth = 313
+  ClientWidth = 319
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -5099,6 +5099,9 @@ object frmftpwww: Tfrmftpwww
       object cxGridDBTableView1GROUP_NAME: TcxGridDBColumn
         DataBinding.FieldName = 'GROUP_NAME'
       end
+      object cxGridDBTableView1Vanselling: TcxGridDBColumn
+        DataBinding.FieldName = 'VANSELLING'
+      end
     end
     object cxGridLevel1: TcxGridLevel
       GridView = cxGridDBTableView1
@@ -5370,6 +5373,7 @@ object frmftpwww: Tfrmftpwww
       ', a.id_office_src as ID_OFFICE, a.MARK'
       ', a.DDATE, nvl(b.CHART,0) as chart'
       ', a.GROUP_NAME'
+      ', a.vanselling'
       '--, a.block1'
       '--, a.block2'
       'FROM clients_view2 a, debetors b'
@@ -5425,6 +5429,9 @@ object frmftpwww: Tfrmftpwww
       FieldName = 'GROUP_NAME'
       Required = True
       Size = 255
+    end
+    object qClientsVANSELLING: TIntegerField
+      FieldName = 'VANSELLING'
     end
   end
   object dsClients: TOraDataSource

@@ -37,18 +37,6 @@ type
     OraQuery1ONMARCH: TStringField;
     OraQuery1NO_ORDER: TFloatField;
     qClients: TOraQuery;
-    qClientsNICK: TStringField;
-    qClientsCCODE: TStringField;
-    qClientsFIO: TStringField;
-    qClientsEMAIL: TStringField;
-    qClientsREGIONS_NAME: TStringField;
-    qClientsADDRESS: TStringField;
-    qClientsPHONE: TStringField;
-    qClientsID_OFFICE: TIntegerField;
-    qClientsMARK: TStringField;
-    qClientsDDATE: TDateTimeField;
-    qClientsCHART: TFloatField;
-    qClientsGROUP_NAME: TStringField;
     dsClients: TOraDataSource;
     OraDataSource1: TOraDataSource;
     SelectSession: TOraSession;
@@ -105,6 +93,20 @@ type
     Label1: TLabel;
     Timer2: TTimer;
     Memo2: TMemo;
+    cxGridDBTableView1Vanselling: TcxGridDBColumn;
+    qClientsNICK: TStringField;
+    qClientsCCODE: TStringField;
+    qClientsFIO: TStringField;
+    qClientsEMAIL: TStringField;
+    qClientsREGIONS_NAME: TStringField;
+    qClientsADDRESS: TStringField;
+    qClientsPHONE: TStringField;
+    qClientsID_OFFICE: TIntegerField;
+    qClientsMARK: TStringField;
+    qClientsDDATE: TDateTimeField;
+    qClientsCHART: TFloatField;
+    qClientsGROUP_NAME: TStringField;
+    qClientsVANSELLING: TIntegerField;
     procedure button2Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -188,29 +190,38 @@ var
     FileList : TStringList;
     k:NETRESOURCE;
 begin
-// шаг1. фтп - локальный
- IdFTP1.Connect;
+// шаг3. фтп - локальный
+ IdFTP1.Connect;  ////////////////
  IdFTP1.ChangeDir('/orders');
- memo1.Lines.Add('1.Копирую с фтп на локальный');
+ memo1.Lines.Add('3.Копирую с фтп на локальный');
 
 // ищу файлы
+
 FileList:=tstringlist.Create;
+try
 IdFTP1.List(FileList,'*', False);
+application.processmessages;
+except
+end;
+
 if FileList.Count > 0 then
 for I := 0 to FileList.Count - 1 do  begin
   //забираю с фтп:
   idFTP1.Get(FileList.Strings[i], ExtractFilePath(Application.ExeName)+'copy_скачать\'+FileList.Strings[i], True,false);
   memo1.Lines.Add(FileList.Strings[i]);
+    if checkbox1.Checked =false then IdFTP1.Delete('/orders/'+FileList.Strings[i]);
   application.processmessages;
 end;
  memo1.Lines.Add('скачено на лок');
- IdFTP1.Disconnect;
  FileList.Free;
+
+ IdFTP1.Disconnect;  ///////////////////
 //------------------------------------------------------------
 
-// шаг2. локальный - сетевая папка
-memo1.Lines.Add('2.Копирую с лок на сетевой');
+// шаг4. локальный - сетевая папка
+memo1.Lines.Add('4.Копирую с лок на сетевой');
 SetCurrentDir(ExtractFilePath(Application.ExeName)+'copy_скачать\');  //папка для поиска файлов
+
 if FindFirst('*', faAnyFile , sr)=0 then  //если найдено, то:
 repeat
  if (sr.Name= '.') or (sr.Name='..') then continue;
@@ -225,7 +236,6 @@ until (FindNext(sr) <> 0) ;
  findclose(sr);
  memo1.Lines.Add('скачено на диск '+ DateTimeToStr(Now));
 //------------------------------------------------------------
-
 
 end;
 

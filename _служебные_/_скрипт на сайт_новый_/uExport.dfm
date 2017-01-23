@@ -178,6 +178,9 @@ object frmExport: TfrmExport
       object cxGridDBTableView1GROUP_NAME: TcxGridDBColumn
         DataBinding.FieldName = 'GROUP_NAME'
       end
+      object cxGridDBTableView1vanselling: TcxGridDBColumn
+        DataBinding.FieldName = 'VANSELLING'
+      end
     end
     object cxGridLevel1: TcxGridLevel
       GridView = cxGridDBTableView1
@@ -346,6 +349,7 @@ object frmExport: TfrmExport
       ', a.id_office_src as ID_OFFICE, a.MARK'
       ', a.DDATE, nvl(b.CHART,0) as chart'
       ', a.GROUP_NAME'
+      ', a.vanselling'
       '--, a.block1'
       '--, a.block2'
       'FROM clients_view2 a, debetors b'
@@ -401,6 +405,9 @@ object frmExport: TfrmExport
       FieldName = 'GROUP_NAME'
       Required = True
       Size = 255
+    end
+    object qClientsVANSELLING: TIntegerField
+      FieldName = 'VANSELLING'
     end
   end
   object dsClients: TOraDataSource

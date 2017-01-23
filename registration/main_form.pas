@@ -345,6 +345,7 @@ type
     odInvoice: TOpenDialog;
     cxClientViewINN: TcxGridDBColumn;
     btninf: TBitBtn;
+    CheckBox3: TCheckBox;
     procedure Edit1KeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure Edit2KeyUp(Sender: TObject; var Key: Word;
@@ -521,6 +522,7 @@ begin
     edits.CheckBox4.Checked := false;
     edits.CheckBox5.Checked := false;
     edits.CheckBox6.Checked := false;
+    edits.CheckBox3.Checked := false;
 
     edits.ttype := 1;
     edits.SpeedButton1Click(self);
@@ -691,6 +693,8 @@ begin
         if (DM.Q_CLIENT_VIEW.FieldByName('BLOCK1').AsInteger = 1) then edits.CheckBox5.Checked := true else edits.CheckBox5.Checked := false;
         if (DM.Q_CLIENT_VIEW.FieldByName('BLOCK2').AsInteger = 1) then edits.CheckBox4.Checked := true else edits.CheckBox4.Checked := false;
         if (DM.Q_CLIENT_VIEW.FieldByName('DOSTAVKA').AsInteger = 1) then edits.CheckBox6.Checked := true else edits.CheckBox6.Checked := false;
+        if (DM.Q_CLIENT_VIEW.FieldByName('vanselling').AsInteger = 1) then edits.CheckBox3.Checked := true else edits.CheckBox3.Checked := false;
+
 
         edits.ttype := 2;
         edits.SpeedButton1.Visible := true;
@@ -787,6 +791,8 @@ begin
       if (DM.Q_EMPL_VIEW.FieldByName('ACTIVE').AsInteger = 1) then edits_e.CheckBox1.Checked := true else edits_e.CheckBox1.Checked := false;
       if (DM.Q_EMPL_VIEW.FieldByName('BLOCK1').AsInteger = 1) then edits_e.CheckBox6.Checked := true else edits_e.CheckBox6.Checked := false;
       if (DM.Q_EMPL_VIEW.FieldByName('BLOCK2').AsInteger = 1) then edits_e.CheckBox5.Checked := true else edits_e.CheckBox5.Checked := false;
+      if (DM.Q_EMPL_VIEW.FieldByName('vanselling').AsInteger = 1) then edits_e.CheckBox3.Checked := true else edits_e.CheckBox3.Checked := false;
+
 
       edits_e.ttype := 2;
       edits_e.SpeedButton1.Visible := true;
@@ -1035,6 +1041,7 @@ try
 
     if (DM.Q_CLIENT_VIEW.FieldByName('BLOCK1').AsInteger = 1) then u_info.Label10.Caption := 'Да' else u_info.Label10.Caption := 'Нет';
     if (DM.Q_CLIENT_VIEW.FieldByName('BLOCK2').AsInteger = 1) then u_info.Label12.Caption := 'Да' else u_info.Label12.Caption := 'Нет';
+    if (DM.Q_CLIENT_VIEW.FieldByName('vanselling').AsInteger = 1) then u_info.Label14.Caption := 'Да' else u_info.Label14.Caption := 'Нет';
 
     DM.cds_adress.Close;
     dm.cds_adress.ParamByName('p1').AsInteger := DM.Q_CLIENTS.FieldByName('ID_CLIENTS').AsInteger;
@@ -1354,6 +1361,8 @@ begin
 
       if (DM.Q_CLIENT_VIEW.FieldByName('BLOCK1').AsInteger = 1) then begin u_info.Label10.Caption := 'Да'; u_info.Label10.Font.Color := clRed; end else begin u_info.Label10.Caption := 'Нет'; u_info.Label10.Font.Color := clBlack; end;
       if (DM.Q_CLIENT_VIEW.FieldByName('BLOCK2').AsInteger = 1) then begin u_info.Label12.Caption := 'Да'; u_info.Label12.Font.Color := clRed; end else begin u_info.Label12.Caption := 'Нет'; u_info.Label12.Font.Color := clBlack; end;
+      if (DM.Q_CLIENT_VIEW.FieldByName('vanselling').AsInteger = 1) then begin u_info.Label14.Caption := 'Да'; u_info.Label14.Font.Color := clRed; end else begin u_info.Label14.Caption := 'Нет'; u_info.Label14.Font.Color := clBlack; end;
+
       u_info.ShowModal;
       u_info.Q_ADDRESS.Close;
   end
@@ -1455,6 +1464,8 @@ begin
 
       if (DM.Q_CLIENT_VIEW.FieldByName('BLOCK1').AsInteger = 1) then begin u_info.Label10.Caption := 'Да'; u_info.Label10.Font.Color := clRed; end else begin u_info.Label10.Caption := 'Нет'; u_info.Label10.Font.Color := clBlack; end;
       if (DM.Q_CLIENT_VIEW.FieldByName('BLOCK2').AsInteger = 1) then begin u_info.Label12.Caption := 'Да'; u_info.Label12.Font.Color := clRed; end else begin u_info.Label12.Caption := 'Нет'; u_info.Label12.Font.Color := clBlack; end;
+      if (DM.Q_CLIENT_VIEW.FieldByName('vanselling').AsInteger = 1) then begin u_info.Label14.Caption := 'Да'; u_info.Label14.Font.Color := clRed; end else begin u_info.Label14.Caption := 'Нет'; u_info.Label14.Font.Color := clBlack; end;
+
       u_info.ShowModal;
       u_info.Q_ADDRESS.Close;
     end;
@@ -1535,6 +1546,7 @@ try
 
     if (DM.Q_CLIENT_VIEW.FieldByName('BLOCK1').AsInteger = 1) then u_info.Label10.Caption := 'Да' else u_info.Label10.Caption := 'Нет';
     if (DM.Q_CLIENT_VIEW.FieldByName('BLOCK2').AsInteger = 1) then u_info.Label12.Caption := 'Да' else u_info.Label12.Caption := 'Нет';
+    if (DM.Q_CLIENT_VIEW.FieldByName('vanselling').AsInteger = 1) then u_info.Label14.Caption := 'Да' else u_info.Label14.Caption := 'Нет';
 
     DM.cds_adress.Close;
     dm.cds_adress.ParamByName('p1').AsInteger := DM.Q_CLIENTS.FieldByName('ID_CLIENTS').AsInteger;
@@ -1797,6 +1809,7 @@ begin
 
   if (CheckBox4.Checked = true) then sql := sql + ' AND BLOCK1 = 1';
   if (CheckBox5.Checked = true) then sql := sql + ' AND BLOCK2 = 1';
+  if (CheckBox3.Checked = true) then sql := sql + ' AND vanselling = 1';
 
   DM.Q_CLIENTS.Close;
   DM.Q_CLIENTS.SQL.Clear;
@@ -1843,6 +1856,7 @@ begin
   DateTimePicker2.Checked := false;
   CheckBox4.Checked := false;
   CheckBox5.Checked := false;
+  CheckBox3.Checked := false;
   if (PageControl1.ActivePageIndex = 0) then
     cxClient.SetFocus;
 end;
@@ -1913,13 +1927,14 @@ begin
 
           if (DM.Q_client_view.FieldByName('BLOCK1').AsInteger = 1) then Clients_table.FieldByName('BLOK2').AsBoolean := true else Clients_table.FieldByName('BLOK2').AsBoolean := false;
           if (DM.Q_client_view.FieldByName('BLOCK2').AsInteger = 1) then Clients_table.FieldByName('BLOK1').AsBoolean := true else Clients_table.FieldByName('BLOK1').AsBoolean := false;
+          if (DM.Q_client_view.FieldByName('vanselling').AsInteger = 1) then Clients_table.FieldByName('vanselling').AsBoolean := true else Clients_table.FieldByName('vanselling').AsBoolean := false;
 
           if (DM.Q_client_view.FieldByName('FLOWERS').AsInteger = 1) then Clients_table.FieldByName('FLOWERS').AsBoolean := true else Clients_table.FieldByName('FLOWERS').AsBoolean := false;
           if (DM.Q_client_view.FieldByName('PLANTS').AsInteger = 1) then Clients_table.FieldByName('PLANTS').AsBoolean := true else Clients_table.FieldByName('PLANTS').AsBoolean := false;
 
           Clients_table.Post;
           Clients_table.Active := false;
-          if DM.id_office = 1 then         
+          if DM.id_office = 1 then
              ShellExecute(Application.Handle, nil, PChar(progas), nil, nil, SW_SHOWNORMAL);
           ShowMessage('Клиент скопирован в старую БД успешно.');
       except
@@ -1992,6 +2007,9 @@ begin
         if (DM.Q_CLIENT_VIEW.FieldByName('BLOCK1').AsInteger = 1) then edits.CheckBox4.Checked := true else edits.CheckBox4.Checked := false;
         if (DM.Q_CLIENT_VIEW.FieldByName('BLOCK2').AsInteger = 1) then edits.CheckBox5.Checked := true else edits.CheckBox5.Checked := false;
         if (DM.Q_CLIENT_VIEW.FieldByName('DOSTAVKA').AsInteger = 1) then edits.CheckBox6.Checked := true else edits.CheckBox6.Checked := false;
+        if (DM.Q_CLIENT_VIEW.FieldByName('vanselling').AsInteger = 1) then edits.CheckBox3.Checked := true else edits.CheckBox3.Checked := false;
+
+
 
         edits.SpeedButton1.Visible := true;
         edits.btnClone.Enabled := false;
@@ -2060,6 +2078,8 @@ begin
         if (DM.Q_CLIENT_VIEW.FieldByName('BLOCK1').AsInteger = 1) then edits.CheckBox4.Checked := true else edits.CheckBox4.Checked := false;
         if (DM.Q_CLIENT_VIEW.FieldByName('BLOCK2').AsInteger = 1) then edits.CheckBox5.Checked := true else edits.CheckBox5.Checked := false;
         if (DM.Q_CLIENT_VIEW.FieldByName('DOSTAVKA').AsInteger = 1) then edits.CheckBox6.Checked := true else edits.CheckBox6.Checked := false;
+        if (DM.Q_CLIENT_VIEW.FieldByName('vanselling').AsInteger = 1) then edits.CheckBox3.Checked := true else edits.CheckBox3.Checked := false;
+
 
         edits.ttype := 1;
         edits.showmodal;

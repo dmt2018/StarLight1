@@ -125,9 +125,15 @@ object DM: TDM
       Required = True
       Size = 10
     end
+    object Q_CLIENTSID_OFFICE_SRC: TIntegerField
+      FieldName = 'ID_OFFICE_SRC'
+    end
     object Q_CLIENTSINN: TStringField
       FieldName = 'INN'
       Size = 50
+    end
+    object Q_CLIENTSVANSELLING: TIntegerField
+      FieldName = 'VANSELLING'
     end
   end
   object Q_CLIENTS_DS: TOraDataSource
@@ -1008,6 +1014,13 @@ object DM: TDM
     end
     object Q_CLIENT_VIEWID_CITY: TIntegerField
       FieldName = 'ID_CITY'
+    end
+    object Q_CLIENT_VIEWKEY_INTERESTS: TStringField
+      FieldName = 'KEY_INTERESTS'
+      Size = 1024
+    end
+    object Q_CLIENT_VIEWVANSELLING: TIntegerField
+      FieldName = 'VANSELLING'
     end
     object Q_CLIENT_VIEWREG_TYPE_NAME: TStringField
       FieldName = 'REG_TYPE_NAME'

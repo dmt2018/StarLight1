@@ -20,7 +20,7 @@ object u_info: Tu_info
   TextHeight = 15
   object Label8: TLabel
     Left = 8
-    Top = 482
+    Top = 471
     Width = 174
     Height = 16
     Caption = #1041#1083#1086#1082#1080#1088#1086#1074#1072#1085' '#1073#1091#1093#1075#1072#1083#1090#1077#1088#1080#1077#1081
@@ -34,7 +34,7 @@ object u_info: Tu_info
   end
   object Label45: TLabel
     Left = 8
-    Top = 500
+    Top = 489
     Width = 146
     Height = 16
     Caption = #1041#1083#1086#1082#1080#1088#1086#1074#1072#1085' '#1082#1088#1077#1076#1080#1090#1086#1084
@@ -48,7 +48,7 @@ object u_info: Tu_info
   end
   object Label12: TLabel
     Left = 220
-    Top = 482
+    Top = 471
     Width = 45
     Height = 16
     Caption = 'Label12'
@@ -62,7 +62,7 @@ object u_info: Tu_info
   end
   object Label10: TLabel
     Left = 220
-    Top = 500
+    Top = 489
     Width = 45
     Height = 16
     Caption = 'Label10'
@@ -218,6 +218,34 @@ object u_info: Tu_info
     Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
+    Font.Pitch = fpFixed
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label7: TLabel
+    Left = 8
+    Top = 508
+    Width = 153
+    Height = 16
+    Caption = #1047#1072#1087#1088#1077#1090' '#1087#1088#1086#1076#1072#1078' '#1089' '#1082#1086#1083#1077#1089
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -13
+    Font.Name = 'Arial'
+    Font.Pitch = fpFixed
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label14: TLabel
+    Left = 220
+    Top = 508
+    Width = 45
+    Height = 16
+    Caption = 'Label14'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Arial'
     Font.Pitch = fpFixed
     Font.Style = []
     ParentFont = False
