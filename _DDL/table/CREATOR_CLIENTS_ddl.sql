@@ -1,5 +1,5 @@
 -- Start of DDL Script for Table CREATOR.CLIENTS
--- Generated 23-џэт-2017 12:50:07 from CREATOR@ORCL
+-- Generated 23-џэт-2017 18:20:41 from CREATOR@STAR2
 
 CREATE TABLE clients
     (id_clients                     NUMBER(8,0) NOT NULL,
@@ -49,7 +49,6 @@ CREATE TABLE clients
     date_change                    DATE DEFAULT sysdate,
     prefix                         VARCHAR2(5 BYTE),
     id_city                        NUMBER(8,0),
-    key_interests                  VARCHAR2(1024 BYTE),
     vanselling                     NUMBER(1,0) DEFAULT 0)
   PCTFREE     10
   INITRANS    1
@@ -73,42 +72,6 @@ CREATE TABLE clients
 
 
 -- Indexes for CLIENTS
-
-CREATE INDEX ix_clientgroup ON clients
-  (
-    id_clients_groups               ASC
-  )
-  PCTFREE     10
-  INITRANS    2
-  MAXTRANS    255
-  TABLESPACE  starlight_t
-  STORAGE   (
-    INITIAL     262144
-    NEXT        1048576
-    MINEXTENTS  1
-    MAXEXTENTS  2147483645
-  )
-NOPARALLEL
-LOGGING
-/
-
-CREATE INDEX ix_nick ON clients
-  (
-    nick                            ASC
-  )
-  PCTFREE     10
-  INITRANS    2
-  MAXTRANS    255
-  TABLESPACE  starlight_t
-  STORAGE   (
-    INITIAL     262144
-    NEXT        1048576
-    MINEXTENTS  1
-    MAXEXTENTS  2147483645
-  )
-NOPARALLEL
-LOGGING
-/
 
 CREATE INDEX ix_client_advert ON clients
   (
@@ -164,6 +127,24 @@ NOPARALLEL
 LOGGING
 /
 
+CREATE INDEX ix_clientgroup ON clients
+  (
+    id_clients_groups               ASC
+  )
+  PCTFREE     10
+  INITRANS    2
+  MAXTRANS    255
+  TABLESPACE  starlight_t
+  STORAGE   (
+    INITIAL     262144
+    NEXT        1048576
+    MINEXTENTS  1
+    MAXEXTENTS  2147483645
+  )
+NOPARALLEL
+LOGGING
+/
+
 CREATE INDEX ix_login ON clients
   (
     UPPER("LOGIN") ASC
@@ -174,6 +155,24 @@ CREATE INDEX ix_login ON clients
   TABLESPACE  starlight_t
   STORAGE   (
     INITIAL     65536
+    NEXT        1048576
+    MINEXTENTS  1
+    MAXEXTENTS  2147483645
+  )
+NOPARALLEL
+LOGGING
+/
+
+CREATE INDEX ix_nick ON clients
+  (
+    nick                            ASC
+  )
+  PCTFREE     10
+  INITRANS    2
+  MAXTRANS    255
+  TABLESPACE  starlight_t
+  STORAGE   (
+    INITIAL     262144
     NEXT        1048576
     MINEXTENTS  1
     MAXEXTENTS  2147483645
@@ -257,6 +256,44 @@ USING INDEX
 
 -- Triggers for CLIENTS
 
+CREATE OR REPLACE TRIGGER tr_d_clients
+ AFTER
+  DELETE
+ ON clients
+REFERENCING NEW AS NEW OLD AS OLD
+ FOR EACH ROW
+BEGIN insert into user_logs values(
+    SEQ_LOGS.nextval
+    , sysdate
+    , 'clients'
+    , 'delete'
+    , 'ID_CLIENTS='||:OLD.ID_CLIENTS||chr(10)||'FIO='||:OLD.FIO||chr(10)||'NICK='||:OLD.NICK||chr(10)||'CCODE='||:OLD.CCODE||chr(10)||'REGION='||:OLD.REGION||chr(10)||'ADDRESS='||:OLD.ADDRESS||chr(10)||'U_ADDRESS='||:OLD.U_ADDRESS||chr(10)||'PHONE='||:OLD.PHONE||chr(10)||'PASSPORT='||:OLD.PASSPORT||chr(10)||'CONTACT='||:OLD.CONTACT||chr(10)||'CONT_PHONE='||:OLD.CONT_PHONE||chr(10)||'EMAIL='||:OLD.EMAIL||chr(10)||'WWW='||:OLD.WWW||chr(10)||'INN='||:OLD.INN||chr(10)||'REG_SVID='||:OLD.REG_SVID||chr(10)||'KPP='||:OLD.KPP||chr(10)||'OKATO='||:OLD.OKATO||chr(10)||'BANK='||:OLD.BANK||chr(10)||'AGREEMENT='||:OLD.AGREEMENT||chr(10)||'ADVERTISMENT='||:OLD.ADVERTISMENT||chr(10)||'DDATE='||:OLD.DDATE||chr(10)||'BLOCK1='||:OLD.BLOCK1||chr(10)||'BLOCK2='||:OLD.BLOCK2||chr(10)||'FLOWERS='||:OLD.FLOWERS||chr(10)||'PLANTS='||:OLD.PLANTS||chr(10)||'MARK='||:OLD.MARK||chr(10)||'TTYPE='||:OLD.TTYPE||chr(10)||'ID_CLIENTS_GROUPS='||:OLD.ID_CLIENTS_GROUPS||chr(10)||'CORRECTOR='||:OLD.CORRECTOR||chr(10)||'DATE_COR='||:OLD.DATE_COR||chr(10)||'CORRECTOR_COR='||:OLD.CORRECTOR_COR||chr(10)||'DUTIES='||:OLD.DUTIES||chr(10)||'INSURANCE='||:OLD.INSURANCE||chr(10)||'DATE_IN='||:OLD.DATE_IN||chr(10)||'DATE_OUT='||:OLD.DATE_OUT||chr(10)||'L_SERVICE='||:OLD.L_SERVICE||chr(10)||'STAFF='||:OLD.STAFF||chr(10)||'ACTIVE='||:OLD.ACTIVE||chr(10)||'LOGIN='||:OLD.LOGIN||chr(10)||'INFO='||:OLD.INFO||chr(10)||'REG_TYPE='||:OLD.REG_TYPE||chr(10)||'COUNT='||:OLD.COUNT||chr(10)||'DOSTAVKA='||:OLD.DOSTAVKA
+    , ''
+    , user
+    , :OLD.id_clients
+    );
+ END;
+/
+
+CREATE OR REPLACE TRIGGER tr_i_clients
+ AFTER
+  INSERT
+ ON clients
+REFERENCING NEW AS NEW OLD AS OLD
+ FOR EACH ROW
+BEGIN insert into user_logs values(
+    SEQ_LOGS.nextval
+    , sysdate
+    , 'clients'
+    , 'insert'
+    , ''
+    , 'ID_CLIENTS='||:NEW.ID_CLIENTS||chr(10)||'FIO='||:NEW.FIO||chr(10)||'NICK='||:NEW.NICK||chr(10)||'CCODE='||:NEW.CCODE||chr(10)||'REGION='||:NEW.REGION||chr(10)||'ADDRESS='||:NEW.ADDRESS||chr(10)||'U_ADDRESS='||:NEW.U_ADDRESS||chr(10)||'PHONE='||:NEW.PHONE||chr(10)||'PASSPORT='||:NEW.PASSPORT||chr(10)||'CONTACT='||:NEW.CONTACT||chr(10)||'CONT_PHONE='||:NEW.CONT_PHONE||chr(10)||'EMAIL='||:NEW.EMAIL||chr(10)||'WWW='||:NEW.WWW||chr(10)||'INN='||:NEW.INN||chr(10)||'REG_SVID='||:NEW.REG_SVID||chr(10)||'KPP='||:NEW.KPP||chr(10)||'OKATO='||:NEW.OKATO||chr(10)||'BANK='||:NEW.BANK||chr(10)||'AGREEMENT='||:NEW.AGREEMENT||chr(10)||'ADVERTISMENT='||:NEW.ADVERTISMENT||chr(10)||'DDATE='||:NEW.DDATE||chr(10)||'BLOCK1='||:NEW.BLOCK1||chr(10)||'BLOCK2='||:NEW.BLOCK2||chr(10)||'FLOWERS='||:NEW.FLOWERS||chr(10)||'PLANTS='||:NEW.PLANTS||chr(10)||'MARK='||:NEW.MARK||chr(10)||'TTYPE='||:NEW.TTYPE||chr(10)||'ID_CLIENTS_GROUPS='||:NEW.ID_CLIENTS_GROUPS||chr(10)||'CORRECTOR='||:NEW.CORRECTOR||chr(10)||'DATE_COR='||:NEW.DATE_COR||chr(10)||'CORRECTOR_COR='||:NEW.CORRECTOR_COR||chr(10)||'DUTIES='||:NEW.DUTIES||chr(10)||'INSURANCE='||:NEW.INSURANCE||chr(10)||'DATE_IN='||:NEW.DATE_IN||chr(10)||'DATE_OUT='||:NEW.DATE_OUT||chr(10)||'L_SERVICE='||:NEW.L_SERVICE||chr(10)||'STAFF='||:NEW.STAFF||chr(10)||'ACTIVE='||:NEW.ACTIVE||chr(10)||'LOGIN='||:NEW.LOGIN||chr(10)||'INFO='||:NEW.INFO||chr(10)||'REG_TYPE='||:NEW.REG_TYPE||chr(10)||'COUNT='||:NEW.COUNT||chr(10)||'DOSTAVKA='||:NEW.DOSTAVKA
+    , user
+    , :NEW.id_clients
+    );
+ END;
+/
+
 CREATE OR REPLACE TRIGGER tr_u_clients
  AFTER
   UPDATE
@@ -291,44 +328,6 @@ BEGIN insert into user_logs values(
         ||chr(10)||'LOGIN='||:NEW.LOGIN||chr(10)||'INFO='||:NEW.INFO||chr(10)||'REG_TYPE='||:NEW.REG_TYPE||chr(10)||'COUNT='||:NEW.COUNT||chr(10)||'DOSTAVKA='||:NEW.DOSTAVKA
     , user
     , :NEW.id_clients
-    );
- END;
-/
-
-CREATE OR REPLACE TRIGGER tr_i_clients
- AFTER
-  INSERT
- ON clients
-REFERENCING NEW AS NEW OLD AS OLD
- FOR EACH ROW
-BEGIN insert into user_logs values(
-    SEQ_LOGS.nextval
-    , sysdate
-    , 'clients'
-    , 'insert'
-    , ''
-    , 'ID_CLIENTS='||:NEW.ID_CLIENTS||chr(10)||'FIO='||:NEW.FIO||chr(10)||'NICK='||:NEW.NICK||chr(10)||'CCODE='||:NEW.CCODE||chr(10)||'REGION='||:NEW.REGION||chr(10)||'ADDRESS='||:NEW.ADDRESS||chr(10)||'U_ADDRESS='||:NEW.U_ADDRESS||chr(10)||'PHONE='||:NEW.PHONE||chr(10)||'PASSPORT='||:NEW.PASSPORT||chr(10)||'CONTACT='||:NEW.CONTACT||chr(10)||'CONT_PHONE='||:NEW.CONT_PHONE||chr(10)||'EMAIL='||:NEW.EMAIL||chr(10)||'WWW='||:NEW.WWW||chr(10)||'INN='||:NEW.INN||chr(10)||'REG_SVID='||:NEW.REG_SVID||chr(10)||'KPP='||:NEW.KPP||chr(10)||'OKATO='||:NEW.OKATO||chr(10)||'BANK='||:NEW.BANK||chr(10)||'AGREEMENT='||:NEW.AGREEMENT||chr(10)||'ADVERTISMENT='||:NEW.ADVERTISMENT||chr(10)||'DDATE='||:NEW.DDATE||chr(10)||'BLOCK1='||:NEW.BLOCK1||chr(10)||'BLOCK2='||:NEW.BLOCK2||chr(10)||'FLOWERS='||:NEW.FLOWERS||chr(10)||'PLANTS='||:NEW.PLANTS||chr(10)||'MARK='||:NEW.MARK||chr(10)||'TTYPE='||:NEW.TTYPE||chr(10)||'ID_CLIENTS_GROUPS='||:NEW.ID_CLIENTS_GROUPS||chr(10)||'CORRECTOR='||:NEW.CORRECTOR||chr(10)||'DATE_COR='||:NEW.DATE_COR||chr(10)||'CORRECTOR_COR='||:NEW.CORRECTOR_COR||chr(10)||'DUTIES='||:NEW.DUTIES||chr(10)||'INSURANCE='||:NEW.INSURANCE||chr(10)||'DATE_IN='||:NEW.DATE_IN||chr(10)||'DATE_OUT='||:NEW.DATE_OUT||chr(10)||'L_SERVICE='||:NEW.L_SERVICE||chr(10)||'STAFF='||:NEW.STAFF||chr(10)||'ACTIVE='||:NEW.ACTIVE||chr(10)||'LOGIN='||:NEW.LOGIN||chr(10)||'INFO='||:NEW.INFO||chr(10)||'REG_TYPE='||:NEW.REG_TYPE||chr(10)||'COUNT='||:NEW.COUNT||chr(10)||'DOSTAVKA='||:NEW.DOSTAVKA
-    , user
-    , :NEW.id_clients
-    );
- END;
-/
-
-CREATE OR REPLACE TRIGGER tr_d_clients
- AFTER
-  DELETE
- ON clients
-REFERENCING NEW AS NEW OLD AS OLD
- FOR EACH ROW
-BEGIN insert into user_logs values(
-    SEQ_LOGS.nextval
-    , sysdate
-    , 'clients'
-    , 'delete'
-    , 'ID_CLIENTS='||:OLD.ID_CLIENTS||chr(10)||'FIO='||:OLD.FIO||chr(10)||'NICK='||:OLD.NICK||chr(10)||'CCODE='||:OLD.CCODE||chr(10)||'REGION='||:OLD.REGION||chr(10)||'ADDRESS='||:OLD.ADDRESS||chr(10)||'U_ADDRESS='||:OLD.U_ADDRESS||chr(10)||'PHONE='||:OLD.PHONE||chr(10)||'PASSPORT='||:OLD.PASSPORT||chr(10)||'CONTACT='||:OLD.CONTACT||chr(10)||'CONT_PHONE='||:OLD.CONT_PHONE||chr(10)||'EMAIL='||:OLD.EMAIL||chr(10)||'WWW='||:OLD.WWW||chr(10)||'INN='||:OLD.INN||chr(10)||'REG_SVID='||:OLD.REG_SVID||chr(10)||'KPP='||:OLD.KPP||chr(10)||'OKATO='||:OLD.OKATO||chr(10)||'BANK='||:OLD.BANK||chr(10)||'AGREEMENT='||:OLD.AGREEMENT||chr(10)||'ADVERTISMENT='||:OLD.ADVERTISMENT||chr(10)||'DDATE='||:OLD.DDATE||chr(10)||'BLOCK1='||:OLD.BLOCK1||chr(10)||'BLOCK2='||:OLD.BLOCK2||chr(10)||'FLOWERS='||:OLD.FLOWERS||chr(10)||'PLANTS='||:OLD.PLANTS||chr(10)||'MARK='||:OLD.MARK||chr(10)||'TTYPE='||:OLD.TTYPE||chr(10)||'ID_CLIENTS_GROUPS='||:OLD.ID_CLIENTS_GROUPS||chr(10)||'CORRECTOR='||:OLD.CORRECTOR||chr(10)||'DATE_COR='||:OLD.DATE_COR||chr(10)||'CORRECTOR_COR='||:OLD.CORRECTOR_COR||chr(10)||'DUTIES='||:OLD.DUTIES||chr(10)||'INSURANCE='||:OLD.INSURANCE||chr(10)||'DATE_IN='||:OLD.DATE_IN||chr(10)||'DATE_OUT='||:OLD.DATE_OUT||chr(10)||'L_SERVICE='||:OLD.L_SERVICE||chr(10)||'STAFF='||:OLD.STAFF||chr(10)||'ACTIVE='||:OLD.ACTIVE||chr(10)||'LOGIN='||:OLD.LOGIN||chr(10)||'INFO='||:OLD.INFO||chr(10)||'REG_TYPE='||:OLD.REG_TYPE||chr(10)||'COUNT='||:OLD.COUNT||chr(10)||'DOSTAVKA='||:OLD.DOSTAVKA
-    , ''
-    , user
-    , :OLD.id_clients
     );
  END;
 /

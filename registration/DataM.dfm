@@ -1015,10 +1015,6 @@ object DM: TDM
     object Q_CLIENT_VIEWID_CITY: TIntegerField
       FieldName = 'ID_CITY'
     end
-    object Q_CLIENT_VIEWKEY_INTERESTS: TStringField
-      FieldName = 'KEY_INTERESTS'
-      Size = 1024
-    end
     object Q_CLIENT_VIEWVANSELLING: TIntegerField
       FieldName = 'VANSELLING'
     end
