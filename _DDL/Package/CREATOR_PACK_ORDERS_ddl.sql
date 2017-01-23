@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.PACK_ORDERS
--- Generated 18.01.2017 1:18:27 from CREATOR@STAR_REG
+-- Generated 23.01.2017 23:42:34 from CREATOR@STAR_REG
 
 CREATE OR REPLACE 
 PACKAGE pack_orders
@@ -2526,12 +2526,12 @@ begin
 
     sqlstr := 'insert into orders_clients (select '||idOC||', '||vOutID||', '||data.id_clients||', 0,
        sum(a.capacity), sysdate, 0, null, null, 1, 0, null, max(a.id_user), const_office, sysdate, null, null, null, null
-       from orders_clients a where a.ID_ORDERS in (sqlstr) and a.id_clients = '||data.id_clients||' and a.active=1
+       from orders_clients a where a.ID_ORDERS in ('||vOrders||') and a.id_clients = '||data.id_clients||' and a.active=1
        group by a.id_clients)';
     insert into orders_clients (select idOC, vOutID, data.id_clients, 0,
-       sum(a.capacity), sysdate, 0, null, null, 1, 0, null, max(a.id_user), const_office, sysdate, null, null, null, null, a.priority
+       sum(a.capacity), sysdate, 0, null, null, 1, 0, null, max(a.id_user), const_office, sysdate, null, null, null, null, null
        from orders_clients a where a.ID_ORDERS in (select * from tmp_exp_doc) and a.id_clients = data.id_clients and a.active=1 and a.n_type <> 2
-       group by a.id_clients, a.priority)
+       group by a.id_clients)
     ;
 
     insert into orders_list (select orders_list_seq.nextval as id_orders_list, z.* from ( select a.n_id, sum(a.quantity) as quantity, idOC as id_orders_clients,
