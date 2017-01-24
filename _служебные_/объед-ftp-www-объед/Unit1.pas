@@ -93,7 +93,6 @@ type
     Label1: TLabel;
     Timer2: TTimer;
     Memo2: TMemo;
-    cxGridDBTableView1Vanselling: TcxGridDBColumn;
     qClientsNICK: TStringField;
     qClientsCCODE: TStringField;
     qClientsFIO: TStringField;
@@ -106,7 +105,6 @@ type
     qClientsDDATE: TDateTimeField;
     qClientsCHART: TFloatField;
     qClientsGROUP_NAME: TStringField;
-    qClientsVANSELLING: TIntegerField;
     procedure button2Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);

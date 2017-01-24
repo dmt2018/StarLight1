@@ -100,8 +100,7 @@ type
     chbRulePics: TCheckBox;
     chbRulePrice: TCheckBox;
     chbRuleOrder: TCheckBox;
-    Label7: TLabel;
-    Label14: TLabel;
+    CheckBox3: TCheckBox;
     procedure BitBtn3Click(Sender: TObject);
   private
     { Private declarations }

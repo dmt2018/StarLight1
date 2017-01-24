@@ -1,5 +1,5 @@
 -- Start of DDL Script for View CREATOR.CLIENTS_VIEW2
--- Generated 23-џэт-2017 12:49:35 from CREATOR@ORCL
+-- Generated 24-џэт-2017 17:47:14 from CREATOR@STAR2
 
 CREATE OR REPLACE VIEW clients_view2 (
    id_clients,
@@ -28,8 +28,7 @@ CREATE OR REPLACE VIEW clients_view2 (
    city,
    mark,
    id_office_src,
-   inn,
-   vanselling )
+   inn )
 AS
 SELECT C.ID_CLIENTS, UPPER(C.NICK) as NICK, UPPER(C.FIO) as FIO, C.DDATE, C.CCODE,
        C.REGION, C.TTYPE, C.ID_CLIENTS_GROUPS, r.name as regions_name, G.NAME AS GROUP_NAME, T.NAME AS TTYPE_NAME, c.corrector, c.phone,
@@ -43,7 +42,6 @@ SELECT C.ID_CLIENTS, UPPER(C.NICK) as NICK, UPPER(C.FIO) as FIO, C.DDATE, C.CCOD
        , c.mark
        , c.id_office as id_office_src
        , c.inn
-       , c.VANSELLING
    FROM CLIENTS C, CLIENTS_GROUPS G, books_regions r, books_client_TYPES T, offices o, books_cities s
    WHERE C.ID_CLIENTS_GROUPS = G.ID_CLIENTS_GROUPS
         AND C.REGION = R.ID_REGIONS

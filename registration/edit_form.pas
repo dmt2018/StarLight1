@@ -224,7 +224,7 @@ end;
 
 // Добавление \ редактирование
 procedure Tedits.BitBtn1Click(Sender: TObject);
-var sql, region, reklama, t_type, plant, flower, price, block1, block2, block3, id_group, dostavka: string;
+var sql, region, reklama, t_type, plant, flower, price, block1, block2, id_group, dostavka: string;
     ind, flag: integer;
 begin
   if ( (trim(LabeledEdit1.Text) = '') or (trim(LabeledEdit2.Text) = '')  or (trim(LabeledEdit9.Text) = '') or (ComboBox1.ItemIndex = -1) or (ComboBox2.ItemIndex = -1) or (ComboBox3.ItemIndex = -1) or (ComboBox4.ItemIndex = -1) or (trim(Edit1.Text) = '') ) then ShowMessage('Вы не заполнили обязательные поля!')
@@ -266,7 +266,6 @@ begin
         if (CheckBox4.Checked = true) then block2 := '1' else block2 := '0';
         if (CheckBox5.Checked = true) then block1 := '1' else block1 := '0';
         if (CheckBox6.Checked = true) then dostavka := '1' else dostavka := '0';
-        if (CheckBox3.Checked = true) then block3 := '1' else block3 := '0';
 
         // Доступы к сайту
         if (chbRuleSite.Checked = true) then price := '1,' else price := '0,';
@@ -275,8 +274,9 @@ begin
         // Просмотр цен на сайте
         if (chbRulePrice.Checked = true) then price := price+'1,' else price := price+'0,';
         // Формирование заказов на сайте
-        if (chbRuleOrder.Checked = true) then price := price+'1' else price := price+'0';
-
+        if (chbRuleOrder.Checked = true) then price := price+'1,' else price := price+'0,';
+        // Продажа с колес
+        if (CheckBox3.Checked = true) then price := price+'1' else price := price+'0';
 
         // SQL для добавления
         if (ttype = 1) then
@@ -290,7 +290,7 @@ begin
         begin
           ind := DM.Q_CLIENTS.FieldByName('ID_CLIENTS').AsInteger;
           sql := 'UPDATE CLIENTS SET FIO=:P1,NICK=:P2,CCODE=:P3,REGION=:P4,ADDRESS=:P5,U_ADDRESS=:P6,PHONE=:P7,PASSPORT=:P8,CONTACT=:P9,CONT_PHONE=:P10,EMAIL=:P11,WWW=:P12,INN=:P13,REG_SVID=:P14,KPP=:P15,OKATO=:P16,BANK=:P17,DOSTAVKA=:P30, DATE_CHANGE=sysdate';
-          sql := sql + ',AGREEMENT=:P18,ADVERTISMENT=:P19,BLOCK1=:P20,BLOCK2=:P21,FLOWERS=:P22,PLANTS=:P23,MARK=:P24,TTYPE=:P25,ID_CLIENTS_GROUPS=:P26, INFO=:P27, REG_TYPE=:P28, DATE_COR=SYSDATE, CORRECTOR_COR='''+ main.corrector +''', prefix=:prefix, id_city=:city, vanselling=:P29 WHERE ID_CLIENTS=:ID';
+          sql := sql + ',AGREEMENT=:P18,ADVERTISMENT=:P19,BLOCK1=:P20,BLOCK2=:P21,FLOWERS=:P22,PLANTS=:P23,MARK=:P24,TTYPE=:P25,ID_CLIENTS_GROUPS=:P26, INFO=:P27, REG_TYPE=:P28, DATE_COR=SYSDATE, CORRECTOR_COR='''+ main.corrector +''', prefix=:prefix, id_city=:city WHERE ID_CLIENTS=:ID';
           DM.Ora_SQL.SQL.Add(sql);
           DM.Ora_SQL.ParamByName('ID').Value := ind;
         end;
@@ -329,7 +329,6 @@ begin
         DM.Ora_SQL.ParamByName('prefix').Value := trim(lePrefix.Text);
         DM.Ora_SQL.ParamByName('city').Value := icbCity.EditValue;
 
-        DM.Ora_SQL.ParamByName('P29').Value := block3;
 
 
         // Пытаемся выполнить SQL запрос
@@ -473,7 +472,7 @@ begin
     edits.CheckBox4.Checked := false;
     edits.CheckBox5.Checked := false;
     edits.CheckBox6.Checked := false;
-    edits.CheckBox3.Checked := false;
+
 
     edits.chbRuleSite.Checked := false;
     edits.chbRulePics.Checked := false;
@@ -519,7 +518,7 @@ begin
     if (DM.Q_CLIENT_VIEW.FieldByName('BLOCK1').AsInteger = 1) then edits.CheckBox4.Checked := true else edits.CheckBox4.Checked := false;
     if (DM.Q_CLIENT_VIEW.FieldByName('BLOCK2').AsInteger = 1) then edits.CheckBox5.Checked := true else edits.CheckBox5.Checked := false;
     if (DM.Q_CLIENT_VIEW.FieldByName('DOSTAVKA').AsInteger = 1) then edits.CheckBox6.Checked := true else edits.CheckBox6.Checked := false;
-    if (DM.Q_CLIENT_VIEW.FieldByName('vanselling').AsInteger = 1) then edits.CheckBox3.Checked := true else edits.CheckBox3.Checked := false;
+    //if (DM.Q_CLIENT_VIEW.FieldByName('vanselling').AsInteger = 1) then edits.CheckBox3.Checked := true else edits.CheckBox3.Checked := false;
 
 
     // Доступы
@@ -527,6 +526,8 @@ begin
     if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[3] = '1') then edits.chbRulePics.Checked := true else edits.chbRulePics.Checked := false;
     if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[5] = '1') then edits.chbRulePrice.Checked := true else edits.chbRulePrice.Checked := false;
     if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[7] = '1') then edits.chbRuleOrder.Checked := true else edits.chbRuleOrder.Checked := false;
+    if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[9] = '1') then edits.CheckBox3.Checked := true else edits.CheckBox3.Checked := false;
+
   end;
 end;
 
@@ -701,13 +702,14 @@ begin
       if (Q_CLIENT_VIEW.FieldByName('BLOCK1').AsInteger = 1) then CheckBox4.Checked := true else CheckBox4.Checked := false;
       if (Q_CLIENT_VIEW.FieldByName('BLOCK2').AsInteger = 1) then CheckBox5.Checked := true else CheckBox5.Checked := false;
       if (Q_CLIENT_VIEW.FieldByName('DOSTAVKA').AsInteger = 1) then CheckBox6.Checked := true else CheckBox6.Checked := false;
-      if (Q_CLIENT_VIEW.FieldByName('vanselling').AsInteger = 1) then CheckBox3.Checked := true else CheckBox3.Checked := false;
+      //if (Q_CLIENT_VIEW.FieldByName('vanselling').AsInteger = 1) then CheckBox3.Checked := true else CheckBox3.Checked := false;
 
       // Доступы
       if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[1] = '1') then edits.chbRuleSite.Checked := true else edits.chbRuleSite.Checked := false;
       if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[3] = '1') then edits.chbRulePics.Checked := true else edits.chbRulePics.Checked := false;
       if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[5] = '1') then edits.chbRulePrice.Checked := true else edits.chbRulePrice.Checked := false;
       if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[7] = '1') then edits.chbRuleOrder.Checked := true else edits.chbRuleOrder.Checked := false;
+      if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[9] = '1') then edits.CheckBox3.Checked := true else edits.CheckBox3.Checked := false;
 
       Q_CLIENT_VIEW.Close;
       clientchoosForm.Q_CLIENTS.Close;

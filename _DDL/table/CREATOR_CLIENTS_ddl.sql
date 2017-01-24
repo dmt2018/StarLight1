@@ -1,5 +1,5 @@
 -- Start of DDL Script for Table CREATOR.CLIENTS
--- Generated 23-янв-2017 18:20:41 from CREATOR@STAR2
+-- Generated 24-янв-2017 17:47:44 from CREATOR@STAR2
 
 CREATE TABLE clients
     (id_clients                     NUMBER(8,0) NOT NULL,
@@ -48,8 +48,7 @@ CREATE TABLE clients
     id_office                      NUMBER(4,0) DEFAULT 1,
     date_change                    DATE DEFAULT sysdate,
     prefix                         VARCHAR2(5 BYTE),
-    id_city                        NUMBER(8,0),
-    vanselling                     NUMBER(1,0) DEFAULT 0)
+    id_city                        NUMBER(8,0))
   PCTFREE     10
   INITRANS    1
   MAXTRANS    255
@@ -422,8 +421,6 @@ COMMENT ON COLUMN clients.staff IS 'Не штат - 0, штат - 1, клиент - 9'
 COMMENT ON COLUMN clients.ttype IS 'FK типы клиентов'
 /
 COMMENT ON COLUMN clients.u_address IS 'Юредический адрес'
-/
-COMMENT ON COLUMN clients.vanselling IS 'запрет прод с колес'
 /
 COMMENT ON COLUMN clients.www IS 'WWW'
 /

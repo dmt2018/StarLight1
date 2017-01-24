@@ -222,34 +222,6 @@ object u_info: Tu_info
     Font.Style = []
     ParentFont = False
   end
-  object Label7: TLabel
-    Left = 8
-    Top = 508
-    Width = 153
-    Height = 16
-    Caption = #1047#1072#1087#1088#1077#1090' '#1087#1088#1086#1076#1072#1078' '#1089' '#1082#1086#1083#1077#1089
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clBlack
-    Font.Height = -13
-    Font.Name = 'Arial'
-    Font.Pitch = fpFixed
-    Font.Style = [fsBold]
-    ParentFont = False
-  end
-  object Label14: TLabel
-    Left = 220
-    Top = 508
-    Width = 45
-    Height = 16
-    Caption = 'Label14'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -13
-    Font.Name = 'Arial'
-    Font.Pitch = fpFixed
-    Font.Style = []
-    ParentFont = False
-  end
   object Panel1: TPanel
     Left = 288
     Top = 477
@@ -1328,6 +1300,23 @@ object u_info: Tu_info
         TabOrder = 3
       end
     end
+  end
+  object CheckBox3: TCheckBox
+    Left = 8
+    Top = 509
+    Width = 174
+    Height = 17
+    Caption = #1047#1072#1087#1088#1077#1090' '#1087#1088#1086#1076#1072#1078' '#1089' '#1082#1086#1083#1077#1089
+    Checked = True
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clHotLight
+    Font.Height = -13
+    Font.Name = 'Arial'
+    Font.Pitch = fpFixed
+    Font.Style = [fsBold]
+    ParentFont = False
+    State = cbChecked
+    TabOrder = 2
   end
   object Q_ADDRESS: TOraQuery
     KeyFields = 'ID'

@@ -89,7 +89,6 @@ type
     OraQuery1ONMARCH: TStringField;
     OraQuery1NO_ORDER: TFloatField;
     cxGrid1DBTableView1Column1: TcxGridDBColumn;
-    cxGridDBTableView1vanselling: TcxGridDBColumn;
     qClientsNICK: TStringField;
     qClientsCCODE: TStringField;
     qClientsFIO: TStringField;
@@ -102,7 +101,6 @@ type
     qClientsDDATE: TDateTimeField;
     qClientsCHART: TFloatField;
     qClientsGROUP_NAME: TStringField;
-    qClientsVANSELLING: TIntegerField;
     procedure btnStartTimerClick(Sender: TObject);
     procedure TimerStoreTimer(Sender: TObject);
     procedure FormCreate(Sender: TObject);
