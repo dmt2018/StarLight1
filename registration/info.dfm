@@ -1306,8 +1306,7 @@ object u_info: Tu_info
     Top = 509
     Width = 174
     Height = 17
-    Caption = #1047#1072#1087#1088#1077#1090' '#1087#1088#1086#1076#1072#1078' '#1089' '#1082#1086#1083#1077#1089
-    Checked = True
+    Caption = #1055#1088#1086#1076#1072#1078#1072' '#1089' '#1082#1086#1083#1077#1089
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clHotLight
     Font.Height = -13
@@ -1315,7 +1314,6 @@ object u_info: Tu_info
     Font.Pitch = fpFixed
     Font.Style = [fsBold]
     ParentFont = False
-    State = cbChecked
     TabOrder = 2
   end
   object Q_ADDRESS: TOraQuery

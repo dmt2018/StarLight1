@@ -543,7 +543,7 @@ begin
     edits.chbRulePics.Checked := true;
     edits.chbRulePrice.Checked := true;
     edits.chbRuleOrder.Checked := true;
-    edits.CheckBox3.Checked := true;
+    edits.CheckBox3.Checked := false;
   end;
 
   // Добавление группы

@@ -389,7 +389,7 @@ object edits: Tedits
     Width = 794
     Height = 425
     Cursor = crHandPoint
-    ActivePage = TabSheet1
+    ActivePage = tshRules
     Align = alTop
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack
@@ -1880,8 +1880,7 @@ object edits: Tedits
     Top = 474
     Width = 220
     Height = 17
-    Caption = #1047#1072#1087#1088#1077#1090' '#1087#1088#1086#1076#1072#1078#1080' '#1089' '#1082#1086#1083#1077#1089
-    Checked = True
+    Caption = #1055#1088#1086#1076#1072#1078#1072' '#1089' '#1082#1086#1083#1077#1089
     Color = clMoneyGreen
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack
@@ -1891,7 +1890,6 @@ object edits: Tedits
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
-    State = cbChecked
     TabOrder = 7
   end
   object ActionList1: TActionList
@@ -1955,7 +1953,7 @@ object edits: Tedits
     Left = 532
     Top = 22
     Bitmap = {
-      494C010107000900980010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C0101070009009C0010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000084CA84FF54B757FF000000000000000000000000000000000000
