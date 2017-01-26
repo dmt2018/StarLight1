@@ -3295,6 +3295,7 @@ var conf: textfile;
     openDialog : TOpenDialog;
     cds_source: TDataSet;
     RESS, RES_TEXT : Variant;
+    sr:TSearchRec;
 begin
 
   // Определим файл для обработки
@@ -3607,6 +3608,12 @@ inv_id: 10007897
     tlb_refresh.Click;
   finally
     CloseFile(conf);
+    try
+    //showmessage(PChar(FullFileName));    showmessage(ExtractFilePath(Application.ExeName)+'finish\'+extractFileName(FullFileName));
+     CopyFile(PChar(FullFileName), PChar(ExtractFilePath(Application.ExeName)+'finish\'+extractFileName(FullFileName)), false);
+     DeleteFile(FullFileName);
+    except
+    end;
   end;
 
   except
