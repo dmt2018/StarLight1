@@ -5226,11 +5226,11 @@ object frmftpwww: Tfrmftpwww
     OnClick = Button1Click
   end
   object CheckBox1: TCheckBox
-    Left = 112
+    Left = 96
     Top = 438
     Width = 113
     Height = 17
-    Caption = #1085#1077' '#1089#1090#1080#1088#1072#1090#1100' '#1089' '#1092#1090#1087
+    Caption = #1085#1077' '#1095#1080#1089#1090#1080#1090#1100' '#1087#1072#1087#1082#1080
     TabOrder = 6
   end
   object Edqdays: TEdit
@@ -5482,5 +5482,12 @@ object frmftpwww: Tfrmftpwww
     OnTimer = Timer2Timer
     Left = 256
     Top = 56
+  end
+  object Timer3: TTimer
+    Enabled = False
+    Interval = 500
+    OnTimer = Timer3Timer
+    Left = 248
+    Top = 168
   end
 end
