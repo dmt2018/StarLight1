@@ -5490,4 +5490,15 @@ object frmftpwww: Tfrmftpwww
     Left = 248
     Top = 168
   end
+  object IdFTP3: TIdFTP
+    AutoLogin = True
+    Host = 'home.starlight.ru'
+    Passive = True
+    Password = 'J5neDrOqEh'
+    Username = 'starlight'
+    ProxySettings.ProxyType = fpcmNone
+    ProxySettings.Port = 0
+    Left = 248
+    Top = 128
+  end
 end

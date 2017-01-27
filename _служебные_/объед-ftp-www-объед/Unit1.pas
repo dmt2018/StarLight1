@@ -106,6 +106,7 @@ type
     qClientsCHART: TFloatField;
     qClientsGROUP_NAME: TStringField;
     Timer3: TTimer;
+    IdFTP3: TIdFTP;
     procedure button2Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -148,10 +149,10 @@ try
     ExportGridToText( file_clients, cxGrid2, True, True, ';', '', '', 'csv');
     qClients.Close;
 
-    IdFTP2.Connect;
-    IdFTP2.ChangeDir('starlight.ru/exchange');
-    IdFTP2.Put(file_clients,file_clients,false);
-    IdFTP2.Disconnect;
+    IdFTP3.Connect;
+    IdFTP3.ChangeDir('/starlight.ru/exchange');
+    IdFTP3.Put(file_clients,file_clients,false);
+    IdFTP3.Disconnect;
     Memo2.Lines.Add('Клиенты скопированы на фтп ' + DateTimeToStr(Now));
 except
 end;
@@ -170,10 +171,10 @@ try
     ExportGridToText( file_str, cxGrid1, True, True, ';', '', '', 'csv');
     OraQuery1.Close;
 
-    IdFTP2.Connect;
-    IdFTP2.ChangeDir('starlight.ru/exchange');
-    IdFTP2.Put(file_str,file_str,false);
-    IdFTP2.Disconnect;
+    IdFTP3.Connect;
+    IdFTP3.ChangeDir('/starlight.ru/exchange');
+    IdFTP3.Put(file_str,file_str,false);
+    IdFTP3.Disconnect;
     Memo2.Lines.Add('Продажи скопированы на фтп ' + DateTimeToStr(Now));
 except
 end;
@@ -193,7 +194,7 @@ begin
 // шаг3. фтп - локальный
  IdFTP2.Connect;  ////////////////
  //IdFTP1.ChangeDir('/orders');
- IdFTP2.ChangeDir('starlight.ru/exchange/orders');
+ IdFTP2.ChangeDir('/starlight.ru/exchange/orders');
 
  memo1.Lines.Add('3.Копирую с фтп на локальный');
 
@@ -211,7 +212,7 @@ for I := 0 to FileList.Count - 1 do  begin
   //забираю с фтп:
   idFTP2.Get(FileList.Strings[i], ExtractFilePath(Application.ExeName)+'copy_скачать\'+FileList.Strings[i], True,false);
   memo1.Lines.Add(FileList.Strings[i]);
-    if checkbox1.Checked =false then IdFTP2.Delete('starlight.ru/exchange/orders/'+FileList.Strings[i]);
+    if checkbox1.Checked =false then IdFTP2.Delete('/starlight.ru/exchange/orders/'+FileList.Strings[i]);
   application.processmessages;
 end;
  memo1.Lines.Add('скачено на лок');
@@ -299,7 +300,9 @@ repeat
  begin
   //копирую в сетевую папку:
   CopyFile(PChar('\\Max\g\отправить\'+sr.Name), PChar(ExtractFilePath(Application.ExeName)+'copy_отправить\'+sr.Name), false);
+  CopyFile(PChar('\\Max\g\отправить\'+sr.Name), PChar('\\Max\g\резерв\'+sr.Name), false);
   memo1.Lines.Add(sr.Name);
+  if checkbox1.Checked =false then DeleteFile('\\Max\g\отправить\'+sr.Name);
   application.processmessages;
  end;
 until (FindNext(sr) <> 0) ;
@@ -310,7 +313,7 @@ until (FindNext(sr) <> 0) ;
 // шаг2. локальный - фтп
  IdFTP2.Connect;
  //IdFTP1.ChangeDir('/');
- IdFTP2.ChangeDir('starlight.ru/exchange');
+ IdFTP2.ChangeDir('/starlight.ru/exchange');
 
  memo1.Lines.Add('2.Копирую с локального на фтп');
 
@@ -385,6 +388,10 @@ begin
     IdFTP2.Username := RegIni.ReadString('FTP2', 'login', '');
     IdFTP2.Password := RegIni.ReadString('FTP2', 'pass', '');
 
+    IdFTP3.Host     := RegIni.ReadString('FTP3', 'host', '');
+    IdFTP3.Username := RegIni.ReadString('FTP3', 'login', '');
+    IdFTP3.Password := RegIni.ReadString('FTP3', 'pass', '');
+
     //timer_store   := RegIni.ReadInteger('TIME_STORE', 'value', 24);
     //timer_clients := RegIni.ReadInteger('TIME_CLIEMTS', 'value', 1);
     timer_min  := RegIni.ReadInteger('TIMER_MIN', 'value', 4);
@@ -442,7 +449,7 @@ until (FindNext(sr) <> 0) ;
 // шаг2. локальный - фтп
  IdFTP2.Connect;  ///////////////////////////
  //IdFTP1.ChangeDir('/');
- IdFTP2.ChangeDir('starlight.ru/exchange');
+ IdFTP2.ChangeDir('/starlight.ru/exchange');
 
  memo1.Lines.Add('2.Копирую с локального на фтп');
 
@@ -473,7 +480,7 @@ end;
  // шаг3. фтп - локальный
  IdFTP2.Connect;  ////////////////
  //IdFTP1.ChangeDir('/orders');
- IdFTP2.ChangeDir('starlight.ru/exchange/orders');
+ IdFTP2.ChangeDir('/starlight.ru/exchange/orders');
 
  memo1.Lines.Add('3.Копирую с фтп на локальный');
 
@@ -491,7 +498,7 @@ for I := 0 to FileList.Count - 1 do  begin
   //забираю с фтп:
   idFTP2.Get(FileList.Strings[i], ExtractFilePath(Application.ExeName)+'copy_скачать\'+FileList.Strings[i], True,false);
   memo1.Lines.Add(FileList.Strings[i]);
-    if checkbox1.Checked =false then IdFTP2.Delete('starlight.ru/exchange/orders/'+FileList.Strings[i]);
+    if checkbox1.Checked =false then IdFTP2.Delete('/starlight.ru/exchange/orders/'+FileList.Strings[i]);
   application.processmessages;
 end;
  memo1.Lines.Add('скачено на лок');
@@ -528,12 +535,12 @@ end;
 
 procedure Tfrmftpwww.Timer2Timer(Sender: TObject);
 begin
-if abs(time - strtotime('00:05:00')) <    strtotime('00:00:02') then begin
+{if abs(time - strtotime('00:05:00')) <    strtotime('00:00:02') then begin
  Memo2.Clear;
  Memo2.Lines.Add('Часть 2.');
  clientExport;
  strExport;
-end;
+end;      }
 end;
 
 // каждый час
