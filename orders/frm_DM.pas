@@ -814,7 +814,7 @@ arrive:	2015-06-21
     Readln(conf, order_num);  // order:	2586
     Readln(conf, ortype);     // ortype:	2      1=>'Покупка товаров со склада', 2=>'Предзаказ товаров из новой поставки', 3=>'Предзаказ
     order_type := StrToInt( Trim(copy(ortype,pos(':',ortype)+1,length(ortype)-1)) );
-    if (order_type < 2) and (order_type > 3) then
+    if (order_type < 2) or (order_type > 3) then
     begin
       MessageBox(Hwnd, 'Данный заказ не является предзаказом', 'Внимание', MB_ICONERROR);
       exit;
@@ -833,9 +833,10 @@ arrive:	2015-06-21
     Readln(conf, tmp);        // addr:	107045, г. Москва, Луков переулок, дом 4, офис 8
 //    Readln(conf, tmp);        // shipp:	0.00    стоимость доставки
     Readln(conf, tmp);        // summ:	11987.00
-    Readln(conf, tmp);        // rem:             примечания к заказу
+   // Readln(conf, tmp);        // rem:             примечания к заказу
     Readln(conf, depart);     // depart:	2014-12-09  дата выхода от поставщика
     Readln(conf, arrive);     // arrive:	2014-12-09  дата прибытия в Москву (для предзаказов)
+    Readln(conf, tmp);        // rem:             примечания к заказу
     Readln(conf, tmp);        // --
     Readln(conf, tmp);        // #;depart_id;barcode;title;price;qty;summ
     //Readln(conf);
