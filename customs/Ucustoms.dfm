@@ -115,8 +115,6 @@ object frmCustoms: TfrmCustoms
       ParentFont = False
       TabOrder = 1
       LookAndFeel.Kind = lfOffice11
-      ExplicitTop = 23
-      ExplicitHeight = 180
       object grid_invoices_v: TcxGridDBTableView
         OnDblClick = grid_invoices_vDblClick
         NavigatorButtons.ConfirmDelete = False
@@ -638,6 +636,11 @@ object frmCustoms: TfrmCustoms
             Format = '0.00'
             Kind = skSum
             Column = view_asisSUMM
+          end
+          item
+            Format = '0.00'
+            Kind = skSum
+            Column = view_asisNEW_SUM
           end>
         DataController.Summary.SummaryGroups = <>
         FilterRow.InfoText = #1055#1086#1083#1077' '#1076#1083#1103' '#1091#1089#1090#1072#1085#1086#1074#1082#1080' '#1092#1080#1083#1100#1090#1088#1086#1074
@@ -910,6 +913,31 @@ object frmCustoms: TfrmCustoms
           MinWidth = 50
           Styles.Content = st_editable
           Width = 75
+        end
+        object view_asisNEW_PRICE: TcxGridDBColumn
+          Caption = #1062#1077#1085#1072' '#1089#1077#1090#1082#1080
+          DataBinding.FieldName = 'NEW_PRICE'
+          PropertiesClassName = 'TcxCurrencyEditProperties'
+          Properties.Alignment.Horz = taRightJustify
+          Properties.AssignedValues.MinValue = True
+          Properties.DisplayFormat = ',0.00;-,0.00'
+          FooterAlignmentHorz = taRightJustify
+          HeaderAlignmentHorz = taCenter
+          MinWidth = 50
+          Styles.Content = st_editable
+          Width = 80
+        end
+        object view_asisNEW_SUM: TcxGridDBColumn
+          Caption = #1057#1091#1084#1084#1072' '#1089#1077#1090#1082#1080
+          DataBinding.FieldName = 'NEW_SUM'
+          PropertiesClassName = 'TcxCurrencyEditProperties'
+          Properties.Alignment.Horz = taRightJustify
+          Properties.DisplayFormat = ',0.00;-,0.00'
+          Properties.ReadOnly = True
+          FooterAlignmentHorz = taRightJustify
+          HeaderAlignmentHorz = taCenter
+          MinWidth = 50
+          Width = 90
         end
         object view_asisDATE_IN: TcxGridDBColumn
           Caption = #1044#1072#1090#1072' '#1087#1086#1076#1075#1088#1091#1079#1082#1080
@@ -1473,6 +1501,7 @@ object frmCustoms: TfrmCustoms
       Hint = #1055#1086#1076#1086#1075#1085#1072#1090#1100' '#1094#1077#1085#1099' '#1087#1086#1076' '#1089#1077#1090#1082#1091
       Visible = ivAlways
       ImageIndex = 36
+      OnClick = btn_pricing_processClick
     end
   end
   object img_32: TcxImageList
@@ -1481,7 +1510,7 @@ object frmCustoms: TfrmCustoms
     Left = 56
     Top = 136
     Bitmap = {
-      494C010152005400180120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C0101520054001C0120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000080000000A002000001002000000000000040
       0500000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -12582,7 +12611,7 @@ object frmCustoms: TfrmCustoms
     Left = 56
     Top = 176
     Bitmap = {
-      494C0101320060001C0118001800FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010132006000200118001800FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       00000000000036000000280000006000000038010000010020000000000000D4
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -16454,7 +16483,7 @@ object frmCustoms: TfrmCustoms
     Left = 56
     Top = 216
     Bitmap = {
-      494C010134008800200110001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010134008800240110001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000040000000E0000000010020000000000000E0
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -18413,5 +18442,69 @@ object frmCustoms: TfrmCustoms
     OnPopup = bpm_servicesPopup
     Left = 16
     Top = 216
+  end
+  object CDS_PRICING_GRID: TOraQuery
+    SQL.Strings = (
+      'begin'
+      '  custom_pkg.get_pricing_grid(:V_ID_INV, :CURSOR_);'
+      'end;')
+    FetchAll = True
+    Left = 144
+    Top = 456
+    ParamData = <
+      item
+        DataType = ftFloat
+        Name = 'V_ID_INV'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftCursor
+        Name = 'CURSOR_'
+        ParamType = ptOutput
+        Value = 'Object'
+      end>
+    object CDS_PRICING_GRIDUNITS: TFloatField
+      FieldName = 'UNITS'
+    end
+    object CDS_PRICING_GRIDNAME_CAT_RU: TStringField
+      FieldName = 'NAME_CAT_RU'
+    end
+    object CDS_PRICING_GRIDNAME_CAT: TStringField
+      FieldName = 'NAME_CAT'
+    end
+    object CDS_PRICING_GRIDFO_RULE: TFloatField
+      FieldName = 'FO_RULE'
+    end
+    object CDS_PRICING_GRIDCOUNTRY: TStringField
+      FieldName = 'COUNTRY'
+      Size = 50
+    end
+    object CDS_PRICING_GRIDNETTO: TFloatField
+      FieldName = 'NETTO'
+    end
+    object CDS_PRICING_GRIDSUMM: TFloatField
+      FieldName = 'SUMM'
+    end
+    object CDS_PRICING_GRIDFO_VALUE: TFloatField
+      FieldName = 'FO_VALUE'
+    end
+    object CDS_PRICING_GRIDCUST_VALUE: TFloatField
+      FieldName = 'CUST_VALUE'
+    end
+    object CDS_PRICING_GRIDCUST_NORM: TFloatField
+      FieldName = 'CUST_NORM'
+    end
+    object CDS_PRICING_GRIDAVG_PRICE: TFloatField
+      FieldName = 'AVG_PRICE'
+    end
+    object CDS_PRICING_GRIDCALC_VALUE: TFloatField
+      FieldName = 'CALC_VALUE'
+    end
+    object CDS_PRICING_GRIDCALC_SUMM: TFloatField
+      FieldName = 'CALC_SUMM'
+    end
+    object CDS_PRICING_GRIDCALC_NEW_VALUE: TFloatField
+      FieldName = 'CALC_NEW_VALUE'
+    end
   end
 end

@@ -135,7 +135,8 @@ object DM: TDM
         'TYPE, H_CODE=:H_CODE'
       
         ', PD=:PD, TROLLEY=:TROLLEY, HEIGHT=:HEIGHT, DIAMETR=:DIAMETR, PR' +
-        'ICE=:PRICE, SUMM=:SUMM '
+        'ICE=:PRICE, SUMM=:SUMM'
+      ', new_price = :new_price '
       'where INVOICE_DATA_AS_IS_ID = :INVOICE_DATA_AS_IS_ID')
     SQLRefresh.Strings = (
       
@@ -176,6 +177,7 @@ object DM: TDM
         '           , custom_pkg.show_weight_formula(c.id,a.description,a' +
         '.height,0) as type_dop'
       '           , :id_dep as id_dep'
+      '           , a.new_price, a.new_price * a.units as new_sum'
       '        FROM customs_inv_data_as_is a, countries e'
       '            , fito_category b, customs_weight c'
       
@@ -360,6 +362,12 @@ object DM: TDM
     object InvoiceAsIsREMARK: TStringField
       FieldName = 'REMARK'
       Size = 50
+    end
+    object InvoiceAsIsNEW_PRICE: TFloatField
+      FieldName = 'NEW_PRICE'
+    end
+    object InvoiceAsIsNEW_SUM: TFloatField
+      FieldName = 'NEW_SUM'
     end
   end
   object InvoiceRegister_DS: TDataSource

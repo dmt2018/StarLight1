@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.CUSTOM_PKG
--- Generated 22.01.2017 21:47:38 from CREATOR@STAR_REG
+-- Generated 29.01.2017 1:44:54 from CREATOR@STAR_REG
 
 CREATE OR REPLACE 
 PACKAGE custom_pkg
@@ -575,6 +575,16 @@ PROCEDURE get_pricing_grid
 );
 
 
+--
+--  Обновим данные по ценово сетке
+--
+PROCEDURE culc_pricing_grid
+(
+  v_inv_id    in number
+);
+
+
+
 END;
 /
 
@@ -757,6 +767,7 @@ begin
            , v_id_dep as id_dep
            , split_rose_ as split_rose
            , a.remark
+           , a.new_price, a.new_price * a.units as new_sum
 
         FROM CUSTOMS_INV_DATA_AS_IS a
           left outer join countries e on lower(e.country_eng) = lower(a.hol_country)
@@ -1543,7 +1554,7 @@ BEGIN
   VALUES (
     INV_ID_, INV_DATA_AS_IS_ID_, ORDER_NUMBER_, v_truck, PACKING_MARKS_, PACKING_AMOUNT_, AMOUNT_PER_UNIT_, UNITS_, PRICE_, SUMM_,
     TITLE_,DESCRIPTION_ , HOL_COUNTRY_, HOL_SUB_TYPE_, PD_, DIAMETR_, HEIGHT_, v_trolley, 0, trunc(sysdate), H_CODE_, UPACK_, SRC_NAME_, TROLLEY_
-    , REMARK_
+    , REMARK_, null
   );
   commit;--decode(SRC_NAME_,'',descr,SRC_NAME_)
 
@@ -2813,9 +2824,6 @@ begin
       , ceil( (cust_norm /v_COURCE * netto / units) * 100 ) / 100 as calc_value
       , units * ( ceil( (cust_norm /v_COURCE * netto / units) * 100 ) / 100 ) as calc_summ
       , round( units * ( ceil( (cust_norm /v_COURCE * netto / units) * 100 ) / 100 ) /netto*v_COURCE,2) as calc_new_value
---      , round( case when cust_value > cust_norm then cust_value else cust_norm end /v_COURCE * netto / units,2) as calc_value
---      , units * round( case when cust_value > cust_norm then cust_value else cust_norm end /v_COURCE * netto / units,2) as calc_summ
---      , round( units * round( case when cust_value > cust_norm then cust_value else cust_norm end /v_COURCE * netto / units,2) /netto*v_COURCE,2) as calc_new_value
     from (
       select a.*, round(summ/netto*v_COURCE,2) cust_value, a.FO_VALUE as cust_norm
       from (
@@ -2824,7 +2832,8 @@ begin
                    , fo_rule
                    , t.COUNTRY
                    , sum(STEM_WEIGHT*a.units) as netto
-                   , sum(summ) as summ
+                   --, sum(summ) as summ
+                   , sum( nvl(a.new_price, a.PRICE) * a.units ) as summ
                    , max(s.FO_VALUE) as FO_VALUE
                    , avg(a.price) as avg_price
               FROM customs_inv_data_as_is a
@@ -2856,6 +2865,110 @@ begin
        RAISE_APPLICATION_ERROR (-20257, 'Запрос не выполнился. ' || SQLERRM);
 
 end get_pricing_grid;
+
+
+
+
+--
+--  Обновим данные по ценово сетке
+--
+PROCEDURE culc_pricing_grid
+(
+  v_inv_id    in number
+)
+IS
+  v_id_dep  number;
+  v_COURCE  number;
+
+  cursor f_ is
+    select a.invoice_data_as_is_id, z.calc_value
+      FROM customs_inv_data_as_is a
+        left outer join (
+          select w.id, w.NAME_CAT, nvl(wf.fo_rule,0) fo_rule, wf.fo_value, wf.FO_NAME, w.CUST_REGN, nvl(wf.V_WEIGHT, w.STEM_WEIGHT) as STEM_WEIGHT
+                , w.weight_tank, w.weight_pack, NAME_CAT_RU, w.orderby
+          from customs_weight w
+            left outer join customs_weight_formula wf on wf.id_w = w.id and wf.fo_rule > 0
+          where w.ID_DEP = v_id_dep
+        ) c on lower(c.NAME_CAT) = lower(a.hol_sub_type)
+          and (
+            (c.fo_rule = 3 and c.fo_value <= a.height)
+              or
+            (c.fo_rule = 2 and c.fo_value > a.height)
+              or
+            (c.fo_rule = 0)
+          )
+        left outer join (
+            select a.NAME_CAT, a.fo_rule, a.COUNTRY
+              , ceil( (cust_norm /v_COURCE * netto / units) * 100 ) / 100 as calc_value
+            from (
+              select a.*, round(summ/netto*v_COURCE,2) cust_value, a.FO_VALUE as cust_norm
+              from (
+                select sum(a.units) as units,
+                             NAME_CAT
+                           , fo_rule
+                           , decode(a.hol_country,'','Holland',a.hol_country) as COUNTRY
+                           , sum(STEM_WEIGHT*a.units) as netto
+                           , sum(summ) as summ
+                           , max(s.FO_VALUE) as FO_VALUE
+                           , avg(a.price) as avg_price
+                      FROM customs_inv_data_as_is a
+                       left outer join (
+                           select w.id, w.NAME_CAT, nvl(wf.fo_rule,0) fo_rule, wf.fo_value, wf.FO_NAME, w.CUST_REGN, nvl(wf.V_WEIGHT, w.STEM_WEIGHT) as STEM_WEIGHT
+                                  , w.weight_tank, w.weight_pack, NAME_CAT_RU, w.orderby
+                           from customs_weight w
+                             left outer join customs_weight_formula wf on wf.id_w = w.id and wf.fo_rule > 0
+                           where w.ID_DEP = v_id_dep
+                          ) c on lower(c.NAME_CAT) = lower(a.hol_sub_type)
+                            and (
+                               (c.fo_rule = 3 and c.fo_value <= a.height)
+                                or
+                               (c.fo_rule = 2 and c.fo_value > a.height)
+                                or
+                               (c.fo_rule = 0)
+                              )
+                        left outer join countries t on lower(t.country_eng) = lower(a.hol_country)
+                        left outer join customs_weight_group_settings s on s.ID_DEPARTMENTS = v_id_dep and s.FS_COUNTRY_ID = 0 and s.ID_W = c.id
+                      where a.inv_id = v_inv_id
+                      group by  NAME_CAT, fo_rule, decode(a.hol_country,'','Holland',a.hol_country)
+              ) a
+            ) a
+        ) z on z.NAME_CAT = c.NAME_CAT and z.COUNTRY = a.hol_country and z.fo_rule = c.fo_rule
+
+        where a.inv_id = v_inv_id;
+
+  ff_ f_%rowtype;
+
+begin
+
+  begin
+      SELECT a.id_departments, a.COURCE into v_id_dep, v_COURCE
+      FROM customs_inv_register a
+      where a.inv_id = v_inv_id
+      ;
+  EXCEPTION WHEN no_data_found THEN
+    v_id_dep := 0;
+    v_COURCE := 1;
+  end;
+
+
+  open f_;
+  loop
+    fetch f_ into ff_;
+    exit when f_%notfound;
+
+    update customs_inv_data_as_is set new_price = ff_.calc_value where invoice_data_as_is_id = ff_.invoice_data_as_is_id;
+
+  end loop;
+  close f_;
+
+  EXCEPTION
+  WHEN OTHERS THEN
+       LOG_ERR(SQLERRM, SQLCODE, 'custom_pkg.culc_pricing_grid', tmp_sql);
+       RAISE_APPLICATION_ERROR (-20258, 'Запрос не выполнился. ' || SQLERRM);
+
+end culc_pricing_grid;
+
+
 
 
 END;

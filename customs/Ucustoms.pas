@@ -11,7 +11,7 @@ uses
   cxCalendar, cxGridLevel, cxGridCustomTableView, cxGridTableView,
   cxGridDBTableView, cxGridCustomView, cxGrid, cxLabel, cxSplitter,
   cxCurrencyEdit, ShellAPI, cxGridExportLink, cxBarEditItem, IniFiles, ComObj,
-  cxCheckBox, frxClass, cxProgressBar;
+  cxCheckBox, frxClass, cxProgressBar, MemDS, DBAccess, Ora;
 
 type
   TfrmCustoms = class(TForm)
@@ -146,6 +146,23 @@ type
     view_asisREMARK: TcxGridDBColumn;
     btn_pricing_grid: TdxBarButton;
     btn_pricing_process: TdxBarButton;
+    view_asisNEW_PRICE: TcxGridDBColumn;
+    view_asisNEW_SUM: TcxGridDBColumn;
+    CDS_PRICING_GRID: TOraQuery;
+    CDS_PRICING_GRIDUNITS: TFloatField;
+    CDS_PRICING_GRIDNAME_CAT_RU: TStringField;
+    CDS_PRICING_GRIDNAME_CAT: TStringField;
+    CDS_PRICING_GRIDFO_RULE: TFloatField;
+    CDS_PRICING_GRIDCOUNTRY: TStringField;
+    CDS_PRICING_GRIDNETTO: TFloatField;
+    CDS_PRICING_GRIDSUMM: TFloatField;
+    CDS_PRICING_GRIDFO_VALUE: TFloatField;
+    CDS_PRICING_GRIDCUST_VALUE: TFloatField;
+    CDS_PRICING_GRIDCUST_NORM: TFloatField;
+    CDS_PRICING_GRIDAVG_PRICE: TFloatField;
+    CDS_PRICING_GRIDCALC_VALUE: TFloatField;
+    CDS_PRICING_GRIDCALC_SUMM: TFloatField;
+    CDS_PRICING_GRIDCALC_NEW_VALUE: TFloatField;
     procedure FormCreate(Sender: TObject);
     procedure dxBarLargeButton1Click(Sender: TObject);
     procedure btn_settingsClick(Sender: TObject);
@@ -190,6 +207,7 @@ type
     procedure bb_includeClick(Sender: TObject);
     procedure btn_inv_equipmentClick(Sender: TObject);
     procedure btn_pricing_gridClick(Sender: TObject);
+    procedure btn_pricing_processClick(Sender: TObject);
   private
     { Private declarations }
     pnl_msg: TPanel;
@@ -2164,5 +2182,31 @@ begin
   end;
 
 end;
+
+// Подогнать цену под сетку
+procedure TfrmCustoms.btn_pricing_processClick(Sender: TObject);
+begin
+  if not view_asis.DataController.DataSet.Active or view_asis.DataController.DataSet.IsEmpty then
+  begin
+     MessageBox (Handle,'Нет данных для обновления.', 'Внимание!', MB_ICONWARNING);
+     exit;
+  end;
+
+  if MessageDlg('Все текущие значения "Цена сетки" будут пересчитаны. Продолжить?',mtConfirmation,[mbYes, mbNo],0) <> mrYes then
+     exit;
+
+    // Добавляем основную информацию об инвойсе
+    with DM.SelQ do
+    Begin
+      Close;
+      SQL.Clear;
+      SQL.Add('begin custom_pkg.culc_pricing_grid(:v_inv_id); end;');
+      ParamByName('v_inv_id').AsInteger           := grid_invoices_v.DataController.DataSet.FieldByName('inv_id').AsInteger;
+      Execute;
+      DM.InvoiceAsIs.Refresh;
+    End;
+end;
+
+
 
 end.

@@ -138,6 +138,8 @@ type
     frxBIFFExport1: TfrxBIFFExport;
     InvoiceAsIsREMARK: TStringField;
     cds_custcoefID_DEPARTMENTS: TIntegerField;
+    InvoiceAsIsNEW_PRICE: TFloatField;
+    InvoiceAsIsNEW_SUM: TFloatField;
   private
     { Private declarations }
     cur_netto: integer;
