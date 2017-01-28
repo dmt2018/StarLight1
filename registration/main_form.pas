@@ -537,13 +537,14 @@ begin
 
     edits.lePrefix.Text := '';
     edits.btnClone.Enabled := addit_;
-    edits.showmodal;
 
     edits.chbRuleSite.Checked := true;
     edits.chbRulePics.Checked := true;
     edits.chbRulePrice.Checked := true;
     edits.chbRuleOrder.Checked := true;
-    edits.CheckBox3.Checked := false;
+    edits.chbRuleWebShop.Checked := true;
+
+    edits.showmodal;
   end;
 
   // Добавление группы
@@ -688,7 +689,7 @@ begin
         if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[3] = '1') then edits.chbRulePics.Checked := true else edits.chbRulePics.Checked := false;
         if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[5] = '1') then edits.chbRulePrice.Checked := true else edits.chbRulePrice.Checked := false;
         if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[7] = '1') then edits.chbRuleOrder.Checked := true else edits.chbRuleOrder.Checked := false;
-        if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[9] = '1') then edits.CheckBox3.Checked := true else edits.CheckBox3.Checked := false;
+        if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[9] = '1') then edits.chbRuleWebShop.Checked := true else edits.chbRuleWebShop.Checked := false;
 
         if (DM.Q_CLIENT_VIEW.FieldByName('BLOCK1').AsInteger = 1) then edits.CheckBox5.Checked := true else edits.CheckBox5.Checked := false;
         if (DM.Q_CLIENT_VIEW.FieldByName('BLOCK2').AsInteger = 1) then edits.CheckBox4.Checked := true else edits.CheckBox4.Checked := false;
@@ -2006,7 +2007,7 @@ begin
         if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[3] = '1') then edits.chbRulePics.Checked := true else edits.chbRulePics.Checked := false;
         if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[5] = '1') then edits.chbRulePrice.Checked := true else edits.chbRulePrice.Checked := false;
         if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[7] = '1') then edits.chbRuleOrder.Checked := true else edits.chbRuleOrder.Checked := false;
-        if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[9] = '1') then edits.checkbox3.Checked := true else edits.checkbox3.Checked := false;
+        if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[9] = '1') then edits.chbRuleWebShop.Checked := true else edits.chbRuleWebShop.Checked := false;
 
 
         if (DM.Q_CLIENT_VIEW.FieldByName('BLOCK1').AsInteger = 1) then edits.CheckBox4.Checked := true else edits.CheckBox4.Checked := false;
@@ -2079,7 +2080,7 @@ begin
         if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[3] = '1') then edits.chbRulePics.Checked := true else edits.chbRulePics.Checked := false;
         if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[5] = '1') then edits.chbRulePrice.Checked := true else edits.chbRulePrice.Checked := false;
         if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[7] = '1') then edits.chbRuleOrder.Checked := true else edits.chbRuleOrder.Checked := false;
-        if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[9] = '1') then edits.CheckBox3.Checked := true else edits.CheckBox3.Checked := false;
+        if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[9] = '1') then edits.chbRuleWebShop.Checked := true else edits.chbRuleWebShop.Checked := false;
 
 
         if (DM.Q_CLIENT_VIEW.FieldByName('BLOCK1').AsInteger = 1) then edits.CheckBox4.Checked := true else edits.CheckBox4.Checked := false;

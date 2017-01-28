@@ -178,7 +178,7 @@ type
     Q_CLIENT_VIEWREGION_NAME: TStringField;
     Q_CLIENT_VIEWADVERT: TStringField;
     Q_CLIENT_VIEWCITY: TStringField;
-    CheckBox3: TCheckBox;
+    chbRuleWebShop: TCheckBox;
     procedure BitBtn3Click(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
@@ -276,10 +276,10 @@ begin
         // Формирование заказов на сайте
         if (chbRuleOrder.Checked = true) then price := price+'1,' else price := price+'0,';
         // Продажа с колес
-        if (CheckBox3.Checked = true) then price := price+'1' else price := price+'0';
+        if (chbRuleWebShop.Checked = true) then price := price+'1' else price := price+'0';
 
         // SQL для добавления
-        if (ttype = 1) then
+         if (ttype = 1) then
         begin
           sql := 'INSERT INTO CLIENTS VALUES(get_office_unique(''CLIENTS_ID''),:P1,:P2,:P3,:P4,:P5,:P6,:P7,:P8,:P9,:P10,:P11,:P12,:P13,:P14,:P15,:P16,:P17,:P18,:P19,SYSDATE,:P20,:P21,:P22,:P23,:P24,:P25,:P26,'''+ main.corrector +''',null,null,null,null,null,null,null,9,null,null,:P27,:P28,0,:P30,CONST_OFFICE,sysdate,:prefix,:city)';
           DM.Ora_SQL.SQL.Add(sql);
@@ -526,7 +526,7 @@ begin
     if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[3] = '1') then edits.chbRulePics.Checked := true else edits.chbRulePics.Checked := false;
     if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[5] = '1') then edits.chbRulePrice.Checked := true else edits.chbRulePrice.Checked := false;
     if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[7] = '1') then edits.chbRuleOrder.Checked := true else edits.chbRuleOrder.Checked := false;
-    if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[9] = '1') then edits.CheckBox3.Checked := true else edits.CheckBox3.Checked := false;
+    if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[9] = '1') then edits.chbRuleWebShop.Checked := true else edits.chbRuleWebShop.Checked := false;
 
   end;
 end;
@@ -709,7 +709,7 @@ begin
       if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[3] = '1') then edits.chbRulePics.Checked := true else edits.chbRulePics.Checked := false;
       if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[5] = '1') then edits.chbRulePrice.Checked := true else edits.chbRulePrice.Checked := false;
       if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[7] = '1') then edits.chbRuleOrder.Checked := true else edits.chbRuleOrder.Checked := false;
-      if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[9] = '1') then edits.CheckBox3.Checked := true else edits.CheckBox3.Checked := false;
+      if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[9] = '1') then edits.chbRuleWebShop.Checked := true else edits.chbRuleWebShop.Checked := false;
 
       Q_CLIENT_VIEW.Close;
       clientchoosForm.Q_CLIENTS.Close;

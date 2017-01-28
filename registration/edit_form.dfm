@@ -389,7 +389,7 @@ object edits: Tedits
     Width = 794
     Height = 425
     Cursor = crHandPoint
-    ActivePage = tshRules
+    ActivePage = TabSheet1
     Align = alTop
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack
@@ -1729,6 +1729,7 @@ object edits: Tedits
     object tshRules: TTabSheet
       Caption = ' '#1056#1072#1079#1088#1077#1096#1077#1085#1080#1103' '#1080#1085#1090#1077#1088#1085#1077#1090'-'#1084#1072#1075#1072#1079#1080#1085#1072' '
       ImageIndex = 3
+      ExplicitTop = 32
       object chbRuleSite: TCheckBox
         Left = 19
         Top = 4
@@ -1788,6 +1789,21 @@ object edits: Tedits
         Font.Style = []
         ParentFont = False
         TabOrder = 3
+      end
+      object chbRuleWebShop: TCheckBox
+        Left = 19
+        Top = 95
+        Width = 220
+        Height = 17
+        Caption = #1055#1088#1086#1076#1072#1078#1072' '#1089' '#1082#1086#1083#1077#1089
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Pitch = fpFixed
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 4
       end
     end
   end
@@ -1875,23 +1891,6 @@ object edits: Tedits
     ParentFont = False
     TabOrder = 6
   end
-  object CheckBox3: TCheckBox
-    Left = 280
-    Top = 474
-    Width = 220
-    Height = 17
-    Caption = #1055#1088#1086#1076#1072#1078#1072' '#1089' '#1082#1086#1083#1077#1089
-    Color = clMoneyGreen
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clBlack
-    Font.Height = -13
-    Font.Name = 'Arial'
-    Font.Pitch = fpFixed
-    Font.Style = [fsBold]
-    ParentColor = False
-    ParentFont = False
-    TabOrder = 7
-  end
   object ActionList1: TActionList
     Left = 476
     Top = 22
@@ -1953,7 +1952,7 @@ object edits: Tedits
     Left = 532
     Top = 22
     Bitmap = {
-      494C0101070009009C0010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010107000900A00010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000084CA84FF54B757FF000000000000000000000000000000000000
