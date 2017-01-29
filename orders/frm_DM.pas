@@ -7,7 +7,7 @@ uses
   IdExplicitTLSClientServerBase, IdFTP, Windows, StrUtils, IdBaseComponent,
   IdComponent, Dialogs, frxChBox, frxClass, frxDBSet, DB, Ora, frxExportMail,
   frxExportXML, frxExportImage, frxExportRTF, frxExportXLS, frxExportHTML,
-  frxExportPDF, DBAccess, MemDS, Classes, Controls, ImgList, cxGraphics;
+  frxExportPDF, DBAccess, MemDS, Classes, Controls, ImgList, cxGraphics, Variants;
 
 type
   TDM = class(TDataModule)
@@ -1414,7 +1414,7 @@ function TDM.CreateOrder(pId: integer; pPrihod: TDateTime; pText : String; pViho
 begin
   try
     Ora_SQL.SQL.Clear;
-    Ora_SQL.SQL.Add('begin PACK_ORDERS.save_order(:id_, :P0, :P1, :P2, :P3, :state_, :P4, :pS_ID); end; ');
+    Ora_SQL.SQL.Add('begin PACK_ORDERS.save_order(:id_, :P0, :P1, :P2, :P3, :state_, :P4, :pS_ID, :p_old_price); end; ');
     Ora_SQL.ParamByName('id_').AsInteger := pId;
     Ora_SQL.ParamByName('p0').AsDate := pPrihod;
     Ora_SQL.ParamByName('p1').AsDateTime := now;
@@ -1423,6 +1423,7 @@ begin
     Ora_SQL.ParamByName('state_').AsInteger := pId+1;
     Ora_SQL.ParamByName('p4').AsDate := pVihod;
     Ora_SQL.ParamByName('pS_ID').Value := first_dialog_frm.uSupplier;
+    Ora_SQL.ParamByName('p_old_price').Value := NULL;
     Ora_SQL.Execute;
     result := Ora_SQL.ParamByName('id_').AsInteger;
   except

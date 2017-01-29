@@ -160,7 +160,7 @@ object new_order: Tnew_order
       NumGlyphs = 2
     end
     object BitBtn2: TBitBtn
-      Left = 371
+      Left = 369
       Top = 3
       Width = 171
       Height = 25
@@ -346,7 +346,7 @@ object new_order: Tnew_order
   end
   object DS_SUPPLIER: TOraDataSource
     DataSet = CDS_SUPPLIER
-    Left = 17
-    Top = 168
+    Left = 49
+    Top = 136
   end
 end

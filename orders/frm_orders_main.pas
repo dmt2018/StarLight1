@@ -723,9 +723,9 @@ ShowMessage('6');
     WriteLn(conf_msk_new, 'city:');
     WriteLn(conf_msk_new, 'addr:');
     WriteLn(conf_msk_new, 'summ:	'+DM.Q_ORDERSSUM_PRICE.AsString);
-    WriteLn(conf_msk_new, 'rem:');
     WriteLn(conf_msk_new, 'departure:	'+FormatDateTime('yyyy-mm-dd',DM.Q_ORDERSDATE_TRUCK_OUT.AsDateTime) ); // 2015-06-17
     WriteLn(conf_msk_new, 'arrive:	'+FormatDateTime('yyyy-mm-dd',DM.Q_ORDERSDATE_TRUCK.AsDateTime) ); // 2015-06-21
+    WriteLn(conf_msk_new, 'rem:');
     WriteLn(conf_msk_new, '');
     WriteLn(conf_msk_new, '--');
     WriteLn(conf_msk_new, '#;depart_id;barcode;title;price;qty;summ');
