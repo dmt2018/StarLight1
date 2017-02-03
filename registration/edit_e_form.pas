@@ -246,7 +246,7 @@ begin
       if (ttype = 1) then
       begin
         // Продажа с колес
-        if (chbRuleWebShop.Checked = true) then price := '0,0,0,0,1' else price := '0,0,0,0,0';
+        if (chbRuleWebShop.Checked = true) then price := '1,1,1,1,1' else price := '0,0,0,0,0';
 
         sql := 'INSERT INTO CLIENTS(ID_CLIENTS,FIO,NICK,CCODE,REGION,ADDRESS,PHONE,PASSPORT,EMAIL,INN,AGREEMENT,ADVERTISMENT,DDATE,TTYPE,ID_CLIENTS_GROUPS,CORRECTOR,DUTIES,INSURANCE,DATE_IN,DATE_OUT,L_SERVICE,STAFF,ACTIVE,INFO, block1,block2,id_office,DATE_CHANGE,MARK) ';
         sql := sql + ' VALUES(get_office_unique(''CLIENTS_ID''),:P1,:P2,:P3,:preg,:P4,:P5,:P6,:P7,:P8,''Без договора'',1,SYSDATE,1,1,'''+ main.corrector +''',:P9,:P10,:P11,:P12,:P13,:P14,:P15,:P16,:p20,:p21,CONST_OFFICE,sysdate,:P24)';

@@ -29,7 +29,7 @@ object main: Tmain
     Width = 970
     Height = 548
     Cursor = crHandPoint
-    ActivePage = TabSheet3
+    ActivePage = TabSheet1
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack
