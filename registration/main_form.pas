@@ -585,6 +585,7 @@ begin
     edits_e.DBText3.Visible := false;
     edits_e.DBText4.Visible := false;
     edits_e.DBText5.Visible := false;
+    edits_e.chbRuleWebShop.Checked := true;
 
     edits_e.showmodal;
   end;
@@ -691,6 +692,8 @@ begin
         if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[7] = '1') then edits.chbRuleOrder.Checked := true else edits.chbRuleOrder.Checked := false;
         if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[9] = '1') then edits.chbRuleWebShop.Checked := true else edits.chbRuleWebShop.Checked := false;
 
+
+
         if (DM.Q_CLIENT_VIEW.FieldByName('BLOCK1').AsInteger = 1) then edits.CheckBox5.Checked := true else edits.CheckBox5.Checked := false;
         if (DM.Q_CLIENT_VIEW.FieldByName('BLOCK2').AsInteger = 1) then edits.CheckBox4.Checked := true else edits.CheckBox4.Checked := false;
         if (DM.Q_CLIENT_VIEW.FieldByName('DOSTAVKA').AsInteger = 1) then edits.CheckBox6.Checked := true else edits.CheckBox6.Checked := false;
@@ -792,6 +795,7 @@ begin
       if (DM.Q_EMPL_VIEW.FieldByName('BLOCK1').AsInteger = 1) then edits_e.CheckBox6.Checked := true else edits_e.CheckBox6.Checked := false;
       if (DM.Q_EMPL_VIEW.FieldByName('BLOCK2').AsInteger = 1) then edits_e.CheckBox5.Checked := true else edits_e.CheckBox5.Checked := false;
       //if (DM.Q_EMPL_VIEW.FieldByName('vanselling').AsInteger = 1) then edits_e.CheckBox3.Checked := true else edits_e.CheckBox3.Checked := false;
+      if (DM.Q_EMPL_VIEW.FieldByName('MARK').AsString[9] = '1') then edits_e.chbRuleWebShop.Checked := true else edits_e.chbRuleWebShop.Checked := false;
 
 
       edits_e.ttype := 2;
@@ -2010,6 +2014,7 @@ begin
         if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[9] = '1') then edits.chbRuleWebShop.Checked := true else edits.chbRuleWebShop.Checked := false;
 
 
+
         if (DM.Q_CLIENT_VIEW.FieldByName('BLOCK1').AsInteger = 1) then edits.CheckBox4.Checked := true else edits.CheckBox4.Checked := false;
         if (DM.Q_CLIENT_VIEW.FieldByName('BLOCK2').AsInteger = 1) then edits.CheckBox5.Checked := true else edits.CheckBox5.Checked := false;
         if (DM.Q_CLIENT_VIEW.FieldByName('DOSTAVKA').AsInteger = 1) then edits.CheckBox6.Checked := true else edits.CheckBox6.Checked := false;
@@ -2081,6 +2086,8 @@ begin
         if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[5] = '1') then edits.chbRulePrice.Checked := true else edits.chbRulePrice.Checked := false;
         if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[7] = '1') then edits.chbRuleOrder.Checked := true else edits.chbRuleOrder.Checked := false;
         if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[9] = '1') then edits.chbRuleWebShop.Checked := true else edits.chbRuleWebShop.Checked := false;
+
+        if (DM.Q_CLIENT_VIEW.FieldByName('MARK').AsString[9] = '1') then edits_e.chbRuleWebShop.Checked := true else edits_e.chbRuleWebShop.Checked := false;
 
 
         if (DM.Q_CLIENT_VIEW.FieldByName('BLOCK1').AsInteger = 1) then edits.CheckBox4.Checked := true else edits.CheckBox4.Checked := false;
@@ -2527,6 +2534,8 @@ begin
     DM.Q_EMPL_VIEW.SQL.Add('SELECT C.*, R.NAME AS REGION_NAME FROM CLIENTS c, BOOKS_REGIONS R WHERE C.REGION = R.ID_REGIONS(+) and c.ID_CLIENTS=:ID');
     DM.Q_EMPL_VIEW.ParamByName('ID').Value := DM.Q_EMPL.FieldByName('ID_CLIENTS').AsInteger;
     DM.Q_EMPL_VIEW.Open;
+
+    e_info.checkbox3.Checked := (DM.Q_EMPL_VIEW.FieldByName('MARK').AsString[9] = '1');
 
     e_info.ShowModal;
     gr_empl.SetFocus;

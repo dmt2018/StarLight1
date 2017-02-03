@@ -61,6 +61,7 @@ type
     Label1: TLabel;
     DBMemo6: TDBMemo;
     BitBtn13: TcxButton;
+    CheckBox3: TCheckBox;
     procedure BitBtn3Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private

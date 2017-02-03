@@ -284,6 +284,7 @@ type
     Q_CLIENTSMARK: TStringField;
     Q_CLIENTSID_OFFICE_SRC: TIntegerField;
     Q_CLIENTSINN: TStringField;
+    OraQuery1: TOraQuery;
     procedure OraSession1AfterConnect(Sender: TObject);
     procedure Q_REGIONSAfterOpen(DataSet: TDataSet);
     procedure Q_TYPESAfterOpen(DataSet: TDataSet);

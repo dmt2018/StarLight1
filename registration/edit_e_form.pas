@@ -3,7 +3,7 @@ unit edit_e_form;
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, StrUtils,
   Dialogs, StdCtrls, Buttons, ExtCtrls, DB, ComCtrls, ActnList, DBCtrls, PI_Library_reg;
 
 type
@@ -69,6 +69,7 @@ type
     CheckBox6: TCheckBox;
     Label19: TLabel;
     ComboBox1: TComboBox;
+    chbRuleWebShop: TCheckBox;
     procedure BitBtn3Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
@@ -223,6 +224,7 @@ end;
 // Добавление записи
 procedure Tedits_e.BitBtn1Click(Sender: TObject);
 var sql, nick, region: string;
+    price, price1: ansistring;
     ind, flag: integer;
 begin
   flag := 1;
@@ -239,11 +241,15 @@ begin
       region := DM.Q_REGIONS.FieldByName('ID_REGIONS').AsString;
 
 
+
       // SQL для добавления
       if (ttype = 1) then
       begin
-        sql := 'INSERT INTO CLIENTS(ID_CLIENTS,FIO,NICK,CCODE,REGION,ADDRESS,PHONE,PASSPORT,EMAIL,INN,AGREEMENT,ADVERTISMENT,DDATE,TTYPE,ID_CLIENTS_GROUPS,CORRECTOR,DUTIES,INSURANCE,DATE_IN,DATE_OUT,L_SERVICE,STAFF,ACTIVE,INFO, block1,block2,id_office,DATE_CHANGE) ';
-        sql := sql + ' VALUES(get_office_unique(''CLIENTS_ID''),:P1,:P2,:P3,:preg,:P4,:P5,:P6,:P7,:P8,''Без договора'',1,SYSDATE,1,1,'''+ main.corrector +''',:P9,:P10,:P11,:P12,:P13,:P14,:P15,:P16,:p20,:p21,CONST_OFFICE,sysdate)';
+        // Продажа с колес
+        if (chbRuleWebShop.Checked = true) then price := '0,0,0,0,1' else price := '0,0,0,0,0';
+
+        sql := 'INSERT INTO CLIENTS(ID_CLIENTS,FIO,NICK,CCODE,REGION,ADDRESS,PHONE,PASSPORT,EMAIL,INN,AGREEMENT,ADVERTISMENT,DDATE,TTYPE,ID_CLIENTS_GROUPS,CORRECTOR,DUTIES,INSURANCE,DATE_IN,DATE_OUT,L_SERVICE,STAFF,ACTIVE,INFO, block1,block2,id_office,DATE_CHANGE,MARK) ';
+        sql := sql + ' VALUES(get_office_unique(''CLIENTS_ID''),:P1,:P2,:P3,:preg,:P4,:P5,:P6,:P7,:P8,''Без договора'',1,SYSDATE,1,1,'''+ main.corrector +''',:P9,:P10,:P11,:P12,:P13,:P14,:P15,:P16,:p20,:p21,CONST_OFFICE,sysdate,:P24)';
         DM.Ora_SQL.SQL.Add(sql);
 {
         case GetOfficeID of
@@ -263,8 +269,20 @@ begin
       begin
         ind := DM.Q_EMPL.FieldByName('ID_CLIENTS').AsInteger;
         nick := DM.Q_EMPL.FieldByName('NICK').AsString;
+
+
+        // Продажа с колес
+        DM.OraQuery1.close;
+        DM.OraQuery1.SQL.clear;
+        DM.OraQuery1.SQL.Add('select mark from CLIENTS where ID_CLIENTS='+inttostr(ind));
+        DM.OraQuery1.Open;
+        price1 := DM.OraQuery1.FieldByName('mark').asstring;
+        DM.OraQuery1.close;
+
+        if (chbRuleWebShop.Checked = true) then price := StuffString(price1, 8, 2, ',1') else price := StuffString(price1, 8, 2, ',0');
+
         sql := 'UPDATE CLIENTS SET REGION=:preg, FIO=:P1, ADDRESS=:P4, PASSPORT=:P6, PHONE=:P5, EMAIL=:P7, DUTIES=:P9, INN=:P8, INSURANCE=:P10, block1=:p20, block2=:p21, DATE_CHANGE=sysdate, ';
-        sql := sql + ' DATE_IN=:P11, DATE_OUT=:P12, L_SERVICE=:P13, STAFF=:P14, ACTIVE=:P15, NICK=:P2, CCODE=:P3, INFO=:P16, DATE_COR=SYSDATE, CORRECTOR_COR='''+ main.corrector +''' WHERE ID_CLIENTS=:ID';
+        sql := sql + ' DATE_IN=:P11, DATE_OUT=:P12, L_SERVICE=:P13, STAFF=:P14, ACTIVE=:P15, NICK=:P2, CCODE=:P3, INFO=:P16, MARK=:P24, DATE_COR=SYSDATE, CORRECTOR_COR='''+ main.corrector +''' WHERE ID_CLIENTS=:ID';
         DM.Ora_SQL.SQL.Add(sql);
         DM.Ora_SQL.ParamByName('ID').Value := ind;
       end;
@@ -289,6 +307,8 @@ begin
 
       if (CheckBox6.Checked = true) then DM.Ora_SQL.ParamByName('P20').Value := 1 else DM.Ora_SQL.ParamByName('P20').Value := 0;
       if (CheckBox5.Checked = true) then DM.Ora_SQL.ParamByName('P21').Value := 1 else DM.Ora_SQL.ParamByName('P21').Value := 0;
+
+      DM.Ora_SQL.ParamByName('P24').Value := price;
 
       // Пытаемся выполнить SQL запрос
       try
