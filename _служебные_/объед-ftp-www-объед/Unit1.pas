@@ -230,7 +230,8 @@ repeat
  if (sr.Name= '.') or (sr.Name='..') then continue;
  begin
   //копирую в сетевую папку:
-  CopyFile(PChar(ExtractFilePath(Application.ExeName)+'copy_скачать\'+sr.Name),PChar('\\Max\g\скачать\'+sr.Name), false);
+  //CopyFile(PChar(ExtractFilePath(Application.ExeName)+'copy_скачать\'+sr.Name),PChar('\\Max\g\скачать\'+sr.Name), false);
+    CopyFile(PChar(ExtractFilePath(Application.ExeName)+'copy_скачать\'+sr.Name),PChar('Z:\'+sr.Name), false);
   memo1.Lines.Add(sr.Name);
   DeleteFile(ExtractFilePath(Application.ExeName)+'copy_скачать\'+ sr.Name);
   application.processmessages;
@@ -516,7 +517,8 @@ repeat
  if (sr.Name= '.') or (sr.Name='..') then continue;
  begin
   //копирую в сетевую папку:
-  CopyFile(PChar(ExtractFilePath(Application.ExeName)+'copy_скачать\'+sr.Name),PChar('\\Max\g\скачать\'+sr.Name), false);
+  //CopyFile(PChar(ExtractFilePath(Application.ExeName)+'copy_скачать\'+sr.Name),PChar('\\Max\g\скачать\'+sr.Name), false);
+  CopyFile(PChar(ExtractFilePath(Application.ExeName)+'copy_скачать\'+sr.Name),PChar('Z:\'+sr.Name), false);
   memo1.Lines.Add(sr.Name);
   DeleteFile(ExtractFilePath(Application.ExeName)+'copy_скачать\'+ sr.Name);
   application.processmessages;
