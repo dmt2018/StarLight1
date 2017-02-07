@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.STORE_PKG
--- Generated 19.01.2017 22:09:29 from CREATOR@STAR_REG
+-- Generated 08.02.2017 0:14:38 from CREATOR@STAR_REG
 
 CREATE OR REPLACE 
 PACKAGE store_pkg
@@ -1116,6 +1116,7 @@ begin
           select a.N_ID, sum(a.units) as units, a.GTD, b.final_price as price
             FROM invoice_data a, nomenclature d, suppliers c,
             (
+/*
                 SELECT a.n_id, sum(a.invoice_amount) as invoice_amount, max(a.final_price) as final_price
                   FROM prepare_price_list a
                   where a.ppli_id = v_ppli_id
@@ -1128,13 +1129,12 @@ begin
                     and a.invoice_data_id = p.invoice_data_id(+)
                   group by a.n_id
                   having count(*) = 1
-/*
+*/
                 SELECT a.n_id, sum(a.invoice_amount) as invoice_amount, max(a.final_price) as final_price
                   FROM prepare_price_list a
                   where a.ppli_id = v_ppli_id
                   --and not exists (select 1 from ppl_client_price b where b.invoice_data_id = a.invoice_data_id)
                   group by a.n_id
-*/
             ) b
               where a.INV_ID = inv_num
                     and a.N_ID = d.N_ID

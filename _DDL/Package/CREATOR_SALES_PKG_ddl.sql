@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.SALES_PKG
--- Generated 06.01.2017 1:56:53 from CREATOR@STAR_REG
+-- Generated 08.02.2017 0:13:17 from CREATOR@STAR_REG
 
 CREATE OR REPLACE 
 PACKAGE sales_pkg
@@ -179,7 +179,8 @@ BEGIN
                     a.RUS_MARKS as spesification, a.great_name_f as full_name
                     , b.QUANTITY as QUANTITY_NOW, b.STORE_TYPE
                     , c.NAME as store_type_name
-                    , CASE WHEN b.STORE_TYPE=1 THEN nvl(s.SPEC_PRICE, p.PRICE) ELSE b.PRICE END price_list
+                    --, CASE WHEN b.STORE_TYPE=1 THEN nvl(s.SPEC_PRICE, p.PRICE) ELSE b.PRICE END price_list
+                    , CASE WHEN b.STORE_TYPE=1 THEN p.PRICE ELSE b.PRICE END price_list
                     , reserv
                     , to_char(a.code) as our_code, a.is_photo, a.photo
                     , a.compiled_name_otdel
@@ -187,9 +188,8 @@ BEGIN
                     , p.SPEC_PRICE
                     , l.fio
             from NOMENCLATURE_MAT_VIEW a,
-                 PRICE_LIST p, store_main b, store_type c, offices o
-                 , ppl_client_price_current s,
-                 clients l
+                 PRICE_LIST p, store_main b, store_type c, offices o, clients l
+                 --, ppl_client_price_current s
             where a.ID_DEPARTMENTS = id_dep_
                 and a.N_ID = p.N_ID
                 and p.PRICE > 0
@@ -200,7 +200,7 @@ BEGIN
                 and b.id_office = p.id_office
                 and b.id_office = o.id_office
                 and (b.id_office in (1, v_office) or v_office = 0)
-                and a.n_id = s.n_id(+) and v_client = s.ID_CLIENTS(+)
+                --and a.n_id = s.n_id(+) and v_client = s.ID_CLIENTS(+)
                 and l.id_clients = v_client
         ) a
       where a.N_ID = b.N_ID(+)
