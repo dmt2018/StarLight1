@@ -132,10 +132,13 @@ end;
 // Открываем форму и очищаем поля поиска
 procedure TclientchoosForm.FormShow(Sender: TObject);
 begin
-  DM.Q_CLIENTS.Filter   := '';
-  DM.Q_CLIENTS.Filtered := false;
-  gr_clients_v.DataController.Filter.Clear;
-  gr_clients_v.DataController.Filter.Active := false;
+  if DM.Q_CLIENTS.Filtered or gr_clients_v.DataController.Filter.Active then
+  begin
+    DM.Q_CLIENTS.Filter   := '';
+    DM.Q_CLIENTS.Filtered := false;
+    //gr_clients_v.DataController.Filter.Clear;
+    //gr_clients_v.DataController.Filter.Active := false;
+  end;
   ed_nick.EditValue := '';
   ed_fio.EditValue  := '';
   choised_client_   := 0;

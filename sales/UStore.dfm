@@ -300,7 +300,7 @@ object frmStore: TfrmStore
     Top = 127
     Width = 986
     Height = 445
-    ActivePage = tch_nakls
+    ActivePage = tch_main
     Align = alClient
     LookAndFeel.Kind = lfOffice11
     LookAndFeel.NativeStyle = True
@@ -314,10 +314,6 @@ object frmStore: TfrmStore
     object tch_main: TcxTabSheet
       Caption = ' '#1058#1077#1082#1091#1097#1080#1081' '#1089#1082#1083#1072#1076' (Ctrl+1) '
       ImageIndex = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object gr_main: TDBGridEh
         Left = 0
         Top = 0
@@ -739,6 +735,7 @@ object frmStore: TfrmStore
           OptionsSelection.MultiSelect = True
           OptionsView.CellEndEllipsis = True
           OptionsView.NoDataToDisplayInfoText = #1053#1077#1090' '#1076#1072#1085#1085#1099#1093' '#1076#1083#1103' '#1087#1088#1086#1089#1084#1086#1090#1088#1072
+          OptionsView.Footer = True
           OptionsView.FooterMultiSummaries = True
           OptionsView.GroupByBox = False
           OptionsView.GroupFooters = gfVisibleWhenExpanded
