@@ -5112,7 +5112,7 @@ object frmClientOrders: TfrmClientOrders
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 39785.824304097200000000
-    ReportOptions.LastChange = 42459.812938182900000000
+    ReportOptions.LastChange = 42776.630277962960000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -5406,7 +5406,7 @@ object frmClientOrders: TfrmClientOrders
           Font.Style = []
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           Memo.UTF8 = (
-            '[FR_order_list."COMPILED_NAME_OTDEL_RAZN"]')
+            '[FR_order_list."F_NAME_RU"]')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -5449,7 +5449,7 @@ object frmClientOrders: TfrmClientOrders
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           HAlign = haRight
           Memo.UTF8 = (
-            '[FR_order_list."C.QUANTITY*M.PRICE"]')
+            '[FR_order_list."QUANTITY_PRICE"]')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -5523,7 +5523,7 @@ object frmClientOrders: TfrmClientOrders
           Font.Style = [fsBold]
           HAlign = haRight
           Memo.UTF8 = (
-            '[SUM(<FR_order_list."C.QUANTITY*M.PRICE">,MasterData1)]')
+            '[SUM(<FR_order_list."QUANTITY_PRICE">,MasterData1)]')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -5607,28 +5607,42 @@ object frmClientOrders: TfrmClientOrders
     UserName = 'FR_order_list'
     CloseDataSource = False
     FieldAliases.Strings = (
-      'N_ID=N_ID'
-      'QUANTITY=QUANTITY'
-      'ZATIRKA=ZATIRKA'
-      'ID_ORDERS_LIST=ID_ORDERS_LIST'
-      'COMPILED_NAME_OTDEL=COMPILED_NAME_OTDEL'
-      'COLOUR=COLOUR'
-      'IS_STOCK=IS_STOCK'
-      'DQ=DQ'
-      'DQ_CHECK=DQ_CHECK'
-      'DIST_ID=DIST_ID'
-      'COMPILED_NAME_OTDEL_RAZN=COMPILED_NAME_OTDEL_RAZN'
-      'COLOUR_RAZN=COLOUR_RAZN'
-      'PRICE=PRICE'
-      'ON_DATE=ON_DATE'
-      'INFO=INFO'
+      'STORE_TYPE=STORE_TYPE'
+      'ID_DEPARTMENTS=ID_DEPARTMENTS'
+      'FULL_NAME=FULL_NAME'
+      'F_NAME=F_NAME'
+      'F_NAME_RU=F_NAME_RU'
+      'F_TYPE=F_TYPE'
+      'F_SUB_TYPE=F_SUB_TYPE'
       'CODE=CODE'
+      'LEN=LEN'
+      'PACK=PACK'
+      'COLOUR=COLOUR'
+      'COL_ID=COL_ID'
+      'FT_ID=FT_ID'
+      'FST_ID=FST_ID'
+      'FN_ID=FN_ID'
+      'S_ID=S_ID'
+      'C_ID=C_ID'
       'H_CODE=H_CODE'
-      'C.QUANTITY*M.PRICE=C.QUANTITY*M.PRICE'
-      'ID_ORDERS_CLIENTS=ID_ORDERS_CLIENTS'
-      'ID_ORDERS=ID_ORDERS'
-      'FIO=FIO'
-      'INS_FIO=INS_FIO')
+      'H_NAME=H_NAME'
+      'S_NAME_RU=S_NAME_RU'
+      'COUNTRY=COUNTRY'
+      'N_ID=N_ID'
+      'PRICE_LIST=PRICE_LIST'
+      'RESERV=RESERV'
+      'ITOGO=ITOGO'
+      'ID_ORDERS_LIST=ID_ORDERS_LIST'
+      'QUANTITY=QUANTITY'
+      'QUANTITY_PRICE=QUANTITY_PRICE'
+      'PRICE=PRICE'
+      'PRICE_PERCENT=PRICE_PERCENT'
+      'SPESIFICATION=SPESIFICATION'
+      'STORE_TYPE_NAME=STORE_TYPE_NAME'
+      'COMPILED_NAME_OTDEL=COMPILED_NAME_OTDEL'
+      'OUR_CODE=OUR_CODE'
+      'STORE=STORE'
+      'NOTUSE=NOTUSE')
     DataSet = Q_DISTR_LIST
     BCDToCurrency = False
     Left = 480
@@ -5667,6 +5681,61 @@ object frmClientOrders: TfrmClientOrders
     Session = Main_session
     SQL.Strings = (
       
+        'SELECT b.store_type, s.id_departments, a.full_name, a.f_name, a.' +
+        'f_name_ru, a.f_type, a.f_sub_type,'
+      
+        '           CASE WHEN a.BAR_CODE is not null THEN a.BAR_CODE ELSE' +
+        ' to_char(a.CODE) END CODE,'
+      
+        '           a.len, a.pack, a.colour, a.col_id, a.ft_id, a.fst_id,' +
+        ' a.fn_id, a.s_id, a.c_id, a.h_code,'
+      
+        '           a.h_name, a.s_name_ru, a.country, a.n_id, nvl(s.price' +
+        ',l.price) as price_list, s.reserv, ( nvl(s.quantity,0) - nvl(s.r' +
+        'eserv,0) ) as itogo,'
+      
+        '           b.ID_ORDERS_LIST, b.QUANTITY, b.QUANTITY * b.price as' +
+        ' quantity_price,  b.price'
+      
+        '           , case when nvl(s.price,l.price) is null then 0 else ' +
+        'ROUND((100*(b.price - nvl(nvl(s.price,l.price),0) )/ nvl(nvl(s.p' +
+        'rice,l.price),0) ),0) end as price_percent'
+      '           , a.RUS_MARKS as spesification'
+      '           , c.name as store_type_name'
+      '           , a.compiled_name_otdel'
+      '           , to_char(a.CODE) as our_code'
+      '           , s.QUANTITY as store'
+      '           , a.notuse'
+      '    FROM nomenclature_mat_view a'
+      '      inner join'
+      '          ('
+      
+        '             select OCO.ID_ORDERS_LIST, OCO.QUANTITY,  oco.n_id,' +
+        ' oco.active, oco.price, oco.store_type'
+      '              from ORDERS_LIST OCO'
+      '              where oco.active = 1'
+      
+        '                AND oco.ID_ORDERS_CLIENTS in (select ID_ORDERS_C' +
+        'LIENTS from orders_clients where ID_CLIENTS = '
+      
+        '                (select id_clients from clients where nick=:vnic' +
+        'k) and on_date=:vdat)'
+      '         '
+      '       ) b on b.n_id = a.n_id'
+      
+        '      left outer join store_main s on s.n_id = a.n_id and s.STOR' +
+        'E_TYPE = b.store_type'
+      
+        '      left outer join store_type c on c.ID_STORE_TYPE = s.store_' +
+        'type'
+      '      left outer join price_list l on l.n_id = a.n_id'
+      '    WHERE 1=1'
+      '            and a.id_departments = 62'
+      '          ORDER BY a.compiled_name_otdel'
+      ''
+      ''
+      '/*'
+      
         'SELECT cl.fio,e.id_orders,a.id_orders_clients,c.quantity*m.price' +
         ',d.h_code,d.code, a.info,a.on_date, c.n_id, c.quantity, m.price,' +
         ' c.zatirka, c.id_orders_list, d.compiled_name_otdel, d.colour,'
@@ -5701,7 +5770,7 @@ object frmClientOrders: TfrmClientOrders
       '  and c.active = 1'
       '  and c.id_orders_list = e.id_orders_list(+)'
       'order by  d.compiled_name_otdel'
-      ''
+      '*/'
       ''
       '/*'
       
@@ -5748,87 +5817,147 @@ object frmClientOrders: TfrmClientOrders
     ParamData = <
       item
         DataType = ftUnknown
-        Name = 'vNick'
+        Name = 'vnick'
       end
       item
         DataType = ftUnknown
-        Name = 'vPack'
+        Name = 'vdat'
       end>
-    object Q_DISTR_LISTN_ID: TFloatField
-      FieldName = 'N_ID'
+    object Q_DISTR_LISTSTORE_TYPE: TIntegerField
+      FieldName = 'STORE_TYPE'
     end
-    object Q_DISTR_LISTQUANTITY: TIntegerField
-      FieldName = 'QUANTITY'
+    object Q_DISTR_LISTID_DEPARTMENTS: TIntegerField
+      FieldName = 'ID_DEPARTMENTS'
     end
-    object Q_DISTR_LISTZATIRKA: TIntegerField
-      FieldName = 'ZATIRKA'
+    object Q_DISTR_LISTFULL_NAME: TStringField
+      FieldName = 'FULL_NAME'
+      Size = 515
     end
-    object Q_DISTR_LISTID_ORDERS_LIST: TFloatField
-      FieldName = 'ID_ORDERS_LIST'
+    object Q_DISTR_LISTF_NAME: TStringField
+      FieldName = 'F_NAME'
+      Size = 256
     end
-    object Q_DISTR_LISTCOMPILED_NAME_OTDEL: TStringField
-      FieldName = 'COMPILED_NAME_OTDEL'
-      Size = 400
+    object Q_DISTR_LISTF_NAME_RU: TStringField
+      FieldName = 'F_NAME_RU'
+      Required = True
+      Size = 256
+    end
+    object Q_DISTR_LISTF_TYPE: TStringField
+      FieldName = 'F_TYPE'
+      Required = True
+      Size = 50
+    end
+    object Q_DISTR_LISTF_SUB_TYPE: TStringField
+      FieldName = 'F_SUB_TYPE'
+      Required = True
+      Size = 50
+    end
+    object Q_DISTR_LISTCODE: TStringField
+      FieldName = 'CODE'
+      Size = 40
+    end
+    object Q_DISTR_LISTLEN: TIntegerField
+      FieldName = 'LEN'
+    end
+    object Q_DISTR_LISTPACK: TIntegerField
+      FieldName = 'PACK'
     end
     object Q_DISTR_LISTCOLOUR: TStringField
       FieldName = 'COLOUR'
+      Required = True
       Size = 50
     end
-    object Q_DISTR_LISTIS_STOCK: TFloatField
-      FieldName = 'IS_STOCK'
+    object Q_DISTR_LISTCOL_ID: TFloatField
+      FieldName = 'COL_ID'
+      Required = True
     end
-    object Q_DISTR_LISTDQ: TFloatField
-      FieldName = 'DQ'
+    object Q_DISTR_LISTFT_ID: TFloatField
+      FieldName = 'FT_ID'
+      Required = True
     end
-    object Q_DISTR_LISTDQ_CHECK: TFloatField
-      FieldName = 'DQ_CHECK'
+    object Q_DISTR_LISTFST_ID: TFloatField
+      FieldName = 'FST_ID'
+      Required = True
     end
-    object Q_DISTR_LISTDIST_ID: TFloatField
-      FieldName = 'DIST_ID'
+    object Q_DISTR_LISTFN_ID: TFloatField
+      FieldName = 'FN_ID'
+      Required = True
     end
-    object Q_DISTR_LISTCOMPILED_NAME_OTDEL_RAZN: TStringField
-      FieldName = 'COMPILED_NAME_OTDEL_RAZN'
-      Size = 400
+    object Q_DISTR_LISTS_ID: TFloatField
+      FieldName = 'S_ID'
+      Required = True
     end
-    object Q_DISTR_LISTCOLOUR_RAZN: TStringField
-      FieldName = 'COLOUR_RAZN'
-      Size = 50
-    end
-    object Q_DISTR_LISTPRICE: TFloatField
-      FieldName = 'PRICE'
-    end
-    object Q_DISTR_LISTON_DATE: TDateTimeField
-      FieldName = 'ON_DATE'
-    end
-    object Q_DISTR_LISTINFO: TStringField
-      FieldName = 'INFO'
-      Size = 500
-    end
-    object Q_DISTR_LISTCODE: TFloatField
-      FieldName = 'CODE'
+    object Q_DISTR_LISTC_ID: TFloatField
+      FieldName = 'C_ID'
+      Required = True
     end
     object Q_DISTR_LISTH_CODE: TStringField
       FieldName = 'H_CODE'
       Size = 80
     end
-    object Q_DISTR_LISTCQUANTITYMPRICE: TFloatField
-      FieldName = 'C.QUANTITY*M.PRICE'
+    object Q_DISTR_LISTH_NAME: TStringField
+      FieldName = 'H_NAME'
+      Size = 256
     end
-    object Q_DISTR_LISTID_ORDERS_CLIENTS: TFloatField
-      FieldName = 'ID_ORDERS_CLIENTS'
+    object Q_DISTR_LISTS_NAME_RU: TStringField
+      FieldName = 'S_NAME_RU'
+      Required = True
+      Size = 150
+    end
+    object Q_DISTR_LISTCOUNTRY: TStringField
+      FieldName = 'COUNTRY'
+      Required = True
+      Size = 50
+    end
+    object Q_DISTR_LISTN_ID: TFloatField
+      FieldName = 'N_ID'
       Required = True
     end
-    object Q_DISTR_LISTID_ORDERS: TFloatField
-      FieldName = 'ID_ORDERS'
-      Required = True
+    object Q_DISTR_LISTPRICE_LIST: TFloatField
+      FieldName = 'PRICE_LIST'
     end
-    object Q_DISTR_LISTFIO: TStringField
-      FieldName = 'FIO'
-      Size = 255
+    object Q_DISTR_LISTRESERV: TFloatField
+      FieldName = 'RESERV'
     end
-    object Q_DISTR_LISTINS_FIO: TStringField
-      FieldName = 'INS_FIO'
-      Size = 255
+    object Q_DISTR_LISTITOGO: TFloatField
+      FieldName = 'ITOGO'
+    end
+    object Q_DISTR_LISTID_ORDERS_LIST: TFloatField
+      FieldName = 'ID_ORDERS_LIST'
+    end
+    object Q_DISTR_LISTQUANTITY: TIntegerField
+      FieldName = 'QUANTITY'
+    end
+    object Q_DISTR_LISTQUANTITY_PRICE: TFloatField
+      FieldName = 'QUANTITY_PRICE'
+    end
+    object Q_DISTR_LISTPRICE: TFloatField
+      FieldName = 'PRICE'
+    end
+    object Q_DISTR_LISTPRICE_PERCENT: TFloatField
+      FieldName = 'PRICE_PERCENT'
+    end
+    object Q_DISTR_LISTSPESIFICATION: TStringField
+      FieldName = 'SPESIFICATION'
+      Size = 4000
+    end
+    object Q_DISTR_LISTSTORE_TYPE_NAME: TStringField
+      FieldName = 'STORE_TYPE_NAME'
+      Size = 30
+    end
+    object Q_DISTR_LISTCOMPILED_NAME_OTDEL: TStringField
+      FieldName = 'COMPILED_NAME_OTDEL'
+      Size = 500
+    end
+    object Q_DISTR_LISTOUR_CODE: TStringField
+      FieldName = 'OUR_CODE'
+      Size = 40
+    end
+    object Q_DISTR_LISTSTORE: TFloatField
+      FieldName = 'STORE'
+    end
+    object Q_DISTR_LISTNOTUSE: TIntegerField
+      FieldName = 'NOTUSE'
     end
   end
   object oraSQL: TOraQuery
