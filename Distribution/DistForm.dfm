@@ -984,6 +984,7 @@ object DistFormF: TDistFormF
                 end
                 object gr_goods_info_vDIST_WEBSHOP_ID: TcxGridDBColumn
                   DataBinding.FieldName = 'DIST_WEBSHOP_ID'
+                  Visible = False
                 end
               end
               object gr_goods_info_l: TcxGridLevel

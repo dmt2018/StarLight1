@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.DISTRIBUTION_PKG
--- Generated 11.02.2017 18:46:45 from CREATOR@STAR_REG
+-- Generated 11.02.2017 21:08:21 from CREATOR@STAR_REG
 
 CREATE OR REPLACE 
 PACKAGE distribution_pkg
@@ -1555,7 +1555,7 @@ BEGIN
          and c.active = 1
          and c.id_orders_list = e.id_orders_list(+)
          and e.dist_ind_id(+) = dist_ind_id_
-         and w.n_id = c.n_id(+) and w.DIST_IND_ID = z.dist_ind_id(+)
+         and e.o_n_id = w.n_id(+) and e.DIST_IND_ID = w.dist_ind_id(+)
       order by a.priority, decode(a.pack_,1,1,2), decode(a.ID_CLIENTS,const_dir,98,const_main,99,1), NICK;
 
 EXCEPTION
