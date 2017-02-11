@@ -578,6 +578,20 @@ object orders_list: Torders_list
           Alignment = taCenter
           AutoFitColWidth = False
           EditButtons = <>
+          FieldName = 'W_QUANTITY'
+          Footer.Alignment = taCenter
+          Footer.ValueType = fvtSum
+          Footers = <>
+          MaxWidth = 60
+          MinWidth = 60
+          Title.Caption = 'TRUCK|WShop'
+          Title.TitleButton = True
+          Width = 60
+        end
+        item
+          Alignment = taCenter
+          AutoFitColWidth = False
+          EditButtons = <>
           FieldName = 'STOCK_DISTRIBUTION_DONE'
           Footer.Alignment = taCenter
           Footer.ValueType = fvtSum
@@ -599,6 +613,20 @@ object orders_list: Torders_list
           MaxWidth = 60
           MinWidth = 60
           Title.Caption = #1055#1088#1077#1076#1099#1076#1091#1097#1080#1081' '#1079#1072#1082#1072#1079'|'#1047#1072#1082#1072#1079
+          Title.TitleButton = True
+          Width = 60
+        end
+        item
+          Alignment = taCenter
+          AutoFitColWidth = False
+          EditButtons = <>
+          FieldName = 'LAST_W_QUANTITY'
+          Footer.Alignment = taCenter
+          Footer.ValueType = fvtSum
+          Footers = <>
+          MaxWidth = 60
+          MinWidth = 60
+          Title.Caption = #1055#1088#1077#1076#1099#1076#1091#1097#1080#1081' '#1079#1072#1082#1072#1079'|WShop'
           Title.TitleButton = True
           Width = 60
         end

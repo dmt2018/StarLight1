@@ -202,6 +202,7 @@ type
     IntegerField4: TIntegerField;
     IntegerField5: TIntegerField;
     Q_CLIENTS_WESHOPID_OFFICE: TIntegerField;
+    CDS_ORDER_NIDDIST_WEBSHOP_ID: TFloatField;
     procedure StarSessBeforeConnect(Sender: TObject);
     procedure SelDistrIndBeforeOpen(DataSet: TDataSet);
     procedure SelOrderClientsBeforeOpen(DataSet: TDataSet);

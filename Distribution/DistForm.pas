@@ -346,6 +346,10 @@ type
     mnLoadDobor: TdxBarButton;
     aLoadDobor: TAction;
     odOrder: TOpenDialog;
+    gr_goods_info_vDIST_WEBSHOP_ID: TcxGridDBColumn;
+    dxBarStatic25: TdxBarStatic;
+    dxBarStatic26: TdxBarStatic;
+    cxStyle1: TcxStyle;
     procedure AExitExecute(Sender: TObject);
     procedure AGetdeptExecute(Sender: TObject);
     procedure AChooseOrderExecute(Sender: TObject);
@@ -1590,9 +1594,9 @@ begin
     end;
 
 
-    // Подкрасим разнесенную позицию другим цветком
     if (gr_goods_info_v.Columns[AViewInfo.Item.Index].DataBinding.FieldName = 'COMPILED_NAME_OTDEL_ORD') then
     begin
+      // Подкрасим разнесенную позицию другим цветком
       var1 := gr_goods_info_v.DataController.GetValue(
                 AViewInfo.GridRecord.RecordIndex, gr_goods_info_v.GetColumnByFieldName('N_ID').Index
                 );
@@ -1603,6 +1607,16 @@ begin
       If (var1 <> var2) and (var2 <> null) then
       begin
         ACanvas.Brush.Color := stAlterRaznos.Color;
+      end;
+
+      // Подкрасим разнесенную позицию если она с WebShop
+      var1 := gr_goods_info_v.DataController.GetValue(
+                AViewInfo.GridRecord.RecordIndex, gr_goods_info_v.GetColumnByFieldName('DIST_WEBSHOP_ID').Index
+                );
+      If (var1 <> null) then
+      begin
+        ACanvas.Font.Style := [fsBold];
+        ACanvas.Font.Color := clNavy;
       end;
     end;
 

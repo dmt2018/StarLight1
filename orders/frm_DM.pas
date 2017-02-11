@@ -351,6 +351,8 @@ type
     Q_ORDERSOLD_PRICE: TIntegerField;
     Q_ORDERS_ORDERSPRIORITY: TIntegerField;
     Q_CLIENTSCHECKED: TFloatField;
+    Q_ORDERS_LISTW_QUANTITY: TFloatField;
+    Q_ORDERS_LISTLAST_W_QUANTITY: TFloatField;
     procedure Main_sessionAfterConnect(Sender: TObject);
     procedure Q_ORDERS_LIST_OLDAfterPost(DataSet: TDataSet);
     procedure Q_ORDERS_LISTBeforePost(DataSet: TDataSet);
@@ -367,6 +369,7 @@ type
     isPacking: integer;
     isEdit: boolean;
     isFilterByDobor: boolean;
+    isFilterByWebShop: boolean;
     { Public declarations }
     function UpploadOrderFromInet(Hwnd: THandle; FullFileName: String; vOrder: Integer):Boolean;
     function UpploadOrderFromInetNewSite(Hwnd: THandle; FullFileName: String; vOrder: Integer):Boolean;
@@ -402,6 +405,7 @@ begin
     IdFTP1.Username := RegIni.ReadString('FTP', 'login', '');
     IdFTP1.Password := RegIni.ReadString('FTP', 'pass', '');
     isFilterByDobor := RegIni.ReadBool('defFilterByDobor','value', false);
+    isFilterByWebShop := RegIni.ReadBool('defFilterByWebShop','value', false);
     isEdit := true;
   finally
     RegIni.Free;

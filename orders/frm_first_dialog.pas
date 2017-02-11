@@ -137,6 +137,17 @@ begin
     DM.Q_ORDERS.ParamByName('p1').AsInteger := DBComboBoxEh1.Value;
     DM.Q_ORDERS.ParamByName('d1').AsDate := orders_main.de_begin.EditValue;
     DM.Q_ORDERS.ParamByName('d2').AsDate := orders_main.de_end.EditValue;
+
+    DM.Q_ORDERS.ParamByName('t1').AsInteger := 0;
+    if DM.isFilterByDobor then
+      DM.Q_ORDERS.ParamByName('t2').AsInteger := 2
+    else
+      DM.Q_ORDERS.ParamByName('t2').AsInteger := 0;
+    if DM.isFilterByWebShop then
+      DM.Q_ORDERS.ParamByName('t3').AsInteger := 3
+    else
+      DM.Q_ORDERS.ParamByName('t3').AsInteger := 0;
+
     DM.Q_ORDERS.Open;
 
     orders_main.ShowModal();

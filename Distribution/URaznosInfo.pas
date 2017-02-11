@@ -55,6 +55,8 @@ type
     cdsClientsStatORDER_COMPILED_NAME_OTDEL: TStringField;
     grQuickRaznos_vORDER_N_ID: TcxGridDBColumn;
     grQuickRaznos_vORDER_COMPILED_NAME_OTDEL: TcxGridDBColumn;
+    cdsClientsStatDIST_WEBSHOP_ID: TFloatField;
+    grQuickRaznos_vDIST_WEBSHOP_ID: TcxGridDBColumn;
     procedure grQuickRaznos_vCustomDrawCell(Sender: TcxCustomGridTableView;
       ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
       var ADone: Boolean);
@@ -116,6 +118,18 @@ begin
                 );
 
     If ( qua = qua2 ) then ACanvas.Brush.Color := TColor($0078C784);
+
+
+    // ѕодкрасим разнесенную позицию если она с WebShop
+    qua := grQuickRaznos_v.DataController.GetValue(
+              AViewInfo.GridRecord.RecordIndex, grQuickRaznos_v.GetColumnByFieldName('DIST_WEBSHOP_ID').Index
+           );
+    If (qua <> null) then
+    begin
+      ACanvas.Font.Style := [fsBold];
+      ACanvas.Font.Color := clNavy;
+    end;
+
   end;
 
 end;

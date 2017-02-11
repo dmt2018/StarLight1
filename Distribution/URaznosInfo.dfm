@@ -26,7 +26,6 @@ object frmNomRaznos: TfrmNomRaznos
     Ctl3D = True
     ParentCtl3D = False
     TabOrder = 1
-    ExplicitWidth = 604
     DesignSize = (
       704
       40)
@@ -112,7 +111,6 @@ object frmNomRaznos: TfrmNomRaznos
       LookAndFeel.Kind = lfFlat
       LookAndFeel.NativeStyle = True
       Spacing = 6
-      ExplicitLeft = 439
     end
   end
   object pnlMain: TPanel
@@ -123,7 +121,6 @@ object frmNomRaznos: TfrmNomRaznos
     Align = alClient
     BorderWidth = 5
     TabOrder = 0
-    ExplicitWidth = 604
     object Label1: TLabel
       Left = 6
       Top = 50
@@ -153,7 +150,6 @@ object frmNomRaznos: TfrmNomRaznos
       ParentFont = False
       TabOrder = 0
       LookAndFeel.Kind = lfOffice11
-      ExplicitWidth = 592
       object grQuickRaznos_v: TcxGridDBTableView
         NavigatorButtons.ConfirmDelete = False
         OnCustomDrawCell = grQuickRaznos_vCustomDrawCell
@@ -357,6 +353,10 @@ object frmNomRaznos: TfrmNomRaznos
           DataBinding.FieldName = 'ORDER_N_ID'
           Visible = False
         end
+        object grQuickRaznos_vDIST_WEBSHOP_ID: TcxGridDBColumn
+          DataBinding.FieldName = 'DIST_WEBSHOP_ID'
+          Visible = False
+        end
       end
       object grQuickRaznos_l: TcxGridLevel
         GridView = grQuickRaznos_v
@@ -474,6 +474,9 @@ object frmNomRaznos: TfrmNomRaznos
     object cdsClientsStatORDER_COMPILED_NAME_OTDEL: TStringField
       FieldName = 'ORDER_COMPILED_NAME_OTDEL'
       Size = 500
+    end
+    object cdsClientsStatDIST_WEBSHOP_ID: TFloatField
+      FieldName = 'DIST_WEBSHOP_ID'
     end
   end
   object dsClientsStat: TOraDataSource

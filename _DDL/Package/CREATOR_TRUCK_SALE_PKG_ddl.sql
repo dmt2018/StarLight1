@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.TRUCK_SALE_PKG
--- Generated 23.01.2017 22:42:35 from CREATOR@STAR_REG
+-- Generated 11.02.2017 18:47:12 from CREATOR@STAR_REG
 
 CREATE OR REPLACE 
 PACKAGE truck_sale_pkg
@@ -346,6 +346,40 @@ IS
 BEGIN
 
    open cursor_ for
+     select q_sold, s_sold,
+            a.UNITS, a.PRICE_PER_UNIT, s.PRICE_COEF, d.price, d.min_pack,
+            nvl(d.price,
+              case when a.PRICE_PER_UNIT * nvl(d.coef, s.PRICE_COEF) * s.course > 100 then round(a.PRICE_PER_UNIT * nvl(d.coef, s.PRICE_COEF) * s.course)
+              else round(a.PRICE_PER_UNIT * nvl(d.coef, s.PRICE_COEF) * s.course, 1) end
+            ) coef_price,
+            case when d.n_id > 0 then 1 else 0 end IS_ACTIVE, d.coef as p_coef, d.price as p_price
+            , s.truck_sale_id as truck_sale_id
+            , n.*
+       from
+         (
+           select units, round(PRICE_PER_UNIT/decode(units,0,1,units),2) as PRICE_PER_UNIT, n_id, q_sold, s_sold from (
+                select sum(a.UNITS) units, sum(a.UNITS*a.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id, null as q_sold, null as s_sold
+                  from invoice_data a, truck_sale_invoices b
+                  where a.storned_data = 0 and a.inv_id = b.inv_id and b.truck_sale_id = truck_sale_id_
+                  group by a.n_id
+                union all
+                select sum(a.left_quantity) as units, sum(a.left_quantity*d.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id, sum(w.quantity) as q_sold, sum(w.quantity * w.price) as s_sold
+                  from PREP_DIST_VIEW a
+                  inner join invoice_data d on a.invoice_data_id = d.invoice_data_id
+                  inner join truck_sale_distr b on b.truck_sale_id = truck_sale_id_ and a.dist_ind_id = b.DIST_IND_ID
+                  left outer join truck_sale_data s on s.truck_sale_id =  b.truck_sale_id and s.n_id = a.n_id
+                  left outer join distributions_webshop w on w.n_id = a.n_id and b.DIST_IND_ID = w.DIST_IND_ID
+                  where (a.left_quantity > 0 or s.truck_sale_id is not null)
+                  group by a.n_id
+           ) a
+         ) a
+         inner join truck_sale s on s.truck_sale_id = truck_sale_id_
+         inner join nomenclature_mat_view n on n.n_id = a.n_id and n.notuse = 0
+         left outer join truck_sale_data d on d.truck_sale_id = s.truck_sale_id and d.n_id = a.n_id
+       where not exists (select * from nomenclature_site_marks marks where remove_from_site=1 and marks.n_id=n.n_id)
+       order by n.COMPILED_NAME_OTDEL
+       ;
+/*
      select a.UNITS, a.PRICE_PER_UNIT, s.PRICE_COEF, d.price, d.min_pack,
             nvl(d.price,
               case when a.PRICE_PER_UNIT * nvl(d.coef, s.PRICE_COEF) * s.course > 100 then round(a.PRICE_PER_UNIT * nvl(d.coef, s.PRICE_COEF) * s.course)
@@ -377,6 +411,7 @@ BEGIN
        where not exists (select * from nomenclature_site_marks marks where remove_from_site=1 and marks.n_id=n.n_id)
        order by n.COMPILED_NAME_OTDEL
        ;
+*/
 
 EXCEPTION
    WHEN others THEN
@@ -403,7 +438,7 @@ BEGIN
             , a.past_num, a.READY_POS
     from invoice_register_full a
     where a.SENDED_TO_WAREHOUSE = 0 and a.ID_DEPARTMENTS = ID_DEPT_ and a.inv_minus in (0,3) and id_office = const_office
-      and a.inv_date > sysdate-60
+      and a.inv_date > sysdate-30
       and not exists (select 1 from truck_sale_invoices z where z.INV_ID = a.inv_id)
     ORDER BY a.inv_date desc;
 
@@ -435,7 +470,8 @@ BEGIN
                   --left outer join orders b on b.id_orders = a.id_orders
                   left outer join numeration_seq s on s.obj_id = a.dist_ind_id and s.entity = 'distribution'
                 WHERE a.ID_DEPARTMENTS = id_dep_
-                  and a.DIST_DATE between startDate and stopDate
+                  --and a.DIST_DATE between startDate and stopDate
+                  and a.DIST_DATE between sysdate-120 and sysdate
                   and not exists (select 1 from truck_sale_distr z where z.DIST_IND_ID = a.dist_ind_id)
                 ORDER BY a.dist_ind_id DESC;
 

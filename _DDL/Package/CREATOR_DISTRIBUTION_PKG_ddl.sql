@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.DISTRIBUTION_PKG
--- Generated 18.01.2017 23:44:02 from CREATOR@STAR_REG
+-- Generated 11.02.2017 18:46:45 from CREATOR@STAR_REG
 
 CREATE OR REPLACE 
 PACKAGE distribution_pkg
@@ -1526,37 +1526,37 @@ PROCEDURE get_order_list_nid
 IS
 BEGIN
   open cursor_ for
-                SELECT a.ID_ORDERS_CLIENTS, a.ID_ORDERS, a.ID_CLIENTS, a.N_TRUCK, a.CAPACITY, a.D_DATE, a.pack_, a.alpha,
-                   a.N_TYPE, a.STATUS, a.ON_DATE, b.NICK || ' ' || a.alpha as NICK, b.FIO, a.id_orders_clients as id_orders_clients_,
-                   c.n_id
-                   --, case when a.PACK_ = 1 then e.units else c.quantity end quantity
-                   , c.quantity
-                   , c.zatirka, c.id_orders_list, d.full_name, d.great_name, d.great_name_f, d.compiled_name_otdel||' '||d.colour as compiled_name_otdel_ord,
-               case when (e.INVOICE_DATA_ID is NULL and e.DQ > 0) then 1 else 0 end is_stock,
-               nvl(e.dq,0) as dq, case when e.DQ is null then 0 else 1 end dq_check,
-               e.great_name as great_name2, e.great_name_f as great_name_f2, e.dist_id, e.compiled_name_otdel||' '||e.colour as compiled_name_otdel,
-               (
-                 select nvl(SUM(o.DQ),0) from DISTRIBUTION_VIEW o where o.DIST_IND_ID = dist_ind_id_ and c.n_id=o.o_n_id AND o.id_clients = a.id_clients
-               ) as DISTRIBUTED_NUMBER
-               , e.PREP_DIST_ID, e.D_N_ID
-               , a.priority
-        FROM ORDERS_CLIENTS a, CLIENTS b, orders_list c, nomenclature_mat_view d, DISTRIBUTION_VIEW e, distributions_orders z
-             WHERE z.dist_ind_id = dist_ind_id_
-                      and a.id_orders = z.order_id -- id_order_
-                      and a.active = 1
-                      --and a.pack_ = 0
-                      and (a.pack_ = 0 or const_office > 1)
-                      and decode(a.ID_CLIENTS,const_dir,const_main,a.ID_CLIENTS) = b.ID_CLIENTS
-                      --and a.ID_CLIENTS = b.ID_CLIENTS
-                      and a.id_orders_clients = c.id_orders_clients
-                      and (c.n_id = n_id_ or n_id_ = 0)
-                      and c.n_id = d.n_id
-                      and c.quantity > 0
-                      and a.ID_CLIENTS not in (const_dir,const_main) -- 2015-06-22 На совещании решили, что на директора и МАЙН не разносить и даже их не показывать
-              and c.active = 1
-              and c.id_orders_list = e.id_orders_list(+)
-              and e.dist_ind_id(+) = dist_ind_id_
-        order by a.priority, decode(a.pack_,1,1,2), decode(a.ID_CLIENTS,const_dir,98,const_main,99,1), NICK;
+     SELECT a.ID_ORDERS_CLIENTS, a.ID_ORDERS, a.ID_CLIENTS, a.N_TRUCK, a.CAPACITY, a.D_DATE, a.pack_, a.alpha,
+            a.N_TYPE, a.STATUS, a.ON_DATE, b.NICK || ' ' || a.alpha as NICK, b.FIO, a.id_orders_clients as id_orders_clients_,
+            c.n_id, c.quantity
+            , c.zatirka, c.id_orders_list, d.full_name, d.great_name, d.great_name_f, d.compiled_name_otdel||' '||d.colour as compiled_name_otdel_ord,
+            case when (e.INVOICE_DATA_ID is NULL and e.DQ > 0) then 1 else 0 end is_stock,
+            nvl(e.dq,0) as dq, case when e.DQ is null then 0 else 1 end dq_check,
+            e.great_name as great_name2, e.great_name_f as great_name_f2, e.dist_id, e.compiled_name_otdel||' '||e.colour as compiled_name_otdel,
+            (
+              select nvl(SUM(o.DQ),0) from DISTRIBUTION_VIEW o where o.DIST_IND_ID = dist_ind_id_ and c.n_id=o.o_n_id AND o.id_clients = a.id_clients
+            ) as DISTRIBUTED_NUMBER
+            , e.PREP_DIST_ID, e.D_N_ID
+            , a.priority
+            , w.DIST_WEBSHOP_ID
+     FROM ORDERS_CLIENTS a, CLIENTS b, orders_list c, nomenclature_mat_view d, DISTRIBUTION_VIEW e, distributions_orders z, distributions_webshop w
+     WHERE z.dist_ind_id = dist_ind_id_
+         and a.id_orders = z.order_id -- id_order_
+         and a.active = 1
+         --and a.pack_ = 0
+         and (a.pack_ = 0 or const_office > 1)
+         and decode(a.ID_CLIENTS,const_dir,const_main,a.ID_CLIENTS) = b.ID_CLIENTS
+         --and a.ID_CLIENTS = b.ID_CLIENTS
+         and a.id_orders_clients = c.id_orders_clients
+         and (c.n_id = n_id_ or n_id_ = 0)
+         and c.n_id = d.n_id
+         and c.quantity > 0
+         and a.ID_CLIENTS not in (const_dir,const_main) -- 2015-06-22 На совещании решили, что на директора и МАЙН не разносить и даже их не показывать
+         and c.active = 1
+         and c.id_orders_list = e.id_orders_list(+)
+         and e.dist_ind_id(+) = dist_ind_id_
+         and w.n_id = c.n_id(+) and w.DIST_IND_ID = z.dist_ind_id(+)
+      order by a.priority, decode(a.pack_,1,1,2), decode(a.ID_CLIENTS,const_dir,98,const_main,99,1), NICK;
 
 EXCEPTION
    WHEN OTHERS THEN
@@ -2481,6 +2481,7 @@ BEGIN
        , case when b.invoice_data_id is null then nvl(ol.correction, ol.quantity) else inv.UNITS end as res_quantity
        , ol.n_id as order_n_id
        , case when ol.n_id <> a.n_id then ol_nom.COMPILED_NAME_OTDEL || ' ' || ol_nom.colour else '' end  order_COMPILED_NAME_OTDEL
+       , w.DIST_WEBSHOP_ID
     FROM prepare_distribution a
       inner join (
         select sum(z.total_quantity) tq, sum(z.left_quantity) lq, z.dist_ind_id, z.n_id
@@ -2495,6 +2496,7 @@ BEGIN
       left outer join nomenclature_mat_view ol_nom on ol_nom.n_id = ol.n_id
       left outer join orders_clients oc on oc.id_orders_clients = ol.id_orders_clients and oc.ID_CLIENTS not in (const_dir,const_main)
       left outer join clients cl on cl.id_clients = oc.id_clients
+      left outer join distributions_webshop w on w.n_id = a.n_id and w.DIST_IND_ID = a.dist_ind_id
     where a.dist_ind_id = p_dist_ind_id  and a.n_id = p_n_id
     order by case when b.invoice_data_id is not null then 1 else oc.pack_ end, case when b.invoice_data_id is null then trim(cl.nick || ' ' || oc.alpha) else inv.to_client end
   ;

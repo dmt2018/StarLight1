@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.PRICE_PKG
--- Generated 21.01.2017 19:32:44 from CREATOR@STAR_REG
+-- Generated 11.02.2017 18:47:47 from CREATOR@STAR_REG
 
 CREATE OR REPLACE 
 PACKAGE price_pkg

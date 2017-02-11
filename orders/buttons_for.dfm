@@ -92,7 +92,7 @@ object frm_buttons: Tfrm_buttons
     Top = 0
     Width = 733
     Height = 525
-    ActivePage = tshButtons
+    ActivePage = tshSettings
     Align = alClient
     TabOrder = 1
     ClientRectBottom = 525
@@ -913,7 +913,17 @@ object frm_buttons: Tfrm_buttons
           Properties.NullStyle = nssUnchecked
           Properties.OnChange = edDaysPropertiesChange
           TabOrder = 15
-          Visible = False
+          Width = 304
+        end
+        object chbFilterByWebShop: TcxCheckBox
+          Left = 14
+          Top = 443
+          Caption = #1087#1086#1082#1072#1079#1072#1090#1100' WebShop '#1074' '#1079#1072#1082#1072#1079#1077
+          Properties.Alignment = taLeftJustify
+          Properties.ImmediatePost = True
+          Properties.NullStyle = nssUnchecked
+          Properties.OnChange = edDaysPropertiesChange
+          TabOrder = 16
           Width = 304
         end
       end

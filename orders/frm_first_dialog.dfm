@@ -258,8 +258,8 @@ object first_dialog_frm: Tfirst_dialog_frm
       OnClick = SpeedButton3Click
     end
     object SpeedButton4: TSpeedButton
-      Left = 353
-      Top = 10
+      Left = 350
+      Top = 6
       Width = 157
       Height = 97
       Cursor = crHandPoint

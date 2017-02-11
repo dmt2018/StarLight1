@@ -328,8 +328,6 @@ object orders_clients: Torders_clients
       ParentFont = False
       TabOrder = 0
       LookAndFeel.Kind = lfFlat
-      ExplicitLeft = 0
-      ExplicitTop = 0
       object grClients_v: TcxGridDBTableView
         PopupMenu = PopupMenu1
         OnDblClick = DBGridEh1DblClick

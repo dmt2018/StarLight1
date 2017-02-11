@@ -187,7 +187,7 @@ type
     miUnloadDistr: TMenuItem;
     miDelInv: TMenuItem;
     miDelDistr: TMenuItem;
-    cxLabel1: TcxLabel;
+    lbl_edit: TcxLabel;
     cxGrid1DBTableView1SALE_START: TcxGridDBColumn;
     cxGrid1DBTableView1SALE_END: TcxGridDBColumn;
     cxGrid1DBTableView1INV_ID: TcxGridDBColumn;
@@ -245,6 +245,12 @@ type
     mmClearCoef: TMenuItem;
     mmClearPrice: TMenuItem;
     mmClearPack: TMenuItem;
+    CDS_TruckSaleDataQ_SOLD: TFloatField;
+    CDS_TruckSaleDataS_SOLD: TFloatField;
+    grSpecOrdersVQ_SOLD: TcxGridDBColumn;
+    grSpecOrdersVS_SOLD: TcxGridDBColumn;
+    lbl_sold: TcxLabel;
+    lbl_in_progres: TcxLabel;
     procedure btnRefreshClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnAddClick(Sender: TObject);
@@ -273,6 +279,9 @@ type
     procedure mmClearCoefClick(Sender: TObject);
     procedure mmClearPriceClick(Sender: TObject);
     procedure mmClearPackClick(Sender: TObject);
+    procedure grSpecOrdersVCustomDrawCell(Sender: TcxCustomGridTableView;
+      ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
+      var ADone: Boolean);
   private
     { Private declarations }
     ed_param : integer;
@@ -921,6 +930,39 @@ begin
   except
     on E: Exception do
           MessageBox(Handle, PChar(E.Message), 'Ошибка', MB_ICONERROR);
+  end;
+end;
+
+
+procedure TfrmTruckSale.grSpecOrdersVCustomDrawCell(
+  Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+VAR
+  sold_q, distr_q : Variant;
+begin
+  if not AViewInfo.Selected then
+  begin
+
+
+    // Красим профит и убыток
+    distr_q := grSpecOrdersV.DataController.GetValue(
+                  AViewInfo.GridRecord.RecordIndex, grSpecOrdersV.GetColumnByFieldName('UNITS').Index
+                  );
+    sold_q := grSpecOrdersV.DataController.GetValue(
+                  AViewInfo.GridRecord.RecordIndex, grSpecOrdersV.GetColumnByFieldName('Q_SOLD').Index
+                  );
+
+
+    if (grSpecOrdersV.Columns[AViewInfo.Item.Index].DataBinding.FieldName = 'COMPILED_NAME_OTDEL') then
+    begin
+      if (VarToInt(sold_q) > 0) then
+      begin
+        if ( VarToInt(distr_q) = 0 ) then
+          ACanvas.Brush.Color := lbl_sold.Style.Color
+        else
+          ACanvas.Brush.Color := lbl_in_progres.Style.Color;
+      end;
+    end;
   end;
 end;
 

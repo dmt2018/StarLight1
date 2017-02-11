@@ -982,6 +982,9 @@ object DistFormF: TDistFormF
                   Options.HorzSizing = False
                   Width = 50
                 end
+                object gr_goods_info_vDIST_WEBSHOP_ID: TcxGridDBColumn
+                  DataBinding.FieldName = 'DIST_WEBSHOP_ID'
+                end
               end
               object gr_goods_info_l: TcxGridLevel
                 GridView = gr_goods_info_v
@@ -1299,7 +1302,7 @@ object DistFormF: TDistFormF
     Left = 576
     Top = 488
     Bitmap = {
-      494C01010C00C800180110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010C00C8001C0110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000004000000001002000000000000040
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -2379,6 +2382,14 @@ object DistFormF: TDistFormF
         item
           Visible = True
           ItemName = 'dxBarStatic24'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarStatic25'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarStatic26'
         end
         item
           Visible = True
@@ -3706,9 +3717,9 @@ object DistFormF: TDistFormF
       Width = 30
     end
     object dxBarStatic24: TdxBarStatic
-      Caption = ' - '#1085#1077#1090' '#1082#1086#1088#1088#1077#1082#1090#1080#1088#1086#1074#1082#1080
+      Caption = ' - '#1085#1077#1090' '#1082#1086#1088#1088#1077#1082#1090#1080#1088#1086#1074#1082#1080' '
       Category = 0
-      Hint = ' - '#1085#1077#1090' '#1082#1086#1088#1088#1077#1082#1090#1080#1088#1086#1074#1082#1080
+      Hint = ' - '#1085#1077#1090' '#1082#1086#1088#1088#1077#1082#1090#1080#1088#1086#1074#1082#1080' '
       Visible = ivAlways
     end
     object tlb_print_ostatok_group: TdxBarButton
@@ -3793,6 +3804,20 @@ object DistFormF: TDistFormF
     object mnLoadDobor: TdxBarButton
       Action = aLoadDobor
       Category = 0
+    end
+    object dxBarStatic25: TdxBarStatic
+      Caption = #1056#1086#1079#1072
+      Category = 0
+      Hint = #1056#1086#1079#1072
+      Style = cxStyle1
+      Visible = ivAlways
+      BorderStyle = sbsLowered
+    end
+    object dxBarStatic26: TdxBarStatic
+      Caption = ' - '#1089' WebShop'
+      Category = 0
+      Hint = ' - '#1089' WebShop'
+      Visible = ivAlways
     end
   end
   object ppStok: TPopupMenu
@@ -3961,6 +3986,16 @@ object DistFormF: TDistFormF
     object stAlterRaznos: TcxStyle
       AssignedValues = [svColor]
       Color = 12320767
+    end
+    object cxStyle1: TcxStyle
+      AssignedValues = [svFont, svTextColor]
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clTeal
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Pitch = fpFixed
+      Font.Style = [fsBold]
+      TextColor = clNavy
     end
   end
   object ppGoods: TPopupMenu

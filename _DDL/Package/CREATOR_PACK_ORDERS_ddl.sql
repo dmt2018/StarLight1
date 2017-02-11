@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.PACK_ORDERS
--- Generated 29.01.2017 21:33:34 from CREATOR@STAR_REG
+-- Generated 11.02.2017 18:47:02 from CREATOR@STAR_REG
 
 CREATE OR REPLACE 
 PACKAGE pack_orders
@@ -1077,6 +1077,8 @@ BEGIN
                       then 0
                       else nvl( case when cnt = 0 then inv_done.invoice_quantity else inv_done2.invoice_quantity end,0) - nvl(distr_done.destribution_quantity,0)
                     end stock_distribution_done
+                  , webs.w_quantity
+                  , webs_last.last_w_quantity
                 FROM (
                     SELECT nom.compiled_name_otdel, nom.h_name  as h_name_f, nom.h_name as h_name,
                         nom.f_name, nom.F_SUB_TYPE, nom.F_TYPE, nom.N_ID, nom.LEN, nom.PACK, nom.VBN, nom.WEIGHT, nom.FST_ID, nom.FT_ID, nom.C_ID, nom.S_ID,
@@ -1133,9 +1135,12 @@ BEGIN
                               and d.ID_DEPARTMENTS = id_dep_ and d.id_office = const_office
                             group by dd.n_id
                       ) store_stat on store_stat.n_id = nom.n_id
-                    WHERE nom.ID_DEPARTMENTS= id_dep_
-                        and nom.s_id = decode(const_office, 1, v_distributor, nom.s_id)
-                        and nom.NOTUSE = 0
+                    WHERE nom.ID_DEPARTMENTS= id_dep_ and nom.NOTUSE = 0
+                        and (
+                          (nom.s_id = decode(const_office, 1, v_distributor, nom.s_id) and bbb.id_orders_list is null)
+                          or bbb.id_orders_list > 0
+                        )
+
                  ) a
                 left outer join (SELECT a.fst_id, a.nbutton, a.f_char FROM buttons_set a where id_dep = id_dep_) b on b.fst_id = a.fst_id
 
@@ -1149,6 +1154,22 @@ BEGIN
                       left outer join orders_clients oc on oc.id_orders_clients = ol.id_orders_clients and oc.n_type <> 2
                     group by a.n_id
                 ) distr on distr.n_id = a.n_id
+
+                left outer join
+                (
+                    select w.n_id as w_n_id, sum(w.quantity) as w_quantity
+                    from distributions_webshop w
+                      inner join tmp_exp_doc t on t.id_doc = w.DIST_IND_ID
+                    group by n_id
+                ) webs on webs.w_n_id = a.n_id
+
+                left outer join
+                (
+                    select w.n_id as w_n_id, sum(w.quantity) as last_w_quantity
+                    from distributions_webshop w
+                      inner join tmp_exp_doc_2 t on t.id_doc = w.DIST_IND_ID
+                    group by n_id
+                ) webs_last on webs_last.w_n_id = a.n_id
 
                 -- ¬ыборка всех позиций разнесенных инвойсов которые не подгруженны на склад
                 left outer join
@@ -1343,7 +1364,7 @@ BEGIN
     else
        -- ƒостаем простой набор данных по наменклатуре товара на складе
        open cursor_ for
-            select a.*, 0 as stock_distribution, 0 as client_distribution, 0 as stock_distribution_done, 0 as client_distribution_done from (
+            select a.*, 0 as stock_distribution, 0 as client_distribution, 0 as stock_distribution_done, 0 as client_distribution_done, 0 as w_quantity from (
                 SELECT nvl(b.nbutton,99) as nbutton, nom.compiled_name_otdel, nom.h_name as h_name_f, nom.h_name as h_name,
                     nom.f_name, nom.fn_id, nom.F_SUB_TYPE, nom.F_TYPE, nom.N_ID, nom.LEN, nom.PACK, nom.VBN, nom.WEIGHT,
                     nom.FST_ID, nom.FT_ID, nom.C_ID, nom.S_ID, nom.S_NAME_RU, nom.COLOUR, nom.COL_ID, nom.COUNTRY,
@@ -1359,6 +1380,8 @@ BEGIN
                     , instr(nom.h_code,'!') as spec
                     , 0 as prev_stock_amount
                     , bbb.correction
+                    , 0 as w_quantity
+                    , 0 as last_w_quantity
                 FROM NOMENCLATURE_MAT_VIEW nom
                       left outer join orders_store m on m.n_id = nom.N_ID and m.id_orders = id_
                       left outer join price_list l on l.n_id = nom.n_id

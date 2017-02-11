@@ -485,14 +485,10 @@ end;
 procedure Torders_clients.DBGridEh1DblClick(Sender: TObject);
 var idd, d_between: integer;
     date_prih, date_prih2: TDateTime;
-    //RegIni : TIniFile;
-    //path: string;
-    //vSTOK, vDAYS: integer;
 begin
   if (DM.Q_ORDERS_ORDERS.FieldByName('ID_ORDERS_CLIENTS').AsInteger > 0) then
   begin
 //    if (DBGridEh1.SelectedField.FieldName = 'HAVE_OLD_FLOWERS') and (DM.Q_ORDERS_ORDERSHAVE_OLD_FLOWERS.AsInteger > 0) then
-//ShowMessage('1');
     if grClients_vHAVE_OLD_FLOWERS.Focused and (grClients_vHAVE_OLD_FLOWERS.EditValue > 0) then
     begin
       DM.Q_SQL.Close;
@@ -505,7 +501,6 @@ begin
       DM.Q_SQL.Close;
       exit;
     end;
-//ShowMessage('2');
 
 //    if (DBGridEh1.SelectedField.FieldName = 'ISMISSCODE') then
     if grClients_vISMISSCODE.Focused then
@@ -513,15 +508,11 @@ begin
       OpenFormForShow(DM.Q_ORDERS_ORDERS.FieldByName('MISS_CODE').AsString);
       exit;
     end;
-//ShowMessage('3');
-
 
       if DM.Q_ORDERS_ORDERS.State = dsEdit then DM.Q_ORDERS_ORDERS.Post;
-//ShowMessage('4');
 
       screen.Cursor :=  crHourGlass;
       orders_list := Torders_list.Create(Application);
-//ShowMessage('5');
 
       try
         orders_list.ComboBox2.Enabled := false;
@@ -535,7 +526,6 @@ begin
           RegIni.Free;
         end;
 }
-//ShowMessage('6');
 
 
         // Выполняем процедуру, возвращающую курсор с номенклатурой
@@ -543,7 +533,6 @@ begin
           dm.Q_ORDERS_LIST.ParamByName('ADDIT_').AsInteger := 1
         else
           dm.Q_ORDERS_LIST.ParamByName('ADDIT_').AsInteger := 0;
-//ShowMessage('7');
 
         dm.Q_ORDERS_LIST.ParamByName('ID_DEP_').AsInteger := first_dialog_frm.DBComboBoxEh1.Value;
         dm.Q_ORDERS_LIST.ParamByName('ID_CL_').AsInteger  := DM.Q_ORDERS_ORDERSID_ORDERS_CLIENTS.AsInteger;
@@ -554,7 +543,6 @@ begin
 
         DM.Q_FLOWER_TYPE.ParamByName('ID').AsInteger := first_dialog_frm.DBComboBoxEh1.Value;
         DM.Q_FLOWER_TYPE.Open;
-//ShowMessage('8');
 
         if ( first_dialog_frm.addit = true ) and (not first_dialog_frm.uHideCargoMoving) then
           orders_list.DBGridEh1.FieldColumns['FL_ORDERS'].Title.Caption := 'Количество|Заказ|Клиента'
@@ -566,10 +554,9 @@ begin
         orders_list.BitBtn3.Visible := first_dialog_frm.edit and (dm.Q_ORDERSDATE_TRUCK.AsDateTime >= now);
         orders_list.DBGridEh1.ReadOnly := not (first_dialog_frm.edit and (dm.Q_ORDERSDATE_TRUCK.AsDateTime >= now));
         screen.Cursor :=  crDefault;
-//ShowMessage('9');
 
         orders_list.showmodal;
-//ShowMessage('10');
+
         idd := DM.Q_ORDERS_ORDERSID_ORDERS_CLIENTS.AsInteger;
         DM.Q_ORDERS_ORDERS.Refresh;
         DM.Q_ORDERS_ORDERS.Locate('ID_ORDERS_CLIENTS',idd,[]);
@@ -612,6 +599,17 @@ begin
     DM.Q_ORDERS_ORDERS.ParamByName('id_user').AsString := ''
   else
     DM.Q_ORDERS_ORDERS.ParamByName('id_user').AsString := UpperCase(DM.Main_session.Username);
+
+  DM.Q_ORDERS_ORDERS.ParamByName('t1').AsInteger := 0;
+  if DM.isFilterByDobor then
+    DM.Q_ORDERS_ORDERS.ParamByName('t2').AsInteger := 2
+  else
+    DM.Q_ORDERS_ORDERS.ParamByName('t2').AsInteger := 0;
+  if DM.isFilterByWebShop then
+    DM.Q_ORDERS_ORDERS.ParamByName('t3').AsInteger := 3
+  else
+    DM.Q_ORDERS_ORDERS.ParamByName('t3').AsInteger := 0;
+
   DM.Q_ORDERS_ORDERS.Open;
 end;
 

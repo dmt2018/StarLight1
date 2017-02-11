@@ -6,7 +6,7 @@ object DM: TDM
     Options.Direct = True
     Username = 'creator'
     Password = '123456'
-    Server = 'ROZNICA:1521:orcl'
+    Server = 'KLEPOV:1521:STARREG'
     AutoCommit = False
     LoginPrompt = False
     BeforeConnect = StarSessBeforeConnect
@@ -931,6 +931,9 @@ object DM: TDM
     end
     object CDS_ORDER_NIDPRIORITY: TIntegerField
       FieldName = 'PRIORITY'
+    end
+    object CDS_ORDER_NIDDIST_WEBSHOP_ID: TFloatField
+      FieldName = 'DIST_WEBSHOP_ID'
     end
   end
   object DS_ORDER_NID: TOraDataSource

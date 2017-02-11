@@ -569,7 +569,7 @@ object frmTruckSale: TfrmTruckSale
       LookAndFeel.NativeStyle = True
       Spacing = 6
     end
-    object cxLabel1: TcxLabel
+    object lbl_edit: TcxLabel
       Left = 4
       Top = 7
       AutoSize = False
@@ -584,6 +584,38 @@ object frmTruckSale: TfrmTruckSale
       Style.TransparentBorder = True
       Height = 25
       Width = 177
+    end
+    object lbl_sold: TcxLabel
+      Left = 180
+      Top = 7
+      AutoSize = False
+      Caption = #1055#1088#1086#1076#1072#1085#1085#1099#1081' '#1090#1086#1074#1072#1088
+      ParentColor = False
+      Properties.Alignment.Horz = taCenter
+      Properties.Alignment.Vert = taVCenter
+      Style.BorderStyle = ebsUltraFlat
+      Style.Color = 7012277
+      Style.HotTrack = False
+      Style.Shadow = False
+      Style.TransparentBorder = True
+      Height = 25
+      Width = 124
+    end
+    object lbl_in_progres: TcxLabel
+      Left = 303
+      Top = 7
+      AutoSize = False
+      Caption = #1058#1086#1074#1072#1088' '#1087#1088#1086#1076#1072#1077#1090#1089#1103
+      ParentColor = False
+      Properties.Alignment.Horz = taCenter
+      Properties.Alignment.Vert = taVCenter
+      Style.BorderStyle = ebsUltraFlat
+      Style.Color = 16777136
+      Style.HotTrack = False
+      Style.Shadow = False
+      Style.TransparentBorder = True
+      Height = 25
+      Width = 124
     end
   end
   object grSpecOrders: TcxGrid
@@ -604,6 +636,7 @@ object frmTruckSale: TfrmTruckSale
     object grSpecOrdersV: TcxGridDBTableView
       PopupMenu = pmMain
       NavigatorButtons.ConfirmDelete = False
+      OnCustomDrawCell = grSpecOrdersVCustomDrawCell
       DataController.DataSource = DS_TruckSaleData
       DataController.Filter.Options = [fcoCaseInsensitive]
       DataController.Filter.AutoDataSetFilter = True
@@ -619,6 +652,16 @@ object frmTruckSale: TfrmTruckSale
           Format = '0'
           Kind = skCount
           Column = grSpecOrdersVCOMPILED_NAME_OTDEL
+        end
+        item
+          Format = '0'
+          Kind = skSum
+          Column = grSpecOrdersVQ_SOLD
+        end
+        item
+          Format = '0.00'
+          Kind = skSum
+          Column = grSpecOrdersVS_SOLD
         end>
       DataController.Summary.SummaryGroups = <>
       FilterRow.InfoText = #1044#1086#1073#1072#1074#1080#1090#1100' '#1092#1080#1083#1100#1090#1088
@@ -798,6 +841,32 @@ object frmTruckSale: TfrmTruckSale
         Options.HorzSizing = False
         Styles.Content = stEdit
         Width = 80
+      end
+      object grSpecOrdersVQ_SOLD: TcxGridDBColumn
+        Caption = #1050#1086#1083'. '#1087#1088#1086#1076'.'
+        DataBinding.FieldName = 'Q_SOLD'
+        PropertiesClassName = 'TcxTextEditProperties'
+        Properties.Alignment.Horz = taCenter
+        Properties.ReadOnly = True
+        FooterAlignmentHorz = taCenter
+        HeaderAlignmentHorz = taCenter
+        MinWidth = 80
+        Options.HorzSizing = False
+        Width = 80
+      end
+      object grSpecOrdersVS_SOLD: TcxGridDBColumn
+        Caption = #1057#1091#1084#1084'. '#1087#1088#1086#1076'.'
+        DataBinding.FieldName = 'S_SOLD'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.Alignment.Horz = taRightJustify
+        Properties.DisplayFormat = ',0.00;-,0.00'
+        Properties.ReadOnly = True
+        FooterAlignmentHorz = taRightJustify
+        HeaderAlignmentHorz = taCenter
+        HeaderGlyphAlignmentHorz = taCenter
+        MinWidth = 90
+        Options.HorzSizing = False
+        Width = 90
       end
     end
     object grSpecOrdersL: TcxGridLevel
@@ -1853,6 +1922,12 @@ object frmTruckSale: TfrmTruckSale
     end
     object CDS_TruckSaleDataMIN_PACK: TIntegerField
       FieldName = 'MIN_PACK'
+    end
+    object CDS_TruckSaleDataQ_SOLD: TFloatField
+      FieldName = 'Q_SOLD'
+    end
+    object CDS_TruckSaleDataS_SOLD: TFloatField
+      FieldName = 'S_SOLD'
     end
   end
   object DS_TruckSaleData: TOraDataSource

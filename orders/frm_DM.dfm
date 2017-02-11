@@ -8,7 +8,7 @@ object DM: TDM
     Options.Direct = True
     Username = 'creator'
     Password = '123456'
-    Server = 'ROZNICA:1521:orcl'
+    Server = 'KLEPOV:1521:STARREG'
     AutoCommit = False
     LoginPrompt = False
     AfterConnect = Main_sessionAfterConnect
@@ -1100,14 +1100,15 @@ object DM: TDM
       'O.INFO, d.DIST_IND_ID,'
       
         '(select count(id_orders_clients) from orders_clients where activ' +
-        'e = 1 and id_orders = O.ID_ORDERS and n_type < 2) as numm '
+        'e = 1 and id_orders = O.ID_ORDERS and n_type in (:t1, :t2, :t3) ' +
+        ') as numm '
       ',('
       '  select sum(nvl(ol.correction,ol.quantity)*p.price) '
       '  from orders_clients oc, orders_list ol, price_list p '
       
         '  where oc.active = 1 and oc.id_orders = O.ID_ORDERS and ol.id_o' +
         'rders_clients = oc.id_orders_clients and ol.active = 1 and ol.n_' +
-        'id = p.n_id and oc.n_type < 2'
+        'id = p.n_id and oc.n_type in (:t1, :t2, :t3)'
       ') as sum_price'
       ', case when const_office = 1 then ('
       
@@ -1117,7 +1118,7 @@ object DM: TDM
         '  where oc.active = 1 and oc.id_orders = O.ID_ORDERS and ol.id_o' +
         'rders_clients = oc.id_orders_clients and ol.active = 1 and ol.n_' +
         'id = n.n_id and n.S_ID <> o.s_id and n.notuse = 0 and oc.n_type ' +
-        '< 2'
+        'in (:t1, :t2, :t3)'
       ') else 0 end have_notvalid_flowers'
       ', to_number(nvl(s.outer_id, O.ID_ORDERS)) as order_seq'
       ', o.s_id, u.S_NAME_RU'
@@ -1151,37 +1152,26 @@ object DM: TDM
       'o.old_price,'
       
         '(select count(id_orders_clients) from orders_clients where activ' +
-        'e = 1 and id_orders = O.ID_ORDERS and n_type < 2) as numm '
+        'e = 1 and id_orders = O.ID_ORDERS and n_type in (:t1, :t2, :t3) ' +
+        ') as numm '
       ',('
       '  select sum(nvl(ol.correction,ol.quantity)*p.price) '
       '  from orders_clients oc, orders_list ol, price_list p '
       
         '  where oc.active = 1 and oc.id_orders = O.ID_ORDERS and ol.id_o' +
         'rders_clients = oc.id_orders_clients and ol.active = 1 and ol.n_' +
-        'id = p.n_id and oc.n_type < 2'
+        'id = p.n_id and oc.n_type in (:t1, :t2, :t3)'
       ') as sum_price'
       ', ('
       '  select count(1) as nn from orders_clients oc, orders_list ol'
       
         '  where oc.active = 1 and oc.id_orders = O.ID_ORDERS and ol.id_o' +
         'rders_clients = oc.id_orders_clients and ol.active = 1 and oc.n_' +
-        'type < 2'
+        'type in (:t1, :t2, :t3)'
       
         '  and exists (select 1 from nomenclature n where n.notuse = 0 an' +
         'd n.S_ID <> o.s_id and ol.n_id = n.n_id)'
       ') have_notvalid_flowers'
-      '/*'
-      ', case when const_office = 1 then ('
-      '  select count(1) as nn from orders_clients oc, orders_list ol'
-      
-        '  where oc.active = 1 and oc.id_orders = O.ID_ORDERS and ol.id_o' +
-        'rders_clients = oc.id_orders_clients and ol.active = 1 and oc.n_' +
-        'type < 2'
-      
-        '  and exists (select 1 from nomenclature n where n.notuse = 0 an' +
-        'd n.S_ID <> o.s_id and ol.n_id = n.n_id)'
-      ') else 0 end have_notvalid_flowers'
-      '*/'
       ', to_number(nvl(s.outer_id, O.ID_ORDERS)) as order_seq'
       ', o.s_id, u.S_NAME_RU'
       'FROM ORDERS O'
@@ -1204,6 +1194,21 @@ object DM: TDM
     Left = 48
     Top = 232
     ParamData = <
+      item
+        DataType = ftInteger
+        Name = 't1'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 't2'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 't3'
+        ParamType = ptInput
+      end
       item
         DataType = ftUnknown
         Name = 'P1'
@@ -1384,7 +1389,7 @@ object DM: TDM
       'and oo.id_user = D.ID_CLIENTS '
       'and (UPPER(d.login) = :id_user or :id_user is NULL)'
       'and o.id_orders = oo.id_orders'
-      'and oo.n_type <> 2'
+      'and oo.n_type in (:t1, :t2, :t3)'
       'ORDER BY C.NICK, oo.alpha nulls first'
       ') a')
     MasterSource = Q_ORDERS_DS
@@ -1405,6 +1410,21 @@ object DM: TDM
       item
         DataType = ftUnknown
         Name = 'id_user'
+      end
+      item
+        DataType = ftInteger
+        Name = 't1'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 't2'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 't3'
+        ParamType = ptInput
       end>
     object Q_ORDERS_ORDERSID_ORDERS_CLIENTS: TFloatField
       FieldName = 'ID_ORDERS_CLIENTS'
@@ -1598,31 +1618,35 @@ object DM: TDM
         DataType = ftDateTime
         Name = 'IN_INVOICE_1_'
         ParamType = ptOutput
+        Value = Null
       end
       item
         DataType = ftDateTime
         Name = 'IN_INVOICE_2_'
         ParamType = ptOutput
+        Value = Null
       end
       item
         DataType = ftDateTime
         Name = 'IN_STOCK_1_'
         ParamType = ptOutput
+        Value = Null
       end
       item
         DataType = ftDateTime
         Name = 'IN_STOCK_2_'
         ParamType = ptOutput
+        Value = Null
       end
       item
         DataType = ftCursor
         Name = 'CURSOR_'
         ParamType = ptOutput
-        Value = 'Object'
+        Value = ''
       end>
     object Q_ORDERS_LISTCOMPILED_NAME_OTDEL: TStringField
       FieldName = 'COMPILED_NAME_OTDEL'
-      Size = 350
+      Size = 500
     end
     object Q_ORDERS_LISTH_NAME_F: TStringField
       FieldName = 'H_NAME_F'
@@ -1723,7 +1747,7 @@ object DM: TDM
     end
     object Q_ORDERS_LISTH_CODE: TStringField
       FieldName = 'H_CODE'
-      Size = 50
+      Size = 80
     end
     object Q_ORDERS_LISTHOL_TYPE: TStringField
       FieldName = 'HOL_TYPE'
@@ -1810,7 +1834,7 @@ object DM: TDM
     end
     object Q_ORDERS_LISTPHOTO: TStringField
       FieldName = 'PHOTO'
-      Size = 30
+      Size = 80
     end
     object Q_ORDERS_LISTTNVED: TStringField
       FieldName = 'TNVED'
@@ -1818,6 +1842,7 @@ object DM: TDM
     end
     object Q_ORDERS_LISTNAME_CODE: TStringField
       FieldName = 'NAME_CODE'
+      Size = 30
     end
     object Q_ORDERS_LISTHOL_COLOR: TStringField
       FieldName = 'HOL_COLOR'
@@ -1852,6 +1877,12 @@ object DM: TDM
     end
     object Q_ORDERS_LISTCLIENT_DISTRIBUTION_DONE: TFloatField
       FieldName = 'CLIENT_DISTRIBUTION_DONE'
+    end
+    object Q_ORDERS_LISTW_QUANTITY: TFloatField
+      FieldName = 'W_QUANTITY'
+    end
+    object Q_ORDERS_LISTLAST_W_QUANTITY: TFloatField
+      FieldName = 'LAST_W_QUANTITY'
     end
   end
   object Q_ORDERS_LIST_DS: TOraDataSource
@@ -2926,7 +2957,7 @@ object DM: TDM
     Left = 744
     Top = 192
     Bitmap = {
-      494C010127002C00E40120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010127002C00E80120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004001000001002000000000000080
       0200000000000000000000000000000000000000000000000000000000000000
       000000000000000000000101011A0B0B0B743B3D3DB4777777D5838383DA5152
