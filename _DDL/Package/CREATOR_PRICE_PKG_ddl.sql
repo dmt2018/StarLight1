@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.PRICE_PKG
--- Generated 11.02.2017 18:47:47 from CREATOR@STAR_REG
+-- Generated 13.02.2017 23:55:05 from CREATOR@STAR_REG
 
 CREATE OR REPLACE 
 PACKAGE price_pkg
@@ -2605,9 +2605,12 @@ begin
 
         delete from ppl_client_price where PPLI_ID = v_ppli_id and ID_CLIENTS = sel_pp_row.id_clients and N_ID = sel_pp_row.n_id;
 
-        select l.invoice_data_id into tmp_invoice_data_id from prepare_price_list l where l.ppli_id = v_ppli_id and n_id = sel_pp_row.n_id and rownum = 1;
+        select count(*) into CNT from prepare_price_list l where l.ppli_id = v_ppli_id and n_id = sel_pp_row.n_id;
+        if CNT > 0 then
+          select l.invoice_data_id into tmp_invoice_data_id from prepare_price_list l where l.ppli_id = v_ppli_id and n_id = sel_pp_row.n_id and rownum = 1;
+          insert into ppl_client_price values(get_office_unique('seq_PPLCP_ID'), sel_pp_row.n_id, sel_pp_row.id_clients, sel_pp_row.quantity, sel_pp_row.price, v_ppli_id, null, tmp_invoice_data_id);
+        end if;
 
-        insert into ppl_client_price values(get_office_unique('seq_PPLCP_ID'), sel_pp_row.n_id, sel_pp_row.id_clients, sel_pp_row.quantity, sel_pp_row.price, v_ppli_id, null, tmp_invoice_data_id);
     end loop;
     close sel_pp_cur;
 

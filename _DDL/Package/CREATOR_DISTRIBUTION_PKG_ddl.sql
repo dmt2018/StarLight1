@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.DISTRIBUTION_PKG
--- Generated 11.02.2017 21:08:21 from CREATOR@STAR_REG
+-- Generated 13.02.2017 23:55:20 from CREATOR@STAR_REG
 
 CREATE OR REPLACE 
 PACKAGE distribution_pkg
@@ -1555,7 +1555,7 @@ BEGIN
          and c.active = 1
          and c.id_orders_list = e.id_orders_list(+)
          and e.dist_ind_id(+) = dist_ind_id_
-         and e.o_n_id = w.n_id(+) and e.DIST_IND_ID = w.dist_ind_id(+)
+         and e.o_n_id = w.n_id(+) and e.DIST_IND_ID = w.dist_ind_id(+) and e.ID_ORDERS_LIST = w.ID_ORDERS_LIST(+)
       order by a.priority, decode(a.pack_,1,1,2), decode(a.ID_CLIENTS,const_dir,98,const_main,99,1), NICK;
 
 EXCEPTION
@@ -2496,7 +2496,7 @@ BEGIN
       left outer join nomenclature_mat_view ol_nom on ol_nom.n_id = ol.n_id
       left outer join orders_clients oc on oc.id_orders_clients = ol.id_orders_clients and oc.ID_CLIENTS not in (const_dir,const_main)
       left outer join clients cl on cl.id_clients = oc.id_clients
-      left outer join distributions_webshop w on w.n_id = a.n_id and w.DIST_IND_ID = a.dist_ind_id
+      left outer join distributions_webshop w on w.n_id = a.n_id and w.DIST_IND_ID = a.dist_ind_id and w.ID_ORDERS_LIST = ol.ID_ORDERS_LIST
     where a.dist_ind_id = p_dist_ind_id  and a.n_id = p_n_id
     order by case when b.invoice_data_id is not null then 1 else oc.pack_ end, case when b.invoice_data_id is null then trim(cl.nick || ' ' || oc.alpha) else inv.to_client end
   ;
