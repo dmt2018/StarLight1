@@ -1519,6 +1519,7 @@ procedure Torders_list.aMakeTxtFileExecute(Sender: TObject);
 var str, res: string;
 begin
   Post_DataExecute(Sender);
+  DM.Q_ORDERS_LIST.Refresh;
   str := DM.CheckExportFolder(Handle, DM.Q_ORDERSID_ORDERS.AsInteger);
 
   if DM.Q_ORDERS_ORDERSPACK_.AsInteger = 1 then
