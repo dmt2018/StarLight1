@@ -231,18 +231,22 @@ begin
   begin
      str_nick := '';
      str_fio := str_fio + Key;
-     DM.Q_CLIENTS.Locate('FIO', str_fio, [loCaseInsensitive, loPartialKey]);
+     //DM.Q_CLIENTS.Locate('FIO', str_fio, [loCaseInsensitive, loPartialKey]);
+     DBGridEh1.FieldColumns['FIO'].STFilter.ExpressionStr := '%' + str_fio + '%';
   end;
 
   if (Key in ['a'..'z']) or (Key in ['A'..'Z']) or (Key = ' ') then
   begin
      str_fio := '';
      str_nick := str_nick + Key;
-     DM.Q_CLIENTS.Locate('NICK', str_nick, [loCaseInsensitive, loPartialKey]);
+     //DM.Q_CLIENTS.Locate('NICK', str_nick, [loCaseInsensitive, loPartialKey]);
+     DBGridEh1.FieldColumns['NICK'].STFilter.ExpressionStr := '%' + str_nick + '%';
   end;
 
-  label6.Caption := str_nick;
-  label7.Caption := str_fio;
+    label6.Caption := str_nick;
+    label7.Caption := str_fio;
+    DBGridEh1.ApplyFilter;
+    DBGridEh1.ClearFilter;
 end;
 
 procedure Torders_new_client.f5Execute(Sender: TObject);

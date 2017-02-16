@@ -1001,6 +1001,7 @@ begin
     DBGridEh1.ApplyFilter;
     Panel_fill.Visible := false;
     DBEdit_fill.Text := '';
+    DBGridEh1.ClearFilter;
 
   if DBCheckBoxEh2.Checked = true then
   begin
