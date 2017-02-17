@@ -276,7 +276,7 @@ VAR
   INVOICE_DATA_ID : Integer;
   N_ID,N_ID_NEW, UNITS_NEW: Integer;
   PRICE_PER_UNIT_NEW, TOTAL_SUM_NEW : Real;
-  msg : String;
+  msg, err_msg : String;
   res,ResText,NewInvoiceDataId : Variant;
   cds: TOraQuery;
 Begin
@@ -309,6 +309,28 @@ Begin
         ShowMessage(msg);
         Continue;
       End;
+
+
+      err_msg := '';
+      with DM.SelQ do
+        Begin
+          Close;
+          SQL.Clear;
+          SQL.Add( 'select count(*) as cnt from prepare_distribution where INVOICE_DATA_ID = '+IntToStr(INVOICE_DATA_ID) );
+          SQL.Add( 'union all' );
+          SQL.Add( 'select count(*) as cnt from prepare_distribution a, distributions_webshop b where a.INVOICE_DATA_ID = '+IntToStr(INVOICE_DATA_ID)+' and a.dist_ind_id = b.dist_ind_id and a.n_id = b.n_id' );
+          Open;
+          if (FieldByName('cnt').AsInteger > 0) then
+          begin
+            next;
+            if (FieldByName('cnt').AsInteger > 0) then
+              err_msg := 'Позиция уже участвует в разносе!' + #10#13 + 'Позиция участвует в продажах с колес!' + #10#13 + 'Продолжить?'
+            else
+              err_msg := 'Позиция уже участвует в разносе!' + #10#13 + 'Продолжить?';
+
+            if MessageDlg(err_msg,  mtConfirmation, [mbOk, mbNo], 0) = mrNo then Break;
+          end;
+        End;
 
 
       with DM.SelQ do

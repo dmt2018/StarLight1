@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.INVOICE_DATA_PACKAGE
--- Generated 04.12.2016 0:45:21 from CREATOR@STAR_REG
+-- Generated 18.02.2017 2:48:02 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE invoice_data_package

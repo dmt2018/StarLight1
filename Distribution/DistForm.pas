@@ -1767,23 +1767,25 @@ end;
 
 
 procedure TDistFormF.mnCheckInvoice(Sender: TObject);
-var res: integer;
+var res, res2: integer;
 begin
   if (MessageDlg(PChar('Проверяем инвойс №'+(IntToStr((Sender as TdxBarButton).Tag))+'?'), mtConfirmation, [mbOk, mbNo], 0, mbOk) <> mrOk) then exit;
 
-  res := 0;
+  res  := 0;
+  res2 := 0;
   try
     with DM.SelQ do
     Begin
       Close;
       SQL.Clear;
-      SQL.Add('begin DISTRIBUTION_PKG.check_missed_distributions(:IN_DIST_IND_ID, :in_inv_id, :res); end;');
+      SQL.Add('begin DISTRIBUTION_PKG.check_missed_distributions(:IN_DIST_IND_ID, :in_inv_id, :res, :res2); end;');
       ParamByName('IN_DIST_IND_ID').AsInteger := CUR_DIST_IND_ID;
       ParamByName('in_inv_id').AsInteger      := (Sender as TdxBarButton).Tag;
       ParamByName('res').AsInteger            := res;
+      ParamByName('res2').AsInteger           := res2;
       Execute;
     End;
-    MessageBox(Handle, PChar('Всего добавлено позиций: '+DM.SelQ.ParamByName('res').AsString), 'Результат', MB_ICONINFORMATION);
+    MessageBox(Handle, PChar('Всего добавлено позиций: '+DM.SelQ.ParamByName('res').AsString+#10#13+'Всего обновлено позиций: '+DM.SelQ.ParamByName('res2').AsString), 'Результат', MB_ICONINFORMATION);
     tlb_refreshClick(nil);
   except on E: Exception do
        MessageBox(Handle, PChar(E.Message), 'Внимание', MB_ICONERROR);

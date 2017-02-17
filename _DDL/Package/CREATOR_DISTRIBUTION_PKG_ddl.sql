@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.DISTRIBUTION_PKG
--- Generated 13.02.2017 23:55:20 from CREATOR@STAR_REG
+-- Generated 18.02.2017 2:47:46 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE distribution_pkg
@@ -413,7 +413,8 @@ procedure check_missed_distributions
 (
   IN_DIST_IND_ID    IN NUMBER,
   in_inv_id         in number,
-  res               in out number
+  res               in out number,
+  res2              in out number
 );
 
 
@@ -2545,10 +2546,36 @@ procedure check_missed_distributions
 (
   IN_DIST_IND_ID    IN NUMBER,
   in_inv_id         in number,
-  res               in out number
+  res               in out number,
+  res2              in out number
 )
 is
+  CURSOR data_temp IS
+    SELECT d.invoice_data_id, d.n_id as old_n_id, (d.total_quantity - a.units) as detlta, a.n_id as new_n_id
+      FROM invoice_data a, prepare_distribution d
+      where a.inv_id = in_inv_id
+       and d.dist_ind_id = IN_DIST_IND_ID and d.INVOICE_DATA_ID = a.INVOICE_DATA_ID and d.n_id <> a.n_id
+  ;
 begin
+
+/* ѕроверим, не было ли изменени€ номенклатуры в инвойсе одну на другую, дл€ того же INVOICE_DATA_ID */
+  SELECT count(*) into res2
+    FROM invoice_data a, prepare_distribution d
+    where a.inv_id = in_inv_id
+     and d.dist_ind_id = IN_DIST_IND_ID and d.INVOICE_DATA_ID = a.INVOICE_DATA_ID and d.n_id <> a.n_id
+  ;
+
+  if res2 > 0 then
+    FOR data_temp_cursor IN data_temp LOOP
+      update prepare_distribution set N_ID = data_temp_cursor.new_n_id,
+        TOTAL_QUANTITY = case when TOTAL_QUANTITY - data_temp_cursor.detlta < 0 then 0 else TOTAL_QUANTITY - data_temp_cursor.detlta end,
+        LEFT_QUANTITY = case when LEFT_QUANTITY - data_temp_cursor.detlta < 0 then 0 else LEFT_QUANTITY - data_temp_cursor.detlta end
+      where dist_ind_id = IN_DIST_IND_ID and INVOICE_DATA_ID = data_temp_cursor.INVOICE_DATA_ID
+      ;
+    end loop;
+  end if;
+/* -------------------------------------------------------------------------- */
+
   SELECT count(*) into res
     FROM invoice_data a
     where inv_id = in_inv_id
