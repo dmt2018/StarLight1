@@ -2935,6 +2935,13 @@ begin
     dm.Q_SQL.sql.Add(sql_str);
     dm.Q_SQL.Execute;
 
+    sql_str := 'delete from creator.SYNC_CLIENTS_GROUPS';
+    ins_to_file(dm.Q_SQL, F_CSV, sql_str, 0);
+    sql_str := 'delete from creator.SYNC_CLIENTS';
+    ins_to_file(dm.Q_SQL, F_CSV, sql_str, 0);
+    sql_str := 'commit';
+    ins_to_file(dm.Q_SQL, F_CSV, sql_str, 0);
+
     sql_str := 'begin sync_pkg.make_clients_groups(:p_cursor); end;';
     ins_to_file(dm.Q_SQL, F_CSV, sql_str, 0);
 

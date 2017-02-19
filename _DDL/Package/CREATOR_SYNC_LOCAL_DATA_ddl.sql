@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.SYNC_LOCAL_DATA
--- Generated 25.09.2016 1:18:04 from CREATOR@STAR2
+-- Generated 19.02.2017 3:31:19 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE sync_local_data
@@ -354,6 +354,7 @@ begin
 
 EXCEPTION WHEN OTHERS THEN
       LOG_ERR(SQLERRM||chr(10)||dbms_utility.format_error_backtrace, SQLCODE, 'sync_local_data.SYNC_CLIENTS_SAVE', '');
+      RAISE_APPLICATION_ERROR (-20701, 'Ошибка импорта клиентов. ' || SQLERRM);
 
 end SYNC_CLIENTS_SAVE;
 

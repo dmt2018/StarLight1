@@ -1616,7 +1616,7 @@ object main: Tmain
             BevelInner = bvNone
             BevelKind = bkFlat
             Style = csDropDownList
-            ItemHeight = 15
+            ItemHeight = 0
             TabOrder = 5
           end
           object ComboBox4: TComboBox
@@ -1628,7 +1628,7 @@ object main: Tmain
             BevelInner = bvNone
             BevelKind = bkFlat
             Style = csDropDownList
-            ItemHeight = 15
+            ItemHeight = 0
             TabOrder = 6
             Items.Strings = (
               ''
@@ -1644,7 +1644,7 @@ object main: Tmain
             BevelInner = bvNone
             BevelKind = bkFlat
             Style = csDropDownList
-            ItemHeight = 15
+            ItemHeight = 0
             TabOrder = 7
             Items.Strings = (
               ''
@@ -1660,7 +1660,7 @@ object main: Tmain
             BevelInner = bvNone
             BevelKind = bkFlat
             Style = csDropDownList
-            ItemHeight = 15
+            ItemHeight = 0
             TabOrder = 4
           end
           object ComboBox8: TComboBox
@@ -1672,7 +1672,7 @@ object main: Tmain
             BevelInner = bvNone
             BevelKind = bkFlat
             Style = csDropDownList
-            ItemHeight = 15
+            ItemHeight = 0
             TabOrder = 3
             Items.Strings = (
               ''
@@ -1688,7 +1688,7 @@ object main: Tmain
             BevelInner = bvNone
             BevelKind = bkFlat
             Style = csDropDownList
-            ItemHeight = 15
+            ItemHeight = 0
             TabOrder = 2
             Visible = False
             Items.Strings = (
@@ -2293,7 +2293,7 @@ object main: Tmain
           Font.Name = 'Tahoma'
           Font.Pitch = fpFixed
           Font.Style = []
-          ItemHeight = 13
+          ItemHeight = 0
           ParentCtl3D = False
           ParentFont = False
           TabOrder = 1
@@ -2402,7 +2402,7 @@ object main: Tmain
           Font.Name = 'Tahoma'
           Font.Pitch = fpFixed
           Font.Style = []
-          ItemHeight = 13
+          ItemHeight = 0
           ParentCtl3D = False
           ParentFont = False
           TabOrder = 5
@@ -3796,7 +3796,7 @@ object main: Tmain
     Left = 676
     Top = 65533
     Bitmap = {
-      494C010104000900240110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101040009002C0110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -5472,7 +5472,7 @@ object main: Tmain
     Left = 240
     Top = 328
     Bitmap = {
-      494C010127002C00140120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010127002C001C0120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004001000001002000000000000080
       0200000000000000000000000000000000000000000000000000000000000000
       000000000000000000000101011A0B0B0B743B3D3DB4777777D5838383DA5152
