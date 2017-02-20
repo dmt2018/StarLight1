@@ -26,7 +26,6 @@ object frmSetings: TfrmSetings
     Height = 529
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 694
     object pc_settings: TcxPageControl
       Left = 1
       Top = 1
@@ -35,14 +34,12 @@ object frmSetings: TfrmSetings
       ActivePage = tsh_customs_coef
       Align = alClient
       TabOrder = 0
-      ExplicitWidth = 692
       ClientRectBottom = 527
       ClientRectRight = 775
       ClientRectTop = 25
       object tsh_personal: TcxTabSheet
         Caption = ' '#1055#1077#1088#1089#1086#1085#1072#1083#1100#1085#1099#1077' '#1085#1072#1089#1090#1088#1086#1081#1082#1080' '
         ImageIndex = 0
-        ExplicitWidth = 692
         object Label3: TLabel
           Left = 11
           Top = 17
@@ -166,7 +163,6 @@ object frmSetings: TfrmSetings
         Tag = 1
         Caption = ' '#1057#1077#1090#1082#1072' '#1074#1077#1089#1086#1074' '
         ImageIndex = 2
-        ExplicitWidth = 692
         object gr_weight: TcxGrid
           Left = 0
           Top = 205
@@ -176,7 +172,6 @@ object frmSetings: TfrmSetings
           TabOrder = 0
           LookAndFeel.Kind = lfOffice11
           LookAndFeel.NativeStyle = False
-          ExplicitWidth = 692
           object gr_weight_v: TcxGridDBTableView
             NavigatorButtons.ConfirmDelete = False
             FilterBox.Position = fpTop
@@ -968,7 +963,6 @@ object frmSetings: TfrmSetings
           TabOrder = 1
           LookAndFeel.Kind = lfOffice11
           LookAndFeel.NativeStyle = False
-          ExplicitWidth = 692
           object gr_w_formula_v: TcxGridDBTableView
             NavigatorButtons.ConfirmDelete = False
             FilterBox.Position = fpTop
@@ -1218,7 +1212,6 @@ object frmSetings: TfrmSetings
         Tag = 2
         Caption = ' '#1060#1048#1058#1054' '#1082#1072#1090#1077#1075#1086#1088#1080#1080' '
         ImageIndex = 1
-        ExplicitWidth = 692
         object gr_fito: TcxGrid
           Left = 0
           Top = 111
@@ -1228,7 +1221,6 @@ object frmSetings: TfrmSetings
           TabOrder = 1
           LookAndFeel.Kind = lfOffice11
           LookAndFeel.NativeStyle = False
-          ExplicitWidth = 692
           object gr_fito_v: TcxGridDBTableView
             NavigatorButtons.ConfirmDelete = False
             FilterBox.Position = fpTop
@@ -1572,7 +1564,6 @@ object frmSetings: TfrmSetings
         Tag = 3
         Caption = ' '#1053#1072#1079#1074#1072#1085#1080#1103' '
         ImageIndex = 3
-        ExplicitWidth = 692
         object pnl_name_top: TPanel
           Left = 0
           Top = 0
@@ -1823,7 +1814,6 @@ object frmSetings: TfrmSetings
           TabOrder = 1
           LookAndFeel.Kind = lfOffice11
           LookAndFeel.NativeStyle = False
-          ExplicitWidth = 692
           object gr_names_v: TcxGridDBTableView
             NavigatorButtons.ConfirmDelete = False
             FilterBox.Position = fpTop
@@ -1957,7 +1947,6 @@ object frmSetings: TfrmSetings
       object tsh_packing: TcxTabSheet
         Caption = ' '#1058#1080#1087#1099' '#1091#1087#1072#1082#1086#1074#1082#1080' '
         ImageIndex = 4
-        ExplicitWidth = 692
         object Panel5: TPanel
           Left = 0
           Top = 0
@@ -2192,7 +2181,6 @@ object frmSetings: TfrmSetings
           TabOrder = 1
           LookAndFeel.Kind = lfOffice11
           LookAndFeel.NativeStyle = False
-          ExplicitWidth = 692
           object grPackingV: TcxGridDBTableView
             NavigatorButtons.ConfirmDelete = False
             FilterBox.Position = fpTop
@@ -2307,7 +2295,6 @@ object frmSetings: TfrmSetings
       object tsh_customs_coef: TcxTabSheet
         Caption = ' '#1058#1072#1084'. '#1082#1086#1101#1092#1092#1080#1094#1080#1077#1085#1090#1099' '
         ImageIndex = 5
-        ExplicitWidth = 692
         object Panel7: TPanel
           Left = 0
           Top = 0
@@ -2317,7 +2304,6 @@ object frmSetings: TfrmSetings
           BevelOuter = bvNone
           BorderWidth = 2
           TabOrder = 0
-          ExplicitWidth = 692
           object Label21: TLabel
             Left = 10
             Top = 27
@@ -2484,7 +2470,6 @@ object frmSetings: TfrmSetings
             Style.Font.Name = 'Tahoma'
             Style.Font.Style = [fsBold]
             Style.IsFontAssigned = True
-            ExplicitWidth = 688
           end
           object btnAddCustCoef: TcxButton
             Left = 417
@@ -2609,7 +2594,6 @@ object frmSetings: TfrmSetings
           TabOrder = 1
           LookAndFeel.Kind = lfOffice11
           LookAndFeel.NativeStyle = False
-          ExplicitWidth = 692
           object grCustCoef_v: TcxGridDBTableView
             PopupMenu = pm_cust_coef
             NavigatorButtons.ConfirmDelete = False
@@ -2755,7 +2739,6 @@ object frmSetings: TfrmSetings
     Color = clWhite
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 694
     DesignSize = (
       777
       41)
@@ -2811,7 +2794,6 @@ object frmSetings: TfrmSetings
         B7E82828A13463607B27C0BFBFFF625F5F270000000000000000000000000000
         00000000000000000000000000000000000027279E212F2FB7BE2E2EB5BF2727
         9F2300000000383636025D5A5A1E3D3B3B020000000000000000}
-      ExplicitLeft = 537
     end
     object btn_save: TBitBtn
       Left = 420
@@ -2865,7 +2847,6 @@ object frmSetings: TfrmSetings
         A1FFE0BFBAFFFF958FFFDE9083FFFDCDCDFFC38A83FF964B4082A95E41BDB26D
         53DFB16C53DFB46950DFBD725BDFB5715ADFB4705ADFB4705ADFB46F5ADFB36E
         59DFB46E59DFBA705BDFAE644FDFA45E50DE994E406D00000000}
-      ExplicitLeft = 337
     end
   end
   object Clients_table: TTable

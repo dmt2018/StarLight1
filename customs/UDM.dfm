@@ -149,10 +149,11 @@ object DM: TDM
         '           , decode(upper(a.hol_country), '#39#39', '#39#1053#1080#1076#1077#1088#1083#1072#1085#1076#1099#39', e.co' +
         'untry) as county_ru'
       
-        '           , case when (:split_rose=1 and :id_dep= 62 and lower(' +
-        'a.hol_sub_type) = '#39'roses'#39') then a.hol_sub_type || (case when ins' +
-        'tr(a.description,'#39' ECUA '#39') > 0 then '#39' ECUADOR'#39' else '#39' DUTCH'#39' end' +
-        ' ) else a.hol_sub_type end hol_sub_type'
+        '           --, case when (:split_rose=1 and :id_dep= 62 and lowe' +
+        'r(a.hol_sub_type) = '#39'roses'#39') then a.hol_sub_type || (case when i' +
+        'nstr(a.description,'#39' ECUA '#39') > 0 then '#39' ECUADOR'#39' else '#39' DUTCH'#39' e' +
+        'nd ) else a.hol_sub_type end hol_sub_type'
+      '           , hol_sub_type'
       
         '           , a.recognised, a.date_in, a.trolley, a.h_code, a.UPA' +
         'CK'
@@ -172,36 +173,154 @@ object DM: TDM
         'a.hol_sub_type) = '#39'roses'#39') then c.name_cat_ru || (case when inst' +
         'r(a.description,'#39' ECUA '#39') > 0 then '#39' '#1101#1082#1074#1072#1076#1086#1088#39' else '#39' '#1075#1086#1083#1083#1072#1085#1076#1080#1103#39' ' +
         'end ) else c.name_cat_ru end f_type'
-      '           , e.fito_id as FN_ID, e.fito_name as f_name_ru'
+      '           --, e.fito_id as FN_ID, e.fito_name as f_name_ru'
+      
+        '           , n.fito_id as FN_ID, nvl(n.fito_name, nom.F_NAME_RU)' +
+        ' as f_name_ru'
       
         '           , custom_pkg.show_weight_formula(c.id,a.description,a' +
         '.height,0) as type_dop'
       '           , :id_dep as id_dep'
       '           , a.new_price, a.new_price * a.units as new_sum'
-      '        FROM customs_inv_data_as_is a, countries e'
-      '            , fito_category b, customs_weight c'
+      '           , a.remark'
+      '        FROM customs_inv_data_as_is a'
       
-        '            , (select fito_id, F_NAME, fito_name, name_code from' +
-        ' FLOWER_FITO_ALL_NAMES where ID_DEP = :id_dep) e'
+        '              left outer join countries e on lower(e.country_eng' +
+        ') = lower(a.hol_country)'
+      
+        '              left outer join fito_category b on upper(b.name_en' +
+        'g) = upper(a.pd) and b.id_dep = :id_dep'
+      
+        '              left outer join customs_weight c on lower(c.name_c' +
+        'at) = lower(a.hol_sub_type) and c.id_dep = :id_dep'
+      
+        '              left outer join (select fito_id, F_NAME, fito_name' +
+        ', name_code from FLOWER_FITO_ALL_NAMES where ID_DEP = :id_dep) n' +
+        ' on upper(n.F_NAME) = upper(a.title) and upper(n.name_code) = up' +
+        'per(a.h_code)'
+      '              left outer join ('
+      
+        '                SELECT distinct fn.name_code, upper(fn.f_name) a' +
+        's f_name, n.f_name_ru, fn.remarks'
+      
+        '                FROM FLOWER_NAME_TRANSLATIONS fn, flower_names n' +
+        ', (select max(fn_id) as fn_id, remarks from FLOWER_NAME_TRANSLAT' +
+        'IONS group by name_code, remarks) fn2'
+      
+        '                where fn.id_departments = :id_dep and nvl(fn.rem' +
+        'arks,'#39#39') = nvl(fn2.remarks,'#39#39')'
+      
+        '                  and fn.fn_id = n.fn_id and fn.fn_id = fn2.fn_i' +
+        'd'
+      
+        '              ) nom on nom.f_name = upper(a.title) and nom.name_' +
+        'code = H_CODE and nvl(nom.remarks,'#39#39') = nvl(a.remark,'#39#39')'
+      ''
+      '--            , countries e'
+      '--            , fito_category b, customs_weight c'
+      
+        '--            , (select fito_id, F_NAME, fito_name, name_code fr' +
+        'om FLOWER_FITO_ALL_NAMES where ID_DEP = :id_dep) e'
       '        where a.INVOICE_DATA_AS_IS_ID = :INVOICE_DATA_AS_IS_ID'
-      '            and lower(a.hol_country) = lower(e.country_eng(+))'
+      '--            and lower(a.hol_country) = lower(e.country_eng(+))'
       
-        '            and upper(a.pd) = upper(b.name_eng(+)) and b.id_dep(' +
-        '+) = :id_dep'
+        '--            and upper(a.pd) = upper(b.name_eng(+)) and b.id_de' +
+        'p(+) = :id_dep'
       
-        '            and lower(a.hol_sub_type) = lower(c.name_cat(+)) and' +
-        ' c.id_dep(+) = :id_dep'
-      '            and ('
+        '--            and lower(a.hol_sub_type) = lower(c.name_cat(+)) a' +
+        'nd c.id_dep(+) = :id_dep'
+      '--            and ('
       
-        '              upper(a.title) = upper(e.F_NAME(+)) and upper(a.h_' +
-        'code) = upper(e.name_code(+))'
-      '            )')
+        '--              upper(a.title) = upper(e.F_NAME(+)) and upper(a.' +
+        'h_code) = upper(e.name_code(+))'
+      '--            )'
+      ''
+      '/*'
+      
+        'SELECT a.inv_id, a.invoice_data_as_is_id, a.order_number, a.heig' +
+        'ht, a.diametr, a.trucks, a.title, a.packing_amount'
+      
+        '               , a.amount_in_the_pack, a.units, a.packing_marks,' +
+        ' a.description, a.hol_country, a.price, a.summ'
+      
+        '               , decode(upper(a.hol_country), '#39#39', '#39#1053#1080#1076#1077#1088#1083#1072#1085#1076#1099#39', ' +
+        'e.country) as county_ru'
+      
+        '               --, case when (1=1 and 62 = 62 and lower(a.hol_su' +
+        'b_type) = '#39'roses'#39') then a.hol_sub_type || (case when instr(a.des' +
+        'cription,'#39' ECUA '#39') > 0 then '#39' ECUADOR'#39' else '#39' DUTCH'#39' end ) else ' +
+        'a.hol_sub_type end hol_sub_type'
+      '               , hol_sub_type'
+      
+        '               , a.recognised, a.date_in, a.trolley, a.h_code, a' +
+        '.UPACK'
+      '               , a.src_trolley, a.SRC_NAME'
+      
+        '               , dense_rank() over(PARTITION by trucks order by ' +
+        'trolley, src_trolley) as trolley_calc'
+      '               , a.pd, b.name_ru as pd_ru, b.id'
+      '               , c.id as ft_id, c.STEM_WEIGHT, c.CUST_REGN'
+      
+        '               , case when (split_rose_=1 and v_id_dep = 62 and ' +
+        'lower(a.hol_sub_type) = '#39'roses'#39') then c.orderby + (case when ins' +
+        'tr(a.description,'#39' ECUA '#39') > 0 then 0.2 else 0.1 end ) else c.or' +
+        'derby end orderby'
+      
+        '               , case when (split_rose_=1 and v_id_dep = 62 and ' +
+        'lower(a.hol_sub_type) = '#39'roses'#39') then c.name_cat_ru || (case whe' +
+        'n instr(a.description,'#39' ECUA '#39') > 0 then '#39' '#1101#1082#1074#1072#1076#1086#1088#39' else '#39' '#1075#1086#1083#1083#1072 +
+        #1085#1076#1080#1103#39' end ) else c.name_cat_ru end f_type'
+      
+        '               , n.fito_id as FN_ID, nvl(n.fito_name, nom.F_NAME' +
+        '_RU) as f_name_ru'
+      
+        '               , show_weight_formula(c.id,a.description,a.height' +
+        ',0) as type_dop'
+      '               , v_id_dep as id_dep'
+      '               , split_rose_ as split_rose'
+      '               , a.remark'
+      '               , a.new_price, a.new_price * a.units as new_sum'
+      '               , 0 as cust_value, 0 as cust_norm'
+      '            FROM CUSTOMS_INV_DATA_AS_IS a'
+      
+        '              left outer join countries e on lower(e.country_eng' +
+        ') = lower(a.hol_country)'
+      
+        '              left outer join fito_category b on upper(b.name_en' +
+        'g) = upper(a.pd) and b.id_dep = v_id_dep'
+      
+        '              left outer join customs_weight c on lower(c.name_c' +
+        'at) = lower(a.hol_sub_type) and c.id_dep = v_id_dep'
+      '              left outer join ('
+      
+        '                SELECT distinct fn.name_code, upper(fn.f_name) a' +
+        's f_name, n.f_name_ru, fn.remarks'
+      
+        '                FROM FLOWER_NAME_TRANSLATIONS fn, flower_names n' +
+        ', (select max(fn_id) as fn_id, remarks from FLOWER_NAME_TRANSLAT' +
+        'IONS group by name_code, remarks) fn2'
+      
+        '                where fn.id_departments = v_id_dep and nvl(fn.re' +
+        'marks,'#39#39') = nvl(fn2.remarks,'#39#39')'
+      
+        '                  and fn.fn_id = n.fn_id and fn.fn_id = fn2.fn_i' +
+        'd'
+      
+        '                ) nom on nom.f_name = upper(a.title) and nom.nam' +
+        'e_code = H_CODE and nvl(nom.remarks,'#39#39') = nvl(a.remark,'#39#39')'
+      
+        '              left outer join (select fito_id, F_NAME, fito_name' +
+        ', name_code from FLOWER_FITO_ALL_NAMES where ID_DEP = v_id_dep) ' +
+        'n on upper(n.F_NAME) = upper(a.title) and upper(n.name_code) = u' +
+        'pper(a.h_code)'
+      '            where a.INV_ID = INV_ID_'
+      '*/')
     Session = STAR_DB
     SQL.Strings = (
       'begin'
       
-        '  custom_pkg.get_custom_register_asis(:INV_ID_, :SPLIT_ROSE_, :C' +
-        'URSOR_);'
+        '  custom_pkg.get_custom_register_asis(:INV_ID_, :SPLIT_ROSE_, :m' +
+        'ake_price_, :CURSOR_);'
       'end;')
     MasterSource = InvoiceRegister_DS
     MasterFields = 'INV_ID_'
@@ -222,6 +341,10 @@ object DM: TDM
         ParamType = ptInput
       end
       item
+        DataType = ftUnknown
+        Name = 'make_price_'
+      end
+      item
         DataType = ftCursor
         Name = 'CURSOR_'
         ParamType = ptOutput
@@ -229,19 +352,17 @@ object DM: TDM
       end>
     object InvoiceAsIsINV_ID: TFloatField
       FieldName = 'INV_ID'
-      Required = True
     end
     object InvoiceAsIsINVOICE_DATA_AS_IS_ID: TFloatField
       FieldName = 'INVOICE_DATA_AS_IS_ID'
-      Required = True
     end
     object InvoiceAsIsORDER_NUMBER: TFloatField
       FieldName = 'ORDER_NUMBER'
     end
-    object InvoiceAsIsHEIGHT: TIntegerField
+    object InvoiceAsIsHEIGHT: TFloatField
       FieldName = 'HEIGHT'
     end
-    object InvoiceAsIsDIAMETR: TIntegerField
+    object InvoiceAsIsDIAMETR: TFloatField
       FieldName = 'DIAMETR'
     end
     object InvoiceAsIsTRUCKS: TStringField
@@ -285,15 +406,15 @@ object DM: TDM
     end
     object InvoiceAsIsHOL_SUB_TYPE: TStringField
       FieldName = 'HOL_SUB_TYPE'
-      Size = 58
+      Size = 50
     end
-    object InvoiceAsIsRECOGNISED: TIntegerField
+    object InvoiceAsIsRECOGNISED: TFloatField
       FieldName = 'RECOGNISED'
     end
     object InvoiceAsIsDATE_IN: TDateTimeField
       FieldName = 'DATE_IN'
     end
-    object InvoiceAsIsTROLLEY: TIntegerField
+    object InvoiceAsIsTROLLEY: TFloatField
       FieldName = 'TROLLEY'
     end
     object InvoiceAsIsH_CODE: TStringField
@@ -322,10 +443,10 @@ object DM: TDM
       FieldName = 'PD_RU'
       Size = 30
     end
-    object InvoiceAsIsID: TIntegerField
+    object InvoiceAsIsID: TFloatField
       FieldName = 'ID'
     end
-    object InvoiceAsIsFT_ID: TIntegerField
+    object InvoiceAsIsFT_ID: TFloatField
       FieldName = 'FT_ID'
     end
     object InvoiceAsIsSTEM_WEIGHT: TFloatField
@@ -368,6 +489,12 @@ object DM: TDM
     end
     object InvoiceAsIsNEW_SUM: TFloatField
       FieldName = 'NEW_SUM'
+    end
+    object InvoiceAsIsCUST_VALUE: TFloatField
+      FieldName = 'CUST_VALUE'
+    end
+    object InvoiceAsIsCUST_NORM: TFloatField
+      FieldName = 'CUST_NORM'
     end
   end
   object InvoiceRegister_DS: TDataSource

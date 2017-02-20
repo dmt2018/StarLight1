@@ -871,12 +871,12 @@ begin
   try
     DM.SelQ.Close;
     DM.SelQ.SQL.Clear;
-    DM.SelQ.SQL.Add('begin custom_pkg.save_custcoef(:V_ID, :V_category, :V_country, :v_value); end;');
-    //DM.SelQ.ParamByName('V_ID_DEP').AsInteger         := CUR_DEPT_ID;
+    DM.SelQ.SQL.Add('begin custom_pkg.save_custcoef(:V_ID, :V_category, :V_country, :v_value, :V_ID_DEP); end;');
+    DM.SelQ.ParamByName('V_ID').AsInteger             := 0;
     DM.SelQ.ParamByName('V_category').AsInteger       := icb_categories.EditValue;
     DM.SelQ.ParamByName('V_country').AsInteger        := icb_countries.EditValue;
     DM.SelQ.ParamByName('v_value').AsCurrency         := ed_cust_val.EditValue;
-    DM.SelQ.ParamByName('V_ID').AsInteger             := 0;
+    DM.SelQ.ParamByName('V_ID_DEP').AsInteger         := CUR_DEPT_ID;
     DM.SelQ.Execute;
     if (DM.SelQ.ParamByName('V_ID').AsInteger > 0) then
     begin

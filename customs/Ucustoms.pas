@@ -163,6 +163,10 @@ type
     CDS_PRICING_GRIDCALC_VALUE: TFloatField;
     CDS_PRICING_GRIDCALC_SUMM: TFloatField;
     CDS_PRICING_GRIDCALC_NEW_VALUE: TFloatField;
+    view_asisTOTAL_SUM: TcxGridDBColumn;
+    view_asisNETTO: TcxGridDBColumn;
+    view_asisCUST_NORM: TcxGridDBColumn;
+    view_asisCUST_VALUE: TcxGridDBColumn;
     procedure FormCreate(Sender: TObject);
     procedure dxBarLargeButton1Click(Sender: TObject);
     procedure btn_settingsClick(Sender: TObject);
@@ -208,6 +212,9 @@ type
     procedure btn_inv_equipmentClick(Sender: TObject);
     procedure btn_pricing_gridClick(Sender: TObject);
     procedure btn_pricing_processClick(Sender: TObject);
+    procedure view_asisEditing(Sender: TcxCustomGridTableView;
+      AItem: TcxCustomGridTableItem; var AAllow: Boolean);
+    procedure view_asisDataControllerDataChanged(Sender: TObject);
   private
     { Private declarations }
     pnl_msg: TPanel;
@@ -1460,6 +1467,8 @@ begin
       //DM.InvoiceAsIs.Locate('INVOICE_DATA_AS_IS_ID',i,[]);
     end
     else begin
+
+      DM.InvoiceAsIs.ParamByName('make_price_').AsInteger := 1;
       DM.InvoiceAsIs.ParamByName('split_rose_').AsInteger := split_roses;
       DM.InvoiceAsIs.Open;
     end;
@@ -1721,6 +1730,9 @@ begin
   if (DM.InvoiceAsIs.Active = false) or (DM.InvoiceAsIs.RecordCount = 0) then
     exit;
 
+  if (DM.InvoiceAsIsH_CODE.Value = '') then
+    exit;
+
   if (view_asis.Controller.FocusedColumn.Name = 'view_asisF_TYPE') and (view_asis.Controller.FocusedColumn.EditValue = null) then
   begin
     frmSetings := TfrmSetings.Create(Application);
@@ -1834,10 +1846,29 @@ begin
                 );
     if (view_asis.Columns[AViewInfo.Item.Index].DataBinding.FieldName = 'TITLE') and (val1 = 0) then
         ACanvas.Font.Style := [fsBold];
+    // Красим группы
+    if (val1 = NULL) then
+    begin
+        ACanvas.Font.Style := [fsBold];
+        ACanvas.Brush.Color := $00FFFF80;
+    end;
 
   end;
 end;
 
+
+procedure TfrmCustoms.view_asisDataControllerDataChanged(Sender: TObject);
+begin
+//  if (view_asis.Controller.FocusedColumn.Name = 'view_asisNEW_PRICE') and DM.InvoiceAsIs_DS.DataSet.Modified then  DM.InvoiceAsIs.refresh;
+//    aRefresh.Execute;
+//    ShowMessage('1');
+end;
+
+procedure TfrmCustoms.view_asisEditing(Sender: TcxCustomGridTableView;
+  AItem: TcxCustomGridTableItem; var AAllow: Boolean);
+begin
+  AAllow := not (DM.InvoiceAsIsH_CODE.Value = '');
+end;
 
 procedure TfrmCustoms.view_asisKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
@@ -1896,7 +1927,6 @@ begin
       frmSetings.Free;
     end;
   end;
-
 end;
 
 

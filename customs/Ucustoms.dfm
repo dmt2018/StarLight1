@@ -3,7 +3,7 @@ object frmCustoms: TfrmCustoms
   Top = 0
   Caption = ' '#1058#1072#1084#1086#1078#1077#1085#1085#1099#1077' '#1076#1086#1082#1091#1084#1077#1085#1090#1099
   ClientHeight = 617
-  ClientWidth = 1071
+  ClientWidth = 1240
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,10 +19,11 @@ object frmCustoms: TfrmCustoms
   object bdc_customs: TdxBarDockControl
     Left = 0
     Top = 0
-    Width = 1071
+    Width = 1240
     Height = 60
     Align = dalTop
     BarManager = bm_main
+    ExplicitWidth = 1071
   end
   object pnl_otdel: TPanel
     Left = 8
@@ -78,13 +79,14 @@ object frmCustoms: TfrmCustoms
   object Panel1: TPanel
     Left = 0
     Top = 60
-    Width = 1071
+    Width = 1240
     Height = 205
     Align = alTop
     BevelOuter = bvNone
     BorderWidth = 2
     Caption = 'Panel1'
     TabOrder = 3
+    ExplicitWidth = 1071
     object cxLabel1: TcxLabel
       Left = 2
       Top = 2
@@ -98,11 +100,12 @@ object frmCustoms: TfrmCustoms
       Style.Font.Name = 'Verdana'
       Style.Font.Style = [fsBold]
       Style.IsFontAssigned = True
+      ExplicitWidth = 1067
     end
     object grid_invoices: TcxGrid
       Left = 2
       Top = 21
-      Width = 1067
+      Width = 1236
       Height = 182
       Hint = 'Ctrl+Tab '#1087#1077#1088#1077#1082#1083#1102#1095#1077#1085#1080#1077' '#1084#1077#1078#1076#1091' '#1090#1072#1073#1083#1080#1094#1072#1084#1080
       Align = alClient
@@ -115,6 +118,9 @@ object frmCustoms: TfrmCustoms
       ParentFont = False
       TabOrder = 1
       LookAndFeel.Kind = lfOffice11
+      ExplicitTop = 23
+      ExplicitWidth = 1067
+      ExplicitHeight = 180
       object grid_invoices_v: TcxGridDBTableView
         OnDblClick = grid_invoices_vDblClick
         NavigatorButtons.ConfirmDelete = False
@@ -532,25 +538,27 @@ object frmCustoms: TfrmCustoms
   object cxSplitter1: TcxSplitter
     Left = 0
     Top = 265
-    Width = 1071
+    Width = 1240
     Height = 8
     HotZoneClassName = 'TcxXPTaskBarStyle'
     AlignSplitter = salTop
     Control = Panel1
+    ExplicitWidth = 1071
   end
   object Panel2: TPanel
     Left = 0
     Top = 273
-    Width = 1071
+    Width = 1240
     Height = 318
     Align = alClient
     BevelOuter = bvNone
     Caption = 'Panel2'
     TabOrder = 8
+    ExplicitWidth = 1071
     object gr_data: TcxGrid
       Left = 0
       Top = 0
-      Width = 1071
+      Width = 1240
       Height = 318
       Hint = 'Ctrl+Tab '#1087#1077#1088#1077#1082#1083#1102#1095#1077#1085#1080#1077' '#1084#1077#1078#1076#1091' '#1090#1072#1073#1083#1080#1094#1072#1084#1080
       Align = alClient
@@ -563,12 +571,14 @@ object frmCustoms: TfrmCustoms
       ParentFont = False
       TabOrder = 0
       LookAndFeel.Kind = lfOffice11
+      ExplicitWidth = 1071
       object view_asis: TcxGridDBTableView
         OnKeyDown = view_asisKeyDown
         NavigatorButtons.ConfirmDelete = False
         FilterBox.Position = fpTop
         OnCellDblClick = view_asisCellDblClick
         OnCustomDrawCell = view_asisCustomDrawCell
+        OnEditing = view_asisEditing
         DataController.DataSource = DM.InvoiceAsIs_DS
         DataController.Filter.Options = [fcoCaseInsensitive, fcoShowOperatorDescription, fcoSoftCompare]
         DataController.Filter.AutoDataSetFilter = True
@@ -641,8 +651,27 @@ object frmCustoms: TfrmCustoms
             Format = '0.00'
             Kind = skSum
             Column = view_asisNEW_SUM
+          end
+          item
+            Format = '0.00'
+            Kind = skSum
+          end
+          item
+            Format = '0.00'
+            Kind = skSum
+          end
+          item
+            Format = '0.00'
+            Kind = skSum
+            Column = view_asisCUST_NORM
+          end
+          item
+            Format = '0.00'
+            Kind = skSum
+            Column = view_asisCUST_VALUE
           end>
         DataController.Summary.SummaryGroups = <>
+        DataController.OnDataChanged = view_asisDataControllerDataChanged
         FilterRow.InfoText = #1055#1086#1083#1077' '#1076#1083#1103' '#1091#1089#1090#1072#1085#1086#1074#1082#1080' '#1092#1080#1083#1100#1090#1088#1086#1074
         FilterRow.Visible = True
         OptionsBehavior.CellHints = True
@@ -1031,6 +1060,39 @@ object frmCustoms: TfrmCustoms
           Properties.ReadOnly = True
           Width = 150
         end
+        object view_asisTOTAL_SUM: TcxGridDBColumn
+          DataBinding.FieldName = 'TOTAL_SUM'
+          Visible = False
+        end
+        object view_asisNETTO: TcxGridDBColumn
+          DataBinding.FieldName = 'NETTO'
+          Visible = False
+        end
+        object view_asisCUST_NORM: TcxGridDBColumn
+          Caption = #1057#1077#1090'.'#1085#1086#1088#1084
+          DataBinding.FieldName = 'CUST_NORM'
+          PropertiesClassName = 'TcxCurrencyEditProperties'
+          Properties.Alignment.Horz = taCenter
+          Properties.DisplayFormat = ',0.00;-,0.00'
+          Properties.ReadOnly = True
+          FooterAlignmentHorz = taCenter
+          HeaderAlignmentHorz = taCenter
+          MinWidth = 70
+          Options.HorzSizing = False
+          Width = 70
+        end
+        object view_asisCUST_VALUE: TcxGridDBColumn
+          Caption = #1057#1077#1090'.'#1079#1085#1072#1095'.'
+          DataBinding.FieldName = 'CUST_VALUE'
+          PropertiesClassName = 'TcxCurrencyEditProperties'
+          Properties.Alignment.Horz = taCenter
+          Properties.DisplayFormat = ',0.00;-,0.00'
+          FooterAlignmentHorz = taCenter
+          HeaderAlignmentHorz = taCenter
+          MinWidth = 70
+          Options.HorzSizing = False
+          Width = 70
+        end
       end
       object level_asis: TcxGridLevel
         GridView = view_asis
@@ -1102,10 +1164,11 @@ object frmCustoms: TfrmCustoms
   object bdc_footer: TdxBarDockControl
     Left = 0
     Top = 591
-    Width = 1071
+    Width = 1240
     Height = 26
     Align = dalBottom
     BarManager = bm_main
+    ExplicitLeft = 128
   end
   object aCustoms: TActionList
     Left = 96
@@ -1510,7 +1573,7 @@ object frmCustoms: TfrmCustoms
     Left = 56
     Top = 136
     Bitmap = {
-      494C0101520054001C0120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010152005400240120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000080000000A002000001002000000000000040
       0500000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -12611,7 +12674,7 @@ object frmCustoms: TfrmCustoms
     Left = 56
     Top = 176
     Bitmap = {
-      494C010132006000200118001800FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010132006000280118001800FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       00000000000036000000280000006000000038010000010020000000000000D4
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -16483,7 +16546,7 @@ object frmCustoms: TfrmCustoms
     Left = 56
     Top = 216
     Bitmap = {
-      494C010134008800240110001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C0101340088002C0110001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000040000000E0000000010020000000000000E0
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
