@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.PACK_ORDERS
--- Generated 11.02.2017 18:47:02 from CREATOR@STAR_REG
+-- Generated 22.02.2017 23:07:34 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE pack_orders
@@ -598,6 +598,13 @@ PROCEDURE save_distributions
 PROCEDURE delete_distributions
 (
   vIdOrder          IN number
+);
+
+-- Синхронизируем вес по позиции в заказе
+PROCEDURE sync_weight
+(
+  vIdOrder          in number,
+  vN_ID             in number
 );
 
 
@@ -3697,6 +3704,28 @@ begin
       LOG_ERR(SQLERRM|| ' ' || DBMS_UTILITY.format_error_backtrace, SQLCODE, 'pack_orders.delete_distributions', '');
       RAISE_APPLICATION_ERROR (-20152, 'Запрос не выполнился. ' || SQLERRM);
 END delete_distributions;
+
+
+-- Синхронизируем вес по позиции в заказе
+PROCEDURE sync_weight
+(
+  vIdOrder          in number,
+  vN_ID             in number
+)
+is
+  nWeight       number;
+begin
+  select nvl(weight,WEIGHTDRY) into nWeight from nomenclature where n_id = vN_ID;
+
+  update orders_list set weight=nWeight * quantity where n_id = vN_ID and id_orders_clients in ( select id_orders_clients from orders_clients s where s.id_orders = vIdOrder);
+  commit;
+
+  EXCEPTION
+    WHEN others THEN
+      LOG_ERR(SQLERRM|| ' ' || DBMS_UTILITY.format_error_backtrace, SQLCODE, 'pack_orders.sync_weight', '');
+      RAISE_APPLICATION_ERROR (-20153, 'Запрос не выполнился. ' || SQLERRM);
+END sync_weight;
+
 
 
 END;

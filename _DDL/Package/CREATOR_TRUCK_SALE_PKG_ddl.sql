@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.TRUCK_SALE_PKG
--- Generated 11.02.2017 18:47:12 from CREATOR@STAR_REG
+-- Generated 20.02.2017 22:56:36 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE truck_sale_pkg
@@ -348,7 +348,7 @@ BEGIN
    open cursor_ for
      select q_sold, s_sold,
             a.UNITS, a.PRICE_PER_UNIT, s.PRICE_COEF, d.price, d.min_pack,
-            nvl(d.price,
+            nvl( nvl(s_price, d.price),
               case when a.PRICE_PER_UNIT * nvl(d.coef, s.PRICE_COEF) * s.course > 100 then round(a.PRICE_PER_UNIT * nvl(d.coef, s.PRICE_COEF) * s.course)
               else round(a.PRICE_PER_UNIT * nvl(d.coef, s.PRICE_COEF) * s.course, 1) end
             ) coef_price,
@@ -357,20 +357,20 @@ BEGIN
             , n.*
        from
          (
-           select units, round(PRICE_PER_UNIT/decode(units,0,1,units),2) as PRICE_PER_UNIT, n_id, q_sold, s_sold from (
-                select sum(a.UNITS) units, sum(a.UNITS*a.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id, null as q_sold, null as s_sold
+           select units, round(PRICE_PER_UNIT/decode(units,0,1,units),2) as PRICE_PER_UNIT, n_id, q_sold, s_sold, s_price from (
+                select sum(a.UNITS) units, sum(a.UNITS*a.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id, null as q_sold, null as s_sold, null as s_price
                   from invoice_data a, truck_sale_invoices b
                   where a.storned_data = 0 and a.inv_id = b.inv_id and b.truck_sale_id = truck_sale_id_
                   group by a.n_id
                 union all
-                select sum(a.left_quantity) as units, sum(a.left_quantity*d.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id, sum(w.quantity) as q_sold, sum(w.quantity * w.price) as s_sold
+                select sum(a.left_quantity) as units, sum(case when a.left_quantity = 0 then w.quantity else a.left_quantity end *d.PRICE_PER_UNIT) as PRICE_PER_UNIT, a.n_id, sum(w.quantity) as q_sold, sum(w.quantity * w.price) as s_sold, w.price as s_price
                   from PREP_DIST_VIEW a
                   inner join invoice_data d on a.invoice_data_id = d.invoice_data_id
                   inner join truck_sale_distr b on b.truck_sale_id = truck_sale_id_ and a.dist_ind_id = b.DIST_IND_ID
                   left outer join truck_sale_data s on s.truck_sale_id =  b.truck_sale_id and s.n_id = a.n_id
                   left outer join distributions_webshop w on w.n_id = a.n_id and b.DIST_IND_ID = w.DIST_IND_ID
                   where (a.left_quantity > 0 or s.truck_sale_id is not null)
-                  group by a.n_id
+                  group by a.n_id, w.price
            ) a
          ) a
          inner join truck_sale s on s.truck_sale_id = truck_sale_id_

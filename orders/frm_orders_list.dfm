@@ -1868,6 +1868,10 @@ object orders_list: Torders_list
       Caption = #1050#1086#1087#1080#1088#1086#1074#1072#1090#1100' '#1079#1085#1072#1095#1077#1085#1080#1077' '#1074' '#1073#1091#1092#1077#1088
       OnClick = mnCopyToClipBoardClick
     end
+    object mnSyncWeight: TMenuItem
+      Caption = #1054#1073#1085#1086#1074#1080#1090#1100' '#1074#1077#1089' '#1087#1086#1079#1080#1094#1080#1080' '#1074' '#1079#1072#1082#1072#1079#1077
+      OnClick = mnSyncWeightClick
+    end
     object N22: TMenuItem
       Caption = '-'
     end

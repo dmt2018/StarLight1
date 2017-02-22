@@ -130,6 +130,7 @@ type
     btnLoadStock: TcxButton;
     chbAllOrders: TcxCheckBox;
     DBText7: TDBText;
+    mnSyncWeight: TMenuItem;
     procedure BitBtn13Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Action7Execute(Sender: TObject);
@@ -180,10 +181,12 @@ type
     procedure cxDateEdit1PropertiesChange(Sender: TObject);
     procedure chbAllOrdersPropertiesEditValueChanged(Sender: TObject);
     procedure btnLoadStockClick(Sender: TObject);
+    procedure mnSyncWeightClick(Sender: TObject);
 
   private
     { Private declarations }
     //def_folder: string;
+    pnl_msg: TPanel;
     procedure Save_Nom(n_id_: integer);
     procedure do_check;
     procedure ApplayFilter;
@@ -1743,6 +1746,34 @@ procedure Torders_list.mnCopyToClipBoardClick(Sender: TObject);
 begin
   clipboard.SetTextBuf(PChar(VarToStr(DBGridEh1.SelectedField.Value)));
 end;
+
+
+// Синхронизация веса по позиции во всем заказе
+procedure Torders_list.mnSyncWeightClick(Sender: TObject);
+begin
+
+  try
+    pnl_msg := TPanel(MakePanelLabel(Panel6,300,100,'Идет обработка...'));
+    pnl_msg.Repaint;
+
+    with DM.Q_SQL do
+    Begin
+      Close;
+      SQL.Clear;
+      SQL.Add('begin PACK_ORDERS.sync_weight(:vIdOrder, :vN_ID); end;');
+      ParamByName('vIdOrder').AsInteger :=  DM.Q_ORDERS_ORDERSID_ORDERS.AsInteger;
+      ParamByName('vN_ID').AsInteger    :=  DM.Q_ORDERS_LISTN_ID.AsInteger;
+      Execute;
+    End;
+
+    DM.Q_ORDERS_LIST.Refresh;
+    DBGridEh1.SumList.RecalcAll;
+
+  finally
+    pnl_msg.free;
+  end;
+end;
+
 
 
 end.
