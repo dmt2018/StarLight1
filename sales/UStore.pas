@@ -867,6 +867,7 @@ end;
 procedure TfrmStore.aPrintExecute(Sender: TObject);
 var Memo1: TfrxMemoView;
     Memo  : TfrxDMPMemoView;
+    web:integer;
 begin
   if (pc_sales.ActivePageIndex = 1) and (doc.RecordCount > 0) then
   begin
@@ -891,6 +892,14 @@ begin
       end
       else
       begin
+
+
+                        {
+      if grid_allreserv_v.Controller.SelectedRows[i].Values[grid_allreserv_vN_TYPE.Index]=3 then
+      DM.frxReport1.LoadFromFile(ExtractFilePath(Application.ExeName)+'raports\reserv2.fr3') else
+      DM.frxReport1.LoadFromFile(ExtractFilePath(Application.ExeName)+'raports\reserv.fr3');       }
+
+
         DM.frxReport1.LoadFromFile(ExtractFilePath(Application.ExeName)+'raports\reserv.fr3');
         Memo1 := DM.frxReport1.FindObject('Memo3') as TfrxMemoView;
         Memo1.Text := 'Отдел: '+ VarToStr(CUR_DEPT_NAME);
@@ -915,8 +924,11 @@ var Memo  : TfrxDMPMemoView;
     Memo1 : TfrxMemoView;
     repsummary : TfrxReportSummary;
     course: real;
+    web : integer;
 begin
   try
+    web := 0;  // флаг наличия "-" в скидке, то бишь вебшоапа
+
     if DM.id_office = 1 then
     begin
       DM.SelQ.SQL.Clear;
@@ -938,7 +950,25 @@ begin
       if (CUR_DEPT_ID = 121) then
         DM.frxReport1.LoadFromFile(ExtractFilePath(Application.ExeName)+'raports\prodaza_dot.fr3')
       else
-        DM.frxReport1.LoadFromFile(ExtractFilePath(Application.ExeName)+'raports\prodaza_dot_code.fr3');
+        //DM.frxReport1.LoadFromFile(ExtractFilePath(Application.ExeName)+'raports\prodaza_dot_code.fr3');
+    //********** выгода **********************************************************************************************
+    BEGIN
+    dm.doc_data.paramByName('id_doc').AsInteger := grid_allnakl_vID_DOC.EditValue;
+    dm.doc_data.Open;
+    dm.doc_data.first;
+    while not dm.doc_data.Eof do
+    begin
+      web:=0;
+   		if pos('-',dm.doc_data.FieldByName('PRICE_Percent').AsString)=1 then begin web:=1; break; end;
+ 	    dm.doc_data.Next;
+    end;
+    dm.doc_data.Close;
+    if web=1 then
+    DM.frxReport1.LoadFromFile(ExtractFilePath(Application.ExeName)+'raports\prodaza_dot_code2.fr3') // со складской ценой и выгодой шопа
+    else
+    DM.frxReport1.LoadFromFile(ExtractFilePath(Application.ExeName)+'raports\prodaza_dot_code.fr3'); // обычная
+    END;
+    //********** выгода конец *****************************************************************************************
 
       DM.frxDotMatrixExport1.PageBreaks := false;
       DM.frxDotMatrixExport1.OEMConvert := true;
@@ -962,7 +992,25 @@ begin
     end
     else
     begin
-      DM.frxReport1.LoadFromFile(ExtractFilePath(Application.ExeName)+'raports\prodaza.fr3');
+
+//********** выгода **********************************************************************************************
+    //for I := 0 to grid_allnakl_v.Controller.SelectedRowCount - 1 do
+    //dm.doc_data.paramByName('id_doc').AsInteger:=grid_allnakl_v.Controller.SelectedRows[i].Values[grid_allnakl_vID_DOC.Index];
+    dm.doc_data.paramByName('id_doc').AsInteger := grid_allnakl_vID_DOC.EditValue;
+    dm.doc_data.Open;
+    dm.doc_data.first;
+    while not dm.doc_data.Eof do
+    begin
+      web:=0;
+   		if pos('-',dm.doc_data.FieldByName('PRICE_Percent').AsString)=1 then begin web:=1; break; end;
+ 	    dm.doc_data.Next;
+    end;
+    dm.doc_data.Close;
+    if web=1 then
+    DM.frxReport1.LoadFromFile(ExtractFilePath(Application.ExeName)+'raports\prodaza2.fr3') // со складской ценой и выгодой шопа
+    else
+    DM.frxReport1.LoadFromFile(ExtractFilePath(Application.ExeName)+'raports\prodaza.fr3'); // обычная
+//********** выгода конец *****************************************************************************************    
 
       if DM.id_office = 1 then
       begin
