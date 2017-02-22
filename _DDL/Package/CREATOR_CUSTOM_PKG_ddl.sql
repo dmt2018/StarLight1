@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.CUSTOM_PKG
--- Generated 20.02.2017 22:17:54 from CREATOR@STAR_REG
+-- Generated 22.02.2017 12:05:26 from CREATOR@STAR2
 
 CREATE OR REPLACE 
 PACKAGE custom_pkg
@@ -903,7 +903,8 @@ order by hol_sub_type, hol_country, orderby, description
                  , null as remark
                  , 0 as new_price
                  , a.summ as new_sum
-                 , round(summ/netto*v_COURCE,2) cust_value
+                 --, round(summ/netto*v_COURCE,2) cust_value
+                 , round(summ/decode(netto,0,1,netto)*v_COURCE,2) cust_value
                  , a.FO_VALUE as cust_norm
             from (
               select sum(a.units) as units, a.pd,
