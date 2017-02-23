@@ -398,7 +398,7 @@ object raznos: Traznos
         91
         53)
       object cbPrintAll: TCheckBox
-        Left = 5
+        Left = 1
         Top = 30
         Width = 76
         Height = 17
@@ -414,7 +414,7 @@ object raznos: Traznos
         TabOrder = 0
       end
       object btnPrint: TButton
-        Left = 5
+        Left = 1
         Top = 3
         Width = 82
         Height = 25
@@ -1152,12 +1152,27 @@ object raznos: Traznos
             Footer.FieldName = 'QQQ'
             Footer.ValueType = fvtSum
             Footers = <>
-            MaxWidth = 100
-            MinWidth = 100
+            MaxWidth = 80
+            MinWidth = 80
             Title.Alignment = taCenter
             Title.Caption = #1050#1086#1083'-'#1074#1086
             Title.TitleButton = True
-            Width = 100
+            Width = 80
+          end
+          item
+            Alignment = taCenter
+            AutoFitColWidth = False
+            EditButtons = <>
+            FieldName = 'QQQ_ITOG'
+            Footer.FieldName = 'QQQ_ITOG'
+            Footer.ValueType = fvtSum
+            Footers = <>
+            MaxWidth = 80
+            MinWidth = 80
+            Title.Alignment = taCenter
+            Title.Caption = #1048#1090#1086#1075#1086
+            Title.TitleButton = True
+            Width = 80
           end
           item
             Alignment = taCenter
@@ -1401,6 +1416,21 @@ object raznos: Traznos
             Title.Caption = #1050#1086#1083'-'#1074#1086
             Title.TitleButton = True
             Width = 70
+          end
+          item
+            Alignment = taCenter
+            AutoFitColWidth = False
+            EditButtons = <>
+            FieldName = 'QQQ_ITOG'
+            Footer.FieldName = 'QQQ_ITOG'
+            Footer.ValueType = fvtSum
+            Footers = <>
+            MaxWidth = 80
+            MinWidth = 80
+            Title.Alignment = taCenter
+            Title.Caption = #1048#1090#1086#1075#1086
+            Title.TitleButton = True
+            Width = 80
           end
           item
             Alignment = taCenter

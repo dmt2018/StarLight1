@@ -353,6 +353,8 @@ type
     Q_CLIENTSCHECKED: TFloatField;
     Q_ORDERS_LISTW_QUANTITY: TFloatField;
     Q_ORDERS_LISTLAST_W_QUANTITY: TFloatField;
+    q_raznos_stQQQ_ITOG: TFloatField;
+    q_raznos_tQQQ_ITOG: TFloatField;
     procedure Main_sessionAfterConnect(Sender: TObject);
     procedure Q_ORDERS_LIST_OLDAfterPost(DataSet: TDataSet);
     procedure Q_ORDERS_LISTBeforePost(DataSet: TDataSet);

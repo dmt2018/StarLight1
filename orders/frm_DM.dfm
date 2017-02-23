@@ -8,7 +8,7 @@ object DM: TDM
     Options.Direct = True
     Username = 'creator'
     Password = '123456'
-    Server = 'ROZNICA:1521:orcl'
+    Server = 'KLEPOV:1521:STARNEW'
     AutoCommit = False
     LoginPrompt = False
     AfterConnect = Main_sessionAfterConnect
@@ -1994,6 +1994,7 @@ object DM: TDM
       
         '  sum(case when b.id_clients = const_dir then 0 else nvl(a.corre' +
         'ction,a.quantity) end) as qqq,'
+      '  sum( nvl(a.correction,a.quantity) ) as qqq_itog,'
       
         '  b.id_orders, FST_VIEW.F_SUB_TYPE, FST_VIEW.F_TYPE, fst_view.ho' +
         'l_sub_type, FST_VIEW.ft_id, FST_VIEW.fst_id  '
@@ -2062,6 +2063,9 @@ object DM: TDM
     object q_raznos_stFST_ID: TFloatField
       FieldName = 'FST_ID'
     end
+    object q_raznos_stQQQ_ITOG: TFloatField
+      FieldName = 'QQQ_ITOG'
+    end
   end
   object q_raznos_st_DS: TOraDataSource
     DataSet = q_raznos_st
@@ -2078,6 +2082,7 @@ object DM: TDM
       
         '  sum(case when b.id_clients = const_dir then 0 else nvl(a.corre' +
         'ction,a.quantity) end) as qqq,'
+      '  sum( nvl(a.correction,a.quantity) ) as qqq_itog,'
       '  b.id_orders, FST_VIEW.F_TYPE, FST_VIEW.ft_id '
       'from orders_list a, orders_clients b, FST_VIEW, NOMENCLATURE N'
       'where '
@@ -2130,6 +2135,9 @@ object DM: TDM
     end
     object q_raznos_tFT_ID: TFloatField
       FieldName = 'FT_ID'
+    end
+    object q_raznos_tQQQ_ITOG: TFloatField
+      FieldName = 'QQQ_ITOG'
     end
   end
   object q_raznos_t_DS: TOraDataSource
@@ -2803,7 +2811,7 @@ object DM: TDM
     Left = 744
     Top = 192
     Bitmap = {
-      494C010127002C00EC0120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010127002C00F00120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004001000001002000000000000080
       0200000000000000000000000000000000000000000000000000000000000000
       000000000000000000000101011A0B0B0B743B3D3DB4777777D5838383DA5152
