@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.CUSTOM_PKG
--- Generated 22.02.2017 23:13:01 from CREATOR@STAR_NEW
+-- Generated 25.02.2017 21:27:39 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE custom_pkg
@@ -810,17 +810,59 @@ order by hol_sub_type, hol_country, orderby, description
 */
 
 
+
+if v_id_dep <> 62 then
+      open cursor_ for
+        SELECT a.inv_id, a.invoice_data_as_is_id, a.order_number, 1.0*a.height as height, 1.0*a.diametr as diametr, a.trucks, a.title, a.packing_amount
+           , a.amount_in_the_pack, a.units, a.packing_marks, a.description, a.hol_country, a.price, a.summ
+           , decode(upper(a.hol_country), '', 'Нидерланды', e.country) as county_ru
+           --, a.hol_sub_type
+           , case when (split_rose_=1 and v_id_dep = 62 and lower(a.hol_sub_type) = 'roses') then a.hol_sub_type || (case when instr(a.description,' ECUA ') > 0 then ' ECUADOR' else ' DUTCH' end ) else a.hol_sub_type end hol_sub_type
+           , 1.0*a.recognised as recognised, a.date_in, 1.0*a.trolley as trolley, a.h_code, a.UPACK
+           , a.src_trolley, a.SRC_NAME
+           , dense_rank() over(PARTITION by trucks order by trolley, src_trolley) as trolley_calc
+           , a.pd, b.name_ru as pd_ru, 1.0*b.id as id
+           , 1.0*c.id as ft_id, c.STEM_WEIGHT, c.CUST_REGN
+           , case when (split_rose_=1 and v_id_dep = 62 and lower(a.hol_sub_type) = 'roses') then c.orderby + (case when instr(a.description,' ECUA ') > 0 then 0.2 else 0.1 end ) else c.orderby end orderby
+           , case when (split_rose_=1 and v_id_dep = 62 and lower(a.hol_sub_type) = 'roses') then c.name_cat_ru || (case when instr(a.description,' ECUA ') > 0 then ' эквадор' else ' голландия' end ) else c.name_cat_ru end f_type
+           , n.fito_id as FN_ID, nvl(n.fito_name, nom.F_NAME_RU) as f_name_ru--neverno
+           , show_weight_formula(c.id,a.description,a.height,0) as type_dop
+           , v_id_dep as id_dep
+           , split_rose_ as split_rose
+           , a.remark
+           , a.new_price, a.new_price * a.units as new_sum
+           , 0 as cust_value, 0 as cust_norm
+        FROM CUSTOMS_INV_DATA_AS_IS a
+          left outer join countries e on lower(e.country_eng) = lower(a.hol_country)
+          left outer join fito_category b on upper(b.name_eng) = upper(a.pd) and b.id_dep = v_id_dep
+          left outer join customs_weight c on lower(c.name_cat) = lower(a.hol_sub_type) and c.id_dep = v_id_dep
+          left outer join (
+            SELECT distinct fn.name_code, upper(fn.f_name) as f_name, n.f_name_ru, fn.remarks
+            FROM FLOWER_NAME_TRANSLATIONS fn, flower_names n, (select max(fn_id) as fn_id, remarks from FLOWER_NAME_TRANSLATIONS /*where remarks is null*/ group by name_code, remarks) fn2
+            where fn.id_departments = v_id_dep /*and remarks is null*/ and nvl(fn.remarks,'') = nvl(fn2.remarks,'')
+              and fn.fn_id = n.fn_id and fn.fn_id = fn2.fn_id
+            ) nom on nom.f_name = upper(a.title) and nom.name_code = H_CODE and nvl(nom.remarks,'') = nvl(a.remark,'')
+          left outer join (select fito_id, F_NAME, fito_name, name_code from FLOWER_FITO_ALL_NAMES where ID_DEP = v_id_dep) n on upper(n.F_NAME) = upper(a.title) and upper(n.name_code) = upper(a.h_code)
+
+        where a.INV_ID = INV_ID_
+
+        order by
+            case when (split_rose_=1 and v_id_dep = 62 and lower(a.hol_sub_type) = 'roses') then c.orderby + (case when instr(a.description,' ECUA ') > 0 then 0.2 else 0.1 end ) else c.orderby end
+            , a.description
+        ;
+else
+
     if make_price_ = 0 then
       open cursor_ for
-        SELECT a.inv_id, a.invoice_data_as_is_id, a.order_number, a.height, a.diametr, a.trucks, a.title, a.packing_amount
+        SELECT a.inv_id, a.invoice_data_as_is_id, a.order_number, 1.0*a.height as height, 1.0*a.diametr as diametr, a.trucks, a.title, a.packing_amount
            , a.amount_in_the_pack, a.units, a.packing_marks, a.description, a.hol_country, a.price, a.summ
            , decode(upper(a.hol_country), '', 'Нидерланды', e.country) as county_ru
            , case when (split_rose_=1 and v_id_dep = 62 and lower(a.hol_sub_type) = 'roses') then a.hol_sub_type || (case when instr(a.description,' ECUA ') > 0 then ' ECUADOR' else ' DUTCH' end ) else a.hol_sub_type end hol_sub_type
-           , a.recognised, a.date_in, a.trolley, a.h_code, a.UPACK
+           , 1.0*a.recognised as recognised, a.date_in, 1.0*a.trolley as trolley, a.h_code, a.UPACK
            , a.src_trolley, a.SRC_NAME
            , dense_rank() over(PARTITION by trucks order by trolley, src_trolley) as trolley_calc
-           , a.pd, b.name_ru as pd_ru, b.id
-           , c.id as ft_id, c.STEM_WEIGHT, c.CUST_REGN
+           , a.pd, b.name_ru as pd_ru, 1.0*b.id as id
+           , 1.0*c.id as ft_id, c.STEM_WEIGHT, c.CUST_REGN
            , case when (split_rose_=1 and v_id_dep = 62 and lower(a.hol_sub_type) = 'roses') then c.orderby + (case when instr(a.description,' ECUA ') > 0 then 0.2 else 0.1 end ) else c.orderby end orderby
            , case when (split_rose_=1 and v_id_dep = 62 and lower(a.hol_sub_type) = 'roses') then c.name_cat_ru || (case when instr(a.description,' ECUA ') > 0 then ' эквадор' else ' голландия' end ) else c.name_cat_ru end f_type
            , n.fito_id as FN_ID, nvl(n.fito_name, nom.F_NAME_RU) as f_name_ru
@@ -849,16 +891,16 @@ order by hol_sub_type, hol_country, orderby, description
     else
       open cursor_ for
         select a.* from (
-            SELECT a.inv_id, a.invoice_data_as_is_id, a.order_number, a.height, a.diametr, a.trucks, a.title, a.packing_amount
+            SELECT a.inv_id, a.invoice_data_as_is_id, a.order_number, 1.0*a.height as height, 1.0*a.diametr as diametr, a.trucks, a.title, a.packing_amount
                , a.amount_in_the_pack, a.units, a.packing_marks, a.description, a.hol_country, a.price, a.summ
                , decode(upper(a.hol_country), '', 'Нидерланды', e.country) as county_ru
                --, case when (1=1 and 62 = 62 and lower(a.hol_sub_type) = 'roses') then a.hol_sub_type || (case when instr(a.description,' ECUA ') > 0 then ' ECUADOR' else ' DUTCH' end ) else a.hol_sub_type end hol_sub_type
                , hol_sub_type
-               , a.recognised, a.date_in, a.trolley, a.h_code, a.UPACK
+               , 1.0*a.recognised as recognised, a.date_in, 1.0*a.trolley as trolley, a.h_code, a.UPACK
                , a.src_trolley, a.SRC_NAME
                , dense_rank() over(PARTITION by trucks order by trolley, src_trolley) as trolley_calc
-               , a.pd, b.name_ru as pd_ru, b.id
-               , c.id as ft_id, c.STEM_WEIGHT, c.CUST_REGN
+               , a.pd, b.name_ru as pd_ru, 1.0*b.id as id
+               , 1.0*c.id as ft_id, c.STEM_WEIGHT, c.CUST_REGN
                , case when (split_rose_=1 and v_id_dep = 62 and lower(a.hol_sub_type) = 'roses') then c.orderby + (case when instr(a.description,' ECUA ') > 0 then 0.2 else 0.1 end ) else c.orderby end orderby
                , case when (split_rose_=1 and v_id_dep = 62 and lower(a.hol_sub_type) = 'roses') then c.name_cat_ru || (case when instr(a.description,' ECUA ') > 0 then ' эквадор' else ' голландия' end ) else c.name_cat_ru end f_type
                , n.fito_id as FN_ID, nvl(n.fito_name, nom.F_NAME_RU) as f_name_ru
@@ -883,7 +925,7 @@ order by hol_sub_type, hol_country, orderby, description
 
             union all
 
-            select INV_ID_ as inv_id, rownum as invoice_data_as_is_id, 0 as order_number, null as height, 0 as diametr, '' as trucks, '' as title, 0 as packing_amount, 0 as amount_in_the_pack,
+            select INV_ID_ as inv_id, rownum as invoice_data_as_is_id, 0 as order_number, 0.0 as height, 0.0 as diametr, '' as trucks, '' as title, 0 as packing_amount, 0 as amount_in_the_pack,
                   a.units, '' as packing_marks, '' as description,
                   a.hol_country, 0 as price, a.summ, a.COUNTRY as country_ru, NAME_CAT as hol_sub_type,
                   0 as recognised, null as date_in, 0 as trolley, '' as h_code, null as UPACK
@@ -942,6 +984,7 @@ order by hol_sub_type, hol_country, orderby, description
        order by hol_sub_type, hol_country, pd, type_dop nulls first, orderby, description;
     end if;
 
+end if;
 
   EXCEPTION WHEN OTHERS THEN
       LOG_ERR(SQLERRM||chr(10)||dbms_utility.format_error_backtrace, SQLCODE, 'custom_pkg.del_fito_names', tmp_sql);

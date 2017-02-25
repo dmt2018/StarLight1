@@ -6,7 +6,7 @@ object DM: TDM
     Options.Direct = True
     Username = 'creator'
     Password = '123456'
-    Server = 'KLEPOV:1521:STARREG'
+    Server = 'KLEPOV:1521:STARNEW'
     Left = 32
     Top = 16
   end
@@ -334,6 +334,7 @@ object DM: TDM
         DataType = ftFloat
         Name = 'INV_ID_'
         ParamType = ptInput
+        Value = 3047.000000000000000000
       end
       item
         DataType = ftFloat
@@ -343,12 +344,13 @@ object DM: TDM
       item
         DataType = ftUnknown
         Name = 'make_price_'
+        Value = Null
       end
       item
         DataType = ftCursor
         Name = 'CURSOR_'
         ParamType = ptOutput
-        Value = 'Object'
+        Value = ''
       end>
     object InvoiceAsIsINV_ID: TFloatField
       FieldName = 'INV_ID'
@@ -406,7 +408,7 @@ object DM: TDM
     end
     object InvoiceAsIsHOL_SUB_TYPE: TStringField
       FieldName = 'HOL_SUB_TYPE'
-      Size = 50
+      Size = 58
     end
     object InvoiceAsIsRECOGNISED: TFloatField
       FieldName = 'RECOGNISED'
