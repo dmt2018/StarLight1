@@ -25,11 +25,9 @@ type
     gbInfo: TcxGroupBox;
     lbl4: TLabel;
     lblmail4: TLabel;
+    Label1: TLabel;
     procedure btnexitClick(Sender: TObject);
-    procedure lblmail4Click(Sender: TObject);
     procedure lblmail1Click(Sender: TObject);
-    procedure lblmail2Click(Sender: TObject);
-    procedure lblmail3Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -71,22 +69,7 @@ end;
 
 procedure TfrmAbout.lblmail1Click(Sender: TObject);
 begin
-  CheckShell(Handle, 'mailto:alex_olmer@mail.ru?subject=ИС Старлайт.');
-end;
-
-procedure TfrmAbout.lblmail2Click(Sender: TObject);
-begin
-  CheckShell(Handle, 'mailto:dt@starlight.ru?subject=ИС Старлайт.');
-end;
-
-procedure TfrmAbout.lblmail4Click(Sender: TObject);
-begin
-  CheckShell(Handle, 'mailto:alex_olmer@mail.ru?subject=ИС Старлайт.');
-end;
-
-procedure TfrmAbout.lblmail3Click(Sender: TObject);
-begin
-  CheckShell(Handle, 'mailto:eva@starlight.ru?subject=ИС Старлайт.');
+  CheckShell(Handle, PAnsiChar('mailto:'+(Sender as TLabel).Caption+'?subject=ИС Старлайт.') );
 end;
 
 end.

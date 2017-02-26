@@ -22,6 +22,7 @@ object frmNSICurreny: TfrmNSICurreny
     Align = alClient
     TabOrder = 4
     object grCurrencyView: TcxGridDBTableView
+      PopupMenu = PM_main
       NavigatorButtons.ConfirmDelete = False
       NavigatorButtons.First.Visible = True
       NavigatorButtons.PriorPage.Visible = True
@@ -260,7 +261,7 @@ object frmNSICurreny: TfrmNSICurreny
       AllowCustomizing = False
       AllowQuickCustomizing = False
       AllowReset = False
-      Caption = 'FooterTB'
+      Caption = 'Footer'
       CaptionButtons = <>
       Color = clBtnFace
       DockedDockingStyle = dsBottom
@@ -663,5 +664,29 @@ object frmNSICurreny: TfrmNSICurreny
     Params = <>
     Left = 552
     Top = 320
+  end
+  object PM_main: TPopupMenu
+    Left = 464
+    Top = 192
+    object mnFooterToClipboard: TMenuItem
+      Caption = #1050#1086#1087#1080#1088#1086#1074#1072#1090#1100' '#1080#1090#1086#1075#1086#1074#1099#1077' '#1079#1085#1072#1095#1077#1085#1080#1103' '#1074' '#1073#1091#1092#1077#1088
+      OnClick = mnFooterToClipboardClick
+    end
+    object mnToClipboard: TMenuItem
+      Caption = #1050#1086#1087#1080#1088#1086#1074#1072#1090#1100' '#1103#1095#1077#1081#1082#1091' '#1074' '#1073#1091#1092#1077#1088
+      OnClick = mnToClipboardClick
+    end
+    object mnClearFilter: TMenuItem
+      Caption = #1054#1095#1080#1089#1090#1080#1090#1100' '#1092#1080#1083#1100#1090#1088
+      ShortCut = 121
+      OnClick = mnClearFilterClick
+    end
+    object N4: TMenuItem
+      Caption = '-'
+    end
+    object mnExportExcel: TMenuItem
+      Caption = #1069#1082#1089#1087#1086#1088#1090' '#1074' Excel'
+      OnClick = mnExportExcelClick
+    end
   end
 end

@@ -9,7 +9,7 @@ uses
   cxLabel, cxButtonEdit, ActnList, dxBar, cxBarEditItem, dxBarExtItems,
   cxClasses, DBAccess, Ora, MemDS, cxGridLevel, cxGridCustomTableView,
   cxGridTableView, cxGridDBTableView, cxGridCustomView, cxGrid, star_lib,
-  cxTextEdit, cxCurrencyEdit;
+  cxTextEdit, cxCurrencyEdit, Menus;
 
 type
   TfrmRefbooks = class(TForm)
@@ -202,6 +202,12 @@ type
     Q_SupID_OFFICE: TIntegerField;
     Q_SupANALYZE_DAYS: TIntegerField;
     Q_SupIS_ACTIVE: TFloatField;
+    PM_main: TPopupMenu;
+    mnFooterToClipboard: TMenuItem;
+    mnToClipboard: TMenuItem;
+    mnClearFilter: TMenuItem;
+    N4: TMenuItem;
+    mnExportExcel: TMenuItem;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure aExitExecute(Sender: TObject);
@@ -211,6 +217,10 @@ type
     procedure aEditExecute(Sender: TObject);
     procedure aDeleteExecute(Sender: TObject);
     procedure btnHelpClick(Sender: TObject);
+    procedure mnExportExcelClick(Sender: TObject);
+    procedure mnFooterToClipboardClick(Sender: TObject);
+    procedure mnToClipboardClick(Sender: TObject);
+    procedure mnClearFilterClick(Sender: TObject);
   private
     { Private declarations }
     p_read, p_edit, p_delete, p_print: boolean;
@@ -268,6 +278,63 @@ end;
 
 
 
+// BOF :: Μενώ -----------------------------------------------------------------
+
+procedure TfrmRefbooks.mnExportExcelClick(Sender: TObject);
+var grid : tcxgrid;
+    i: integer;
+begin
+  for i := 0 to ComponentCount - 1 do
+    if (Components[i] is TControl) and  (Components[i] is TcxGrid) then
+      if (Components[i] as TcxGrid).Parent.visible = true then grid := (Components[i] as TcxGrid);
+
+  DM.MakeExportToExcel(grid);
+end;
+
+procedure TfrmRefbooks.mnClearFilterClick(Sender: TObject);
+var grid : tcxgrid;
+    i: integer;
+begin
+  for i := 0 to ComponentCount - 1 do
+    if (Components[i] is TControl) and  (Components[i] is TcxGrid) then
+      if (Components[i] as TcxGrid).Parent.visible = true then grid := (Components[i] as TcxGrid);
+
+  (grid.ActiveView.DataController as TcxDBDataController).Filter.Clear;
+end;
+
+procedure TfrmRefbooks.mnFooterToClipboardClick(Sender: TObject);
+var grid : tcxgrid;
+    i: integer;
+begin
+  for i := 0 to ComponentCount - 1 do
+    if (Components[i] is TControl) and  (Components[i] is TcxGrid) then
+      if (Components[i] as TcxGrid).Parent.visible = true then grid := (Components[i] as TcxGrid);
+
+  PoolToClipbaord( (grid.ActiveLevel.GridView as TcxGridDBTableView).DataController, 0);
+end;
+
+procedure TfrmRefbooks.mnToClipboardClick(Sender: TObject);
+var grid : tcxgrid;
+    i: integer;
+begin
+  for i := 0 to ComponentCount - 1 do
+    if (Components[i] is TControl) and  (Components[i] is TcxGrid) then
+      if (Components[i] as TcxGrid).Parent.visible = true then grid := (Components[i] as TcxGrid);
+
+  PoolToClipbaord( (grid.ActiveLevel.GridView as TcxGridDBTableView).DataController, 1);
+end;
+
+// EOF :: Μενώ -----------------------------------------------------------------
+// -----------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 procedure TfrmRefbooks.aDeleteExecute(Sender: TObject);
 var idd, i: integer;
@@ -279,7 +346,6 @@ begin
  for i := 0 to ComponentCount - 1 do
  if (Components[i] is TControl) and  (Components[i] is TcxGrid) then
  if (Components[i] as TcxGrid).Parent.visible = true then  sss := (Components[i] as TcxGrid);
- //showmessage(Components[i].name);
 
   if ( (sss.ActiveView.DataController as TcxDBDataController).DataSet.RecordCount > 0 ) then
   begin
@@ -466,8 +532,9 @@ begin
       frmEditRefBooks.Ed2.Text   := Q_REGIONS.FieldByName('KOD').AsString;
       frmEditRefBooks.Ed3.Text   := Q_REGIONS.FieldByName('KLADR').AsString;
       frmEditRefBooks.ShowModal;
-      Q_REGIONS.Refresh;
-      Q_REGIONS.Locate('id_regions', frmEditRefBooks.Ed1.Tag, []);
+      Q_REGIONS.RefreshRecord;
+      //Q_REGIONS.Refresh;
+      //Q_REGIONS.Locate('id_regions', frmEditRefBooks.Ed1.Tag, []);
       grRegions.SetFocus;
     end;
     if (pcrefbooks.ActivePage.PageIndex=1) and (Q_CITIES.FieldByName('city').AsString <> '') then

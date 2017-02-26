@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Forms, Dialogs, sysUtils, Classes, star_lib, DBAccess, Ora, Messages,
-  MemDS, IniFiles, DB, ImgList, Controls, cxGraphics;
+  MemDS, IniFiles, DB, ImgList, Controls, cxGraphics, cxGridExportLink, ShellApi, cxGrid;
 
 
 type
@@ -24,6 +24,7 @@ type
     cdsRulesC_DEL: TFloatField;
     cdsRulesC_PRINT: TFloatField;
     cdsRulesC_ADDIT: TFloatField;
+    SaveDialogXLS: TSaveDialog;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
     procedure OraSessionAfterConnect(Sender: TObject);
@@ -35,25 +36,26 @@ type
    { id_office: integer;
     CUR_DEPT_ID: integer;
     CUR_DEPT_NAME: string;}
+    procedure MakeExportToExcel(grid: TcxGrid);
   end;
 
 var
   dm: Tdm;
-  verApplication :String;          // Версия программы
-  strAppIniName  :String;          // Полный путь к файлу *.ini
-  strConnString  :String;          // Строка коннекта
-  strServerName  :String;          // Имя/IP-адрес сервера
-  intServerPort  :Integer;         // Порт сервера
-  strDataBaseName:String;          // Имя базы данных
-  strUserName    :String;          // Текущий пользователь
-  strPassword    :String;          // Пароль пользователя
-  blShowFormLogin:Boolean;         // Признак отображения формы логина
+  verApplication :String;       // Версия программы
+  strAppIniName  :String;       // Полный путь к файлу *.ini
+  strConnString  :String;       // Строка коннекта
+  strServerName  :String;       // Имя/IP-адрес сервера
+  intServerPort  :Integer;      // Порт сервера
+  strDataBaseName:String;       // Имя базы данных
+  strUserName    :String;       // Текущий пользователь
+  strPassword    :String;       // Пароль пользователя
+  debug_user     :String;       // Режим дебага для пользователя
+  blShowFormLogin:Boolean;      // Признак отображения формы логина
 
   strPath     :String;          // Полный путь к файлу приложения
   intDefFont  :Integer;         // Шрифт по умолчанию
   intDefDept  :Integer;         // Отдел по умолчанию
   intDefOffice:Integer;         // Офис по умолчанию
-
 
 implementation
 
@@ -76,6 +78,8 @@ begin
                                 IntToStr(recFileInfo.wProductVersionLS) + '.' + IntToStr(recFileInfo.wProductVersionMS);
    // caption главной формы:
   Application.Title := Application.Title;
+
+  debug_user := '';
   
   // загрузка формы Login
   // проверяем есть ли командная строка или показываем окно логона
@@ -136,14 +140,34 @@ begin
   cdssettings.First;
   while not cdssettings.Eof do
   begin
-    if (orasession.Username = cdssettings.FieldByName('DB_USER').value) then begin
-    if (cdssettings.FieldByName('STG_KEY').value = 'FontSize')   then intDefFont  := cdssettings.FieldByName('STG_VALUE').Asinteger;
-    if (cdssettings.FieldByName('STG_KEY').value = 'Department') then intDefDept  := cdssettings.FieldByName('STG_VALUE').Asinteger;
+    if (orasession.Username = cdssettings.FieldByName('DB_USER').value) then
+    begin
+      if (cdssettings.FieldByName('STG_KEY').value = 'FontSize')   then intDefFont  := cdssettings.FieldByName('STG_VALUE').Asinteger;
+      if (cdssettings.FieldByName('STG_KEY').value = 'Department') then intDefDept  := cdssettings.FieldByName('STG_VALUE').Asinteger;
+    end;
+    cdssettings.Next;
   end;
-  cdssettings.Next;
-  end;
+
+  // откроем таблицу с правами на пользователя
   cdsRules.ParamByName('pLogin').AsString   := OraSession.Username;
   cdsRules.Open;
 end;
+
+
+// экспорт в Excel таблицы
+procedure Tdm.MakeExportToExcel(grid: TcxGrid);
+begin
+  try
+    if SaveDialogXLS.Execute then
+    begin
+      ExportGridToExcel(SaveDialogXLS.FileName, grid, True, True, True, 'xls');
+      ShellExecute(Application.Handle, nil, PChar(SaveDialogXLS.FileName), nil, nil, SW_RESTORE);
+    end;
+  except
+    on E: Exception do
+       Application.MessageBox(PChar(Format('Ошибка экспорта: %s', [E.Message])), 'Результат', MB_ICONERROR);
+  end;
+end;
+
 
 end.

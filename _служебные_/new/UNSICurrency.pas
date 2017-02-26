@@ -10,7 +10,7 @@ uses
   cxGridDBTableView, cxGrid, dxBarExtItems, cxDropDownEdit, cxLabel,
   cxBarEditItem, star_lib, cxImageComboBox, MemDS, DBAccess, Ora, cxButtonEdit,ComObj,
   xmldom, XMLIntf, msxmldom, XMLDoc, Xmlxform, DBClient, cxCalendar,
-  cxCurrencyEdit;
+  cxCurrencyEdit, Menus;
 
 type
   TfrmNSICurreny = class(TForm)
@@ -66,6 +66,12 @@ type
     btnHotKeys: TdxBarButton;
     deCoursesBegin: TdxBarDateCombo;
     deCoursesEnd: TdxBarDateCombo;
+    PM_main: TPopupMenu;
+    mnFooterToClipboard: TMenuItem;
+    mnToClipboard: TMenuItem;
+    mnClearFilter: TMenuItem;
+    N4: TMenuItem;
+    mnExportExcel: TMenuItem;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure aNewExecute(Sender: TObject);
     procedure aRefreshExecute(Sender: TObject);
@@ -78,6 +84,10 @@ type
     procedure btnHotKeysClick(Sender: TObject);
     procedure deCoursesEndKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure mnExportExcelClick(Sender: TObject);
+    procedure mnFooterToClipboardClick(Sender: TObject);
+    procedure mnToClipboardClick(Sender: TObject);
+    procedure mnClearFilterClick(Sender: TObject);
   private
     { Private declarations }
     p_read, p_edit, p_delete, p_print: boolean;
@@ -168,6 +178,33 @@ end;
 // -----------------------------------------------------------------------------
 
 
+// BOF :: Меню -----------------------------------------------------------------
+
+procedure TfrmNSICurreny.mnExportExcelClick(Sender: TObject);
+begin
+  DM.MakeExportToExcel(grCurrency);
+end;
+
+procedure TfrmNSICurreny.mnClearFilterClick(Sender: TObject);
+begin
+  grCurrencyView.DataController.Filter.Clear;
+end;
+
+procedure TfrmNSICurreny.mnFooterToClipboardClick(Sender: TObject);
+begin
+  PoolToClipbaord(grCurrencyView.DataController, 0);
+end;
+
+procedure TfrmNSICurreny.mnToClipboardClick(Sender: TObject);
+begin
+  PoolToClipbaord(grCurrencyView.DataController, 1);
+end;
+
+// EOF :: Меню -----------------------------------------------------------------
+// -----------------------------------------------------------------------------
+
+
+
 // BOF :: Основные кнопки управления -------------------------------------------
 
 //удалить
@@ -181,15 +218,17 @@ begin
     exit;
   end;
 
-  if MessageDlg('Вы действительно хотите удалить курсы?',mtConfirmation,[mbYes, mbNo],0) = mrYes then
+  if MessageBox(Application.Handle,'Вы действительно удалить курс валют?',
+                PChar(Format('%s',[Application.Title])),MB_ICONQUESTION + MB_YESNO + mb_DefButton2 ) = mrYES then
   begin
-     OraSQL2.ParamByName('P1').AsDate := Q_CURR.FieldByName('DDATE').AsDateTime;
-     try
-        OraSQL2.Execute;
-        Q_CURR.Refresh;
-     except
-        on E: Exception do ShowMessage('Ошибка! ' + E.Message);
-     end;
+    OraSQL2.ParamByName('P1').AsDate := Q_CURR.FieldByName('DDATE').AsDateTime;
+    try
+      OraSQL2.Execute;
+      Q_CURR.Refresh;
+    except
+      on E: Exception do 
+        MessageBox(Handle,PChar('Ошибка при удалении курсов валют!'+#13#10+E.Message),'Возникла ошибка',MB_ICONERROR);
+    end;
   end;
 end;
 
@@ -235,9 +274,9 @@ begin
       on E: Exception do MessageBox(Handle, PChar(E.Message), 'Возникла ошибка', MB_ICONERROR);
     end;
   finally
-      cds.GotoBookmark(bm);
-      cds.FreeBookmark(bm);
-      grCurrency.SetFocus;
+    cds.GotoBookmark(bm);
+    cds.FreeBookmark(bm);
+    grCurrency.SetFocus;
   end;
 end;
 

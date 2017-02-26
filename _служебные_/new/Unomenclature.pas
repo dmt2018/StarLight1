@@ -434,10 +434,12 @@ end;
 
 procedure TfrmNomenclature.FlowerNamesAfterPost(DataSet: TDataSet);
 begin
+{ бпелеммн
   EditRusName(StorProc, FlowerNames, v_FN_ID, v_F_NAME_RU, v_ID_DEPARTMENTS);
   v_FN_ID := 0;
   v_F_NAME_RU := '';
   v_ID_DEPARTMENTS := 0;
+}  
 end;
 
 procedure TfrmNomenclature.FlowerNameTranslationsAfterPost(DataSet: TDataSet);

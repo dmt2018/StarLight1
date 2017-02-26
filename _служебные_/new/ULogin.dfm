@@ -21,12 +21,12 @@ object frmLogin: TfrmLogin
   TextHeight = 13
   object lblEmailTo: TLabel
     Left = 167
-    Top = 302
-    Width = 94
+    Top = 290
+    Width = 112
     Height = 13
     Cursor = crHandPoint
     Anchors = [akLeft, akBottom]
-    Caption = 'alex_olmer@mail.ru'
+    Caption = 'alex.klepov@gmail.com'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlue
     Font.Height = -11
@@ -34,16 +34,14 @@ object frmLogin: TfrmLogin
     Font.Style = [fsUnderline]
     ParentFont = False
     OnClick = lblEmailToClick
-    ExplicitTop = 313
   end
   object Label1: TLabel
     Left = 8
-    Top = 302
+    Top = 290
     Width = 153
     Height = 13
     Anchors = [akLeft, akBottom]
     Caption = #1055#1086' '#1074#1086#1087#1088#1086#1089#1072#1084' '#1088#1072#1073#1086#1090#1099' '#1089#1080#1089#1090#1077#1084#1099':'
-    ExplicitTop = 313
   end
   object Image2: TImage
     Left = 0
@@ -2778,6 +2776,22 @@ object frmLogin: TfrmLogin
       B7EEFF00752DFF00373F845ADFF217BB0F0BCB4FF2EBDFABFD2FE7D60FF8C7DA
       7FE60DD1FF00904D3FF14F7EFD2FE8D7F2EB5FA9FD2FE7D7FFD9}
     ExplicitWidth = 564
+  end
+  object Label4: TLabel
+    Left = 167
+    Top = 305
+    Width = 91
+    Height = 13
+    Cursor = crHandPoint
+    Anchors = [akLeft, akBottom]
+    Caption = 'admin@starlight.ru'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsUnderline]
+    ParentFont = False
+    OnClick = lblEmailToClick
   end
   object Panel1: TPanel
     Left = 167

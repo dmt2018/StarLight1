@@ -328,6 +328,7 @@ end;
 procedure TfrmEditNom.btn_ins_nameClick(Sender: TObject);
 VAR FN_ID, FNT_ID, OutText : Variant;
 begin
+{ ÂĞÅÌÅÍÍÎ
   frmeditsubnom                               := Tfrmeditsubnom.Create(Application);
   try
     frmeditsubnom.cxPageControl1.HideTabs        := true;
@@ -362,6 +363,7 @@ begin
       MessageBox(Handle, PChar(E.Message), 'Îøèáêà', MB_ICONERROR);
     end;
   end;
+  }
 end;
 
 

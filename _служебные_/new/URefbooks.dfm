@@ -39,9 +39,6 @@ object frmRefbooks: TfrmRefbooks
       ImageIndex = 0
       ParentColor = False
       ParentFont = False
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object grRegions: TcxGrid
         Left = 0
         Top = 0
@@ -54,6 +51,7 @@ object frmRefbooks: TfrmRefbooks
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
+        PopupMenu = PM_main
         TabOrder = 0
         object grRegionsView: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
@@ -139,15 +137,13 @@ object frmRefbooks: TfrmRefbooks
     object tshCityes: TcxTabSheet
       Caption = #1043#1086#1088#1086#1076#1072
       ImageIndex = 1
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object grCities: TcxGrid
         Left = 0
         Top = 0
         Width = 770
         Height = 455
         Align = alClient
+        PopupMenu = PM_main
         TabOrder = 0
         object grCitiesView: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
@@ -217,15 +213,13 @@ object frmRefbooks: TfrmRefbooks
     object tshPromo: TcxTabSheet
       Caption = #1056#1077#1082#1083#1072#1084#1072
       ImageIndex = 2
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object grPromo: TcxGrid
         Left = 0
         Top = 0
         Width = 770
         Height = 455
         Align = alClient
+        PopupMenu = PM_main
         TabOrder = 0
         object grPromoView: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
@@ -297,15 +291,13 @@ object frmRefbooks: TfrmRefbooks
     object tshClientTypes: TcxTabSheet
       Caption = #1058#1080#1087#1099' '#1082#1083#1080#1077#1085#1090#1086#1074
       ImageIndex = 3
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object grClientTypes: TcxGrid
         Left = 0
         Top = 0
         Width = 770
         Height = 455
         Align = alClient
+        PopupMenu = PM_main
         TabOrder = 0
         object grClientTypesView: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
@@ -417,15 +409,13 @@ object frmRefbooks: TfrmRefbooks
     object tshDeparts: TcxTabSheet
       Caption = #1054#1090#1076#1077#1083#1099
       ImageIndex = 4
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object grDeps: TcxGrid
         Left = 0
         Top = 0
         Width = 770
         Height = 455
         Align = alClient
+        PopupMenu = PM_main
         TabOrder = 0
         object grDepsView: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
@@ -515,15 +505,13 @@ object frmRefbooks: TfrmRefbooks
     object tshPositions: TcxTabSheet
       Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1080
       ImageIndex = 5
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object grPost: TcxGrid
         Left = 0
         Top = 0
         Width = 770
         Height = 455
         Align = alClient
+        PopupMenu = PM_main
         TabOrder = 0
         object grPostView: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
@@ -596,15 +584,13 @@ object frmRefbooks: TfrmRefbooks
     object tshCountries: TcxTabSheet
       Caption = #1057#1090#1088#1072#1085#1099
       ImageIndex = 6
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object grCountries: TcxGrid
         Left = 0
         Top = 0
         Width = 770
         Height = 455
         Align = alClient
+        PopupMenu = PM_main
         TabOrder = 0
         object grCountriesView: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
@@ -693,15 +679,13 @@ object frmRefbooks: TfrmRefbooks
     object tshSuppliers: TcxTabSheet
       Caption = #1055#1086#1089#1090#1072#1074#1097#1080#1082#1080
       ImageIndex = 7
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object grSuppliers: TcxGrid
         Left = 0
         Top = 0
         Width = 770
         Height = 455
         Align = alClient
+        PopupMenu = PM_main
         TabOrder = 0
         object grSuppliersView: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
@@ -807,15 +791,13 @@ object frmRefbooks: TfrmRefbooks
     object tshUnits: TcxTabSheet
       Caption = #1045#1076#1080#1085#1080#1094#1099' '#1080#1079#1084#1077#1088#1077#1085#1080#1103
       ImageIndex = 8
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object grUnits: TcxGrid
         Left = 0
         Top = 0
         Width = 770
         Height = 455
         Align = alClient
+        PopupMenu = PM_main
         TabOrder = 0
         object grUnitsView: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
@@ -965,6 +947,7 @@ object frmRefbooks: TfrmRefbooks
       2)
     Categories.Visibles = (
       True)
+    ImageOptions.Images = dm.ImgList_24
     ImageOptions.LargeImages = dm.ImgList_32
     ImageOptions.SmoothGlyphs = True
     ImageOptions.StretchGlyphs = False
@@ -1338,6 +1321,10 @@ object frmRefbooks: TfrmRefbooks
     Top = 184
   end
   object Q_REGIONS: TOraQuery
+    SQLRefresh.Strings = (
+      'SELECT a.id_regions, a.name, a.info, a.ID_OFFICE, a.kladr, a.kod'
+      'FROM books_regions a'
+      'where id_regions = :old_id_regions')
     SQL.Strings = (
       'begin'
       '  BOOKS.GET_REGIONS(:V_OFFICE, :CURSOR_);'
@@ -1723,5 +1710,29 @@ object frmRefbooks: TfrmRefbooks
     DataSet = Q_CDS
     Left = 416
     Top = 408
+  end
+  object PM_main: TPopupMenu
+    Left = 464
+    Top = 192
+    object mnFooterToClipboard: TMenuItem
+      Caption = #1050#1086#1087#1080#1088#1086#1074#1072#1090#1100' '#1080#1090#1086#1075#1086#1074#1099#1077' '#1079#1085#1072#1095#1077#1085#1080#1103' '#1074' '#1073#1091#1092#1077#1088
+      OnClick = mnFooterToClipboardClick
+    end
+    object mnToClipboard: TMenuItem
+      Caption = #1050#1086#1087#1080#1088#1086#1074#1072#1090#1100' '#1103#1095#1077#1081#1082#1091' '#1074' '#1073#1091#1092#1077#1088
+      OnClick = mnToClipboardClick
+    end
+    object mnClearFilter: TMenuItem
+      Caption = #1054#1095#1080#1089#1090#1080#1090#1100' '#1092#1080#1083#1100#1090#1088
+      ShortCut = 121
+      OnClick = mnClearFilterClick
+    end
+    object N4: TMenuItem
+      Caption = '-'
+    end
+    object mnExportExcel: TMenuItem
+      Caption = #1069#1082#1089#1087#1086#1088#1090' '#1074' Excel'
+      OnClick = mnExportExcelClick
+    end
   end
 end

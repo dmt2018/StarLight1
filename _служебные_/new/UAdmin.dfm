@@ -1,4 +1,4 @@
-object frmAdmin: TfrmAdmin
+object v: Tv
   Left = 0
   Top = 0
   Caption = #1040#1076#1084#1080#1085#1080#1089#1090#1088#1080#1088#1086#1074#1072#1085#1080#1077
@@ -22,10 +22,10 @@ object frmAdmin: TfrmAdmin
     Left = 0
     Top = 58
     Width = 764
-    Height = 449
+    Height = 423
     Cursor = crHandPoint
-    ActivePage = TabSheet1
-    Align = alClient
+    ActivePage = TabSheet5
+    Align = alTop
     Images = ImageList1
     MultiLine = True
     ParentShowHint = False
@@ -36,9 +36,10 @@ object frmAdmin: TfrmAdmin
     OnChange = PageControl1Change
     object TabSheet1: TTabSheet
       Caption = ' '#1057#1054#1058#1056#1059#1044#1053#1048#1050#1048' '
+      ExplicitHeight = 417
       object Splitter1: TSplitter
         Left = 0
-        Top = 219
+        Top = 193
         Width = 756
         Height = 3
         Cursor = crVSplit
@@ -441,7 +442,7 @@ object frmAdmin: TfrmAdmin
         Left = 0
         Top = 105
         Width = 756
-        Height = 114
+        Height = 88
         Align = alClient
         AutoFitColWidths = True
         DataGrouping.GroupLevels = <>
@@ -592,12 +593,13 @@ object frmAdmin: TfrmAdmin
       end
       object Panel2: TPanel
         Left = 0
-        Top = 222
+        Top = 196
         Width = 756
         Height = 195
         Align = alBottom
         BevelOuter = bvNone
         TabOrder = 3
+        ExplicitTop = 222
         object Panel15: TPanel
           Left = 0
           Top = 153
@@ -816,9 +818,10 @@ object frmAdmin: TfrmAdmin
     object TabSheet3: TTabSheet
       Caption = ' '#1043#1056#1059#1055#1055#1067' '
       ImageIndex = 2
+      ExplicitHeight = 443
       object Splitter2: TSplitter
         Left = 0
-        Top = 185
+        Top = 159
         Width = 756
         Height = 3
         Cursor = crVSplit
@@ -832,15 +835,16 @@ object frmAdmin: TfrmAdmin
         Left = 0
         Top = 0
         Width = 756
-        Height = 185
+        Height = 159
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 0
+        ExplicitHeight = 211
         object DBGrid4: TDBGridEh
           Left = 0
           Top = 0
           Width = 756
-          Height = 145
+          Height = 119
           Align = alClient
           AutoFitColWidths = True
           DataGrouping.GroupLevels = <>
@@ -928,7 +932,7 @@ object frmAdmin: TfrmAdmin
         end
         object Panel5: TPanel
           Left = 0
-          Top = 145
+          Top = 119
           Width = 756
           Height = 40
           Align = alBottom
@@ -937,6 +941,7 @@ object frmAdmin: TfrmAdmin
           Ctl3D = False
           ParentCtl3D = False
           TabOrder = 1
+          ExplicitTop = 171
           object btnClients: TcxButton
             Left = 488
             Top = 5
@@ -1018,12 +1023,13 @@ object frmAdmin: TfrmAdmin
       end
       object Panel9: TPanel
         Left = 0
-        Top = 188
+        Top = 162
         Width = 756
         Height = 229
         Align = alBottom
         BevelOuter = bvNone
         TabOrder = 1
+        ExplicitTop = 214
         object Panel10: TPanel
           Left = 0
           Top = 0
@@ -1469,13 +1475,10 @@ object frmAdmin: TfrmAdmin
     object TabSheet2: TTabSheet
       Caption = ' '#1055#1056#1054#1043#1056#1040#1052#1052#1067' '
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
+      ExplicitHeight = 443
       object Panel4: TPanel
         Left = 0
-        Top = 377
+        Top = 351
         Width = 756
         Height = 40
         Align = alBottom
@@ -1484,12 +1487,13 @@ object frmAdmin: TfrmAdmin
         Ctl3D = False
         ParentCtl3D = False
         TabOrder = 0
+        ExplicitTop = 403
       end
       object DBGrid2: TDBGridEh
         Left = 0
         Top = 0
         Width = 756
-        Height = 377
+        Height = 351
         Align = alClient
         AutoFitColWidths = True
         DataGrouping.GroupLevels = <>
@@ -1566,25 +1570,23 @@ object frmAdmin: TfrmAdmin
     object TabSheet4: TTabSheet
       Caption = ' '#1044#1054#1057#1058#1059#1055' '#1050' '#1050#1040#1057#1057#1040#1052' '
       ImageIndex = 3
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
+      ExplicitHeight = 443
       object Panel17: TPanel
         Left = 0
         Top = 0
         Width = 756
-        Height = 377
+        Height = 351
         Align = alClient
         BevelOuter = bvNone
         Ctl3D = False
         ParentCtl3D = False
         TabOrder = 0
+        ExplicitHeight = 403
         object DBGridEh1: TDBGridEh
           Left = 0
           Top = 0
           Width = 756
-          Height = 377
+          Height = 351
           Align = alClient
           AutoFitColWidths = True
           Ctl3D = True
@@ -1667,7 +1669,7 @@ object frmAdmin: TfrmAdmin
       end
       object Panel18: TPanel
         Left = 0
-        Top = 377
+        Top = 351
         Width = 756
         Height = 40
         Align = alBottom
@@ -1676,6 +1678,7 @@ object frmAdmin: TfrmAdmin
         Ctl3D = True
         ParentCtl3D = False
         TabOrder = 1
+        ExplicitTop = 403
         object RadioGroup1: TRadioGroup
           Left = 274
           Top = 2
@@ -1708,13 +1711,10 @@ object frmAdmin: TfrmAdmin
     object tsh_debetors: TTabSheet
       Caption = ' '#1044#1054#1057#1058#1059#1055' '#1050' '#1044#1045#1041#1048#1058#1054#1056#1040#1052' '
       ImageIndex = 4
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
+      ExplicitHeight = 417
       object Panel8: TPanel
         Left = 0
-        Top = 377
+        Top = 351
         Width = 756
         Height = 40
         Align = alBottom
@@ -1723,6 +1723,7 @@ object frmAdmin: TfrmAdmin
         Ctl3D = True
         ParentCtl3D = False
         TabOrder = 1
+        ExplicitTop = 377
         DesignSize = (
           756
           40)
@@ -1747,7 +1748,7 @@ object frmAdmin: TfrmAdmin
         Left = 0
         Top = 0
         Width = 756
-        Height = 377
+        Height = 351
         Align = alClient
         AutoFitColWidths = True
         Ctl3D = True
@@ -1831,6 +1832,7 @@ object frmAdmin: TfrmAdmin
     object TabSheet5: TTabSheet
       Caption = #1056#1040#1047#1056#1045#1064#1045#1053#1048#1071
       ImageIndex = 5
+      ExplicitHeight = 417
       object Panel3: TPanel
         Left = 0
         Top = 0
@@ -1876,7 +1878,7 @@ object frmAdmin: TfrmAdmin
           Left = 72
           Top = 6
           Width = 313
-          Height = 19
+          Height = 22
           Ctl3D = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -2008,10 +2010,11 @@ object frmAdmin: TfrmAdmin
         Left = 0
         Top = 84
         Width = 756
-        Height = 333
+        Height = 307
         Align = alClient
         TabOrder = 2
         LookAndFeel.Kind = lfOffice11
+        ExplicitHeight = 333
         object gr_rights_v: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
           DataController.DataSource = ds_rights
@@ -2095,7 +2098,7 @@ object frmAdmin: TfrmAdmin
     Left = 632
     Top = 152
     Bitmap = {
-      494C010105002000600010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010105002000640010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -2772,7 +2775,7 @@ object frmAdmin: TfrmAdmin
       0
       0
       58
-      26)
+      0)
     object bmToolBar: TdxBar
       AllowClose = False
       AllowCustomizing = False
@@ -2824,6 +2827,7 @@ object frmAdmin: TfrmAdmin
           ItemName = 'imgoffice'
         end
         item
+          BeginGroup = True
           Visible = True
           ItemName = 'btnExit'
         end>
@@ -2832,30 +2836,6 @@ object frmAdmin: TfrmAdmin
       Row = 0
       UseOwnFont = False
       UseRestSpace = True
-      Visible = True
-      WholeRow = True
-    end
-    object bmFooter: TdxBar
-      AllowClose = False
-      AllowCustomizing = False
-      AllowQuickCustomizing = False
-      AllowReset = False
-      Caption = 'FooterTB'
-      CaptionButtons = <>
-      Color = clBtnFace
-      DockedDockingStyle = dsBottom
-      DockedLeft = 0
-      DockedTop = 0
-      DockingStyle = dsBottom
-      FloatLeft = 950
-      FloatTop = 8
-      FloatClientWidth = 0
-      FloatClientHeight = 0
-      ItemLinks = <>
-      OneOnRow = True
-      Row = 0
-      UseOwnFont = False
-      UseRecentItems = False
       Visible = True
       WholeRow = True
     end
@@ -3062,6 +3042,12 @@ object frmAdmin: TfrmAdmin
       Width = 100
       PropertiesClassName = 'TcxImageComboBoxProperties'
       Properties.Items = <>
+    end
+    object dxBarButton6: TdxBarButton
+      Caption = 'New Button'
+      Category = 0
+      Hint = 'New Button'
+      Visible = ivAlways
     end
   end
   object AlMain: TActionList

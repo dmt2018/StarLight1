@@ -61,36 +61,36 @@ end;
 
 procedure TfrmSettings.aCloseExecute(Sender: TObject);
 begin
-   Close;
+  Close;
 end;
 
 //пишу значени€ шрифта и отдела в Ѕƒ и закр.форму
 procedure TfrmSettings.aEnterExecute(Sender: TObject);
 var
-   p_key: array [1..2] of string;
-   p_val: array [1..2] of integer;
-   i: integer;
+  p_key: array [1..2] of string;
+  p_val: array [1..2] of integer;
+  i: integer;
 begin
+  p_key[1] := 'FontSize';    p_val[1] := cbFont.EditValue;
+  p_key[2] := 'Department';  p_val[2] := cbOtdel.EditValue;
 
- p_key[1] := 'FontSize';    p_val[1] := cbFont.EditValue;
- p_key[2] := 'Department';  p_val[2] := cbOtdel.EditValue;
+  dm.cdsSQL.Close;
+  dm.cdsSQL.SQL.clear;
+  dm.cdsSQL.SQL.Add('begin admins.save_user_setting(:p_key, :p_val);end;');
 
- dm.cdsSQL.Close;
- dm.cdsSQL.SQL.clear;
- dm.cdsSQL.SQL.Add('begin admins.save_user_setting(:p_key, :p_val);end;');
-
- //оказалось save_user_setting уже обрабатывает - что за юзер и т.д., поэтому лишнее убираю:
- for i := 1 to length(p_key) do begin
-  if (cbFont.EditValue <> intDefFont) or (cbOtdel.EditValue <> intDefDept) then begin
-    dm.cdsSQL.ParamByName('p_key').value := p_key[i];
-    dm.cdsSQL.ParamByName('p_val').value := p_val[i];
-    dm.cdsSQL.execute;
-   end;
+  //оказалось save_user_setting уже обрабатывает - что за юзер и т.д., поэтому лишнее убираю:
+  for i := 1 to length(p_key) do
+  begin
+    if (cbFont.EditValue <> intDefFont) or (cbOtdel.EditValue <> intDefDept) then begin
+      dm.cdsSQL.ParamByName('p_key').value := p_key[i];
+      dm.cdsSQL.ParamByName('p_val').value := p_val[i];
+      dm.cdsSQL.execute;
+    end;
   end;
 
-  dm.OraSession.Commit; //сохран€ю в бд
+  dm.OraSession.Commit;
   dm.cdsSQL.Close;
-  dm.cdssettings.refresh; 
+  dm.cdssettings.refresh;
 
   //переписываю знач.перем-х:
   intDefFont := cbFont.EditValue;
@@ -102,17 +102,15 @@ end;
 procedure TfrmSettings.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   SaveFormState(frmSettings); //полож.окна
-   frmSettings := nil;
+  frmSettings := nil;
   Action := caFree;
 end;
 
 procedure TfrmSettings.FormShow(Sender: TObject);
 begin
-   // dm.cdsDeps.Close; //список отделов получен - закрываю
-
-   //заполн€ю комбобоксы настройками, полученными из бд при старте проги:
-   cbFont.EditValue  := intDefFont;
-   cbOtdel.EditValue := intDefDept;
+  //заполн€ю комбобоксы настройками, полученными из бд при старте проги:
+  cbFont.EditValue  := intDefFont;
+  cbOtdel.EditValue := intDefDept;
 end;
 
 end.

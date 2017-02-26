@@ -4,7 +4,7 @@ object frmSettings: TfrmSettings
   BorderStyle = bsSingle
   Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080' '#1087#1088#1080#1083#1086#1078#1077#1085#1080#1103
   ClientHeight = 261
-  ClientWidth = 628
+  ClientWidth = 570
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,17 +21,22 @@ object frmSettings: TfrmSettings
   TextHeight = 13
   object pnlBottom: TPanel
     Left = 0
-    Top = 211
-    Width = 628
-    Height = 50
+    Top = 221
+    Width = 570
+    Height = 40
     Align = alBottom
     TabOrder = 0
+    ExplicitWidth = 628
+    DesignSize = (
+      570
+      40)
     object btnSave: TcxButton
-      Left = 392
-      Top = 14
-      Width = 107
-      Height = 25
+      Left = 289
+      Top = 6
+      Width = 133
+      Height = 27
       Action = aEnter
+      Anchors = [akRight, akBottom]
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -42,11 +47,13 @@ object frmSettings: TfrmSettings
       Colors.Default = clActiveBorder
     end
     object btnClose: TcxButton
-      Left = 512
-      Top = 14
-      Width = 107
-      Height = 25
+      Left = 428
+      Top = 6
+      Width = 133
+      Height = 27
       Action = aClose
+      Anchors = [akRight, akBottom]
+      Cancel = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -60,20 +67,24 @@ object frmSettings: TfrmSettings
   object Pnltop: TPanel
     Left = 0
     Top = 0
-    Width = 628
-    Height = 211
+    Width = 570
+    Height = 221
     Align = alClient
     TabOrder = 1
+    ExplicitWidth = 628
+    ExplicitHeight = 211
     object pcSettings: TcxPageControl
       Left = 1
       Top = 1
-      Width = 626
-      Height = 209
+      Width = 568
+      Height = 219
       ActivePage = tshMain
       Align = alClient
       TabOrder = 0
-      ClientRectBottom = 209
-      ClientRectRight = 626
+      ExplicitWidth = 626
+      ExplicitHeight = 209
+      ClientRectBottom = 219
+      ClientRectRight = 568
       ClientRectTop = 24
       object tshMain: TcxTabSheet
         Caption = #1054#1089#1085#1086#1074#1085#1099#1077
@@ -86,6 +97,8 @@ object frmSettings: TfrmSettings
         ImageIndex = 0
         ParentColor = False
         ParentFont = False
+        ExplicitWidth = 626
+        ExplicitHeight = 185
         object cbOtdel: TcxImageComboBox
           Left = 24
           Top = 35

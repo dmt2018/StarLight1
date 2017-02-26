@@ -4,7 +4,7 @@ object frmAbout: TfrmAbout
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = ' '#1054' '#1088#1072#1079#1088#1072#1073#1086#1090#1095#1080#1082#1072#1093
-  ClientHeight = 293
+  ClientHeight = 309
   ClientWidth = 570
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -20,15 +20,16 @@ object frmAbout: TfrmAbout
     Left = 0
     Top = 0
     Width = 570
-    Height = 194
+    Height = 269
     Align = alClient
     BevelInner = bvRaised
     BevelOuter = bvNone
     TabOrder = 0
+    ExplicitHeight = 194
     object gbInfoBuh: TcxGroupBox
       Left = 8
       Top = 79
-      Caption = #1041#1091#1093#1075#1072#1083#1090#1077#1088#1080#1103':'
+      Caption = ' '#1041#1091#1093#1075#1072#1083#1090#1077#1088#1080#1103': '
       ParentFont = False
       Style.Font.Charset = DEFAULT_CHARSET
       Style.Font.Color = clWindowText
@@ -65,13 +66,13 @@ object frmAbout: TfrmAbout
         Font.Name = 'Tahoma'
         Font.Style = [fsUnderline]
         ParentFont = False
-        OnClick = lblmail3Click
+        OnClick = lblmail1Click
       end
     end
     object gbInfoProg: TcxGroupBox
       Left = 8
       Top = 8
-      Caption = #1056#1072#1079#1088#1072#1073#1086#1090#1095#1080#1082#1080':'
+      Caption = ' '#1056#1072#1079#1088#1072#1073#1086#1090#1095#1080#1082#1080': '
       ParentBackground = False
       ParentColor = False
       ParentFont = False
@@ -101,10 +102,10 @@ object frmAbout: TfrmAbout
       object lblmail1: TLabel
         Left = 240
         Top = 20
-        Width = 115
+        Width = 134
         Height = 16
         Cursor = crHandPoint
-        Caption = 'alex_olmer@mail.ru'
+        Caption = 'alex.klepov@gmail.com'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clHotLight
         Font.Height = -13
@@ -139,13 +140,13 @@ object frmAbout: TfrmAbout
         Font.Name = 'Tahoma'
         Font.Style = [fsUnderline]
         ParentFont = False
-        OnClick = lblmail2Click
+        OnClick = lblmail1Click
       end
     end
     object gbInfoInv: TcxGroupBox
       Left = 8
       Top = 135
-      Caption = #1048#1085#1074#1086#1081#1089#1099':'
+      Caption = ' '#1048#1085#1074#1086#1081#1089#1099': '
       ParentFont = False
       Style.Font.Charset = DEFAULT_CHARSET
       Style.Font.Color = clWindowText
@@ -160,7 +161,7 @@ object frmAbout: TfrmAbout
     object gbInfoRaznos: TcxGroupBox
       Left = 288
       Top = 135
-      Caption = #1056#1072#1079#1085#1086#1089':'
+      Caption = ' '#1056#1072#1079#1085#1086#1089': '
       ParentFont = False
       Style.Font.Charset = DEFAULT_CHARSET
       Style.Font.Color = clWindowText
@@ -172,39 +173,10 @@ object frmAbout: TfrmAbout
       Height = 50
       Width = 273
     end
-  end
-  object pnlBottom: TPanel
-    Left = 0
-    Top = 194
-    Width = 570
-    Height = 99
-    Align = alBottom
-    TabOrder = 1
-    DesignSize = (
-      570
-      99)
-    object btnexit: TcxButton
-      Left = 428
-      Top = 63
-      Width = 133
-      Height = 27
-      Cursor = crHandPoint
-      Anchors = [akRight, akBottom]
-      Caption = #1047#1072#1082#1088#1099#1090#1100
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -13
-      Font.Name = 'Segoe UI Semibold'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 0
-      OnClick = btnexitClick
-      Colors.Default = clActiveBorder
-    end
     object gbInfo: TcxGroupBox
       Left = 8
-      Top = 6
-      Caption = #1044#1086#1087#1086#1083#1085#1080#1090#1077#1083#1100#1085#1086':'
+      Top = 191
+      Caption = ' '#1044#1086#1087#1086#1083#1085#1080#1090#1077#1083#1100#1085#1086': '
       ParentFont = False
       Style.Font.Charset = DEFAULT_CHARSET
       Style.Font.Color = clWindowText
@@ -212,8 +184,8 @@ object frmAbout: TfrmAbout
       Style.Font.Name = 'Tahoma'
       Style.Font.Style = []
       Style.IsFontAssigned = True
-      TabOrder = 1
-      Height = 51
+      TabOrder = 4
+      Height = 66
       Width = 553
       object lbl4: TLabel
         Left = 8
@@ -231,18 +203,64 @@ object frmAbout: TfrmAbout
       object lblmail4: TLabel
         Left = 240
         Top = 20
-        Width = 115
+        Width = 134
         Height = 16
         Cursor = crHandPoint
-        Caption = 'alex_olmer@mail.ru'
+        Caption = 'alex.klepov@gmail.com'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clHotLight
         Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = [fsUnderline]
         ParentFont = False
-        OnClick = lblmail4Click
+        OnClick = lblmail1Click
       end
+      object Label1: TLabel
+        Left = 240
+        Top = 38
+        Width = 109
+        Height = 16
+        Cursor = crHandPoint
+        Caption = 'admin@starlight.ru'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clHotLight
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsUnderline]
+        ParentFont = False
+        OnClick = lblmail1Click
+      end
+    end
+  end
+  object pnlBottom: TPanel
+    Left = 0
+    Top = 269
+    Width = 570
+    Height = 40
+    Align = alBottom
+    TabOrder = 1
+    ExplicitTop = 263
+    DesignSize = (
+      570
+      40)
+    object btnexit: TcxButton
+      Left = 428
+      Top = 6
+      Width = 133
+      Height = 27
+      Cursor = crHandPoint
+      Anchors = [akRight, akBottom]
+      Cancel = True
+      Caption = #1047#1072#1082#1088#1099#1090#1100
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+      OnClick = btnexitClick
+      Colors.Default = clActiveBorder
     end
   end
 end

@@ -154,9 +154,7 @@ end;
 
 // вывод юзера в 2_статусбар:
 procedure TfrmMain.FormCreate(Sender: TObject);
- //var  s1, s2, s3, s4: boolean;
 begin
-  //porasessStarLight := @DM.OraSession;
   stbMain.Panels[0].Text := verApplication;
   stbMain.Panels[1].Text := ' Сервер: ['+strServerName+':'+IntToStr(intServerPort)+'] ';
   stbMain.Panels[2].Text := ' Пользователь: ['+strUserName+'] ';
@@ -219,49 +217,49 @@ end;
 // EOF - Работа со статусбаром + вход/выход
 ////////////////////////////////////////////////////////////////////////////////
 
-//форма о программе
+// форма о программе
 procedure TfrmMain.actAboutExecute(Sender: TObject);
 begin
   frmAbout.MainFormShow;
 end;
 
-//кнопка выход mainmenu
+// кнопка выход mainmenu
 procedure TfrmMain.miClient_RegClick(Sender: TObject);
 begin
   frmRegistration.MainFormShow;
 end;
 
-//кнопка выход mainmenu
+// кнопка выход mainmenu
 procedure TfrmMain.miExitClick(Sender: TObject);
 begin
   close;
 end;
 
-//форма Номенклатура
+// форма Номенклатура
 procedure TfrmMain.miNomen_NomClick(Sender: TObject);
 begin
   frmNomenclature.MainFormShow;
 end;
 
-//форма Администрирование
+// форма Администрирование
 procedure TfrmMain.mmiAdminToolsClick(Sender: TObject);
 begin
   frmAdmin.MainFormShow;
 end;
 
-//форма Настройки
+// форма Настройки
 procedure TfrmMain.mmiSettingsClick(Sender: TObject);
 begin
   frmSettings.MainFormShow;
 end;
 
-//форма транспортников
+// форма транспортников
 procedure TfrmMain.mmiTransClick(Sender: TObject);
 begin
   frmTrans.MainFormShow;
 end;
 
-//форма курсы валют
+// форма курсы валют
 procedure TfrmMain.mnNSI_CurrencyClick(Sender: TObject);
 begin
   frmNSICurreny.MainFormShow;
@@ -343,48 +341,34 @@ end;
 
 
 
-//разворачиваю окна
+// разворачиваю окна
 procedure TfrmMain.WindowArrangeAllExecute(Sender: TObject);
- var iCount: Integer;
+  var iCount: Integer;
 begin
    for iCount := 0 to MDIChildCount - 1 do
    MDIChildren[iCount].WindowState := wsNormal;
- //if Assigned(frmNSICurreny) and (frmNSICurreny.WindowState = wsMinimized) then frmNSICurreny.WindowState:= wsNormal;
- //if Assigned(frmAdmin) and (frmAdmin.WindowState = wsMinimized) then frmAdmin.WindowState:= wsNormal;
 end;
 
-//окна каскадом
+// окна каскадом
 procedure TfrmMain.WindowCascadeExecute(Sender: TObject);
- var iCount: integer;
-     {FForms : TList;
-     FRect: TRect;}
+  var iCount: integer;
 begin
-      for iCount := 0 to MDIChildCount - 1 do
-      begin
-        MDIChildren[iCount].Left := iCount * 20;
-        MDIChildren[iCount].Top  := iCount * 20;
-      end;
-  {FForms := TList.Create;
-  FRect := Screen.WorkAreaRect;
-  if Assigned(frmNSICurreny) then FForms.Add(frmNSICurreny);
-  if Assigned(frmAdmin) then FForms.Add(frmAdmin);
-  if FForms.Count = 0 then EXIT;
-  for i := 0 to FForms.Count - 1 do begin
-    TForm(FForms[i]).Left := FRect.Left + (i + 1) * 20;
-    TForm(FForms[i]).Top := FRect.Top + (i + 1) * 20;
+  for iCount := 0 to MDIChildCount - 1 do
+  begin
+    MDIChildren[iCount].Left := iCount * 20;
+    MDIChildren[iCount].Top  := iCount * 20;
   end;
-  FForms.Destroy;}
 end;
 
-//сворачиваю окна
+// сворачиваю окна
 procedure TfrmMain.WindowMinimizeAllExecute(Sender: TObject);
- var iCount: Integer;
+  var iCount: Integer;
 begin
-   for iCount := MDIChildCount - 1 downto 0 do
-   MDIChildren[iCount].WindowState := wsMinimized;
+  for iCount := MDIChildCount - 1 downto 0 do
+  MDIChildren[iCount].WindowState := wsMinimized;
 end;
 
-//выравнивание окон по гориз.
+// выравнивание окон по гориз.
 procedure TfrmMain.WindowTileHorizontalExecute(Sender: TObject);
 begin
   TileMode := tbHorizontal;
@@ -394,8 +378,8 @@ end;
 // выравнивание окон по верт.
 procedure TfrmMain.WindowTileVerticalExecute(Sender: TObject);
 begin
-   TileMode := tbVertical;
-   Tile;
+  TileMode := tbVertical;
+  Tile;
 end;
 
 end.

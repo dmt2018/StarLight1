@@ -24,6 +24,7 @@ type
     edPass: TMaskEdit;
     btnOk: TcxButton;
     btnClose: TcxButton;
+    Label4: TLabel;
     procedure edLoginChange(Sender: TObject);
     procedure edPassChange(Sender: TObject);
     procedure ActOKExecute(Sender: TObject);
@@ -48,29 +49,40 @@ uses uDM;
 function CreateLoginForm:Boolean;
 var
   IniFile: TIniFile;
+  f_name: string;
 begin
   frmLogin := TfrmLogin.Create(nil);
   try
     Result := False;
 
     // считывание последних параметров из файла *.ini
-    strAppIniName   := ExtractFilePath(Application.ExeName) + Copy(ExtractFileName(Application.ExeName),1,Pos('.',ExtractFileName(Application.ExeName))) + 'ini';
+    f_name := Application.ExeName;
+    strAppIniName   := ExtractFilePath(f_name) + Copy(ExtractFileName(f_name),1,Pos('.',ExtractFileName(f_name))) + 'ini';
+
+    // если не найден настроечный файл *.ini
+    if not FileExists(strAppIniName) then
+    begin
+      Application.MessageBox('Не найдены настройки соединения с БД. Обратитесь к разработчикам.', 'Ошибка', MB_ICONWARNING);
+      exit;
+    end;
+
     IniFile         := TIniFile.Create(strAppIniName);
-    intServerPort   := StrToIntDef(IniFile.ReadString('ServerPort','Port','1521'),0);
-    strDataBaseName := IniFile.ReadString('DataBase','DataBaseName','orcl');
+    intServerPort   := StrToIntDef(IniFile.ReadString('ServerPort','Port',''),0);
+    strDataBaseName := IniFile.ReadString('DataBase','DataBaseName','');
+    strServerName   := IniFile.ReadString('Server','ServerName','');
+    debug_user      := IniFile.ReadString('Logger','User','');
 
     with frmLogin do
     begin
-      strServerName := IniFile.ReadString('Server','ServerName','');
 
-      // если не найден настроечный файл *.ini
-      if (not FileExists(strAppIniName)) OR (Trim(strDataBaseName) = '') then
+      // если не найдены ключи в настроечном файле *.ini
+      if (Trim(strServerName) = '') OR (Trim(strDataBaseName) = '') then
       begin
-        // отображение панели настройки
-        Application.MessageBox('Не найдены настройки соединения с БД. Обратитесь к разработчикам.','Ошибка',MB_ICONWARNING);
+        Application.MessageBox(PChar('Не найдены настройки соединения с БД в файле '+strAppIniName+'. Обратитесь к разработчикам.'),'Ошибка',MB_ICONWARNING);
+        exit;
       end;
 
-      if ShowModal = mrOK then   //отображается форма авторизации и:
+      if ShowModal = mrOK then   //отображается форма авторизации:
       begin
         edLoginChange(edLogin);
         edPassChange(edPass);
@@ -114,7 +126,7 @@ end;
 
 procedure TfrmLogin.lblEmailToClick(Sender: TObject);
 begin
-  CheckShell(Handle, 'mailto:alex_olmer@mail.ru?subject=ИС Старлайт.');
+  CheckShell( Handle, PAnsiChar('mailto:'+(Sender as TLabel).Caption+'?subject=ИС Старлайт.') );
 end;
 
 end.

@@ -145,10 +145,11 @@ begin
     OraSQL1.ParamByName('P9').AsFloat := Ed8.EditValue;
 
     try
-       OraSQL1.Execute;
-       ModalResult := mrOk;
+      OraSQL1.Execute;
+      ModalResult := mrOk;
     except
-       on E: Exception do ShowMessage('Ошибка! ' + E.Message);
+      on E: Exception do
+        MessageBox(Handle,PChar('Ошибка при записи курсов валют!'+#13#10+E.Message),'Возникла ошибка',MB_ICONERROR);
     end;
   end;
 end;

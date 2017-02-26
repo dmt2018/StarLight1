@@ -8,7 +8,7 @@ uses
   UNSICurrency in 'UNSICurrency.pas' {frmNSICurreny},
   Themes,
   USettings in 'USettings.pas' {frmSettings},
-  UAdmin in 'UAdmin.pas' {frmAdmin},
+  UAdmin in 'UAdmin.pas' {v},
   UAdminAccount in 'UAdminAccount.pas' {frmAdminAccount},
   Udm in 'Udm.pas' {dm: TDataModule},
   Ueditor in 'Ueditor.pas' {frmeditor},
