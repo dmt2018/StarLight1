@@ -18,15 +18,17 @@ type
     Panel5: TPanel;
     label_sales: TcxLabel;
     img_sales: TcxImage;
-    cxLabel1: TcxLabel;
+    label_money: TcxLabel;
     img_money: TcxImage;
-    cxLabel2: TcxLabel;
+    label_cl_sales: TcxLabel;
     img_cl_sales: TcxImage;
     btn_user: TcxButton;
     lblStore: TcxLabel;
     imgStore: TcxImage;
     lblSalesByClient: TcxLabel;
     imgSalesByClient: TcxImage;
+    img_orders: TcxImage;
+    label_orders: TcxLabel;
     procedure btnCloseClick(Sender: TObject);
     procedure img_clientsClick(Sender: TObject);
     procedure img_salesClick(Sender: TObject);
@@ -36,11 +38,12 @@ type
     procedure btn_userClick(Sender: TObject);
     procedure imgStoreClick(Sender: TObject);
     procedure imgSalesByClientClick(Sender: TObject);
+    procedure img_ordersClick(Sender: TObject);
   private
     { Private declarations }
   public
     p_edit, p_delete, p_print, p_addit  : boolean;
-    tag1, tag2, tag3, tag4, tag5, tag6: boolean;
+    tag1, tag2, tag3, tag4, tag5, tag6, tag7: boolean;
     { Public declarations }
   end;
 
@@ -50,7 +53,7 @@ var
 implementation
 
 uses client_stat_f, DataModule, prod_stat_f, UMoney, UClients, USettings,
-  UStore, USealesByClient;
+  UStore, USealesByClient, UOrdersStat;
 
 {$R *.dfm}
 
@@ -75,6 +78,7 @@ begin
     tag4 := tag1;
     tag5 := tag1;
     tag6 := tag1;
+    tag7 := tag1;
   end
   else
   begin
@@ -88,6 +92,7 @@ begin
     tag4 := tag1;
     tag5 := tag1;
     tag6 := tag1;
+    tag7 := tag1;
     if (DM.SQL_Q.RecordCount > 0) then
     begin
       DM.SQL_Q.First;
@@ -99,25 +104,28 @@ begin
         if (DM.SQL_Q.FieldByName('tag').AsInteger = 4) then tag4 := CharToBool(DM.SQL_Q.FieldByName('c_start').AsString);
         if (DM.SQL_Q.FieldByName('tag').AsInteger = 5) then tag5 := CharToBool(DM.SQL_Q.FieldByName('c_start').AsString);
         if (DM.SQL_Q.FieldByName('tag').AsInteger = 6) then tag6 := CharToBool(DM.SQL_Q.FieldByName('c_start').AsString);
+        if (DM.SQL_Q.FieldByName('tag').AsInteger = 7) then tag7 := CharToBool(DM.SQL_Q.FieldByName('c_start').AsString);
         DM.SQL_Q.Next;
       end;
     end;
     DM.SQL_Q.Close;
   end;
 
-  img_clients.Enabled   := tag1;
-  img_sales.Enabled     := tag2;
-  imgSalesByClient.Enabled     := tag6;
-  img_money.Enabled     := tag3;
-  img_cl_sales.Enabled  := tag4;
-  imgStore.Enabled      := tag5;
+  img_clients.Enabled       := tag1;
+  img_sales.Enabled         := tag2;
+  imgSalesByClient.Enabled  := tag6;
+  img_money.Enabled         := tag3;
+  img_cl_sales.Enabled      := tag4;
+  imgStore.Enabled          := tag5;
+  img_orders.Enabled        := tag7;
 
-  label_clients.Enabled := tag1;
-  label_sales.Enabled   := tag2;
-  lblSalesByClient.Enabled   := tag6;
-  cxLabel1.Enabled      := tag3;
-  cxLabel2.Enabled      := tag4;
-  lblStore.Enabled      := tag5;
+  label_clients.Enabled     := tag1;
+  label_sales.Enabled       := tag2;
+  lblSalesByClient.Enabled  := tag6;
+  label_money.Enabled       := tag3;
+  label_cl_sales.Enabled    := tag4;
+  lblStore.Enabled          := tag5;
+  label_orders.Enabled      := tag7;
 end;
 
 
@@ -202,6 +210,21 @@ begin
     frmMoney.showmodal;
   finally
     frmMoney.free;
+  end;
+end;
+
+//
+//  Заказы по товару
+//
+procedure Tmain.img_ordersClick(Sender: TObject);
+begin
+  if (tag7 = false) then exit;
+
+  frmOrdersStat := TfrmOrdersStat.Create(Application);
+  try
+    frmOrdersStat.showmodal;
+  finally
+    frmOrdersStat.free;
   end;
 end;
 

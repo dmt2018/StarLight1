@@ -1,28 +1,45 @@
-object frm_prod_stat: Tfrm_prod_stat
-  Left = 427
-  Top = 177
-  Caption = '  '#1057#1090#1072#1090#1080#1089#1090#1080#1082#1072
-  ClientHeight = 565
-  ClientWidth = 909
+object frmOrdersStat: TfrmOrdersStat
+  Left = 0
+  Top = 0
+  Caption = ' '#1057#1090#1072#1090#1080#1089#1090#1080#1082#1072' '#1087#1086' '#1079#1072#1082#1072#1079#1072#1084' '
+  ClientHeight = 613
+  ClientWidth = 1134
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -12
-  Font.Name = 'Arial'
-  Font.Pitch = fpFixed
+  Font.Height = -11
+  Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poScreenCenter
-  Scaled = False
   WindowState = wsMaximized
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
-  TextHeight = 15
-  object top_panel: TPanel
+  TextHeight = 13
+  object Panel2: TPanel
     Left = 0
     Top = 0
-    Width = 909
-    Height = 185
+    Width = 1134
+    Height = 41
+    Align = alTop
+    Caption = ' '#1057#1090#1072#1090#1080#1089#1090#1080#1082#1072' '#1087#1086' '#1079#1072#1082#1072#1079#1072#1084' '
+    Color = clWhite
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -16
+    Font.Name = 'Arial'
+    Font.Pitch = fpFixed
+    Font.Style = [fsBold]
+    ParentBackground = False
+    ParentFont = False
+    TabOrder = 0
+    TabStop = True
+  end
+  object top_panel: TPanel
+    Left = 0
+    Top = 41
+    Width = 1134
+    Height = 100
     Align = alTop
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack
@@ -32,14 +49,14 @@ object frm_prod_stat: Tfrm_prod_stat
     Font.Style = []
     ParentBackground = False
     ParentFont = False
-    TabOrder = 0
+    TabOrder = 1
     TabStop = True
-    object Label2: TLabel
-      Left = 13
-      Top = 45
-      Width = 44
+    object Label8: TLabel
+      Left = 423
+      Top = 11
+      Width = 46
       Height = 16
-      Caption = #1054#1090#1076#1077#1083':'
+      Caption = #1056#1077#1075#1080#1086#1085
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -48,9 +65,23 @@ object frm_prod_stat: Tfrm_prod_stat
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object Label8: TLabel
-      Left = 308
-      Top = 15
+    object Label1: TLabel
+      Left = 388
+      Top = 57
+      Width = 81
+      Height = 16
+      Caption = #1050#1086#1076' '#1082#1083#1080#1077#1085#1090#1072
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'arial'
+      Font.Pitch = fpFixed
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label2: TLabel
+      Left = 12
+      Top = 11
       Width = 46
       Height = 16
       Caption = #1043#1088#1091#1087#1087#1072
@@ -63,8 +94,8 @@ object frm_prod_stat: Tfrm_prod_stat
       ParentFont = False
     end
     object Label9: TLabel
-      Left = 308
-      Top = 61
+      Left = 12
+      Top = 57
       Width = 69
       Height = 16
       Caption = #1055#1086#1076#1075#1088#1091#1087#1087#1072
@@ -76,140 +107,116 @@ object frm_prod_stat: Tfrm_prod_stat
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object Label10: TLabel
-      Left = 308
-      Top = 108
-      Width = 91
-      Height = 16
-      Caption = #1044#1072#1090#1072' ('#1087#1077#1088#1080#1086#1076')'
+    object chek_regions: TCheckBox
+      Left = 482
+      Top = 31
+      Width = 97
+      Height = 17
+      Caption = #1074#1089#1077' '#1079#1085#1072#1095#1077#1085#1080#1103
+      Checked = True
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -13
-      Font.Name = 'arial'
-      Font.Pitch = fpFixed
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object Label1: TLabel
-      Left = 308
-      Top = 155
-      Width = 193
-      Height = 16
-      Caption = #1051#1080#1084#1080#1090' '#1089#1090#1086#1083#1073#1094#1086#1074' '#1076#1083#1103' '#1075#1088#1072#1092#1080#1082#1072
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -13
-      Font.Name = 'arial'
-      Font.Pitch = fpFixed
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object Label4: TLabel
-      Left = 13
-      Top = 15
-      Width = 41
-      Height = 16
-      Caption = #1054#1092#1080#1089':'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -13
-      Font.Name = 'Arial'
-      Font.Pitch = fpFixed
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object Store_DepsCBEx: TDBComboBoxEh
-      Left = 94
-      Top = 42
-      Width = 195
-      Height = 24
-      Cursor = crHandPoint
-      EditButtons = <>
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -13
+      Font.Color = clBlack
+      Font.Height = -11
       Font.Name = 'Arial'
       Font.Pitch = fpFixed
       Font.Style = []
       ParentFont = False
+      State = cbChecked
       TabOrder = 1
-      Text = #1085#1077' '#1074#1099#1073#1088#1072#1085' '#1086#1090#1076#1077#1083'...'
-      Visible = True
     end
-    object Doc_DateTimePicker1: TcxDateEdit
-      Left = 410
-      Top = 104
-      Cursor = crHandPoint
-      ParentFont = False
-      Properties.DateOnError = deToday
+    object cb_clients: TcxCheckComboBox
+      Left = 482
+      Top = 52
+      EditValue = '0000'
+      Properties.EmptySelectionText = #1042#1099#1073#1077#1088#1080#1090#1077'...'
+      Properties.EditValueFormat = cvfStatesString
       Properties.ImmediatePost = True
-      Properties.SaveTime = False
-      Properties.ShowTime = False
-      Style.Font.Charset = DEFAULT_CHARSET
-      Style.Font.Color = clWindowText
-      Style.Font.Height = -13
-      Style.Font.Name = 'arial'
-      Style.Font.Pitch = fpFixed
-      Style.Font.Style = []
+      Properties.Items = <
+        item
+          Description = 'D'
+          ShortDescription = 'D'
+        end
+        item
+          Description = 'M'
+          ShortDescription = 'M'
+        end
+        item
+          Description = 'R'
+          ShortDescription = 'R'
+        end
+        item
+          Description = 'O'
+          ShortDescription = 'O'
+        end>
       Style.LookAndFeel.Kind = lfOffice11
       Style.LookAndFeel.NativeStyle = True
-      Style.IsFontAssigned = True
       StyleDisabled.LookAndFeel.Kind = lfOffice11
       StyleDisabled.LookAndFeel.NativeStyle = True
       StyleFocused.LookAndFeel.Kind = lfOffice11
       StyleFocused.LookAndFeel.NativeStyle = True
       StyleHot.LookAndFeel.Kind = lfOffice11
       StyleHot.LookAndFeel.NativeStyle = True
-      TabOrder = 7
+      TabOrder = 2
       Width = 116
     end
-    object Doc_DateTimePicker2: TcxDateEdit
-      Left = 537
-      Top = 104
-      Cursor = crHandPoint
-      ParentFont = False
-      Properties.DateOnError = deToday
+    object chb_regions: TcxCheckComboBox
+      Left = 482
+      Top = 6
+      EditValue = '0000'
+      ParentShowHint = False
+      Properties.EmptySelectionText = #1042#1099#1073#1077#1088#1080#1090#1077'...'
+      Properties.DropDownSizeable = True
+      Properties.EditValueFormat = cvfStatesString
       Properties.ImmediatePost = True
-      Properties.SaveTime = False
-      Properties.ShowTime = False
-      Style.Font.Charset = DEFAULT_CHARSET
-      Style.Font.Color = clWindowText
-      Style.Font.Height = -13
-      Style.Font.Name = 'arial'
-      Style.Font.Pitch = fpFixed
-      Style.Font.Style = []
+      Properties.Items = <
+        item
+          Description = 'D'
+          ShortDescription = 'D'
+        end
+        item
+          Description = 'M'
+          ShortDescription = 'M'
+        end
+        item
+          Description = 'R'
+          ShortDescription = 'R'
+        end
+        item
+          Description = 'O'
+          ShortDescription = 'O'
+        end>
+      ShowHint = True
       Style.LookAndFeel.Kind = lfOffice11
       Style.LookAndFeel.NativeStyle = True
-      Style.IsFontAssigned = True
       StyleDisabled.LookAndFeel.Kind = lfOffice11
       StyleDisabled.LookAndFeel.NativeStyle = True
       StyleFocused.LookAndFeel.Kind = lfOffice11
       StyleFocused.LookAndFeel.NativeStyle = True
       StyleHot.LookAndFeel.Kind = lfOffice11
       StyleHot.LookAndFeel.NativeStyle = True
-      TabOrder = 8
-      Width = 116
+      TabOrder = 0
+      Width = 243
     end
-    object RadioGroup1: TRadioGroup
-      Left = 679
-      Top = 10
-      Width = 217
-      Height = 85
-      Caption = ' '#1089' '#1088#1072#1079#1073#1080#1074#1082#1086#1081' '
-      Columns = 2
-      ItemIndex = 0
-      Items.Strings = (
-        #1086#1073#1097#1080#1081
-        #1076#1085#1080
-        #1085#1077#1076#1077#1083#1080
-        #1084#1077#1089#1103#1094#1099
-        #1082#1074#1072#1088#1090#1072#1083#1099
-        #1075#1086#1076#1099)
-      TabOrder = 10
+    object check_alpha: TCheckBox
+      Left = 482
+      Top = 77
+      Width = 97
+      Height = 17
+      Caption = #1074#1089#1077' '#1079#1085#1072#1095#1077#1085#1080#1103
+      Checked = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = []
+      ParentFont = False
+      State = cbChecked
+      TabOrder = 3
     end
     object cb_type: TcxLookupComboBox
-      Left = 389
-      Top = 10
+      Left = 93
+      Top = 6
       Properties.DropDownListStyle = lsFixedList
       Properties.DropDownSizeable = True
       Properties.ImmediatePost = True
@@ -231,12 +238,29 @@ object frm_prod_stat: Tfrm_prod_stat
       StyleFocused.LookAndFeel.NativeStyle = True
       StyleHot.LookAndFeel.Kind = lfOffice11
       StyleHot.LookAndFeel.NativeStyle = True
-      TabOrder = 3
+      TabOrder = 4
       Width = 264
     end
+    object chek_group: TCheckBox
+      Left = 93
+      Top = 31
+      Width = 97
+      Height = 17
+      Caption = #1074#1089#1077' '#1079#1085#1072#1095#1077#1085#1080#1103
+      Checked = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = []
+      ParentFont = False
+      State = cbChecked
+      TabOrder = 5
+    end
     object cb_subtype: TcxLookupComboBox
-      Left = 389
-      Top = 56
+      Left = 93
+      Top = 52
       Properties.DropDownListStyle = lsFixedList
       Properties.DropDownSizeable = True
       Properties.ImmediatePost = True
@@ -258,42 +282,12 @@ object frm_prod_stat: Tfrm_prod_stat
       StyleFocused.LookAndFeel.NativeStyle = True
       StyleHot.LookAndFeel.Kind = lfOffice11
       StyleHot.LookAndFeel.NativeStyle = True
-      TabOrder = 5
+      TabOrder = 6
       Width = 264
     end
-    object rg_stat_vid: TRadioGroup
-      Left = 13
-      Top = 72
-      Width = 276
-      Height = 99
-      Caption = ' '#1074#1080#1076' '#1089#1090#1072#1090#1080#1089#1090#1080#1082#1080' '
-      ItemIndex = 0
-      Items.Strings = (
-        #1055#1086' '#1075#1088#1091#1087#1087#1072#1084
-        #1055#1086' '#1087#1086#1076#1075#1088#1091#1087#1087#1072#1084
-        #1055#1086' '#1090#1086#1074#1072#1088#1091)
-      TabOrder = 2
-    end
-    object chek_group: TCheckBox
-      Left = 389
-      Top = 35
-      Width = 97
-      Height = 17
-      Caption = #1074#1089#1077' '#1079#1085#1072#1095#1077#1085#1080#1103
-      Checked = True
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clBlack
-      Font.Height = -11
-      Font.Name = 'Arial'
-      Font.Pitch = fpFixed
-      Font.Style = []
-      ParentFont = False
-      State = cbChecked
-      TabOrder = 4
-    end
     object chek_subgroup: TCheckBox
-      Left = 389
-      Top = 81
+      Left = 93
+      Top = 77
       Width = 97
       Height = 17
       Caption = #1074#1089#1077' '#1079#1085#1072#1095#1077#1085#1080#1103
@@ -306,108 +300,160 @@ object frm_prod_stat: Tfrm_prod_stat
       Font.Style = []
       ParentFont = False
       State = cbChecked
-      TabOrder = 6
-    end
-    object chek_dates: TCheckBox
-      Left = 389
-      Top = 130
-      Width = 97
-      Height = 17
-      Caption = #1079#1072' '#1074#1077#1089#1100' '#1087#1077#1088#1080#1086#1076
-      Checked = True
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clBlack
-      Font.Height = -11
-      Font.Name = 'Arial'
-      Font.Pitch = fpFixed
-      Font.Style = []
-      ParentFont = False
-      State = cbChecked
-      TabOrder = 9
-    end
-    object cbLimit: TcxComboBox
-      Left = 537
-      Top = 150
-      Properties.DropDownListStyle = lsFixedList
-      Properties.ImmediatePost = True
-      Properties.ImmediateUpdateText = True
-      Properties.Items.Strings = (
-        '5'
-        '10'
-        '15'
-        '20'
-        '30'
-        '40'
-        '50')
-      Style.BorderStyle = ebsOffice11
-      Style.LookAndFeel.Kind = lfOffice11
-      Style.LookAndFeel.NativeStyle = True
-      StyleDisabled.LookAndFeel.Kind = lfOffice11
-      StyleDisabled.LookAndFeel.NativeStyle = True
-      StyleFocused.LookAndFeel.Kind = lfOffice11
-      StyleFocused.LookAndFeel.NativeStyle = True
-      StyleHot.LookAndFeel.Kind = lfOffice11
-      StyleHot.LookAndFeel.NativeStyle = True
-      TabOrder = 11
-      Width = 116
-    end
-    object RadioGroup2: TRadioGroup
-      Left = 679
-      Top = 95
-      Width = 217
-      Height = 76
-      Caption = ' '#1089#1086#1088#1090#1080#1088#1086#1074#1082#1072' '
-      Columns = 2
-      ItemIndex = 0
-      Items.Strings = (
-        #1074#1086#1079#1088#1086#1089#1090#1072#1085#1080#1077
-        #1091#1073#1099#1074#1072#1085#1080#1077)
-      TabOrder = 12
-    end
-    object cbOffices: TcxImageComboBox
-      Left = 94
-      Top = 11
-      Cursor = crHandPoint
-      Properties.ImmediatePost = True
-      Properties.ImmediateUpdateText = True
-      Properties.Items = <>
-      Properties.OnChange = cbOfficesPropertiesChange
-      Style.BorderStyle = ebsOffice11
-      Style.LookAndFeel.Kind = lfOffice11
-      Style.LookAndFeel.NativeStyle = True
-      StyleDisabled.LookAndFeel.Kind = lfOffice11
-      StyleDisabled.LookAndFeel.NativeStyle = True
-      StyleFocused.LookAndFeel.Kind = lfOffice11
-      StyleFocused.LookAndFeel.NativeStyle = True
-      StyleHot.LookAndFeel.Kind = lfOffice11
-      StyleHot.LookAndFeel.NativeStyle = True
-      TabOrder = 0
-      Width = 195
+      TabOrder = 7
     end
   end
-  object params_panel: TPanel
+  object Panel4: TPanel
     Left = 0
-    Top = 185
-    Width = 909
-    Height = 60
-    Align = alTop
-    TabOrder = 1
-    TabStop = True
-    object bdc_main: TdxBarDockControl
-      Left = 1
-      Top = 1
-      Width = 907
-      Height = 60
-      Align = dalTop
-      BarManager = bm_main
+    Top = 579
+    Width = 1134
+    Height = 34
+    Align = alBottom
+    Color = clWhite
+    ParentBackground = False
+    TabOrder = 2
+    object btn_help: TcxButton
+      Left = 8
+      Top = 4
+      Width = 30
+      Height = 25
+      Cursor = crHandPoint
+      Hint = #1055#1086#1084#1086#1097#1100
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpFixed
+      Font.Style = []
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+      Glyph.Data = {
+        36050000424D3605000000000000360400002800000010000000100000000100
+        08000000000000010000C30E0000C30E00000001000000000000BD310000BD42
+        0800BD4A0800B54A1000BD4A1000C64A1000D6521000C6521800CE521800BD52
+        2100C6522100C65A2100CE5A2100C65A2900CE5A2900CE632900E7632900C663
+        3100CE633100CE6B3100D66B3100DE6B3100E7733100BD633900CE6B3900D66B
+        3900E7733900D67342004A4A4A00FF8C4A0052525200C67B5200D67B52005A5A
+        5A00C67B5A00DE845A0063636300DE8C63006B6B6B007B736B00C6846B00CE8C
+        6B00DE8C6B00F79C6B0073737300DE947300E79C7300FFB573008C847B00D69C
+        7B00E79C7B00F7A57B00CE9C8400EFAD8400A59C9400C6A59400D6AD9400DEAD
+        9400EFAD9400FFCE94009C9C9C00A59C9C00D6AD9C00DEAD9C00FFCE9C00CEB5
+        A500E7BDA500ADADAD00B5ADAD00CEB5AD00FFD6AD00FFDEAD00CEBDB500CEC6
+        BD00DEC6BD00E7CEBD00CECEC600DECEC600E7CEC600E7D6C600FFF7C600CECE
+        CE00E7D6CE00F7DECE00FFDECE00FFEFCE00EFDED600F7DED600F7E7D600DEDE
+        DE00EFE7DE00F7E7DE00FFEFDE00E7E7E700F7E7E700F7EFE700FFEFE700F7EF
+        EF00FFEFEF00F7F7EF00FFF7EF00EFF7F700F7F7F700FFF7F700FF00FF00EFFF
+        FF00F7FFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00686868683C26
+        1E1C1C1C1E3C68686868686868434E565858565648212C3C686868684958665D
+        41384A65615630263C6868525B6A3403173E0B093E6A57272C6868566A220407
+        376B2D0403346A56213C5E663804120F182A0F120D034A5F36245F66110D130C
+        295B180B12071F6A4D1E5F560B12120C286B3A05120F0D61561E5F530C12120F
+        0A416B32070F0D61561E5F5F15140F0B07044D6B1B0C186756265E6B2B10295A
+        2000316B25082E6B4A435F615C1D23696B426A691A1A625B366868566B552F35
+        5A655A331D546B564C686861566B6B50473B3B46676B564C6868686861565E6B
+        6B6B6B6B5A56596868686868685F636161616161615F68686868}
+      LookAndFeel.Kind = lfOffice11
     end
+    object Panel1: TPanel
+      Left = 896
+      Top = 1
+      Width = 237
+      Height = 32
+      Align = alRight
+      BevelOuter = bvNone
+      Color = clWhite
+      ParentBackground = False
+      TabOrder = 1
+      object btnClose: TcxButton
+        Left = 84
+        Top = 4
+        Width = 145
+        Height = 25
+        Cursor = crHandPoint
+        Caption = #1047#1072#1082#1088#1099#1090#1100
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Pitch = fpFixed
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 0
+        OnClick = btnCloseClick
+        Glyph.Data = {
+          36040000424D3604000000000000360000002800000010000000100000000100
+          2000000000000004000000000000000000000000000000000000000000000000
+          0000181862042929A59326269B3B000000000000000000000000000000000000
+          00000000000021218A3126269B94181863050000000000000000000000001818
+          64042A2AA9A94D4DD0FF3535B4F226269B3B0000000000000000000000000000
+          000022228C312F2FA9EC4242C5FF26269BAD1818630500000000191966042B2B
+          ACA94E4ED1FF6969E2FF6969E9FF3636B5F226269B3B00000000000000002323
+          8E322F2FABED4E4ED8FF4747D2FF4444C9FF26269BAD181863052B2BAE8E4949
+          CDFF6060D9FF6868DDFF7070E7FF6C6CEDFF3636B5F226269B3B232391323131
+          AEED5252DCFF4444CEFF4242CCFF4747D2FF4242C6FF26269B942828A0313434
+          B8EC5E5EDEFF6868DEFF7070E7FF7575EEFF6D6DEFFF3636B5F23333B1ED5A5A
+          E2FF4D4DD5FF4343CDFF4242CDFF4D4DD8FF2F2FA9ED23239233000000002828
+          A0313535B9EC6464E4FF7070E7FF7676EEFF7777F1FF6C6CEFFF6363E9FF5A5A
+          DEFF4C4CD4FF4444CEFF4D4DD8FF2F2FABED2424943300000000000000000000
+          00002828A0313535B9EC6868E9FF7575EEFF7777F0FF7272EEFF6767E7FF5A5A
+          DEFF4D4DD5FF4E4ED9FF3030ADED252596330000000000000000000000000000
+          0000000000002828A1313636BAEC6D6DEEFF7777F0FF7272EEFF6767E7FF5A5A
+          DEFF5454DEFF3131B0ED25259933000000000000000000000000000000000000
+          00000000000027279E313636BBEC6D6DEEFF7777F0FF7272EEFF6767E7FF5A5A
+          DEFF5454DEFF3232B3F226269B3B000000000000000000000000000000000000
+          00002828A0313636BDEC6868EAFF7575EEFF7777F0FF7272EEFF6767E7FF5A5A
+          DEFF4D4DD5FF4E4EDAFF3232B3F226269B3B0000000000000000000000002828
+          A2313636BEEC6464E5FF7070E7FF7676EEFF7777F1FF6B6BEEFF6363E9FF5A5A
+          DEFF4C4CD4FF4444CEFF4D4DD9FF3232B3F226269B3B000000002929A4313636
+          C0EC5E5EDFFF6868DEFF7070E7FF7575EEFF6C6CEFFF3636BCED3535BAEC5A5A
+          E3FF4D4DD5FF4343CDFF4242CCFF4D4DD9FF3232B3F226269B3B2E2EB9904B4B
+          D2FF6060D9FF6868DDFF7070E7FF6B6BEDFF3737BEED2929A7332828A1313434
+          B9EC5353DEFF4444CEFF4242CCFF4848D3FF4343CAFF2929A68D1E1E77042F2F
+          BAAA5151D7FF6969E2FF6868E9FF3838C0ED2A2AA93300000000000000002828
+          A0313333B8EC4E4EDAFF4848D3FF4545CEFF2A2AA9A21A1A6B02000000001E1E
+          77042F2FBAAA4F4FD7FF3838C1ED2B2BAC330000000000000000000000000000
+          00002828A0313333B8EC4343CCFF2B2BACA21B1B6D0200000000000000000000
+          00001E1E77042E2EB9922B2BAE33000000000000000000000000000000000000
+          0000000000002828A0312B2BAE891B1B6F020000000000000000}
+        LookAndFeel.Kind = lfOffice11
+      end
+    end
+  end
+  object bdc_main: TdxBarDockControl
+    Left = 0
+    Top = 141
+    Width = 1134
+    Height = 60
+    Align = dalTop
+    BarManager = bm_main
+    ExplicitTop = 153
   end
   object pc_main: TcxPageControl
     Left = 0
-    Top = 245
-    Width = 909
-    Height = 320
-    ActivePage = tsh_data
+    Top = 201
+    Width = 1134
+    Height = 378
+    ActivePage = tsh_orders
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -419,79 +465,405 @@ object frm_prod_stat: Tfrm_prod_stat
     LookAndFeel.NativeStyle = True
     ParentFont = False
     TabHeight = 25
-    TabOrder = 6
-    TabWidth = 100
-    ClientRectBottom = 316
+    TabOrder = 8
+    TabWidth = 150
+    ExplicitTop = 213
+    ExplicitHeight = 366
+    ClientRectBottom = 374
     ClientRectLeft = 4
-    ClientRectRight = 905
+    ClientRectRight = 1130
     ClientRectTop = 31
-    object tch_graph: TcxTabSheet
-      Caption = ' '#1043#1088#1072#1092#1080#1082' '
-      ImageIndex = 0
-      object chart_client_stat: TChart
+    object tsh_orders: TcxTabSheet
+      Caption = ' '#1047#1072#1082#1072#1079#1099' '
+      ImageIndex = 2
+      ExplicitHeight = 331
+      object grOrders: TcxGrid
+        Left = 0
+        Top = 41
+        Width = 1126
+        Height = 302
+        Align = alClient
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Pitch = fpFixed
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+        LookAndFeel.Kind = lfFlat
+        LookAndFeel.NativeStyle = False
+        ExplicitHeight = 290
+        object grOrders_v: TcxGridDBBandedTableView
+          NavigatorButtons.ConfirmDelete = False
+          FilterBox.Position = fpTop
+          DataController.DataSource = Q_ORDERS_DS
+          DataController.Filter.Options = [fcoCaseInsensitive]
+          DataController.Options = [dcoAnsiSort, dcoAssignGroupingValues, dcoAssignMasterDetailKeys, dcoSaveExpanding]
+          DataController.Summary.DefaultGroupSummaryItems = <>
+          DataController.Summary.FooterSummaryItems = <
+            item
+              Format = '0'
+              Kind = skCount
+              Column = grOrders_vORDER_SEQ
+            end>
+          DataController.Summary.SummaryGroups = <>
+          FilterRow.InfoText = #1055#1086#1083#1077' '#1076#1083#1103' '#1092#1080#1083#1100#1090#1088#1086#1074
+          FilterRow.Visible = True
+          OptionsBehavior.CellHints = True
+          OptionsData.Inserting = False
+          OptionsView.NoDataToDisplayInfoText = #1053#1077#1090' '#1076#1072#1085#1085#1099#1093
+          OptionsView.CellAutoHeight = True
+          OptionsView.DataRowHeight = 30
+          OptionsView.Footer = True
+          OptionsView.GroupByBox = False
+          OptionsView.HeaderAutoHeight = True
+          OptionsView.HeaderEndEllipsis = True
+          Bands = <
+            item
+              Caption = #1053#1086#1084#1077#1088
+            end
+            item
+              Caption = #1044#1072#1090#1072
+            end
+            item
+            end
+            item
+              Visible = False
+            end>
+          object grOrders_vCHECKED: TcxGridDBBandedColumn
+            Caption = '::'
+            DataBinding.FieldName = 'CHECKED'
+            PropertiesClassName = 'TcxCheckBoxProperties'
+            Properties.Alignment = taCenter
+            Properties.ImmediatePost = True
+            Properties.NullStyle = nssUnchecked
+            Properties.ValueChecked = 1
+            Properties.ValueUnchecked = 0
+            HeaderAlignmentHorz = taCenter
+            HeaderAlignmentVert = vaCenter
+            MinWidth = 40
+            Options.HorzSizing = False
+            Options.Moving = False
+            Width = 40
+            Position.BandIndex = 0
+            Position.ColIndex = 0
+            Position.RowIndex = 0
+          end
+          object grOrders_vORDER_SEQ: TcxGridDBBandedColumn
+            Caption = #8470
+            DataBinding.FieldName = 'ORDER_SEQ'
+            PropertiesClassName = 'TcxTextEditProperties'
+            Properties.Alignment.Horz = taCenter
+            Properties.Alignment.Vert = taVCenter
+            FooterAlignmentHorz = taCenter
+            HeaderAlignmentHorz = taCenter
+            HeaderAlignmentVert = vaCenter
+            MinWidth = 60
+            Options.HorzSizing = False
+            Options.Moving = False
+            Width = 60
+            Position.BandIndex = 0
+            Position.ColIndex = 1
+            Position.RowIndex = 0
+          end
+          object grOrders_vID_ORDERS: TcxGridDBBandedColumn
+            Caption = 'ID'
+            DataBinding.FieldName = 'ID_ORDERS'
+            PropertiesClassName = 'TcxTextEditProperties'
+            Properties.Alignment.Horz = taCenter
+            Properties.Alignment.Vert = taVCenter
+            HeaderAlignmentHorz = taCenter
+            HeaderAlignmentVert = vaCenter
+            MinWidth = 60
+            Options.HorzSizing = False
+            Options.Moving = False
+            Width = 60
+            Position.BandIndex = 0
+            Position.ColIndex = 2
+            Position.RowIndex = 0
+          end
+          object grOrders_vDATE_TRUCK_OUT: TcxGridDBBandedColumn
+            Caption = #1042#1099#1093#1086#1076' '#1084#1072#1096#1080#1085#1099
+            DataBinding.FieldName = 'DATE_TRUCK_OUT'
+            PropertiesClassName = 'TcxDateEditProperties'
+            Properties.Alignment.Horz = taCenter
+            Properties.Alignment.Vert = taVCenter
+            Properties.ReadOnly = True
+            Properties.ShowTime = False
+            HeaderAlignmentHorz = taCenter
+            HeaderAlignmentVert = vaCenter
+            MinWidth = 100
+            Options.Editing = False
+            Options.HorzSizing = False
+            Options.Moving = False
+            Width = 100
+            Position.BandIndex = 1
+            Position.ColIndex = 0
+            Position.RowIndex = 0
+          end
+          object grOrders_vDATE_TRUCK: TcxGridDBBandedColumn
+            Caption = #1055#1086#1089#1090#1072#1074#1082#1072
+            DataBinding.FieldName = 'DATE_TRUCK'
+            PropertiesClassName = 'TcxDateEditProperties'
+            Properties.Alignment.Horz = taCenter
+            Properties.Alignment.Vert = taVCenter
+            Properties.ReadOnly = True
+            Properties.ShowTime = False
+            HeaderAlignmentHorz = taCenter
+            HeaderAlignmentVert = vaCenter
+            MinWidth = 100
+            Options.Editing = False
+            Options.HorzSizing = False
+            Options.Moving = False
+            Width = 100
+            Position.BandIndex = 1
+            Position.ColIndex = 1
+            Position.RowIndex = 0
+          end
+          object grOrders_vNUMM: TcxGridDBBandedColumn
+            Caption = #1050#1086#1083'-'#1074#1086' '#1082#1083#1080#1077#1085#1090#1086#1074
+            DataBinding.FieldName = 'NUMM'
+            PropertiesClassName = 'TcxTextEditProperties'
+            Properties.Alignment.Horz = taCenter
+            Properties.Alignment.Vert = taVCenter
+            Properties.ReadOnly = True
+            HeaderAlignmentHorz = taCenter
+            HeaderAlignmentVert = vaCenter
+            MinWidth = 70
+            Options.Editing = False
+            Options.HorzSizing = False
+            Width = 70
+            Position.BandIndex = 2
+            Position.ColIndex = 0
+            Position.RowIndex = 0
+          end
+          object grOrders_vSUM_PRICE: TcxGridDBBandedColumn
+            Caption = #1057#1090#1086#1080#1084#1086#1089#1090#1100
+            DataBinding.FieldName = 'SUM_PRICE'
+            PropertiesClassName = 'TcxCurrencyEditProperties'
+            Properties.Alignment.Horz = taRightJustify
+            Properties.Alignment.Vert = taVCenter
+            Properties.DisplayFormat = ',0.00;-,0.00'
+            Properties.UseThousandSeparator = True
+            HeaderAlignmentHorz = taCenter
+            HeaderAlignmentVert = vaCenter
+            MinWidth = 80
+            Width = 120
+            Position.BandIndex = 2
+            Position.ColIndex = 1
+            Position.RowIndex = 0
+          end
+          object grOrders_vDIST_IND_ID: TcxGridDBBandedColumn
+            Caption = #8470' '#1088#1072#1079#1085#1086#1089#1072
+            DataBinding.FieldName = 'DIST_IND_ID'
+            PropertiesClassName = 'TcxTextEditProperties'
+            Properties.Alignment.Horz = taCenter
+            Properties.Alignment.Vert = taVCenter
+            HeaderAlignmentHorz = taCenter
+            HeaderAlignmentVert = vaCenter
+            MinWidth = 80
+            Options.Editing = False
+            Options.HorzSizing = False
+            Width = 80
+            Position.BandIndex = 2
+            Position.ColIndex = 2
+            Position.RowIndex = 0
+          end
+          object grOrders_vS_NAME_RU: TcxGridDBBandedColumn
+            Caption = #1055#1086#1089#1090#1072#1074#1097#1080#1082
+            DataBinding.FieldName = 'S_NAME_RU'
+            PropertiesClassName = 'TcxTextEditProperties'
+            Properties.Alignment.Vert = taVCenter
+            Properties.ReadOnly = True
+            HeaderAlignmentHorz = taCenter
+            HeaderAlignmentVert = vaCenter
+            MinWidth = 100
+            Options.Editing = False
+            Width = 180
+            Position.BandIndex = 2
+            Position.ColIndex = 3
+            Position.RowIndex = 0
+          end
+          object grOrders_vHAVE_NOTVALID_FLOWERS: TcxGridDBBandedColumn
+            Caption = #1045#1089#1090#1100' '#1087#1086#1079#1080#1094#1080#1080' '#1076#1088'. '#1087#1086#1089#1090'.'
+            DataBinding.FieldName = 'HAVE_NOTVALID_FLOWERS'
+            PropertiesClassName = 'TcxTextEditProperties'
+            Properties.Alignment.Horz = taCenter
+            Properties.Alignment.Vert = taVCenter
+            Properties.ReadOnly = True
+            HeaderAlignmentHorz = taCenter
+            HeaderAlignmentVert = vaCenter
+            MinWidth = 74
+            Options.Filtering = False
+            Options.HorzSizing = False
+            Position.BandIndex = 2
+            Position.ColIndex = 4
+            Position.RowIndex = 0
+          end
+          object grOrders_vINFO: TcxGridDBBandedColumn
+            Caption = #1044#1086#1087#1086#1083#1085#1080#1090#1077#1083#1100#1085#1086
+            DataBinding.FieldName = 'INFO'
+            PropertiesClassName = 'TcxTextEditProperties'
+            Properties.ReadOnly = True
+            HeaderAlignmentHorz = taCenter
+            HeaderAlignmentVert = vaCenter
+            Options.Editing = False
+            Width = 200
+            Position.BandIndex = 2
+            Position.ColIndex = 5
+            Position.RowIndex = 0
+          end
+          object grOrders_vINVOICE: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'INVOICE'
+            Position.BandIndex = 3
+            Position.ColIndex = 3
+            Position.RowIndex = 0
+          end
+          object grOrders_vD_DATE: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'D_DATE'
+            Position.BandIndex = 3
+            Position.ColIndex = 0
+            Position.RowIndex = 0
+          end
+          object grOrders_vNN: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'NN'
+            Position.BandIndex = 3
+            Position.ColIndex = 1
+            Position.RowIndex = 0
+          end
+          object grOrders_vS_ID: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'S_ID'
+            Position.BandIndex = 3
+            Position.ColIndex = 2
+            Position.RowIndex = 0
+          end
+        end
+        object grOrders_l: TcxGridLevel
+          GridView = grOrders_v
+        end
+      end
+      object pnlDateSet: TPanel
         Left = 0
         Top = 0
-        Width = 901
-        Height = 285
-        AllowPanning = pmNone
-        BackWall.Brush.Color = clWhite
-        BackWall.Brush.Style = bsClear
-        Legend.Visible = False
-        MarginBottom = 1
-        MarginLeft = 1
-        MarginRight = 2
-        MarginTop = 1
-        Title.Text.Strings = (
-          #1043#1088#1072#1092#1080#1082' '#1082#1086#1083#1080#1095#1077#1089#1090#1074#1072' '#1090#1086#1074#1072#1088#1072' '#1087#1086' '#1075#1088#1091#1087#1087#1072#1084' / '#1087#1086#1076#1075#1088#1091#1087#1087#1072#1084' / '#1090#1086#1074#1072#1088#1091)
-        BottomAxis.LabelsMultiLine = True
-        BottomAxis.LabelsSize = 25
-        BottomAxis.LabelStyle = talText
-        View3D = False
-        Zoom.Allow = False
-        Align = alClient
+        Width = 1126
+        Height = 41
+        Align = alTop
         BevelOuter = bvNone
-        TabOrder = 0
-        AutoSize = True
-        object Series1: TFastLineSeries
-          Active = False
-          Marks.Callout.Brush.Color = clBlack
-          Marks.Visible = False
-          LinePen.Color = clRed
-          LinePen.Width = 2
-          XValues.Name = 'X'
-          XValues.Order = loAscending
-          YValues.Name = 'Y'
-          YValues.Order = loNone
+        ParentBackground = False
+        TabOrder = 1
+        object de_begin: TcxDateEdit
+          Left = 8
+          Top = 11
+          ParentFont = False
+          Properties.DateOnError = deToday
+          Properties.ImmediatePost = True
+          Properties.PostPopupValueOnTab = True
+          Properties.SaveTime = False
+          Properties.ShowTime = False
+          Properties.OnEditValueChanged = de_beginPropertiesEditValueChanged
+          Style.Font.Charset = DEFAULT_CHARSET
+          Style.Font.Color = clWindowText
+          Style.Font.Height = -13
+          Style.Font.Name = 'Arial'
+          Style.Font.Pitch = fpFixed
+          Style.Font.Style = []
+          Style.LookAndFeel.Kind = lfOffice11
+          Style.LookAndFeel.NativeStyle = True
+          Style.IsFontAssigned = True
+          StyleDisabled.LookAndFeel.Kind = lfOffice11
+          StyleDisabled.LookAndFeel.NativeStyle = True
+          StyleFocused.LookAndFeel.Kind = lfOffice11
+          StyleFocused.LookAndFeel.NativeStyle = True
+          StyleHot.LookAndFeel.Kind = lfOffice11
+          StyleHot.LookAndFeel.NativeStyle = True
+          TabOrder = 0
+          OnKeyDown = de_beginKeyDown
+          Width = 120
         end
-        object Series2: TBarSeries
-          ColorEachPoint = True
-          Marks.Callout.Brush.Color = clBlack
-          Marks.Style = smsValue
-          Marks.Visible = True
-          SeriesColor = 16758639
-          Gradient.Direction = gdTopBottom
-          XValues.Name = 'X'
-          XValues.Order = loAscending
-          YValues.Name = 'Bar'
-          YValues.Order = loNone
+        object de_end: TcxDateEdit
+          Left = 134
+          Top = 11
+          ParentFont = False
+          Properties.DateOnError = deToday
+          Properties.ImmediatePost = True
+          Properties.PostPopupValueOnTab = True
+          Properties.SaveTime = False
+          Properties.ShowTime = False
+          Properties.OnEditValueChanged = de_beginPropertiesEditValueChanged
+          Style.Font.Charset = DEFAULT_CHARSET
+          Style.Font.Color = clWindowText
+          Style.Font.Height = -13
+          Style.Font.Name = 'Arial'
+          Style.Font.Pitch = fpFixed
+          Style.Font.Style = []
+          Style.LookAndFeel.NativeStyle = True
+          Style.IsFontAssigned = True
+          StyleDisabled.LookAndFeel.NativeStyle = True
+          StyleFocused.LookAndFeel.NativeStyle = True
+          StyleHot.LookAndFeel.NativeStyle = True
+          TabOrder = 1
+          OnKeyDown = de_beginKeyDown
+          Width = 120
+        end
+      end
+    end
+    object tsh_all_data: TcxTabSheet
+      Caption = ' '#1054#1073#1097#1080#1077' '#1076#1072#1085#1085#1099#1077' '
+      ImageIndex = 0
+      ExplicitHeight = 331
+      object grAllData: TDBGridEh
+        Left = 0
+        Top = 0
+        Width = 1126
+        Height = 343
+        Align = alClient
+        AutoFitColWidths = True
+        DataGrouping.GroupLevels = <>
+        DataSource = DS_STAT
+        Flat = False
+        FooterColor = clWindow
+        FooterFont.Charset = DEFAULT_CHARSET
+        FooterFont.Color = clWindowText
+        FooterFont.Height = -13
+        FooterFont.Name = 'Arial'
+        FooterFont.Pitch = fpFixed
+        FooterFont.Style = []
+        FooterRowCount = 1
+        MinAutoFitWidth = 120
+        OptionsEh = [dghFixed3D, dghResizeWholeRightPart, dghHighlightFocus, dghClearSelection, dghDblClickOptimizeColWidth, dghDialogFind, dghColumnResize, dghColumnMove, dghExtendVertLines]
+        PopupMenu = pm_orders
+        ReadOnly = True
+        RowDetailPanel.Color = clBtnFace
+        TabOrder = 0
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -13
+        TitleFont.Name = 'Arial'
+        TitleFont.Pitch = fpFixed
+        TitleFont.Style = []
+        object RowDetailData: TRowDetailPanelControlEh
         end
       end
     end
     object tsh_data: TcxTabSheet
       Caption = #1058#1072#1073#1083#1080#1094#1072
       ImageIndex = 1
+      ExplicitHeight = 331
       object gr_data: TcxGrid
         Left = 0
         Top = 0
-        Width = 901
-        Height = 285
+        Width = 1126
+        Height = 343
         Align = alClient
         TabOrder = 0
         LookAndFeel.Kind = lfOffice11
-        LookAndFeel.NativeStyle = True
+        LookAndFeel.NativeStyle = False
+        ExplicitHeight = 331
         object gr_data_v: TcxGridDBTableView
+          PopupMenu = pm_orders
           NavigatorButtons.ConfirmDelete = False
-          DataController.DataSource = DS_STAT
+          DataController.DataSource = DS_STAT_GROUP
           DataController.Filter.Options = [fcoCaseInsensitive]
           DataController.Filter.AutoDataSetFilter = True
           DataController.Options = [dcoAnsiSort, dcoCaseInsensitive, dcoAssignGroupingValues, dcoAssignMasterDetailKeys, dcoSaveExpanding]
@@ -505,17 +877,15 @@ object frm_prod_stat: Tfrm_prod_stat
             item
               Format = '0.00'
               Kind = skSum
-              Column = gr_data_vPRICE_LIST
             end
             item
               Format = '0.00'
               Kind = skSum
-              Column = gr_data_vPRICE
             end
             item
               Format = '0'
               Kind = skCount
-              Column = gr_data_vF_TYPE
+              Column = gr_data_vF_NAME
             end>
           DataController.Summary.SummaryGroups = <>
           FilterRow.InfoText = #1087#1086#1083#1077' '#1076#1083#1103' '#1092#1080#1083#1100#1090#1088#1072
@@ -528,13 +898,24 @@ object frm_prod_stat: Tfrm_prod_stat
           OptionsData.Inserting = False
           OptionsView.CellEndEllipsis = True
           OptionsView.NoDataToDisplayInfoText = #1053#1077#1090' '#1076#1072#1085#1085#1099#1093
-          OptionsView.ColumnAutoWidth = True
           OptionsView.Footer = True
           OptionsView.GroupByBox = False
           OptionsView.HeaderEndEllipsis = True
-          object gr_data_vF_TYPE: TcxGridDBColumn
-            Caption = #1043#1088#1091#1087#1087#1072' / '#1087#1086#1076#1075#1088#1091#1087#1087#1072
-            DataBinding.FieldName = 'F_TYPE'
+          object gr_data_vNAME_CODE: TcxGridDBColumn
+            Caption = #1050#1086#1076' '#1089#1086#1088#1090#1072
+            DataBinding.FieldName = 'NAME_CODE'
+            HeaderAlignmentHorz = taCenter
+            Width = 150
+          end
+          object gr_data_vF_NAME: TcxGridDBColumn
+            Caption = #1053#1072#1079#1074#1072#1085#1080#1077' ('#1083#1072#1090')'
+            DataBinding.FieldName = 'F_NAME'
+            Width = 300
+          end
+          object gr_data_vRUS_MARKS: TcxGridDBColumn
+            Caption = #1057#1087#1077#1094#1080#1092#1080#1082#1072#1094#1080#1103
+            DataBinding.FieldName = 'RUS_MARKS'
+            Width = 200
           end
           object gr_data_vQUANTITY: TcxGridDBColumn
             Caption = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086
@@ -547,171 +928,12 @@ object frm_prod_stat: Tfrm_prod_stat
             Options.HorzSizing = False
             Width = 90
           end
-          object gr_data_vPRICE: TcxGridDBColumn
-            Caption = #1062#1077#1085#1072' '#1087#1088#1086#1076#1072#1078#1080
-            DataBinding.FieldName = 'PRICE'
-            PropertiesClassName = 'TcxCurrencyEditProperties'
-            Properties.Alignment.Horz = taRightJustify
-            Properties.DisplayFormat = ',0.00'#39#39';-,0.00'#39#39
-            HeaderAlignmentHorz = taCenter
-            MinWidth = 100
-            Options.HorzSizing = False
-            Width = 100
-          end
-          object gr_data_vPRICE_LIST: TcxGridDBColumn
-            Caption = #1062#1077#1085#1072' '#1087#1088#1072#1081#1089'-'#1083#1080#1089#1090#1072
-            DataBinding.FieldName = 'PRICE_LIST'
-            PropertiesClassName = 'TcxCurrencyEditProperties'
-            Properties.DisplayFormat = ',0.00'#39#39';-,0.00'#39#39
-            HeaderAlignmentHorz = taCenter
-            MinWidth = 120
-            Options.HorzSizing = False
-            Width = 120
-          end
         end
         object gr_data_l: TcxGridLevel
           GridView = gr_data_v
         end
       end
     end
-  end
-  object CDS_TYPES: TOraQuery
-    SQL.Strings = (
-      'SELECT a.ft_id, a.f_type, a.ft_mask, a.ht_id, a.id_departments,'
-      '       a.hol_type, a.ord, a.dept, a.full_ft_name'
-      '  FROM ft_view a'
-      'where a.id_departments = :id_dep')
-    FetchAll = True
-    Left = 176
-    Top = 56
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'id_dep'
-      end>
-    object CDS_TYPESFT_ID: TFloatField
-      FieldName = 'FT_ID'
-      Required = True
-    end
-    object CDS_TYPESF_TYPE: TStringField
-      FieldName = 'F_TYPE'
-      Required = True
-      Size = 50
-    end
-    object CDS_TYPESFT_MASK: TStringField
-      FieldName = 'FT_MASK'
-      Size = 50
-    end
-    object CDS_TYPESHT_ID: TFloatField
-      FieldName = 'HT_ID'
-    end
-    object CDS_TYPESID_DEPARTMENTS: TFloatField
-      FieldName = 'ID_DEPARTMENTS'
-      Required = True
-    end
-    object CDS_TYPESHOL_TYPE: TStringField
-      FieldName = 'HOL_TYPE'
-      Required = True
-      Size = 10
-    end
-    object CDS_TYPESORD: TFloatField
-      FieldName = 'ORD'
-      Required = True
-    end
-    object CDS_TYPESDEPT: TStringField
-      FieldName = 'DEPT'
-      Required = True
-      Size = 100
-    end
-    object CDS_TYPESFULL_FT_NAME: TStringField
-      FieldName = 'FULL_FT_NAME'
-      Size = 63
-    end
-  end
-  object CDS_SUBTYPES: TOraQuery
-    SQL.Strings = (
-      
-        'SELECT a.fst_id, a.f_sub_type, a.hol_sub_type, a.ft_id, a.f_type' +
-        ','
-      
-        '       a.double_name, a.ht_id, a.hol_type, a.id_departments, a.d' +
-        'ept,'
-      '       a.ord, a.mnemo, a.sub_weight'
-      '  FROM fst_view a'
-      'where a.ft_id = :ft_id')
-    MasterSource = DS_TYPES
-    MasterFields = 'ft_id'
-    FetchAll = True
-    Left = 176
-    Top = 88
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'ft_id'
-      end>
-    object CDS_SUBTYPESFST_ID: TFloatField
-      FieldName = 'FST_ID'
-      Required = True
-    end
-    object CDS_SUBTYPESF_SUB_TYPE: TStringField
-      FieldName = 'F_SUB_TYPE'
-      Required = True
-      Size = 50
-    end
-    object CDS_SUBTYPESHOL_SUB_TYPE: TStringField
-      FieldName = 'HOL_SUB_TYPE'
-      Size = 50
-    end
-    object CDS_SUBTYPESFT_ID: TFloatField
-      FieldName = 'FT_ID'
-      Required = True
-    end
-    object CDS_SUBTYPESF_TYPE: TStringField
-      FieldName = 'F_TYPE'
-      Required = True
-      Size = 50
-    end
-    object CDS_SUBTYPESDOUBLE_NAME: TStringField
-      FieldName = 'DOUBLE_NAME'
-      Size = 103
-    end
-    object CDS_SUBTYPESHT_ID: TFloatField
-      FieldName = 'HT_ID'
-    end
-    object CDS_SUBTYPESHOL_TYPE: TStringField
-      FieldName = 'HOL_TYPE'
-      Required = True
-      Size = 10
-    end
-    object CDS_SUBTYPESID_DEPARTMENTS: TFloatField
-      FieldName = 'ID_DEPARTMENTS'
-      Required = True
-    end
-    object CDS_SUBTYPESDEPT: TStringField
-      FieldName = 'DEPT'
-      Required = True
-      Size = 100
-    end
-    object CDS_SUBTYPESORD: TFloatField
-      FieldName = 'ORD'
-      Required = True
-    end
-    object CDS_SUBTYPESMNEMO: TStringField
-      FieldName = 'MNEMO'
-    end
-    object CDS_SUBTYPESSUB_WEIGHT: TFloatField
-      FieldName = 'SUB_WEIGHT'
-    end
-  end
-  object DS_TYPES: TOraDataSource
-    DataSet = CDS_TYPES
-    Left = 208
-    Top = 56
-  end
-  object DS_SUBTYPES: TOraDataSource
-    DataSet = CDS_SUBTYPES
-    Left = 208
-    Top = 88
   end
   object bm_main: TdxBarManager
     Font.Charset = DEFAULT_CHARSET
@@ -733,8 +955,8 @@ object frm_prod_stat: Tfrm_prod_stat
     Style = bmsOffice11
     SunkenBorder = True
     UseSystemFont = True
-    Left = 792
-    Top = 144
+    Left = 712
+    Top = 112
     DockControlHeights = (
       0
       0
@@ -752,8 +974,8 @@ object frm_prod_stat: Tfrm_prod_stat
       DockedTop = 0
       FloatLeft = 943
       FloatTop = 8
-      FloatClientWidth = 0
-      FloatClientHeight = 0
+      FloatClientWidth = 155
+      FloatClientHeight = 194
       ItemLinks = <
         item
           Visible = True
@@ -771,11 +993,6 @@ object frm_prod_stat: Tfrm_prod_stat
         item
           Visible = True
           ItemName = 'btn_excel'
-        end
-        item
-          BeginGroup = True
-          Visible = True
-          ItemName = 'cb_legend'
         end>
       NotDocking = [dsNone, dsLeft, dsTop, dsRight, dsBottom]
       OneOnRow = True
@@ -801,18 +1018,16 @@ object frm_prod_stat: Tfrm_prod_stat
       Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1075#1088#1072#1092#1080#1082
       Category = 0
       Hint = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1075#1088#1072#1092#1080#1082
-      Visible = ivAlways
+      Visible = ivNever
       LargeImageIndex = 27
-      OnClick = btn_saveClick
       AutoGrayScale = False
     end
     object btn_excel: TdxBarLargeButton
       Caption = #1042#1099#1075#1088#1091#1079#1080#1090#1100' '#1074' Excel'
       Category = 0
       Hint = #1042#1099#1075#1088#1091#1079#1080#1090#1100' '#1074' Excel'
-      Visible = ivAlways
+      Visible = ivNever
       LargeImageIndex = 24
-      OnClick = btn_excelClick
       AutoGrayScale = False
     end
     object cb_legend: TcxBarEditItem
@@ -828,17 +1043,16 @@ object frm_prod_stat: Tfrm_prod_stat
       Properties.DisplayUnchecked = #1085#1077#1090
       Properties.ImmediatePost = True
       Properties.NullStyle = nssUnchecked
-      Properties.OnChange = cb_legendPropertiesChange
       InternalEditValue = False
     end
   end
   object cxImageList1: TcxImageList
     Height = 32
     Width = 32
-    Left = 832
-    Top = 144
+    Left = 752
+    Top = 112
     Bitmap = {
-      494C010120002400140020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C0101200024001C0020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002001000001002000000000000040
       0200000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -5597,9 +5811,20 @@ object frm_prod_stat: Tfrm_prod_stat
       FFC003FFFFC003FFFFFF801FFFC003FF00000000000000000000000000000000
       000000000000}
   end
+  object SaveDialog1: TSaveDialog
+    Filter = #1060#1072#1081#1083#1099' EXCEL (*.xls)|*.xls'
+    Left = 752
+    Top = 80
+  end
+  object SavePictureDialog1: TSavePictureDialog
+    DefaultExt = '.bmp'
+    Filter = 'Bitmaps (*.bmp)|*.bmp'
+    Left = 784
+    Top = 81
+  end
   object ActionList1: TActionList
-    Left = 864
-    Top = 144
+    Left = 784
+    Top = 112
     object aSearch: TAction
       Caption = #1057#1092#1086#1088#1084#1080#1088#1086#1074#1072#1090#1100' '#1086#1090#1095#1077#1090' (F5)'
       ShortCut = 116
@@ -5609,90 +5834,412 @@ object frm_prod_stat: Tfrm_prod_stat
       Caption = #1057#1073#1088#1086#1089#1080#1090#1100' '#1092#1080#1083#1100#1090#1088#1099' (F8)'
       OnExecute = aClearExecute
     end
+    object aRefreshOrder: TAction
+      Caption = 'aRefreshOrder'
+      OnExecute = aRefreshOrderExecute
+    end
   end
-  object CDS_STAT: TOraQuery
-    SQL.Strings = (
-      'begin'
+  object Q_ORDERS: TOraQuery
+    SQLRefresh.Strings = (
+      'SELECT '
+      'O.ID_ORDERS, '
+      'r.INV_ID as INVOICE, '
+      'O.D_DATE, '
+      'O.DATE_TRUCK,'
+      'O.DATE_TRUCK_OUT,'
+      'O.INFO, d.DIST_IND_ID,'
       
-        '  statistic.goods_stat(:date_b_, :date_e_, :id_dep_, :id_ft_, :i' +
-        'd_fst_, :vid_, :razbiv_, :cursor_);'
-      'end;')
-    FetchAll = True
+        '(select count(id_orders_clients) from orders_clients where activ' +
+        'e = 1 and id_orders = O.ID_ORDERS and n_type in (:t1, :t2, :t3) ' +
+        ') as numm '
+      ',('
+      '  select sum(nvl(ol.correction,ol.quantity)*p.price) '
+      '  from orders_clients oc, orders_list ol, price_list p '
+      
+        '  where oc.active = 1 and oc.id_orders = O.ID_ORDERS and ol.id_o' +
+        'rders_clients = oc.id_orders_clients and ol.active = 1 and ol.n_' +
+        'id = p.n_id and oc.n_type in (:t1, :t2, :t3)'
+      ') as sum_price'
+      ', case when const_office = 1 then ('
+      
+        '  select count(1) as nn from orders_clients oc, orders_list ol, ' +
+        'nomenclature n'
+      
+        '  where oc.active = 1 and oc.id_orders = O.ID_ORDERS and ol.id_o' +
+        'rders_clients = oc.id_orders_clients and ol.active = 1 and ol.n_' +
+        'id = n.n_id and n.S_ID <> o.s_id and n.notuse = 0 and oc.n_type ' +
+        'in (:t1, :t2, :t3)'
+      ') else 0 end have_notvalid_flowers'
+      ', to_number(nvl(s.outer_id, O.ID_ORDERS)) as order_seq'
+      ', o.s_id, u.S_NAME_RU'
+      'FROM ORDERS O'
+      
+        '  left outer join INVOICE_REGISTER R on r.id_orders = o.id_order' +
+        's'
+      
+        '  left outer join distributions_index d on d.id_orders = o.id_or' +
+        'ders'
+      
+        '  left outer join numeration_seq s on s.obj_id = O.ID_ORDERS and' +
+        ' s.entity = '#39'order'#39
+      '  left outer join SUPPLIERS u on u.s_id = O.s_id'
+      'WHERE O.N_TYPE=0 AND O.ACTIVE=1 and o.id_orders=:ID_ORDERS')
+    SQL.Strings = (
+      'SELECT '
+      'rownum as nn, '
+      '0 as checked,'
+      'a.* '
+      'FROM '
+      '('
+      'SELECT '
+      'O.ID_ORDERS, '
+      'r.INV_ID as INVOICE, '
+      'O.D_DATE, '
+      'O.DATE_TRUCK,'
+      'O.DATE_TRUCK_OUT,'
+      'O.INFO, d.DIST_IND_ID, '
+      'o.old_price,'
+      
+        '(select count(id_orders_clients) from orders_clients where activ' +
+        'e = 1 and id_orders = O.ID_ORDERS and n_type in (:t1, :t2, :t3) ' +
+        ') as numm '
+      ',('
+      '  select sum(nvl(ol.correction,ol.quantity)*p.price) '
+      '  from orders_clients oc, orders_list ol, price_list p '
+      
+        '  where oc.active = 1 and oc.id_orders = O.ID_ORDERS and ol.id_o' +
+        'rders_clients = oc.id_orders_clients and ol.active = 1 and ol.n_' +
+        'id = p.n_id and oc.n_type in (:t1, :t2, :t3)'
+      ') as sum_price'
+      ', ('
+      '  select count(1) as nn from orders_clients oc, orders_list ol'
+      
+        '  where oc.active = 1 and oc.id_orders = O.ID_ORDERS and ol.id_o' +
+        'rders_clients = oc.id_orders_clients and ol.active = 1 and oc.n_' +
+        'type in (:t1, :t2, :t3)'
+      
+        '  and exists (select 1 from nomenclature n where n.notuse = 0 an' +
+        'd n.S_ID <> o.s_id and ol.n_id = n.n_id)'
+      ') have_notvalid_flowers'
+      ', to_number(nvl(s.outer_id, O.ID_ORDERS)) as order_seq'
+      ', o.s_id, u.S_NAME_RU'
+      'FROM ORDERS O'
+      
+        '  left outer join INVOICE_REGISTER R on r.id_orders = o.id_order' +
+        's'
+      
+        '  left outer join distributions_orders d on d.ORDER_ID = o.id_or' +
+        'ders'
+      
+        '  left outer join numeration_seq s on s.obj_id = O.ID_ORDERS and' +
+        ' s.entity = '#39'order'#39
+      '  left outer join SUPPLIERS u on u.s_id = O.s_id'
+      'WHERE O.N_TYPE=0 AND O.ACTIVE=1'
+      '  AND O.ID_DEPARTMENTS=:p1'
+      '  and DATE_TRUCK_OUT >= :d1 and DATE_TRUCK_OUT <= :d2'
+      ') A'
+      'ORDER BY a.DATE_TRUCK_OUT DESC nulls last, a.S_NAME_RU')
     FilterOptions = [foCaseInsensitive]
-    IndexFieldNames = 'QUANTITY desc'
-    Left = 176
-    Top = 128
+    Left = 208
+    Top = 400
     ParamData = <
       item
-        DataType = ftDateTime
-        Name = 'date_b_'
-        Value = Null
+        DataType = ftInteger
+        Name = 't1'
+        ParamType = ptInput
       end
       item
-        DataType = ftDateTime
-        Name = 'date_e_'
-        Value = Null
+        DataType = ftInteger
+        Name = 't2'
+        ParamType = ptInput
       end
       item
-        Name = 'id_dep_'
-        Value = Null
-        ExtDataType = 107
+        DataType = ftInteger
+        Name = 't3'
+        ParamType = ptInput
       end
       item
-        Name = 'id_ft_'
-        Value = Null
-        ExtDataType = 107
+        DataType = ftUnknown
+        Name = 'P1'
       end
       item
-        Name = 'id_fst_'
-        Value = Null
-        ExtDataType = 107
+        DataType = ftUnknown
+        Name = 'd1'
       end
       item
-        Name = 'vid_'
-        Value = Null
-        ExtDataType = 107
-      end
-      item
-        Name = 'razbiv_'
-        Value = Null
-        ExtDataType = 107
-      end
-      item
-        DataType = ftCursor
-        Name = 'cursor_'
-        ParamType = ptInputOutput
-        Value = 'Object'
+        DataType = ftUnknown
+        Name = 'd2'
       end>
-    object CDS_STATQUANTITY: TFloatField
-      FieldName = 'QUANTITY'
+    object Q_ORDERSID_ORDERS: TFloatField
+      FieldName = 'ID_ORDERS'
+      Required = True
     end
-    object CDS_STATPRICE: TFloatField
-      FieldName = 'PRICE'
+    object Q_ORDERSINVOICE: TFloatField
+      FieldName = 'INVOICE'
     end
-    object CDS_STATPRICE_LIST: TFloatField
-      FieldName = 'PRICE_LIST'
+    object Q_ORDERSD_DATE: TDateTimeField
+      FieldName = 'D_DATE'
+      Required = True
     end
-    object CDS_STATF_TYPE: TStringField
+    object Q_ORDERSDATE_TRUCK: TDateTimeField
+      FieldName = 'DATE_TRUCK'
+    end
+    object Q_ORDERSINFO: TStringField
+      FieldName = 'INFO'
+      Size = 255
+    end
+    object Q_ORDERSNUMM: TFloatField
+      FieldName = 'NUMM'
+    end
+    object Q_ORDERSNN: TFloatField
+      FieldName = 'NN'
+    end
+    object Q_ORDERSDATE_TRUCK_OUT: TDateTimeField
+      FieldName = 'DATE_TRUCK_OUT'
+    end
+    object Q_ORDERSCHECKED: TFloatField
+      FieldName = 'CHECKED'
+    end
+    object Q_ORDERSDIST_IND_ID: TFloatField
+      FieldName = 'DIST_IND_ID'
+    end
+    object Q_ORDERSORDER_SEQ: TFloatField
+      FieldName = 'ORDER_SEQ'
+    end
+    object Q_ORDERSS_ID: TIntegerField
+      FieldName = 'S_ID'
+    end
+    object Q_ORDERSS_NAME_RU: TStringField
+      FieldName = 'S_NAME_RU'
+      Size = 150
+    end
+    object Q_ORDERSSUM_PRICE: TFloatField
+      FieldName = 'SUM_PRICE'
+    end
+    object Q_ORDERSHAVE_NOTVALID_FLOWERS: TFloatField
+      FieldName = 'HAVE_NOTVALID_FLOWERS'
+    end
+    object Q_ORDERSOLD_PRICE: TIntegerField
+      FieldName = 'OLD_PRICE'
+    end
+  end
+  object Q_ORDERS_DS: TOraDataSource
+    DataSet = Q_ORDERS
+    Left = 248
+    Top = 400
+  end
+  object CDS_TYPES: TOraQuery
+    SQL.Strings = (
+      'SELECT a.ft_id, a.f_type, a.ft_mask, a.ht_id, a.id_departments,'
+      '       a.hol_type, a.ord, a.dept, a.full_ft_name'
+      '  FROM ft_view a'
+      'where a.id_departments = :id_dep')
+    FetchAll = True
+    Left = 832
+    Top = 80
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'id_dep'
+      end>
+    object CDS_TYPESFT_ID: TFloatField
+      FieldName = 'FT_ID'
+      Required = True
+    end
+    object CDS_TYPESF_TYPE: TStringField
       FieldName = 'F_TYPE'
       Required = True
       Size = 50
     end
+    object CDS_TYPESFT_MASK: TStringField
+      FieldName = 'FT_MASK'
+      Size = 50
+    end
+    object CDS_TYPESHT_ID: TFloatField
+      FieldName = 'HT_ID'
+    end
+    object CDS_TYPESID_DEPARTMENTS: TFloatField
+      FieldName = 'ID_DEPARTMENTS'
+      Required = True
+    end
+    object CDS_TYPESHOL_TYPE: TStringField
+      FieldName = 'HOL_TYPE'
+      Required = True
+      Size = 10
+    end
+    object CDS_TYPESORD: TFloatField
+      FieldName = 'ORD'
+      Required = True
+    end
+    object CDS_TYPESDEPT: TStringField
+      FieldName = 'DEPT'
+      Required = True
+      Size = 100
+    end
+    object CDS_TYPESFULL_FT_NAME: TStringField
+      FieldName = 'FULL_FT_NAME'
+      Size = 63
+    end
+  end
+  object DS_TYPES: TOraDataSource
+    DataSet = CDS_TYPES
+    Left = 864
+    Top = 80
+  end
+  object DS_SUBTYPES: TOraDataSource
+    DataSet = CDS_SUBTYPES
+    Left = 864
+    Top = 112
+  end
+  object CDS_SUBTYPES: TOraQuery
+    SQL.Strings = (
+      
+        'SELECT a.fst_id, a.f_sub_type, a.hol_sub_type, a.ft_id, a.f_type' +
+        ','
+      
+        '       a.double_name, a.ht_id, a.hol_type, a.id_departments, a.d' +
+        'ept,'
+      '       a.ord, a.mnemo, a.sub_weight'
+      '  FROM fst_view a'
+      'where a.ft_id = :ft_id')
+    MasterSource = DS_TYPES
+    MasterFields = 'ft_id'
+    FetchAll = True
+    Left = 832
+    Top = 112
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'ft_id'
+      end>
+    object CDS_SUBTYPESFST_ID: TFloatField
+      FieldName = 'FST_ID'
+      Required = True
+    end
+    object CDS_SUBTYPESF_SUB_TYPE: TStringField
+      FieldName = 'F_SUB_TYPE'
+      Required = True
+      Size = 50
+    end
+    object CDS_SUBTYPESHOL_SUB_TYPE: TStringField
+      FieldName = 'HOL_SUB_TYPE'
+      Size = 50
+    end
+    object CDS_SUBTYPESFT_ID: TFloatField
+      FieldName = 'FT_ID'
+      Required = True
+    end
+    object CDS_SUBTYPESF_TYPE: TStringField
+      FieldName = 'F_TYPE'
+      Required = True
+      Size = 50
+    end
+    object CDS_SUBTYPESDOUBLE_NAME: TStringField
+      FieldName = 'DOUBLE_NAME'
+      Size = 103
+    end
+    object CDS_SUBTYPESHT_ID: TFloatField
+      FieldName = 'HT_ID'
+    end
+    object CDS_SUBTYPESHOL_TYPE: TStringField
+      FieldName = 'HOL_TYPE'
+      Required = True
+      Size = 10
+    end
+    object CDS_SUBTYPESID_DEPARTMENTS: TFloatField
+      FieldName = 'ID_DEPARTMENTS'
+      Required = True
+    end
+    object CDS_SUBTYPESDEPT: TStringField
+      FieldName = 'DEPT'
+      Required = True
+      Size = 100
+    end
+    object CDS_SUBTYPESORD: TFloatField
+      FieldName = 'ORD'
+      Required = True
+    end
+    object CDS_SUBTYPESMNEMO: TStringField
+      FieldName = 'MNEMO'
+    end
+    object CDS_SUBTYPESSUB_WEIGHT: TFloatField
+      FieldName = 'SUB_WEIGHT'
+    end
+  end
+  object CDS_STAT: TOraQuery
+    SQL.Strings = (
+      'begin'
+      '  STATISTIC.get_stat_orders(:VORDERS, :CURSOR_);'
+      'end;')
+    FetchAll = True
+    Left = 208
+    Top = 440
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'VORDERS'
+        ParamType = ptInput
+        Value = ' 3020, 3021, 3022, 3023, 3024, 3025'
+      end
+      item
+        DataType = ftCursor
+        Name = 'CURSOR_'
+        ParamType = ptInputOutput
+        Value = ''
+      end>
   end
   object DS_STAT: TOraDataSource
     DataSet = CDS_STAT
+    Left = 248
+    Top = 440
+  end
+  object CDS_STAT_GROUP: TOraQuery
+    SQL.Strings = (
+      'begin'
+      '  STATISTIC.get_stat_orders_group(:VORDERS, :CURSOR_);'
+      'end;')
+    FetchAll = True
     Left = 208
-    Top = 128
+    Top = 480
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'VORDERS'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftCursor
+        Name = 'CURSOR_'
+        ParamType = ptInputOutput
+        Value = 'Object'
+      end>
+    object CDS_STAT_GROUPNAME_CODE: TStringField
+      FieldName = 'NAME_CODE'
+      Size = 30
+    end
+    object CDS_STAT_GROUPF_NAME: TStringField
+      FieldName = 'F_NAME'
+      Size = 256
+    end
+    object CDS_STAT_GROUPRUS_MARKS: TStringField
+      FieldName = 'RUS_MARKS'
+      Size = 4000
+    end
+    object CDS_STAT_GROUPQUANTITY: TFloatField
+      FieldName = 'QUANTITY'
+    end
   end
-  object SaveDialog1: TSaveDialog
-    Filter = #1060#1072#1081#1083#1099' EXCEL (*.xls)|*.xls'
-    Left = 832
-    Top = 112
+  object DS_STAT_GROUP: TOraDataSource
+    DataSet = CDS_STAT_GROUP
+    Left = 248
+    Top = 480
   end
-  object SavePictureDialog1: TSavePictureDialog
-    DefaultExt = '.bmp'
-    Filter = 'Bitmaps (*.bmp)|*.bmp'
-    Left = 864
-    Top = 113
+  object pm_orders: TPopupMenu
+    Left = 912
+    Top = 80
+    object mnOrderToExcel: TMenuItem
+      Caption = #1042#1099#1075#1088#1091#1079#1080#1090#1100' '#1074' Excel'
+      OnClick = mnOrderToExcelClick
+    end
   end
 end

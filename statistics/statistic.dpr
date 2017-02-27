@@ -15,7 +15,8 @@ uses
   UStore in 'UStore.pas' {frmStore},
   UFullInfo in '..\OraDict\UFullInfo.pas' {frm_full_info},
   Globals in 'Globals.pas',
-  USealesByClient in 'USealesByClient.pas' {frmSalesByClients};
+  USealesByClient in 'USealesByClient.pas' {frmSalesByClients},
+  UOrdersStat in 'UOrdersStat.pas' {frmOrdersStat};
 
 {$R *.res}
 VAR

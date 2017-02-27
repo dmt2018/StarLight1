@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.STATISTIC
--- Generated 03.09.2016 22:21:21 from CREATOR@STAR_NEW
+-- Generated 28.02.2017 0:33:54 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE statistic
@@ -194,6 +194,22 @@ PROCEDURE orders_stat
     vid_    in number,  -- вид статистики
     razbiv_ in varchar2,  -- клиенты
     v_office in number,
+    cursor_ in out ref_cursor
+);
+
+
+-- Статистика по заказам
+PROCEDURE get_stat_orders
+(
+    vOrders   IN varchar2,
+    cursor_ in out ref_cursor
+);
+
+
+-- Статистика по заказам
+PROCEDURE get_stat_orders_group
+(
+    vOrders   IN varchar2,
     cursor_ in out ref_cursor
 );
 
@@ -858,7 +874,7 @@ begin
       v_code := SQLCODE;
       if v_code <> -12170 then raise; end if;
   end;
-*/
+
   begin
     insert into store_main_all (select a.id_store_main, a.n_id, a.quantity, a.store_type, a.reserv,
        a.id_departments, a.id_office, a.date_change from store_main@cherep a where a.id_office=5);
@@ -867,7 +883,7 @@ begin
       v_code := SQLCODE;
       if v_code <> -12170 then raise; end if;
   end;
-
+*/
   begin
     insert into store_main_all (select a.id_store_main, a.n_id, a.quantity, a.store_type, a.reserv,
        a.id_departments, a.id_office, a.date_change from store_main@ufa a where a.id_office=6);
@@ -1046,8 +1062,6 @@ BEGIN
   ';
   open cursor_ for sql_str using DOC_DATE1_, DOC_DATE2_, v_office, v_office, p_kol, p_kol, p_summ, p_summ;
 
-        LOG_ERR(SQLERRM, SQLCODE, 'STATISTIC.get_client_stat_for_summ', sql_str);
-
 EXCEPTION
    WHEN others THEN
         LOG_ERR(SQLERRM, SQLCODE, 'STATISTIC.get_client_stat_for_summ', sql_str);
@@ -1129,6 +1143,72 @@ EXCEPTION
         RAISE_APPLICATION_ERROR (-20921, 'Запрос не выполнился. ' || SQLERRM);
 
 END orders_stat;
+
+
+
+
+
+-- Статистика по заказам
+PROCEDURE get_stat_orders
+(
+    vOrders   IN varchar2,
+    cursor_ in out ref_cursor
+)
+IS
+  sqlstr varchar2(4000);
+  tmp_suppliers varchar2(1024);
+begin
+
+  insert into tmp_exp_doc ( select * from table(cast(get_list_elements(vOrders) as number_list_type)) );
+
+  select wm_concat( ''''||s.s_name_ru||'''' ) into tmp_suppliers from suppliers s, orders o where s.s_id = o.s_id and o.id_orders in ( select * from tmp_exp_doc );
+
+  sqlstr := 'select * from (select * from (
+      SELECT c.date_truck_out as "Дата выхода", c.date_truck as "Дата прихода", n.name_code as "Код сорта", cast(n.f_name as varchar2(70)) as "Название (лат)", cast(n.compiled_name_otdel as varchar2(100)) as "Название полное", cast(n.rus_marks as varchar2(30)) as "Спецификация", s.s_name_ru, a.quantity
+        FROM orders_list a, orders_clients b, orders c, nomenclature_mat_view n, suppliers s
+        where a.id_orders_clients = b.id_orders_clients and b.id_orders = c.id_orders and a.n_id = n.n_id and c.s_id = s.s_id
+          and c.id_orders in ( '||vOrders||' )
+    ) pivot ( sum(quantity)
+            for s_name_ru IN ('||tmp_suppliers||')
+            )
+    ) order by "Название (лат)", "Название полное"';
+
+  delete from tmp_exp_doc;
+
+  open cursor_ for sqlstr;
+
+  EXCEPTION
+      WHEN others THEN
+        LOG_ERR(SQLERRM|| ' ' || DBMS_UTILITY.format_error_backtrace, SQLCODE, 'STATISTIC.get_stat_orders', sqlstr);
+        RAISE_APPLICATION_ERROR (-20922, 'Запрос не выполнился. ' || SQLERRM);
+end get_stat_orders;
+
+
+
+-- Статистика по заказам
+PROCEDURE get_stat_orders_group
+(
+    vOrders   IN varchar2,
+    cursor_ in out ref_cursor
+)
+IS
+begin
+
+  --insert into tmp_exp_doc ( select * from table(cast(get_list_elements(vOrders) as number_list_type)) );
+
+  open cursor_ for
+    'SELECT n.name_code, n.f_name, n.rus_marks, sum(a.quantity) as quantity
+    FROM orders_list a, orders_clients b, orders c, nomenclature_mat_view n, suppliers s
+    where a.id_orders_clients = b.id_orders_clients and b.id_orders = c.id_orders and a.n_id = n.n_id and c.s_id = s.s_id
+      and c.id_orders in ( '||vOrders||' )
+    group by n.name_code, n.f_name, n.rus_marks
+    order by f_name';
+
+  EXCEPTION
+      WHEN others THEN
+        LOG_ERR(SQLERRM|| ' ' || DBMS_UTILITY.format_error_backtrace, SQLCODE, 'STATISTIC.get_stat_orders_group', vOrders);
+        RAISE_APPLICATION_ERROR (-20923, 'Запрос не выполнился. ' || SQLERRM);
+end get_stat_orders_group;
 
 
 END;
