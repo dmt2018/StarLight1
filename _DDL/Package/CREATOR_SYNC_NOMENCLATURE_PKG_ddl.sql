@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.SYNC_NOMENCLATURE_PKG
--- Generated 17.08.2016 22:09:27 from CREATOR@STAR_NEW
+-- Generated 01.03.2017 0:44:12 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE sync_nomenclature_pkg
@@ -162,7 +162,7 @@ begin
         sql_str := 'INSERT INTO SYNC_nomenclature@'||names(i)||' ( select a.n_id, a.fn_id, a.fst_id, a.s_id, a.c_id, a.h_code, a.h_name,
          a.len, a.pack, a.col_id, a.vbn, a.hol_type, a.weight, a.bar_code,
          a.code, a.diameter, a.cust_coef, a.remarks, a.photo,
-         a.h_namecode, a.id_office, a.date_change, a.noprint, 0 as notuse,
+         a.h_namecode, a.id_office, a.date_change, a.noprint, a.notuse,
          a.tnved, a.weightdry, a.nom_new, a.nom_start, a.nom_end,
          a.hol_color, a.hol_pack from nomenclature a WHERE a.id_office=1 and a.DATE_CHANGE <= :p1)';
         execute immediate sql_str using dt;
