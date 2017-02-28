@@ -136,6 +136,12 @@ type
     gr_data_vRUS_MARKS: TcxGridDBColumn;
     pm_orders: TPopupMenu;
     mnOrderToExcel: TMenuItem;
+    CDS_STAT_GROUPF_TYPE: TStringField;
+    gr_data_vF_TYPE: TcxGridDBColumn;
+    N1: TMenuItem;
+    mnByGroup: TMenuItem;
+    mnFullCollapse: TMenuItem;
+    mnFullExpand: TMenuItem;
     procedure de_beginKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure aRefreshOrderExecute(Sender: TObject);
@@ -146,6 +152,10 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure aClearExecute(Sender: TObject);
     procedure mnOrderToExcelClick(Sender: TObject);
+    procedure mnByGroupClick(Sender: TObject);
+    procedure mnFullCollapseClick(Sender: TObject);
+    procedure mnFullExpandClick(Sender: TObject);
+    procedure pm_ordersPopup(Sender: TObject);
   private
     { Private declarations }
   public
@@ -207,6 +217,17 @@ var tmpStr: string;
 begin
   if not Q_ORDERS.Active or Q_ORDERS.IsEmpty then exit;
 
+  if (chek_group.Checked = false) and (cb_type.ItemIndex < 0) then
+  begin
+      MessageBox(Handle, 'Необходимо указать группу или выставить "Все значения"', 'Внимание!', MB_ICONWARNING);
+      exit;
+  end;
+  if (chek_subgroup.Checked = false) and (cb_subtype.ItemIndex < 0) then
+  begin
+      MessageBox(Handle, 'Необходимо указать подгруппу или выставить "Все значения"', 'Внимание!', MB_ICONWARNING);
+      exit;
+  end;
+
   try
     tmpStr := '';
     Q_ORDERS.First;
@@ -222,11 +243,34 @@ begin
       tmpStr := copy(tmpStr,1,length(tmpStr)-2);
 
       CDS_STAT.Close;
-      CDS_STAT.ParamByName('vOrders').AsString := tmpStr;
-      CDS_STAT.Open;
-
       CDS_STAT_GROUP.Close;
+
+      CDS_STAT.ParamByName('vOrders').AsString := tmpStr;
       CDS_STAT_GROUP.ParamByName('vOrders').AsString := tmpStr;
+
+      if (chek_group.Checked = true) then
+      begin
+        CDS_STAT.ParamByName('id_ft_').Value  := 0;
+        CDS_STAT_GROUP.ParamByName('id_ft_').Value  := 0;
+      end
+      else
+      begin
+        CDS_STAT.ParamByName('id_ft_').Value  := cb_type.EditValue;
+        CDS_STAT_GROUP.ParamByName('id_ft_').Value  := cb_type.EditValue;
+      end;
+
+      if (chek_subgroup.Checked = true) then
+      begin
+        CDS_STAT.ParamByName('id_fst_').Value := 0;
+        CDS_STAT_GROUP.ParamByName('id_fst_').Value := 0;
+      end
+      else
+      begin
+        CDS_STAT.ParamByName('id_fst_').Value := cb_subtype.EditValue;
+        CDS_STAT_GROUP.ParamByName('id_fst_').Value := cb_subtype.EditValue;
+      end;
+
+      CDS_STAT.Open;
       CDS_STAT_GROUP.Open;
 
       pc_main.ActivePageIndex := 1;
@@ -290,6 +334,30 @@ begin
   aRefreshOrder.Execute;
 end;
 
+procedure TfrmOrdersStat.mnByGroupClick(Sender: TObject);
+begin
+  mnByGroup.Checked := not mnByGroup.Checked;
+  if mnByGroup.Checked then
+  begin
+    gr_data_vF_TYPE.GroupIndex := 0;
+    gr_data_v.DataController.Groups.FullExpand;
+  end
+  else
+  begin
+    gr_data_vF_TYPE.GroupIndex := -1;
+  end;
+end;
+
+procedure TfrmOrdersStat.mnFullCollapseClick(Sender: TObject);
+begin
+  gr_data_v.DataController.Groups.FullCollapse;
+end;
+
+procedure TfrmOrdersStat.mnFullExpandClick(Sender: TObject);
+begin
+  gr_data_v.DataController.Groups.FullExpand;
+end;
+
 procedure TfrmOrdersStat.mnOrderToExcelClick(Sender: TObject);
 begin
   if (pc_main.ActivePageIndex = 1) and (CDS_STAT.Active) and (CDS_STAT.RecordCount > 0) and (SaveDialog1.Execute) then
@@ -301,6 +369,13 @@ begin
   begin
     ExportGridToExcel(SaveDialog1.FileName, gr_data, True, true, True, 'xls');
   end;
+end;
+
+procedure TfrmOrdersStat.pm_ordersPopup(Sender: TObject);
+begin
+  mnByGroup.Enabled := (pc_main.ActivePageIndex = 2);
+  mnFullCollapse.Enabled := (pc_main.ActivePageIndex = 2) and mnByGroup.Checked;
+  mnFullExpand.Enabled := (pc_main.ActivePageIndex = 2) and mnByGroup.Checked;
 end;
 
 end.

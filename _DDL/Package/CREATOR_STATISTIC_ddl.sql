@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.STATISTIC
--- Generated 28.02.2017 0:33:54 from CREATOR@STAR_NEW
+-- Generated 01.03.2017 0:02:03 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE statistic
@@ -202,7 +202,9 @@ PROCEDURE orders_stat
 PROCEDURE get_stat_orders
 (
     vOrders   IN varchar2,
-    cursor_ in out ref_cursor
+    id_ft_    in number,
+    id_fst_   in number,
+    cursor_   in out ref_cursor
 );
 
 
@@ -210,7 +212,9 @@ PROCEDURE get_stat_orders
 PROCEDURE get_stat_orders_group
 (
     vOrders   IN varchar2,
-    cursor_ in out ref_cursor
+    id_ft_    in number,
+    id_fst_   in number,
+    cursor_   in out ref_cursor
 );
 
 
@@ -1152,7 +1156,9 @@ END orders_stat;
 PROCEDURE get_stat_orders
 (
     vOrders   IN varchar2,
-    cursor_ in out ref_cursor
+    id_ft_    in number,
+    id_fst_   in number,
+    cursor_   in out ref_cursor
 )
 IS
   sqlstr varchar2(4000);
@@ -1167,6 +1173,8 @@ begin
       SELECT c.date_truck_out as "Дата выхода", c.date_truck as "Дата прихода", n.name_code as "Код сорта", cast(n.f_name as varchar2(70)) as "Название (лат)", cast(n.compiled_name_otdel as varchar2(100)) as "Название полное", cast(n.rus_marks as varchar2(30)) as "Спецификация", s.s_name_ru, a.quantity
         FROM orders_list a, orders_clients b, orders c, nomenclature_mat_view n, suppliers s
         where a.id_orders_clients = b.id_orders_clients and b.id_orders = c.id_orders and a.n_id = n.n_id and c.s_id = s.s_id
+          and ( n.ft_id = '||id_ft_||' or '||id_ft_||' = 0 )
+          and ( n.fst_id = '||id_fst_||' or '||id_fst_||' = 0 )
           and c.id_orders in ( '||vOrders||' )
     ) pivot ( sum(quantity)
             for s_name_ru IN ('||tmp_suppliers||')
@@ -1189,7 +1197,9 @@ end get_stat_orders;
 PROCEDURE get_stat_orders_group
 (
     vOrders   IN varchar2,
-    cursor_ in out ref_cursor
+    id_ft_    in number,
+    id_fst_   in number,
+    cursor_   in out ref_cursor
 )
 IS
 begin
@@ -1197,12 +1207,14 @@ begin
   --insert into tmp_exp_doc ( select * from table(cast(get_list_elements(vOrders) as number_list_type)) );
 
   open cursor_ for
-    'SELECT n.name_code, n.f_name, n.rus_marks, sum(a.quantity) as quantity
+    'SELECT n.name_code, n.f_name, n.rus_marks, n.f_type, sum(a.quantity) as quantity
     FROM orders_list a, orders_clients b, orders c, nomenclature_mat_view n, suppliers s
     where a.id_orders_clients = b.id_orders_clients and b.id_orders = c.id_orders and a.n_id = n.n_id and c.s_id = s.s_id
+      and ( n.ft_id = '||id_ft_||' or '||id_ft_||' = 0 )
+      and ( n.fst_id = '||id_fst_||' or '||id_fst_||' = 0 )
       and c.id_orders in ( '||vOrders||' )
-    group by n.name_code, n.f_name, n.rus_marks
-    order by f_name';
+    group by n.f_type, n.name_code, n.f_name, n.rus_marks
+    order by n.f_name';
 
   EXCEPTION
       WHEN others THEN

@@ -453,7 +453,7 @@ object frmOrdersStat: TfrmOrdersStat
     Top = 201
     Width = 1134
     Height = 378
-    ActivePage = tsh_orders
+    ActivePage = tsh_data
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -867,7 +867,18 @@ object frmOrdersStat: TfrmOrdersStat
           DataController.Filter.Options = [fcoCaseInsensitive]
           DataController.Filter.AutoDataSetFilter = True
           DataController.Options = [dcoAnsiSort, dcoCaseInsensitive, dcoAssignGroupingValues, dcoAssignMasterDetailKeys, dcoSaveExpanding]
-          DataController.Summary.DefaultGroupSummaryItems = <>
+          DataController.Summary.DefaultGroupSummaryItems = <
+            item
+              Format = '0'
+              Kind = skCount
+              Column = gr_data_vF_TYPE
+            end
+            item
+              Format = '0'
+              Kind = skSum
+              Position = spFooter
+              Column = gr_data_vQUANTITY
+            end>
           DataController.Summary.FooterSummaryItems = <
             item
               Format = '0'
@@ -900,7 +911,14 @@ object frmOrdersStat: TfrmOrdersStat
           OptionsView.NoDataToDisplayInfoText = #1053#1077#1090' '#1076#1072#1085#1085#1099#1093
           OptionsView.Footer = True
           OptionsView.GroupByBox = False
+          OptionsView.GroupFooters = gfVisibleWhenExpanded
           OptionsView.HeaderEndEllipsis = True
+          object gr_data_vF_TYPE: TcxGridDBColumn
+            Caption = #1058#1080#1087
+            DataBinding.FieldName = 'F_TYPE'
+            Visible = False
+            Width = 200
+          end
           object gr_data_vNAME_CODE: TcxGridDBColumn
             Caption = #1050#1086#1076' '#1089#1086#1088#1090#1072
             DataBinding.FieldName = 'NAME_CODE'
@@ -6169,7 +6187,9 @@ object frmOrdersStat: TfrmOrdersStat
   object CDS_STAT: TOraQuery
     SQL.Strings = (
       'begin'
-      '  STATISTIC.get_stat_orders(:VORDERS, :CURSOR_);'
+      
+        '  STATISTIC.get_stat_orders(:VORDERS, :ID_FT_, :ID_FST_, :CURSOR' +
+        '_);'
       'end;')
     FetchAll = True
     Left = 208
@@ -6179,14 +6199,24 @@ object frmOrdersStat: TfrmOrdersStat
         DataType = ftString
         Name = 'VORDERS'
         ParamType = ptInput
-        Value = ' 3020, 3021, 3022, 3023, 3024, 3025'
+      end
+      item
+        DataType = ftFloat
+        Name = 'ID_FT_'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftFloat
+        Name = 'ID_FST_'
+        ParamType = ptInput
       end
       item
         DataType = ftCursor
         Name = 'CURSOR_'
         ParamType = ptInputOutput
-        Value = ''
+        Value = 'Object'
       end>
+    CommandStoredProcName = 'STATISTIC.get_stat_orders:0'
   end
   object DS_STAT: TOraDataSource
     DataSet = CDS_STAT
@@ -6196,7 +6226,9 @@ object frmOrdersStat: TfrmOrdersStat
   object CDS_STAT_GROUP: TOraQuery
     SQL.Strings = (
       'begin'
-      '  STATISTIC.get_stat_orders_group(:VORDERS, :CURSOR_);'
+      
+        '  STATISTIC.get_stat_orders_group(:VORDERS, :ID_FT_, :ID_FST_, :' +
+        'CURSOR_);'
       'end;')
     FetchAll = True
     Left = 208
@@ -6206,6 +6238,19 @@ object frmOrdersStat: TfrmOrdersStat
         DataType = ftString
         Name = 'VORDERS'
         ParamType = ptInput
+        Value = ''
+      end
+      item
+        DataType = ftFloat
+        Name = 'ID_FT_'
+        ParamType = ptInput
+        Value = 0.000000000000000000
+      end
+      item
+        DataType = ftFloat
+        Name = 'ID_FST_'
+        ParamType = ptInput
+        Value = 0.000000000000000000
       end
       item
         DataType = ftCursor
@@ -6228,6 +6273,10 @@ object frmOrdersStat: TfrmOrdersStat
     object CDS_STAT_GROUPQUANTITY: TFloatField
       FieldName = 'QUANTITY'
     end
+    object CDS_STAT_GROUPF_TYPE: TStringField
+      FieldName = 'F_TYPE'
+      Size = 50
+    end
   end
   object DS_STAT_GROUP: TOraDataSource
     DataSet = CDS_STAT_GROUP
@@ -6235,8 +6284,24 @@ object frmOrdersStat: TfrmOrdersStat
     Top = 480
   end
   object pm_orders: TPopupMenu
+    OnPopup = pm_ordersPopup
     Left = 912
     Top = 80
+    object mnByGroup: TMenuItem
+      Caption = #1056#1072#1079#1073#1080#1090#1100' '#1087#1086' '#1075#1088#1091#1087#1087#1072#1084
+      OnClick = mnByGroupClick
+    end
+    object mnFullCollapse: TMenuItem
+      Caption = #1057#1074#1077#1088#1085#1091#1090#1100' '#1075#1088#1091#1087#1087#1099
+      OnClick = mnFullCollapseClick
+    end
+    object mnFullExpand: TMenuItem
+      Caption = #1056#1072#1079#1074#1077#1088#1085#1091#1090#1100' '#1075#1088#1091#1087#1087#1099
+      OnClick = mnFullExpandClick
+    end
+    object N1: TMenuItem
+      Caption = '-'
+    end
     object mnOrderToExcel: TMenuItem
       Caption = #1042#1099#1075#1088#1091#1079#1080#1090#1100' '#1074' Excel'
       OnClick = mnOrderToExcelClick
