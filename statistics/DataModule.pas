@@ -20,6 +20,7 @@ type
     ds_summs: TOraDataSource;
     cds_grants: TSmartQuery;
     ds_grants: TOraDataSource;
+    StorProc: TOraStoredProc;
     cds_grantsID_PROGRAMS: TIntegerField;
     cds_grantsID_USER: TIntegerField;
     cds_grantsTAG: TIntegerField;
@@ -27,7 +28,6 @@ type
     cds_grantsNICK: TStringField;
     cds_grantsFIO: TStringField;
     cds_grantsTAG_NAME: TStringField;
-    StorProc: TOraStoredProc;
     procedure stat_sessionAfterConnect(Sender: TObject);
   private
     { Private declarations }
