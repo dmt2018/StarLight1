@@ -365,7 +365,16 @@ begin
       '  ,1 ,nvl(instr( nvl( substr(SRC_TROLLEY,INSTR(SRC_TROLLEY,''.'',1,2)+1, length(SRC_TROLLEY)-INSTR(SRC_TROLLEY,''.'',1,2)) ,0 ),''-'' ),length(SRC_TROLLEY))-1 )'+
       ' end ,0) ), F_NAME_RU '
     else
-      DM.SelPrntPreview.SQL.Add(' order by TRUCK, trolley_calc, F_NAME_RU');
+      //DM.SelPrntPreview.SQL.Add(' order by TRUCK, trolley_calc, F_NAME_RU');
+      begin
+      if pos(DM.InvoiceDataSRC_TROLLEY.asstring,'.')<>null then
+      DM.SelPrntPreview.SQL.Add(' order by to_number(substr(src_trolley,1,instr(src_trolley,''.'')-1))'+
+      ',to_number(substr(src_trolley,instr(src_trolley,''.'')+1,instr(src_trolley,''.'',1,2)-instr(src_trolley,''.'')-1))')//+
+      //',to_number(substr(src_trolley,instr(src_trolley,''.'',1,2)+1,length(src_trolley)-instr(src_trolley,''.'',1,2)))');
+       else DM.SelPrntPreview.SQL.Add(' order by TRUCK, trolley_calc, F_NAME_RU');
+      end;     
+
+
 
 //                           ShowMessage(DM.SelPrntPreview.SQL.Text);
 
