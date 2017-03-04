@@ -112,6 +112,7 @@ type
   public
     { Public declarations }
     ttype: integer;
+    function MainFormShow : boolean;
   end;
 
 var
@@ -123,6 +124,16 @@ implementation
 
 uses Urefbooks, umain;
 
+
+function TfrmeditRefbooks.MainFormShow : boolean;
+var i,j:integer;
+Begin
+Application.CreateForm(TfrmEditRefBooks, frmEditRefBooks);
+ {try
+ finally
+ end;    }
+end;
+
 procedure TfrmEditRefbooks.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -131,7 +142,6 @@ end;
 procedure TfrmEditRefbooks.cxButton2Click(Sender: TObject);
 var ind, flag, price_part: integer; 
 begin
-
     // ѕытаемс€ выполнить SQL запрос
     try
 

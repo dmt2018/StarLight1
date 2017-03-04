@@ -521,6 +521,9 @@ begin
     MessageBox(Handle,'Данная запись не принадлежит главному офису. Редактирование запрещено!','Внимание!',MB_ICONERROR);
     exit;
   end;
+
+  frmeditRefbooks.MainFormShow;
+
   try
     if (pcrefbooks.ActivePage.PageIndex=0) and (Q_REGIONS.FieldByName('NAME').AsString <> '') then
     begin
@@ -668,6 +671,9 @@ begin
     MessageBox(Handle,'Вид данных добавляется только через главный офис компании.','Внимание!',MB_ICONERROR);
     exit;
   end;
+
+  frmeditRefbooks.MainFormShow; //создание формы редактора
+
   try
   if pcrefbooks.ActivePage.PageIndex=0 then begin
       frmEditRefBooks.Ed1.Text := '';
@@ -700,6 +706,7 @@ begin
     frmEditRefBooks.ttype    := 3;
     frmEditRefBooks.Caption  := 'Источники рекламы :: добавление';
     frmEditRefBooks.ShowModal;
+    frmeditRefbooks.MainFormShow;
     Q_Promo.Refresh;
     Q_Promo.Locate('ID_ADVERTISMENTS', frmEditRefBooks.Ed6.Tag, []);
     grPromo.SetFocus;
@@ -918,7 +925,7 @@ end;
 procedure TfrmRefbooks.FormCreate(Sender: TObject);
    var recUserRules : TUserRules; i:integer;
 begin
-  Application.CreateForm(TfrmEditRefBooks, frmEditRefBooks);
+  //Application.CreateForm(TfrmEditRefBooks, frmEditRefBooks);
 
   for i := 0 to ComponentCount-1 do
     if (Components[i] is TControl) and  (Components[i] is TcxGrid) then
