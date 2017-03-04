@@ -244,7 +244,7 @@ end;
 // форма Администрирование
 procedure TfrmMain.mmiAdminToolsClick(Sender: TObject);
 begin
-  frmAdmin.MainFormShow;
+  v.MainFormShow;
 end;
 
 // форма Настройки

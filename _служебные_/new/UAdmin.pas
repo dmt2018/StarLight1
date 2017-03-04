@@ -337,18 +337,18 @@ end;
 
 function Tv.MainFormShow : boolean;
 Begin
- if not Assigned(frmAdmin) then
+ if not Assigned(v) then
   begin
-    frmAdmin := TfrmAdmin.Create(Application);
+    v := Tv.Create(Application);
     try
-      frmAdmin.Show;
-      LoadFormState(frmAdmin); //полож.окна
+      v.Show;
+      LoadFormState(v); //полож.окна
     finally
       null;
     end;
   end
   else
-    if (frmAdmin.WindowState = wsMinimized) then frmAdmin.WindowState := wsNormal;
+    if (v.WindowState = wsMinimized) then v.WindowState := wsNormal;
 end;
 
 
@@ -1140,8 +1140,8 @@ begin
     DBGridEh2.SumList.Active := false;
     DBGrid4.SumList.Active := false;
     DBGrid2.SumList.Active := false;
-    SaveFormState(frmAdmin); //полож.окна
-    frmAdmin := nil;
+    SaveFormState(v); //полож.окна
+    v := nil;
     Action := caFree;
   end;
 end;

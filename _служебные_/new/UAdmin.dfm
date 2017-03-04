@@ -36,6 +36,9 @@ object v: Tv
     OnChange = PageControl1Change
     object TabSheet1: TTabSheet
       Caption = ' '#1057#1054#1058#1056#1059#1044#1053#1048#1050#1048' '
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
       ExplicitHeight = 417
       object Splitter1: TSplitter
         Left = 0
@@ -180,7 +183,7 @@ object v: Tv
             Font.Name = 'Arial'
             Font.Pitch = fpFixed
             Font.Style = []
-            ItemHeight = 16
+            ItemHeight = 0
             ItemIndex = 0
             ParentFont = False
             TabOrder = 0
@@ -206,7 +209,7 @@ object v: Tv
             Font.Name = 'Arial'
             Font.Pitch = fpFixed
             Font.Style = []
-            ItemHeight = 16
+            ItemHeight = 0
             ItemIndex = 0
             ParentFont = False
             TabOrder = 1
@@ -818,6 +821,9 @@ object v: Tv
     object TabSheet3: TTabSheet
       Caption = ' '#1043#1056#1059#1055#1055#1067' '
       ImageIndex = 2
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
       ExplicitHeight = 443
       object Splitter2: TSplitter
         Left = 0
@@ -1475,6 +1481,9 @@ object v: Tv
     object TabSheet2: TTabSheet
       Caption = ' '#1055#1056#1054#1043#1056#1040#1052#1052#1067' '
       ImageIndex = 1
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
       ExplicitHeight = 443
       object Panel4: TPanel
         Left = 0
@@ -1570,6 +1579,9 @@ object v: Tv
     object TabSheet4: TTabSheet
       Caption = ' '#1044#1054#1057#1058#1059#1055' '#1050' '#1050#1040#1057#1057#1040#1052' '
       ImageIndex = 3
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
       ExplicitHeight = 443
       object Panel17: TPanel
         Left = 0
@@ -1711,6 +1723,9 @@ object v: Tv
     object tsh_debetors: TTabSheet
       Caption = ' '#1044#1054#1057#1058#1059#1055' '#1050' '#1044#1045#1041#1048#1058#1054#1056#1040#1052' '
       ImageIndex = 4
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
       ExplicitHeight = 417
       object Panel8: TPanel
         Left = 0
@@ -1832,7 +1847,6 @@ object v: Tv
     object TabSheet5: TTabSheet
       Caption = #1056#1040#1047#1056#1045#1064#1045#1053#1048#1071
       ImageIndex = 5
-      ExplicitHeight = 417
       object Panel3: TPanel
         Left = 0
         Top = 0
@@ -2014,7 +2028,6 @@ object v: Tv
         Align = alClient
         TabOrder = 2
         LookAndFeel.Kind = lfOffice11
-        ExplicitHeight = 333
         object gr_rights_v: TcxGridDBTableView
           NavigatorButtons.ConfirmDelete = False
           DataController.DataSource = ds_rights
@@ -2098,7 +2111,7 @@ object v: Tv
     Left = 632
     Top = 152
     Bitmap = {
-      494C010105002000640010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010105002000680010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

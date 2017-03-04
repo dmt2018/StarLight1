@@ -34,6 +34,10 @@ object frmEditAdmins: TfrmEditAdmins
     object tsh_regions: TcxTabSheet
       Caption = #1059#1095#1077#1090#1085#1099#1077' '#1079#1072#1087#1080#1089#1080
       ImageIndex = 0
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object GroupBox7: TGroupBox
         Left = 9
         Top = 14
@@ -119,6 +123,10 @@ object frmEditAdmins: TfrmEditAdmins
     object tsh_cityes: TcxTabSheet
       Caption = #1055#1088#1080#1074#1080#1083#1077#1075#1080#1080' '#1082' '#1087#1088#1086#1075#1088#1072#1084#1084#1072#1084
       ImageIndex = 1
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Label3: TLabel
         Left = 18
         Top = 10
@@ -166,7 +174,7 @@ object frmEditAdmins: TfrmEditAdmins
         Left = 112
         Top = 38
         Width = 457
-        Height = 24
+        Height = 21
         Cursor = crHandPoint
         AlwaysShowBorder = True
         EditButtons = <>
@@ -276,6 +284,10 @@ object frmEditAdmins: TfrmEditAdmins
     object tsh_promo: TcxTabSheet
       Caption = #1056#1077#1076#1072#1082#1090#1086#1088
       ImageIndex = 2
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Panel3: TPanel
         Left = 0
         Top = 0
@@ -553,6 +565,10 @@ object frmEditAdmins: TfrmEditAdmins
     object tsh_departs: TcxTabSheet
       Caption = #1044#1086#1089#1090#1091#1087' '#1076#1083#1103' '#1076#1077#1073#1080#1090#1086#1088#1086#1074
       ImageIndex = 4
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Panel6: TPanel
         Left = 0
         Top = 0

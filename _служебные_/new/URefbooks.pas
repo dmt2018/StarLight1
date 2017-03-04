@@ -918,7 +918,7 @@ end;
 procedure TfrmRefbooks.FormCreate(Sender: TObject);
    var recUserRules : TUserRules; i:integer;
 begin
-  //Application.CreateForm(TfrmEditRefBooks, frmEditRefBooks);
+  Application.CreateForm(TfrmEditRefBooks, frmEditRefBooks);
 
   for i := 0 to ComponentCount-1 do
     if (Components[i] is TControl) and  (Components[i] is TcxGrid) then

@@ -1,6 +1,7 @@
 object frmEditRefbooks: TfrmEditRefbooks
   Left = 0
   Top = 0
+  BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = #1056#1077#1076#1072#1082#1090#1086#1088' '#1089#1087#1088#1072#1074#1086#1095#1085#1080#1082#1086#1074
   ClientHeight = 402
@@ -13,6 +14,7 @@ object frmEditRefbooks: TfrmEditRefbooks
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnClose = FormClose
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
