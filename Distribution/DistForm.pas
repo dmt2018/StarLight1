@@ -3627,6 +3627,8 @@ inv_id: 10007897
     try
     //showmessage(PChar(FullFileName));    showmessage(ExtractFilePath(Application.ExeName)+'finish\'+extractFileName(FullFileName));
      CopyFile(PChar(FullFileName), PChar(ExtractFilePath(Application.ExeName)+'finish\'+extractFileName(FullFileName)), false);
+     if MessageBox(Handle,'Удалить WEBSHOP ?','',MB_YESNO) = IDYES then
+     if MessageBox(Handle,'Точно ?','',MB_YESNO) = IDYES then
      DeleteFile(FullFileName);
     except
     end;
