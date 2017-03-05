@@ -205,7 +205,7 @@ object frmEditRefbooks: TfrmEditRefbooks
     Top = 0
     Width = 555
     Height = 334
-    ActivePage = tsh_units
+    ActivePage = tsh_regions
     Align = alClient
     MultiLine = True
     Style = 7
@@ -219,20 +219,20 @@ object frmEditRefbooks: TfrmEditRefbooks
       ImageIndex = 0
       object Label5: TLabel
         Left = 34
-        Top = 128
-        Width = 220
-        Height = 19
+        Top = 131
+        Width = 177
+        Height = 16
         Caption = #1044#1086#1087#1086#1083#1085#1080#1090#1077#1083#1100#1085#1072#1103' '#1080#1085#1092#1086#1088#1084#1072#1094#1080#1103
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -16
+        Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
       end
       object Image1: TImage
         Left = 12
-        Top = 21
+        Top = 25
         Width = 16
         Height = 16
         AutoSize = True
@@ -276,39 +276,39 @@ object frmEditRefbooks: TfrmEditRefbooks
       end
       object Label1: TLabel
         Left = 34
-        Top = 19
-        Width = 68
-        Height = 19
+        Top = 25
+        Width = 56
+        Height = 16
         Caption = #1053#1072#1079#1074#1072#1085#1080#1077
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -16
+        Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
       end
       object Label2: TLabel
         Left = 34
-        Top = 54
-        Width = 92
-        Height = 19
+        Top = 60
+        Width = 72
+        Height = 16
         Caption = #1050#1086#1076' '#1088#1077#1075#1080#1086#1085#1072
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -16
+        Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
       end
       object Label3: TLabel
         Left = 34
-        Top = 93
-        Width = 52
-        Height = 19
+        Top = 96
+        Width = 40
+        Height = 16
         Caption = #1050#1051#1040#1044#1056
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -16
+        Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
@@ -316,10 +316,17 @@ object frmEditRefbooks: TfrmEditRefbooks
       object Ed1: TcxTextEdit
         Left = 141
         Top = 21
+        ParentFont = False
         Properties.MaxLength = 255
         Style.BorderStyle = ebsOffice11
+        Style.Font.Charset = DEFAULT_CHARSET
+        Style.Font.Color = clWindowText
+        Style.Font.Height = -13
+        Style.Font.Name = 'Tahoma'
+        Style.Font.Style = []
         Style.LookAndFeel.Kind = lfOffice11
         Style.LookAndFeel.NativeStyle = True
+        Style.IsFontAssigned = True
         StyleDisabled.LookAndFeel.Kind = lfOffice11
         StyleDisabled.LookAndFeel.NativeStyle = True
         StyleFocused.LookAndFeel.Kind = lfOffice11
@@ -330,12 +337,19 @@ object frmEditRefbooks: TfrmEditRefbooks
         Width = 397
       end
       object ed2: TcxTextEdit
-        Left = 132
+        Left = 141
         Top = 56
+        ParentFont = False
         Properties.MaxLength = 4
         Style.BorderStyle = ebsOffice11
+        Style.Font.Charset = DEFAULT_CHARSET
+        Style.Font.Color = clWindowText
+        Style.Font.Height = -13
+        Style.Font.Name = 'Tahoma'
+        Style.Font.Style = []
         Style.LookAndFeel.Kind = lfOffice11
         Style.LookAndFeel.NativeStyle = True
+        Style.IsFontAssigned = True
         StyleDisabled.LookAndFeel.Kind = lfOffice11
         StyleDisabled.LookAndFeel.NativeStyle = True
         StyleFocused.LookAndFeel.Kind = lfOffice11
@@ -346,12 +360,19 @@ object frmEditRefbooks: TfrmEditRefbooks
         Width = 397
       end
       object ed3: TcxTextEdit
-        Left = 140
-        Top = 95
+        Left = 141
+        Top = 92
+        ParentFont = False
         Properties.MaxLength = 15
         Style.BorderStyle = ebsOffice11
+        Style.Font.Charset = DEFAULT_CHARSET
+        Style.Font.Color = clWindowText
+        Style.Font.Height = -13
+        Style.Font.Name = 'Tahoma'
+        Style.Font.Style = []
         Style.LookAndFeel.Kind = lfOffice11
         Style.LookAndFeel.NativeStyle = True
+        Style.IsFontAssigned = True
         StyleDisabled.LookAndFeel.Kind = lfOffice11
         StyleDisabled.LookAndFeel.NativeStyle = True
         StyleFocused.LookAndFeel.Kind = lfOffice11
@@ -364,11 +385,17 @@ object frmEditRefbooks: TfrmEditRefbooks
       object Memo1: TMemo
         Left = 34
         Top = 153
-        Width = 519
+        Width = 504
         Height = 123
         Ctl3D = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
         MaxLength = 1024
         ParentCtl3D = False
+        ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 3
       end

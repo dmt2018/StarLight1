@@ -1,4 +1,4 @@
-object v: Tv
+object frmAdmin: TfrmAdmin
   Left = 0
   Top = 0
   Caption = #1040#1076#1084#1080#1085#1080#1089#1090#1088#1080#1088#1086#1074#1072#1085#1080#1077
@@ -36,10 +36,6 @@ object v: Tv
     OnChange = PageControl1Change
     object TabSheet1: TTabSheet
       Caption = ' '#1057#1054#1058#1056#1059#1044#1053#1048#1050#1048' '
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 417
       object Splitter1: TSplitter
         Left = 0
         Top = 193
@@ -183,7 +179,7 @@ object v: Tv
             Font.Name = 'Arial'
             Font.Pitch = fpFixed
             Font.Style = []
-            ItemHeight = 0
+            ItemHeight = 16
             ItemIndex = 0
             ParentFont = False
             TabOrder = 0
@@ -209,7 +205,7 @@ object v: Tv
             Font.Name = 'Arial'
             Font.Pitch = fpFixed
             Font.Style = []
-            ItemHeight = 0
+            ItemHeight = 16
             ItemIndex = 0
             ParentFont = False
             TabOrder = 1
@@ -602,7 +598,6 @@ object v: Tv
         Align = alBottom
         BevelOuter = bvNone
         TabOrder = 3
-        ExplicitTop = 222
         object Panel15: TPanel
           Left = 0
           Top = 153
@@ -821,10 +816,6 @@ object v: Tv
     object TabSheet3: TTabSheet
       Caption = ' '#1043#1056#1059#1055#1055#1067' '
       ImageIndex = 2
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 443
       object Splitter2: TSplitter
         Left = 0
         Top = 159
@@ -845,7 +836,6 @@ object v: Tv
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitHeight = 211
         object DBGrid4: TDBGridEh
           Left = 0
           Top = 0
@@ -947,7 +937,6 @@ object v: Tv
           Ctl3D = False
           ParentCtl3D = False
           TabOrder = 1
-          ExplicitTop = 171
           object btnClients: TcxButton
             Left = 488
             Top = 5
@@ -1035,7 +1024,6 @@ object v: Tv
         Align = alBottom
         BevelOuter = bvNone
         TabOrder = 1
-        ExplicitTop = 214
         object Panel10: TPanel
           Left = 0
           Top = 0
@@ -1481,10 +1469,6 @@ object v: Tv
     object TabSheet2: TTabSheet
       Caption = ' '#1055#1056#1054#1043#1056#1040#1052#1052#1067' '
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 443
       object Panel4: TPanel
         Left = 0
         Top = 351
@@ -1496,7 +1480,6 @@ object v: Tv
         Ctl3D = False
         ParentCtl3D = False
         TabOrder = 0
-        ExplicitTop = 403
       end
       object DBGrid2: TDBGridEh
         Left = 0
@@ -1579,10 +1562,6 @@ object v: Tv
     object TabSheet4: TTabSheet
       Caption = ' '#1044#1054#1057#1058#1059#1055' '#1050' '#1050#1040#1057#1057#1040#1052' '
       ImageIndex = 3
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 443
       object Panel17: TPanel
         Left = 0
         Top = 0
@@ -1593,7 +1572,6 @@ object v: Tv
         Ctl3D = False
         ParentCtl3D = False
         TabOrder = 0
-        ExplicitHeight = 403
         object DBGridEh1: TDBGridEh
           Left = 0
           Top = 0
@@ -1690,7 +1668,6 @@ object v: Tv
         Ctl3D = True
         ParentCtl3D = False
         TabOrder = 1
-        ExplicitTop = 403
         object RadioGroup1: TRadioGroup
           Left = 274
           Top = 2
@@ -1723,10 +1700,6 @@ object v: Tv
     object tsh_debetors: TTabSheet
       Caption = ' '#1044#1054#1057#1058#1059#1055' '#1050' '#1044#1045#1041#1048#1058#1054#1056#1040#1052' '
       ImageIndex = 4
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 417
       object Panel8: TPanel
         Left = 0
         Top = 351
@@ -1738,7 +1711,6 @@ object v: Tv
         Ctl3D = True
         ParentCtl3D = False
         TabOrder = 1
-        ExplicitTop = 377
         DesignSize = (
           756
           40)
@@ -2111,7 +2083,7 @@ object v: Tv
     Left = 632
     Top = 152
     Bitmap = {
-      494C010105002000680010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101050020006C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

@@ -14,7 +14,7 @@ uses
   cxGridCustomView, cxGrid;
 
 type
-  Tv = class(TForm)
+  TfrmAdmin = class(TForm)
     PageControl1: TPageControl;
     TabSheet1: TTabSheet;
     Splitter1: TSplitter;
@@ -230,7 +230,7 @@ type
   end;
 
 var
-  v: Tv;
+  frmAdmin: TfrmAdmin;
 
 implementation
 
@@ -238,7 +238,7 @@ uses umain, UDM, uEditAdmins;
 
 {$R *.dfm}
 
-procedure Tv.RefreshAll;
+procedure TfrmAdmin.RefreshAll;
 begin
   // Открытие сотрудников
   Q_EMPL.AfterScroll := nil;
@@ -269,7 +269,7 @@ begin
   cds_rights.Open;
 end;
 
-procedure Tv.FormCreate(Sender: TObject);
+procedure TfrmAdmin.FormCreate(Sender: TObject);
  var i:integer;  recUserRules : TUserRules;
 begin
 
@@ -297,7 +297,7 @@ for i:=0 to ComponentCount-1 do
   Btndelete.Enabled := p_delete;
 end;
 
-procedure Tv.FormShow(Sender: TObject);
+procedure TfrmAdmin.FormShow(Sender: TObject);
 begin
  if (imgOffice.Enabled) then
   begin
@@ -329,38 +329,38 @@ begin
   Panel12.Visible  := false;
 end;
 
-procedure Tv.imgOfficePropertiesChange(Sender: TObject);
+procedure TfrmAdmin.imgOfficePropertiesChange(Sender: TObject);
 begin
  // DM.id_office := imgOffice.EditValue;
  // RefreshAll;
 end;
 
-function Tv.MainFormShow : boolean;
+function TfrmAdmin.MainFormShow : boolean;
 Begin
- if not Assigned(v) then
+ if not Assigned(frmAdmin) then
   begin
-    v := Tv.Create(Application);
+    frmAdmin := TfrmAdmin.Create(Application);
     try
-      v.Show;
-      LoadFormState(v); //полож.окна
+      frmAdmin.Show;
+      LoadFormState(frmAdmin); //полож.окна
     finally
       null;
     end;
   end
   else
-    if (v.WindowState = wsMinimized) then v.WindowState := wsNormal;
+    if (frmAdmin.WindowState = wsMinimized) then frmAdmin.WindowState := wsNormal;
 end;
 
 
 
-procedure Tv.PageControl1Change(Sender: TObject);
+procedure TfrmAdmin.PageControl1Change(Sender: TObject);
 begin
 //кнопка редакт д.б. не везде
   if (PageControl1.ActivePage.PageIndex=2) or (PageControl1.ActivePage.PageIndex=1) or (PageControl1.ActivePage.PageIndex=5) then  btnedit.visible:=ivalways
   else  btnedit.visible:=ivnever;
 end;
 
-procedure Tv.Q_EMPLAfterRefresh(DataSet: TDataSet);
+procedure TfrmAdmin.Q_EMPLAfterRefresh(DataSet: TDataSet);
 begin
 //  selq.open;
   FillComboEh(q_idd, DBComboBoxEh1, 'select id_clients, FIO from employees_view where (id_office = '+IntToStr(id_office)+' or '+IntToStr(id_office)+' = 0) and active=1 and login is not null order by FIO');
@@ -368,7 +368,7 @@ begin
   Q_EMPLAfterScroll(nil);
 end;
 
-procedure Tv.Q_EMPLAfterScroll(DataSet: TDataSet);
+procedure TfrmAdmin.Q_EMPLAfterScroll(DataSet: TDataSet);
 begin
     Q_EM_PR.Close;
     Q_EM_PR.ParamByName('role_').AsInteger := Q_EMPLID_CLIENTS.AsInteger;
@@ -377,7 +377,7 @@ begin
 end;
 
 // Запоняем список группами
-procedure Tv.Q_GROUPSAfterOpen(DataSet: TDataSet);
+procedure TfrmAdmin.Q_GROUPSAfterOpen(DataSet: TDataSet);
 begin
   ComboBox3.OnChange := nil;
   DBGrid4.DataSource := nil;
@@ -391,7 +391,7 @@ begin
 end;
 
 // Открываем список программ для группы
-procedure Tv.Q_GROUPSAfterScroll(DataSet: TDataSet);
+procedure TfrmAdmin.Q_GROUPSAfterScroll(DataSet: TDataSet);
 begin
     Q_GR_PR.Close;
     Q_GR_PR.ParamByName('role_').AsInteger := Q_GROUPSID_ROLE_GROUPS.AsInteger;
@@ -400,7 +400,7 @@ begin
 end;
 
 // Запоняем список программами
-procedure Tv.Q_PROGSAfterOpen(DataSet: TDataSet);
+procedure TfrmAdmin.Q_PROGSAfterOpen(DataSet: TDataSet);
 begin
   frmEditAdmins.ComboBox1.Items.Clear;
   DBGrid2.DataSource := nil;
@@ -411,13 +411,13 @@ begin
 end;
 
 // Добавление логина в ИС
-procedure Tv.Action1Execute(Sender: TObject);
+procedure TfrmAdmin.Action1Execute(Sender: TObject);
 begin
   if Q_GR_PR_DS.State = dsEdit then Q_GR_PR.Post;
 end;
 
 // удаление
-procedure Tv.aDeleteExecute(Sender: TObject);
+procedure TfrmAdmin.aDeleteExecute(Sender: TObject);
  var ind, ind1, ind2, idd: integer;
 begin
 try
@@ -601,7 +601,7 @@ end;
 end;
 
 // Редактирование
-procedure Tv.aEditExecute(Sender: TObject);
+procedure TfrmAdmin.aEditExecute(Sender: TObject);
  var ind: integer;
 begin
 try
@@ -671,13 +671,13 @@ finally
 end;
 end;
 
-procedure Tv.aExitExecute(Sender: TObject);
+procedure TfrmAdmin.aExitExecute(Sender: TObject);
 begin
   Close;
 end;
 
 // добавление
-procedure Tv.aNewExecute(Sender: TObject);
+procedure TfrmAdmin.aNewExecute(Sender: TObject);
 begin
 try
 // Добавление сотруднику группы
@@ -796,7 +796,7 @@ finally
 end;
 end;
 
-procedure Tv.aRefreshExecute(Sender: TObject);
+procedure TfrmAdmin.aRefreshExecute(Sender: TObject);
 var idd: integer;
 begin
 if (pageControl1.ActivePageIndex = 0) then
@@ -830,7 +830,7 @@ begin
 end;
 end;
 
-procedure Tv.BitBtn10Click(Sender: TObject);
+procedure TfrmAdmin.BitBtn10Click(Sender: TObject);
 begin
 page:=0;
 frmEditAdmins.Caption:='Учетные записи. Доступ';
@@ -856,7 +856,7 @@ end;
 end;
 
 
-procedure Tv.BitBtn15Click(Sender: TObject);
+procedure TfrmAdmin.BitBtn15Click(Sender: TObject);
 begin
   If (ComboBox2.ItemIndex > 0) then
   begin
@@ -865,13 +865,13 @@ begin
   end;
 end;
 
-procedure Tv.BitBtn19Click(Sender: TObject);
+procedure TfrmAdmin.BitBtn19Click(Sender: TObject);
 begin
 
 end;
 
 //Убрать доступ в ИС
-procedure Tv.BitBtn1Click(Sender: TObject);
+procedure TfrmAdmin.BitBtn1Click(Sender: TObject);
 var ind: integer;
 begin
 page:=0;
@@ -911,7 +911,7 @@ page:=0;
 end;
 
 //смена пароля
-procedure Tv.BitBtn2Click(Sender: TObject);
+procedure TfrmAdmin.BitBtn2Click(Sender: TObject);
 var id: integer;
 begin
 page:=0;
@@ -937,7 +937,7 @@ frmEditAdmins.Caption:='Учетные записи. Смена пароля';
 end;
 
 
-procedure Tv.BitBtn7Click(Sender: TObject);
+procedure TfrmAdmin.BitBtn7Click(Sender: TObject);
 begin
     page:=1;
     frmEditAdmins.ttype1 := 1;
@@ -954,7 +954,7 @@ begin
     DBGrid3.SetFocus;
 end;
 
-procedure Tv.BitBtn8Click(Sender: TObject);
+procedure TfrmAdmin.BitBtn8Click(Sender: TObject);
  var ind: integer;
 begin
   page:=1;
@@ -984,7 +984,7 @@ begin
   end;
 end;
 
-procedure Tv.BitBtn9Click(Sender: TObject);
+procedure TfrmAdmin.BitBtn9Click(Sender: TObject);
  var ind1,ind2: integer;
 begin
 if  (Q_GR_PR.FieldByName('ID_ROLE_GROUPS').AsInteger > 0) then
@@ -1024,13 +1024,13 @@ end
 else ShowMessage('В базе данных нет записей для удаления!');
 end;
 
-procedure Tv.btnAddPermissionClick(Sender: TObject);
+procedure TfrmAdmin.btnAddPermissionClick(Sender: TObject);
 begin
 
 end;
 
 // Посмотреть сотрудников у выбранной группы
-procedure Tv.btnClientsClick(Sender: TObject);
+procedure TfrmAdmin.btnClientsClick(Sender: TObject);
 begin
   page:=3;
   frmEditAdmins.Caption:='Просмотр сотрудников';
@@ -1039,7 +1039,7 @@ begin
 end;
 
 // Фильтр сотрудников
-procedure Tv.ComboBox6Change(Sender: TObject);
+procedure TfrmAdmin.ComboBox6Change(Sender: TObject);
 var sql: string;
 begin
 
@@ -1065,13 +1065,13 @@ begin
   End;
 end;
 
-procedure Tv.ctrl_aExecute(Sender: TObject);
+procedure TfrmAdmin.ctrl_aExecute(Sender: TObject);
 begin
 
 end;
 
 // запись разреш
-procedure Tv.cxButton4Click(Sender: TObject);
+procedure TfrmAdmin.cxButton4Click(Sender: TObject);
 var sql: string;
     ind: integer;
 begin
@@ -1124,14 +1124,14 @@ begin
 end;
 
 // отмена разреш.
-procedure Tv.cxButton5Click(Sender: TObject);
+procedure TfrmAdmin.cxButton5Click(Sender: TObject);
 begin
   Panel12.Visible := false;
   gr_rights.SetFocus;
 end;
 
 //  Обновление данных
-procedure Tv.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmAdmin.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   if MessageDlg('Закрыть программу?',mtConfirmation,[mbYes, mbNo],0) <> mrYes then
     Action := caNone
@@ -1140,8 +1140,8 @@ begin
     DBGridEh2.SumList.Active := false;
     DBGrid4.SumList.Active := false;
     DBGrid2.SumList.Active := false;
-    SaveFormState(v); //полож.окна
-    v := nil;
+    SaveFormState(frmAdmin); //полож.окна
+    frmAdmin := nil;
     Action := caFree;
   end;
 end;

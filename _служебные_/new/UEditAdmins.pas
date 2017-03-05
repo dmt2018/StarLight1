@@ -190,11 +190,11 @@ var user_id: integer;
 begin
 
 //учетки
-if v.page=0 then begin
+if frmAdmin.page=0 then begin
   if ((Edit10.Text <> '') and (MaskEdit1.Text <> '') and (MaskEdit2.Text <> '')) then
   begin
 
-  if (v.Q_EMPL.FieldByName('LOGIN').IsNull = false) then
+  if (frmAdmin.Q_EMPL.FieldByName('LOGIN').IsNull = false) then
   // Изменение учетной записи для пользователя ИС
   begin
       if MessageDlg('Изменяется учетная запись пользователя в ИС!'+#10#13+'Вы уверены в правильности информации?',mtConfirmation,[mbYes, mbNo],0) = mrYes then
@@ -203,15 +203,15 @@ if v.page=0 then begin
         else
         begin
 
-          v.Ora_SQL.SQL.Clear;
-          v.Ora_SQL.SQL.Add('begin admins.change_pass(:user_, :pass_); end;' );
-          v.Ora_SQL.ParamByName('user_').AsString :=  v.Q_EMPL.FieldByName('LOGIN').AsString;
-          v.Ora_SQL.ParamByName('pass_').AsString :=  MaskEdit1.Text;
+          frmAdmin.Ora_SQL.SQL.Clear;
+          frmAdmin.Ora_SQL.SQL.Add('begin admins.change_pass(:user_, :pass_); end;' );
+          frmAdmin.Ora_SQL.ParamByName('user_').AsString :=  frmAdmin.Q_EMPL.FieldByName('LOGIN').AsString;
+          frmAdmin.Ora_SQL.ParamByName('pass_').AsString :=  MaskEdit1.Text;
 
           // Пытаемся выполнить SQL запрос на добавление пользователя
           try
-            v.Ora_SQL.Execute;
-            v.Q_EMPL.Refresh;
+            frmAdmin.Ora_SQL.Execute;
+            frmAdmin.Q_EMPL.Refresh;
             ShowMessage('Операция прошла успешно.');
           except
             on E: Exception do
@@ -219,7 +219,7 @@ if v.page=0 then begin
               if (StrPos(PChar(E.Message), PChar('01031')) <> nil) then ShowMessage('У вас нет прав на данную операцию!')
               else  ShowMessage(E.Message);
             end;
-          End;  
+          End;
         end;
       end;
     end
@@ -234,19 +234,19 @@ if v.page=0 then begin
         if (MaskEdit1.Text <> MaskEdit2.Text) then ShowMessage('Неправильный ввод паролей!')
         else
         begin
-            ind := v.Q_EMPL.FieldByName('ID_CLIENTS').AsInteger;
-          v.Ora_SQL.SQL.Clear;
-          v.Ora_SQL.SQL.Add('begin admins.new_pass(:user_, :pass_, :id_); end;' );
-          v.Ora_SQL.Prepare;
-          v.Ora_SQL.ParamByName('user_').AsString :=  Edit10.Text;
-          v.Ora_SQL.ParamByName('pass_').AsString :=  MaskEdit1.Text;
-          v.Ora_SQL.ParamByName('id_').AsInteger :=  ind;
+          ind := frmAdmin.Q_EMPL.FieldByName('ID_CLIENTS').AsInteger;
+          frmAdmin.Ora_SQL.SQL.Clear;
+          frmAdmin.Ora_SQL.SQL.Add('begin admins.new_pass(:user_, :pass_, :id_); end;' );
+          frmAdmin.Ora_SQL.Prepare;
+          frmAdmin.Ora_SQL.ParamByName('user_').AsString :=  Edit10.Text;
+          frmAdmin.Ora_SQL.ParamByName('pass_').AsString :=  MaskEdit1.Text;
+          frmAdmin.Ora_SQL.ParamByName('id_').AsInteger :=  ind;
 
           // Пытаемся выполнить SQL запрос на добавление пользователя
           try
-            v.Ora_SQL.Execute;
-            v.Q_EMPL.Refresh;
-            v.Q_EMPL.Locate('ID_CLIENTS',ind,[]);
+            frmAdmin.Ora_SQL.Execute;
+            frmAdmin.Q_EMPL.Refresh;
+            frmAdmin.Q_EMPL.Locate('ID_CLIENTS',ind,[]);
 
             Edit10.Text := '';
             MaskEdit1.Text := '';
@@ -270,7 +270,7 @@ end;
 
 
 //дебиторы
-if v.page=4 then begin
+if frmAdmin.page=4 then begin
   if not cxbutton1.Visible then ModalResult := mrOk;
 
   Q_IDD.Close;
@@ -317,25 +317,25 @@ if v.page=4 then begin
  end;
 
 // привилегии
-if v.page=1 then begin
+if frmAdmin.page=1 then begin
 if (ComboBox1.ItemIndex < 0) then ShowMessage('Вы не указали программу!')
 else
 begin
-      v.Ora_SQL.SQL.Clear;
-      v.Ora_SQL.SQL.Add('begin admins.save_role_program(:GROUP_ID_, :PROG_ID_, :CHECK1_, :CHECK2_, :CHECK3_, :CHECK4_, :CHECK5_); end;');
+      frmAdmin.Ora_SQL.SQL.Clear;
+      frmAdmin.Ora_SQL.SQL.Add('begin admins.save_role_program(:GROUP_ID_, :PROG_ID_, :CHECK1_, :CHECK2_, :CHECK3_, :CHECK4_, :CHECK5_); end;');
 
-      v.Ora_SQL.ParamByName('GROUP_ID_').Value := v.Q_GROUPS.FieldByName('ID_ROLE_GROUPS').AsInteger;
-      v.Ora_SQL.ParamByName('PROG_ID_').Value := ComboBox1.Value;
-      if CheckBox3.Checked = true then v.Ora_SQL.ParamByName('CHECK1_').Value := 1 else v.Ora_SQL.ParamByName('CHECK1_').Value := 0;
-      if CheckBox4.Checked = true then v.Ora_SQL.ParamByName('CHECK2_').Value := 1 else v.Ora_SQL.ParamByName('CHECK2_').Value := 0;
-      if CheckBox5.Checked = true then v.Ora_SQL.ParamByName('CHECK3_').Value := 1 else v.Ora_SQL.ParamByName('CHECK3_').Value := 0;
-      if CheckBox6.Checked = true then v.Ora_SQL.ParamByName('CHECK4_').Value := 1 else v.Ora_SQL.ParamByName('CHECK4_').Value := 0;
-      if CheckBox7.Checked = true then v.Ora_SQL.ParamByName('CHECK5_').Value := 1 else v.Ora_SQL.ParamByName('CHECK5_').Value := 0;
+      frmAdmin.Ora_SQL.ParamByName('GROUP_ID_').Value := frmAdmin.Q_GROUPS.FieldByName('ID_ROLE_GROUPS').AsInteger;
+      frmAdmin.Ora_SQL.ParamByName('PROG_ID_').Value := ComboBox1.Value;
+      if CheckBox3.Checked = true then frmAdmin.Ora_SQL.ParamByName('CHECK1_').Value := 1 else frmAdmin.Ora_SQL.ParamByName('CHECK1_').Value := 0;
+      if CheckBox4.Checked = true then frmAdmin.Ora_SQL.ParamByName('CHECK2_').Value := 1 else frmAdmin.Ora_SQL.ParamByName('CHECK2_').Value := 0;
+      if CheckBox5.Checked = true then frmAdmin.Ora_SQL.ParamByName('CHECK3_').Value := 1 else frmAdmin.Ora_SQL.ParamByName('CHECK3_').Value := 0;
+      if CheckBox6.Checked = true then frmAdmin.Ora_SQL.ParamByName('CHECK4_').Value := 1 else frmAdmin.Ora_SQL.ParamByName('CHECK4_').Value := 0;
+      if CheckBox7.Checked = true then frmAdmin.Ora_SQL.ParamByName('CHECK5_').Value := 1 else frmAdmin.Ora_SQL.ParamByName('CHECK5_').Value := 0;
 
       // Пытаемся выполнить SQL запрос
       try
-        v.Ora_SQL.Execute;
-        v.Q_GR_PR.Refresh;
+        frmAdmin.Ora_SQL.Execute;
+        frmAdmin.Q_GR_PR.Refresh;
         close;
       except
         on E: Exception do
@@ -350,47 +350,47 @@ end;
 
 
 //запись прог и групп:
-if v.page=2 then begin
+if frmAdmin.page=2 then begin
 if (trim(Edit1.Text) = '') then ShowMessage('Вы не заполнили обязательные поля!')
 else
 begin
-    v.selq.SQL.Clear;
+    frmAdmin.selq.SQL.Clear;
 
     if ((ttype = 1) or (ttype = 2)) then
     begin
-      v.selq.SQL.Add('begin admins.save_PROGRAMS(:name_, :info_, :dll_, :id_); end;');
-      v.selq.ParamByName('name_').AsString := trim(Edit1.Text);
-      v.selq.ParamByName('info_').AsString := Memo1.Text;
-      v.selq.ParamByName('dll_').AsString := '';
-      v.selq.ParamByName('id_').AsInteger := Edit1.Tag;
-      v.selq.Execute;
-      Edit1.Tag := v.selq.ParamByName('id_').AsInteger;
+      frmAdmin.selq.SQL.Add('begin admins.save_PROGRAMS(:name_, :info_, :dll_, :id_); end;');
+      frmAdmin.selq.ParamByName('name_').AsString := trim(Edit1.Text);
+      frmAdmin.selq.ParamByName('info_').AsString := Memo1.Text;
+      frmAdmin.selq.ParamByName('dll_').AsString := '';
+      frmAdmin.selq.ParamByName('id_').AsInteger := Edit1.Tag;
+      frmAdmin.selq.Execute;
+      Edit1.Tag := frmAdmin.selq.ParamByName('id_').AsInteger;
     end;
     if ((ttype = 3) or (ttype = 4)) then
     begin
-      v.selq.SQL.Add('begin admins.save_ROLE_GROUPS(:name_, :info_, :id_dep_, :id_); end;');
-      v.selq.ParamByName('name_').AsString := trim(Edit1.Text);
-      v.selq.ParamByName('info_').AsString := Memo1.Text;
-      v.selq.ParamByName('id_dep_').AsInteger := Store_DepsCBEx.Value;
-      v.selq.ParamByName('id_').AsInteger := Edit1.Tag;
-      v.selq.Execute;
-      Edit1.Tag := v.selq.ParamByName('id_').AsInteger;
+      frmAdmin.selq.SQL.Add('begin admins.save_ROLE_GROUPS(:name_, :info_, :id_dep_, :id_); end;');
+      frmAdmin.selq.ParamByName('name_').AsString := trim(Edit1.Text);
+      frmAdmin.selq.ParamByName('info_').AsString := Memo1.Text;
+      frmAdmin.selq.ParamByName('id_dep_').AsInteger := Store_DepsCBEx.Value;
+      frmAdmin.selq.ParamByName('id_').AsInteger := Edit1.Tag;
+      frmAdmin.selq.Execute;
+      Edit1.Tag := frmAdmin.selq.ParamByName('id_').AsInteger;
     end;
 
     // Пытаемся выполнить SQL запрос
     try
-      v.selq.Execute;
+      frmAdmin.selq.Execute;
       if ((ttype = 1) or (ttype = 2)) then
       begin
-        v.Q_PROGS.Refresh;
-        v.Q_PROGS.Locate('ID_ADMIN_PROGRAMS',Edit1.Tag,[]);
+        frmAdmin.Q_PROGS.Refresh;
+        frmAdmin.Q_PROGS.Locate('ID_ADMIN_PROGRAMS',Edit1.Tag,[]);
       end;
 
       // для групп
       if ((ttype = 4) or (ttype = 3)) then
       begin
-        v.Q_GROUPS.Refresh;
-        v.Q_GROUPS.Locate('ID_ROLE_GROUPS',Edit1.Tag,[]);
+        frmAdmin.Q_GROUPS.Refresh;
+        frmAdmin.Q_GROUPS.Locate('ID_ROLE_GROUPS',Edit1.Tag,[]);
       end;
 
       close;
@@ -410,7 +410,7 @@ procedure TfrmEditAdmins.cxButton2Click(Sender: TObject);
  var ind: integer;
 begin
 
-if v.page=0 then begin
+if frmAdmin.page=0 then begin
   Edit10.Text := '';
   MaskEdit1.Text := '';
   MaskEdit2.Text := '';
@@ -418,7 +418,7 @@ end;
 
 
 
-if v.page=1 then begin
+if frmAdmin.page=1 then begin
   if (ttype1 = 1) then
   begin
     ComboBox1.ItemIndex := -1;
@@ -431,19 +431,19 @@ if v.page=1 then begin
 
   if (ttype1 = 2) then
   begin
-    ind := ComboBox1.Items.IndexOf(v.Q_GR_PR.FieldByName('NAME').AsString);
+    ind := ComboBox1.Items.IndexOf(frmAdmin.Q_GR_PR.FieldByName('NAME').AsString);
     ComboBox1.ItemIndex := ind;
 
-    if v.Q_GR_PR.FieldByName('C_START').AsInteger = 1 then CheckBox3.checked := true else CheckBox3.checked := false;
-    if v.Q_GR_PR.FieldByName('C_EDIT').AsInteger = 1 then CheckBox4.checked := true else CheckBox4.checked := false;
-    if v.Q_GR_PR.FieldByName('C_DEL').AsInteger = 1 then CheckBox5.checked := true else CheckBox5.checked := false;
-    if v.Q_GR_PR.FieldByName('C_PRINT').AsInteger = 1 then CheckBox6.checked := true else CheckBox6.checked := false;
-    if v.Q_GR_PR.FieldByName('C_ADDIT').AsInteger = 1 then CheckBox7.checked := true else CheckBox7.checked := false;
+    if frmAdmin.Q_GR_PR.FieldByName('C_START').AsInteger = 1 then CheckBox3.checked := true else CheckBox3.checked := false;
+    if frmAdmin.Q_GR_PR.FieldByName('C_EDIT').AsInteger = 1 then CheckBox4.checked := true else CheckBox4.checked := false;
+    if frmAdmin.Q_GR_PR.FieldByName('C_DEL').AsInteger = 1 then CheckBox5.checked := true else CheckBox5.checked := false;
+    if frmAdmin.Q_GR_PR.FieldByName('C_PRINT').AsInteger = 1 then CheckBox6.checked := true else CheckBox6.checked := false;
+    if frmAdmin.Q_GR_PR.FieldByName('C_ADDIT').AsInteger = 1 then CheckBox7.checked := true else CheckBox7.checked := false;
   end;
 end;
 
 
-if v.page=2 then begin
+if frmAdmin.page=2 then begin
   if ((ttype = 1) or (ttype = 3)) then
   begin
     Edit1.Text := '';
@@ -452,14 +452,14 @@ if v.page=2 then begin
 
   if (ttype = 2) then
   begin
-    Edit1.Text := v.Q_PROGS.FieldByName('NAME').AsString;
-    MEMO1.Text := v.Q_PROGS.FieldByName('INFO').AsString;
+    Edit1.Text := frmAdmin.Q_PROGS.FieldByName('NAME').AsString;
+    MEMO1.Text := frmAdmin.Q_PROGS.FieldByName('INFO').AsString;
   end;
 
   if (ttype = 4) then
   begin
-    Edit1.Text := v.Q_GROUPS.FieldByName('NAME').AsString;
-    MEMO1.Text := v.Q_GROUPS.FieldByName('INFO').AsString;
+    Edit1.Text := frmAdmin.Q_GROUPS.FieldByName('NAME').AsString;
+    MEMO1.Text := frmAdmin.Q_GROUPS.FieldByName('INFO').AsString;
   end;
 end;
 end;
@@ -502,14 +502,14 @@ procedure TfrmEditAdmins.FormShow(Sender: TObject);
 begin
 //скрываем все вкладки
 for i:=0 to cxPageControl1.PageCount-1 do cxPageControl1.Pages[i].TabVisible:=false;
-cxPageControl1.ActivePageIndex:=v.page; // активная вкладка задается в uadmin
+cxPageControl1.ActivePageIndex:=frmAdmin.page; // активная вкладка задается в uadmin
 
   if (cxPageControl1.ActivePage.PageIndex=1) then  cxbutton2.visible:=false
   else   cxbutton2.visible:=true;
 
-  if v.page=3 then begin
+  if frmAdmin.page=3 then begin
   cxPageControl1.ActivePageIndex:=3;
-  cxPageControl1.Pages[v.page].TabVisible:=true;
+  cxPageControl1.Pages[frmAdmin.page].TabVisible:=true;
   cxbutton1.visible:=false;
   cxbutton2.visible:=false;
   cxbutton6.visible:=false;
@@ -521,10 +521,10 @@ cxPageControl1.ActivePageIndex:=v.page; // активная вкладка задается в uadmin
   end;
 
 
-  if v.page=4 then begin
-  cxPageControl1.Pages[v.page].TabVisible:=true;
+  if frmAdmin.page=4 then begin
+  cxPageControl1.Pages[frmAdmin.page].TabVisible:=true;
   DBComboBoxEh2.OnChange := nil;
-  FillComboEh(Q_IDD, DBComboBoxEh2, 'select id_clients, FIO from employees_view where (id_office = '+IntToStr(v.id_office)+' or '+IntToStr(v.id_office)+' = 0) and active=1 and login is not null order by FIO');
+  FillComboEh(Q_IDD, DBComboBoxEh2, 'select id_clients, FIO from employees_view where (id_office = '+IntToStr(frmAdmin.id_office)+' or '+IntToStr(frmAdmin.id_office)+' = 0) and active=1 and login is not null order by FIO');
   Q_IDD.Close;
 
   cdsQuery.Filter   := '';
@@ -533,7 +533,7 @@ cxPageControl1.ActivePageIndex:=v.page; // активная вкладка задается в uadmin
   cxGridDBTableView1.DataController.Filter.Active := false;
 
   cdsQuery.Close;
-  cdsQuery.ParamByName('office_id').AsInteger := v.id_office;
+  cdsQuery.ParamByName('office_id').AsInteger := frmAdmin.id_office;
   if DBComboBoxEh2.Tag > 0 then
   begin
     DBComboBoxEh2.ReadOnly           := true;
@@ -559,10 +559,10 @@ cxPageControl1.ActivePageIndex:=v.page; // активная вкладка задается в uadmin
   //группы - доб и ред 
   if ((ttype = 3) or (ttype = 4)) then
   begin
-    cxPageControl1.Pages[v.page].TabVisible:=true; //открываю нужную вкладку
+    cxPageControl1.Pages[frmAdmin.page].TabVisible:=true; //открываю нужную вкладку
     Label24.Visible := true;
     Store_DepsCBEx.Visible := true;
-    with v.selq do
+    with frmAdmin.selq do
     Begin
     try
       Close;
@@ -577,7 +577,7 @@ cxPageControl1.ActivePageIndex:=v.page; // активная вкладка задается в uadmin
     end;
     End;
 
-    FillComboOlmer(v.selq, Store_DepsCBEx, 'Все отделы');
+    FillComboOlmer(frmAdmin.selq, Store_DepsCBEx, 'Все отделы');
     if Store_DepsCBEx.Tag > 0 then Store_DepsCBEx.Value := Store_DepsCBEx.Tag;
     
   end

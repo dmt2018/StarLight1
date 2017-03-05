@@ -565,10 +565,6 @@ object frmEditAdmins: TfrmEditAdmins
     object tsh_departs: TcxTabSheet
       Caption = #1044#1086#1089#1090#1091#1087' '#1076#1083#1103' '#1076#1077#1073#1080#1090#1086#1088#1086#1074
       ImageIndex = 4
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Panel6: TPanel
         Left = 0
         Top = 0
