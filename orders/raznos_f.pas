@@ -88,6 +88,11 @@ type
     Panel12: TPanel;
     cbPrintAll: TCheckBox;
     btnPrint: TButton;
+    mnSort: TMenuItem;
+    N4: TMenuItem;
+    mnSortByLatName: TMenuItem;
+    mnSortByRusName: TMenuItem;
+    mnSortByDefault: TMenuItem;
     procedure BitBtn13Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
@@ -127,6 +132,9 @@ type
     procedure aDeleteOnePosExecute(Sender: TObject);
     procedure btnPrintClick(Sender: TObject);
     procedure chbWithPackedClick(Sender: TObject);
+    procedure mnSortByLatNameClick(Sender: TObject);
+    procedure mnSortByRusNameClick(Sender: TObject);
+    procedure mnSortByDefaultClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -691,6 +699,36 @@ begin
   finally
     DM.q_raznos.EnableControls;
   end;
+end;
+
+procedure Traznos.mnSortByDefaultClick(Sender: TObject);
+begin
+  if first_dialog_frm.uDefSort = 0 then
+     DM.q_raznos.IndexFieldNames := 'COMPILED_NAME_OTDEL;REMARKS';
+  if first_dialog_frm.uDefSort = 1 then
+     DM.q_raznos.IndexFieldNames := 'ord;COMPILED_NAME_OTDEL;REMARKS';
+  if first_dialog_frm.uDefSort = 2 then
+     DM.q_raznos.IndexFieldNames := 'ord;h_name;REMARKS';
+
+  mnSortByLatName.Checked := false;
+  mnSortByRusName.Checked := false;
+  mnSortByDefault.Checked := true;
+end;
+
+procedure Traznos.mnSortByLatNameClick(Sender: TObject);
+begin
+  DM.q_raznos.IndexFieldNames := 'H_NAME;REMARKS';
+  mnSortByLatName.Checked := true;
+  mnSortByRusName.Checked := false;
+  mnSortByDefault.Checked := false;
+end;
+
+procedure Traznos.mnSortByRusNameClick(Sender: TObject);
+begin
+  DM.q_raznos.IndexFieldNames := 'COMPILED_NAME_OTDEL;REMARKS';
+  mnSortByLatName.Checked := false;
+  mnSortByRusName.Checked := true;
+  mnSortByDefault.Checked := false;
 end;
 
 // Положить все в № машины

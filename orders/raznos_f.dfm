@@ -398,7 +398,7 @@ object raznos: Traznos
         91
         53)
       object cbPrintAll: TCheckBox
-        Left = 1
+        Left = -3
         Top = 30
         Width = 76
         Height = 17
@@ -414,7 +414,7 @@ object raznos: Traznos
         TabOrder = 0
       end
       object btnPrint: TButton
-        Left = 1
+        Left = -3
         Top = 3
         Width = 82
         Height = 25
@@ -1747,6 +1747,25 @@ object raznos: Traznos
     end
     object mnClearCurrentCorrection: TMenuItem
       Action = aDeleteOnePos
+    end
+    object N4: TMenuItem
+      Caption = '-'
+    end
+    object mnSort: TMenuItem
+      Caption = #1057#1086#1088#1090#1080#1088#1086#1074#1082#1072
+      object mnSortByLatName: TMenuItem
+        Caption = #1055#1086' '#1083#1072#1090#1080#1085#1089#1082#1086#1084#1091' '#1085#1072#1079#1074#1072#1085#1080#1102
+        OnClick = mnSortByLatNameClick
+      end
+      object mnSortByRusName: TMenuItem
+        Caption = #1055#1086' '#1088#1091#1089#1089#1082#1086#1084#1091' '#1085#1072#1079#1074#1072#1085#1080#1102
+        OnClick = mnSortByRusNameClick
+      end
+      object mnSortByDefault: TMenuItem
+        Caption = #1055#1086' '#1091#1084#1086#1083#1095#1072#1085#1080#1102
+        Checked = True
+        OnClick = mnSortByDefaultClick
+      end
     end
   end
 end
