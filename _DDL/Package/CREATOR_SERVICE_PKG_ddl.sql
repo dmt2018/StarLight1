@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.SERVICE_PKG
--- Generated 23.09.2016 0:36:37 from CREATOR@STAR_NEW
+-- Generated 12.03.2017 21:59:58 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE service_pkg
@@ -32,6 +32,13 @@ IS
     cursor_ out ref_cursor
   );
 
+  -- Очистка таблиц синхронизации данных с регионами
+  -- нужна при постоянных ошибках синхронизации, когда в этих таблицах скапливается много данных
+  PROCEDURE truncate_sync_tables;
+
+  -- Очистим логи (они жрут много места)
+  -- где то раз в пол года надо чистить
+  PROCEDURE truncate_user_logs;
 
 end;
 /
@@ -43,6 +50,7 @@ GRANT EXECUTE ON service_pkg TO new_role
 CREATE OR REPLACE 
 PACKAGE BODY service_pkg
 IS
+
   -- Обнуление счетчиков ГТД при 0-ле на складе товара
   PROCEDURE close_gtd_counter
   IS
@@ -219,6 +227,122 @@ IS
         RAISE_APPLICATION_ERROR (-20904, 'Запрос не выполнился. ' || SQLERRM);
   end list_nom_moving;
 
+
+  -- Очистка таблиц синхронизации данных с регионами
+  -- нужна при постоянных ошибках синхронизации, когда в этих таблицах скапливается много данных
+  PROCEDURE truncate_sync_tables
+  IS
+    sql_str  varchar2(100);
+  begin
+
+    sql_str := 'truncate table SYNC_CASH';
+    execute immediate sql_str;
+    sql_str := 'truncate table SYNC_CLIENTS';
+    execute immediate sql_str;
+    sql_str := 'truncate table SYNC_CLIENTS_GROUPS';
+    execute immediate sql_str;
+    sql_str := 'truncate table SYNC_COLOURS';
+    execute immediate sql_str;
+    sql_str := 'truncate table SYNC_COUNTRIES';
+    execute immediate sql_str;
+    sql_str := 'truncate table SYNC_FLOWER_NAME_TRANSLATIONS';
+    execute immediate sql_str;
+    sql_str := 'truncate table SYNC_FLOWER_NAMES';
+    execute immediate sql_str;
+    sql_str := 'truncate table SYNC_FLOWER_SUBTYPES';
+    execute immediate sql_str;
+    sql_str := 'truncate table SYNC_FLOWER_TYPES';
+    execute immediate sql_str;
+    sql_str := 'truncate table SYNC_HOL_SPECIFICATIONS';
+    execute immediate sql_str;
+    sql_str := 'truncate table SYNC_NOM_SPECIFICATIONS';
+    execute immediate sql_str;
+    sql_str := 'truncate table SYNC_NOMENCLATURE';
+    execute immediate sql_str;
+    sql_str := 'truncate table SYNC_SUPPLIERS';
+    execute immediate sql_str;
+
+    sql_str := 'alter table SYNC_CASH enable row movement';
+    execute immediate sql_str;
+    sql_str := 'alter table SYNC_CLIENTS enable row movement';
+    execute immediate sql_str;
+    sql_str := 'alter table sync_clients_groups enable row movement';
+    execute immediate sql_str;
+    sql_str := 'alter table SYNC_COLOURS enable row movement';
+    execute immediate sql_str;
+    sql_str := 'alter table SYNC_COUNTRIES enable row movement';
+    execute immediate sql_str;
+    sql_str := 'alter table SYNC_COUNTRIES enable row movement';
+    execute immediate sql_str;
+    sql_str := 'alter table SYNC_FLOWER_NAME_TRANSLATIONS enable row movement';
+    execute immediate sql_str;
+    sql_str := 'alter table SYNC_FLOWER_NAMES enable row movement';
+    execute immediate sql_str;
+    sql_str := 'alter table SYNC_FLOWER_SUBTYPES enable row movement';
+    execute immediate sql_str;
+    sql_str := 'alter table SYNC_FLOWER_TYPES enable row movement';
+    execute immediate sql_str;
+    sql_str := 'alter table SYNC_HOL_SPECIFICATIONS enable row movement';
+    execute immediate sql_str;
+    sql_str := 'alter table SYNC_NOM_SPECIFICATIONS enable row movement';
+    execute immediate sql_str;
+    sql_str := 'alter table SYNC_NOMENCLATURE enable row movement';
+    execute immediate sql_str;
+    sql_str := 'alter table SYNC_SUPPLIERS enable row movement';
+    execute immediate sql_str;
+
+    sql_str := 'ALTER TABLE SYNC_CASH SHRINK SPACE CASCADE';
+    execute immediate sql_str;
+    sql_str := 'ALTER TABLE SYNC_CLIENTS SHRINK SPACE CASCADE';
+    execute immediate sql_str;
+    sql_str := 'ALTER TABLE sync_clients_groups SHRINK SPACE CASCADE';
+    execute immediate sql_str;
+    sql_str := 'ALTER TABLE SYNC_COLOURS SHRINK SPACE CASCADE';
+    execute immediate sql_str;
+    sql_str := 'ALTER TABLE SYNC_COUNTRIES SHRINK SPACE CASCADE';
+    execute immediate sql_str;
+    sql_str := 'ALTER TABLE SYNC_FLOWER_NAME_TRANSLATIONS SHRINK SPACE CASCADE';
+    execute immediate sql_str;
+    sql_str := 'ALTER TABLE SYNC_FLOWER_NAMES SHRINK SPACE CASCADE';
+    execute immediate sql_str;
+    sql_str := 'ALTER TABLE SYNC_FLOWER_SUBTYPES SHRINK SPACE CASCADE';
+    execute immediate sql_str;
+    sql_str := 'ALTER TABLE SYNC_FLOWER_TYPES SHRINK SPACE CASCADE';
+    execute immediate sql_str;
+    sql_str := 'ALTER TABLE SYNC_HOL_SPECIFICATIONS SHRINK SPACE CASCADE';
+    execute immediate sql_str;
+    execute immediate sql_str;
+    sql_str := 'ALTER TABLE SYNC_NOM_SPECIFICATIONS SHRINK SPACE CASCADE';
+    execute immediate sql_str;
+    sql_str := 'ALTER TABLE SYNC_NOMENCLATURE SHRINK SPACE CASCADE';
+    execute immediate sql_str;
+    sql_str := 'ALTER TABLE SYNC_SUPPLIERS SHRINK SPACE CASCADE';
+    execute immediate sql_str;
+
+    commit;
+  EXCEPTION
+    WHEN others THEN
+        LOG_ERR(SQLERRM, SQLCODE, 'service_pkg.truncate_sync_tables', '');
+        RAISE_APPLICATION_ERROR (-20905, 'Запрос не выполнился. ' || SQLERRM);
+  end truncate_sync_tables;
+
+
+  -- Очистим логи (они жрут много места)
+  -- где то раз в пол года надо чистить
+  PROCEDURE truncate_user_logs
+  IS
+    sql_str  varchar2(100);
+  begin
+
+    sql_str := 'truncate table USER_LOGS';
+    execute immediate sql_str;
+
+    commit;
+  EXCEPTION
+    WHEN others THEN
+        LOG_ERR(SQLERRM, SQLCODE, 'service_pkg.truncate_user_logs', '');
+        RAISE_APPLICATION_ERROR (-20906, 'Запрос не выполнился. ' || SQLERRM);
+  end truncate_user_logs;
 
 END;
 /
