@@ -3305,7 +3305,7 @@ procedure TDistFormF.aLoadDoborExecute(Sender: TObject);
 var conf: textfile;
     Date1, Date2, Client, Email, tmpstr, alpha, tmp, order_num, FullFileName, truck_sale_id: string;
     z_price, z_code, z_q, z_name, err_log, err_log_short, vInfo, dep, dep_order, ortype, depid, arrive, depart: string;
-    id_cl, idClient, idOrder, fistPos, res, idDist, id_or_cl, C_ID_ORDERS, id_or_list: integer;
+    id_cl, idClient, idOrder, fistPos, res, idDist, id_or_cl, C_ID_ORDERS, id_or_list, left_q, cur_left_q: integer;
     dateCargo, dateIn: TDateTime;
     fs : TFormatSettings;
     openDialog : TOpenDialog;
@@ -3425,25 +3425,6 @@ inv_id: 10007897
     begin
       MessageBox(Handle, PChar('Клиент с кодом '+Client+' не найден!'), 'Внимание', MB_ICONERROR);
       exit;
-    {
-      // Найдем клиента в перекодировочной таблице
-      with DM.SelQ do
-      Begin
-        Close;
-        SQL.Clear;
-        SQL.Add('SELECT id_client FROM old_client_map where old_client = '''+Client+'''');
-        Open;
-        if RecordCount = 1 then
-          idClient := FieldByName('id_client').AsInteger
-        else
-        begin
-          Close;
-          MessageBox(Handle, PChar('Клиент с кодом '+Client+' не найден!'), 'Внимание', MB_ICONERROR);
-          exit;
-        end;
-        Close;
-      End;
-}
     end
     else
     begin
@@ -3559,6 +3540,77 @@ inv_id: 10007897
             if cds_source.Locate('N_ID', cdsNomN_ID.AsInteger, []) then
             begin
 
+              with DM.SelQ do
+              Begin
+                Close;
+                SQL.Clear;
+                SQL.Add('SELECT sum(left_quantity) as left_quantity FROM prepare_distribution where dist_ind_id = '+VarToStr(CUR_DIST_IND_ID)+' and n_id = '+cdsNomN_ID.AsString+' group by n_id');
+                Open;
+                left_q := FieldByName('left_quantity').AsInteger;
+                Close;
+              End;
+
+              //if (cds_source.FieldByName('LEFT_QUANTITY').AsInteger = 0) or (cds_source.FieldByName('LEFT_QUANTITY').AsInteger < StrToInt(z_q)) then
+              if (left_q = 0) or (left_q < StrToInt(z_q)) then
+              if (cds_source.FieldByName('LEFT_QUANTITY').AsInteger = 0) or (cds_source.FieldByName('LEFT_QUANTITY').AsInteger < StrToInt(z_q)) then
+              begin
+                //MessageBox(Handle, PChar('Номенклатура '+z_name+ '. Требуется разнести '+z_q+', когда доступно лишь '+cds_source.FieldByName('LEFT_QUANTITY').AsString+'. Позиция будет пропущена'), 'Внимание', MB_ICONWARNING);
+                MessageBox(Handle, PChar('Номенклатура '+z_name+ '. Требуется разнести '+z_q+', когда доступно лишь '+IntToStr(left_q)+'. Позиция будет пропущена'), 'Внимание', MB_ICONWARNING);
+                MessageBox(Handle, PChar('Номенклатура '+z_name+ '. Требуется разнести '+z_q+', когда доступно лишь '+cds_source.FieldByName('LEFT_QUANTITY').AsString+'. Позиция будет пропущена'), 'Внимание', MB_ICONWARNING);
+              end
+              else
+              begin
+                DM.SelQ2.Close;
+                DM.SelQ2.SQL.Clear;
+                DM.SelQ2.SQL.Add('SELECT left_quantity, prep_dist_id FROM prepare_distribution where left_quantity > 0 and dist_ind_id = '+VarToStr(CUR_DIST_IND_ID)+' and n_id = '+cdsNomN_ID.AsString);
+                DM.SelQ2.Open;
+                DM.SelQ2.First;
+                left_q := StrToInt(z_q);
+                while not DM.SelQ2.Eof do
+                begin
+                  if StrToInt(z_q) > 0 then
+                  begin
+                    if DM.SelQ2.FieldByName('left_quantity').AsInteger < left_q then
+                       cur_left_q := DM.SelQ2.FieldByName('left_quantity').AsInteger
+                    else
+                       cur_left_q := left_q;
+
+                    with DM.SelQ do
+                    Begin
+                      Close;
+                      SQL.Clear;
+                      Params.Clear;
+                      SQL.Add('begin creator.DISTRIBUTION_PKG.CREATE_CUSTOM_DIST_LINE_truck(:IN_PREP_DIST_ID, :IN_ID_ORDERS_CLIENT, :IN_N_ID, :IN_QUANTITY, :IN_DIST_ID, :IN_PRICE, :OUT_RES, :OUT_TEXT); end;');
+                      ParamByName('IN_PREP_DIST_ID').AsInteger      := DM.SelQ2.FieldByName('prep_dist_id').AsInteger; //cds_source.FieldByName('PREP_DIST_ID').Value;
+                      ParamByName('IN_ID_ORDERS_CLIENT').AsInteger  := id_or_cl;
+                      ParamByName('IN_N_ID').AsInteger              := cdsNomN_ID.AsInteger;
+                      ParamByName('IN_QUANTITY').AsInteger          := cur_left_q; //StrToInt(z_q);
+                      ParamByName('IN_DIST_ID').AsInteger           := CUR_DIST_IND_ID;
+                      ParamByName('IN_PRICE').AsCurrency            := StrToFloat(z_price, fs);
+                      ParamByName('OUT_RES').AsString               := RESS;
+                      ParamByName('OUT_TEXT').AsString              := RES_TEXT;
+                      Execute;
+                      RES      := ParamByName('OUT_RES').Value;
+                      RES_TEXT := ParamByName('OUT_TEXT').Value;
+                      if VarToInt(RES) < 0 then
+                         MessageBox(Handle, PChar(VarToStr(RES_TEXT)), 'Внимание', MB_ICONERROR);
+                    end;
+
+                    if DM.SelQ2.FieldByName('left_quantity').AsInteger < left_q then
+                       left_q := left_q - DM.SelQ2.FieldByName('left_quantity').AsInteger
+                    else
+                       left_q := 0;
+                  end; // if StrToInt(z_q) > 0 then
+
+                  DM.SelQ2.Next;
+                end;
+              end;
+
+
+
+
+
+{
               if (cds_source.FieldByName('LEFT_QUANTITY').AsInteger = 0) or (cds_source.FieldByName('LEFT_QUANTITY').AsInteger < StrToInt(z_q)) then
               begin
                 MessageBox(Handle, PChar('Номенклатура '+z_name+ '. Требуется разнести '+z_q+', когда доступно лишь '+cds_source.FieldByName('LEFT_QUANTITY').AsString+'. Позиция будет пропущена'), 'Внимание', MB_ICONWARNING);
@@ -3586,7 +3638,7 @@ inv_id: 10007897
                      MessageBox(Handle, PChar(VarToStr(RES_TEXT)), 'Внимание', MB_ICONERROR);
                 end;
               end;
-
+}
             end
             else MessageBox(Handle, PChar('Номенклатура '+z_name+ 'не найдена в разносе и будет пропущена'), 'Внимание', MB_ICONWARNING);
 
@@ -3622,6 +3674,7 @@ inv_id: 10007897
 
     DM.StarSess.Commit;
     tlb_refresh.Click;
+
   finally
     CloseFile(conf);
     try
