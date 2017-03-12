@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.DISTRIBUTION_PKG
--- Generated 18.02.2017 2:47:46 from CREATOR@STAR_NEW
+-- Generated 12.03.2017 21:53:19 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE distribution_pkg
@@ -894,6 +894,14 @@ PROCEDURE LOAD_INVOICE_TO_DISTRIBUTION
   IN_INV_ID      IN NUMBER
 )
 is
+  cursor s_ is
+    SELECT N_ID, sum(UNITS) as units
+    FROM INVOICE_DATA
+    WHERE INV_ID = IN_INV_ID and storned_data <> 1 and n_id in (select n_id from PREPARE_DISTRIBUTION where DIST_IND_ID = IN_DIST_IND_ID )
+    group by n_id;
+
+  p_n_id  number;
+  p_units number;
 begin
 
   DELETE FROM DISTRIBUTIONS_INVOICES
@@ -914,12 +922,6 @@ begin
       WHERE INV_ID = IN_INV_ID and storned_data <> 1
       group by n_id
     ) a
-/*
-    SELECT IN_DIST_IND_ID DIST_IND_ID, N_ID, INVOICE_DATA_ID, NULL ID_STORE_MAIN, UNITS TOTAL_QUANTITY,
-      UNITS LEFT_QUANTITY, PREP_DIST_ID.nextval PREP_DIST_ID
-    FROM INVOICE_DATA
-    WHERE INV_ID = IN_INV_ID
-*/
   );
 
   INSERT INTO PREPARE_DISTRIBUTION_TREE (
@@ -930,8 +932,40 @@ begin
       and a.inv_id = i.inv_id and a.n_id = i.n_id
       and i.storned_data <> 1 and i.to_client is not null and i.to_client <> 'MAIN 1'
   );
---    select d.PREP_DIST_ID, a.invoice_data_id, a.units, convert_client(a.TO_CLIENT) from PREPARE_DISTRIBUTION d, invoice_data a, invoice_data b
---    where d.dist_ind_id = IN_DIST_IND_ID and a.inv_id = b.inv_id and a.n_id = b.n_id and b.invoice_data_id = d.invoice_data_id and a.storned_data <> 1 and a.to_client is not null and a.to_client <> 'MAIN 1'
+
+/* эта новая версия для схлопывания позиций из разных в инвойсах в одну в разносе
+но, после разговора с ЕВ решили оставить как есть, т.к. при таком варианте будет практически невозможно
+исключать инвойсы из разноса */
+
+  /* если уже в разносе есть позиция, то проапдейтим количество *
+  open s_;
+  loop
+    fetch s_ into p_n_id, p_units;
+    exit when s_%notfound;
+    update PREPARE_DISTRIBUTION set TOTAL_QUANTITY = TOTAL_QUANTITY+p_units, LEFT_QUANTITY = LEFT_QUANTITY+p_units where DIST_IND_ID = IN_DIST_IND_ID and n_id = p_n_id;
+  end loop;
+  close s_;
+
+  /* добавим оставшиеся новые позиции в разнос *
+  INSERT INTO PREPARE_DISTRIBUTION (
+    select a.DIST_IND_ID, a.N_ID, a.INVOICE_DATA_ID, a.ID_STORE_MAIN, a.TOTAL_QUANTITY, a.LEFT_QUANTITY, PREP_DIST_ID.nextval PREP_DIST_ID
+    from (
+      SELECT IN_DIST_IND_ID as DIST_IND_ID, N_ID, max(INVOICE_DATA_ID) as INVOICE_DATA_ID, NULL ID_STORE_MAIN, sum(UNITS) TOTAL_QUANTITY, sum(UNITS) LEFT_QUANTITY
+      FROM INVOICE_DATA
+      WHERE INV_ID = IN_INV_ID and storned_data <> 1 and n_id not in (select n_id from PREPARE_DISTRIBUTION where DIST_IND_ID = IN_DIST_IND_ID )
+      group by n_id
+    ) a
+  );
+
+  INSERT INTO PREPARE_DISTRIBUTION_TREE (
+    select d.PREP_DIST_ID, i.invoice_data_id, i.units, convert_client(i.TO_CLIENT)
+    from PREPARE_DISTRIBUTION d, invoice_data a, invoice_data i
+    where d.dist_ind_id = IN_DIST_IND_ID
+      and d.invoice_data_id = a.invoice_data_id
+      and a.inv_id = i.inv_id and a.n_id = i.n_id
+      and i.storned_data <> 1 and i.to_client is not null and i.to_client <> 'MAIN 1'
+  );
+*/
 
   commit;
 
