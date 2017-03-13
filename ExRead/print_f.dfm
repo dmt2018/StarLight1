@@ -1219,20 +1219,10 @@ object printf: Tprintf
     PreviewOptions.Zoom = 1.000000000000000000
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
-    ReportOptions.CreateDate = 38617.641811064800000000
-    ReportOptions.LastChange = 42222.052489293980000000
+    ReportOptions.CreateDate = 37936.562692592600000000
+    ReportOptions.LastChange = 41679.051146377300000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
-      'procedure Memo6OnBeforePrint(Sender: TfrxComponent);'
-      'begin'
-      
-        '  if  <frxSelPrntPreview."PACK_PRICE"> =  <frxSelPrntPreview."PR' +
-        'ICE">  then Memo6.Visible := false'
-      
-        '                                                                ' +
-        '       else Memo6.Visible := true;'
-      'end;'
-      ''
       'begin'
       ''
       'end.')
@@ -1245,7 +1235,7 @@ object printf: Tprintf
       end>
     Variables = <
       item
-        Name = ' UserCat'
+        Name = ' CustCut'
         Value = Null
       end
       item
@@ -1260,58 +1250,34 @@ object printf: Tprintf
     object Page1: TfrxReportPage
       PaperWidth = 210.000000000000000000
       PaperHeight = 297.000000000000000000
-      PaperSize = 9
-      LeftMargin = 10.000000000000000000
-      RightMargin = 10.000000000000000000
-      TopMargin = 10.000000000000000000
-      BottomMargin = 10.000000000000000000
-      object ReportTitle1: TfrxReportTitle
-        Height = 22.677180000000000000
+      PaperSize = 256
+      LeftMargin = 7.500000000000000000
+      RightMargin = 7.500000000000000000
+      TopMargin = 21.000000000000000000
+      BottomMargin = 18.500000000000000000
+      Columns = 1
+      ColumnWidth = 198.000000000000000000
+      ColumnPositions.Strings = (
+        '0')
+      object MasterData9: TfrxMasterData
+        Height = 96.000000000000000000
         Top = 18.897650000000000000
-        Width = 718.110700000000000000
-      end
-      object MasterData1: TfrxMasterData
-        Height = 86.929190000000000000
-        Top = 102.047310000000000000
-        Width = 718.110700000000000000
-        Columns = 2
-        ColumnWidth = 343.937007874016000000
+        Width = 737.008350000000000000
+        Columns = 4
+        ColumnWidth = 183.307086614173000000
         DataSet = frxSelPrntPreview
         DataSetName = 'frxSelPrntPreview'
         RowCount = 0
-        object Memo1: TfrxMemoView
-          Width = 343.937230000000000000
-          Height = 86.551181100000000000
+        object Memo6: TfrxMemoView
+          Left = 3.779530000000000000
+          Top = 0.220470000000000000
+          Width = 176.000000000000000000
+          Height = 41.118120000000000000
           ShowHint = False
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-        end
-        object Memo2: TfrxMemoView
-          Top = 18.897650000000000000
-          Width = 343.937230000000000000
-          Height = 18.897650000000000000
-          ShowHint = False
-          DataSet = frxSelPrntPreview
-          DataSetName = 'frxSelPrntPreview'
-          HAlign = haCenter
-          Memo.UTF8 = (
-            #1056#1106#1057#1026#1057#8218'. [frxSelPrntPreview."H_CODE"]')
-        end
-        object Memo3: TfrxMemoView
-          Width = 343.937230000000000000
-          Height = 18.897650000000000000
-          ShowHint = False
-          HAlign = haCenter
-          Memo.UTF8 = (
-            'www.starlight.ru')
-        end
-        object Memo4: TfrxMemoView
-          Top = 37.795300000000000000
-          Width = 343.937230000000000000
-          Height = 30.236240000000000000
-          ShowHint = False
+          DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -13
+          Font.Height = -12
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           HAlign = haCenter
@@ -1320,64 +1286,94 @@ object printf: Tprintf
               '[frxSelPrntPreview."F_NAME_RU"] [frxSelPrntPreview."COLOUR"] [fr' +
               'xSelPrntPreview."RUS_MARKS"]')
           ParentFont = False
-          WordBreak = True
+          VAlign = vaCenter
         end
-        object Memo5: TfrxMemoView
-          Top = 68.031540000000000000
-          Width = 151.826840000000000000
-          Height = 18.897650000000000000
+        object Bar1: TfrxBarCodeView
+          Left = 44.559060000000000000
+          Top = 43.338590000000000000
+          Width = 103.000000000000000000
+          Height = 36.220470000000000000
           ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Memo.UTF8 = (
-            #1056#1115#1056#1111#1057#8218#1056#1109#1056#1030#1056#176#1057#1039' '#1057#8224#1056#181#1056#1029#1056#176' [frxSelPrntPreview."PRICE"] '#1057#1026'.')
-          ParentFont = False
-          WordBreak = True
-        end
-        object Memo6: TfrxMemoView
-          Left = 152.826840000000000000
-          Top = 68.031540000000000000
-          Width = 119.799320000000000000
-          Height = 18.897650000000000000
-          OnBeforePrint = 'Memo6OnBeforePrint'
-          ShowHint = False
+          BarType = bcCodeEAN13
+          CalcCheckSum = True
+          Expression = '<frxSelPrntPreview."PRINT_CODE">'
+          Rotation = 0
+          Text = '12345678'
+          WideBarRatio = 2.000000000000000000
+          Zoom = 1.000000000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -12
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Memo.UTF8 = (
-            #1056#166#1056#181#1056#1029#1056#176' '#1057#1107#1056#1111#1056#176#1056#1108'. [frxSelPrntPreview."PACK_PRICE"] '#1057#1026'.')
-          ParentFont = False
-          WordBreak = True
+          Font.Style = []
         end
-        object Memo7: TfrxMemoView
-          Left = 272.126160000000000000
-          Top = 60.472480000000000000
-          Width = 71.811070000000000000
-          Height = 26.456710000000000000
+        object Memo1: TfrxMemoView
+          Left = 80.574830000000000000
+          Top = 80.559060000000000000
+          Width = 61.543290000000000000
+          Height = 10.220470000000000000
           ShowHint = False
-          Font.Charset = DEFAULT_CHARSET
+          Font.Charset = RUSSIAN_CHARSET
           Font.Color = clBlack
-          Font.Height = -11
+          Font.Height = -8
           Font.Name = 'Arial'
           Font.Style = []
           HAlign = haRight
           Memo.UTF8 = (
-            '[frxSelPrntPreview."COUNTRY"]')
+            'www.starlight.ru')
           ParentFont = False
-          WordBreak = True
         end
-        object Memo8: TfrxMemoView
-          Left = 283.464750000000000000
-          Width = 60.472480000000000000
-          Height = 18.897650000000000000
+        object Memo2: TfrxMemoView
+          Left = 144.118120000000000000
+          Top = 79.370078740000000000
+          Width = 36.440940000000000000
+          Height = 14.000000000000000000
           ShowHint = False
+          Font.Charset = RUSSIAN_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
           Memo.UTF8 = (
-            '[PrintMark]')
+            
+              '[frxSelPrntPreview."TRUCK"] :: [frxSelPrntPreview."TROLLEY_CALC"' +
+              ']')
+          ParentFont = False
+        end
+        object Memo4: TfrxMemoView
+          Top = 79.370130000000000000
+          Width = 78.015770000000000000
+          Height = 14.000000000000000000
+          ShowHint = False
+          Font.Charset = RUSSIAN_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8 = (
+            '[frxSelPrntPreview."SRC_TROLLEY"]')
+          ParentFont = False
+        end
+      end
+      object PageFooter1: TfrxPageFooter
+        Height = 9.448818900000000000
+        Top = 173.858380000000000000
+        Width = 737.008350000000000000
+        object Memo3: TfrxMemoView
+          Left = 613.661410000000000000
+          Width = 122.015770000000000000
+          Height = 9.448818900000000000
+          ShowHint = False
+          Font.Charset = RUSSIAN_CHARSET
+          Font.Color = clBlack
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[PAGE#] '#1056#1105#1056#183' [TotalPages#]')
+          ParentFont = False
+          VAlign = vaCenter
         end
       end
     end
