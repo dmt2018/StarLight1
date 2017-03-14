@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.CUSTOM_PKG
--- Generated 25.02.2017 21:27:39 from CREATOR@STAR_NEW
+-- Generated 15.03.2017 0:36:42 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE custom_pkg
@@ -926,8 +926,8 @@ else
             union all
 
             select INV_ID_ as inv_id, rownum as invoice_data_as_is_id, 0 as order_number, 0.0 as height, 0.0 as diametr, '' as trucks, '' as title, 0 as packing_amount, 0 as amount_in_the_pack,
-                  a.units, '' as packing_marks, '' as description,
-                  a.hol_country, 0 as price, a.summ, a.COUNTRY as country_ru, NAME_CAT as hol_sub_type,
+                  0 as units, '' as packing_marks, '' as description,
+                  a.hol_country, 0 as price, 0 as summ, a.COUNTRY as country_ru, NAME_CAT as hol_sub_type,
                   0 as recognised, null as date_in, 0 as trolley, '' as h_code, null as UPACK
                  , null as src_trolley, null as SRC_NAME
                  , null as trolley_calc
@@ -944,7 +944,8 @@ else
                  , split_rose_ as split_rose
                  , null as remark
                  , 0 as new_price
-                 , a.summ as new_sum
+                 , 0 as new_sum
+                 --, a.summ as new_sum
                  , round(summ/decode(netto,0,1,netto)*v_COURCE,2) cust_value
                  , a.FO_VALUE as cust_norm
             from (

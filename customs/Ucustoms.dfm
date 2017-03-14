@@ -23,7 +23,6 @@ object frmCustoms: TfrmCustoms
     Height = 60
     Align = dalTop
     BarManager = bm_main
-    ExplicitWidth = 1071
   end
   object pnl_otdel: TPanel
     Left = 8
@@ -86,7 +85,6 @@ object frmCustoms: TfrmCustoms
     BorderWidth = 2
     Caption = 'Panel1'
     TabOrder = 3
-    ExplicitWidth = 1071
     object cxLabel1: TcxLabel
       Left = 2
       Top = 2
@@ -100,7 +98,6 @@ object frmCustoms: TfrmCustoms
       Style.Font.Name = 'Verdana'
       Style.Font.Style = [fsBold]
       Style.IsFontAssigned = True
-      ExplicitWidth = 1067
     end
     object grid_invoices: TcxGrid
       Left = 2
@@ -119,7 +116,6 @@ object frmCustoms: TfrmCustoms
       TabOrder = 1
       LookAndFeel.Kind = lfOffice11
       ExplicitTop = 23
-      ExplicitWidth = 1067
       ExplicitHeight = 180
       object grid_invoices_v: TcxGridDBTableView
         OnDblClick = grid_invoices_vDblClick
@@ -543,7 +539,6 @@ object frmCustoms: TfrmCustoms
     HotZoneClassName = 'TcxXPTaskBarStyle'
     AlignSplitter = salTop
     Control = Panel1
-    ExplicitWidth = 1071
   end
   object Panel2: TPanel
     Left = 0
@@ -554,7 +549,6 @@ object frmCustoms: TfrmCustoms
     BevelOuter = bvNone
     Caption = 'Panel2'
     TabOrder = 8
-    ExplicitWidth = 1071
     object gr_data: TcxGrid
       Left = 0
       Top = 0
@@ -571,7 +565,6 @@ object frmCustoms: TfrmCustoms
       ParentFont = False
       TabOrder = 0
       LookAndFeel.Kind = lfOffice11
-      ExplicitWidth = 1071
       object view_asis: TcxGridDBTableView
         OnKeyDown = view_asisKeyDown
         NavigatorButtons.ConfirmDelete = False
@@ -671,7 +664,6 @@ object frmCustoms: TfrmCustoms
             Column = view_asisCUST_VALUE
           end>
         DataController.Summary.SummaryGroups = <>
-        DataController.OnDataChanged = view_asisDataControllerDataChanged
         FilterRow.InfoText = #1055#1086#1083#1077' '#1076#1083#1103' '#1091#1089#1090#1072#1085#1086#1074#1082#1080' '#1092#1080#1083#1100#1090#1088#1086#1074
         FilterRow.Visible = True
         OptionsBehavior.CellHints = True
@@ -950,6 +942,7 @@ object frmCustoms: TfrmCustoms
           Properties.Alignment.Horz = taRightJustify
           Properties.AssignedValues.MinValue = True
           Properties.DisplayFormat = ',0.00;-,0.00'
+          Properties.OnEditValueChanged = view_asisNEW_PRICEPropertiesEditValueChanged
           FooterAlignmentHorz = taRightJustify
           HeaderAlignmentHorz = taCenter
           MinWidth = 50
@@ -1168,7 +1161,6 @@ object frmCustoms: TfrmCustoms
     Height = 26
     Align = dalBottom
     BarManager = bm_main
-    ExplicitLeft = 128
   end
   object aCustoms: TActionList
     Left = 96
@@ -1573,7 +1565,7 @@ object frmCustoms: TfrmCustoms
     Left = 56
     Top = 136
     Bitmap = {
-      494C010152005400240120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010152005400280120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000080000000A002000001002000000000000040
       0500000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -12674,7 +12666,7 @@ object frmCustoms: TfrmCustoms
     Left = 56
     Top = 176
     Bitmap = {
-      494C010132006000280118001800FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C0101320060002C0118001800FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       00000000000036000000280000006000000038010000010020000000000000D4
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -16546,7 +16538,7 @@ object frmCustoms: TfrmCustoms
     Left = 56
     Top = 216
     Bitmap = {
-      494C0101340088002C0110001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010134008800300110001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000040000000E0000000010020000000000000E0
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

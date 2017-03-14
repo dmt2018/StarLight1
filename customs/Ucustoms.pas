@@ -214,7 +214,7 @@ type
     procedure btn_pricing_processClick(Sender: TObject);
     procedure view_asisEditing(Sender: TcxCustomGridTableView;
       AItem: TcxCustomGridTableItem; var AAllow: Boolean);
-    procedure view_asisDataControllerDataChanged(Sender: TObject);
+    procedure view_asisNEW_PRICEPropertiesEditValueChanged(Sender: TObject);
   private
     { Private declarations }
     pnl_msg: TPanel;
@@ -1466,8 +1466,8 @@ begin
       view_asis.DataController.LocateByKey(j);
       //DM.InvoiceAsIs.Locate('INVOICE_DATA_AS_IS_ID',i,[]);
     end
-    else begin
-
+    else
+    begin
       DM.InvoiceAsIs.ParamByName('make_price_').AsInteger := 1;
       DM.InvoiceAsIs.ParamByName('split_rose_').AsInteger := split_roses;
       DM.InvoiceAsIs.Open;
@@ -1631,7 +1631,7 @@ begin
 
   if SaveDialog.Execute then
   begin
-     ExportGridToExcel(SaveDialog.FileName, gr_data, True, False, True, 'xls');
+     ExportGridToExcel(SaveDialog.FileName, gr_data, True, True, True, 'xls');
      ShellExecute(Handle, nil, PChar(SaveDialog.FileName), nil, nil, SW_RESTORE);
   end;
   gr_data.SetFocus;
@@ -1801,7 +1801,6 @@ procedure TfrmCustoms.view_asisCustomDrawCell(Sender: TcxCustomGridTableView;
   var ADone: Boolean);
 var val1: variant;
 begin
-
   if (not AViewInfo.Selected) and (view_asis.DataController.DataSet.RecordCount > 0) then
   begin
     // Красим 0 в количестве
@@ -1856,13 +1855,6 @@ begin
   end;
 end;
 
-
-procedure TfrmCustoms.view_asisDataControllerDataChanged(Sender: TObject);
-begin
-//  if (view_asis.Controller.FocusedColumn.Name = 'view_asisNEW_PRICE') and DM.InvoiceAsIs_DS.DataSet.Modified then  DM.InvoiceAsIs.refresh;
-//    aRefresh.Execute;
-//    ShowMessage('1');
-end;
 
 procedure TfrmCustoms.view_asisEditing(Sender: TcxCustomGridTableView;
   AItem: TcxCustomGridTableItem; var AAllow: Boolean);
@@ -1925,6 +1917,28 @@ begin
       DM.InvoiceAsIs.RefreshRecord;
     finally
       frmSetings.Free;
+    end;
+  end;
+
+end;
+
+
+procedure TfrmCustoms.view_asisNEW_PRICEPropertiesEditValueChanged(
+  Sender: TObject);
+var
+   SavePlace: TBookmark;
+begin
+  DM.InvoiceAsIs.Post;
+  with DM.InvoiceAsIs do
+  begin
+    DisableControls;
+    try
+      SavePlace := GetBookmark;
+      Refresh;
+      GotoBookmark(SavePlace);
+    finally
+      FreeBookmark(SavePlace);
+      EnableControls;
     end;
   end;
 end;
