@@ -191,6 +191,18 @@ end;
 procedure TfrmNaklInfo.gr_dataDrawColumnCell(Sender: TObject; const Rect: TRect;
   DataCol: Integer; Column: TColumnEh; State: TGridDrawState);
 begin
+
+  //  бронь:
+  if pos('-',gr_data.DataSource.DataSet.FieldByName('PRICE_PERCENT').AsString)=1 then
+	begin
+  if  (column.FieldName <> 'PRICE') and (column.FieldName <> 'PRICE_PERCENT') and (column.FieldName <> 'QUANTITY') then begin
+ 	    gr_data.Canvas.Brush.Color  := clyellow;
+ 	    gr_data.Canvas.FillRect(Rect);
+  		gr_data.DefaultDrawColumnCell(Rect, DataCol, Column, State);
+  end;
+	end;
+ //----------------------------------------------------------------------------------
+
   if (gr_data.DataSource.DataSet.FieldByName('notuse').AsInteger = 1) then
 	begin
  	    gr_data.Canvas.Brush.Color  := TColor($00D7D7D7);
