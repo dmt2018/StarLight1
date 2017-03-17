@@ -12,6 +12,7 @@ object frmOrdersStat: TfrmOrdersStat
   Font.Style = []
   OldCreateOrder = False
   WindowState = wsMaximized
+  OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
@@ -446,14 +447,13 @@ object frmOrdersStat: TfrmOrdersStat
     Height = 60
     Align = dalTop
     BarManager = bm_main
-    ExplicitTop = 153
   end
   object pc_main: TcxPageControl
     Left = 0
     Top = 201
     Width = 1134
     Height = 378
-    ActivePage = tsh_data
+    ActivePage = tsh_all_data
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -467,8 +467,6 @@ object frmOrdersStat: TfrmOrdersStat
     TabHeight = 25
     TabOrder = 8
     TabWidth = 150
-    ExplicitTop = 213
-    ExplicitHeight = 366
     ClientRectBottom = 374
     ClientRectLeft = 4
     ClientRectRight = 1130
@@ -476,7 +474,6 @@ object frmOrdersStat: TfrmOrdersStat
     object tsh_orders: TcxTabSheet
       Caption = ' '#1047#1072#1082#1072#1079#1099' '
       ImageIndex = 2
-      ExplicitHeight = 331
       object grOrders: TcxGrid
         Left = 0
         Top = 41
@@ -493,7 +490,6 @@ object frmOrdersStat: TfrmOrdersStat
         TabOrder = 0
         LookAndFeel.Kind = lfFlat
         LookAndFeel.NativeStyle = False
-        ExplicitHeight = 290
         object grOrders_v: TcxGridDBBandedTableView
           NavigatorButtons.ConfirmDelete = False
           FilterBox.Position = fpTop
@@ -811,14 +807,12 @@ object frmOrdersStat: TfrmOrdersStat
     object tsh_all_data: TcxTabSheet
       Caption = ' '#1054#1073#1097#1080#1077' '#1076#1072#1085#1085#1099#1077' '
       ImageIndex = 0
-      ExplicitHeight = 331
       object grAllData: TDBGridEh
         Left = 0
         Top = 0
         Width = 1126
         Height = 343
         Align = alClient
-        AutoFitColWidths = True
         DataGrouping.GroupLevels = <>
         DataSource = DS_STAT
         Flat = False
@@ -831,7 +825,7 @@ object frmOrdersStat: TfrmOrdersStat
         FooterFont.Style = []
         FooterRowCount = 1
         MinAutoFitWidth = 120
-        OptionsEh = [dghFixed3D, dghResizeWholeRightPart, dghHighlightFocus, dghClearSelection, dghDblClickOptimizeColWidth, dghDialogFind, dghColumnResize, dghColumnMove, dghExtendVertLines]
+        OptionsEh = [dghFixed3D, dghResizeWholeRightPart, dghHighlightFocus, dghClearSelection, dghAutoSortMarking, dghDblClickOptimizeColWidth, dghDialogFind, dghColumnResize, dghColumnMove, dghExtendVertLines]
         PopupMenu = pm_orders
         ReadOnly = True
         RowDetailPanel.Color = clBtnFace
@@ -849,7 +843,6 @@ object frmOrdersStat: TfrmOrdersStat
     object tsh_data: TcxTabSheet
       Caption = #1058#1072#1073#1083#1080#1094#1072
       ImageIndex = 1
-      ExplicitHeight = 331
       object gr_data: TcxGrid
         Left = 0
         Top = 0
@@ -859,7 +852,6 @@ object frmOrdersStat: TfrmOrdersStat
         TabOrder = 0
         LookAndFeel.Kind = lfOffice11
         LookAndFeel.NativeStyle = False
-        ExplicitHeight = 331
         object gr_data_v: TcxGridDBTableView
           PopupMenu = pm_orders
           NavigatorButtons.ConfirmDelete = False
@@ -1070,7 +1062,7 @@ object frmOrdersStat: TfrmOrdersStat
     Left = 752
     Top = 112
     Bitmap = {
-      494C0101200024001C0020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010120002400200020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002001000001002000000000000040
       0200000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -5830,6 +5822,7 @@ object frmOrdersStat: TfrmOrdersStat
       000000000000}
   end
   object SaveDialog1: TSaveDialog
+    DefaultExt = 'xls'
     Filter = #1060#1072#1081#1083#1099' EXCEL (*.xls)|*.xls'
     Left = 752
     Top = 80
@@ -6192,6 +6185,7 @@ object frmOrdersStat: TfrmOrdersStat
         '_);'
       'end;')
     FetchAll = True
+    FilterOptions = [foCaseInsensitive]
     Left = 208
     Top = 440
     ParamData = <

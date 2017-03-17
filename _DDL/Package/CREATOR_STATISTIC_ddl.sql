@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.STATISTIC
--- Generated 01.03.2017 0:02:03 from CREATOR@STAR_NEW
+-- Generated 18.03.2017 0:44:36 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE statistic
@@ -1167,19 +1167,32 @@ begin
 
   insert into tmp_exp_doc ( select * from table(cast(get_list_elements(vOrders) as number_list_type)) );
 
-  select wm_concat( ''''||s.s_name_ru||'''' ) into tmp_suppliers from suppliers s, orders o where s.s_id = o.s_id and o.id_orders in ( select * from tmp_exp_doc );
+  select wm_concat( ''''||s_name_ru||'''' ) into tmp_suppliers from (
+    select distinct s_name_ru from suppliers s, orders o where s.s_id = o.s_id and o.id_orders in ( select * from tmp_exp_doc )
+  );
 
-  sqlstr := 'select * from (select * from (
-      SELECT c.date_truck_out as "Дата выхода", c.date_truck as "Дата прихода", n.name_code as "Код сорта", cast(n.f_name as varchar2(70)) as "Название (лат)", cast(n.compiled_name_otdel as varchar2(100)) as "Название полное", cast(n.rus_marks as varchar2(30)) as "Спецификация", s.s_name_ru, a.quantity
-        FROM orders_list a, orders_clients b, orders c, nomenclature_mat_view n, suppliers s
-        where a.id_orders_clients = b.id_orders_clients and b.id_orders = c.id_orders and a.n_id = n.n_id and c.s_id = s.s_id
-          and ( n.ft_id = '||id_ft_||' or '||id_ft_||' = 0 )
-          and ( n.fst_id = '||id_fst_||' or '||id_fst_||' = 0 )
-          and c.id_orders in ( '||vOrders||' )
-    ) pivot ( sum(quantity)
-            for s_name_ru IN ('||tmp_suppliers||')
-            )
-    ) order by "Название (лат)", "Название полное"';
+  sqlstr := '
+    select a.*, dir_q as "MAIN" from (
+      select * from (
+        SELECT a.n_id as ID, c.date_truck_out as "Дата выхода", c.date_truck as "Дата прихода", n.name_code as "Код сорта",
+            cast(n.f_name as varchar2(70)) as "Название (лат)", cast(n.compiled_name_otdel as varchar2(100)) as "Название полное",
+            cast(n.rus_marks as varchar2(30)) as "Спецификация", s.s_name_ru as s_name_ru, a.quantity
+          FROM orders_list a, orders_clients b, orders c, nomenclature_mat_view n, suppliers s
+          where a.id_orders_clients = b.id_orders_clients and b.id_orders = c.id_orders and a.n_id = n.n_id and c.s_id = s.s_id and a.active = 1
+            and ( n.ft_id = '||id_ft_||' or '||id_ft_||' = 0 )
+            and ( n.fst_id = '||id_fst_||' or '||id_fst_||' = 0 )
+            and c.id_orders in ( '||vOrders||' )
+      ) pivot ( sum(quantity)
+                  for s_name_ru IN ('||tmp_suppliers||')
+              )
+    ) a
+    left outer join (
+      select sum(z.quantity) as dir_q, z.n_id
+      from orders_list z, orders_clients y
+      where y.id_orders_clients = z.id_orders_clients and y.id_orders in ( '||vOrders||' ) and y.ID_CLIENTS in (CONST_DIR, CONST_MAIN)
+      group by n_id
+    ) b on b.n_id = a.ID
+    order by "Название (лат)", "Название полное"';
 
   delete from tmp_exp_doc;
 
@@ -1204,12 +1217,10 @@ PROCEDURE get_stat_orders_group
 IS
 begin
 
-  --insert into tmp_exp_doc ( select * from table(cast(get_list_elements(vOrders) as number_list_type)) );
-
   open cursor_ for
     'SELECT n.name_code, n.f_name, n.rus_marks, n.f_type, sum(a.quantity) as quantity
     FROM orders_list a, orders_clients b, orders c, nomenclature_mat_view n, suppliers s
-    where a.id_orders_clients = b.id_orders_clients and b.id_orders = c.id_orders and a.n_id = n.n_id and c.s_id = s.s_id
+    where a.id_orders_clients = b.id_orders_clients and b.id_orders = c.id_orders and a.n_id = n.n_id and c.s_id = s.s_id and a.active = 1
       and ( n.ft_id = '||id_ft_||' or '||id_ft_||' = 0 )
       and ( n.fst_id = '||id_fst_||' or '||id_fst_||' = 0 )
       and c.id_orders in ( '||vOrders||' )

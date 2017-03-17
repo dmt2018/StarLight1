@@ -12,7 +12,8 @@ uses
   cxDataStorage, DB, cxDBData, cxCurrencyEdit, cxCalendar, DBAccess, Ora, MemDS,
   cxGridBandedTableView, cxGridDBBandedTableView, cxGridLevel,
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGridCustomView,
-  cxGrid, cxPC, DBGridEhGrouping, GridsEh, DBGridEh, cxGridExportLink, DBGridEhImpExp;
+  cxGrid, cxPC, DBGridEhGrouping, GridsEh, DBGridEh, cxGridExportLink, DBGridEhImpExp,
+  ShellApi;
 
 type
   TfrmOrdersStat = class(TForm)
@@ -156,9 +157,11 @@ type
     procedure mnFullCollapseClick(Sender: TObject);
     procedure mnFullExpandClick(Sender: TObject);
     procedure pm_ordersPopup(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
+    path: string;
     { Public declarations }
   end;
 
@@ -212,7 +215,7 @@ begin
 end;
 
 procedure TfrmOrdersStat.aSearchExecute(Sender: TObject);
-var tmpStr: string;
+var tmpStr, iniFile: string;
     pCol, I: integer;
 begin
   if not Q_ORDERS.Active or Q_ORDERS.IsEmpty then exit;
@@ -273,6 +276,9 @@ begin
       CDS_STAT.Open;
       CDS_STAT_GROUP.Open;
 
+      iniFile := path + '/ini/'+DM.stat_session.Username+'_orders.ini';
+      grAllData.RestoreGridLayoutIni(iniFile, 'orders',[grpColIndexEh, grpColWidthsEh, grpColVisibleEh, grpRowHeightEh, grpDropDownRowsEh, grpDropDownWidthEh]);
+
       pc_main.ActivePageIndex := 1;
       if CDS_STAT.RecordCount > 0 then
       begin
@@ -282,7 +288,7 @@ begin
         grAllData.Columns.Items[0].Footer.ValueType := fvtCount;
         grAllData.Columns.Items[0].Footer.Alignment := taCenter;
 
-        for I := 6 to pCol - 1 do
+        for I := 7 to pCol - 1 do
         begin
           grAllData.Columns.Items[I].Footer.ValueType := fvtSum;
           grAllData.Columns.Items[I].Footer.Alignment := taCenter;
@@ -311,6 +317,13 @@ begin
   aRefreshOrder.Execute
 end;
 
+procedure TfrmOrdersStat.FormClose(Sender: TObject; var Action: TCloseAction);
+var iniFile: string;
+begin
+  iniFile := path + '/ini/'+DM.stat_session.Username+'_orders.ini';
+  grAllData.SaveGridLayoutIni(iniFile, 'orders',true);
+end;
+
 procedure TfrmOrdersStat.FormCreate(Sender: TObject);
 begin
   de_begin.Properties.OnEditValueChanged := nil;
@@ -332,6 +345,8 @@ begin
   CDS_SUBTYPES.Open;
 
   aRefreshOrder.Execute;
+
+  path := ExtractFilePath(Application.ExeName);
 end;
 
 procedure TfrmOrdersStat.mnByGroupClick(Sender: TObject);
@@ -369,6 +384,7 @@ begin
   begin
     ExportGridToExcel(SaveDialog1.FileName, gr_data, True, true, True, 'xls');
   end;
+  ShellExecute(Handle, nil, PChar(SaveDialog1.FileName), nil, nil, SW_RESTORE);
 end;
 
 procedure TfrmOrdersStat.pm_ordersPopup(Sender: TObject);
