@@ -730,6 +730,8 @@ object PriceF: TPriceF
           Properties.ReadOnly = True
           FooterAlignmentHorz = taCenter
           HeaderAlignmentHorz = taCenter
+          Options.CellMerging = True
+          OnCompareRowValuesForCellMerging = grid_pplView1OBSHAKCompareRowValuesForCellMerging
         end
         object grid_pplView1W_PRICE: TcxGridDBColumn
           Caption = 'Pr (WS)'
@@ -739,6 +741,8 @@ object PriceF: TPriceF
           Properties.DisplayFormat = ',0.00;-,0.00'
           Properties.ReadOnly = True
           HeaderAlignmentHorz = taCenter
+          Options.CellMerging = True
+          OnCompareRowValuesForCellMerging = grid_pplView1OBSHAKCompareRowValuesForCellMerging
         end
       end
       object grid_ppl_Level1: TcxGridLevel
