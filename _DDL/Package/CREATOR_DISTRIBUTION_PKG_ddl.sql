@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.DISTRIBUTION_PKG
--- Generated 12.03.2017 21:53:19 from CREATOR@STAR_NEW
+-- Generated 20.03.2017 1:19:15 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE distribution_pkg
@@ -618,7 +618,7 @@ BEGIN
                     and a.n_id = oa.n_id(+)
                     and a.fst_id =  b.fst_id(+)
                     and a.INVOICE_DATA_ID = pp.INVOICE_DATA_ID(+)
-                order by a.compiled_name_otdel||' '||a.colour
+                order by a.compiled_name_otdel||' '||a.colour, nn
         ) z;
 EXCEPTION
    WHEN others THEN
@@ -691,7 +691,12 @@ PROCEDURE DELETE_DISTRIBUTION_INDEX
   IN_DIST_IND_ID IN NUMBER
 )
 IS
+  has_webshop EXCEPTION;
 begin
+  select count(*) into tmp_cnt FROM truck_sale_distr WHERE DIST_IND_ID = IN_DIST_IND_ID;
+  if tmp_cnt > 0 then
+    RAISE has_webshop;
+  end if;
 
   DELETE FROM distributions_invoices WHERE DIST_IND_ID = IN_DIST_IND_ID;
   DELETE FROM distributions_orders WHERE DIST_IND_ID = IN_DIST_IND_ID;
@@ -700,6 +705,8 @@ begin
   commit;
 
 EXCEPTION
+   WHEN has_webshop THEN
+      raise_application_error (-20504,'Разнос участвует в WebShop. Удаление невозможно!');
    WHEN OTHERS THEN
         LOG_ERR(SQLERRM, SQLCODE, 'distribution_pkg.DELETE_DISTRIBUTION_INDEX', '');
         RAISE_APPLICATION_ERROR (-20504, 'Запрос не выполнился. ' || SQLERRM);
@@ -1561,6 +1568,44 @@ PROCEDURE get_order_list_nid
 IS
 BEGIN
   open cursor_ for
+    select a.nn, ID_ORDERS_CLIENTS, ID_ORDERS, ID_CLIENTS, N_TRUCK, CAPACITY, D_DATE, pack_, alpha,
+      N_TYPE, STATUS, ON_DATE, NICK, FIO, id_orders_clients_, n_id, case when nn > 1 then 0 else quantity end quantity,
+      zatirka, id_orders_list, full_name, great_name, great_name_f, compiled_name_otdel_ord, is_stock, dq_check, dq,
+      great_name2, great_name_f2, dist_id, compiled_name_otdel, DISTRIBUTED_NUMBER, PREP_DIST_ID, D_N_ID, priority, DIST_WEBSHOP_ID
+    from (
+       SELECT row_number() over(PARTITION by c.n_id, a.ID_CLIENTS order by e.dist_id) as nn,
+              a.ID_ORDERS_CLIENTS, a.ID_ORDERS, a.ID_CLIENTS, a.N_TRUCK, a.CAPACITY, a.D_DATE, a.pack_, a.alpha,
+              a.N_TYPE, a.STATUS, a.ON_DATE, b.NICK || ' ' || a.alpha as NICK, b.FIO, a.id_orders_clients as id_orders_clients_,
+              c.n_id, c.quantity
+              , c.zatirka, c.id_orders_list, d.full_name, d.great_name, d.great_name_f, d.compiled_name_otdel||' '||d.colour as compiled_name_otdel_ord,
+              case when (e.INVOICE_DATA_ID is NULL and e.DQ > 0) then 1 else 0 end is_stock,
+              nvl(e.dq,0) as dq, case when e.DQ is null then 0 else 1 end dq_check,
+              e.great_name as great_name2, e.great_name_f as great_name_f2, e.dist_id, e.compiled_name_otdel||' '||e.colour as compiled_name_otdel,
+              (
+                select nvl(SUM(o.DQ),0) from DISTRIBUTION_VIEW o where o.DIST_IND_ID = dist_ind_id_ and c.n_id=o.o_n_id AND o.id_clients = a.id_clients
+              ) as DISTRIBUTED_NUMBER
+              , e.PREP_DIST_ID, e.D_N_ID
+              , a.priority
+              , w.DIST_WEBSHOP_ID
+       FROM ORDERS_CLIENTS a, CLIENTS b, orders_list c, nomenclature_mat_view d, DISTRIBUTION_VIEW e, distributions_orders z, distributions_webshop w
+       WHERE z.dist_ind_id = dist_ind_id_
+           and a.id_orders = z.order_id -- id_order_
+           and a.active = 1
+           and (a.pack_ = 0 or const_office > 1)
+           and decode(a.ID_CLIENTS,const_dir,const_main,a.ID_CLIENTS) = b.ID_CLIENTS
+           and a.id_orders_clients = c.id_orders_clients
+           and (c.n_id = n_id_ or n_id_ = 0)
+           and c.n_id = d.n_id
+           and c.quantity > 0
+           and a.ID_CLIENTS not in (const_dir,const_main) -- 2015-06-22 На совещании решили, что на директора и МАЙН не разносить и даже их не показывать
+           and c.active = 1
+           and c.id_orders_list = e.id_orders_list(+)
+           and e.dist_ind_id(+) = dist_ind_id_
+           and e.o_n_id = w.n_id(+) and e.DIST_IND_ID = w.dist_ind_id(+) and e.ID_ORDERS_LIST = w.ID_ORDERS_LIST(+)
+    ) a
+    order by a.priority, decode(a.pack_,1,1,2), decode(a.ID_CLIENTS,const_dir,98,const_main,99,1), NICK, nn;
+
+/*
      SELECT a.ID_ORDERS_CLIENTS, a.ID_ORDERS, a.ID_CLIENTS, a.N_TRUCK, a.CAPACITY, a.D_DATE, a.pack_, a.alpha,
             a.N_TYPE, a.STATUS, a.ON_DATE, b.NICK || ' ' || a.alpha as NICK, b.FIO, a.id_orders_clients as id_orders_clients_,
             c.n_id, c.quantity
@@ -1592,6 +1637,7 @@ BEGIN
          and e.dist_ind_id(+) = dist_ind_id_
          and e.o_n_id = w.n_id(+) and e.DIST_IND_ID = w.dist_ind_id(+) and e.ID_ORDERS_LIST = w.ID_ORDERS_LIST(+)
       order by a.priority, decode(a.pack_,1,1,2), decode(a.ID_CLIENTS,const_dir,98,const_main,99,1), NICK;
+*/
 
 EXCEPTION
    WHEN OTHERS THEN
@@ -2207,7 +2253,7 @@ BEGIN
            left outer join numeration_seq s on s.ENTITY = 'order' and s.OBJ_ID = a.ID_ORDERS
          WHERE a.ID_DEPARTMENTS = id_dep_ and N_TYPE = 0 and a.active=1
            and not exists (select 1 from distributions_orders b where b.order_id = a.id_orders)
-           and a.date_truck_out between sysdate - 10 and sysdate + 10
+           and a.date_truck_out between sysdate - 30 and sysdate + 10
 --           and a.date_truck_out > sysdate - 30
          ORDER BY DATE_TRUCK_OUT desc, s_name_ru;
 --         ORDER BY ID_ORDERS DESC;

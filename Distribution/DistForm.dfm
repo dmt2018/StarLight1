@@ -299,9 +299,11 @@ object DistFormF: TDistFormF
             FooterAlignmentHorz = taCenter
             HeaderAlignmentHorz = taCenter
             MinWidth = 50
+            Options.CellMerging = True
             Options.Grouping = False
             Options.Moving = False
             Width = 50
+            OnCompareRowValuesForCellMerging = gr_PrepDist_vALLORDERCompareRowValuesForCellMerging
           end
           object gr_PrepDist_vSTOCK: TcxGridDBColumn
             Caption = #1057#1090#1086#1082
@@ -311,9 +313,11 @@ object DistFormF: TDistFormF
             Properties.ReadOnly = True
             HeaderAlignmentHorz = taCenter
             MinWidth = 50
+            Options.CellMerging = True
             Options.Grouping = False
             Options.Moving = False
             Width = 50
+            OnCompareRowValuesForCellMerging = gr_PrepDist_vALLORDERCompareRowValuesForCellMerging
           end
           object gr_PrepDist_vWHERE_FLOWER_IS: TcxGridDBColumn
             Caption = #1043#1076#1077
@@ -866,9 +870,11 @@ object DistFormF: TDistFormF
                   FooterAlignmentHorz = taCenter
                   HeaderAlignmentHorz = taCenter
                   MinWidth = 60
+                  Options.CellMerging = True
                   Options.Moving = False
                   Styles.Content = cx_editdata
                   Width = 60
+                  OnCompareRowValuesForCellMerging = ginfo_QUANTITYCompareRowValuesForCellMerging
                 end
                 object _ginfo_FULL_NAME: TcxGridDBColumn
                   DataBinding.FieldName = 'FULL_NAME'
@@ -984,6 +990,10 @@ object DistFormF: TDistFormF
                 end
                 object gr_goods_info_vDIST_WEBSHOP_ID: TcxGridDBColumn
                   DataBinding.FieldName = 'DIST_WEBSHOP_ID'
+                  Visible = False
+                end
+                object gr_goods_info_vNN: TcxGridDBColumn
+                  DataBinding.FieldName = 'NN'
                   Visible = False
                 end
               end
@@ -1303,7 +1313,7 @@ object DistFormF: TDistFormF
     Left = 576
     Top = 488
     Bitmap = {
-      494C01010C00C800280110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010C00C8002C0110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000004000000001002000000000000040
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

@@ -350,6 +350,7 @@ type
     dxBarStatic25: TdxBarStatic;
     dxBarStatic26: TdxBarStatic;
     cxStyle1: TcxStyle;
+    gr_goods_info_vNN: TcxGridDBColumn;
     procedure AExitExecute(Sender: TObject);
     procedure AGetdeptExecute(Sender: TObject);
     procedure AChooseOrderExecute(Sender: TObject);
@@ -444,6 +445,16 @@ type
     procedure aPrintSellByGroupWPExecute(Sender: TObject);
     procedure mnCheckInvoice(Sender: TObject);
     procedure aLoadDoborExecute(Sender: TObject);
+    procedure gr_PrepDist_vALLORDERCompareRowValuesForCellMerging(
+      Sender: TcxGridColumn; ARow1: TcxGridDataRow;
+      AProperties1: TcxCustomEditProperties; const AValue1: Variant;
+      ARow2: TcxGridDataRow; AProperties2: TcxCustomEditProperties;
+      const AValue2: Variant; var AAreEqual: Boolean);
+    procedure ginfo_QUANTITYCompareRowValuesForCellMerging(
+      Sender: TcxGridColumn; ARow1: TcxGridDataRow;
+      AProperties1: TcxCustomEditProperties; const AValue1: Variant;
+      ARow2: TcxGridDataRow; AProperties2: TcxCustomEditProperties;
+      const AValue2: Variant; var AAreEqual: Boolean);
   private
     path, out_dir: string;
     vSTOK: integer;
@@ -1207,10 +1218,10 @@ begin
   if (MessageDlg('Вы действительно хотите удалить запись?', mtConfirmation, [mbOk, mbNo], 0, mbOk) = mrOk) then
   begin
 
-  try
-    if CUR_DIST_IND_ID <> null then
-    Begin
-      with DM.SelQ do
+    try
+      if CUR_DIST_IND_ID <> null then
+      Begin
+        with DM.SelQ do
         Begin
           Close;
           SQL.Clear;
@@ -1218,18 +1229,17 @@ begin
           ParamByName('IN_DIST_IND_ID').AsInteger := CUR_DIST_IND_ID;
           Execute;
         End;
-      CUR_DIST_IND_ID       := null;
-      CUR_DIST_DATE         := null;
-      CUR_DIST_DESCRIPTION  := null;
-      CUR_ID_ORDERS         := null;
-      CUR_DIST_NUM          := null;
+        CUR_DIST_IND_ID       := null;
+        CUR_DIST_DATE         := null;
+        CUR_DIST_DESCRIPTION  := null;
+        CUR_ID_ORDERS         := null;
+        CUR_DIST_NUM          := null;
 
-      ShowDistInd;
-    End;
-
-  except on E: Exception do
+        ShowDistInd;
+      End;
+    except on E: Exception do
        MessageBox(Handle, PChar(E.Message), 'Внимание', MB_ICONERROR);
-  end;
+    end;
 
   end;
     
@@ -1495,6 +1505,18 @@ end;
 //
 //  Раскрашиваем грид со стоком и инвойсом
 //
+procedure TDistFormF.gr_PrepDist_vALLORDERCompareRowValuesForCellMerging(
+  Sender: TcxGridColumn; ARow1: TcxGridDataRow;
+  AProperties1: TcxCustomEditProperties; const AValue1: Variant;
+  ARow2: TcxGridDataRow; AProperties2: TcxCustomEditProperties;
+  const AValue2: Variant; var AAreEqual: Boolean);
+begin
+  if ( ARow1.Values[gr_PrepDist_vN_ID.Index] = ARow2.Values[gr_PrepDist_vN_ID.Index] ) {and (ARow1.Values[HOL_PRICE.Index] = ARow2.Values[HOL_PRICE.Index])} then
+    AAreEqual := true
+  else
+    AAreEqual := false;
+end;
+
 procedure TDistFormF.gr_PrepDist_vCustomDrawCell(
   Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
   AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
@@ -1995,6 +2017,18 @@ end;
 //
 // Разнесенная позиция
 //
+procedure TDistFormF.ginfo_QUANTITYCompareRowValuesForCellMerging(
+  Sender: TcxGridColumn; ARow1: TcxGridDataRow;
+  AProperties1: TcxCustomEditProperties; const AValue1: Variant;
+  ARow2: TcxGridDataRow; AProperties2: TcxCustomEditProperties;
+  const AValue2: Variant; var AAreEqual: Boolean);
+begin
+  if ( ARow1.Values[_ginfo_N_ID.Index] = ARow2.Values[_ginfo_N_ID.Index] ) and ( ARow1.Values[_ginfo_ID_CLIENTS.Index] = ARow2.Values[_ginfo_ID_CLIENTS.Index] )  then
+    AAreEqual := true
+  else
+    AAreEqual := false;
+end;
+
 procedure TDistFormF.ginfo_QUANTITYCustomDrawCell(
   Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
   AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
@@ -3346,6 +3380,12 @@ begin
   DM.SelQ.Close;
 
 
+  // Очистим фильтр
+  gr_PrepDist_v.DataController.Filter.Clear;
+  gr_PrepDist_v.DataController.DataSet.Filtered := false;
+  gr_PrepDist_v.DataController.DataSet.Filter   := '';
+
+
   try
   // Открываем файл с заказом
   try
@@ -3501,7 +3541,6 @@ inv_id: 10007897
     err_log       := '';
     err_log_short := '';
     vInfo         := '';
-    //Readln(conf, tmpstr);
 
     while not Eof(conf) do
     begin
@@ -3552,11 +3591,9 @@ inv_id: 10007897
 
               //if (cds_source.FieldByName('LEFT_QUANTITY').AsInteger = 0) or (cds_source.FieldByName('LEFT_QUANTITY').AsInteger < StrToInt(z_q)) then
               if (left_q = 0) or (left_q < StrToInt(z_q)) then
-              if (cds_source.FieldByName('LEFT_QUANTITY').AsInteger = 0) or (cds_source.FieldByName('LEFT_QUANTITY').AsInteger < StrToInt(z_q)) then
               begin
                 //MessageBox(Handle, PChar('Номенклатура '+z_name+ '. Требуется разнести '+z_q+', когда доступно лишь '+cds_source.FieldByName('LEFT_QUANTITY').AsString+'. Позиция будет пропущена'), 'Внимание', MB_ICONWARNING);
                 MessageBox(Handle, PChar('Номенклатура '+z_name+ '. Требуется разнести '+z_q+', когда доступно лишь '+IntToStr(left_q)+'. Позиция будет пропущена'), 'Внимание', MB_ICONWARNING);
-                MessageBox(Handle, PChar('Номенклатура '+z_name+ '. Требуется разнести '+z_q+', когда доступно лишь '+cds_source.FieldByName('LEFT_QUANTITY').AsString+'. Позиция будет пропущена'), 'Внимание', MB_ICONWARNING);
               end
               else
               begin
@@ -3568,7 +3605,7 @@ inv_id: 10007897
                 left_q := StrToInt(z_q);
                 while not DM.SelQ2.Eof do
                 begin
-                  if StrToInt(z_q) > 0 then
+                  if left_q > 0 then
                   begin
                     if DM.SelQ2.FieldByName('left_quantity').AsInteger < left_q then
                        cur_left_q := DM.SelQ2.FieldByName('left_quantity').AsInteger

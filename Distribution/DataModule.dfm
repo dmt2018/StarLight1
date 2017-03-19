@@ -6,7 +6,7 @@ object DM: TDM
     Options.Direct = True
     Username = 'creator'
     Password = '123456'
-    Server = 'KLEPOV:1521:STARREG'
+    Server = 'KLEPOV:1521:STARNEW'
     AutoCommit = False
     LoginPrompt = False
     BeforeConnect = StarSessBeforeConnect
@@ -823,6 +823,9 @@ object DM: TDM
         ParamType = ptOutput
         Value = 'Object'
       end>
+    object CDS_ORDER_NIDNN: TFloatField
+      FieldName = 'NN'
+    end
     object CDS_ORDER_NIDID_ORDERS_CLIENTS: TFloatField
       FieldName = 'ID_ORDERS_CLIENTS'
     end
@@ -871,7 +874,7 @@ object DM: TDM
     object CDS_ORDER_NIDN_ID: TFloatField
       FieldName = 'N_ID'
     end
-    object CDS_ORDER_NIDQUANTITY: TIntegerField
+    object CDS_ORDER_NIDQUANTITY: TFloatField
       FieldName = 'QUANTITY'
     end
     object CDS_ORDER_NIDZATIRKA: TIntegerField
@@ -894,13 +897,10 @@ object DM: TDM
     end
     object CDS_ORDER_NIDCOMPILED_NAME_OTDEL_ORD: TStringField
       FieldName = 'COMPILED_NAME_OTDEL_ORD'
-      Size = 451
+      Size = 551
     end
     object CDS_ORDER_NIDIS_STOCK: TFloatField
       FieldName = 'IS_STOCK'
-    end
-    object CDS_ORDER_NIDDQ: TFloatField
-      FieldName = 'DQ'
     end
     object CDS_ORDER_NIDDQ_CHECK: TFloatField
       FieldName = 'DQ_CHECK'
@@ -918,7 +918,7 @@ object DM: TDM
     end
     object CDS_ORDER_NIDCOMPILED_NAME_OTDEL: TStringField
       FieldName = 'COMPILED_NAME_OTDEL'
-      Size = 451
+      Size = 551
     end
     object CDS_ORDER_NIDDISTRIBUTED_NUMBER: TFloatField
       FieldName = 'DISTRIBUTED_NUMBER'
@@ -934,6 +934,9 @@ object DM: TDM
     end
     object CDS_ORDER_NIDDIST_WEBSHOP_ID: TFloatField
       FieldName = 'DIST_WEBSHOP_ID'
+    end
+    object CDS_ORDER_NIDDQ: TFloatField
+      FieldName = 'DQ'
     end
   end
   object DS_ORDER_NID: TOraDataSource
