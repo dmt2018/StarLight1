@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.STATISTIC
--- Generated 18.03.2017 0:44:36 from CREATOR@STAR_NEW
+-- Generated 21.03.2017 23:45:33 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE statistic
@@ -1176,7 +1176,7 @@ begin
       select * from (
         SELECT a.n_id as ID, c.date_truck_out as "Дата выхода", c.date_truck as "Дата прихода", n.name_code as "Код сорта",
             cast(n.f_name as varchar2(70)) as "Название (лат)", cast(n.compiled_name_otdel as varchar2(100)) as "Название полное",
-            cast(n.rus_marks as varchar2(30)) as "Спецификация", s.s_name_ru as s_name_ru, a.quantity
+            cast(n.rus_marks as varchar2(30)) as "Спецификация", s.s_name_ru as s_name_ru, nvl(a.correction,a.quantity) as quantity
           FROM orders_list a, orders_clients b, orders c, nomenclature_mat_view n, suppliers s
           where a.id_orders_clients = b.id_orders_clients and b.id_orders = c.id_orders and a.n_id = n.n_id and c.s_id = s.s_id and a.active = 1
             and ( n.ft_id = '||id_ft_||' or '||id_ft_||' = 0 )
@@ -1187,7 +1187,7 @@ begin
               )
     ) a
     left outer join (
-      select sum(z.quantity) as dir_q, z.n_id
+      select sum(nvl(z.correction,z.quantity)) as dir_q, z.n_id
       from orders_list z, orders_clients y
       where y.id_orders_clients = z.id_orders_clients and y.id_orders in ( '||vOrders||' ) and y.ID_CLIENTS in (CONST_DIR, CONST_MAIN)
       group by n_id
@@ -1218,7 +1218,7 @@ IS
 begin
 
   open cursor_ for
-    'SELECT n.name_code, n.f_name, n.rus_marks, n.f_type, sum(a.quantity) as quantity
+    'SELECT n.name_code, n.f_name, n.rus_marks, n.f_type, sum(nvl(a.correction,a.quantity)) as quantity
     FROM orders_list a, orders_clients b, orders c, nomenclature_mat_view n, suppliers s
     where a.id_orders_clients = b.id_orders_clients and b.id_orders = c.id_orders and a.n_id = n.n_id and c.s_id = s.s_id and a.active = 1
       and ( n.ft_id = '||id_ft_||' or '||id_ft_||' = 0 )

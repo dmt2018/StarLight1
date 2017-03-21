@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.NOMENCLATURE2_PKG
--- Generated 23.11.2016 23:02:52 from CREATOR@STAR_NEW
+-- Generated 21.03.2017 23:45:44 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE nomenclature2_pkg
@@ -220,6 +220,11 @@ PROCEDURE claer_NEW_mark (
    v_id_dep      in number
 );
 
+
+function  gen_h_code2 (
+   v_n_id      in number,
+   v_id_dep    in number
+) return varchar2;
 
 end;
 /
@@ -1025,16 +1030,6 @@ PROCEDURE set_nomenclature_site_marks (
 )
 is
 begin
- /* tmp_cnt := 0;
-  if v_REMOVE_FROM_SITE = 1 then
-    select count(1) into tmp_cnt from nomenclature_site_marks where N_ID = v_n_id;
-    if tmp_cnt = 0 then
-      insert into nomenclature_site_marks values(v_n_id, 1, sysdate);
-    end if;
-  else
-    delete from nomenclature_site_marks where N_ID = v_n_id;
-  end if;*/
-
   tmp_cnt := 0;
   select count(1) into tmp_cnt from nomenclature_site_marks where N_ID = v_n_id;
   if tmp_cnt = 1 then
@@ -1046,29 +1041,6 @@ begin
   -- удалим лишние данные
   delete from nomenclature_site_marks where nvl(REMOVE_FROM_SITE, 0) = 0 and nvl(NO_ORDER, 0) = 0;
 
-/*
-  if v_REMOVE_FROM_SITE = 1 then
-    select count(1) into tmp_cnt from nomenclature_site_marks where N_ID = v_n_id;
-    if tmp_cnt = 0 then
-      insert into nomenclature_site_marks values(v_n_id, 1, sysdate,v_NO_ORDER);
-    end if;
-    if tmp_cnt = 1 then
-      update nomenclature_site_marks set no_order=v_NO_ORDER WHERE N_ID = v_n_id;
-    end if;
-  end if;
-  if (v_REMOVE_FROM_SITE = 0) and (v_NO_ORDER = 0) then
-    delete from nomenclature_site_marks where N_ID = v_n_id;
-  end if;
-  if (v_REMOVE_FROM_SITE = 0) and (v_NO_ORDER = 1) then
-    select count(1) into tmp_cnt from nomenclature_site_marks where N_ID = v_n_id;
-    if tmp_cnt = 0 then
-      insert into nomenclature_site_marks values(v_n_id, 0, sysdate,v_NO_ORDER);
-    end if;
-    if tmp_cnt = 1 then
-      update nomenclature_site_marks set no_order=v_NO_ORDER WHERE N_ID = v_n_id;
-    end if;
-  end if;
-*/
 EXCEPTION
    WHEN OTHERS THEN
            LOG_ERR(SQLERRM, SQLCODE, 'nomenclature2_pkg.set_nomenclature_site_marks', '');
@@ -1098,6 +1070,58 @@ EXCEPTION
 
 END claer_NEW_mark;
 
+
+
+--
+-- Aaia?e?oai a?oeeoe oiaa?a
+--
+function  gen_h_code2 (
+   v_n_id      in number,
+   v_id_dep    in number
+) return varchar2
+is
+  new_art  varchar2(100);
+begin
+
+    select a.NAME_CODE||'..'||a.len||'.'||a.PACK||'.'||s22.hs_val||'.'||s25.hs_val||'.'||vd2.hs_val||'.'||a.remarks into new_art
+    from
+    (
+      SELECT
+      substr(a.h_code,0,instr(a.h_code,'.')-1) as code1,
+      substr(a.h_code,instr(a.h_code,'.')+1,instr(a.h_code,'.',1,2)-instr(a.h_code,'.',1,1)-1) as coler,
+       a.h_code, a.h_name, a.code, a.len, a.fn_id, a.n_id,
+             a.pack, a.diameter, a.hol_type, a.weight, a.remarks,
+             a.bar_code, a.cust_coef, a.photo, a.is_photo,
+             a.colour, a.country, a.hol_marks, a.rus_marks,
+             a.name_code, a.compiled_name_otdel,
+              a.namecode, a.tnved, a.weightdry, a.hol_color, a.HOL_PACK
+        FROM nomenclature_mat_view a
+        where a.n_id = v_n_id
+    ) a,
+    (
+      SELECT  s22.hs_val, s22.n_id
+        FROM nom_specifications s22
+        where hs_id = 16
+    ) s22,
+    (
+      SELECT  s25.hs_val, s25.n_id
+        FROM nom_specifications s25
+        where hs_id = 17
+    ) s25,
+    (
+      SELECT  vd2.hs_val, vd2.n_id
+        FROM nom_specifications vd2
+        where hs_id = 10000072
+    ) vd2
+      where rownum=1 and a.n_id = s22.n_id(+) and a.n_id = s25.n_id(+) and a.n_id = vd2.n_id(+)
+    ;
+    return new_art;
+EXCEPTION
+   WHEN OTHERS THEN
+           LOG_ERR(SQLERRM, SQLCODE, 'NOMENCLATURE_PKG2.gen_h_code2', '');
+           RAISE_APPLICATION_ERROR (-20081, '«апрос не выполнилс€. ' || SQLERRM || ' ' || DBMS_UTILITY.format_error_backtrace);
+
+END gen_h_code2;
 
 END;
 /

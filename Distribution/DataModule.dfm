@@ -1029,7 +1029,7 @@ object DM: TDM
         'e'
       '    FROM CLIENTS C'
       'WHERE (C.ACTIVE=1 or C.active is NULL)'
-      ' ORDER BY C.NICK')
+      ' ORDER BY C.NICK, c.id_office')
     FetchAll = True
     FilterOptions = [foCaseInsensitive]
     Left = 408
