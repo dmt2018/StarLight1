@@ -299,26 +299,28 @@ object frmStore: TfrmStore
     Left = 0
     Top = 127
     Width = 986
-    Height = 445
-    ActivePage = tch_nakls
+    Height = 443
+    ActivePage = tch_reserv
     Align = alClient
     LookAndFeel.Kind = lfOffice11
     LookAndFeel.NativeStyle = True
     TabHeight = 25
     TabOrder = 2
     OnChange = pc_salesChange
-    ClientRectBottom = 441
+    ExplicitHeight = 445
+    ClientRectBottom = 439
     ClientRectLeft = 4
     ClientRectRight = 982
     ClientRectTop = 31
     object tch_main: TcxTabSheet
       Caption = ' '#1058#1077#1082#1091#1097#1080#1081' '#1089#1082#1083#1072#1076' (Ctrl+1) '
       ImageIndex = 0
+      ExplicitHeight = 410
       object gr_main: TDBGridEh
         Left = 0
         Top = 0
         Width = 978
-        Height = 410
+        Height = 408
         Align = alClient
         AllowedOperations = []
         DataGrouping.GroupLevels = <>
@@ -638,11 +640,12 @@ object frmStore: TfrmStore
     object tch_nakls: TcxTabSheet
       Caption = ' '#1053#1072#1082#1083#1072#1076#1085#1099#1077' (Ctrl+2) '
       ImageIndex = 1
+      ExplicitHeight = 410
       object grid_allnakl: TcxGrid
         Left = 0
         Top = 0
         Width = 978
-        Height = 410
+        Height = 408
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -653,6 +656,7 @@ object frmStore: TfrmStore
         ParentFont = False
         TabOrder = 0
         LookAndFeel.Kind = lfOffice11
+        ExplicitHeight = 410
         object grid_allnakl_v: TcxGridDBTableView
           PopupMenu = PopupMenu1
           OnDblClick = grid_allnakl_vDblClick
@@ -963,11 +967,12 @@ object frmStore: TfrmStore
     object tch_reserv: TcxTabSheet
       Caption = ' '#1041#1088#1086#1085#1080' (Ctrl+3) '
       ImageIndex = 2
+      ExplicitHeight = 410
       object grid_allreserv: TcxGrid
         Left = 0
         Top = 61
         Width = 978
-        Height = 349
+        Height = 347
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -978,6 +983,7 @@ object frmStore: TfrmStore
         ParentFont = False
         TabOrder = 0
         LookAndFeel.Kind = lfOffice11
+        ExplicitTop = 59
         object grid_allreserv_v: TcxGridDBTableView
           PopupMenu = PopupMenu1
           OnDblClick = grid_allreserv_vDblClick
@@ -1258,6 +1264,14 @@ object frmStore: TfrmStore
             PropertiesClassName = 'TcxTextEditProperties'
             MinWidth = 100
             Width = 100
+          end
+          object grid_allreserv_vORDER_SEQ: TcxGridDBColumn
+            DataBinding.FieldName = 'ORDER_SEQ'
+            Visible = False
+          end
+          object grid_allreserv_vPACK_: TcxGridDBColumn
+            DataBinding.FieldName = 'PACK_'
+            Visible = False
           end
         end
         object grid_allreserv_l: TcxGridLevel
@@ -1665,9 +1679,9 @@ object frmStore: TfrmStore
   end
   object dxBarDockControl1: TdxBarDockControl
     Left = 0
-    Top = 572
+    Top = 570
     Width = 986
-    Height = 41
+    Height = 43
     Align = dalBottom
     BarManager = bm_sales
   end
@@ -2086,6 +2100,15 @@ object frmStore: TfrmStore
           BeginGroup = True
           Visible = True
           ItemName = 'dxBarStatic11'
+        end
+        item
+          BeginGroup = True
+          Visible = True
+          ItemName = 'dxBarStatic14'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarStatic15'
         end>
       MultiLine = True
       NotDocking = [dsNone, dsLeft, dsTop, dsRight, dsBottom]
@@ -2397,6 +2420,19 @@ object frmStore: TfrmStore
       Hint = 'Ctrl+'#1055#1088#1086#1073#1077#1083' - '#1092#1080#1083#1100#1090#1088#1072#1094#1080#1103' '#1087#1086' '#1075#1088#1091#1087#1087#1072#1084
       Visible = ivAlways
     end
+    object dxBarStatic14: TdxBarStatic
+      Category = 0
+      Style = stHasWebshop
+      Visible = ivAlways
+      BorderStyle = sbsRaised
+      Width = 50
+    end
+    object dxBarStatic15: TdxBarStatic
+      Caption = '- '#1082#1083#1080#1077#1085#1090#1099' '#1089' '#1090#1086#1074#1072#1088#1086#1084' '#1080#1079' WebShop'
+      Category = 0
+      Hint = '- '#1082#1083#1080#1077#1085#1090#1099' '#1089' '#1090#1086#1074#1072#1088#1086#1084' '#1080#1079' WebShop'
+      Visible = ivAlways
+    end
   end
   object al_sales: TActionList
     Left = 512
@@ -2553,6 +2589,10 @@ object frmStore: TfrmStore
     object stNotUse: TcxStyle
       AssignedValues = [svColor]
       Color = 14145495
+    end
+    object stHasWebshop: TcxStyle
+      AssignedValues = [svColor]
+      Color = clAqua
     end
   end
   object STORE_VIEW: TOraQuery

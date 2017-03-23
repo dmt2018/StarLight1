@@ -37,7 +37,6 @@ object frmNaklInfo: TfrmNaklInfo
       Top = 12
       Width = 233
       Height = 13
-      Anchors = [akTop, akRight]
       Caption = 'ENTER - '#1087#1086#1083#1085#1072#1103' '#1080#1085#1092#1086#1088#1084#1072#1094#1080#1103' '#1087#1086' '#1085#1086#1084#1077#1085#1082#1083#1072#1090#1091#1088#1077
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clMaroon

@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.DISTRIBUTION_PKG
--- Generated 20.03.2017 1:19:15 from CREATOR@STAR_NEW
+-- Generated 24.03.2017 0:28:40 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE distribution_pkg
@@ -2063,9 +2063,9 @@ IS
         ;
 
   CURSOR data_temp IS
-    select a.n_id, sum(a.quantity) as quantity, sum(a.OQ) as OQ, a.price
+    select a.n_id, sum(a.quantity) as quantity, sum(a.OQ) as OQ, a.price, a.mark
     from (
-        SELECT e.D_N_ID as n_id, e.dq as quantity, e.OQ, nvl(pc.spec_price,p.price) as price
+        SELECT e.D_N_ID as n_id, e.dq as quantity, e.OQ, nvl(pc.spec_price,p.price) as price, case when pc.spec_price > 0 then 2 else 0 end mark
         FROM ORDERS_CLIENTS a, CLIENTS b, orders_list c, DISTRIBUTION_VIEW e, price_list p, DISTRIBUTIONS_ORDERS d, ppl_client_price pc
         WHERE --a.id_orders = id_order_ and
               a.active = 1
@@ -2079,7 +2079,7 @@ IS
               and d.order_id = a.id_orders and d.DIST_IND_ID = e.dist_ind_id
               and e.D_N_ID = pc.n_id(+) and e.id_clients = pc.id_clients(+) and vPPLI_ID = pc.ppli_id(+)
     ) a
-    group by a.n_id, a.price
+    group by a.n_id, a.price, a.mark
     ;
 
 
@@ -2192,7 +2192,7 @@ begin
         SELECT get_office_unique('ORDERS_LIST_SEQ') INTO idd FROM DUAL;
 
         INSERT INTO ORDERS_LIST
-        VALUES(idd, data_temp_cursor.N_ID, data_temp_cursor.QUANTITY, vNewReserv, null, null, 1, 0, data_temp_cursor.PRICE, 1, const_office, sysdate, null, 1, null, 0, null);
+        VALUES(idd, data_temp_cursor.N_ID, data_temp_cursor.QUANTITY, vNewReserv, null, null, 1, 0, data_temp_cursor.PRICE, 1, const_office, sysdate, null, 1, null, data_temp_cursor.mark, null);
 
         UPDATE STORE_MAIN SET RESERV = RESERV + data_temp_cursor.QUANTITY, date_change=sysdate
         WHERE n_id = data_temp_cursor.N_ID and store_type = 1 and id_office = const_office;

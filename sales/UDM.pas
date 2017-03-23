@@ -362,6 +362,8 @@ type
     CDS_NULLSTOREFIO: TStringField;
     CDS_SALESFIO: TStringField;
     CDS_SALESCUR_CLIENT: TFloatField;
+    cds_reserv_listPACK_: TIntegerField;
+    cds_reservPACK_: TFloatField;
     function frxReport1UserFunction(const MethodName: string;
       var Params: Variant): Variant;
     procedure DataModuleCreate(Sender: TObject);

@@ -286,6 +286,11 @@ type
     doc_dataID_DOC_DATA: TFloatField;
     doc_dataSPEC_PRICE: TIntegerField;
     STORE_VIEWPRICE_ROZN: TFloatField;
+    grid_allreserv_vORDER_SEQ: TcxGridDBColumn;
+    grid_allreserv_vPACK_: TcxGridDBColumn;
+    dxBarStatic14: TdxBarStatic;
+    stHasWebshop: TcxStyle;
+    dxBarStatic15: TdxBarStatic;
     procedure aLoadExecute(Sender: TObject);
     procedure aGetNaklsExecute(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -1371,6 +1376,16 @@ begin
 
     if ((val1 = Date) and (val2 = 0)) or (val1 < Date) then
          ACanvas.Brush.Color := st_warning.TextColor;
+  end;
+
+  if (not AViewInfo.Selected) and (grid_allreserv_v.DataController.DataSet.RecordCount > 0) and (grid_allreserv_v.Columns[AViewInfo.Item.Index].DataBinding.FieldName = 'NICK') then
+  begin
+    val1  := grid_allreserv_v.DataController.GetValue(
+                AViewInfo.GridRecord.RecordIndex, grid_allreserv_v.GetColumnByFieldName('pack_').Index
+                );
+
+    if (val1 = 2) then
+      ACanvas.Brush.Color := stHasWebshop.Color;
   end;
 end;
 

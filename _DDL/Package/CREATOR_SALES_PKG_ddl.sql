@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.SALES_PKG
--- Generated 08.02.2017 0:13:17 from CREATOR@STAR_REG
+-- Generated 24.03.2017 0:28:29 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE sales_pkg
@@ -519,6 +519,7 @@ BEGIN
         , ( select sum(l.quantity*l.price) from ORDERS_LIST L where l.active=1 and r.id_orders_clients=l.id_orders_clients ) as price_all
         , o.id_office, s.brief
         , nvl(s.outer_id, o.id_orders) as order_seq
+        , nvl((select max(pack_) from orders_list l where l.id_orders_clients = r.id_orders_clients ), 0) as pack_
     FROM ORDERS_CLIENTS R
       inner join ORDERS O on o.id_orders = r.id_orders and o.id_departments = id_dep_ AND O.N_TYPE=1 and (o.id_office = v_office or v_office = 0)
       inner join CLIENTS C on C.ID_CLIENTS = R.ID_CLIENTS
@@ -542,7 +543,7 @@ END;  -- get_orders_view
 --
 -- Выбор брони
 --
-PROCEDURE get_reserv
+ PROCEDURE get_reserv
 (
     ID_ORDERS_CLIENTS_ in number,
     ID_DEP_            in number,
@@ -564,10 +565,11 @@ BEGIN
            , to_char(a.CODE) as our_code
            , s.QUANTITY as store
            , a.notuse
+           , b.PACK_
     FROM nomenclature_mat_view a
       inner join
           (
-             select OCO.ID_ORDERS_LIST, OCO.QUANTITY, OCO.ID_ORDERS_CLIENTS, oco.n_id, oco.active, oco.price, oco.store_type
+             select OCO.ID_ORDERS_LIST, OCO.QUANTITY, OCO.ID_ORDERS_CLIENTS, oco.n_id, oco.active, oco.price, oco.store_type, oco.PACK_
               from ORDERS_LIST OCO
               where oco.active = 1
                 AND ID_ORDERS_CLIENTS = ID_ORDERS_CLIENTS_

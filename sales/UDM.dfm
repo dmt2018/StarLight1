@@ -8,7 +8,7 @@ object DM: TDM
     Options.Direct = True
     Username = 'CREATOR'
     Password = '123456'
-    Server = 'ROZNICA:1521:orcl'
+    Server = 'KLEPOV:1521:STARNEW'
     AutoCommit = False
     AfterConnect = sale_sessionAfterConnect
     Left = 32
@@ -2467,6 +2467,9 @@ object DM: TDM
     object cds_reservORDER_SEQ: TFloatField
       FieldName = 'ORDER_SEQ'
     end
+    object cds_reservPACK_: TFloatField
+      FieldName = 'PACK_'
+    end
   end
   object ds_reserv: TOraDataSource
     DataSet = cds_reserv
@@ -2639,6 +2642,9 @@ object DM: TDM
     end
     object cds_reserv_listNOTUSE: TIntegerField
       FieldName = 'NOTUSE'
+    end
+    object cds_reserv_listPACK_: TIntegerField
+      FieldName = 'PACK_'
     end
   end
   object fr_reserv: TfrxDBDataset
