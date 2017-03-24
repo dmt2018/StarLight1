@@ -1,5 +1,5 @@
 -- Start of DDL Script for Package Body CREATOR.CUSTOM_PKG
--- Generated 15.03.2017 0:36:42 from CREATOR@STAR_NEW
+-- Generated 25.03.2017 0:44:40 from CREATOR@STAR_NEW
 
 CREATE OR REPLACE 
 PACKAGE custom_pkg
@@ -839,9 +839,9 @@ if v_id_dep <> 62 then
           left outer join (
             SELECT distinct fn.name_code, upper(fn.f_name) as f_name, n.f_name_ru, fn.remarks
             FROM FLOWER_NAME_TRANSLATIONS fn, flower_names n, (select max(fn_id) as fn_id, remarks from FLOWER_NAME_TRANSLATIONS /*where remarks is null*/ group by name_code, remarks) fn2
-            where fn.id_departments = v_id_dep /*and remarks is null*/ and nvl(fn.remarks,'') = nvl(fn2.remarks,'')
+            where fn.id_departments = v_id_dep /*and remarks is null*/ and nvl(fn.remarks,' ') = nvl(fn2.remarks,' ')
               and fn.fn_id = n.fn_id and fn.fn_id = fn2.fn_id
-            ) nom on nom.f_name = upper(a.title) and nom.name_code = H_CODE and nvl(nom.remarks,'') = nvl(a.remark,'')
+            ) nom on nom.f_name = upper(a.title) and nom.name_code = H_CODE and nvl(nom.remarks,' ') = nvl(a.remark,' ')
           left outer join (select fito_id, F_NAME, fito_name, name_code from FLOWER_FITO_ALL_NAMES where ID_DEP = v_id_dep) n on upper(n.F_NAME) = upper(a.title) and upper(n.name_code) = upper(a.h_code)
 
         where a.INV_ID = INV_ID_
@@ -879,9 +879,9 @@ else
           left outer join (
             SELECT distinct fn.name_code, upper(fn.f_name) as f_name, n.f_name_ru, fn.remarks
             FROM FLOWER_NAME_TRANSLATIONS fn, flower_names n, (select max(fn_id) as fn_id, remarks from FLOWER_NAME_TRANSLATIONS group by name_code, remarks) fn2
-            where fn.id_departments = v_id_dep and nvl(fn.remarks,'') = nvl(fn2.remarks,'')
+            where fn.id_departments = v_id_dep and nvl(fn.remarks,' ') = nvl(fn2.remarks,' ')
               and fn.fn_id = n.fn_id and fn.fn_id = fn2.fn_id
-            ) nom on nom.f_name = upper(a.title) and nom.name_code = H_CODE and nvl(nom.remarks,'') = nvl(a.remark,'')
+            ) nom on nom.f_name = upper(a.title) and nom.name_code = H_CODE and nvl(nom.remarks,' ') = nvl(a.remark,' ')
           left outer join (select fito_id, F_NAME, fito_name, name_code from FLOWER_FITO_ALL_NAMES where ID_DEP = v_id_dep) n on upper(n.F_NAME) = upper(a.title) and upper(n.name_code) = upper(a.h_code)
         where a.INV_ID = INV_ID_
         order by
@@ -917,9 +917,9 @@ else
               left outer join (
                 SELECT distinct fn.name_code, upper(fn.f_name) as f_name, n.f_name_ru, fn.remarks
                 FROM FLOWER_NAME_TRANSLATIONS fn, flower_names n, (select max(fn_id) as fn_id, remarks from FLOWER_NAME_TRANSLATIONS group by name_code, remarks) fn2
-                where fn.id_departments = v_id_dep and nvl(fn.remarks,'') = nvl(fn2.remarks,'')
+                where fn.id_departments = v_id_dep and nvl(fn.remarks,' ') = nvl(fn2.remarks,' ')
                   and fn.fn_id = n.fn_id and fn.fn_id = fn2.fn_id
-                ) nom on nom.f_name = upper(a.title) and nom.name_code = H_CODE and nvl(nom.remarks,'') = nvl(a.remark,'')
+                ) nom on nom.f_name = upper(a.title) and nom.name_code = H_CODE and nvl(nom.remarks,' ') = nvl(a.remark,' ')
               left outer join (select fito_id, F_NAME, fito_name, name_code from FLOWER_FITO_ALL_NAMES where ID_DEP = v_id_dep) n on upper(n.F_NAME) = upper(a.title) and upper(n.name_code) = upper(a.h_code)
             where a.INV_ID = INV_ID_
 
@@ -1212,14 +1212,14 @@ end if;
 
 if (v_vid = 3) then
   open cursor_ for
-            SELECT a.trucks, a.hol_sub_type, c.orderby,  decode(a.hol_country,'','NL',a.hol_country) as hol_country, e.COUNTRY, sum(a.units) as units, 0 as netto
+            SELECT a.trucks, a.hol_sub_type, c.orderby,  decode(a.hol_country,'','NL',a.hol_country) as hol_country, e.COUNTRY, e.mnemo, sum(a.units) as units, 0 as netto
                     , sum(case when (lower(a.hol_sub_type) = 'roses' and a.height < 70)  or lower(a.hol_sub_type) <> 'roses' then a.units else 0 end) q_short
                     , sum(case when lower(a.hol_sub_type) = 'roses' and a.height >= 70 then a.units else 0 end) q_long
 
               FROM customs_inv_data_as_is a, countries e, customs_weight c
               WHERE a.INV_ID = v_id_inv and lower(a.hol_country) = lower(e.country_eng(+))
                       and lower(a.hol_sub_type) = lower(c.name_cat(+)) and c.id_dep(+) = v_id_dep
-              group by a.trucks, c.orderby, a.hol_sub_type, decode(a.hol_country,'','NL',a.hol_country), e.COUNTRY
+              group by a.trucks, c.orderby, a.hol_sub_type, decode(a.hol_country,'','NL',a.hol_country), e.COUNTRY, e.mnemo
               order by a.trucks, c.orderby,a.hol_sub_type, decode(a.hol_country,'','NL',a.hol_country)
             ;
 end if;
@@ -2448,7 +2448,8 @@ begin
                  , orderby
                  , sum(STEM_WEIGHT*a.units) as netto
                  , round(sum((case when UPACK = 'W' then weight_tank else weight_pack end)*PACKING_AMOUNT + STEM_WEIGHT*a.units) + nvl(max(e.telega)*const_customs_telega,0) + nvl(max(e.poddon)*const_customs_poddon,0)) as brutto
-                 , sum(summ) as summ
+                 --, sum(summ) as summ
+                 , sum( nvl(NEW_PRICE,PRICE) * units ) as summ
                  , max(nvl(e.telega,0)) as telega, max(nvl(e.poddon,0)) as poddon
             FROM customs_inv_data_as_is a
              left outer join (
@@ -2711,7 +2712,12 @@ begin
   end;
 
   open cursor_ for
-    SELECT  SRC_TROLLEY as   PACKING_MARKS, PACKING_AMOUNT, AMOUNT_IN_THE_PACK, UNITS, PACKING_MARKS as BOX, DESCRIPTION, PRICE, SUMM, e.MNEMO, v_truck as truck,
+    SELECT  SRC_TROLLEY as   PACKING_MARKS, PACKING_AMOUNT, AMOUNT_IN_THE_PACK, UNITS, PACKING_MARKS as BOX, DESCRIPTION,
+      --PRICE,
+      nvl(NEW_PRICE,PRICE) as PRICE,
+      --SUMM,
+      nvl(NEW_PRICE,PRICE) * units as summ,
+      e.MNEMO, v_truck as truck,
     PACKING_AMOUNT||' x '||AMOUNT_IN_THE_PACK as packing
     FROM customs_inv_data_as_is a
       left outer join countries e on lower(e.country_eng) = lower(a.hol_country)
