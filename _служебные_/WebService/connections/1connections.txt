@@ -1,2 +1,0 @@
-roznica:1521:orcl
-CREATOR
